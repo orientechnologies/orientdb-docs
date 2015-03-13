@@ -1,0 +1,57 @@
+SQL - MOVE VERTEX
+
+This command moves a Vertex into another class or cluster. 
+
+
+## Syntax
+
+```sql
+MOVE VERTEX <source> TO <destination> [SET [<field>=<value>]* [,]] [MERGE <JSON>]
+```
+
+Where:
+- `source` are the vertices to move. This could be one of the following values:
+ - A **single vertex** by RID. Example: `MOVE VERTEX #34:232 TO CLASS:Provider`
+ - An **array of vertices** by RIDs. Example: `MOVE VERTEX [#34:232,#34:444] TO CLASS:Provider`
+ - A **subquery** with vertices as result. All the returning vertices will be moved. Example: `MOVE VERTEX (SELECT FROM V WHERE city = 'Rome') TO CLASS:Provider`
+- `destination` is the location where to move vertices. Can be one of the followings:
+ - **Class**, by using the syntax `CLASS:<class-name>`. Use this to refactor your graph assigning a new class to vertices
+ - **Cluster**, by using the syntax `CLUSTER:<cluster-name>`. Use this to move your vertices on different clusters in the same class. This is useful on [Distributed Configuration](Distributed-Architecture.md) where you can move vertices on other servers
+- `SET` optional block contains the pairs of values to assign during the moving. The syntax is the same as [SQL UPDATE](SQL-Update.md). Example: `MOVE VERTEX (SELECT FROM V WHERE type = 'provider') TO CLASS:Provider SET movedOn = Date()`
+- `MERGE` optional block gets a JSON containing the pairs of values to assign during the moving. The syntax is the same as [SQL UPDATE](SQL-Update.md). Example: `MOVE VERTEX (SELECT FROM V WHERE type = 'provider') TO CLASS:Provider MERGE { author : 'Jay Miner' }`
+
+
+## See also
+- [Create Vertex](SQL-Create-Vertex.md)
+- [Create Edge](SQL-Create-Edge.md)
+
+## History and Compatibility
+
+- 2.0: first version
+
+## Examples
+
+### Refactoring of graph by adding sub-types
+
+It's very common the case when you start modeling your domain in a way, but then you need more flexibility. On this example we want to split all the "Person" vertices under 2 new sub-types called "Customer" and "Provider" respectively. At the end we declare Person as abstract class.
+
+```sql
+CREATE CLASS Customer EXTENDS Person
+CREATE CLASS Provider EXTENDS Person
+MOVE (SELECT FROM Person WHERE type = 'Customer') TO CLASS:Customer
+MOVE (SELECT FROM Person WHERE type = 'Provider') TO CLASS:Provider
+ALTER CLASS Person ABSTRACT TRUE
+```
+
+### Move vertices on different servers
+
+OrientDB allows you to scale up by just adding servers. As soon as you add a new server, OrientDB creates automatically a new cluster with the name of the class plus the node name. Example: "customer_europe". Partitioning is a best practice when you need to scale up, specially on writes. If you have a graph with "Customer" vertices and you want to move some vertices to other server you can move them to the cluster owned by the server where you want your vertices are moved.
+
+With this example, we're moving all the customers that live in Italy, Germany or UK to the "customer_europe" cluster assigned to the node "Europe". In this way all the access to European customers will be faster to the applications connected to the European node:
+
+```sql
+MOVE (SELECT FROM Customer WHERE ['Italy', 'Germany', 'UK'] IN out('city').out('country') ) TO CLUSTER:customer_europe
+```
+
+---
+To know more about other SQL commands look at [SQL commands](SQL.md).

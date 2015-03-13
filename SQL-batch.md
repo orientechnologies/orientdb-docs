@@ -1,0 +1,127 @@
+# SQL Batch
+
+OrientDB allows execution of arbitrary scripts written in Javascript or any scripting language installed in the JVM. OrientDB supports a minimal SQL engine to allow a batch of commands.
+
+Batch of commands are very useful when you have to execute multiple things at the server side avoiding the network roundtrip for each command.
+
+SQL Batch supports all the OrientDB [SQL commands](SQL.md), plus the following:
+- ```begin```
+- ```commit [retry <retry>]```, where:
+ - <retry> is the number of retries in case of concurrent modification exception
+- ```let <variable> = <SQL>```, to assign the result of a SQL command to a variable. To reuse the variable prefix it with the dollar sign $
+- ```return``` <value>, where value can be:
+ - any value. Example: ```return 3```
+ - any variable with $ as prefix. Example: ```return $a```
+ - arrays. Example: ```return [ $a, $b ]```
+ - maps. Example: ```return { 'first' : $a, 'second' : $b }```
+
+## See also
+- [Javascript-Command](Javascript-Command.md)
+
+## Optimistic transaction
+
+Example to create a new vertex in a [Transaction](Transactions.md) and attach it to an existent vertex by creating a new edge between them. If a concurrent modification occurs, repeat the transaction up to 100 times:
+
+```sql
+begin
+let account = create vertex Account set name = 'Luke'
+let city = select from City where name = 'London'
+let edge = create edge Lives from $account to $city
+commit retry 100
+return $edge
+```
+
+Just plain OrientDB SQL, but with a few new items:
+- *```begin```* -> begins a transaction
+- *```rollback```* -> rollbacks an active transaction
+- *```commit [retry <times>]```* -> commits an active transaction
+- *```let <variable> = <command>```* -> executes a command and assigns it in the context as . That variable can be used in further commands by prefixing it with $
+- *```return <$variable>|<value>|null```* -> returns a value instead of last command result (default)
+
+Note the usage of $account and $city in further SQL commands.
+
+## Pessimistic transaction
+
+This script above used an Optimistic approach: in case of conflict it retries up top 100 times by re-executing the entire transaction (commit retry 100). To follow a Pessimistic approach by locking the records, try this:
+
+```sql
+begin
+let account = create vertex Account set name = 'Luke'
+let city = select from City where name = 'London' lock record
+let edge = create edge Lives from $account to $city
+commit
+return $edge
+```
+
+Note the "lock record" after the select. This means the returning records will be locked until commit (or rollback). In this way concurrent updates against London will wait for this [transaction](Transactions.md) to complete.
+
+_NOTE: locks inside transactions works ONLY against MEMORY storage, we're working to provide such feature also against plocal. Stay tuned (Issue https://github.com/orientechnologies/orientdb/issues/1677)_
+
+## Java API
+
+This can be used by Java API with:
+```java
+database.open("admin", "admin");
+
+String cmd = "begin\n";
+cmd += "let a = create vertex set script = true\n";
+cmd += "let b = select from v limit 1\n";
+cmd += "let e = create edge from $a to $b\n";
+cmd += "commit retry 100\n";
+cmd += "return $e";
+
+OIdentifiable edge = database.command(new OCommandScript("sql", cmd)).execute();
+```
+
+Remember to put one command per line (postfix it with \n) or use the semicolon (;) as separator.
+
+## HTTP REST API
+
+And via HTTP REST interface (https://github.com/orientechnologies/orientdb/issues/2056). Execute a POST against /batch URL by sending a payload in this format:
+
+```json
+{ "transaction" : false,
+  "operations" : [
+    {
+      "type" : "script",
+      "language" : "sql",
+      "script" : <text>
+    }
+  ]
+}
+```
+
+Example:
+
+```json
+{ "transaction" : false,
+  "operations" : [
+    {
+      "type" : "script",
+      "language" : "sql",
+      "script" : [ "begin;let account = create vertex Account set name = 'Luke';let city =select from City where name = 'London';create edge Lives from $account to $city;commit retry 100" ]
+    }
+  ]
+}
+```
+
+To separate commands use semicolon (;) or linefeed (\n). Starting from release 1.7 the "script" property can be an array of strings to put each command on separate item, example:
+```json
+{ "transaction" : false,
+  "operations" : [
+    {
+      "type" : "script",
+      "language" : "sql",
+      "script" : [ "begin",
+                   "let account = create vertex Account set name = 'Luke'",
+                   "let city =select from City where name = 'London'",
+                   "create edge Lives from $account to $city",
+                   "commit retry 100" ]
+    }
+  ]
+}
+```
+
+Hope this new feature will simplify your development improving performance.
+
+What about having more complex constructs like IF, FOR, etc? If you need more complexity, we suggest you to use Javascript as language that already support all these concepts.
