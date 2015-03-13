@@ -1,1 +1,0 @@
-This is the home of OrientDB Documentation project.
