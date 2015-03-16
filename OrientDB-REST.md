@@ -4,12 +4,12 @@ OrientDB RESTful HTTP protocol allows to talk with a [OrientDB Server instance](
 
 ## Available Commands
 
-| [allocation](OrientDB-REST.md#allocation)<br>DB's defragmentation| [batch](OrientDB-REST.md#batch)<br>Batch of commands | [class](OrientDB-REST.md#class)<br>Operations on schema classes | **[cluster](OrientDB-REST.md#cluster)**<br>Operations on clusters |
+| [allocation](OrientDB-REST#allocation)<br>DB's defragmentation| [batch](OrientDB-REST#batch)<br>Batch of commands | [class](OrientDB-REST#class)<br>Operations on schema classes | **[cluster](OrientDB-REST#cluster)**<br>Operations on clusters |
 |:--------:|:---------:|:-----:|:-----:|
-| **[command](OrientDB-REST.md#command)**<br>Executes commands | **[connect](OrientDB-REST.md#connect)**<br>Create the session | **[database](OrientDB-REST.md#database)**<br>Information about database | **[disconnect](OrientDB-REST.md#disconnect)**<br>Disconnect session |
-| **[document](OrientDB-REST.md#document)**<br>Operations on documents by RID<br>[GET](OrientDB-REST.md#get---document) - [HEAD](OrientDB-REST.md#head---document) - [POST](OrientDB-REST.md#post---document) - [PUT](OrientDB-REST.md#put---document) - [DELETE](OrientDB-REST.md#delete---document)| **[documentbyclass](OrientDB-REST.md#document-by-class)**<br>Operations on documents by Class | **[export](OrientDB-REST.md#export)**<br>Exports a database | **[function](OrientDB-REST.md#function)**<br>Executes a server-side function
-| **[index](OrientDB-REST.md#index)**<br>Operations on indexes | **[listDatabases](OrientDB-REST.md#list-databases)**<br>Available databases | **[property](OrientDB-REST.md#property)**<br>Operations on schema properties | **[query](OrientDB-REST.md#query)**<br>Query |
-|**[server](OrientDB-REST.md#server)**<br>Information about the server
+| **[command](OrientDB-REST#command)**<br>Executes commands | **[connect](OrientDB-REST#connect)**<br>Create the session | **[database](OrientDB-REST#database)**<br>Information about database | **[disconnect](OrientDB-REST#disconnect)**<br>Disconnect session |
+| **[document](OrientDB-REST#document)**<br>Operations on documents by RID<br>[GET](OrientDB-REST#get---document) - [HEAD](OrientDB-REST#head---document) - [POST](OrientDB-REST#post---document) - [PUT](OrientDB-REST#put---document) - [DELETE](OrientDB-REST#delete---document)| **[documentbyclass](OrientDB-REST#document-by-class)**<br>Operations on documents by Class | **[export](OrientDB-REST#export)**<br>Exports a database | **[function](OrientDB-REST#function)**<br>Executes a server-side function
+| **[index](OrientDB-REST#index)**<br>Operations on indexes | **[listDatabases](OrientDB-REST#list-databases)**<br>Available databases | **[property](OrientDB-REST#property)**<br>Operations on schema properties | **[query](OrientDB-REST#query)**<br>Query |
+|**[server](OrientDB-REST#server)**<br>Information about the server
 
 ## HTTP Methods ##
 
@@ -937,7 +937,7 @@ Execute a query against the database. Query means only idempotent commands like 
 Syntax: `http://<server>:[<port>]/query/<database>/<language>/<query-text>[/<limit>][/<fetchPlan>]`
 
 Where:
-- *`<language>`* is the name of the language between those supported. OrientDB distribution comes with "sql" only. Gremlin language cannot be executed with **query** because it cannot guarantee to be idempotent. To execute Gremlin use [command](OrientDB-REST.md#command) instead.
+- *`<language>`* is the name of the language between those supported. OrientDB distribution comes with "sql" only. Gremlin language cannot be executed with **query** because it cannot guarantee to be idempotent. To execute Gremlin use [command](OrientDB-REST#command) instead.
 - *`query-text`* is the text containing the query to execute
 - *`limit`* is the maximum number of record to return. Optional, default is 20
 - *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
