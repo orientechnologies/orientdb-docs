@@ -95,7 +95,7 @@ try{
 }
 ```
 
-Surrounding the transaction between a try/catch assures that any errors will rollback the transaction to the previous status for all the involved elements.
+Surrounding the transaction between a try/catch assures that any errors will rollback the transaction to the previous status for all the involved elements. For more information, look at [Concurrency](Concurrency.md).
 
 _NOTE_: To work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes.
 
