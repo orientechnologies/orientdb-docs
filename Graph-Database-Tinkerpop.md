@@ -429,8 +429,10 @@ for (int retry = 0; retry < maxRetries; ++retry) {
         // ADD IT TO THE INVOICE
         invoice.addEdge(invoiceItem);
         graph.commit();
+
+        // OK, EXIT FROM RETRY LOOP
         break;
-    } catch( OTransactionException e ) {
+    } catch( ONeedRetryException e ) {
         // SOMEONE HAVE UPDATE THE INVOICE VERTEX AT THE SAME TIME, RETRY IT
     }
 }
