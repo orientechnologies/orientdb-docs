@@ -4,7 +4,6 @@
 
 To know more look at [Java-Traverse](Java-Traverse.md) page.
 
-| | |
 |----|-----|
 |![](images/warning.png)|In many cases SELECT can be used instead of TRAVERSE, resulting in faster and shorter query. Take a look at [Should I use TRAVERSE or SELECT?](SQL-Traverse.md#should-i-use-traverse-or-select)|
 
