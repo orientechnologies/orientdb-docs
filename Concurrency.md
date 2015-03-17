@@ -61,11 +61,19 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 
 ## Concurrency on adding edges
 
-What happens when multiple clients add edges on the same vertex? OrientDB could throw the `OConcurrentModificationException` exception as well. Why? Because collection of edges are kept on vertices, so every time an edge is added or removed, both involved vertices are updated, and their versions incremented.
+What happens when multiple clients add edges on the same vertex? OrientDB could throw the `OConcurrentModificationException` exception as well. Why? Because collection of edges are kept on vertices, so every time an edge is added or removed, both involved vertices are updated, and their versions incremented. To avoid this problem, you can use RIDBAG that are never embedded, so vertices will be never updated. 
 
-## Tips
+Set this configuration value at run-time before OrientDB is used:
+```java
+OGlobalConfiguration.INDEX_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
+```
+
+Or by setting the parameter at JVM level on startup (or even at run-time before OrientDB is used)
+```
+java ... -Dindex.embeddedToSbtreeBonsaiThreshold=-1 ...
+```
+
+## Troubleshooting
 
 ### Reduce transaction size
 `OConcurrentModificationException` can be thrown when even the first element has been update concurrently. This means that if you have thousands of record involved in the transaction, one changed record is enough to rollback it and throw `OConcurrentModificationException`. For this reason, if you plan to update many elements in the same transaction with high concurrency on the same vertices, a best practice is reducing the transaction size.
-
-### 
