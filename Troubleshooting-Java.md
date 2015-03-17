@@ -3,9 +3,9 @@
 
 ## OConcurrentModificationException: Cannot update record #X:Y in storage 'Z' because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=vA your=vB)
 
-This exception happens because you're running in a Multi Version Control Check (MVCC) system and another thread/user has updated the record you're saving. To fix this problem you can:
+This exception happens because you're running in a Multi Version Control Check (MVCC) system and another thread/user has updated the record you're saving. For more information about this topic look at [Concurrency](Concurrency.md). To fix this problem you can:
 - if you're running in a multi-thread application and your JVM is the only client is writing to the database then disabling the [Level1 cache](https://github.com/orientechnologies/orientdb/wiki/Caching#level-1) could be enough.
-- If you're using the GraphDB API look at: [concurrency](https://github.com/orientechnologies/orientdb/wiki/Graph-Database-Tinkerpop#multi-thread-applications)
+- If you're using the GraphDB API look at: [concurrency](https://github.com/orientechnologies/orientdb/wiki/Graph-Database-Tinkerpop#multi-thread-applications).
 
 If you want to leave the MVCC and write code concurrency proof:
 ```java
