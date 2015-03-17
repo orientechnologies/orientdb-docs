@@ -16,7 +16,7 @@ UPDATE <class>|cluster:<cluster>|<recordID>
 
 Where:
 - **SET** updates the field
-- **INCREMENT** increments the field by the value. If the record had 10 as a value and "INCREMENT value = 3" is executed, then the new value will be 13. This is useful for atomic updates of counters. Use negative numbers to decrement. INCREMENT can be used to implement [sequences](Sequences-and-auto-increment.md) (autoincrement) 
+- **INCREMENT** increments the field by the value. If the record had 10 as a value and "INCREMENT value = 3" is executed, then the new value will be 13. This is useful for atomic updates of counters. Use negative numbers to decrement. INCREMENT can be used to implement [sequences](Sequences-and-auto-increment) (autoincrement) 
 - **ADD**, adds a new item in collection fields
 - **REMOVE**, removes an item in collection and maps fields
 - **PUT**, puts an entry into map fields
@@ -30,13 +30,13 @@ Where:
  - **COUNT**, the default, returns the number of updated records
  - **BEFORE**, returns the records before the update
  - **AFTER**, returns the records after the update
-- WHERE, [SQL-Where](SQL-Where.md) condition to select records to update
+- WHERE, [SQL-Where](SQL-Where) condition to select records to update
 - LIMIT, sets the maximum number of records to update
 - TIMEOUT, if any limits the update operation to a timeout
 
-Note that [RecordID](Concepts.md#recordid) must be prefixed with '#'. Example: #12:3.
+Note that [RecordID](Concepts#recordid) must be prefixed with '#'. Example: #12:3.
 
-To know more about conditions, take a look at [WHERE conditions](SQL-Where.md).
+To know more about conditions, take a look at [WHERE conditions](SQL-Where).
 
 ## Limitation on usage of UPSERT clause
 UPSERT guarantee the atomicity only if a UNIQUE index is created and the lookup on index is done by where condition. 
@@ -114,4 +114,4 @@ UPDATE ♯7:0 ADD out_Edge = ♯12:1 RETURN AFTER $current.outE("Edge")
 
 In case a single field is returned, the result is wrapped in a record storing value in "result" field (Just to avoid introducing new serialization – there is no primitive-values collection serialization in binary protocol). Additionally to that, useful fields like version and rid of original record is provided in corresponding fields. New syntax will allow optimizing client-server network traffic.
 
-To know more about the SQL syntax used in Orient, take a look at: [SQL-Query](SQL-Query.md).
+To know more about the SQL syntax used in Orient, take a look at: [SQL-Query](SQL-Query).
