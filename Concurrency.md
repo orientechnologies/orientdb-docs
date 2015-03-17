@@ -59,6 +59,10 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 }
 ```
 
+### Concurrency level
+
+In order to guarantee atomicity and consistency, OrientDB acquire an exclusive lock on the storage during transaction commit. This means transactions are serialized. Giving this limitation, _the OrientDB team is already working on improving parallelism to achieve better scalability on multi-core machines by optimizing internal structure to avoid exclusive locking._
+
 ## Concurrency on adding edges
 
 What happens when multiple clients add edges on the same vertex? OrientDB could throw the `OConcurrentModificationException` exception as well. Why? Because collection of edges are kept on vertices, so every time an edge is added or removed, both involved vertices are updated, and their versions incremented. To avoid this problem, you can use RIDBAG that are never embedded, so vertices will be never updated. 
