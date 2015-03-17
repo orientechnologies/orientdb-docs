@@ -1,13 +1,21 @@
 # Multi-Threading
 
-OrientDB supports multi-threads access to the database. <code>ODatabase*</code> instances are not thread-safe, so you've to get *an instance per thread* and each database instance can be used *only in one thread per time*.
+OrientDB supports multi-threads access to the database. `ODatabase*` and `OrientGraph*` instances are not thread-safe, so you've to get *an instance per thread* and each database instance can be used *only in one thread per time*. For more information about how concurrency is managed by OrientDB look at [Concurrency](Concurrency.md).
 
-Multiple database instances points to the same storage by using the same URL. In this case Storage is thread-save and orchestrates requests from different <code>ODatabase*</code> instances.
+Multiple database instances points to the same storage by using the same URL. In this case Storage is thread-save and orchestrates requests from different ```ODatabase*``` instances.
 
-```java
-ODatabaseDocument1------+
-                        +----> OStorageLocal (url=local:/temp/db)
-ODatabaseDocument2------+
+```
+ODatabaseDocumentTx-1------+
+                           +----> OStorage (url=plocal:/temp/db)
+ODatabaseDocumentTx-2------+
+```
+
+The same as for Graph API:
+
+```
+OrientGraph-1------+
+                   +----> OStorage (url=plocal:/temp/db)
+OrientGraph-2------+
 ```
 
 Database instances share the following objects:
