@@ -11,6 +11,7 @@ Below are the limitations of the OrientDB engine:
  - there is no limitation regarding the number of properties in schema-less mode. The only concrete limit is the size of the Document where they can be stored. Users have reported no problems working with documents made of 15,000 properties
 - **Indexes** can be up to 2 Billion per database. There are no limitations regarding the number of indexes per class
 - **Queries** can return a maximum of 2 Billion rows, no matter the number of the properties per record
+- **Concurrency level**: in order to guarantee atomicity and consistency, OrientDB acquire an exclusive lock on the storage during transaction commit. This means transactions are serialized. Giving this limitation, _the OrientDB team is already working on improving parallelism to achieve better scalability on multi-core machines by optimizing internal structure to avoid exclusive locking._
 
 ## Limitations running distributed
 OrientDB v 2.0.x has some limitations you should notice when you work in Distributed Mode:
