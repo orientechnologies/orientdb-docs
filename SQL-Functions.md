@@ -40,7 +40,7 @@ In this case `first()` function doesn't aggregate everything in only one record,
 |[bothE()](SQL-Functions.md#bothE)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalescence()](SQL-Functions.md#coalescence)
 |[outV()](SQL-Functions.md#outV)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
 |[inV()](SQL-Functions.md#inV)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
-|[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#union)|
+|[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|
 |[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|
 |[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)|
 |[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| |
@@ -59,7 +59,7 @@ In this case `first()` function doesn't aggregate everything in only one record,
 | [max()](SQL-Functions.md#max) | [median()](SQL-Functions.md#median) | [mode()](SQL-Functions.md#mode) | [out()](SQL-Functions.md#out) |
 | [outE()](SQL-Functions.md#outE) | [outV()](SQL-Functions.md#outV) | [percentile()](SQL-Functions.md#percentile) | [set()](SQL-Functions.md#set) | 
 | [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|[sum()](SQL-Functions.md#sum)|[sysdate()](SQL-Functions.md#sysdate)|
-| [traversedElement()](SQL-Functions.md#traversedelement) | [traversedEdge()](SQL-Functions.md#traversededge) | [traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#union) | 
+| [traversedElement()](SQL-Functions.md#traversedelement) | [traversedEdge()](SQL-Functions.md#traversededge) | [traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) | 
 | [uuid()](SQL-Functions.md#uuid)| [variance()](SQL-Functions.md#variance) |
 
 ### out()
