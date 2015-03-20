@@ -1,6 +1,6 @@
 # SQL - SELECT
 
-Orient supports the SQL language to execute queries against the databas engine. Take a look at the [operators](SQL-Where.md#operators) and [Functions](SQL-Where.md#functions). To learn the main differences in comparison to the SQL-92 standard, take a look at: [OrientDB SQL](SQL.md).
+Orient supports the SQL language to execute queries against the database engine. Take a look at the [operators](SQL-Where.md#operators) and [Functions](SQL-Where.md#functions). To learn the main differences in comparison to the SQL-92 standard, take a look at: [OrientDB SQL](SQL.md).
 
 # Syntax
 ```sql
@@ -17,7 +17,7 @@ SELECT [<Projections>] [FROM <Target> [LET <Assignment>*]]
 ```
 
 - **[Projections](SQL-Query.md#projections)**, optionally, is the data you want to extract from the query as the result set. Look at [Projections](SQL-Query.md#projections). Available since 0.9.25.
-- **Target** can be a class, cluster, single [RID](Concepts.md#recordid), set of [RID](Concepts.md#recordid)s or index values sorted by ascending or descending key order (index values were added in 1.7.7). **Class** is the class name on which to execute the query. Similarly, specifying **cluster** with the `cluster:` prefix executes the query within that cluster only. You can fetch records not from a cluster but instead from an index using the following prefixes: `indexvalues:`, `indexvaluesasc:` or `indexvaluesdesc:`. If you are using `indexvalues:` or `indexvaluesasc:` prefix records will be sorted in ascending order of index keys. If you are using  `indexvaluesdesc:` prefix records will be sorted in descending order of index keys. Use one or more [RID](Concepts.md#recordid)s to specify one or a small set of records. This is a useful in order to specify a starting point when navigating graphs.
+- **Target** can be a class, cluster, single [RID](Concepts.md#recordid), set of [RID](Concepts.md#recordid)s or index values sorted by ascending or descending key order (index values were added in 1.7.7). **Class** is the class name on which to execute the query. Similarly, specifying **cluster** with the `cluster:` prefix executes the query within that cluster only. You can fetch records not from a cluster but instead from an index using the following prefixes: `indexvalues:`, `indexvaluesasc:` or `indexvaluesdesc:`. If you are using `indexvalues:` or `indexvaluesasc:` prefix records will be sorted in ascending order of index keys. If you are using  `indexvaluesdesc:` prefix records will be sorted in descending order of index keys. Use one or more [RID](Concepts.md#recordid)s to specify one or a small set of records. This is useful in order to specify a starting point when navigating graphs.
 - **[WHERE](SQL-Where.md)** condition is common to the other SQL commands and is described in a dedicated section of the documentation.
 - **[LET](SQL-Query.md#let-block)** is the part that binds context variables to be used in projections, conditions or sub-queries
 - **GROUP BY** is in accordance to the standard SQL syntax specifying the field to perform the grouping. The current release supports only 1 field.
