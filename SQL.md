@@ -2,7 +2,7 @@
 
 When it comes to query languages, SQL is the mostly widely recognized standard. The majority of developers have experience and are comfortable with SQL. For this reason Orient DB uses SQL as it's query language and adds some extensions to enable graph functionality. There are a few differences between the standard SQL syntax and that supported by OrientDB, but for the most part, it should feel very natural. The differences are covered in the [OrientDB SQL dialect](#orientdb-sql-dialect) section of this page.
 
-Many SQL commands share the [WHERE condition](SQL-Where). Keywords and class names in OrientDB SQL are case insensitive. Field names and values are case sensitive. In the following examples keywords are in uppercase but this is not strictly required.
+Many SQL commands share the [WHERE condition](SQL-Where.md). Keywords and class names in OrientDB SQL are case insensitive. Field names and values are case sensitive. In the following examples keywords are in uppercase but this is not strictly required.
 
 For example, if you have a class `MyClass` with a field named `id`, then the following SQL statements are equivalent:
 ```sql
@@ -22,13 +22,13 @@ select from index:myIndex where key = 'Jay'
 ```
 
 ## Extra resources
-- [SQL expression syntax](SQL-Where)
- - [Where clause](SQL-Where)
- - [Operators](SQL-Where#operators)
- - [Functions](SQL-Where#functions)
-- [Pagination](Pagination)
-- [Pivoting-With-Query](Pivoting-With-Query)
-- [SQL batch](SQL-batch)
+- [SQL expression syntax](SQL-Where.md)
+ - [Where clause](SQL-Where.md)
+ - [Operators](SQL-Where.md#operators)
+ - [Functions](SQL-Where.md#functions)
+- [Pagination](Pagination.md)
+- [Pivoting-With-Query](Pivoting-With-Query.md)
+- [SQL batch](SQL-batch.md)
 
 ## OrientDB SQL dialect
 
@@ -40,7 +40,7 @@ If you want learn SQL, there are many online courses such as:
 - [SQLCourse.com](http://www.sqlcourse2.com/intro2.html)
 - [YouTube channel Basic SQL Training by Joey Blue](http://www.youtube.com/playlist?list=PLD20298E653A970F8)
 
-To know more, look to [OrientDB SQL Syntax](SQL-Syntax).
+To know more, look to [OrientDB SQL Syntax](SQL-Syntax.md).
 
 Or order any book like [these](http://www.amazon.com/s/ref=nb_sb_noss/189-0251150-4407173?url=search-alias%3Daps&field-keywords=sql)
 
