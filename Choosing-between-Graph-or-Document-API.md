@@ -18,12 +18,12 @@ In OrientDB, we created 2 different APIs: Document API and Graph API. The Graph 
 ```
 
 ## Graph API 
-With OrientDB 2.0, we improved our Graph API to support [all models in just one Multi-Model](Tutorial-Document-and-graph-model) API. This API usually covers 80% of use cases, so this could be the default API you should use if you're starting with OrientDB.
+With OrientDB 2.0, we improved our Graph API to support [all models in just one Multi-Model](Tutorial-Document-and-graph-model.md) API. This API usually covers 80% of use cases, so this could be the default API you should use if you're starting with OrientDB.
 
 In this way:
 - Your Data ('records' in the RDBMS world) is modeled as Vertices and Edges. You can store properties on both.
 - You can still work in Schema-Less, Schema-Full or Hybrid modes.
-- Relationships are modeled as Bidirectional Edges. If Lightweight edge setting is active, OrientDB uses [Lightweight Edges](Lightweight-Edges) in cases where edges have no properties, so it has the same impact on speed and space as with Document LINKs, but with the additional bonus to have bidirectional connections. This means you can use the `MOVE VERTEX` command to refactor your graph with no broken LINKs. For more information how Edges are managed look at [Lightweight Edges](Lightweight-Edges).
+- Relationships are modeled as Bidirectional Edges. If Lightweight edge setting is active, OrientDB uses [Lightweight Edges](Lightweight-Edges) in cases where edges have no properties, so it has the same impact on speed and space as with Document LINKs, but with the additional bonus to have bidirectional connections. This means you can use the `MOVE VERTEX` command to refactor your graph with no broken LINKs. For more information how Edges are managed look at [Lightweight Edges](Lightweight-Edges.md).
 
 ## Document API
 
