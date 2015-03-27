@@ -21,6 +21,7 @@
 * [Basic Concepts](Concepts.md)
    * [Supported Types](Types.md)
    * [Inheritance](Inheritance.md)
+   * [Concurrency](Concurrency.md)
    * [Schema](Schema.md)
    * [Cluster Selection](Cluster-Selection.md)
 * [Fetching Strategies](Fetching-Strategies.md)
