@@ -63,6 +63,10 @@ update client set id = 23 upsert where id = 23
 ```sql
 > UPDATE Account ADD addresses=#12:0
 ```
+Note: in OrientDB server version 2.0.5 you will generate a server error if there is no space between the # and =. The command needs to be
+```sql
+> UPDATE Account ADD addresses = #12:0
+```
 
 ### Example 4: Remove a value from a collection
 ```sql
