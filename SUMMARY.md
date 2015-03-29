@@ -39,6 +39,7 @@
 * [Hook - Triggers](Hook.md)
    * [Dynamic Hooks](Dynamic-Hooks.md)
    * [Java (Native) Hooks](Java-Hooks.md)
+   * [Java Hook Tutorial](Tutorial-Java-Hooks.md)
 * [API](Programming-Language-Bindings.md)
    * [Graph or Document API?](Choosing-between-Graph-or-Document-API.md)
    * [SQL](SQL.md)
