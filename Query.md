@@ -1,6 +1,6 @@
 # Execute a query
 
-Studio supports auto recognition of the language you're using: between those supported: [SQL](https://github.com/orientechnologies/orientdb/wiki/SQL) and [Gremlin](https://github.com/orientechnologies/orientdb/wiki/Gremlin). 
+Studio supports auto recognition of the language you're using between those supported: [SQL](SQL.md) and [Gremlin](Gremlin.md). 
 While writing, use the auto-complete feature by pressing Ctrl + Space.
 
 Other shortcuts are available in the query editor:
@@ -16,7 +16,7 @@ Other shortcuts are available in the query editor:
 
 ![Query result](images/browse.png)
 
-By clicking any @rid value in the result set, you will go into [document edit](Edit Document) mode if the record is a Document, otherwise you will go into [vertex edit](Edit Vertex).
+By clicking any @rid value in the result set, you will go into [document edit](Edit-Document.md) mode if the record is a Document, otherwise you will go into [vertex edit](Edit-Vertex.md).
 
 You can bookmark your queries by clicking the star icon in the results set or in the editor.
 To browse bookmarked queries, click the **Bookmarks** button. Studio will open the bookmarks list on the left, where you can edit/delete or rerun queries.
@@ -26,10 +26,10 @@ To browse bookmarked queries, click the **Bookmarks** button. Studio will open t
 Studio saves the executed queries in the Local Storage of the browser, in the query settings, you can configure how many queries studio will keep in history. 
 You can also search a previously executed query, delete all the queries from the history or delete a single query.
 
-From Studio 2.0, you can send the result set of a query to the [Graph Editor](Graph Editor) by clicking to the circle icon in the result set actions. This allows you to visualize your data graphically.
+From Studio 2.0, you can send the result set of a query to the [Graph Editor](Graph-Editor.md) by clicking on the circle icon in the result set actions. This allows you to visualize your data graphically.
 
 ## Look at the JSON output
 
-Studio speaks with the OrientDB Server using [HTTP/RESt+JSON protocol](https://github.com/orientechnologies/orientdb/wiki/OrientDB-REST). To see the output in JSON format, press the **RAW** tab.
+Studio communicates with the OrientDB Server using [HTTP/RESt+JSON protocol](OrientDB-REST.md). To see the output in JSON format, press the **RAW** tab.
 
 ![Query result](images/resultRaw.png)
