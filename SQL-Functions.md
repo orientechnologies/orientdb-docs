@@ -43,7 +43,7 @@ In this case `first()` function doesn't aggregate everything in only one record,
 |[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|
 |[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|
 |[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)|
-|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| |
+|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricDifference)| |
 |[dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)| |
 
 ### Functions by name
@@ -58,9 +58,9 @@ In this case `first()` function doesn't aggregate everything in only one record,
 | [intersect()](SQL-Functions.md#intersect) |[list()](SQL-Functions.md#list) | [map()](SQL-Functions.md#map) | [min()](SQL-Functions.md#min) | 
 | [max()](SQL-Functions.md#max) | [median()](SQL-Functions.md#median) | [mode()](SQL-Functions.md#mode) | [out()](SQL-Functions.md#out) |
 | [outE()](SQL-Functions.md#outE) | [outV()](SQL-Functions.md#outV) | [percentile()](SQL-Functions.md#percentile) | [set()](SQL-Functions.md#set) | 
-| [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|[sum()](SQL-Functions.md#sum)|[sysdate()](SQL-Functions.md#sysdate)|
-| [traversedElement()](SQL-Functions.md#traversedelement) | [traversedEdge()](SQL-Functions.md#traversededge) | [traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) | 
-| [uuid()](SQL-Functions.md#uuid)| [variance()](SQL-Functions.md#variance) |
+| [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|[sum()](SQL-Functions.md#sum)| [symmetricDifference()](SQL-Functions.md#symmetricDifference) |
+|[sysdate()](SQL-Functions.md#sysdate)|  [traversedElement()](SQL-Functions.md#traversedelement) | [traversedEdge()](SQL-Functions.md#traversededge) | [traversedVertex()](SQL-Functions.md#traversedvertex) | 
+| [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid)| [variance()](SQL-Functions.md#variance) |
 
 ### out()
 
@@ -555,10 +555,32 @@ Available since: 1.0rc2
 
 ```sql
 select difference(tags) from book
+```
 
 ```sql
 select difference(inEdges, outEdges) from OGraphVertex
 ```
+---
+
+### symmetricDifference()
+
+Syntax: ```symmetricDifference(<field> [,<field-n>]*)```
+
+Works as aggregate or inline. If only one argument is passed than aggregates, otherwise executes, and returns, the SYMMETRIC DIFFERENCE between the collections received as parameters.
+
+Available since: 2.0.7
+
+#### Example
+
+```sql
+select difference(tags) from book
+```
+
+```sql
+select difference(inEdges, outEdges) from OGraphVertex
+```
+
+---
 
 ### set()
 
