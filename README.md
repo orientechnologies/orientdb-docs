@@ -24,8 +24,8 @@
 - [Upgrade](Upgrade.html) 
 - [Configuration](Configuration.html)
 - [Distributed Architecture](Distributed-Architecture.html)(replication, sharding and high-availability)
-- [Performance Tuning](Performance-tuning.html)
-- [ETL to Import any kind of data into OrientDB](ETL-Home.html)
+- [Performance Tuning](Performance-Tuning.html)
+- [ETL to Import any kind of data into OrientDB](ETL-Introduction.html)
 - [Import from Relational DB](Import-From-RDBMS.html)
 - [Backup and Restore](Backup-and-Restore.html)
 - [Export and Import](Export-and-Import.html)
@@ -44,7 +44,7 @@
 - [User Group](http://www.orientechnologies.com/active-user-community) - Have question, troubles, problems?
 - [Professional Support](http://orientechnologies.com/support)
 - [Training](http://orientechnologies.com/training) - Training and classes.
-- [Events](http://www.orientechnologies.com/events) - Follow OrientDB at the next event!
+- [Events](http://www.orientechnologies.com/event) - Follow OrientDB at the next event!
 - [Team](Team.html) - Meet the team behind OrientDB
 - [Contribute](Contribute-to-OrientDB.html) - Contribute to the project.
 - [Who is using OrientDB?](http://www.orientechnologies.com/customers) - Clients using OrientDB in production.
