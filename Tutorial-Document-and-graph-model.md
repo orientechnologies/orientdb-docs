@@ -11,7 +11,7 @@ The table below illustrates the comparison between the relational model, the doc
 | Relational Model | Document Model   | OrientDB Document Model |
 |------------------|------------------|-------------------------|
 | Table            | Collection       | [Class](Concepts.md#class) or [Cluster](Clusters.md) |
-| Row              | Document         | [Document](Concepts#document) |
+| Row              | Document         | [Document](Concepts.md#document) |
 | Column           | Key/value pair   | Document field          |
 | Relationship     | not available    | [Link](Concepts.md#relationships)                    |
 
@@ -49,7 +49,7 @@ The table below illustrates the comparison between the relational model, the Key
 | Relational Model | Key/Value Model   | OrientDB Key/Value Model |
 |------------------|------------------|-------------------------|
 | Table            | Bucket           | [Class](Concepts.md#class) or [Cluster](Clusters.md) |
-| Row              | Key/Value pair   | [Document](Concepts#document) |
+| Row              | Key/Value pair   | [Document](Concepts.md#document) |
 | Column           | not available    | Document field or Vertex/Edge property          |
 | Relationship     | not available    | [Link](Concepts.md#relationships)                    |
 
@@ -61,7 +61,7 @@ The table below illustrates the comparison between the relational model, the Obj
 | Relational Model | Object Model | OrientDB Object Model |
 |------------------|------------------|-------------------------|
 | Table            | Class           | [Class](Concepts.md#class) or [Cluster](Clusters.md) |
-| Row              | Object   | [Document](Concepts#document) or Vertex |
+| Row              | Object   | [Document](Concepts.md#document) or Vertex |
 | Column           | Object property    | Document field or Vertex/Edge property          |
 | Relationship     | Pointer    | [Link](Concepts.md#relationships)                    |
 
