@@ -31,8 +31,8 @@ The index type cannot be changed once created. The supported index types are the
  - **FULLTEXT_HASH_INDEX**, by indexing any single word of the text. It's used in query with the operator CONTAINSTEXT
  - **DICTIONARY_HASH_INDEX**, like UNIQUE but in case the key already exists replace the record with the new one
 - **Lucene** engine:
- - **[FULLTEXT](../orientdb-lucene.wiki/Full-Text-Index.md)**, it uses Lucene to index the string content. Use the **LUCENE** operator to retrieve it.
- - **[SPATIAL](../orientdb-lucene.wiki/Spatial-Index.md)**, it uses Lucene to index the geo spatial coordinates.
+ - **[FULLTEXT](Full-Text-Index.md)**, it uses Lucene to index the string content. Use the **LUCENE** operator to retrieve it.
+ - **[SPATIAL](Spatial-Index.md)**, it uses Lucene to index the geo spatial coordinates.
 
 - Any 3rd party index plugged
 ### Dictionary
