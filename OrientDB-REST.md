@@ -373,7 +373,6 @@ HTTP response:
 ```
 
 ## Command ##
-<a name="postCommand"/>
 ### POST - Command ###
 
 Execute a command against the database. Returns the records affected or the list of records for queries. Command executed via POST can be non-idempotent (look at [Query](#query)).
@@ -391,8 +390,9 @@ The *command-text* can appear in either the URL or the content of the POST trans
 
 Where the command-text is included in the URL, it must be encoded as per normal URL encoding.
 
-Read the [SQL section](SQL.md) or the [Gremlin introduction](Gremlin.md) for the type of commands.
+By default the result is returned in JSON. To have the result in CSV, pass "Accept: text/csv" in HTTP Request.
 
+Read the [SQL section](SQL.md) or the [Gremlin introduction](Gremlin.md) for the type of commands.
 
 #### Example ###
 
