@@ -69,7 +69,7 @@ create edge E from #22:33 to #22:55 content { "name" : "Jay", "surname" : "Miner
 - 1.1: first version
 - 1.2: the support for query and collection of RIDs in FROM/TO
 - 1.4: the command uses the Blueprints API under the hood, so if you're working in Java using the OGraphDatabase API you could experience in some difference how edges are managed. To force the command to work with the "old" API change the GraphDB settings described in [Graph backward compatibility](SQL-Alter-Database.md#use-graphdb-created-with-releases-before-14)
-- 2.0: New databases have [Lightweight Edges](Lightweight-Edges) disabled by default, so this command creates regular edges.
+- 2.0: New databases have [Lightweight Edges](Lightweight-Edges.md) disabled by default, so this command creates regular edges.
 
 
 To know more about other SQL commands look at [SQL commands](SQL.md).
