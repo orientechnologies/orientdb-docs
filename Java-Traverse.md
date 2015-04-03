@@ -7,7 +7,7 @@ The main concepts of Traversal are:
  - **[class](Concepts.md#class)**
  - **[cluster](Concepts.md#cluster)**
  - **set of records**, specifying its [RecordID](Concepts.md#recordid)
- - **sub-command** that returns an <code>Iterable&lt;OIdentifiable&gt;</code>. You can nest multiple [select](SQLSelect.md) and [traverse](SQL-Traverse.md) all together
+ - **sub-command** that returns an <code>Iterable&lt;OIdentifiable&gt;</code>. You can nest multiple [select](SQL-Query.md) and [traverse](SQL-Traverse.md) all together
 - **fields**, the fields to traverse. Use <code>*</code>, <code>any()</code> or <code>all()</code> to traverse all the fields of a document
 - **limit**, the maximum number of records to retrieve
 - **predicate**, as the predicate to execute against each document traversed. If the predicate returns true, then the document is returned, otherwise is skipped
