@@ -51,4 +51,4 @@ Get all the records in Profile cluster and !AnimalType class that contains a lin
 find references 5:0 [cluster:Profile,AnimalType]
 ```
 
-To know more about other SQL commands look at [SQL SQL commands](class-list]}}}.md).
+To know more about other SQL commands look at [SQL Commands](Commands.md).
