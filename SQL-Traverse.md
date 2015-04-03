@@ -122,7 +122,7 @@ SELECT out('follow').out('follow') FROM TwitterAccounts
 
 ## Using TRAVERSE with Graph model and API
 
-Even if the TRAVERSE command can be used with any domain model, the place where it is most used is the [Graph-Database](Tutorial-Document-and-graph-model.md#graph-model) model.
+Even if the TRAVERSE command can be used with any domain model, the place where it is most used is the [Graph-Database](Graph-Database-Tinkerpop.md) model.
 
 Following this model all is based on the concepts of the Vertex (or Node) as the class "V" and the Edge (or Arc, Connection, Link, etc.) as the class "E". So if you want to traverse in a direction you have to use the class name when declare the traversing fields. Below the directions:
 - **OUTGOING**, use <code>V.out, E.in</code> because vertices are connected with the "out" field but the edge exits as "in" field.
