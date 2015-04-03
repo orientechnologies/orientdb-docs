@@ -82,6 +82,7 @@
            * [Truncate Class](SQL-Truncate-Class.md)
            * [Truncate Cluster](SQL-Truncate-Cluster.md)
            * [Trucate Record](SQL-Truncate-Record.md)
+       * [Pivoting with Query](Pivoting-With-Query.md)
    * [Java API](Java-API.md)
        * [Graph API](Graph-Database-Tinkerpop.md)
            * [Factory](Graph-Factory.md)
