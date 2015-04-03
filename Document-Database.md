@@ -14,7 +14,7 @@ orientdb-enterprise-*.jar
 
 # Introduction
 
-The Orient Document DB is the base of higher-level implementation like [Object-Database](Object-Database.md) and [Graph-Database](Graph-Database.md). The Document Database API has the following features:
+The Orient Document DB is the base of higher-level implementation like [Object-Database](Object-Database.md) and [Graph-Database](Graph-Database-Tinkerpop.md). The Document Database API has the following features:
 - supports [Multi threads](#Multi-threading) access
 - supports [Transactions](Transactions.md)
 - supports [Queries](#Query)
