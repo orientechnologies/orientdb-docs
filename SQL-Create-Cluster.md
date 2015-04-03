@@ -19,7 +19,7 @@ Create the cluster 'Account':
 CREATE CLUSTER account
 ```
 
-To remove a cluster use the [Drop Cluster](SQLRemoveCluster.md) command.
+To remove a cluster use the [Drop Cluster](SQL-Drop-Cluster.md) command.
 
 To know more about other SQL commands look at [SQL commands](SQL.md).
 
