@@ -74,7 +74,7 @@ alter property Client.id default uuid() readonly
 alter property Client.id readonly true
 ```
 
-To create a property use the [Create Property](SQL-Create-Property.md) command, to remove a property use the [Drop Property](SQLRemoveProperty.md) command.
+To create a property use the [Create Property](SQL-Create-Property.md) command, to remove a property use the [Drop Property](SQL-Drop-Property.md) command.
 
 To know more about other SQL commands look at [SQL commands](SQL.md).
 
