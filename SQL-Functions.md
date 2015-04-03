@@ -411,7 +411,7 @@ select average(salary) from Account
 ---
 ### date()
 
-Returns a date formatting a string. &lt;date-as-string&gt; is the date in string format, and &lt;format&gt; is the date format following these [rules](http://download.oracle.com/javase/1.4.2/docs/api/java/text/SimpleDateFormat.html). If no format is specified, then the default database format is used.
+Returns a date formatting a string. &lt;date-as-string&gt; is the date in string format, and &lt;format&gt; is the date format following these [rules](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html). If no format is specified, then the default database format is used.
 
 Syntax: ```date( <date-as-string> [<format>] [,<timezone>] )```
 
