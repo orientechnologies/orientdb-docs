@@ -63,7 +63,7 @@ To override the field name, use `AS`. Example:
 SELECT max(incoming) AS max_incoming, max(cost) AS max_cost FROM Balance
 ```
 
-By using the dollar (`$`) as a prefix, you can access context variables. Each time you run a command, OrientDB accesses the context to read and write variables. Here's an example to display the path and depth level of the [traversal ](-SQL-Traverse.md) on all the movies, up to the 5th level of depth:
+By using the dollar (`$`) as a prefix, you can access context variables. Each time you run a command, OrientDB accesses the context to read and write variables. Here's an example to display the path and depth level of the [traversal ](SQL-Traverse.md) on all the movies, up to the 5th level of depth:
 ```sql
 SELECT $path, $depth FROM ( TRAVERSE * FROM Movie WHERE $depth <= 5 )
 ```
