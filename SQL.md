@@ -35,7 +35,7 @@ select from index:myIndex where key = 'Jay'
 OrientDB supports SQL as a query language with some differences compared with SQL. Orient Technologies decided to avoid creating Yet-Another-Query-Language. Instead we started from familiar SQL with extensions to work with graphs. We prefer to focus on standards.
 
 If you want learn SQL, there are many online courses such as:
-- [Online course Introduction to Databases by Jennifer Widom from Stanford university](https://class.coursera.org/db)
+- [Online course Introduction to Databases by Jennifer Widom from Stanford university](https://www.coursera.org/course/db)
 - [Introduction to SQL at W3 Schools](http://www.w3schools.com/sql/sql_intro.asp)
 - [SQLCourse.com](http://www.sqlcourse2.com/intro2.html)
 - [YouTube channel Basic SQL Training by Joey Blue](http://www.youtube.com/playlist?list=PLD20298E653A970F8)
