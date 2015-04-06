@@ -23,7 +23,7 @@ With OrientDB 2.0, we improved our Graph API to support [all models in just one 
 In this way:
 - Your Data ('records' in the RDBMS world) is modeled as Vertices and Edges. You can store properties on both.
 - You can still work in Schema-Less, Schema-Full or Hybrid modes.
-- Relationships are modeled as Bidirectional Edges. If Lightweight edge setting is active, OrientDB uses [Lightweight Edges](Lightweight-Edges) in cases where edges have no properties, so it has the same impact on speed and space as with Document LINKs, but with the additional bonus to have bidirectional connections. This means you can use the `MOVE VERTEX` command to refactor your graph with no broken LINKs. For more information how Edges are managed look at [Lightweight Edges](Lightweight-Edges.md).
+- Relationships are modeled as Bidirectional Edges. If Lightweight edge setting is active, OrientDB uses [Lightweight Edges](Lightweight-Edges.md) in cases where edges have no properties, so it has the same impact on speed and space as with Document LINKs, but with the additional bonus to have bidirectional connections. This means you can use the `MOVE VERTEX` command to refactor your graph with no broken LINKs. For more information how Edges are managed look at [Lightweight Edges](Lightweight-Edges.md).
 
 ## Document API
 
