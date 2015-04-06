@@ -36,7 +36,7 @@ As you can see the method is executed against a field/value. Methods can receive
 ### Methods by name
 |       |       |       |       |       |       
 |-------|-------|-------|-------|-------|
-|[\[\]](SQL-Methods#)|[append()](SQL-Methods.md#append)|[asBoolean()](SQL-Methods.md#asboolean)|[asDate()](SQL-Methods.md#asdate)|[asDatetime()](SQL-Methods.md#asdatetime)|
+|[\[\]](SQL-Methods.md)|[append()](SQL-Methods.md#append)|[asBoolean()](SQL-Methods.md#asboolean)|[asDate()](SQL-Methods.md#asdate)|[asDatetime()](SQL-Methods.md#asdatetime)|
 |[asDecimal()](SQL-Methods.md#asdecimal)|[asFloat()](SQL-Methods.md#asfloat)|[asInteger()](SQL-Methods.md#asinteger)|[asList()](SQL-Methods.md#aslist)|[asLong()](SQL-Methods.md#aslong)|[asMap()](SQL-Methods.md#asmap)|
 |[asSet()](SQL-Methods.md#asset)|[asString()](SQL-Methods.md#asstring)|[charAt()](SQL-Methods.md#charat)|[convert()](SQL-Methods.md#convert)|[exclude()](SQL-Methods.md#exclude)|[format()](SQL-Methods.md#format)|
 |[hash()](SQL-Methods.md#hash)|[include()](SQL-Methods.md#include)|[indexOf()](SQL-Methods.md#indexof)|[javaType()](SQL-Methods.md#javatype)|[keys()](SQL-Methods.md#keys)|[left()](SQL-Methods.md#left)|
