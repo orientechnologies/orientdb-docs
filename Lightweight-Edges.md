@@ -41,7 +41,7 @@ OrientGraph g = new OrientGraph("mygraph");
 g.setUseLightweightEdges(true);
 ```
 
-Or via [SQL](SQL-Alter-Database):
+Or via [SQL](SQL-Alter-Database.md):
 
 ```sql
 alter database custom useLightweightEdges=true
