@@ -7,7 +7,7 @@ OrientDB RESTful HTTP protocol allows to talk with a [OrientDB Server instance](
 | [allocation](OrientDB-REST.md#allocation)<br>DB's defragmentation| [batch](OrientDB-REST.md#batch)<br>Batch of commands | [class](OrientDB-REST.md#class)<br>Operations on schema classes | **[cluster](OrientDB-REST.md#cluster)**<br>Operations on clusters |
 |:--------:|:---------:|:-----:|:-----:|
 | **[command](OrientDB-REST.md#command)**<br>Executes commands | **[connect](OrientDB-REST.md#connect)**<br>Create the session | **[database](OrientDB-REST.md#database)**<br>Information about database | **[disconnect](OrientDB-REST.md#disconnect)**<br>Disconnect session |
-| **[document](OrientDB-REST.md#document)**<br>Operations on documents by RID<br>[GET](OrientDB-REST.md#get---document) - [HEAD](OrientDB-REST.md#head---document) - [POST](OrientDB-REST.md#post---document) - [PUT](OrientDB-REST.md#put---document) - [DELETE](OrientDB-REST.md#delete---document)| **[documentbyclass](OrientDB-REST.md#document-by-class)**<br>Operations on documents by Class | **[export](OrientDB-REST.md#export)**<br>Exports a database | **[function](OrientDB-REST.md#function)**<br>Executes a server-side function
+| **[document](OrientDB-REST.md#document)**<br>Operations on documents by RID<br>[GET](OrientDB-REST.md#get---document) - [HEAD](OrientDB-REST.md#head---document) - [POST](OrientDB-REST.md#post---document) - [PUT](OrientDB-REST.md#put---document) - [DELETE](OrientDB-REST.md#delete---document) - [PUT](OrientDB-REST.md#patch---document)| **[documentbyclass](OrientDB-REST.md#document-by-class)**<br>Operations on documents by Class | **[export](OrientDB-REST.md#export)**<br>Exports a database | **[function](OrientDB-REST.md#function)**<br>Executes a server-side function
 | **[index](OrientDB-REST.md#index)**<br>Operations on indexes | **[listDatabases](OrientDB-REST.md#list-databases)**<br>Available databases | **[property](OrientDB-REST.md#property)**<br>Operations on schema properties | **[query](OrientDB-REST.md#query)**<br>Query |
 |**[server](OrientDB-REST.md#server)**<br>Information about the server
 
@@ -785,6 +785,48 @@ content:
   "online": true
 }
 ```
+
+### PATCH - Document ###
+
+Update a document with only the difference to apply. Remember to always pass the version to update. This prevent to update documents changed by other users (MVCC).
+
+Syntax: `http://<server>:[<port>]/document/<database>[/<record-id>]`
+Where:
+
+#### Example
+
+This is the document 9:0 before to apply the patch:
+
+```json
+{
+  "@class": "Profile",
+  "@version": 4,
+  "name": "Jay",
+  "amount": 10000
+}
+```
+
+
+HTTP PATCH request: `http://localhost:2480/document/demo/9:0`
+```json
+content:
+{
+  "@class": "Profile",
+  "@version": 4,
+  "amount": 20000
+}
+```
+HTTP response, as the updated document with the updated @version field (Since v1.6):
+```json
+content:
+{
+  "@class": "Profile",
+  "@version": 5,
+  "name": "Jay",
+  "amount": 20000
+}
+```
+
 ### DELETE - Document ###
 
 Delete a document.
