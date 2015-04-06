@@ -548,4 +548,4 @@ try {
 If you want to use OrientDB security, use the constructor that retrieves the [URL](Concepts.md#database_url), user and password. To know more about OrientDB security visit [Security](Security.md). By default the "admin" user is used.
 
 # Tuning
-Look at the [Performance Tuning Blueprints](Performance-Tuning-Blueprints.md) page.
+Look at the [Performance Tuning Blueprints](Performance-Tuning-Graph.md) page.
