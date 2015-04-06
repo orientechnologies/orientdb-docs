@@ -9,9 +9,9 @@ We want to keep it always updated with the new products and more features in the
 | Feature | OrientDB | Neo4j   | DEX     | InfiniteGraph |
 |---------|----------|---------|---------|---------------|
 | Release | 1.0-SNAPSHOT | 1.7M03 | 4.5.1 | 2.1 |
-| Product Web Site | http://www.orientdb.org | http://www.neo4j.org | http://www.sparsity-technologies.com/dex | http://objectivity.com/INFINITEGRAPH |
+| Product Web Site | http://www.orientdb.org | http://www.neo4j.org | http://www.sparsity-technologies.com | http://objectivity.com/INFINITEGRAPH |
 |  License | [Open Source Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) | [Open Source GPL](http://www.gnu.org/licenses/gpl-3.0.html), [Open Source AGPL](http://www.gnu.org/licenses/agpl-3.0.html) and Commercial | Commercial | [Commercial](http://objectivity.com/support) |
-|  Query languages | [Extended SQL](SQL.md), [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | [Cypher](http://docs.neo4j.org/chunked/1.4/cypher-query-lang.html) [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | Not available, only via [API](http://www.sparsity-technologies.com/downloads/javadoc/overview-summary.html#query) | [Gremlin](https://github.com/tinkerpop/gremlin/wiki), Java API |
+|  Query languages | [Extended SQL](SQL.md), [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | [Cypher](http://docs.neo4j.org/chunked/1.4/cypher-query-lang.html) [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | Not available, only via API | [Gremlin](https://github.com/tinkerpop/gremlin/wiki), Java API |
 |  Transaction support | ![](http://www.orientdb.org/images/ok.png)  [ACID](http://en.wikipedia.org/wiki/ACID) | ![](http://www.orientdb.org/images/ok.png)  [ACID](http://en.wikipedia.org/wiki/ACID) | ![](http://www.orientdb.org/images/no.png) | ![](http://www.orientdb.org/images/ok.png)  [ACID](http://en.wikipedia.org/wiki/ACID) |
 |  Protocols | Embedded via Java API, remote as [Binary](Network-Binary-Protocol.md) and [REST](OrientDB_REST.md) | Embedded via Java API and remote via REST | ? | Embedded via Java API, Remote database access via TCP |
 |  Replication | Multi-Master | Master-Slave | No | ![](http://www.orientdb.org/images/no.png) |
@@ -26,7 +26,7 @@ The products below all support the [TinkerPop Blueprints API](https://github.com
 | Feature | OrientDB | Neo4j | DEX | InfiniteGraph |
 |---------|----------|---------|---------|---------------|
 |   Release  |  1.0-SNAPSHOT  |  1.7M03 |  4.5.1  |  2.1  |
-|  Product Web Site | http://www.orientdb.org | http://www.neo4j.org | http://www.sparsity-technologies.com/dex | http://objectivity.com/INFINITEGRAPH |
+|  Product Web Site | http://www.orientdb.org | http://www.neo4j.org | http://www.sparsity-technologies.com | http://objectivity.com/INFINITEGRAPH |
 |  Implementation details | [OrientDB impl](https://github.com/tinkerpop/blueprints/wiki/OrientDB-Implementation) | [Neo4j impl](https://github.com/tinkerpop/blueprints/wiki/Neo4j-Implementation) | [DEX impl](https://github.com/tinkerpop/blueprints/wiki/Dex-Implementation) | [InfiniteGraph impl](https://github.com/tinkerpop/blueprints/wiki/InfiniteGraph-Implementation) [Known limitations](http://wiki.infinitegraph.com/2.1/w/index.php?title=Understanding_InfiniteGraph_Blueprints_Capabilities_and_Limitations) |
 |  allowsDuplicateEdges | ![](http://www.orientdb.org/images/ok.png) | ![](http://www.orientdb.org/images/ok.png) | ![](http://www.orientdb.org/images/ok.png) | ? |
 |  allowsSelfLoops | ![](http://www.orientdb.org/images/ok.png) | ![](http://www.orientdb.org/images/ok.png) | ![](http://www.orientdb.org/images/ok.png) | ? |
@@ -60,7 +60,7 @@ Lower means faster. In **bold** the fastest implementation for each module.
 | Module|OrientDB | Neo4j | DEX | InfiniteGraph |
 |---------|----------|---------|---------|---------------|
 | Release | 1.4 | 1.9.M05 | 4.8.0 | 2.1 |
-| Product Web Site | http://www.orientdb.org | http://www.neo4j.org | http://www.sparsity-technologies.com/dex | http://objectivity.com/INFINITEGRAPH |
+| Product Web Site | http://www.orientdb.org | http://www.neo4j.org | http://www.sparsity-technologies.com | http://objectivity.com/INFINITEGRAPH |
 | VertexTestSuite | **1,524.06** | 1,595.27 | 4,488.28 | ? |
 | EdgeTestSuite | **1,252.21** | 1,253.73 | 3,865.85 | ? |
 | GraphTestSuite | **1,664.75** | 2,400.34 | 4,680.80 | ? |
