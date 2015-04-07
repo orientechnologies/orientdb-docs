@@ -2,7 +2,7 @@
 
 This guide is to import an exported relational database into OrientDB using the Document Model. If you're using the Graph Model, look at [Import into Graph Model](Import-RDBMS-to-Graph-Model.md).
 
-OrientDB supports a subset of SQL, so importing a database created as "Relational" is straightforward. You can import a database using the API, the [OrientDB Studio visual tool](OrientDB_Studio.md) or the [Console](Console-Commands.md). In this guide the console is used.
+OrientDB supports a subset of SQL, so importing a database created as "Relational" is straightforward. You can import a database using the API, the [OrientDB Studio visual tool](Home-page.md) or the [Console](Console-Commands.md). In this guide the console is used.
 
 For the sake of simplicity consider your Relational database having just these two tables:
 - POST
