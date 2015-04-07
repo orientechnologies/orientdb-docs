@@ -418,4 +418,4 @@ addressbook.put( "Luke", new ODocument("Contact").field( "name", "Luke" );
 # Resources
 
 - Javadoc: [JavaDoc](http://www.orientechnologies.com/javadoc/latest/)
-- [OrientDB Studio Web tool](OrientDB_Studio.md).
+- [OrientDB Studio Web tool](Home-page.md).
