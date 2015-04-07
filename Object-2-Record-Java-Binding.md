@@ -180,7 +180,7 @@ You can save a POJO to the database by calling the method <code>save(pojo)</code
 
 # Fetching strategies
 
-Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java) uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
+Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
 
 # Custom types
 
@@ -262,11 +262,11 @@ OrientDB works in two ways:
 
 ### Connected mode
 
-The [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java) implementation is the gateway between the developer and OrientDB. [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java) keeps track of the relationship between the POJO and the Record.
+The ODatabaseObjectTx implementation is the gateway between the developer and OrientDB. ODatabaseObjectTx keeps track of the relationship between the POJO and the Record.
 
-Each POJO read from the database is created and tracked by [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java). If you change the POJO and call the <code>ODatabaseObjectTx.save(pojo)</code> method, OrientDB recognizes the POJO bound with the underlying record and, before saving it, will copy the POJO attributes to the loaded record.
+Each POJO that's read from the database is created and tracked by ODatabaseObjectTx.  If you change the POJO and call the <code>ODatabaseObjectTx.save(pojo)</code> method, OrientDB recognizes the POJO bound with the underlying record and, before saving it, will copy the POJO attributes to the loaded record.
 
-This works with POJOs that belong to the same [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java) instance. For example:
+This works with POJOs that belong to the same instance. For example:
 
 ```java
 ODatabaseObjectTx db = new ODatabaseObjectTx("remote:localhost/demo");
@@ -286,7 +286,7 @@ try{
 ```
 
 
-When the <code>db.save( c )</code> is called, the [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java) instance already knows obout it because has been retrieved by using a query through the same instance.
+When the <code>db.save( c )</code> is called, the ODatabaseObjectTx instance already knows obout it because has been retrieved by using a query through the same instance.
 
 ### Detached mode
 
@@ -474,7 +474,7 @@ Callbacks are useful to initialize transient fields.
 
 ## Save a POJO
 
-You can save a POJO to the database by calling the method <code>save(pojo)</code>. If the POJO is already known to the [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java) instance, then it updates the underlying record by copying all the POJO attributes to the records (omitting those with *transient* modifier).
+You can save a POJO to the database by calling the method <code>save(pojo)</code>. If the POJO is already known to the ODatabaseObjectTx instance, then it updates the underlying record by copying all the POJO attributes to the records (omitting those with *transient* modifier).
 
 ### Callbacks
 
@@ -499,7 +499,7 @@ Callbacks are useful to free transient resources.
 
 == Fetching strategies =v
 
-Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The [ODatabaseObjectTx](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/db/object/ODatabaseObjectTx.java) uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
+Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
 
 ## Custom types
 
