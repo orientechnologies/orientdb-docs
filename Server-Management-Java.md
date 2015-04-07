@@ -25,7 +25,7 @@ When finished call the <code>OServerAdmin.close()</code> method to release the n
 
 ## Create a database
 
-To create a new database in a remote server you can use the console's [create database](Console-Command-Create-Db.md) command  or via API using the <code>OServerAdmin.createDatabase()</code> method.
+To create a new database in a remote server you can use the console's [create database](Console-Command-Create-Database.md) command  or via API using the <code>OServerAdmin.createDatabase()</code> method.
 ```java
 // ANY VERSION: CREATE A SERVER ADMIN CLIENT AGAINST A REMOTE SERVER
 OServerAdmin serverAdmin = new OServerAdmin("remote:localhost/GratefulDeadConcerts").connect("admin", "admin");
