@@ -163,7 +163,7 @@ This is the very first example. While the code it's pretty clear and easy to und
 
 ## Work in schema-full mode
 
-In the schema-full mode you need to declare the classes you're using. Each class contains one or multiple properties. This mode is similar to the classic Relational DBMS approach where you need to create tables before to store records. To work in schema-full mode take a look to the [Schema APIs](JavaSchemaAPI.md) page.
+In the schema-full mode you need to declare the classes you're using. Each class contains one or multiple properties. This mode is similar to the classic Relational DBMS approach where you need to create tables before storing records. To work in schema-full mode take a look at the [Schema APIs](Java-Schema-Api.md) page.
 
 ## Create a new object
 
