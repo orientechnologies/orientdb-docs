@@ -61,7 +61,7 @@ To know all the commands supported by the Orient console open it and type **help
 |[create class](SQL-Create-Class.md)|Creates a new class|
 |[create cluster](Console-Command-Create-Cluster.md)|Creates a new cluster inside a database|
 |[create cluster](Console-Command-Create-Cluster.md)|Creates a new record cluster|
-|[create database](Console-Command-Create-Db.md)|Creates a new database|
+|[create database](Console-Command-Create-Database.md)|Creates a new database|
 |[create edge](SQL-Create-Edge.md)|Create a new edge connecting two vertices|
 |[create index](SQL-Create-Index.md)|Create a new index|
 |[create link](SQL-Create-Link.md)|Create a link reading a RDBMS JOIN|
