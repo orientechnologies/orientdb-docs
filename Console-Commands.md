@@ -77,7 +77,7 @@ To know all the commands supported by the Orient console open it and type **help
 |[display raw record](display-raw-record.md)|Displays current record's raw format|
 |[drop class](SQL-Drop-Class.md)|Drop a class|
 |[drop cluster](SQL-Drop-Cluster.md)|Drop a cluster|
-|[drop database](Console-Command-Drop-Db.md)|Drop a database|
+|[drop database](Console-Command-Drop-Database.md)|Drop a database|
 |[drop index](SQL-Drop-Index.md)|Drop an index|
 |[drop property](SQL-Drop-Property.md)|Drop a property from a schema class|
 |[explain](SQL-Explain.md)|Explain a command by displaying the profiling values while executing it|
