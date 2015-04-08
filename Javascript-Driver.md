@@ -2,7 +2,7 @@
 
 This driver wraps the most common use cases in database usage. All parameters required by methods or constructor are Strings. This library works on top of [HTTP RESTful protocol](OrientDB_REST.md).
 
-*Note: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting ](-Javascript-Driver.md#cross-site-scripting).*
+*Note: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting ](Javascript-Driver.md#cross-site-scripting).*
 
 The full source code is available here: **[oriendb-api.js](https://github.com/nuvolabase/orientdb/blob/master/server/src/site/js/orientdb-api.js)**.
 
@@ -27,7 +27,7 @@ database.close();
 
 ODatabase object requires server URL and database name:
 
-Syntax: <code>new ODatabase(http://&lt;host&gt;:&lt;port&gt;/&lt;databaseName&gt;)</code>
+Syntax: <code>new ODatabase(http://<host>:<port>/<databaseName>)</code>
 
 Example:
 ```javascript
@@ -157,7 +157,7 @@ Method that executes the query, it returns query results in JSON format.
 
 Syntax: <code>&lt;databaseInstance&gt;.query(&lt;queryText&gt;, [limit], [fetchPlan])</code>
 
-Limit and [fetchPlan ](-https://github.com/nuvolabase/orientdb/wiki/Fetching-Strategies.md) are optional.
+Limit and [fetchPlan ](Fetching-Strategies.md) are optional.
 
 Simple Example:
 ```javascript
