@@ -4,7 +4,7 @@ This is the guide to the commands you can send through the binary protocol.
 
 ## See also
 - [List of SQL Commands](Commands.md)
-- [Network Binary Protocol Specification](Network Binary Protocol.md#request_command)
+- [Network Binary Protocol Specification](Network-Binary-Protocol.md#request_command)
 
 the commands are divided in three main groups:
 
