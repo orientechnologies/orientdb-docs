@@ -42,7 +42,7 @@ The iStorageMode can be memory or [plocal](https://github.com/orientechnologies/
 
 ## Drop a database
 
-To drop a database from a server you can use the console's  [drop database](Console-Command-Drop-Db.md) command or via API using the <code>OServerAdmin.dropDatabase()</code> method.
+To drop a database from a server you can use the console's  [drop database](Console-Command-Drop-Database.md) command or via API using the <code>OServerAdmin.dropDatabase()</code> method.
 ```java
 // CREATE A SERVER ADMIN CLIENT AGAINST A REMOTE SERVER
 OServerAdmin serverAdmin = new OServerAdmin("remote:localhost/GratefulDeadConcerts").connect("admin", "admin");
