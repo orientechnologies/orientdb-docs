@@ -19,7 +19,7 @@ Syntax: ```http://<server>:[<port>]/index/<index-name>/<key>```
 
 Example:
 
-HTTP PUT: http://localhost:2480/index/customers/jay
+HTTP PUT: ```http://localhost:2480/index/customers/jay```
 ```json   
 {
   "name" : "Jay",
