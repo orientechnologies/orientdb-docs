@@ -407,6 +407,11 @@ HTTP POST request: `http://localhost:2480/command/demo/sql/update Profile set on
 
 HTTP response: `10`
 
+##### Extract the user list in CSV format using curl
+```
+curl --user admin:admin --header "Accept: text/csv" -d "select from ouser" "http://localhost:2480/command/GratefulDeadConcerts/sql"
+```
+
 ## Batch ##
 ### POST - Batch ###
 
