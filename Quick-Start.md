@@ -2,8 +2,8 @@
 
 This is a collection of tutorials about OrientDB.
 
-|Video tutorials|
-|---------------|
+|Video tutorials|Description|
+|---------------|-----------|
 |[OrientDB Official Getting Starter video course](http://orientdb.com/getting-started/)|Here at Orient Technologies, we believe the future of Data requires a multi-model database because of its infinite power and flexibility. We know that after more than 30 yrs of Relational DBMSs, it can be challenging at first using innovative technology like OrientDB. So, we decided to provide a Getting Started video course for FREE! This course is designed to help developers become productive and familiar with OrientDB and related tools in the fastest way possible. For our initial launch, we have decided to use the Udemy.com platform to provide the most immersive, wide reaching platform possible.|
 |[Getting Started with OrientDB](http://pettergraff.blogspot.it/2014/01/getting-started-with-orientdb.html)|This is a course provided by Petter Graff|
 
