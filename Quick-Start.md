@@ -1,7 +1,7 @@
 # More on Tutorials
 
 <table>
-<tr><td width="40%"><a href="http://orientdb.com/getting-started/"><img src="http://orientdb.com/wp-content/uploads/2014/12/orientdb_getting_started_start_button.png"></a></td><td>We know that after more than 30 yrs of Relational DBMSs, it can be challenging at first using innovative technology like OrientDB. So, we decided to provide a Getting Started video course for FREE! This course is designed to help developers become productive and familiar with OrientDB and related tools in the fastest way possible. For our initial launch, we have decided to use the Udemy.com platform to provide the most immersive, wide reaching platform possible.</td></tr>
+<tr><td width="40%"><a href="http://orientdb.com/getting-started/"><img src="http://orientdb.com/wp-content/uploads/2014/12/orientdb_getting_started_start_button.png"></a></td><td>We decided to provide a Getting Started video course for FREE! This course is designed to help developers become productive and familiar with OrientDB and related tools in the fastest way possible. For our initial launch, we have decided to use the Udemy.com platform to provide the most immersive, wide reaching platform possible.</td></tr>
 </table>
 
 This is a collection of tutorials about OrientDB.
