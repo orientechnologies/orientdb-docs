@@ -1,14 +1,15 @@
 # More on Tutorials
 
-This is a collection of tutorials about OrientDB.
+<table>
+<tr><td width="42%">OrientDB Official Getting Starter video course</td><td>Description</td></tr>
+<tr><td><a href="http://orientdb.com/getting-started/"><img src="http://orientdb.com/wp-content/uploads/2014/12/orientdb_getting_started_start_button.png"></a></td><td>Here at Orient Technologies, we believe the future of Data requires a multi-model database because of its infinite power and flexibility. We know that after more than 30 yrs of Relational DBMSs, it can be challenging at first using innovative technology like OrientDB. So, we decided to provide a Getting Started video course for FREE! This course is designed to help developers become productive and familiar with OrientDB and related tools in the fastest way possible. For our initial launch, we have decided to use the Udemy.com platform to provide the most immersive, wide reaching platform possible.</td></tr>
+</table>
 
-|Video tutorials|Description|
-|---------------|-----------|
-|[OrientDB Official Getting Starter video course](http://orientdb.com/getting-started/)|Here at Orient Technologies, we believe the future of Data requires a multi-model database because of its infinite power and flexibility. We know that after more than 30 yrs of Relational DBMSs, it can be challenging at first using innovative technology like OrientDB. So, we decided to provide a Getting Started video course for FREE! This course is designed to help developers become productive and familiar with OrientDB and related tools in the fastest way possible. For our initial launch, we have decided to use the Udemy.com platform to provide the most immersive, wide reaching platform possible.|
+This is a collection of tutorials about OrientDB.
 
 ## External tutorials ##
 ### Miscellaneous ####
-- [Getting Started with OrientDB](http://pettergraff.blogspot.it/2014/01/getting-started-with-orientdb.html)|Video course by Petter Graf|
+- [Getting Started with OrientDB](http://pettergraff.blogspot.it/2014/01/getting-started-with-orientdb.html)|Video course by Petter Graff|
 - [Graph databases OrientDB to the rescue](http://www.odino.org/327/graph-databases-orientdb-to-the-rescue)
 - [Graph in PHP through OrientDB](http://www.odino.org/328/graph-in-php-through-orientdb)
 - [GraphDB with flexible model](http://www.odino.org/346/orientdb-the-graph-db-for-the-web)
