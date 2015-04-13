@@ -84,7 +84,7 @@ To know all the commands supported by the Orient console open it and type **help
 |[export database](Console-Command-Export.md)|Exports a database|
 |[export record](Console-Command-Export-Record.md)|Exports a record in any of the supported format (i.e. json)|
 |[find references](SQL-Find-References.md)|Find the references to a record|
-|[freeze database](Console-Command-Freeze-Db.md)|Freezes the database locking all the changes. Use this to raw backup. Once frozen it use the [release database](Console-Release-Database.md) to release it|
+|[freeze database](Console-Command-Freeze-Db.md)|Freezes the database locking all the changes. Use this to raw backup. Once frozen it uses the [release database](Console-Command-Release-Db.md) to release it|
 |[get](Console-Command-Get.md)|Returns the value of a property|
 |[grant](SQL-Grant.md)|Grants a permission to a user|
 |[import database](Console-Command-Import.md)|Imports a database previously exported|
@@ -119,7 +119,7 @@ To know all the commands supported by the Orient console open it and type **help
 
 ## Extend the console with custom command
 
-Edit the [OConsoleDatabaseApp](http://www.google.com/codesearch#Q2eMNvxgD0M/trunk/tools/src/main/java/com/orientechnologies/orient/console/OConsoleDatabaseApp.java&q=oconsoleda%20package:http://orient%5C.googlecode%5C.com) class and add a new method. There's an auto discovering system that put the new method between the available commands. To provide a description of the command use the annotations (look below). The command name must follow the Java code convention where to separate works just use the Camel-case.
+Edit the [OConsoleDatabaseApp](https://github.com/orientechnologies/orientdb/blob/master/tools/src/main/java/com/orientechnologies/orient/console/OConsoleDatabaseApp.java) class and add a new method. There's an auto discovering system that adds the new method to the available commands. To provide a description of the command use annotations (see below). The command name must follow the Java code convention of separating words using camel-case.
 
 So, for example, if you want to create the brand new "move cluster" command:
 
