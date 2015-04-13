@@ -50,10 +50,11 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|fieldName|Document's field name to assign|string|true|-|
+|fieldName|Document's field name to assign|string|false|-|
+|fieldNames|Document's field names to assign (Since 2.1)|string|false|-|
 |expression|Expression to evaluate. You can use [OrientDB SQL syntax](https://github.com/orientechnologies/orientdb/wiki/SQL-Where#syntax)|string|true|-|
 |value|Value to set. If the value is taken or computed at run-time, use `expression` instead|any|false|-|
-|operation|Operation to execute against the field: set, remove. Default is set|string|false|set|
+|operation|Operation to execute against the field(s): set, remove. Default is set|string|false|set|
 |save|Save the vertex/edge/document right after the setting of the field|boolean|false|false|
 #### Examples
 Transforms the field 'class' into the ODocument's class by prefixing it with '_':
@@ -84,6 +85,11 @@ Rename a field from 'salary' to 'remuneration':
 ```json
 { "field": { "fieldName": "remuneration", "expression": "salary"} },
 { "field": { "fieldName": "salary", "operation": "remove"} }
+```
+
+Rename multiple fields in one call (Since 2.1):
+```json
+{ "field": { "fieldNames": ["remuneration","salary"], "operation": "remove"} }
 ```
 -----
 
