@@ -13,6 +13,8 @@ Backup does a consistent copy of database, all further write operations are lock
 
 Export, instead, doesn't lock the database and allow concurrent writes during the export process. This means the exported database could have changes executed during the export.
 
+_NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore._
+
 ## Export Example
 
 ```
