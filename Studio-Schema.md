@@ -1,6 +1,6 @@
 # Schema Manager
 
-OrientDB can work in schema-less mode, schema mode or a mix of both. Here we'll discuss the schema mode. To know more about schema in OrientDB go [here](../orientdb.wiki/Schema.md)
+OrientDB can work in schema-less mode, schema mode or a mix of both. Here we'll discuss the schema mode. To know more about schema in OrientDB go [here](Schema.md)
 
 ![Schema](images/schema.png)
 
@@ -9,7 +9,7 @@ Here you can :
 * Browse all the Classes of your database
 * Create a new Class
 * Rename/Drop a Class
-* Change the [cluster selection](../orientdb.wiki/SQL-Alter-Class.md) for a Class 
+* Change the [cluster selection](SQL-Alter-Class.md) for a Class 
 * [Edit](Class.md) a class by clicking on a class row in the table
 * View all indexes created
 
@@ -24,7 +24,7 @@ Some information is required to create the new class.
 * Alias (Optional)
 * Abstract 
 
-Here you can find more information about [Classes](../orientdb.wiki/Schema.md#class)
+Here you can find more information about [Classes](Schema.md#class)
 ![newClass](images/newClass.png)
 
 ## View all indexes
