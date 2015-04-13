@@ -145,6 +145,8 @@ Component description.
 |direction|Edge direction|string|false|'out'|
 |class|Edge's class name|string|false|'E'|
 |lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|-|
+|targetVertexFields|Fields to set in the target vertex (since 2.1)|object|false|-|
+|edgeFields|Fields to set in the edge (since 2.1)|object|false|-|
 |unresolvedLinkAction|Action to execute in case the JOIN hasn't been resolved. Actions can be: 'NOTHING' (do nothing), CREATE (create a OrientVertex setting as primary key the join value), WARNING (increment warnings), ERROR (increment errors), HALT (interrupt the process), SKIP (skip current row).|string|false|NOTHING|
 
 #### Example 1
