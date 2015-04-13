@@ -6,6 +6,8 @@ Export doesn't lock your database, but browses it. This means that concurrent op
 
 Once exported, use the [Import](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [Backup Database](Console-Command-Backup.md) and [Restore Database](Console-Command-Restore.md) commands.
 
+_NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore._
+
 ## Syntax
 By default the export command exports the full database, but there are some flags to disable some parts.
 
