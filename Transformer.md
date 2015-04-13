@@ -147,11 +147,68 @@ Component description.
 |lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|-|
 |unresolvedLinkAction|Action to execute in case the JOIN hasn't been resolved. Actions can be: 'NOTHING' (do nothing), CREATE (create a OrientVertex setting as primary key the join value), WARNING (increment warnings), ERROR (increment errors), HALT (interrupt the process), SKIP (skip current row).|string|false|NOTHING|
 
-#### Example
+#### Example 1
 Creates an EDGE from the current vertex, with class "Parent", to all the vertices returned by the lookup on "D.inode" index with the value contained in the field "inode_parent" of the input's vertex:
 ```json
 { "edge": { "class": "Parent", "joinFieldName": "inode_parent",
             "lookup":"D.inode", "unresolvedLinkAction":"CREATE"} }
+```
+
+#### Example 2: single line CSV contains both vertices and edge
+```json
+{
+    "source": {
+        "content": {
+            "value": "id,name,surname,friendSince,friendId,friendName,friendSurname\n0,Jay,Miner,1996,1,Luca,Garulli"
+        }
+    },
+    "extractor": {
+        "row": {}
+    },
+    "transformers": [
+        {
+            "csv": {}
+        },
+        {
+            "vertex": {
+                "class": "V1"
+            }
+        },
+        {
+            "edge": {
+                "unresolvedLinkAction": "CREATE",
+                "class": "Friend",
+                "joinFieldName": "friendId",
+                "lookup": "V2.fid",
+                "targetVertexFields": {
+                    "name": "${input.friendName}",
+                    "surname": "${input.friendSurname}"
+                },
+                "edgeFields": {
+                    "since": "${input.friendSince}"
+                }
+            }
+        },
+        {
+            "field": {
+                "fieldNames": [
+                    "friendSince",
+                    "friendId",
+                    "friendName",
+                    "friendSurname"
+                ],
+                "operation": "remove"
+            }
+        }
+    ],
+    "loader": {
+        "orientdb": {
+            "dbURL": "memory:ETLBaseTest",
+            "dbType": "graph",
+            "useLightweightEdges": false
+        }
+    }
+}
 ```
 -----
 
