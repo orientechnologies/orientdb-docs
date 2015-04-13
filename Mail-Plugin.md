@@ -51,7 +51,7 @@ class="com.orientechnologies.orient.server.plugin.mail.OMailPlugin">
 
 The message is managed as a map of properties containing all the fields those are part of the message.
 
-Supported message's properties:
+Supported message properties:
 <table><tbody>
   <tr><th>Name</th><th>Description</th><th>Mandatory</th><th>Example</th><th>Since</th></tr>
   <tr><td>from</td><td>source email address</td><td>No</td><td>to : "first@mail.com", "second@mail.com"</td><td>1.7</td></tr>
@@ -61,7 +61,7 @@ Supported message's properties:
   <tr><td>subject</td><td>The subject of the message</td><td>No</td><td>subject : "This Email plugin rocks!"</td><td>1.2.0</td></tr>
   <tr><td>message</td><td>The message's content</td><td>Yes</td><td>message : "Hi, how are you mate?"</td><td>1.2.0</td></tr>
   <tr><td>date</td><td>The subject of the message. Pass a java.util.Date object or a string formatted following the rules specified in "mail.date.format" configuration parameter or "yyyy-MM-dd HH:mm:ss" is taken</td><td>No, if not specified current date is assumed</td><td>date : "2012-09-25 13:20:00"</td><td>1.2.0</td></tr>
-  <tr><td>attachments</td><td>The files to attach</td><td>No</td><td>attachments : ["tmp/2.eml"]("tmp/1.pdf",.md)</td><td>1.2.0</td></tr>
+  <tr><td>attachments</td><td>The files to attach</td><td>No</td><td></td><td>1.2.0</td></tr>
 </tbody></table>
 
 ## From Server-Side Functions
