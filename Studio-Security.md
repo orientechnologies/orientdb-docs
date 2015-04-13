@@ -1,7 +1,7 @@
 #Security
 
 Studio 2.0 includes the new Security Management where you can manage Users and Roles in a graphical way.
-For detailed information about Security in OrientDB, visit [here](../orientdb.wiki/Security.md)
+For detailed information about Security in OrientDB, visit [here](Security.md)
 
 ## Users
 
@@ -45,7 +45,7 @@ To add a new User, click the **Add Role** button, complete the information for t
 
 To add a new security rule for the selected role, click the *Add Rule* button.
 This will ask you the string of the resource that you want to secure. For a list of 
-available resources, visit the official documentation [here](../orientdb.wiki/Security.md#resources)
+available resources, visit the official documentation [here](Security.md#resources)
 
 Then you can configure the CRUD permissions on the newly created resource.
 
