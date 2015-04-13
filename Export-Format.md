@@ -1,6 +1,8 @@
 # Export format
 
-This page contains the format used by [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) tools. The file is 100% JSON compliant.
+This page contains the format used by [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) tools. The file is a zipped JSON.
+
+_NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore._
 
 ## See also
 - [Export Database](Console-Command-Export.md)
