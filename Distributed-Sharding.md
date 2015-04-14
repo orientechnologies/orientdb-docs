@@ -113,7 +113,7 @@ In this case the query is executed across all the 3 nodes and then filtered agai
 The application can decide where to insert a new Client by passing the cluster number or name. Example:
 
 ```sql
-INSERT INTO Client CLUSTER:client_usa SET name = 'Jay'
+INSERT INTO CLUSTER:client_usa SET @class = 'Client', name = 'Jay'
 ```
 
 If the node that executes this command is not the master of cluster `client_usa`, an exception is thrown.
