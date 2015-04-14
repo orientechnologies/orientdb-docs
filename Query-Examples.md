@@ -11,3 +11,26 @@ select intersect(out('member_of').org_name) from
 ```
 
 --------
+This example shows how to form where clause in order to query/ filter based on properties of connected vertices.
+
+DocElem and Model are subclasses of V and hasModel of E.
+
+```sql
+    insert into DocElem set uri = 'domain.tdl', type = "paragraph"
+    insert into Model set hash = '0e1f', model = "hello world"
+    create edge hasModel from #12:2738 to #13:2658
+```sql
+
+User wishes to query those vertices filtering on certain properties of DocElem and Model.
+
+To fetch the Model vertices where DocElem.type = "paragraph" and connected vertex Model has the property model like '%world%'
+
+```sql
+    select from (select expand(out('hasModel')) from DocElem where type = "paragraph") where model like "%world%"
+```sql
+
+To find instead the DocElem vertices, use this:
+
+```sql
+    select * from DocElem where type = "paragraph" and out('hasModel')[0].model like '%world%'
+```sql
