@@ -29,7 +29,7 @@ To fetch the Model vertices where DocElem.type = "paragraph" and connected verte
     select from (select expand(out('hasModel')) from DocElem where type = "paragraph") where model like "%world%"
 ```
 
-To find instead the DocElem vertices, use this:
+To find instead the DocElem vertices, use this (assuming that a DocElem is only connected to one Model):
 
 ```sql
     select * from DocElem where type = "paragraph" and out('hasModel')[0].model like '%world%'
