@@ -55,7 +55,7 @@ try{
 ```
 
 ## See also
-- [Backup Database](Console-command-Backup.md)
-- [Export Database](Console-command-Export.md)
-- [Import Database](Console-command-Import.md)
+- [Backup Database](Console-Command-Backup.md)
+- [Export Database](Console-Command-Export.md)
+- [Import Database](Console-Command-Import.md)
 - [Console-Commands](Console-Commands.md)
