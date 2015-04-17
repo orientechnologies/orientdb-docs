@@ -65,8 +65,8 @@ Create the property 'friends' of type 'EMBEDDEDMAP' in class 'Profile'. The link
 CREATE PROPERTY profile.friends EMBEDDEDMAP Profile
 ```
 
-To remove a property use the [SQLRemoveProperty Remove Property](<linked-type>|<linked-class>]}}}.md) command.
+To remove a property use the [SQL Drop Property](SQL-Drop-Property.md) command.
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+To know more about other SQL commands look at [SQL commands](Commands.md).
 
 This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
