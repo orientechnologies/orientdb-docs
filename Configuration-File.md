@@ -81,7 +81,7 @@ Example:
 - to execute an expression using OrientDB SQL, use `={<expression>}`, example: `={eval('3 * 5')}`
 
 ## Conditional execution
-All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), can be executed only if a condition is true by using the **if** conditional expression using the [OrientDB SQL syntax](../orientdb.wiki/SQL-Where). Example:
+All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), can be executed only if a condition is true by using the **if** conditional expression using the [OrientDB SQL syntax](SQL-Where). Example:
 
 ```json
 { "let": {
