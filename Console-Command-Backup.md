@@ -1,6 +1,6 @@
 # Console - BACKUP
 
-Executes a complete backup against the currently opened database. The backup file is compressed using the ZIP algorithm. To restore the database use the [Restore Database command](Console-Command-Restore.md). Backup is much faster than [Export Database](Console-Command-Export.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands. Backup can be done automatically by enabling the [Automatic-Backup](Automatic-Backup.md) Server plugin.
+Executes a complete backup against the currently opened database. The backup file is compressed using the ZIP algorithm. To restore the database use the [Restore Database command](Console-command-Restore.md). Backup is much faster than [Export Database](Console-Command-Export.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands. Backup can be done automatically by enabling the [Automatic-Backup](Automatic-Backup.md) Server plugin.
 
 NOTE: _Backup of remote databases is not supported in Community Edition, but only in [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). If you're using the Enterprise Edition look at [Remote Backup](http://www.orientechnologies.com/enterprise/last/servermanagement.html)._
 
@@ -64,7 +64,7 @@ try{
 
 ## See also
 - [Restore Database](Console-command-Restore.md)
-- [Export Database](Console-command-Export.md)
-- [Import Database](Console-command-Import.md)
+- [Export Database](Console-Command-Export.md)
+- [Import Database](Console-Command-Import.md)
 - [Console-Commands](Console-Commands.md)
 - [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)
