@@ -12,6 +12,7 @@ ID,PARENT_ID,LAST_YEAR_INCOME,DATE_OF_BIRTH,STATE
 ```
 
 ## etl.json
+```json
 {
   "source": { "file": { "path": "source.csv" } },
   "extractor": { "row": {} },
@@ -40,3 +41,4 @@ ID,PARENT_ID,LAST_YEAR_INCOME,DATE_OF_BIRTH,STATE
     }
   }
 }
+```
