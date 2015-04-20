@@ -2,6 +2,7 @@
 
 This command creates a new Edge into the database. Edges, together with Vertices, are the main components of a Graph. OrientDB supports polymorphism on edges. The base class is "E". Look also how to [Create Vertex](SQL-Create-Vertex.md).
 
+## Control vertices version increment
 Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use Bonsai structure. By default Bonsai is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
 
 ```
