@@ -19,7 +19,9 @@ Just to make the difference explicit, here is a simple example (just the flow of
 
 **Standard query**
 
-`SELECT FROM PERSON`
+```sql
+SELECT FROM PERSON
+```
 ```
 RID,   NAME,    SURNAME
 #12:0, "Jonh",  "Smith"
@@ -28,7 +30,9 @@ RID,   NAME,    SURNAME
 number of results: 2
 ```
 
-`INSERT INTO PERSON SET NAME = 'Jenny'`
+```sql
+INSERT INTO PERSON SET NAME = 'Jenny'
+```
 ```
 //the SELECT result set is closed, this INSERT operation will not affect it
 ```
@@ -36,19 +40,27 @@ number of results: 2
 
 **LIVE query**
 
-`LIVE SELECT FROM PERSON`
+```sql
+LIVE SELECT FROM PERSON
+```
 ```
 token: 1234567 // unique identifier of this live query, needed for unsibscription
 ```
-`INSERT INTO PERSON SET NAME = 'Jenny'`
+```sql
+INSERT INTO PERSON SET NAME = 'Jenny'
+```
 ```
 //live query listener will receive 'Jenny' record, insert operation
 ```
-`UPDATE PERSON SET NAME = 'Kerry' WHERE NAME = 'Jenny'` 
+```sql
+UPDATE PERSON SET NAME = 'Kerry' WHERE NAME = 'Jenny'
+``` 
 ```
 //live query listener will receive 'Kerry' record, update operation
 ```
-`LIVE UNSUBSCRIBE 1234567`
+```sql
+LIVE UNSUBSCRIBE 1234567
+```
 ```
 //from now on, the live query will not return any other results
 ```
@@ -70,7 +82,7 @@ To implement LiveQuery in Java you need two elements:
 
 The listener has to implement OLiveResultListener. It just has a callback method that takes the live query token and the record that was modified (with the operation that occurred, eg. insert, update or delete)
 
-```
+```java
 class MyLiveQueryListener implements OLiveResultListener {
 
     public List<ORecordOperation> ops = new ArrayList<ORecordOperation>();
@@ -86,7 +98,7 @@ class MyLiveQueryListener implements OLiveResultListener {
 
 To actually execute the live query, you can use the `db.query()` method passing a `OLiveQuery` object as an argument, eg.
 
-```
+```java
       ODatabaseDocumentTx db = ... //I suppose you have an active DB instance
 
       //instantiate the query listener
@@ -118,5 +130,4 @@ To actually execute the live query, you can use the `db.query()` method passing 
       //from now you will not receive any other results
 
 ```
-
 
