@@ -18,52 +18,48 @@ A live query acts in a slightly different way:
 
 Just to make the difference explicit, here is a simple example (just the flow of results, not a working example)
 
-**Standard query**
+### Standard query
 
 ```sql
 SELECT FROM PERSON
-```
-```
-RID,   NAME,    SURNAME
-#12:0, "Jonh",  "Smith"
-#12:1, "foo",   "bar"
 
-number of results: 2
+RID,   NAME,    SURNAME
+#12:0, "John",  "Smith"
+#12:1, "Foo",   "Bar"
+
+Number of results: 2
 ```
 
 ```sql
 INSERT INTO PERSON SET NAME = 'Jenny'
-```
-```
-//the SELECT result set is closed, this INSERT operation will not affect it
+
+// the SELECT result set is closed, this INSERT operation will not affect it
 ```
 
-
-**LIVE query**
+### LIVE query
 
 ```sql
 LIVE SELECT FROM PERSON
+
+token: 1234567 // Unique identifier of this live query, needed for unsubscribe
 ```
-```
-token: 1234567 // unique identifier of this live query, needed for unsibscription
-```
+
 ```sql
 INSERT INTO PERSON SET NAME = 'Jenny'
+
+// Live query listener will receive 'Jenny' record, insert operation
 ```
-```
-//live query listener will receive 'Jenny' record, insert operation
-```
+
 ```sql
 UPDATE PERSON SET NAME = 'Kerry' WHERE NAME = 'Jenny'
-``` 
+
+// Live query listener will receive 'Kerry' record, update operation
 ```
-//live query listener will receive 'Kerry' record, update operation
-```
+
 ```sql
 LIVE UNSUBSCRIBE 1234567
-```
-```
-//from now on, the live query will not return any other results
+
+// From now on, the live query will not return any other results
 ```
 
 
