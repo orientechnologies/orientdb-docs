@@ -97,6 +97,7 @@
        * [Object API](Object-Database.md)
            * [Binding](Object-2-Record-Java-Binding.md)
        * [Traverse](Java-Traverse.md)
+       * [Live Query](Live-Query.md)
        * [Multi-Threading](Java-Multi-Threading.md)
        * [Transactions](Transaction-propagation.md)
        * [Binary Data](Binary-Data.md)
