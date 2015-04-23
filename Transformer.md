@@ -322,7 +322,7 @@ Log current value with "-> " as prefix:
 -----
 
 ### Block
-Executes a [Block](Block) as transformation step.
+Executes a [Block](Block.md) as transformation step.
 
 Component description.
 - Component name: **block**
@@ -332,7 +332,7 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|block|[Block](Block) to execute|document|true|-|
+|block|[Block](Block.md) to execute|document|true|-|
 
 
 #### Example
