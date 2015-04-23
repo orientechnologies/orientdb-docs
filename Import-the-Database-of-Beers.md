@@ -1,5 +1,7 @@
 # Import Database of Beers in OrientDB
 
+![](images/beers.jpg)
+
 First, create a new folder somewhere in your hard drive. For this test I've used /temp/openbeer.
 
 ```
