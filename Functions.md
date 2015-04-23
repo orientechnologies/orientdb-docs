@@ -24,7 +24,10 @@ Click on the "Save" button. Your function has been saved and will appear on the 
 
 Now let's go to test it. On the bottom you will find 2 empty boxes. This is where you can insert the parameters when invoking the function. Write 3 and 5 as parameters and click "Execute" to see the result. "8.0" will appear in the output box below.
 
-![image](http://www.orientdb.org/images/orientdb-studio-function-sum.png)
+![image](images/studio-function-sum.png)
+
+|![](images/waning.png)|Why using parseInt() and not just `a + b`? because HTTP protocol passes parameters as strings.|
+|---|---|
 
 ## Where are my functions saved?
 
@@ -234,7 +237,7 @@ if( role == null ){
 
   db.begin();
   try{
-    var result = db.save({ "@class" : "OUser", name : "Luca", password : "Luc4", roles : role});
+    var result = db.save({ "@class" : "OUser", name : "Luca", password : "Luc4", status: "ACTIVE", roles : role});
     db.commit();
     return result;
   }catch ( err ){
@@ -245,7 +248,7 @@ if( role == null ){
 ```
 **}**
 
-![image](http://www.orientdb.org/images/orientdb-studio-function-repository.png)
+![image](images/studio-function-repository.png)
 
 ## Recursive calls
 
@@ -257,7 +260,7 @@ else
   return num * factorial( num - 1 );
 ```
 
-![image](http://www.orientdb.org/images/orientdb-studio-function-factorial.png)
+![image](images/studio-function-factorial.png)
 
 This function calls itself to find the factorial number for <code>&lt;num&gt;</code> as parameter. The result is <code>3628800.0</code>.
 
