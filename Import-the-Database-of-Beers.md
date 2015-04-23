@@ -18,8 +18,8 @@ $ unzip openbeerdb_csv.zip
 ## Install OrientDB
 
 ```
-$ curl "http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.0.7.zip&os=multi" > orientdb-community-2.0.7.zip
-$ unzip orientdb-community-2.0.7.zip
+$ curl "http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.0.9.zip&os=multi" > orientdb-community-2.0.9.zip
+$ unzip orientdb-community-2.0.9.zip
 ```
 
 
@@ -59,7 +59,7 @@ In order to import this file in OrientDB, we have to create the following file a
 Now to import it OrientDB, move into the "bin" directory of OrientDB distribution.
 
 ```
-$ cd orientdb-community-2.0.7/bin
+$ cd orientdb-community-2.0.9/bin
 ```
 
 And run OrientDB ETL.
@@ -67,7 +67,7 @@ And run OrientDB ETL.
 ```
 $ ./oetl.sh /temp/openbeer/categories.json
 
-OrientDB etl v.2.0.7 (build @BUILD@) www.orientechnologies.com
+OrientDB etl v.2.0.9 (build @BUILD@) www.orientechnologies.com
 BEGIN ETL PROCESSOR
 END ETL PROCESSOR
 + extracted 12 rows (0 rows/sec) - 12 rows -> loaded 11 vertices (0 vertices/sec) Total time: 77ms [0 warnings, 0 errors]
@@ -113,7 +113,7 @@ Now import the styles.
 ```
 $ ./oetl.sh /temp/openbeer/styles.json
 
-OrientDB etl v.2.0.7 (build @BUILD@) www.orientechnologies.com
+OrientDB etl v.2.0.9 (build @BUILD@) www.orientechnologies.com
 BEGIN ETL PROCESSOR
 END ETL PROCESSOR
 + extracted 142 rows (0 rows/sec) - 142 rows -> loaded 141 vertices (0 vertices/sec) Total time: 498ms [0 warnings, 0 errors]
@@ -157,7 +157,7 @@ Run the import for breweries.
 ```
 $ ./oetl.sh /temp/openbeer/breweries.json
 
-OrientDB etl v.2.0.7 (build @BUILD@) www.orientechnologies.com
+OrientDB etl v.2.0.9 (build @BUILD@) www.orientechnologies.com
 BEGIN ETL PROCESSOR
 END ETL PROCESSOR
 + extracted 1.395 rows (0 rows/sec) - 1.395 rows -> loaded 1.394 vertices (0 vertices/sec) Total time: 830ms [0 warnings, 0 errors]
@@ -214,7 +214,7 @@ Run the final import for beers.
 ```
 $ ./oetl.sh /temp/openbeer/beers.json
 
-OrientDB etl v.2.0.7 (build @BUILD@) www.orientechnologies.com
+OrientDB etl v.2.0.9 (build @BUILD@) www.orientechnologies.com
 BEGIN ETL PROCESSOR
 ...
 + extracted 5.862 rows (1.041 rows/sec) - 5.862 rows -> loaded 4.332 vertices (929 vertices/sec) Total time: 10801ms [0 warnings, 27 errors]
