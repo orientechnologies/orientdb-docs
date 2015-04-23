@@ -17,8 +17,10 @@ Extracts content row by row.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
+|multiLine|Supports multi line. This is useful with CSV supporting linefeed inside strings. Since 2.0.9|boolean|false|true|
+|lineFeed|Linefeed to use in case of multiline (see above). Since 2.0.9|string|false|`\r\n`|
 
-#### Example
+#### Example with default configuration
 
 ```json
 { "row": {} }
