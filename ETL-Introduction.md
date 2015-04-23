@@ -48,6 +48,7 @@ $ ./oetl.sh config-dbpedia.json
 - [Loaders](Loader.md)
 
 Examples:
+- [Import the database of Beers](Import-the-Database-of-Beers.md)
 - [Import from CSV to a Graph](Import-from-CSV-to-a-Graph.md)
 - [Import from JSON](Import-from-JSON.md)
 - [Import DBPedia](Import-from-DBPedia.md)
