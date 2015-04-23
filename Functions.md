@@ -2,9 +2,7 @@
 
 A **Function** is an executable unit of code that can take parameters and return a result. Using Functions you can perform [Functional programming](http://en.wikipedia.org/wiki/Functional_programming) where logic and data are all together in a central place. Functions are similar to the [Stored Procedures](http://en.wikipedia.org/wiki/Stored_procedure) of RDBMS.
 
-_NOTE: This guide refers to the last available release of OrientDB. For past revisions look at [Compatibility](Functions.md#wiki-compatibility)._
-
-OrientDB Functions:
+OrientDB Functions features:
 - are persistent
 - can be written in [SQL](SQL.md) or Javascript (Ruby, Scala, Java and other languages are coming)
 - can be executed via [SQL](SQL.md), [Java](#Usage_via_Java_API), [REST](#Usage_via_HTTP_REST) and [Studio](https://github.com/orientechnologies/orientdb-studio/wiki)
@@ -16,6 +14,7 @@ OrientDB Functions:
 ## Create your first function
 
 To start using Functions the simplest way is using the [Studio](https://github.com/orientechnologies/orientdb-studio/wiki). Open the database and go to the "Functions" panel. Then write as name "sum", add 2 parameters named "a" and "b" and now write the following code in the text area:
+
 ```javascript
 return parseInt(a) + parseInt(b);
 ```
@@ -26,8 +25,7 @@ Now let's go to test it. On the bottom you will find 2 empty boxes. This is wher
 
 ![image](images/studio-function-sum.png)
 
-|![](images/waning.png)|Why using parseInt() and not just `a + b`? because HTTP protocol passes parameters as strings.|
-|---|---|
+_Why using parseInt() and not just `a + b`? because HTTP protocol passes parameters as strings._
 
 ## Where are my functions saved?
 
