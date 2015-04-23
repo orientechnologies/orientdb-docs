@@ -24,6 +24,7 @@ $ unzip orientdb-community-2.0.7.zip
 ## Import Beer Categories
 
 These are the first 2 lines of `categories.csv` file:
+
 ```
 "id","cat_name","last_mod"
 "1","British Ale","2010-10-24 13:50:10"
@@ -103,6 +104,10 @@ In this case we'll correlate the Style with the Category created earlier. This i
     }
   }
 }
+```
+
+Now import the styles.
+
 ```
 $ ./oetl.sh /temp/openbeer/styles.json
 
