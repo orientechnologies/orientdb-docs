@@ -17,7 +17,7 @@ OrientDB Functions:
 
 To start using Functions the simplest way is using the [Studio](https://github.com/orientechnologies/orientdb-studio/wiki). Open the database and go to the "Functions" panel. Then write as name "sum", add 2 parameters named "a" and "b" and now write the following code in the text area:
 ```javascript
-return a + b;
+return parseInt(a) + parseInt(b);
 ```
 
 Click on the "Save" button. Your function has been saved and will appear on the left between the available functions.
