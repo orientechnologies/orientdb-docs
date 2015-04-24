@@ -469,15 +469,22 @@ select dijkstra($current, #8:10, 'weight') from V
 
 Returns the shortest path between two vertices. Direction can be OUT (default), IN or BOTH.
 
-Syntax: ```shortestPath( <sourceVertex>, <destinationVertex> [, <direction>])```
+Syntax: ```shortestPath( <sourceVertex>, <destinationVertex> [, <direction> [, <edgeClassName>]])```
 
 Available since: 1.3.0
 
 #### Example
 
 ```sql
+select shortestPath(#8:32, #8:10)
+
 select shortestPath(#8:32, #8:10, 'BOTH')
+
+select shortestPath(#8:32, #8:10, 'BOTH', 'MyEdgeClass')
 ```
+
+version with four parameters is available since 2.0.9
+
 ---
 ### distance()
 
