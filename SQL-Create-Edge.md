@@ -36,7 +36,7 @@ Where:
 
 ## Examples
 
-### Create a new edge between two vertices of the base class 'E', namely OGraphEdge
+### Create a new edge between two vertices of the base class 'E'
 
 ```sql
 create edge from #10:3 to #11:4
