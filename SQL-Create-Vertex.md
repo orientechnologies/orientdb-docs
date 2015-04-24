@@ -1,6 +1,6 @@
 # SQL - CREATE VERTEX
 
-This command creates a new Vertex into the database. Vertices, together with Edges, are the main components of a Graph. OrientDB supports polymorphism on vertices. The base class is "V" (before 1.4 was called "OGraphVertex"). Look also how to [Create Edges](SQL-Create-Edge.md).
+This command creates a new Vertex into the database. Vertices, together with Edges, are the main components of a Graph. OrientDB supports polymorphism on vertices. The base class is "V". Look also how to [Create Edges](SQL-Create-Edge.md).
 
 | ![NOTE](images/warning.png) | _NOTE: While running as distributed, vertex creation could be done in two steps (create+update). This could break some constraint defined at Vertex's class level. To avoid this kind of problem disable the constrains in Vertex's class._ |
 |----|----|
@@ -13,7 +13,7 @@ CREATE VERTEX [<class>] [CLUSTER <cluster>] [SET <field> = <expression>[,]*]
 
 ## Examples
 
-### Create a new vertex of the base class 'V', namely OGraphVertex
+### Create a new vertex of the base class 'V'
 
 ```sql
 create vertex
