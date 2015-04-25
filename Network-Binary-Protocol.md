@@ -28,12 +28,10 @@ Current protocol version for 2.0-SNAPSHOT: **28**. Look at [compatibility](#Comp
 	- [REQUEST_DB_DROP](#request_db_drop)
 	- [REQUEST_DB_SIZE](#request_db_size)
 	- [REQUEST_DB_COUNTRECORDS](#request_db_countrecords)
-	- [REQUEST_DATACLUSTER_ADD](#request_datacluster_add)
-	- [REQUEST_DATACLUSTER_DROP](#request_datacluster_drop)
-	- [REQUEST_DATACLUSTER_COUNT](#request_datacluster_count)
-		- [Example](#example)
-	- [REQUEST_DATACLUSTER_DATARANGE](#request_datacluster_datarange)
-		- [Example](#example)
+	- [REQUEST_DATACLUSTER_ADD](#request_datacluster_add) (deprecated)
+	- [REQUEST_DATACLUSTER_DROP](#request_datacluster_drop) (deprecated)
+	- [REQUEST_DATACLUSTER_COUNT](#request_datacluster_count) (deprecated)
+	- [REQUEST_DATACLUSTER_DATARANGE](#request_datacluster_datarange) (deprecated)
 	- [REQUEST_RECORD_LOAD](#request_record_load)
 	- [REQUEST_RECORD_CREATE](#request_record_create)
 	- [REQUEST_RECORD_UPDATE](#request_record_update)
@@ -209,10 +207,10 @@ Each request has own format depending of the operation requested. The operation 
 
 <tr><td><a href="#request_db_size">REQUEST_DB_SIZE</a></td><td>8</td><td>Get the size of a database (in bytes).</td><td>no</td><td>0.9.25</td></tr>
 <tr><td><a href="#request_db_countrecords">REQUEST_DB_COUNTRECORDS</a></td><td>9</td><td>Get total number of records in a database.</td><td>no</td><td>0.9.25</td></tr>
-<tr><td><a href="#request_datacluster_add">REQUEST_DATACLUSTER_ADD</a></td><td>10</td><td>Add a data cluster.</td><td>no</td><td></td></tr>
-<tr><td><a href="#request_datacluster_drop">REQUEST_DATACLUSTER_DROP</a><td>11</td><td>Delete a data cluster.</td><td>no</td><td></td></tr>
-<tr><td><a href="#request_datacluster_count">REQUEST_DATACLUSTER_COUNT</a></td><td>12</td><td>Get the total number of data clusters.</td><td>no</td><td></td></tr>
-<tr><td><a href="#request_datacluster_datarange">REQUEST_DATACLUSTER_DATARANGE</a></td><td>13</td><td>Get the data range of data clusters.</td><td>no</td><td></td></tr>
+<tr><td><a href="#request_datacluster_add">REQUEST_DATACLUSTER_ADD (deprecated)</a></td><td>10</td><td>Add a data cluster.</td><td>no</td><td></td></tr>
+<tr><td><a href="#request_datacluster_drop">REQUEST_DATACLUSTER_DROP (deprecated)</a><td>11</td><td>Delete a data cluster.</td><td>no</td><td></td></tr>
+<tr><td><a href="#request_datacluster_count">REQUEST_DATACLUSTER_COUNT (deprecated)</a></td><td>12</td><td>Get the total number of data clusters.</td><td>no</td><td></td></tr>
+<tr><td><a href="#request_datacluster_datarange">REQUEST_DATACLUSTER_DATARANGE (deprecated)</a></td><td>13</td><td>Get the data range of data clusters.</td><td>no</td><td></td></tr>
 <tr><td>REQUEST_DATACLUSTER_COPY</td><td>14</td><td>Copy a data cluster.</td><td>no</td><td></td></tr>
 <tr><td>REQUEST_DATACLUSTER_LH_CLUSTER_IS_USED</td><td>16</td><td></td><td>no</td><td>1.2.0</td></tr>
 <tr><td>REQUEST_RECORD_METADATA</td><td>29</td><td>Get metadata from a record.</td><td>no</td><td>1.4.0</td></tr>
@@ -236,8 +234,8 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_DB_TRANSFER<td>93</td><td></td><td>no</td><td>1.0.2</td></tr>
 <tr><td>REQUEST_DB_FREEZE<td>94</td><td></td><td>no</td><td>1.1.0</td></tr>
 <tr><td>REQUEST_DB_RELEASE<td>95</td><td></td><td>no</td><td>1.1.0</td></tr>
-<tr><td>REQUEST_DATACLUSTER_FREEZE<td>96</td><td></td><td>no</td><td></td></tr>
-<tr><td>REQUEST_DATACLUSTER_RELEASE<td>97</td><td></td><td>no</td><td></td></tr>
+<tr><td>REQUEST_DATACLUSTER_FREEZE (deprecated)<td>96</td><td></td><td>no</td><td></td></tr>
+<tr><td>REQUEST_DATACLUSTER_RELEASE (deprecated)<td>97</td><td></td><td>no</td><td></td></tr>
 <tr><td>REQUEST_CREATE_SBTREE_BONSAI<td>110</td><td>Creates an sb-tree bonsai on the remote server</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_SBTREE_BONSAI_GET<td>111</td><td>Get value by key from sb-tree bonsai</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_SBTREE_BONSAI_FIRST_KEY<td>112</td><td>Get first key from sb-tree bonsai</td><td>no</td><td>1.7rc1</td></tr>
@@ -433,7 +431,7 @@ Response: (count:long)
 
 ## REQUEST_DATACLUSTER_ADD
 
-Add a new data cluster.
+Add a new data cluster. Deprecated.
 ```
 Request: (name:string)(cluster-id:short - since 1.6 snapshot)
 Response: (new-cluster:short)
@@ -443,7 +441,7 @@ If cluster-id is -1 (recommended value) new cluster id will be generated.
 
 ## REQUEST_DATACLUSTER_DROP
 
-Remove a cluster.
+Remove a cluster. Deprecated.
 ```
 Request: (cluster-number:short)
 Response: (delete-on-clientside:byte)
@@ -454,7 +452,7 @@ Where:
 
 ## REQUEST_DATACLUSTER_COUNT
 
-Returns the number of records in one or more clusters.
+Returns the number of records in one or more clusters. Deprecated.
 ```
 Request: (cluster-count:short)(cluster-number:short)*(count-tombstones:byte)
 Response: (records-in-clusters:long)
@@ -475,7 +473,7 @@ Response: 00001000
 
 ## REQUEST_DATACLUSTER_DATARANGE
 
-Returns the range of record ids for a cluster.
+Returns the range of record ids for a cluster. Deprecated.
 ```
 Request: (cluster-number:short)
 Response: (begin:long)(end:long)
