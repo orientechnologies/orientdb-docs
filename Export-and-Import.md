@@ -6,7 +6,7 @@ The Export command exports the current opened database to a file. The exported f
 
 Export doesn't lock your database, but browses it. This means that concurrent operation can be executed during the export, but the exported database couldn't be the exact replica when you issued the command because concurrent updates could occurs. If you need a snapshot of database at a point in a time, please use [BACKUP](Console-Command-Backup.md).
 
-Once exported, use the [IMPORT](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [BACKUP DATABASE](Console-Command-Backup.md) and [RESTORE DATABASE](Console-Command-Restore.md) commands.
+Once exported, use the [IMPORT](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [BACKUP DATABASE](Console-Command-Backup.md) and [RESTORE DATABASE](Console-command-Restore.md) commands.
 
 ## When to use backup and when export?
 Backup does a consistent copy of database, all further write operations are locked waiting to finish it. The database is in read-only mode during backup operation. If you need an read/write database during backup setup a distributed cluster of nodes.
@@ -71,6 +71,6 @@ Importing records...
 ## See also
 - [Export-Format](Export-Format.md)
 - [RESTORE DATABASE](Console-command-Restore.md)
-- [EXPORT DATABASE](Console-command-Export.md)
-- [IMPORT DATABASE](Console-command-Import.md)
+- [EXPORT DATABASE](Console-Command-Export.md)
+- [IMPORT DATABASE](Console-Command-Import.md)
 - [Console-Commands](Console-Commands.md)

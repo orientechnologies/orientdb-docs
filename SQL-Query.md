@@ -8,6 +8,7 @@ SELECT [<Projections>] [FROM <Target> [LET <Assignment>*]]
     [WHERE <Condition>*]
     [GROUP BY <Field>*]
     [ORDER BY <Fields>* [ASC|DESC] *]
+    [UNWIND <Field>*]
     [SKIP <SkipRecords>]
     [LIMIT <MaxRecords>]
     [FETCHPLAN <FetchPlan>]
@@ -22,6 +23,7 @@ SELECT [<Projections>] [FROM <Target> [LET <Assignment>*]]
 - **[LET](SQL-Query.md#let-block)** is the part that binds context variables to be used in projections, conditions or sub-queries
 - **GROUP BY** is in accordance to the standard SQL syntax specifying the field to perform the grouping. The current release supports only 1 field.
 - **ORDER BY** is in accordance to the standard SQL syntax specifying fields with an optional ASC or DESC (default is ASCending). If you are using a projection in your query, ensure the ORDER BY field is included in this projection.
+- **[UNWIND](SQL-Query.md#unwind)** (since 2.1) allows to unwind collection fields
 - **SKIP** skips `<SkipRecords>` the specified number of records starting at the beginning of the result set. This is useful for [Pagination](Pagination.md) when used in conjunction with `LIMIT`.
 - **LIMIT** sets the maximum number of records returned by the query to `<MaxRecords>`. This is useful for [Pagination](Pagination.md) when used in conjunction with SKIP.
 - **FETCHPLAN** sets the [fetchplan](Fetching-Strategies.md). Example: `FETCHPLAN out:3` to pre-fetch up to 3rd level under `out` field. Since v1.5.
@@ -191,6 +193,34 @@ SELECT $temp.name FROM Profile
 LET $temp = address.city
 WHERE $city.name like '%Saint%"' AND
     ( $city.country.name = 'Italy' OR $city.country.name = 'France' )
+```
+
+## Unwind
+
+(since 2.1)
+
+allows to unwind collection fields and obtain multiple records as a result, one for each element in the collection:
+
+```sql
+SELECT name, out("Friend").name as friendName from Person
+```
+the result will be something like
+```
+| name   | friendName         |
+| 'John' | [ 'Mark', 'Steve'] |
+```
+
+if you want one record for each element in friendName, you can rewrite the query using UNWIND:
+
+```sql
+SELECT name, out("Friend").name as friendName from Person UNWIND friendName
+```
+
+and the result will be
+```
+| name   | friendName         |
+| 'John' | 'Mark'             |
+| 'John' | 'Steve'            |
 ```
 
 # Conclusion

@@ -4,7 +4,7 @@ A **Function** is an executable unit of code that can take parameters and return
 
 >**NOTE**: This guide refers to the last available release of OrientDB. For past revisions look at [Compatibility](Functions.md#wiki-compatibility)._
 
-OrientDB Functions:
+OrientDB Functions features:
 - are persistent
 - can be written in [SQL](SQL.md) or Javascript (Ruby, Scala, Java and other languages are coming)
 - can be executed via [SQL](SQL.md), [Java](#Usage_via_Java_API), [REST](#Usage_via_HTTP_REST) and [Studio](https://github.com/orientechnologies/orientdb-studio/wiki)
@@ -18,14 +18,16 @@ OrientDB Functions:
 To start using Functions the simplest way is using the [Studio](https://github.com/orientechnologies/orientdb-studio/wiki). Open the database and go to the "Functions" panel. Then write as name "sum", add 2 parameters named "a" and "b" and now write the following code in the text area:
 
 ```javascript
-return a + b;
+return parseInt(a) + parseInt(b);
 ```
 
 Click on the "Save" button. Your function has been saved and will appear on the left between the available functions.
 
 Now let's go to test it. On the bottom you will find 2 empty boxes. This is where you can insert the parameters when invoking the function. Write 3 and 5 as parameters and click "Execute" to see the result. "8.0" will appear in the output box below.
 
-![image](http://www.orientdb.org/images/orientdb-studio-function-sum.png)
+![image](images/studio-function-sum.png)
+
+_Why using parseInt() and not just `a + b`? because HTTP protocol passes parameters as strings._
 
 ## Where are my functions saved?
 
@@ -236,7 +238,7 @@ if( role == null ){
 
   db.begin();
   try{
-    var result = db.save({ "@class" : "OUser", name : "Luca", password : "Luc4", roles : role});
+    var result = db.save({ "@class" : "OUser", name : "Luca", password : "Luc4", status: "ACTIVE", roles : role});
     db.commit();
     return result;
   }catch ( err ){
@@ -247,7 +249,7 @@ if( role == null ){
 ```
 **}**
 
-![image](http://www.orientdb.org/images/orientdb-studio-function-repository.png)
+![image](images/studio-function-repository.png)
 
 ## Recursive calls
 
@@ -259,7 +261,7 @@ else
   return num * factorial( num - 1 );
 ```
 
-![image](http://www.orientdb.org/images/orientdb-studio-function-factorial.png)
+![image](images/studio-function-factorial.png)
 
 This function calls itself to find the factorial number for <code>&lt;num&gt;</code> as parameter. The result is <code>3628800.0</code>.
 

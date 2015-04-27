@@ -1,6 +1,20 @@
 # SQL - CREATE EDGE
 
-This command creates a new Edge into the database. Edges, together with Vertices, are the main components of a Graph. OrientDB supports polymorphism on edges. The base class is "E" (before 1.4 was called "OGraphEdge"). Look also how to [Create Vertex](SQL-Create-Vertex.md).
+This command creates a new Edge into the database. Edges, together with Vertices, are the main components of a Graph. OrientDB supports polymorphism on edges. The base class is "E". Look also how to [Create Vertex](SQL-Create-Vertex.md).
+
+## Control vertices version increment
+Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use Bonsai structure. By default Bonsai is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
+
+```
+-Dindex.embeddedToSbtreeBonsaiThreshold=-1
+``` 
+Or in Java by calling this before opening the database:
+
+```java
+OGlobalConfiguration.INDEX_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
+```
+
+
 
 | ![NOTE](images/warning.png) | _NOTE: While running as distributed, edge creation could be done in two steps (create+update). This could break some constraint defined at Edge's class level. To avoid this kind of problem disable the constrains in Edge's class._ |
 |----|----|
@@ -22,7 +36,7 @@ Where:
 
 ## Examples
 
-### Create a new edge between two vertices of the base class 'E', namely OGraphEdge
+### Create a new edge between two vertices of the base class 'E'
 
 ```sql
 CREATE EDGE FROM #10:3 TO #11:4

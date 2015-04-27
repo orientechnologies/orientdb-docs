@@ -8,7 +8,7 @@ In any case, if you need to tweak the database configuration, you need to use th
 
 OrientDB comes with 3 different APIs. Pick your based on your model (for more information look at [Java API](Java-API.md)):
 
-- [Graph API](Graph-Database-Tinkerpop.md)
+- [Graph API](Graph-Database-Tinkerpop.md) (suggested)
 - [Document API](Document-Database.md)
 - [Object API](Object-Database.md)
 
@@ -16,42 +16,17 @@ OrientDB comes with 3 different APIs. Pick your based on your model (for more in
 
 #### Connecting to a database
 
-The first object you need is a `Graph` or a `TransactionalGraph` (which supports transaction demarcation):
-
-```java
-import com.tinkerpop.blueprints.TransactionalGraph;
-import com.tinkerpop.blueprints.impls.orient.OrientGraph;
-
-TransactionalGraph graph = new OrientGraph("local:test", "username", "password");
-// or TransactionalGraph graph = new OrientGraph("remote:localhost/test", "username", "password");
-```
-
-In the following examples, until we introduce transactions, `TransactionalGraph` and `Graph` are used  interchangeably.
-
-Another possibility is to create the database connection with the OrientDB APIs (this would make it possible to call tuning APIs, for instance), and then "wrap" it into an `OrientGraph`:
-
-```java
-import com.orientechnologies.orient.core.db.graph.OGraphDatabase;
-import com.tinkerpop.blueprints.TransactionalGraph;
-import com.tinkerpop.blueprints.impls.orient.OrientGraph;
-
-OGraphDatabase odb = new OGraphDatabase("local:test").create();
-TransactionalGraph graph = new OrientGraph(odb);
-```
-
-In any case, from a `TransactionalGraph` (or a `Graph`) it's always possible to get a reference to the OrientDB API:
+The first object you need is a `OrientGraph`:
 
 ```java
 import com.tinkerpop.blueprints.impls.orient.OrientGraph;
-import com.orientechnologies.orient.core.db.graph.OGraphDatabase;
 
-OGraphDatabase odb = ((OrientGraph)graph).getRawGraph();
+OrientGraph graph = new OrientGraph("local:test", "username", "password");
 ```
 
 Even though OrientDB can work with the generic class "V" for Vertices and "E" for Edges, it's much more powerful to define custom types for both Vertices and Edges:
 
 ```java
-odb.setUseCustomTypes(true);
 odb.createVertexType("Person");
 odb.createVertexType("Address");
 ```
@@ -64,9 +39,6 @@ The Blueprint adapter is **thread-safe** and will **automatically create a trans
 To add vertices into the database with the Blueprints API:
 
 ```java
-import com.tinkerpop.blueprints.Graph;
-import com.tinkerpop.blueprints.Vertex;
-
 Vertex vPerson = graph.addVertex("class:Person");
 vPerson.setProperty("firstName", "John");
 vPerson.setProperty("lastName", "Smith");
@@ -77,32 +49,43 @@ vAddress.setProperty("city", "San Francisco");
 vAddress.setProperty("state", "California");
 ```
 
-Note the specific Blueprints syntax `"class:<class name>"` that you must use in the creation of an object to specify its class. It is not mandatory: it is also possible to specify a `null` value, which means that a vertex will be created with the class `OGraphVertex`, as it's the superclass of all vertices in OrientDB):
+Note the specific Blueprints syntax `"class:<class name>"` that you must use in the creation of an object to specify its class. It is not mandatory: it is also possible to specify a `null` value, which means that a vertex will be created with the class `V`, as it's the superclass of all vertices in OrientDB):
 
 ```java
 Vertex vPerson = graph.addVertex(null);
 ```
 
-A consequence is that we won't be able to distinguish it from other vertices in a query.
-
-To add an edge a similar API is used:
+A consequence is that we won't be able to distinguish it from other vertices in a query. To add an edge a similar API is used:
 
 ```java
-import com.tinkerpop.blueprints.Graph;
-import com.tinkerpop.blueprints.Edge;
-
-Edge eLives = graph.addEdge(null, vPerson, vAddress, "lives");
-
+OrientEdge eLives = graph.addEdge(null, vPerson, vAddress, "lives");
 ```
-We passed `null` to `addEdge()`, so we created an edge with the `OGraphEdge` class, which is the superclass of all edges in OrientDB. A consequence is that in a query we won't be able to distinguish it from other edges (except for its label).
+In OrientDB the Blueprints "label" concept is bound to Edge's class. You can create an edge of class "lives" by passing it as label (see the example above) or as class name:
 
-The Blueprints adapter **automatically saves changes to the database** (in contrast to the native OrientDB API, which requires an explicit call to `save()`). Please remember that saving is a different operation than committing.
-
+```java
+OrientEdge eLives = graph.addEdge("class:lives", vPerson, vAddress, null);
+```
 
 Now we have created
 
 ```
-[John Smith:Person] --[lives]--> [Van Ness Ave. …:Address]
+[John Smith:Person] --[lives]--> [Van Ness Ave:Address]
 ```
 
-Please note that, in this example, we have used a partially schema-full mode, as we defined the vertex types, but not their properties. OrientDB will dynamically accept everything.
+Please note that, in this example, we have used a partially schema-full mode, as we defined the vertex types, but not their properties. OrientDB will dynamically accept everything working in schema-less mode by default.
+
+## SQL queries
+
+TinkerPop interfaces allow to execute fluent queries or Gremlin queries, but you can still use the power of OrientBD SQL by using the `.command()` method. Example:
+```java
+for (Vertex v : (Iterable<Vertex>) graph.command(
+            new OCommandSQL("select expand( out('bough') ) from Customer where name = 'Jay'")).execute()) {
+    System.out.println("- Bought: " + v);
+}
+```
+Along with queries, you can execute any SQL command like CREATE VERTEX, UPDATE, or DELETE VERTEX. In the example below it sets a new property called "local" to true on all the Customers that live in Rome:
+
+```java
+int modified = graph.command(
+          new OCommandSQL("UPDATE Customer SET local = true WHERE 'Rome' IN out('lives').name")).execute());
+```

@@ -2,6 +2,19 @@
 
 This command deletes one or more edges from the database. Use this command if you work against graphs. The "Delete edge" command takes care to remove all the cross references to the edge in both "in" and "out" vertices.
 
+## Control vertices version increment
+Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use Bonsai structure. By default Bonsai is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
+
+```
+-Dindex.embeddedToSbtreeBonsaiThreshold=-1
+``` 
+Or in Java by calling this before opening the database:
+
+```java
+OGlobalConfiguration.INDEX_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
+```
+
+
 ## Syntax
 
 ```sql

@@ -1,4 +1,4 @@
-# ETL - BLocks
+# ETL - Blocks
 
 **Block** components execute operations.
 
@@ -52,7 +52,7 @@ Execute a snippet of code in any of the JVM supported languages. Default is Java
 ```
 
 ### Console
-Execute commands invoking the [OrientDB Console](../orientdb.wiki/Console-Commands).
+Execute commands invoking the [OrientDB Console](Console-Commands.md).
 
 - Component name: **console**
 

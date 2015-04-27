@@ -81,7 +81,7 @@ Example:
 - to execute an expression using OrientDB SQL, use `={<expression>}`, example: `={eval('3 * 5')}`
 
 ## Conditional execution
-All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), can be executed only if a condition is true by using the **if** conditional expression using the [OrientDB SQL syntax](../orientdb.wiki/SQL-Where). Example:
+All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), can be executed only if a condition is true by using the **if** conditional expression using the [OrientDB SQL syntax](SQL-Where.md). Example:
 
 ```json
 { "let": {
@@ -124,4 +124,5 @@ There are also special variables used by ETL process:
 |-----------|-------------|------|-----------|-----------|
 |log|Global "log" setting. Accepted values: `[NONE, ERROR, INFO, DEBUG]`. Useful to debug a ETL process or single component.|string|false|INFO|
 |maxRetries|Maximum number of retries in case the loader raises a ONeedRetryException: concurrent modification of the same records|integer|false|10|
-|parallel|Executes pipelines in parallel by using all the available cores|boolean|false|false|
+|parallel|Executes pipelines in parallel by using all the available cores. This feature is experimental.|boolean|false|false|
+|haltOnError|Halt the process in case of unmanaged error. If it is false, the process continue in case of errors. The encountered error number is reported at the end of importing. Since 2.0.9.|boolean|false|true|

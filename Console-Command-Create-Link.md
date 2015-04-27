@@ -31,7 +31,7 @@ Table Comment
 +----+--------+--------------+
 ```
 
-Using OrientDB, instead, you have direct relationship as in your object model. So the navigation is from *Post* to *Comment* and not viceversa as for Relational model. For this reason you need to create a link as **INVERSE**.
+Using OrientDB, instead, you have a direct relationship as in your object model. So the navigation is from *Post* to *Comment* and not vice versa as for the Relational model. For this reason you need to create a link as **INVERSE**.
 
 ## Syntax
 
@@ -50,6 +50,6 @@ Where:
 
 CREATE LINK comments FROM comments.!PostId To posts.Id INVERSE
 
-To know more about other SQL commands look at [SQL SQL commands](INVERSE]}}}.md).
+To know more about other SQL commands look at [SQL commands](Commands.md).
 
 This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
