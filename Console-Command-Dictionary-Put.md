@@ -1,11 +1,11 @@
 # Console - DISCTIONARY PUT
 
-Associates in the database dictionary a record to a key to be found later using a [dictionary get](Console-Command-Dictionary-Get.md) command.
+Associates in the database dictionary a record to a key to be found later using a [DICTIONARY GET](Console-Command-Dictionary-Get.md) command.
 
 ## Syntax
 
 ```
-dictionary put <key> <record-id>
+DICTIONARY PUT <key> <record-id>
 ```
 
 Where:
@@ -15,8 +15,8 @@ Where:
 
 ## Example
 
-```java
-> dictionary put obama 5:4
+```sql
+DICTIONARY PUT obama 5:4
 --------------------------------------------------
 Class: Person   id: 5:4   v.1
 --------------------------------------------------
@@ -30,7 +30,7 @@ Class: Person   id: 5:4   v.1
 The entry obama=5:4 has been inserted in the database dictionary
 ```
 
-To know all the keys stored in the database dictionary use the [dictionary keys](Console-Command-Dictionary-Keys.md) command.
+To know all the keys stored in the database dictionary use the [DICTIONARY KEYS](Console-Command-Dictionary-Keys.md) command.
 
 For complete index (and dictionary) guide look at [Index guide](Indexes.md).
 

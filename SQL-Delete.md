@@ -2,7 +2,7 @@
 
 The **Delete** command deletes one or more records from the database. The set of records involved are taken by the [WHERE](SQL-Where.md) clause.
 
-_NOTE: Don't use SQL DELETE to remove Vertices or Edges but use the DELETE VERTEX and DELETE EDGE commands that assure the integrity of the graph._
+>NOTE: Don't use SQL DELETE to remove Vertices or Edges but use the DELETE VERTEX and DELETE EDGE commands that assure the integrity of the graph.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ Where:
 Delete all the records with surname equals to 'unknown' ignoring the case:
 
 ```sql
-delete from Profile where surname.toLowerCase() = 'unknown'
+DELETE FROM Profile WHERE surname.toLowerCase() = 'unknown'
 ```
 
 To know more about other SQL commands look at [SQL commands](SQL.md).

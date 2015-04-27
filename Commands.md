@@ -3,12 +3,12 @@
 
 | CRUD     | Graph | Schema | Indexes | Database | Utility |
 |----------|-------|--------|---------|-----------|---------|
-| [Select](SQL-Query.md) | [Create Vertex](SQL-Create-Vertex.md) | [Create Class](SQL-Create-Class.md) | [Create Index](SQL-Create-Index.md)| [Create Cluster](SQL-Create-Cluster.md) | [Create Link](SQL-Create-Link.md) |
-| [Insert](SQL-Insert.md) | [Create Edge](SQL-Create-Edge.md) |[Alter Class](SQL-Alter-Class.md) |[Rebuild Index](SQL-Rebuild-Index.md)  |[Alter Cluster](SQL-Alter-Cluster.md) |[Find References](SQL-Find-References.md) |
-| [Update](SQL-Update.md) | [Delete Vertex](SQL-Delete-Vertex.md) |[Drop Class](SQL-Drop-Class.md) |[Drop Index](SQL-Drop-Index.md) | [Drop Cluster](SQL-Drop-Cluster.md) | [Explain](SQL-Explain.md) |
-| [Delete](SQL-Delete.md) | [Delete Edge](SQL-Delete-Edge.md) | [Create Property](SQL-Create-Property.md) | | [Alter Database](SQL-Alter-Database.md)|  [Grant](SQL-Grant.md) |
-| [Traverse](SQL-Traverse.md) | |  [Alter Property](SQL-Alter-Property.md) | | [Create Database (console only)](Console-Command-Create-Database.md) | [Revoke](SQL-Revoke.md) |
-| [Truncate Class](SQL-Truncate-Class.md) | | [Drop Property](SQL-Drop-Property.md) | | [Drop Database (console only)](Console-Command-Drop-Database.md) |[Create function](SQL-Create-Function.md)|
-| [Truncate Cluster](SQL-Truncate-Cluster.md) | | | | | |
-| [Truncate Record](SQL-Truncate-Record.md) | | | | | | |
+| [SELECT](SQL-Query.md) | [CREATE VERTEX](SQL-Create-Vertex.md) | [CREATE CLASS](SQL-Create-Class.md) | [CREATE INDEX](SQL-Create-Index.md)| [CREATE CLUSTER](SQL-Create-Cluster.md) | [CREATE LINK](SQL-Create-Link.md) |
+| [INSERT](SQL-Insert.md) | [CREATE EDGE](SQL-Create-Edge.md) |[ALTER CLASS](SQL-Alter-Class.md) |[REBUILD INDEX](SQL-Rebuild-Index.md)  |[ALTER CLUSTER](SQL-Alter-Cluster.md) |[FIND REFERENCES](SQL-Find-References.md) |
+| [UPDATE](SQL-Update.md) | [DELETE VERTEX](SQL-Delete-Vertex.md) |[DROP CLASS](SQL-Drop-Class.md) |[DROP INDEX](SQL-Drop-Index.md) | [DROP CLUSTER](SQL-Drop-Cluster.md) | [EXPLAIN](SQL-Explain.md) |
+| [DELETE](SQL-Delete.md) | [DELETE EDGE](SQL-Delete-Edge.md) | [CREATE PROPERTY](SQL-Create-Property.md) | | [ALTER DATABASE](SQL-Alter-Database.md)|  [GRANT](SQL-Grant.md) |
+| [TRAVERSE](SQL-Traverse.md) | |  [ALTER PROPERTY](SQL-Alter-Property.md) | | [CREATE DATABASE (console only)](Console-Command-Create-Database.md) | [REVOKE](SQL-Revoke.md) |
+| [TRUNCATE CLASS](SQL-Truncate-Class.md) | | [DROP PROPERTY](SQL-Drop-Property.md) | | [DROP DATABASE (console only)](Console-Command-Drop-Database.md) |[CREATE FUNCTION](SQL-Create-Function.md)|
+| [TRUNCATE CLUSTER](SQL-Truncate-Cluster.md) | | | | | |
+| [TRUNCATE RECORD](SQL-Truncate-Record.md) | | | | | | |
 

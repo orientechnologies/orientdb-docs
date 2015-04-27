@@ -28,16 +28,16 @@ Returns a document containing all the profiled metrics:
 
 ## Non indexed query
 
-```java
-orientdb> explain select from account
+```sql
+EXPLAIN SELECT FROM account
 
 Profiled command
 '{documentReads:1126,documentReadsCompatibleClass:1126,recordReads:1126,elapsed:209,resultType:collection,resultSize:1126}' in 0,212000 sec(s).
 ```
 ## Indexed query
 
-```java
-orientdb> explain select from profile where name = 'Luca'
+```sql
+EXPLAIN SELECT FROM profile WHERE name = 'Luca'
 
 Profiled command '{involvedIndexes:[1],indexReads:1,documentAnalyzedCompatibleClass:1,elapsed:1,resultType:collection,resultSize:1}' in 0,002000 sec(s).
 ```

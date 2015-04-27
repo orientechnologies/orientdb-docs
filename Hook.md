@@ -7,4 +7,5 @@ OrientDB supports two kinds of Hooks:
 - Native [Java Hooks](Java-Hooks.md), defined as Java classes
 
 ### What use? Pros/Cons?
+
 Depends on your goal: Java Hooks are faster. Write a Java Hook if you need the best performance on execution. Dynamic Hooks are more flexible, can be changed at run-time, and can run per document if needed, but are slower than Java Hooks.

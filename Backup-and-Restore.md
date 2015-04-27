@@ -49,8 +49,8 @@ For more information about [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Man
 ### Using the console
 You can also use the [console](Console-command-Backup.md) to execute a backup. Below the same backup like before, but using the console.
 ```sql
-orientdb> connect plocal:../database/testdb admin admin
-orientdb> backup database /dest/folder/backup.zip
+orientdb> CONNECT plocal:../database/testdb admin admin
+orientdb> BACKUP DATABASE /dest/folder/backup.zip
 Backup executed in 0,52 seconds
 ```
 
@@ -58,13 +58,13 @@ Backup executed in 0,52 seconds
 Use the [console](Console-command-Restore.md) to restore a database. Example:
 
 ```
-orientdb> restore database /backups/mydb.zip
+orientdb> RESTORE DATABASE /backups/mydb.zip
 Restore executed in 6,33 seconds
 ```
 
 ## See also
-- [Backup Database](Console-command-Backup.md)
-- [Restore Database](Console-command-Restore.md)
-- [Export Database](Console-command-Export.md)
-- [Import Database](Console-command-Import.md)
+- [BACKUP DATABASE](Console-command-Backup.md)
+- [RESTORE DATABASE](Console-command-Restore.md)
+- [EXPORT DATABASE](Console-command-Export.md)
+- [IMPORT DATABASE](Console-command-Import.md)
 - [Console-Commands](Console-Commands.md)

@@ -24,11 +24,11 @@ If you was using Blueprints look also to the [Blueprints changes 1.x and 2.x](ht
 ### Working with database created with 1.3.x
 
 Execute these commands against the open database:
-```
-alter database custom useLightweightEdges=false
-alter database custom useClassForEdgeLabel=false
-alter database custom useClassForVertexLabel=false
-alter database custom useVertexFieldsForEdgeLabels=false
+```sql
+ALTER DATABASE custom useLightweightEdges=false
+ALTER DATABASE custom useClassForEdgeLabel=false
+ALTER DATABASE custom useClassForVertexLabel=false
+ALTER DATABASE custom useVertexFieldsForEdgeLabels=false
 ```
 
 ### Base class changed for Graph elements
@@ -36,11 +36,11 @@ Before 1.4.x the base classes for Vertices was "OGraphVertex" with alias "V" and
 
 If you don't export and import the database you can rename the classes by hand typing these commands:
 
-```
-alter class OGraphVertex shortname null
-alter class OGraphVertex name V
-alter class OGraphEdge shortname=null
-alter class OGraphEdge name E
+```sql
+ALTER CLASS OGraphVertex shortname null
+ALTER CLASS OGraphVertex name V
+ALTER CLASS OGraphEdge shortname=null
+ALTER CLASS OGraphEdge name E
 ```
 
 ### Export and re-import the database
@@ -87,11 +87,11 @@ $ ./console.sh
 OrientDB console v.1.3.0 - www.orientechnologies.com
 Type 'help' to display all the commands supported.
 
-orientdb> connect local:../databases/mydb admin admin
+orientdb> CONNECT local:../databases/mydb admin admin
 Connecting to database [local:../databases/mydb] with user 'admin'...
 OK
 
-orientdb> export database /temp/export.json.gz
+orientdb> EXPORT DATABASE /temp/export.json.gz
 Exporting current database to: database /temp/export.json.gz...
 
 Started export of database 'mydb' to /temp/export.json.gz...
@@ -144,14 +144,14 @@ $ ./console.sh
 OrientDB console v.1.3.0 - www.orientechnologies.com
 Type 'help' to display all the commands supported.
 
-orientdb> create database local:../databases/newmydb admin admin local
+orientdb> CREATE DATABASE local:../databases/newmydb admin admin local
 
 Creating database [local:../databases/newmydb] using the storage type [local]...
 Database created successfully.
 
 Current database is: local:../databases/newmydb
 
-orientdb> import database /temp/export.json.gz
+orientdb> IMPORT DATABASE /temp/export.json.gz
 Importing database database /temp/export.json.gz...
 
 Started import of database 'local:../databases/newmydb' from /temp/export.json.gz...

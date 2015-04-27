@@ -136,7 +136,7 @@ Use NOTUNIQUE instead of UNIQUE if the value is not unique.
 
 For more complex queries like
 ```sql
-select * from testClass where prop1 = ? and prop2 = ?
+SELECT * FROM testClass WHERE prop1 = ? AND prop2 = ?
 ```
 Composite index should be used
 ```sql
@@ -148,7 +148,7 @@ oClass.createIndex("compositeIndex", OClass.INDEX_TYPE.UNIQUE, "prop1", "prop2")
 ```
 Moreover, because of partial match searching, this index will be used for optimizing query like
 ```sql
-select * from testClass where prop1 = ?
+SELECT * FROM testClass WHERE prop1 = ?
 ```
 
 For deep understanding of query optimization look at the unit test:

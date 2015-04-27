@@ -43,44 +43,45 @@ UPSERT guarantee the atomicity only if a UNIQUE index is created and the lookup 
 
 In this example a unique index on Client.id must be present to guarantee uniqueness on concurrent operations:
 ```sql
-update client set id = 23 upsert where id = 23
+UPDATE client SET id = 23 UPSERT WHERE id = 23
 ```
 ## Examples
 
 ### Example 1: Change the value of a field
 ```sql
-    > UPDATE Profile SET nick='Luca' WHERE nick IS NULL
+UPDATE Profile SET nick='Luca' WHERE nick IS NULL
 
-    Updated 2 record(s) in 0,008000 sec(s).
+Updated 2 record(s) in 0,008000 sec(s).
 ```
 
 ### Example 2: Remove a field from all the records
 ```sql
-> UPDATE Profile REMOVE nick
+UPDATE Profile REMOVE nick
 ```
 
 ### Example 3: Add a value into a collection
 ```sql
-> UPDATE Account ADD addresses=#12:0
+UPDATE Account ADD addresses=#12:0
 ```
-Note: in OrientDB server version 2.0.5 you will generate a server error if there is no space between the # and =. The command needs to be
+>Note: in OrientDB server version 2.0.5 you will generate a server error if there is no space between the # and =. The command needs to be
+
 ```sql
-> UPDATE Account ADD addresses = #12:0
+UPDATE Account ADD addresses = #12:0
 ```
 
 ### Example 4: Remove a value from a collection
 ```sql
-> UPDATE Account REMOVE addresses=#12:0
+UPDATE Account REMOVE addresses=#12:0
 ```
 
 ### Example 5: Put a map entry into a map
 ```sql
-> UPDATE Account PUT addresses='Luca', #12:0
+UPDATE Account PUT addresses='Luca', #12:0
 ```
 
 ### Example 6: Remove a value from a map
 ```sql
-> UPDATE Account REMOVE addresses='Luca'
+UPDATE Account REMOVE addresses='Luca'
 ```
 
 ### Example 7: Update an embedded document
@@ -88,22 +89,22 @@ Note: in OrientDB server version 2.0.5 you will generate a server error if there
 Update command can take a JSON as value to update:
 
 ```sql
-> UPDATE Account SET address={"street":"Melrose Avenue", "city":{"name":"Beverly Hills"}}
+UPDATE Account SET address={"street":"Melrose Avenue", "city":{"name":"Beverly Hills"}}
 ```
 
 ### Example 8: Update the first 20 records that satisfy a condition
 ```sql
-> UPDATE Profile SET nick='Luca' WHERE nick IS NULL LIMIT 20
+UPDATE Profile SET nick='Luca' WHERE nick IS NULL LIMIT 20
 ```
 
 ### Example 9: Update a record or insert if it does not already exist
 ```sql
-> UPDATE Profile SET nick='Luca' UPSERT WHERE nick='Luca'
+UPDATE Profile SET nick='Luca' UPSERT WHERE nick='Luca'
 ```
 
 ### Example 10: Update a web counter, avoiding concurrent accesses
 ```sql
-> UPDATE Counter INCREMENT viewes = 1 WHERE page='/downloads/' LOCK RECORD
+UPDATE Counter INCREMENT viewes = 1 WHERE page='/downloads/' LOCK RECORD
 ```
 ### Example 11: Usage of RETURN keyword
 

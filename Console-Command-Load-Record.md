@@ -5,7 +5,7 @@ Loads a record by its record-id from the current database.
 ## Syntax
 
 ```
-load record <record-id>
+LOAD RECORD <record-id>
 ```
 
 Where:
@@ -14,8 +14,8 @@ Where:
 
 ## Example
 
-```java
-> load record #5:5
+```sql
+LOAD RECORD #5:5
 
 --------------------------------------------------
 Class: Person   id: #5:5   v.0

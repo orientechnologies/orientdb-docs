@@ -5,7 +5,7 @@ Opens a database using a URL.
 ## Syntax
 
 ```
-connect <database-url> <user-name> <user-password>
+CONNECT <database-url> <user-name> <user-password>
 ```
 
 Where:
@@ -20,7 +20,7 @@ To connect to a local database loading it directly into the console.
 
 Example:
 ```
-> connect plocal:../databases/GratefulDeadConcerts admin admin
+CONNECT plocal:../databases/GratefulDeadConcerts admin admin
 ```
 
 ## Example: Connect to a remote database
@@ -29,11 +29,11 @@ To connect to a local or remote database by using a Orient Server.
 
 Example:
 ```
-> connect remote:127.0.0.1/GratefulDeadConcerts admin admin
+CONNECT remote:127.0.0.1/GratefulDeadConcerts admin admin
 ```
 
 ```java
-> connect plocal:../databases/GratefulDeadConcerts admin
+CONNECT plocal:../databases/GratefulDeadConcerts admin
 
 Connecting to database [plocal:../databases/GratefulDeadConcerts]...OK
 ```

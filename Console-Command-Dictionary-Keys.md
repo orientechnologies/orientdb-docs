@@ -5,13 +5,13 @@ Displays all the keys stored in the database dictionary.
 ## Syntax
 
 ```
-dictionary keys
+DICTIONARY KEYS
 ```
 
 ## Example
 
-```java
-> dictionary keys
+```sql
+DICTIONARY KEYS
 
 Found 4 keys:
 #0: key-148
@@ -20,7 +20,7 @@ Found 4 keys:
 #3: key-145
 ```
 
-To load the associated record use the [dictionary get](Console-Command-Dictionary-Get.md) <code>&lt;key&gt;</code>.
+To load the associated record use the [DICTIONARY GET](Console-Command-Dictionary-Get.md) <code>&lt;key&gt;</code>.
 
 For complete index (and dictionary) guide look at [Index guide](Indexes.md).
 

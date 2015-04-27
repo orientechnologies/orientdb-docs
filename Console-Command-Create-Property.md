@@ -1,6 +1,6 @@
 # Console - CREATE PROPERTY
 
-The **SQL Create Property** command creates a new property in the schema. You need to create the class before.
+The **SQL CREATE PROPERTY** command creates a new property in the schema. You need to create the class before.
 
 ## Syntax
 
@@ -65,7 +65,7 @@ Create the property 'friends' of type 'EMBEDDEDMAP' in class 'Profile'. The link
 CREATE PROPERTY profile.friends EMBEDDEDMAP Profile
 ```
 
-To remove a property use the [SQLRemoveProperty Remove Property](<linked-type>|<linked-class>]}}}.md) command.
+To remove a property use the [SQL RemoveProperty Remove Property](<linked-type>|<linked-class>]}}}.md) command.
 
 To know more about other SQL commands look at [SQL commands](SQL.md).
 

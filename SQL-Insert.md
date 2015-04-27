@@ -27,60 +27,60 @@ Where:
 
 SQL-92 syntax:
 ```sql
-insert into Profile (name, surname) values ('Jay', 'Miner' )
+INSERT INTO Profile (name, surname) VALUES ('Jay', 'Miner' )
 ```
 
 OrientDB abbreviated syntax:
 ```sql
-insert into Profile SET name = 'Jay', surname = 'Miner'
+INSERT INTO Profile SET name = 'Jay', surname = 'Miner'
 ```
 
 JSON content syntax:
 ```sql
-insert into Profile CONTENT {"name": "Jay", "surname" = "Miner"}
+INSERT INTO Profile CONTENT {"name": "Jay", "surname" = "Miner"}
 ```
 
 ### Insert a new record of type Profile, but in a different cluster than the default one
 
 ```sql
-insert into Profile cluster profile_recent (name, surname) values ('Jay', 'Miner' )
+INSERT INTO Profile CLUSTER profile_recent (name, surname) VALUES ('Jay', 'Miner' )
 ```
 
 ```sql
-insert into Profile cluster profile_recent set name = 'Jay', surname = 'Miner'
+INSERT INTO Profile CLUSTER profile_recent SET name = 'Jay', surname = 'Miner'
 ```
 
 ### Insert several records at the same time
 
 ```sql
-insert into Profile(name,surname) VALUES ('Jay','Miner'),('Frank','Hermier'),('Emily','Saut')
+INSERT INTO Profile(name,surname) VALUES ('Jay','Miner'),('Frank','Hermier'),('Emily','Saut')
 ```
 
 ### Insert a new record adding a relationship
 
 ```sql
-insert into Employee (name, boss) values ('jack', #11:99 )
+INSERT INTO Employee (name, boss) VALUES ('jack', #11:99 )
 ```
 
 ```sql
-insert into Employee SET name = 'jack', boss = #11:99
+INSERT INTO Employee SET name = 'jack', boss = #11:99
 ```
 
 
 ### Insert a new record adding a collection of relationship
 
 ```sql
-insert into Profile (name, friends) values ('Luca', [#10:3, #10:4] )
+INSERT INTO Profile (name, friends) VALUES ('Luca', [#10:3, #10:4] )
 ```
 
 ```sql
-insert into Profile SET name = 'Luca', friends =  [#10:3, #10:4]
+INSERT INTO Profile SET name = 'Luca', friends =  [#10:3, #10:4]
 ```
 
 ### Sub-selects
 
 ```sql
-insert into Diver SET name = 'Luca', buddy = (select from Diver where name = 'Marko')
+INSERT INTO Diver SET name = 'Luca', buddy = (SELECT FROM Diver WHERE name = 'Marko')
 ```
 
 ### Sub-inserts
@@ -93,13 +93,13 @@ insert into Diver SET name = 'Luca', buddy = (insert into Diver name = 'Marko')
 
 This inserts a new document in the cluster 'asiaemployee':
 ```sql
-insert into cluster:asiaemployee (name) values ('Mattew')
+INSERT INTO CLUSTER:asiaemployee (name) VALUES ('Mattew')
 ```
 
 But note that the document will have no class assigned. To create a document of a certain class but in a different cluster than the default one use:
 
 ```sql
-insert into cluster:asiaemployee (@class, content) values('employee', 'Mattew')
+INSERT INTO CLUSTER:asiaemployee (@class, content) VALUES ('employee', 'Mattew')
 ```
 
 That will insert the document of type 'employee' in the cluster 'asiaemployee'.
@@ -107,21 +107,21 @@ That will insert the document of type 'employee' in the cluster 'asiaemployee'.
 ### Insert a new record adding an embedded document
 
 ```sql
-insert into Profile (name, address) values ('Luca', { "@type" : "d", "street" : "Melrose Avenue", "@version" : 0 } )
+INSERT INTO Profile (name, address) VALUES ('Luca', { "@type" : "d", "street" : "Melrose Avenue", "@version" : 0 } )
 ```
 
 ### Insert from query
 
 #### Copy records in another class
 ```sql
-insert into GermanyClient from ( select from Client where country = 'Germany' )
+INSERT INTO GermanyClient FROM ( SELECT FROM Client WHERE country = 'Germany' )
 ```
 
 Will insert all the records from Client where the country is "Germany".
 
 #### Copy records in another class adding a field
 ```sql
-insert into GermanyClient from ( select *, true as copied from Client where country = 'Germany' )
+INSERT INTO GermanyClient FROM ( SELECT *, true AS copied FROM Client WHERE country = 'Germany' )
 ```
 
 Will insert all the records from Client where the country is "Germany" and will add an additional field called "copied" with value true.

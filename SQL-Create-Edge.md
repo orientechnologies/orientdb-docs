@@ -25,42 +25,42 @@ Where:
 ### Create a new edge between two vertices of the base class 'E', namely OGraphEdge
 
 ```sql
-create edge from #10:3 to #11:4
+CREATE EDGE FROM #10:3 TO #11:4
 ```
 
 ### Create a new edge type and a new edge of the new type
 
 ```sql
-create class E1 extends E
-create edge E1 from #10:3 to #11:4
+CREATE CLASS E1 EXTENDS E
+CREATE EDGE E1 FROM #10:3 TO #11:4
 ```
 
 ### Create a new edge in a particular cluster
 
 ```sql
-create edge E1 cluster EuropeEdges from #10:3 to #11:4
+CREATE EDGE E1 CLUSTER EuropeEdges FROM #10:3 TO #11:4
 ```
 
 ### Create a new edge setting properties
 
 ```sql
-create edge from #10:3 to #11:4 set brand = 'fiat'
+CREATE EDGE FROM #10:3 TO #11:4 SET brand = 'fiat'
 ```
 
 ### Create a new edge of type E1 setting properties
 
 ```sql
-create edge E1 from #10:3 to #11:4 set brand = 'fiat', name = 'wow'
+CREATE EDGE E1 FROM #10:3 TO #11:4 SET brand = 'fiat', name = 'wow'
 ```
 ### Create new edges of type Watched between all the action Movies and me using sub-queries
 
 ```sql
-create edge Watched from (select from account where name = 'Luca') to (select from movies where type.name = 'action')
+CREATE EDGE Watched FROM (SELECT FROM account WHERE name = 'Luca') TO (SELECT FROM movies WHERE type.name = 'action')
 ```
 
 ### Create an edge with JSON content
 ```sql
-create edge E from #22:33 to #22:55 content { "name" : "Jay", "surname" : "Miner" }
+CREATE EDGE E FROM #22:33 TO #22:55 CONTENT { "name" : "Jay", "surname" : "Miner" }
 ```
 
 

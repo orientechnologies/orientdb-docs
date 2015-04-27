@@ -405,7 +405,7 @@ To execute SQL commands use the <code>command()</code> method passing a OCommand
 
 ```java
 int recordsUpdated = db.command(
-  new OCommandSQL("update Animal set sold = false")).execute();
+  new OCommandSQL("UPDATE Animal SET sold = false")).execute();
 ```
 
 See all the [SQL Commands](SQL.md).

@@ -13,7 +13,7 @@ Exact instructions for these two steps are outside the scope of this tutorial.
 ## Initial Server Configuration File
 My OrientDB server configuration file is located at C:\Program Files\orientdb-community-2.0.5\config\orientdb-server-config.xml and is configured like this:
 
-```java
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <orient-server>
     <handlers>
@@ -128,7 +128,7 @@ Apache Maven is a useful tool for people wishing to write and compile Java progr
 You can download Apache Maven from [https://maven.apache.org/download.cgi](https://maven.apache.org/download.cgi). Follow the installation instructions until you can open a command prompt and successfully run the command
 
 ```
-mvn --help
+$ mvn --help
 ```
 
 ## Step 2 - Create a new Maven project
@@ -139,7 +139,8 @@ Before you create a Maven project, it is useful to think about how to you want t
 Now create a new Maven project in the folder location you have selected by running the following command:
 
 ```
-mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=river.hooks -DartifactId=hooks
+$ mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes \
+      -DgroupId=river.hooks -DartifactId=hooks
 ```
 
 You'll notice that the result of this command is a brand new directory structure created underneath the folder in which you ran the command. Take special note that Maven has created a file called .\hooks\pom.xml and a folder called .\hooks\src\main\java\river\hooks.
@@ -147,7 +148,7 @@ You'll notice that the result of this command is a brand new directory structure
 ### Edit pom.xml
 The thing you need to pay attention to in this file is the section called dependencies. As your OrientDB Java Hook will leverage OrientDB code, you need to tell Maven to download and cache the OrientDB code libraries that your hook needs. Do this by adding the following to your pom.xml file:
 
-```
+```xml
   <dependencies>
     ...
     <dependency>
@@ -157,12 +158,14 @@ The thing you need to pay attention to in this file is the section called depend
     </dependency>
   </dependencies>
 ```
+
 ### Create hook file(s)
+
 Now that Maven knows that your code will build upon the oriendb-core code libraries, you can start writing your Hook file(s). Go to folder .\hooks\src\main\java\river\hooks. This is the folder where you will put your .java hook files. Go ahead and delete the placeholder App.java file that Maven created and which you don't need.
 
-Let's start out by adding a HookTest.java file as follows:
+Let's start out by adding a `HookTest.java` file as follows:
 
-```
+``` java
 package river.hooks;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -204,8 +207,9 @@ public class HookTest extends ODocumentHookAbstract implements ORecordHook {
 ```
 What this sample code does is print out the appropriate comment every time you create or update a record of that class.
 
-Let's add one more hook file setCreatedUpdatedDates.java as follows:
-```
+Let's add one more hook file `setCreatedUpdatedDates.java` as follows:
+
+``` java
 package river.hooks;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -260,23 +264,23 @@ What this code does is look for any class that starts with the letters r or t an
 In a command prompt, go to your .\hooks file and run the following commands:
 
 ```
-mvn compile
+$ mvn compile
 ```
 This compiles your hook source code into java .class files.
 ```
-mvn package
+$ mvn package
 ```
 This zips up your compile code files with the needed directory structure into a file called .\target\hooks-1.0-SNAPSHOT.jar.
 ## Step 4 - Move your compiled code to where OrientDB Server can find it
 Finally, you need to copy your finished .jar file to the directory where your OrientDB server will look for them. This means the .\lib folder under your OrientDB Server root directory like this:
 ```
-copy /Y .\target\hooks-1.0-SNAPSHOT.jar "\Program Files\orientdb-community-2.0.5\lib"
+$ copy /Y .\target\hooks-1.0-SNAPSHOT.jar "\Program Files\orientdb-community-2.0.5\lib"
 ```
 
 ## Step 5 - Enable your test hook in the OrientDB Server configuration file
 Edit C:\Program Files\orientdb-community-2.0.5\config\orientdb-server-config.xml and add the following section near the end of the file:
 
-```
+```xml
     <hooks>
         <hook class="river.hooks.HookTest" position="REGULAR"/>
     </hooks>
@@ -287,16 +291,19 @@ Edit C:\Program Files\orientdb-community-2.0.5\config\orientdb-server-config.xml
 ## Step 6 - Restart your OrientDB Server
 Once you restart your OrientDB Server, the hook you defined in orientdb-server-config.xml is now active. Launch an OrientDB console, connect it to your database, and run the following command:
 
+``` sql
+INSERT INTO V SET ID = 1;
 ```
-insert into V set ID = 1;
-```
+
 If you review your server output/log you should see the message
+
 ```
 Ran create hook
 ```
+
 Now run command:
-```
-update V set ID = 2 where ID = 1;
+```sql
+UPDATE V SET ID = 2 WHERE ID = 1;
 ```
 Now your server output should say
 ```
@@ -305,7 +312,7 @@ Ran update hook
 ## Step 7 - Enable your real hook in the OrientDB Server configuration file
 Edit C:\Program Files\orientdb-community-2.0.5\config\orientdb-server-config.xml and change the hooks section as follows:
 
-```
+``` xml
     <hooks>
         <hook class="river.hooks.setCreatedUpdatedDates" position="REGULAR"/>
     </hooks>
@@ -314,14 +321,17 @@ Edit C:\Program Files\orientdb-community-2.0.5\config\orientdb-server-config.xml
 
 ```
 ## Step 8 - Restart your OrientDB Server
-Now create a new class that starts with the letter r or t:
+Now create a new class that starts with the letter `r` or `t`:
+
+``` sql
+CREATE CLASS tTest EXTENDS V;
 ```
-create class tTest extends V;
-```
+
 Now insert a record:
+
 ```
-insert into tTest set ID = 1;
-select from tTest;
+INSERT INTO tTest SET ID = 1
+SELECT FROM tTest
 
 ----+-----+------+----+-----------+-----------
 #   |@RID |@CLASS|ID  |CreatedDate|UpdatedDate
@@ -329,12 +339,14 @@ select from tTest;
 0   |#19:0|tTest |1   |1427597275 |1427597275
 ----+-----+------+----+-----------+-----------
 ```
-Even though you did not specify values to set for CreatedDate and UpdatedDate, OrientDB has set these fields automatically for you.
+
+Even though you did not specify values to set for `CreatedDate` and `UpdatedDate`, OrientDB has set these fields automatically for you.
 
 Now update the record:
-```
-update tTest set ID = 2 where ID = 1;
-select from tTest;
+
+``` sql
+UPDATE tTest SET ID = 2 WHERE ID = 1;
+SELECT FROM tTest;
 
 ----+-----+------+----+-----------+-----------
 #   |@RID |@CLASS|ID  |CreatedDate|UpdatedDate
@@ -342,7 +354,8 @@ select from tTest;
 0   |#19:0|tTest |2   |1427597275 |1427597306
 ----+-----+------+----+-----------+-----------
 ```
-You can see that OrientDB has changed the UpdatedDate but let the CreatedDate unchanged.
+
+You can see that OrientDB has changed the `UpdatedDate` but let the `CreatedDate` unchanged.
 
 ## Conclusion
 OrientDB Java Hooks can be an extremely valuable tool to help automate work you would otherwise have to do in application code. As many DBAs are not always Java experts, hopefully the information contained in this tutorial will give you a head start in feeling comfortable with the technology and empower you to successfully create database triggers as the need arises.

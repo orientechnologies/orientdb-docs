@@ -1,6 +1,6 @@
 # Console - CREATE LINK
 
-The **Create Link** command creates links between two or more records of type Document. This is very useful when you're importing data from a Relational database. In facts in the Relational world relationships are resolved as foreign keys.
+The `CREATE LINK` command creates links between two or more records of type Document. This is very useful when you're importing data from a Relational database. In facts in the Relational world relationships are resolved as foreign keys.
 
 Consider this example where the class "Post" has a relationship 1-N to "Comment":
 

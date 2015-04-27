@@ -52,26 +52,26 @@ ALTER PROPERTY Account.gender REGEXP [M|F]
 ### Set a field as case insensitive to comparison
 
 ```java
-alter property Employee.name collate ci
+ALTER PROPERTY Employee.name COLLATE ci
 ```
 
 
 ### Set a custom field on property
 
 ```java
-alter property Foo.bar1 custom stereotype = visible
+ALTER PROPERTY Foo.bar1 custom stereotype = visible
 ```
 
 ### Set default value to current date
 
 ```java
-alter property Client.created default sysdate()
+ALTER PROPERTY Client.created default sysdate()
 ```
 
 ### Set a unique id can never change
 ```java
-alter property Client.id default uuid() readonly
-alter property Client.id readonly true
+ALTER PROPERTY Client.id default uuid() readonly
+ALTER PROPERTY Client.id readonly true
 ```
 
 To create a property use the [Create Property](SQL-Create-Property.md) command, to remove a property use the [Drop Property](SQL-Drop-Property.md) command.

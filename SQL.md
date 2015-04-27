@@ -5,20 +5,24 @@ When it comes to query languages, SQL is the mostly widely recognized standard. 
 Many SQL commands share the [WHERE condition](SQL-Where.md). Keywords and class names in OrientDB SQL are case insensitive. Field names and values are case sensitive. In the following examples keywords are in uppercase but this is not strictly required.
 
 For example, if you have a class `MyClass` with a field named `id`, then the following SQL statements are equivalent:
+
 ```sql
 SELECT FROM MyClass WHERE id = 1
 select from myclass where id = 1
 ```
+
 The following is NOT equivalent.  Notice that the field name 'ID' is not the same as 'id'.
+
 ```sql
 SELECT FROM MyClass WHERE ID = 1
 ```
 
 ## Automatic usage of indexes
-OrientDB allows you to execute queries against any field, indexed or not-indexed. The SQL engine automatically recognizes if any indexes can be used to speed up execution. You can also query any indexes directly by using index:<index-name> as a target. Example:
+
+OrientDB allows you to execute queries against any field, indexed or not-indexed. The SQL engine automatically recognizes if any indexes can be used to speed up execution. You can also query any indexes directly by using `INDEX:<index-name>` as a target. Example:
 
 ```sql
-select from index:myIndex where key = 'Jay'
+SELECT FROM INDEX:myIndex WHERE key = 'Jay'
 ```
 
 ## Extra resources
@@ -104,11 +108,7 @@ HAVING salary > 1000
 This groups all of the salaries by city and extracts the result of aggregates with the total salary greater than 1,000 dollars. In OrientDB the `HAVING` conditions go in a select statement in the predicate:
 
 ```SQL
-SELECT FROM (
-    SELECT city, SUM(salary) AS salary
-    FROM Employee
-    GROUP BY city
-) WHERE salary > 1000
+SELECT FROM ( SELECT city, SUM(salary) AS salary FROM Employee GROUP BY city ) WHERE salary > 1000
 ```
 
 ## Select from multiple targets

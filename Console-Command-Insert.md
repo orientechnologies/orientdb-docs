@@ -1,21 +1,21 @@
-# Console -  insert
+# Console -  INSERT
 
-# Insert
+# INSERT
 
 Insert a new record into the current database. Remember that Orient can work also in schema-less mode, so you can create any field at-the-fly.
 
 ## Syntax
 
 ```
-insert into <class|cluster:<cluster>> (<field-name>*) values ( <field-value> )
+INSERT INTO <class|cluster:<cluster>> (<field-name>*) VALUES ( <field-value> )
 ```
 
 ## Example
 
 nsert a new record with name 'Jay' and surname 'Miner':
 
-```java
-> insert into Profile (name, surname) values ('Jay', 'Miner' )
+```sql
+INSERT INTO Profile (name, surname) VALUES ('Jay', 'Miner' )
 
 Inserted record in 0,060000 sec(s).
 ```
@@ -23,14 +23,14 @@ Inserted record in 0,060000 sec(s).
 
 Insert a new record adding a relationship:
 
-```java
-insert into Employee (name, boss) values ('jack', 11:99 )
+```sql
+INSERT INTO Employee (name, boss) VALUES ('jack', 11:99 )
 ```
 
 Insert a new record adding a collection of relationship:
 
-```java
-insert into Profile (name, friends) values ('Luca', [10:3, 10:4] )
+```sql
+INSERT INTO Profile (name, friends) VALUES ('Luca', [10:3, 10:4] )
 ```
 
 To know more about the SQL syntax used in Orient take a look to: [SQL-Query](SQL-Query.md).

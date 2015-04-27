@@ -48,9 +48,9 @@ CREATE INDEX User.id UNIQUE
 
 ### Examples of index for "thumbs" property of class "Movie".
 ```sql
-CREATE INDEX thumbsAuthor ON Movie (thumbs) unique;
-CREATE INDEX thumbsAuthor ON Movie (thumbs by key) unique;
-CREATE INDEX thumbsValue ON Movie (thumbs by value) unique;
+CREATE INDEX thumbsAuthor ON Movie (thumbs) UNIQUE;
+CREATE INDEX thumbsAuthor ON Movie (thumbs BY KEY) UNIQUE;
+CREATE INDEX thumbsValue ON Movie (thumbs BY VALUE) UNIQUE;
 ```
 
 ### Composite index example:
@@ -75,18 +75,18 @@ CREATE INDEX Has.started_ended ON Has (started, ended) NOTUNIQUE
 And then you can retrieve all the edge that existed in 2014:
 
 ```sql
-SELECT FROM Has Where started >= '2014-01-01 00:00:00.000' and ended < '2015-01-01 00:00:00.000'
+SELECT FROM Has WHERE started >= '2014-01-01 00:00:00.000' AND ended < '2015-01-01 00:00:00.000'
 ```
 
 To have the connected parent File:
 
 ```sql
-SELECT outV() FROM Has Where started >= '2014-01-01 00:00:00.000' and ended < '2015-01-01 00:00:00.000'
+SELECT outV() FROM Has WHERE started >= '2014-01-01 00:00:00.000' AND ended < '2015-01-01 00:00:00.000'
 ```
 To have the connected children Files:
 
 ```sql
-SELECT inV() FROM Has Where started >= '2014-01-01 00:00:00.000' and ended < '2015-01-01 00:00:00.000'
+SELECT inV() FROM Has WHERE started >= '2014-01-01 00:00:00.000' AND ended < '2015-01-01 00:00:00.000'
 ```
 
 
@@ -97,6 +97,6 @@ Indexes by default ignore null values. For such reason queries against NULL valu
 If you want to index also null values set ```{ ignoreNullValues : false }``` as metadata. Example:
 
 ```sql
-CREATE INDEX addresses ON Employee (address) notunique
+CREATE INDEX addresses ON Employee (address) NOTUNIQUE
              METADATA {ignoreNullValues : false}
 ```

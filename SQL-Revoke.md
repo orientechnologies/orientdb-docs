@@ -31,8 +31,8 @@ Where:
 
 Revoke the permission to *delete* any records in any *cluster* to the *role "backoffice"*.
 
-```
-REVOKE delete ON database.cluster.* TO backoffice
+```sql
+REVOKE DELETE ON database.cluster.* TO backoffice
 ```
 
 

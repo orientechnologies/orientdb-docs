@@ -1,6 +1,6 @@
 # SQL - ALTER DATABASE
 
-The **Alter Database** command update database settings.
+The `ALTER DATABASE` command update database settings.
 
 ## Syntax
 
@@ -43,10 +43,10 @@ ALTER DATABASE TYPE graph
 ### Use GraphDB created with releases before 1.4
 Starting from v 1.4, OrientDB can use [Lightweight Edges](Lightweight-Edges.md). After v2.0 this is disabled by default with new databases. To maintain the compatibility with OrientDB 1.4 or minor execute this commands:
 ```sql
-alter database custom useLightweightEdges=false
-alter database custom useClassForEdgeLabel=false
-alter database custom useClassForVertexLabel=false
-alter database custom useVertexFieldsForEdgeLabels=false
+ALTER DATABASE custom useLightweightEdges=false
+ALTER DATABASE custom useClassForEdgeLabel=false
+ALTER DATABASE custom useClassForVertexLabel=false
+ALTER DATABASE custom useVertexFieldsForEdgeLabels=false
 ```
 
 ## History

@@ -5,13 +5,13 @@ Displays all the clusters configured in the current database.
 ## Syntax
 
 ```
-clusters
+CLUSTERS
 ```
 
 ## Example
 
-```java
-> clusters
+```sql
+CLUSTERS
 
 CLUSTERS:
 --------------------+------+--------------------+-----------+
@@ -36,6 +36,6 @@ TOTAL                                                  2807 |
 
 ## See also
 
-To create a new cluster in the current database use the command [create cluster](Console-Command-Create-Cluster.md).
+To create a new cluster in the current database use the command [CREATE CLUSTER](Console-Command-Create-Cluster.md).
 
 This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).

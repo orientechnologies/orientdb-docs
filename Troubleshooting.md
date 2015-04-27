@@ -11,13 +11,17 @@ This page aims to link all the guides to Problems and Troubleshooting.
 
 OrientDB, by default, manages edges as "lightweight" edges if they have no properties. This means that if an edge has no properties, it's not stored as physical record. But don't worry, your edge is still there but encoded in a separate data structure. For this reason if you execute a ```select from E```no edges or less edges than expected are returned. It's extremely rare the need to have the list of edges, but if this is your case you can disable this feature by issuing this command once (with a slow down and a bigger database size):
 
-    alter database custom useLightweightEdges=false
+``` sql
+ALTER DATABASE custom useLightweightEdges=false
+```
 
 ### JVM crash on Solaris and other *NIX platforms.
 The reason of this issue is massive usage of sun.misc.Unsafe which may have different contract than it is
 implemented for Linux and Windows JDKs. To avoid this error please use following settings during server start:
 
-    java ... -Dmemory.useUnsafe=false and -Dstorage.compressionMethod=gzip ...
+```
+java ... -Dmemory.useUnsafe=false and -Dstorage.compressionMethod=gzip ...
+```
 
 ### Error occurred while locking memory: Unable to lock JVM memory. This can result in part of the JVM being swapped out, especially if mmapping of files enabled. Increase RLIMIT_MEMLOCK or run OrientDB server as root(ENOMEM)
 

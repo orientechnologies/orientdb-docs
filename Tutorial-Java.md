@@ -5,7 +5,9 @@ If you're only used to working with traditional RDBMS databases, you'll find tha
 In any case, if you need to tweak the database configuration, you need to use the OrientDB APIs directly. It's a good idea to use a mix: Blueprints when you can and the OrientDB APIs when you need them.
 
 ### OrientDB Java APIs
+
 OrientDB comes with 3 different APIs. Pick your based on your model (for more information look at [Java API](Java-API.md)):
+
 - [Graph API](Graph-Database-Tinkerpop.md)
 - [Document API](Document-Database.md)
 - [Object API](Object-Database.md)

@@ -477,9 +477,9 @@ Where:
     {
       "type" : "script",
       "language" : "sql",
-      "script" : [ "let account = create vertex Account set name = 'Luke'",
-                   "let city =select from City where name = 'London'",
-                   "create edge Lives from $account to $city retry 100" ]
+      "script" : [ "LET account = CREATE VERTEX Account SET name = 'Luke'",
+                   "LET city = SELECT FROM City WHERE name = 'London'",
+                   "CREATE EDGE Lives FROM $account TO $city RETRY 100" ]
     }
   ]
 }

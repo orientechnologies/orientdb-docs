@@ -32,7 +32,7 @@ Where:
 Grant the permission to *update* any records in *cluster Account* to the *role "backoffice"*.
 
 ```
-GRANT update ON database.cluster.Account TO backoffice
+GRANT UPDATE ON database.cluster.Account TO backoffice
 ```
 
 

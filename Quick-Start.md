@@ -24,7 +24,7 @@ Step-by-step tutorial about the usage of OrientDB:
 - [Guida all'uso di OrientDB: Java API](http://www.programmazione.it/index.php?entity=eitem&idItem=47585)
 
 HTML.it guide to OrientDB:
-- http://java.html.it/articoli/leggi/4039/nosql-in-java-introduzione-ad-orientdb/
+- [Introduzione ad OrientDB](http://java.html.it/articoli/leggi/4039/nosql-in-java-introduzione-ad-orientdb/)
 
 Tecnicume blog by Marco Berri:
 - [OrientDB - primi passi di Embedding in java](http://tecnicume.blogspot.com/2011/04/orientdb-primi-passi-di-embedding-in.html)
@@ -34,12 +34,12 @@ Tecnicume blog by Marco Berri:
 ### Japanese ###
 
 Try to manipulate the OrientDB from java (Part RawGraphDatabase):
-- http://d.hatena.ne.jp/tm8r/20120416/1334581009
+- [javaからOrientDBを操作してみる(RawGraphDatabase編)](http://d.hatena.ne.jp/tm8r/20120416/1334581009)
 
 Make GraphDB OrientDB app deployment experience:
-1. Part 1: http://fungoing.jp/2011/08/379
+1. [Part 1](http://fungoing.jp/2011/08/379)
 
 Step-by-step tutorial by Junji Takakura:
-- Part 1: http://snakemanshow.blogspot.com/2010/09/nosql-orientdb-1.html
-- Part 2: http://snakemanshow.blogspot.com/2010/09/nosql-orientdb-2.html
-- Part 3: http://snakemanshow.blogspot.com/2011/04/nosql-orientdb-3.html
+- [Part 1](http://snakemanshow.blogspot.com/2010/09/nosql-orientdb-1.html)
+- [Part 2](http://snakemanshow.blogspot.com/2010/09/nosql-orientdb-2.html)
+- [Part 3](http://snakemanshow.blogspot.com/2011/04/nosql-orientdb-3.html)

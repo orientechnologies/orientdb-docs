@@ -15,11 +15,11 @@ To export and reimport your database follow these steps:
 
     > cd bin
     > ./console.sh (or bin/console.bat under Windows)
-    orientdb> connect plocal:/temp/mydb admin admin
-    orientdb> export database /temp/mydb.json.gz
-    orientdb> disconnect
-    orientdb> create database plocal:/temp/newdb
-    orientdb> import database /temp/mydb.json.gz
+    orientdb> CONNECT plocal:/temp/mydb admin admin
+    orientdb> EXPORT DATABASE /temp/mydb.json.gz
+    orientdb> DISCONNECT
+    orientdb> CREATE DATABASE plocal:/temp/newdb
+    orientdb> IMPORT DATABASE /temp/mydb.json.gz
 
 Now your new database is: /temp/newdb.
 

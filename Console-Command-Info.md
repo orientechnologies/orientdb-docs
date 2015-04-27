@@ -5,7 +5,7 @@ Displays all the information about the current database.
 ## Syntax
 
 ```
-info
+INFO
 ```
 
 ## Example

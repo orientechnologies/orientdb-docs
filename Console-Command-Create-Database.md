@@ -5,7 +5,7 @@ Creates a new database.
 ## Syntax
 
 ```sql
-create database <database-url> [<user> <password> <storage-type> [<db-type>]]
+CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]]
 ```
 
 Where:
@@ -23,7 +23,7 @@ Where:
 ## Example: create a local database
 
 ```
-> create database plocal:/usr/local/orient/databases/demo/demo
+CREATE DATABASE plocal:/usr/local/orient/databases/demo/demo
 
 Creating database [plocal:/usr/local/orient/databases/demo/demo]...
 Connecting to database [plocal:/usr/local/orient/databases/demo/demo]...OK
@@ -36,7 +36,7 @@ Current database is: plocal:/usr/local/orient/databases/demo/demo
 ## Example: create a remote database
 
 ```sql
-> create database remote:localhost/trick root E30DD873203AAA245952278B4306D94E423CF91D569881B7CAD7D0B6D1A20CE9 plocal
+CREATE DATABASE remote:localhost/trick root E30DD873203AAA245952278B4306D94E423CF91D569881B7CAD7D0B6D1A20CE9 plocal
 
 Creating database [remote:localhost/trick ]...
 Connecting to database [remote:localhost/trick ]...OK

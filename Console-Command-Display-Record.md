@@ -4,8 +4,8 @@ Displays the details of the record of the last result set returned. This command
 
 ## Syntax
 
-```
-display [<number>](<number>.md)record])
+```sql
+DISPLAY RECORD <number>
 ```
 
 Where:
@@ -14,8 +14,8 @@ Where:
 
 ## Example
 
-```java
-> select * from person
+```sql
+SELECT * FROM person
 
 ---+--------+--------------------+--------------------+--------------------+--------------------+--------------------
   #| REC ID |PARENT              |CHILDREN            |NAME                |SURNAME             |CITY
@@ -30,7 +30,7 @@ Where:
 ---+--------+--------------------+--------------------+--------------------+--------------------+--------------------
 7 item(s) found. Query executed in 0.038 sec(s).
 
-> display record 4
+DISPLAY RECORD 4
 --------------------------------------------------
 Class: Person   id: 5:5   v.0
 --------------------------------------------------

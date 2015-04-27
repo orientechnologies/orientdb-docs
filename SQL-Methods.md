@@ -2,15 +2,17 @@ SQL Methods are similar to [SQL functions](SQL-Functions.md) but they apply to v
 
 This is a [SQL function](SQL-Functions.md):
 ```sql
-select from sum( salary ) from employee
+SELECT FROM sum( salary ) FROM employee
 ```
 
 This is a SQL method:
 ```sql
-select from salary.toJSON() from employee
+SELECT FROM salary.toJSON() FROM employee
 ```
 
-As you can see the method is executed against a field/value. Methods can receive parameters, like functions. You can concatenate N operators in sequence. *Note: operators are case-insensitive.*
+As you can see the method is executed against a field/value. Methods can receive parameters, like functions. You can concatenate N operators in sequence.
+
+>**Note**: operators are case-insensitive.
 
 ## Bundled methods
 
@@ -59,12 +61,12 @@ Applies to the following types:
 
 Get the item with key "phone" in a map:
 ```sql
-select from Profile where '+39' IN contacts[phone].left(3)
+SELECT FROM Profile WHERE '+39' IN contacts[phone].left(3)
 ```
 
 Get the first 10 tags of posts:
 ```sql
-select from tags[0-9] from Posts
+SELECT FROM tags[0-9] FROM Posts
 ```
 
 #### History
@@ -84,7 +86,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select name.append(' ').append(surname) from Employee
+SELECT name.append(' ').append(surname) FROM Employee
 ```
 
 #### History
@@ -107,7 +109,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select from Users where online.asBoolean() = true
+SELECT FROM Users WHERE online.asBoolean() = true
 ```
 
 #### History
@@ -130,7 +132,7 @@ Applies to the following types:
 Time is stored as long type measuring milliseconds since a particular day. Returns all the records where time is before the year 2010:
 
 ```sql
-select from Log where time.asDateTime() < '01-01-2010 00:00:00' 
+SELECT FROM Log WHERE time.asDateTime() < '01-01-2010 00:00:00' 
 ```
 #### History
 
@@ -152,7 +154,7 @@ Applies to the following types:
 Time is stored as long type measuring milliseconds since a particular day. Returns all the records where time is before the year 2010:
 
 ```sql
-select from Log where time.asDateTime() < '01-01-2010 00:00:00' 
+SELECT FROM Log WHERE time.asDateTime() < '01-01-2010 00:00:00' 
 ```
 
 #### History
@@ -172,7 +174,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-selct salary.asDecimal() from Employee
+SELECT salary.asDecimal() FROM Employee
 ```
 #### History
 
@@ -191,7 +193,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-selct ray.asFloat() > 3.14
+SELECT ray.asFloat() > 3.14
 ```
 
 #### History
@@ -213,7 +215,7 @@ Applies to the following types:
 
 Converts the first 3 chars of 'value' field in an integer:
 ```sql
-selct value.left(3).asInteger() from Log
+SELECT value.left(3).asInteger() FROM Log
 ```
 #### History
 
@@ -233,7 +235,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-selct tags.asList() from Friend
+SELECT tags.asList() FROM Friend
 ```
 #### History
 
@@ -253,7 +255,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-selct date.asLong() from Log
+SELECT date.asLong() FROM Log
 ```
 #### History
 
@@ -272,7 +274,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-selct tags.asMap() from Friend
+SELECT tags.asMap() FROM Friend
 ```
 #### History
 
@@ -291,7 +293,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-selct tags.asSet() from Friend
+SELECT tags.asSet() FROM Friend
 ```
 #### History
 
@@ -311,7 +313,7 @@ Applies to the following types:
 
 Get all the salaries with decimals:
 ```sql
-select salary.asString().indexof('.') > -1
+SELECT salary.asString().indexof('.') > -1
 ```
 
 #### History
@@ -332,7 +334,7 @@ Applies to the following types:
 
 Get the first character of the users' name:
 ```sql
-select from User where name.charAt( 0 ) = 'L'
+SELECT FROM User WHERE name.charAt( 0 ) = 'L'
 ```
 #### History
 
@@ -351,7 +353,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select dob.convert( 'date' ) from User
+SELECT dob.convert( 'date' ) FROM User
 ```
 #### History
 
@@ -370,7 +372,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select expand( @this.exclude( 'password' ) ) from OUser
+SELECT EXPAND( @this.exclude( 'password' ) ) FROM OUser
 ```
 
 ---
@@ -387,7 +389,7 @@ Applies to the following types:
 Formats salaries as number with 11 digits filling with 0 at left:
 
 ```sql
-select salary.format("%-011d") from Employee
+SELECT salary.format("%-011d") FROM Employee
 ```
 
 #### History
@@ -410,7 +412,7 @@ Applies to the following types:
 Get the SHA-512 of the field "password" in the class User:
 
 ```sql
-SELECT password.hash('SHA-512') from User
+SELECT password.hash('SHA-512') FROM User
 ```
 #### History
 - 1.7: First version
@@ -428,7 +430,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select expand( @this.include( 'name' ) ) from OUser
+SELECT EXPAND( @this.include( 'name' ) ) FROM OUser
 ```
 
 #### History
@@ -448,7 +450,7 @@ Applies to the following types:
 #### Examples
 Returns all the UK numbers:
 ```sql
-select from Contact where phone.indexOf('+44') > -1
+SELECT FROM Contact WHERE phone.indexOf('+44') > -1
 ```
 #### History
 
@@ -467,7 +469,7 @@ Applies to the following types:
 #### Examples
 Prints the Java type used to store dates:
 ```sql
-select from date.javaType() from Events
+SELECT FROM date.javaType() FROM Events
 ```
 #### History
 
@@ -486,7 +488,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select from Actor where 'Luke' IN map.keys()
+SELECT FROM Actor WHERE 'Luke' IN map.keys()
 ```
 #### History
 - 1.0rc1: First version
@@ -504,7 +506,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select from Actors where name.left( 4 ) = 'Luke'
+SELECT FROM Actors WHERE name.left( 4 ) = 'Luke'
 ```
 
 #### History
@@ -522,7 +524,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select from Providers where name.length() > 0
+SELECT FROM Providers WHERE name.length() > 0
 ```
 #### History
 - 0.9.7: First version
@@ -540,7 +542,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select from V where name.normalize() and name.normalize('NFD')
+SELECT FROM V WHERE name.normalize() AND name.normalize('NFD')
 ```
 #### History
 
@@ -559,7 +561,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select name.prefix('Mr. ') from Profile
+SELECT name.prefix('Mr. ') FROM Profile
 ```
 #### History
 - 1.0rc1: First version
@@ -577,7 +579,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select out().in().remove( @this ) from V
+SELECT out().in().remove( @this ) FROM V
 ```
 
 #### History
@@ -597,7 +599,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select out().in().removeAll( @this ) from V
+SELECT out().in().removeAll( @this ) FROM V
 ```
 
 #### History
@@ -617,7 +619,7 @@ Applies to the following types:
 #### Examples
 
 ```sql
-select name.replace('Mr.', 'Ms.') from User
+SELECT name.replace('Mr.', 'Ms.') FROM User
 ```
 
 #### History
@@ -639,7 +641,7 @@ Applies to the following types:
 
 Returns all the vertices where the name ends by "ke".
 ```sql
-select from V where name.right( 2 ) = 'ke'
+SELECT FROM V WHERE name.right( 2 ) = 'ke'
 ```
 
 #### History
@@ -660,7 +662,7 @@ Applies to the following types:
 
 Returns all the items in a tree with children:
 ```sql
-select from TreeItem where children.size() > 0
+SELECT FROM TreeItem WHERE children.size() > 0
 ```
 
 #### History
@@ -681,7 +683,7 @@ Applies to the following types:
 
 Get all the items where the name begins with an "L":
 ```sql
-select name.substring( 0, 1 ) = 'L' from StockItems
+SELECT name.substring( 0, 1 ) = 'L' FROM StockItems
 ```
 #### History
 - 0.9.7: First version
@@ -698,7 +700,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select name.trim() == 'Luke' from Actors
+SELECT name.trim() == 'Luke' FROM Actors
 ```
 
 #### History
@@ -748,7 +750,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select name.toLowerCase() == 'luke' from Actors
+SELECT name.toLowerCase() == 'luke' FROM Actors
 ```
 
 #### History
@@ -766,7 +768,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select name.toUpperCase() == 'LUKE' from Actors
+SELECT name.toUpperCase() == 'LUKE' FROM Actors
 ```
 
 #### History
@@ -785,7 +787,7 @@ Applies to the following types:
 #### Examples
 Prints the type used to store dates:
 ```sql
-select from date.type() from Events
+SELECT FROM date.type() FROM Events
 ```
 #### History
 
@@ -806,7 +808,7 @@ Applies to the following types:
 
 #### Examples
 ```sql
-select from Clients where map.values() CONTAINSALL ( name is not null)
+SELECT FROM Clients WHERE map.values() CONTAINSALL ( name is not null)
 ```
 #### History
 

@@ -16,7 +16,7 @@ FREEZE DATABASE
 ```
 
 ## See also
-- [release database](Console-Command-Release-Db.md), to release the frozen database
+- [RELEASE DATABASE](Console-Command-Release-Db.md), to release the frozen database
 - [SQL commands](SQL.md)
 - [Console-Commands](Console-Commands.md)
 

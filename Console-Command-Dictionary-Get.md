@@ -5,7 +5,7 @@ Displays the value of the requested key loaded from the database dictionary.
 ## Syntax
 
 ```
-dictionary get <key>
+DICTIONARY GET <key>
 ```
 
 Where:
@@ -14,8 +14,8 @@ Where:
 
 ## Example
 
-```java
-> dictionary get obama
+```sql
+DICTIONARY GET obama
 --------------------------------------------------
 Class: Person   id: 5:4   v.1
 --------------------------------------------------
@@ -28,7 +28,7 @@ Class: Person   id: 5:4   v.1
 --------------------------------------------------
 ```
 
-To know all the keys stored in the database dictionary use the [dictionary keys](Console-Command-Dictionary-Keys.md) command.
+To know all the keys stored in the database dictionary use the [DICTIONARY KEYS](Console-Command-Dictionary-Keys.md) command.
 
 For complete index (and dictionary) guide look at [Index guide](Indexes.md).
 

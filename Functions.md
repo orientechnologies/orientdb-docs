@@ -2,7 +2,7 @@
 
 A **Function** is an executable unit of code that can take parameters and return a result. Using Functions you can perform [Functional programming](http://en.wikipedia.org/wiki/Functional_programming) where logic and data are all together in a central place. Functions are similar to the [Stored Procedures](http://en.wikipedia.org/wiki/Stored_procedure) of RDBMS.
 
-_NOTE: This guide refers to the last available release of OrientDB. For past revisions look at [Compatibility](Functions.md#wiki-compatibility)._
+>**NOTE**: This guide refers to the last available release of OrientDB. For past revisions look at [Compatibility](Functions.md#wiki-compatibility)._
 
 OrientDB Functions:
 - are persistent
@@ -16,6 +16,7 @@ OrientDB Functions:
 ## Create your first function
 
 To start using Functions the simplest way is using the [Studio](https://github.com/orientechnologies/orientdb-studio/wiki). Open the database and go to the "Functions" panel. Then write as name "sum", add 2 parameters named "a" and "b" and now write the following code in the text area:
+
 ```javascript
 return a + b;
 ```
@@ -28,11 +29,11 @@ Now let's go to test it. On the bottom you will find 2 empty boxes. This is wher
 
 ## Where are my functions saved?
 
-Functions are saved in the database using the **OFunction** class and the following properties:
-- **name**, as the name of the function
-- **code**, as the code to execute
-- **parameters**, as an optional EMBEDDEDLIST of String containing the parameter names if any
-- **idempotent**, tells if the function is idempotent, namely if it changes the database. Read-only functions are idempotent. This is needed to avoid calling non-idempotent functions using the HTTP GET method
+Functions are saved in the database using the `OFunction` class and the following properties:
+- `name`, as the name of the function
+- `code`, as the code to execute
+- `parameters`, as an optional `EMBEDDEDLIST` of String containing the parameter names if any
+- `idempotent`, tells if the function is `idempotent`, namely if it changes the database. Read-only functions are `idempotent`. This is needed to avoid calling non-`idempotent` functions using the HTTP GET method
 
 ### Concurrent editing
 
@@ -69,7 +70,7 @@ Number result = sum.execute(params);
 
 Each function is exposed as a REST service allowing the receiving of parameters. parameters are passed by position.
 
-Below how to execute the "sum" function created before:
+Below how to execute the `sum` function created before:
 ```
 http://localhost:2480/function/demo/sum/3/5
 ```
@@ -163,13 +164,13 @@ result:
 
 ## Access to the databases from Functions
 
-OrientDB always binds a special variable "orient" to use OrientDB services from inside the functions. The most important methods are:
-- **orient.getGraph()**, returns the current transactional [graph database](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance
-- **orient.getGraphNoTx()**, returns the current [non-transactional graph database](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraphNoTx.html) instance
-- **orient.getDatabase()**, returns the current [document database](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html) instance
+OrientDB always binds a special variable `orient` to use OrientDB services from inside the functions. The most important methods are:
+- `orient.getGraph()`, returns the current transactional [graph database](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance
+- `orient.getGraphNoTx()`, returns the current [non-transactional graph database](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraphNoTx.html) instance
+- `orient.getDatabase()`, returns the current [document database](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html) instance
 
 ### Execute a query
-Query is an idempotent command. To execute a query use the ```query()```method. Example:
+Query is an idempotent command. To execute a query use the `query()` method. Example:
 
 ```javascript
 return orient.getDatabase().query("select name from ouser");
@@ -177,7 +178,8 @@ return orient.getDatabase().query("select name from ouser");
 
 ### Execute a query with external parameters
 
-Create a new function with name "getyUserRoles" with the parameter "user". Then write this code:
+Create a new function with name `getyUserRoles` with the parameter `user`. Then write this code:
+
 ```javascript
 return orient.getDatabase().query("select roles from ouser where name = ?", name );
 ```
@@ -204,7 +206,7 @@ Furthermore each function is published and reachable via HTTP REST protocol allo
 
 ### Example
 
-Below an example of functions to build a repository for OUser records.
+Below an example of functions to build a repository for `OUser` records.
 
 **function user_getAll(){**
 ```javascript
@@ -277,24 +279,25 @@ var params = request.getParameters();
 
 |Method signature|Description|Return type|
 |----------------|-----------|-----------|
-|getContent()|Returns the request's content|String|
-|getUser()|Gets the request's user name|String|
-|getContentType()|Returns the request's content type|String|
-|getHttpVersion()|Return the request's HTTP version|String|
-|getHttpMethod()|Return the request's HTTP method called|String|
-|getIfMatch()|Return the request's IF-MATCH header|String|
-|isMultipart()|Returns if the requests has multipart|boolean|
-|getArguments()|Returns the request's arguments passed in REST form. Example: /2012/10/26|String[]|
-|getArgument(<code>&lt;position&gt;</code>)|Returns the request's argument by position, or null if not found|String|
-|getParameters()|Returns the request's parameters|String|
-|getParameter(<code>&lt;name&gt;</code>)|Returns the request's parameter by name or null if not found|String|
-|hasParameters(<code>&lt;name&gt;*</code>)|Returns the number of parameters found between those passed|Integer|
-|getSessionId()|Returns the session-id|String|
-|getURL()|Returns the request's URL|String|
+|`getContent()`|Returns the request's content|String|
+|`getUser()`|Gets the request's user name|String|
+|`getContentType()`|Returns the request's content type|String|
+|`getHttpVersion()`|Return the request's HTTP version|String|
+|`getHttpMethod()`|Return the request's HTTP method called|String|
+|`getIfMatch()`|Return the request's IF-MATCH header|String|
+|`isMultipart()`|Returns if the requests has multipart|boolean|
+|`getArguments()`|Returns the request's arguments passed in REST form. Example: /2012/10/26|String[]|
+|`getArgument(<position>)`|Returns the request's argument by position, or null if not found|String|
+|`getParameters()`|Returns the request's parameters|String|
+|`getParameter(<name>`)|Returns the request's parameter by name or null if not found|String|
+|`hasParameters(<name>*`)|Returns the number of parameters found between those passed|Integer|
+|`getSessionId()`|Returns the session-id|String|
+|`getURL()`|Returns the request's URL|String|
 
 ### Response object
 
 Refer to this object as "response". Example:
+
 ```javascript
 var db = orient.getDatabase();
 var roles = db.query("select from ORole where name = ?", roleName);
@@ -316,33 +319,33 @@ if( roles == null || roles.length == 0 ){
 
 |Method signature|Description|Return type|
 |----------------|-----------|-----------|
-|getHeader()|Returns the response's additional headers|String|
-|setHeader(String header)|Sets the response's additional headers to send back. To specify multiple headers use the line breaks|Request object|
-|getContentType()|Returns the response's content type. If null will be automatically detected|String|
-|setContentType(String contentType)|Sets the response's content type.  If null will be automatically detected|Request object|
-|getCharacterSet()|Returns the response's character set used|String|
-|setCharacterSet(String characterSet)|Sets the response's character set|Request object|
-|getHttpVersion()||String|
-|writeStatus(int httpCode, String reason)|Sets the response's status as HTTP code and reason|Request object|
-|writeStatus(int httpCode, String reason)|Sets the response's status as HTTP code and reason|Request object|
-|writeHeaders(String contentType)|Sets the response's headers using the keep-alive|Request object|
-|writeHeaders(String contentType, boolean keepAlive)|Sets the response's headers specifying when using the keep-alive or not|Request object|
-|writeLine(String content)|Writes a line in the response. A line feed will be appended at the end of the content|Request object|
-|writeContent(String content) |Writes content directly to the response |Request object|
-|writeRecords(List<code>&lt;OIdentifiable&gt;</code> records) |Writes records as response. The records are serialized in JSON format |Request object|
-|writeRecords( List<code>&lt;OIdentifiable&gt;</code> records, String fetchPlan)|Writes records as response specifying a fetch-plan to serialize nested records. The records are serialized in JSON format |Request object|
-|writeRecord(ORecord record) | Writes a record as response. The record is serialized in JSON format|Request object|
-|writeRecord(ORecord record, String fetchPlan) | Writes a record as response. The record is serialized in JSON format|Request object|
-|send(int code, String reason, String contentType, Object content) | Sends the complete HTTP response in one call|Request object|
-|send(int code, String reason, String contentType, Object content, String headers) |Sends the complete HTTP response in one call specifying additional headers. Keep-alive is set |Request object|
-|send(int code, String reason, String contentType, Object content, String headers, boolean keepAlive) | Sends the complete HTTP response in one call specifying additional headers |Request object|
-|sendStream(int code, String reason, String contentType, InputStream content, long size) | Sends the complete HTTP response in one call specifying a stream as content|Request object |
-|flush()| Flushes the content to the TCP/IP socket |Request object|
+|`getHeader()`|Returns the response's additional headers|String|
+|`setHeader(String header)`|Sets the response's additional headers to send back. To specify multiple headers use the line breaks|Request object|
+|`getContentType()`|Returns the response's content type. If null will be automatically detected|String|
+|`setContentType(String contentType)`|Sets the response's content type.  If null will be automatically detected|Request object|
+|`getCharacterSet()`|Returns the response's character set used|String|
+|`setCharacterSet(String characterSet)`|Sets the response's character set|Request object|
+|`getHttpVersion()`||String|
+|`writeStatus(int httpCode, String reason)`|Sets the response's status as HTTP code and reason|Request object|
+|`writeStatus(int httpCode, String reason)`|Sets the response's status as HTTP code and reason|Request object|
+|`writeHeaders(String contentType)`|Sets the response's headers using the keep-alive|Request object|
+|`writeHeaders(String contentType, boolean keepAlive)`|Sets the response's headers specifying when using the keep-alive or not|Request object|
+|`writeLine(String content)`|Writes a line in the response. A line feed will be appended at the end of the content|Request object|
+|`writeContent(String content)` |Writes content directly to the response |Request object|
+|`writeRecords(List<OIdentifiable> records)` |Writes records as response. The records are serialized in JSON format |Request object|
+|`writeRecords( List<OIdentifiable> records, String fetchPlan)`|Writes records as response specifying a fetch-plan to serialize nested records. The records are serialized in JSON format |Request object|
+|`writeRecord(ORecord record)` | Writes a record as response. The record is serialized in JSON format|Request object|
+|`writeRecord(ORecord record, String fetchPlan)` | Writes a record as response. The record is serialized in JSON format|Request object|
+|`send(int code, String reason, String contentType, Object content)` | Sends the complete HTTP response in one call|Request object|
+|`send(int code, String reason, String contentType, Object content, String headers)` |Sends the complete HTTP response in one call specifying additional headers. Keep-alive is set |Request object|
+|`send(int code, String reason, String contentType, Object content, String headers, boolean keepAlive)` | Sends the complete HTTP response in one call specifying additional headers |Request object|
+|`sendStream(int code, String reason, String contentType, InputStream content, long size)` | Sends the complete HTTP response in one call specifying a stream as content|Request object |
+|`flush()`| Flushes the content to the TCP/IP socket |Request object|
 
 
 ### Util object
 
-Refer to this object as "util". Example:
+Refer to this object as `util`. Example:
 ```java
 if( util.exists(year) ){
   print("\nYes, the year was passed!");
@@ -351,7 +354,7 @@ if( util.exists(year) ){
 
 |Method signature|Description|Return type|
 |----------------|-----------|-----------|
-|exists(<code>&lt;variable&gt;*</code>)|Returns trues if any of the passed variables are defined. In JS, for example, a variable is defined if it's not null and not equals to "undefined"|Boolean|
+|`exists(<variable>)`|Returns trues if any of the passed variables are defined. In JS, for example, a variable is defined if it's not null and not equals to "undefined"|Boolean|
 
 ## Native functions
 OrientDB's [SQL dialect](SQL.md) supports many functions written in native language. To obtain better performance you can [write you own native functions](SQL-Functions.md#custom-functions-in-java) in Java language and register them to the engine.
@@ -360,5 +363,5 @@ OrientDB's [SQL dialect](SQL.md) supports many functions written in native langu
 ### 1.5.0 and before
 
 OrientDB binds the following variables:
-- **db**, that is the current document database instance
-- **gdb**, that is the current graph database instance
+- `db`, that is the current document database instance
+- `gdb`, that is the current graph database instance

@@ -8,9 +8,9 @@ For the purpose of this tutorial we're going to run two servers. There are two w
 ## Start the first server node
 To start OrientDB in distributed mode, don't use `bin/server.sh` (or `.bat` on Windows), but rather the `bin/dserver.sh` (or `bin\dserver.bat`) script:
 
-```
-> cd bin
-> ./dserver.sh
+``` console
+$ cd bin
+$ ./dserver.sh
 ```
 
 Note that the same configuration file `orientdb-server-config.xml` is still used. For more information, look at [Distributed Configuration](Distributed-Configuration.md).
@@ -38,12 +38,14 @@ Upon starting, OrientDB loads all the databases in the "databases" directory and
 
 To know more about the meaning of the configuration contained in the `config/default-distributed-db-config.json` file look at [Distributed Configuration](Distributed-Configuration.md).
 
+
 ## Start the second server node
+
 Now start the second server like the first one. Make sure that both servers have the same Hazelcast credentials to join the same cluster in the `config/hazelcast.xml` file. The fastest way to do this is to copy & paste the OrientDB directory from the first node to the other ones. If you run multiple server instances in the same host (makes sense only for testing purpose) remember to change the port in `config/hazelcast.xml`.
 
 Once the other node is online, both nodes see each other and dump a message like this:
 
-```
+``` json
 WARN [node1384014656983] added new node id=Member [192.168.1.179]:2435 name=null [OHazelcastPlugin]
 INFO [192.168.1.179]:2434 [orientdb] Re-partitioning cluster data... Migration queue size: 135 [PartitionService]
 INFO [192.168.1.179]:2434 [orientdb] All migration tasks has been completed, queues are empty. [PartitionService]
@@ -81,11 +83,11 @@ WARN [node1383734730415]->[node1384015873680] deploying database GratefulDeadCon
 WARN [node1383734730415]->[node1384015873680] sending the compressed database GratefulDeadConcerts over the network, total 339,66Kb [ODeployDatabaseTask]
 ```
 
-In this case 2 server nodes were started on the same machine (ip=10.37.129.2) but with 2 different ports (2434 and 2435 where the current is "this"). The rest of the log is relative to the distribution of the database to the second server.
+In this case 2 server nodes were started on the same machine (IP=10.37.129.2) but with 2 different ports (2434 and 2435 where the current is "this"). The rest of the log is relative to the distribution of the database to the second server.
 
 On the second server node output you'll see these messages:
 
-```
+``` json
 WARN [node1384015873680]<-[node1383734730415] installing database GratefulDeadConcerts in databases/GratefulDeadConcerts... [OHazelcastPlugin]
 WARN [node1384015873680] installed database GratefulDeadConcerts in databases/GratefulDeadConcerts, setting it online... [OHazelcastPlugin]
 WARN [node1384015873680] database GratefulDeadConcerts is online [OHazelcastPlugin]

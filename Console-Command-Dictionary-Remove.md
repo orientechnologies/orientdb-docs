@@ -5,7 +5,7 @@ Removes the association from the database dictionary.
 ## Syntax
 
 ```
-dictionary remove <key>
+DICTIONARY REMOVE <key>
 ```
 
 Where:
@@ -14,8 +14,8 @@ Where:
 
 ## Example
 
-```java
-> dictionary remove obama
+```sql
+DICTIONARY REMOVE obama
 
 Entry removed from the dictionary. Last value of entry was:
 --------------------------------------------------
@@ -30,7 +30,7 @@ Class: Person   id: 5:4   v.1
 --------------------------------------------------
 ```
 
-To know all the keys stored in the database dictionary use the [dictionary keys](Console-Command-Dictionary-Keys.md) command.
+To know all the keys stored in the database dictionary use the [DICTIONARY KEYS](Console-Command-Dictionary-Keys.md) command.
 
 For complete index (and dictionary) guide look at [Index guide](Indexes.md).
 

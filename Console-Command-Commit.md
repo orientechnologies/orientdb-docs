@@ -5,33 +5,33 @@ OrientDB supports [Transactions](Transactions.md). To begin a new transaction us
 ## Syntax
 
 ```sql
-commit
+COMMIT
 ```
 
 ## See also
 
 - [Transactions](Transactions.md)
-- [Console Command Begin](Console-Command-Begin.md)
-- [Console Command Rollback](Console-Command-Rollback.md)
+- [Console Command BEGIN](Console-Command-Begin.md)
+- [Console Command ROLLBACK](Console-Command-Rollback.md)
 - [Console Commands](Console-Commands.md)
 
 ## Example
 
 ```
-orientdb> begin
+orientdb> BEGIN
 Transaction 2 is running
 
-orientdb> begin
+orientdb> BEGIN
 Error: an active transaction is currently open (id=2). Commit or rollback before starting a new one.
 
-orientdb> insert into account (name) values ('tx test')
+orientdb> INSERT INTO account (name) VALUES ('tx test')
 
 Inserted record 'Account#9:-2{name:tx test} v0' in 0,000000 sec(s).
 
-orientdb> commit
+orientdb> COMMIT
 Transaction 2 has been committed in 4ms
 
-orientdb> select from account where name like 'tx%'
+orientdb> SELECT FROM account WHERE name LIKE 'tx%'
 
 ---+---------+--------------------
   #| RID     |name
@@ -40,8 +40,6 @@ orientdb> select from account where name like 'tx%'
 ---+---------+--------------------
 
 1 item(s) found. Query executed in 0.041 sec(s).
-
-orientdb>
 ```
 
 Until the commit all the new records will have a temporary RID with negative numbers.

@@ -4,17 +4,24 @@ We already met the [Graph Model](Tutorial-Document-and-graph-model.md#graph-mode
 
 ### Create Vertexes and Edges
 
-OrientDB comes with a generic Vertex persistent class called "V" (OGraphVertex in previous releases) and "E" (OGraphEdge in the past) for Edge. You can create a new Vertex with:
+OrientDB comes with a generic Vertex persistent class called `V` (OGraphVertex in previous releases) and `E` (OGraphEdge in the past) for Edge. You can create a new Vertex with:
 
-    orientdb> insert into V set name = 'Jay'
-    create record with RID #9:0
+``` sql
+INSERT INTO V SET name = 'Jay'
 
-In effect, the GraphDB model works on top of the underlying Document model, so all the stuff you have learned until now (Records, Relationships, etc.) remains valid. But in order to simplify the management of the graph we've created special commands, so don't use the SQL Insert command anymore to create a new vertex. Instead, use the ad-hoc "create vertex" command:
+ Created record with RID #9:0
+```
 
-    orientdb> create vertex V set name = 'Jay'
-    create vertex with RID #9:1
+In effect, the GraphDB model works on top of the underlying Document model, so all the stuff you have learned until now (Records, Relationships, etc.) remains valid. But in order to simplify the management of the graph we've created special commands, so don't use the SQL Insert command anymore to create a new vertex. Instead, use the ad-hoc `CREATE VERTEX` command:
+
+``` sql
+CREATE VERTEX V SET name = 'Jay'
+
+Created vertex with RID #9:1
+```
 
 By using graph commands, OrientDB takes care of ensuring that the graph remains always consistent. All the Graph commands are:
+
 - [CREATE VERTEX](SQL-Create-Vertex.md)
 - [DELETE VERTEX](SQL-Delete-Vertex.md)
 - [CREATE EDGE](SQL-Create-Edge.md)
@@ -23,6 +30,7 @@ By using graph commands, OrientDB takes care of ensuring that the graph remains 
 ### Create custom Vertices and Edges classes
 
 Even though you can work with Vertices and Edges, OrientDB provides the possibility to extend the `V` and `E` classes. The pros of this approach are:
+
 - better understanding about meaning of entities
 - optional constraints at class level
 - performance: better partitioning of entities
@@ -30,97 +38,125 @@ Even though you can work with Vertices and Edges, OrientDB provides the possibil
 
 So from now on, we will avoid using plain `V` and `E` and will always create custom classes. Let's develop an example graph to model a social network based on restaurants:
 
-    orientdb> create class Person extends V
-    orientdb> create class Restaurant extends V
+``` sql
+CREATE CLASS Person EXTENDS V
+
+CREATE CLASS Restaurant EXTENDS V
+```
 
 Now that the schema has been created let's populate the graph with some vertices:
 
-    orientdb> create vertex Person set name = 'Luca'
-    create record with RID #11:0
+``` sql
+CREATE VERTEX Person SET name = 'Luca'
 
-    orientdb> create vertex Person set name = 'Bill'
-    create record with RID #11:1
+ Created record with RID #11:0
 
-    orientdb> create vertex Person set name = 'Jay'
-    create record with RID #11:2
+CREATE VERTEX Person SET name = 'Bill'
 
-    orientdb> create vertex Restaurant set name = 'Dante', type = 'Pizza'
-    create record with RID #12:0
+ Created record with RID #11:1
 
-    orientdb> create vertex Restaurant set name = 'Charlie', type = 'French'
-    create record with RID #12:1
+CREATE VERTEX Person SET name = 'Jay'
+
+ Created record with RID #11:2
+
+CREATE VERTEX Restaurant SET name = 'Dante', type = 'Pizza'
+
+ Created record with RID #12:0
+
+CREATE VERTEX Restaurant SET name = 'Charlie', type = 'French'
+
+ Created record with RID #12:1
+```
 
 Before we connect them using edges, let's go create a new Edge type:
 
-    orientdb> create class Eat extends E
+``` sql
+CREATE CLASS Eat EXTENDS E
+```
 
 This will represent the relationship from Person to Restaurant. The orientation is important when you create an edge because it gives the meaning of the relationship. If we wanted to model the edge in the opposite orientation, from Restaurant to Person, we might call the Edge class "Attendee", or something similar.
 
 Now let's create a connection between person "Luca" and restaurant "Dante":
 
-    orientdb> create edge Eat from (select from Person where name = 'Luca') to (select from Restaurant where name = 'Dante')
+``` sql
+CREATE EDGE Eat FROM ( SELECT FROM Person WHERE name = 'Luca' ) TO ( SELECT FROM Restaurant WHERE name = 'Dante' )
+```
 
 If you know the [RID](Concepts.md#recordid) of vertices you can connect them with a shorter and faster command. Below we will connect "Bill" with the same "Dante" Restaurant and 'Jay' to 'Charlie' Restaurant:
 
-    orientdb> create edge Eat from #11:1 to #12:0
-    orientdb> create edge Eat from #11:2 to #12:1
+``` sql
+CREATE EDGE Eat FROM #11:1 TO #12:0
+
+CREATE EDGE Eat FROM #11:2 TO #12:1
+```
 
 Now that our small graph has been created let's play with queries. To cross edges we can use special graph functions like:
-- `out()`, to retrieve the adjacent outgoing vertices
-- `in()`, to retrieve the adjacent incoming vertices
-- `both()`, to retrieve the adjacent incoming and outgoing vertices
+
+- `OUT()`, to retrieve the adjacent outgoing vertices
+- `IN()`, to retrieve the adjacent incoming vertices
+- `BOTH()`, to retrieve the adjacent incoming and outgoing vertices
 
 To know all the people who eat in the "Dante" restaurant (RID = #12:0), we can get Dante's record and then traverse the incoming edges to discover the Person records connected:
 
-    orientdb> select in() from Restaurant where name = 'Dante'
+``` sql
+SELECT IN() FROM Restaurant WHERE name = 'Dante'
 
-    +-------+----------------+
-    | @RID  | in             |
-    +-------+----------------+
-    | #-2:1 | [#11:0, #11:1] |
-    +-------+----------------+
+ +-------+----------------+
+ | @RID  | in             |
+ +-------+----------------+
+ | #-2:1 | [#11:0, #11:1] |
+ +-------+----------------+
+```
 
-Those are the RIDs of the Person instances connected. In these cases the `expand()` special function becomes very useful to transform the collection of vertices in the resultset by expanding it:
+Those are the RIDs of the Person instances connected. In these cases the `EXPAND()` special function becomes very useful to transform the collection of vertices in the resultset by expanding it:
 
-    orientdb> select expand( in() ) from Restaurant where name = 'Dante'
+``` sql
+SELECT EXPAND( IN() ) FROM Restaurant WHERE name = 'Dante'
 
-    +-------+-------------+-------------+---------+
-    | @RID  | @CLASS      | Name        | out_Eat |
-    +-------+-------------+-------------+---------+
-    | #11:0 | Person      | Luca        | #12:0   |
-    | #11:1 | Person      | Bill        | #12:0   |
-    +-------+-------------+-------------+---------+
+ +-------+-------------+-------------+---------+
+ | @RID  | @CLASS      | Name        | out_Eat |
+ +-------+-------------+-------------+---------+
+ | #11:0 | Person      | Luca        | #12:0   |
+ | #11:1 | Person      | Bill        | #12:0   |
+ +-------+-------------+-------------+---------+
+```
 
 Much better! Now let's create the new relationship "Friend" to connect people:
 
-    orientdb> create class Friend extends E
+``` sql
+CREATE CLASS Friend EXTENDS E
+```
 
 And connect "Luca" with "Jay":
 
-    orientdb> create edge Friend from #11:0 to #11:2
+``` sql
+CREATE EDGE Friend FROM #11:0 TO #11:2
+```
 
-"Friend" relationship is one of these edge types where the orientation is not important: if "Luca" is a friend of "Jay" the opposite is usually true, so the orientation looses importance. To discover Luca's friends, we should use the `both()` function:
+"Friend" relationship is one of these edge types where the orientation is not important: if "Luca" is a friend of "Jay" the opposite is usually true, so the orientation looses importance. To discover Luca's friends, we should use the `BOTH()` function:
 
-    orientdb> select expand( both('Friend') ) from Person where name = 'Luca'
+``` sql
+SELECT EXPAND( BOTH( 'Friend' ) ) FROM Person WHERE name = 'Luca'
 
-    +-------+-------------+-------------+---------+-----------+
-    | @RID  | @CLASS      | Name        | out_Eat | in_Friend |
-    +-------+-------------+-------------+---------+-----------+
-    | #11:2 | Person      | Jay         | #12:1   | #11:0     |
-    +-------+-------------+-------------+---------+-----------+
+ +-------+-------------+-------------+---------+-----------+
+ | @RID  | @CLASS      | Name        | out_Eat | in_Friend |
+ +-------+-------------+-------------+---------+-----------+
+ | #11:2 | Person      | Jay         | #12:1   | #11:0     |
+ +-------+-------------+-------------+---------+-----------+
+```
 
-In this case I've passed the Edge's class "Friend" as argument of the `both()` function to cross only the relationships of kind "Friend" (so skip the "Eat" this time). Note also in the result set that the relationship with "Luca" (RID = #11:0) is in the "in_" field.
+In this case I've passed the Edge's class "Friend" as argument of the `BOTH()` function to cross only the relationships of kind "Friend" (so skip the "Eat" this time). Note also in the result set that the relationship with "Luca" (RID = #11:0) is in the `in_` field.
 
 Now let's make things more complicated. Get all the restaurants where Luca's friends go.
 
 ```sql
-orientdb> select expand( both('Friend').out('Eat') ) from Person where name = 'Luca'
+SELECT EXPAND( BOTH( 'Friend' ).out( 'Eat' ) ) FROM Person WHERE name = 'Luca'
 
-+-------+-------------+-------------+-------------+---------+
-| @RID  | @CLASS      | Name        | Type        | in_Eat  |
-+-------+-------------+-------------+-------------+---------+
-| #12:1 | Restaurant  | Charlie     | French      | #11:2   |
-+-------+-------------+-------------+-------------+---------+
+ +-------+-------------+-------------+-------------+---------+
+ | @RID  | @CLASS      | Name        | Type        | in_Eat  |
+ +-------+-------------+-------------+-------------+---------+
+ | #12:1 | Restaurant  | Charlie     | French      | #11:2   |
+ +-------+-------------+-------------+-------------+---------+
 ```
 
 Cool, isn't it?
@@ -139,7 +175,7 @@ In most of the cases Edges are used from Vertices, so this doesn't cause any par
 ALTER DATABASE CUSTOM useLightweightEdges=false
 ```
 
-This will only take effect for new edges. For more information look at: https://github.com/orientechnologies/orientdb/wiki/Troubleshooting#why-i-cant-see-all-the-edges.
+This will only take effect for new edges. For more information look at: [Why I can't see all the edges](https://github.com/orientechnologies/orientdb/wiki/Troubleshooting#why-i-cant-see-all-the-edges).
 
 
 For more information look at [Graph API](Graph-Database-Tinkerpop.md).

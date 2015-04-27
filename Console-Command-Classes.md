@@ -5,13 +5,13 @@ Displays all the classes configured in the current database.
 ## Syntax
 
 ```
-classes
+CLASSES
 ```
 
 ## Example
 
-```java
-> classes
+```sql
+CLASSES
 
 CLASSES:
 --------------------+------+------------------------------------------+-----------+

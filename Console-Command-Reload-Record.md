@@ -5,7 +5,7 @@ Reloads a record by its record-id from the current database ignoring the cache. 
 ## Syntax
 
 ```
-reload record <record-id>
+RELOAD RECORD <record-id>
 ```
 
 Where:
@@ -14,8 +14,8 @@ Where:
 
 ## Example
 
-```java
-> reload record 5:5
+```sql
+RELOAD RECORD 5:5
 
 --------------------------------------------------
 Class: Person   id: 5:5   v.0

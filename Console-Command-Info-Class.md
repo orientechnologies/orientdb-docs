@@ -5,13 +5,13 @@ Displays all the information about the selected class
 ## Syntax
 
 ```
-info class <class-name>
+INFO CLASS <class-name>
 ```
 
 ## Example
 
-```java
-> info class profile
+```sql
+INFO CLASS Profile
 
 Class................: Profile (id=4)
 Default cluster......: profile (id=10)

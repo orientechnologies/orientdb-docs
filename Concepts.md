@@ -47,15 +47,18 @@ OrientDB Documents support complex [relationships](Concepts.md#relationships). F
 ### RecordID
 
 In OrientDB, each record has an auto assigned Unique ID. The RecordID (or RID) is composed in this way:
+
 ```
 #[<cluster>:<position>]
 ```
 
 Where:
-- cluster is the cluster id. Positive numbers indicate persistent records. Negative numbers indicate temporary records, like those used in result sets for queries that use projections.
-- position is the absolute position of the record inside a cluster.
 
-*NOTE: The prefix character # is mandatory to recognize a RecordID.*
+- `<cluster>` is the cluster id. Positive numbers indicate persistent records. Negative numbers indicate temporary records, like those used in result sets for queries that use projections.
+
+- `<position>` is the absolute position of the record inside a cluster.
+
+> **NOTE**: The prefix character `#` is mandatory to recognize a RecordID.
 
 The record never loses its identity unless it is deleted. Once deleted its identity is never recycled (but with "local" storage). You can access a record directly by its RecordID. For this reason you don't need to create a field as a primary key like in a Relational DBMS.
 
@@ -76,22 +79,24 @@ When you create a new class by default a new [persistent cluster](Concepts.md#ph
 ### Abstract Class
 
 If you know Object-Orientation you already know what an abstract class is. For all the rest:
-- http://en.wikipedia.org/wiki/Abstract_type
-- http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html
+- [Abstract Type](http://en.wikipedia.org/wiki/Abstract_type)
+- [Abstract Methods and Classes](http://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)
 For our purpose, we can sum up an abstract class as:
 - A class used as a foundation for defining other classes (eventually, concrete classes)
 - A class that can't have instances
 
-To create a new abstract class look at [SQL Create Class](SQL-Create-Class.md#abstract-class).
+To create a new abstract class look at [CREATE CLASS](SQL-Create-Class.md#abstract-class).
 
 Abstract classes are essential to support Object Orientation without the typical spamming of the database with always empty auto-created clusters.
-_NOTE: available since 1.2.0_
+
+> **NOTE**: Feature available since 1.2.0.
 
 ### When do you use a class or a cluster in queries?
 
 Let's use an example: Let's assume you created a class "Invoice" and two clusters "invoice2011" and "invoice2012".
 
 You can now query all the invoices by using the class as a target in the SQL select:
+
 ```sql
 SELECT FROM Invoice
 ```
@@ -119,7 +124,9 @@ OrientDB supports two kinds of relationships: *referenced* and *embedded*. Orien
 ### Referenced relationships
 
 Relationships in OrientDB are managed natively without computing costly JOINs, as in a Relational DBMS. In fact, OrientDB stores direct link(s) to the target objects of the relationship. This boosts up the load speed of the entire graph of connected objects like in Graph and Object DBMSs.
-Example:
+
+For example:
+
 ```
                   customer
   Record A     ------------->    Record B
@@ -151,7 +158,8 @@ Embedded records, instead, are contained inside the record that embeds them. It'
 CLASS=Account               CLASS=Address
   RID=5:23                     NO RID!
 ```
-<b>Record A</b> will contain the entire **Record B** in the property called "address". **Record B** can be reached only by traversing the container record.
+
+**Record A** will contain the entire **Record B** in the property called "address". **Record B** can be reached only by traversing the container record.
 
 Example:
 
@@ -167,9 +175,9 @@ These kinds of relationships are expressed using the **EMBEDDED** type.
 
 These kinds of relationships are expressed using a collection of links such as:
 
-- <b>EMBEDDEDLIST</b>, as an ordered list of records.
-- <b>EMBEDDEDSET</b>, as an unordered set of records. It doesn't accept duplicates.
-- <b>EMBEDDEDMAP</b>, as an ordered map of records as the value and a **String** as the key. It doesn't accept duplicate keys.
+- **EMBEDDEDLIST**, as an ordered list of records.
+- **EMBEDDEDSET**, as an unordered set of records. It doesn't accept duplicates.
+- **EMBEDDEDMAP**, as an ordered map of records as the value and a **String** as the key. It doesn't accept duplicate keys.
 
 ### Inverse relationships
 
@@ -202,8 +210,8 @@ OrientDB has its own [URL](http://en.wikipedia.org/wiki/Uniform_Resource_Locator
 ```
 
 Where:
-- **db-name** is the database name and depends on the engine used (see below)
-- **engine** can be:
+- `<db-name>` is the database name and depends on the engine used (see below)
+- `<engine>` can be:
 
 |Engine|Description|Example|
 |------|-----------|-------|
@@ -215,4 +223,4 @@ Where:
 
 The database must always be closed once you've finished working with it.
 
-NOTE: OrientDB automatically closes all opened databases when the process dies gracefully (not by killing it by force). This is assured if the Operating System allows a graceful shutdown.
+> **NOTE**: OrientDB automatically closes all opened databases when the process dies gracefully (not by killing it by force). This is assured if the Operating System allows a graceful shutdown.

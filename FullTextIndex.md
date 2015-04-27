@@ -5,8 +5,9 @@ Full Text indexes allow to index text as single word and its radix. Full text in
 ### Create a FullText Index
 
 Example:
+
 ```sql
-create index City.name on City (name) FULLTEXT
+CREATE INDEX City.name ON City (name) FULLTEXT
 ```
 
 This will create a FullText index on the property name of the class City,
@@ -16,19 +17,20 @@ with default configuration.
 
 |Parameter|Default|Description|
 |---------|-------------|-------------|
-|indexRadix|true|Word prefixes will be also index|
-|ignoreChars|`"`|Chars to skip when indexing|
-|separatorChars|` \r\n\t:;,.&#124;+*/\=!?[](.md)`||
-|minWordLength|3|Minimum word length to index|
-|stopWords|"the in a at as and or for his her him this that what which while up with be was were is"|Stop words escluded from indexing|
+|`indexRadix`|`TRUE`|Word prefixes will be also index|
+|`ignoreChars`|`"`|Chars to skip when indexing|
+|`separatorChars`|` \r\n\t:;,.&#124;+*/\=!?[](.md)`||
+|`minWordLength`|`3`|Minimum word length to index|
+|`stopWords`|"the in a at as and or for his her him this that what which while up with be was were is"|Stop words escluded from indexing|
 
 #### Configure a FullText Index (OrientDB v. 1.7)
 
 To configure fulltext index use the metadata field.
 
 Example with SQL:
+
 ```
-create index City.name on City (name) FULLTEXT METADATA {"indexRadix" : true, "ignoreChars" : "&" , "separatorChars" : " |()", "minWordLength" : 4 , "stopWords" : ['the','of']}
+CREATE INDEX City.name ON City (name) FULLTEXT METADATA {"indexRadix" : TRUE, "ignoreChars" : "&" , "separatorChars" : " |()", "minWordLength" : 4 , "stopWords" : ['the','of']}
 ```
 
 Example with Java;

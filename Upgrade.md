@@ -39,25 +39,27 @@ To migrate your LOCAL storage to the new PLOCAL you've to export and reimport th
 
 2) export the database using the console. Example by exporting the database under /temp/db:
 
-    > bin/console.sh (or bin/console.bat under Windows)
-    orientdb> connect database local:/temp/db admin admin
-    orientdb> export database /temp/db.json.gzip
-    orientdb> disconnect
+```sql
+$ bin/console.sh (or bin/console.bat under Windows)
+orientdb> CONNECT DATABASE local:/temp/db admin admin
+orientdb> EXPORT DATABASE /temp/db.json.gzip
+orientdb> DISCONNECT
+```
 
 3) now always in the console create a new database using the "plocal" engine:
 
    a) on a local filesystem:
 
-      orientdb> create database plocal:/temp/newdb admin admin plocal graph
+      orientdb> CREATE DATABASE plocal:/temp/newdb admin admin plocal graph
 
    b) on a remote server (use the server's credentials to access):
 
-      orientdb> create database remote:localhost/newdb root password plocal graph
+      orientdb> CREATE DATABASE remote:localhost/newdb root password plocal graph
 
 4) now always in the console import the old database in the new one:
 
-    orientdb> import database /temp/db.json.gzip -preserveClusterIDs=true
-    orientdb> quit
+    orientdb> IMPORT DATABASE /temp/db.json.gzip -preserveClusterIDs=true
+    orientdb> QUIT
 
 5) If you access to the database in the same JVM remember to change the URL from "local:" to "plocal:"
 
@@ -67,7 +69,7 @@ Since OrientDB 1.7 RidBag is default collection that manage adjacency relations 
 You can upgrade your graph via console or using the ORidBagMigration class
 
 ### Using console
-+ Connect to database `connect plocal:databases/GratefulDeadConcerts`
++ Connect to database `CONNECT plocal:databases/GratefulDeadConcerts`
 + Run `upgrade graph` command
 
 ### Using the API

@@ -45,11 +45,11 @@ Note the usage of $account and $city in further SQL commands.
 This script above used an Optimistic approach: in case of conflict it retries up top 100 times by re-executing the entire transaction (commit retry 100). To follow a Pessimistic approach by locking the records, try this:
 
 ```sql
-begin
-let account = create vertex Account set name = 'Luke'
-let city = select from City where name = 'London' lock record
-let edge = create edge Lives from $account to $city
-commit
+BEGIN
+let account = CREATE VERTEX Account SET name = 'Luke'
+let city = SELECT FROM City WHERE name = 'London' LOCK RECORD
+let edge = CREATE EDGE Lives FROM $account TO $city
+COMMIT
 return $edge
 ```
 
@@ -64,10 +64,10 @@ This can be used by Java API with:
 database.open("admin", "admin");
 
 String cmd = "begin\n";
-cmd += "let a = create vertex set script = true\n";
-cmd += "let b = select from v limit 1\n";
-cmd += "let e = create edge from $a to $b\n";
-cmd += "commit retry 100\n";
+cmd += "let a = CREATE VERTEX SET script = true\n";
+cmd += "let b = SELECT FROM v LIMIT 1\n";
+cmd += "let e = CREATE EDGE FROM $a TO $b\n";
+cmd += "COMMIT RETRY 100\n";
 cmd += "return $e";
 
 OIdentifiable edge = database.command(new OCommandScript("sql", cmd)).execute();
@@ -99,7 +99,7 @@ Example:
     {
       "type" : "script",
       "language" : "sql",
-      "script" : [ "begin;let account = create vertex Account set name = 'Luke';let city =select from City where name = 'London';create edge Lives from $account to $city;commit retry 100" ]
+      "script" : [ "BEGIN;let account = CREATE VERTEX Account SET name = 'Luke';let city =SELECT FROM City WHERE name = 'London';CREATE EDGE Lives FROM $account TO $city;COMMIT RETRY 100" ]
     }
   ]
 }
@@ -113,10 +113,10 @@ To separate commands use semicolon (;) or linefeed (\n). Starting from release 1
       "type" : "script",
       "language" : "sql",
       "script" : [ "begin",
-                   "let account = create vertex Account set name = 'Luke'",
-                   "let city =select from City where name = 'London'",
-                   "create edge Lives from $account to $city",
-                   "commit retry 100" ]
+                   "let account = CREATE VERTEX Account SET name = 'Luke'",
+                   "let city = SELECT FROM City WHERE name = 'London'",
+                   "CREATE EDGE Lives FROM $account TO $city",
+                   "COMMIT RETRY 100" ]
     }
   ]
 }

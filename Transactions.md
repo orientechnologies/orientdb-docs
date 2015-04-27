@@ -9,13 +9,14 @@ A database transaction, by definition, must be [atomic](Transactions.md#Atomicit
 
 OrientDB is an [ACID](Transactions.md#acid-properties) compliant DBMS.
 
-**NOTE: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap memory) on JVM. For transactions involving many records, consider to split it in multiple transactions.**
+>**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap memory) on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
 ## ACID properties
 ### Atomicity
 "Atomicity requires that each transaction is 'all or nothing': if one part of the transaction fails, the entire transaction fails, and the database state is left unchanged. An atomic system must guarantee atomicity in each and every situation, including power failures, errors, and crashes. To the outside world, a committed transaction appears (by its effects on the database) to be indivisible ("atomic"), and an aborted transaction does not happen." - [WikiPedia](http://en.wikipedia.org/wiki/ACID)
 
 ### Consistency
+
 "The consistency property ensures that any transaction will bring the database from one valid state to another. Any data written to the database must be valid according to all defined rules, including but not limited to constraints, cascades, triggers, and any combination thereof. This does not guarantee correctness of the transaction in all ways the application programmer might have wanted (that is the responsibility of application-level code) but merely that any programming errors do not violate any defined rules." - [WikiPedia](http://en.wikipedia.org/wiki/ACID)
 
 OrientDB uses the MVCC to assure consistency. The difference between the management of MVCC on transactional and not-transactional cases is that with transactional, the exception rollbacks the entire transaction before to be caught by the application.
@@ -34,11 +35,12 @@ Look at this example:
 |8| commit |  | 10 -> 11 = Error, in database x already is at 11|
 
 ### Isolation
+
 "The isolation property ensures that the concurrent execution of transactions results in a system state that would be obtained if transactions were executed serially, i.e. one after the other. Providing isolation is the main goal of concurrency control. Depending on concurrency control method, the effects of an incomplete transaction might not even be visible to another transaction." - [WikiPedia](http://en.wikipedia.org/wiki/ACID)
 
 OrientDB has different levels of isolation based on settings and configuration:
-- **READ COMMITTED**, the default and the only one available with `remote` protocol
-- **REPEATABLE READS**, allowed only with `plocal` and `memory` protocols. This mode consumes more memory than **READ COMMITTED**, because any read, query, etc. keep the records in memory to assure the same copy on further access
+- `READ COMMITTED`, the default and the only one available with `remote` protocol
+- `REPEATABLE READS`, allowed only with `plocal` and `memory` protocols. This mode consumes more memory than `READ COMMITTED`, because any read, query, etc. keep the records in memory to assure the same copy on further access
 
 To change default Isolation Level, use the Java API:
 
@@ -108,15 +110,15 @@ OrientDB has different levels of durability based on storage type, configuration
 
 Default mode. Each operation is executed instantly.
 
-Calls to <code>begin()</code>,  <code>commit()</code> and  <code>rollback()</code> have no effect.
+Calls to `begin()`,  `commit()` and  `rollback()` have no effect.
 
 ### Optimistic Transaction
 
 This mode uses the well known [Multi Version Control System (MVCC)](http://en.wikipedia.org/wiki/Multiversion_concurrency_control) by allowing multiple reads and writes on the same records. The integrity check is made on commit. If the record has been saved by another transaction in the interim, then an OConcurrentModificationException will be thrown. The application can choose either to repeat the transaction or abort it.
 
-**NOTE: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap) memory on JVM. For transactions involving many records, consider to split it in multiple transactions.**
+>**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap) memory on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
-With [Graph API](Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the **begin()** method. Example with Document API:
+With [Graph API](Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. Example with Document API:
 
 ```java
 db.open("remote:localhost:7777/petshop");
@@ -146,7 +148,7 @@ At commit time, these temporary records [RecordID](Concepts.md#recordid)s will b
 This mode is not yet supported by the engine.
 
 ## Nested transactions and propagation
-OrientDB doesn't support nested transaction. If further begin() are called after a transaction is already begun, then the current transaction keeps track of call stack to let to the final commit() call to effectively commit the transaction. Look at [Transaction Propagation](Transaction-propagation.md) more information.
+OrientDB doesn't support nested transaction. If further `begin()` are called after a transaction is already begun, then the current transaction keeps track of call stack to let to the final commit() call to effectively commit the transaction. Look at [Transaction Propagation](Transaction-propagation.md) more information.
 
 ## Record IDs
 

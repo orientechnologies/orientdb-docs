@@ -8,7 +8,7 @@ SQL Functions can work in 2 ways based on the fact that receive 1 or more parame
 
 When only one parameter is passed. They aggregate the result in only one record. The classic example is the sum():
 ```sql
-select sum(salary) from employee
+SELECT SUM(salary) FROM employee
 ```
 This will always return 1 record with the sum of salary field.
 
@@ -16,9 +16,10 @@ This will always return 1 record with the sum of salary field.
 
 When two or more parameters are passed:
 ```sql
-select sum(salary, extra, benefits) as total from employee
+SELECT SUM(salary, extra, benefits) AS total FROM employee
 ```
 This will return the sum of the field "salary", "extra" and "benefits" as "total". In case you need to use a function as inline when you've only one parameter, then add a second one like "null":
+
 ```sql
 SELECT first( out('friends').name, null ) as firstFriend FROM Profiles
 ```
@@ -74,19 +75,23 @@ Available since: 1.4.0
 
 Get all the outgoing vertices from all the Vehicle vertices:
 ```sql
-SELECT out() from V
+SELECT out() FROM V
 ```
 
 Get all the incoming vertices connected with edges with label (class) "Eats" and "Favorited" from all the Restaurant vertices in Rome:
+
 ```sql
-SELECT out('Eats','Favorited') from Restaurant where city = 'Rome'
+SELECT out('Eats','Favorited') FROM Restaurant WHERE city = 'Rome'
 ```
 ---
 ### in()
 
 Get the adjacent incoming vertices starting from the current record as Vertex.
 
-Syntax: ```in([<label-1>][,<label-n>]*)```
+Syntax:
+```
+in([<label-1>][,<label-n>]*)
+```
 
 Available since: 1.4.0
 
@@ -95,19 +100,22 @@ Available since: 1.4.0
 Get all the incoming vertices from all the Vehicle vertices:
 
 ```sql
-SELECT in() from V
+SELECT in() FROM V
 ```
 
 Get all the incoming vertices connected with edges with label (class) "Friend" and "Brother":
 ```sql
-SELECT in('Friend','Brother') from V
+SELECT in('Friend','Brother') FROM V
 ```
 ---
 ### both()
 
 Get the adjacent outgoing and incoming vertices starting from the current record as Vertex.
 
-Syntax: ```both([<label1>][,<label-n>]*)```
+Syntax:
+```
+both([<label1>][,<label-n>]*)
+```
 
 Available since: 1.4.0
 
@@ -116,20 +124,24 @@ Available since: 1.4.0
 Get all the incoming and outgoing vertices from vertex with rid #13:33:
 
 ```sql
-SELECT both() from #13:33
+SELECT both() FROM #13:33
 ```
 
 Get all the incoming and outgoing vertices connected with edges with label (class) "Friend" and "Brother":
 
 ```sql
-SELECT both('Friend','Brother') from V
+SELECT both('Friend','Brother') FROM V
 ```
 ---
 ### outE()
 
 Get the adjacent outgoing edges starting from the current record as Vertex.
 
-Syntax: ```outE([<label1>][,<label-n>]*)```
+Syntax:
+
+```
+outE([<label1>][,<label-n>]*)
+```
 
 Available since: 1.4.0
 
@@ -137,31 +149,34 @@ Available since: 1.4.0
 
 Get all the outgoing edges from all the vertices:
 ```sql
-SELECT outE() from V
+SELECT outE() FROM V
 ```
 
 Get all the outgoing edges of type "Eats" from all the SocialNetworkProfile vertices:
 ```sql
-SELECT outE('Eats') from SocialNetworkProfile
+SELECT outE('Eats') FROM SocialNetworkProfile
 ```
 ---
 ### inE()
 
 Get the adjacent incoming edges starting from the current record as Vertex.
 
-Syntax: ```inE([<label1>][,<label-n>]*)```
+Syntax:
+```
+inE([<label1>][,<label-n>]*)
+```
 
 #### Example
 
 Get all the incoming edges from all the vertices:
 
 ```sql
-SELECT inE() from V
+SELECT inE() FROM V
 ```
 
 Get all the incoming edges of type "Eats" from the Restaurant 'Bella Napoli':
 ```sql
-SELECT inE('Eats') from Restaurant where name = 'Bella Napoli'
+SELECT inE('Eats') FROM Restaurant WHERE name = 'Bella Napoli'
 ```
 ---
 ### bothE()
@@ -175,41 +190,47 @@ Available since: 1.4.0
 #### Example
 Get both incoming and outgoing edges from all the vertices:
 ```sql
-SELECT bothE() from V
+SELECT bothE() FROM V
 ```
 
 Get all the incoming and outgoing edges of type "Friend" from the Profile with nick 'Jay'
 
 ```sql
-SELECT bothE('Friend') from Profile where nick = 'Jay'
+SELECT bothE('Friend') FROM Profile WHERE nick = 'Jay'
 ```
 
 ### outV()
 
 Get outgoing vertices starting from the current record as Edge.
 
-Syntax: ```outV()```
+Syntax:
+```
+outV()
+```
 
 Available since: 1.4.0
 
 #### Example
 
 ```sql
-SELECT outV() from E
+SELECT outV() FROM E
 ```
 
 ### inV()
 
 Get incoming vertices starting from the current record as Edge.
 
-Syntax: ```inV()```
+Syntax:
+```
+inV()
+```
 
 Available since: 1.4.0
 
 #### Example
 
 ```sql
-SELECT inV() from E
+SELECT inV() FROM E
 ```
 
 ### eval()
@@ -223,32 +244,38 @@ Available since: 1.4.0
 #### Example
 
 ```sql
-SELECT eval('price * 120 / 100 - discount') as finalPrice from Order
+SELECT eval('price * 120 / 100 - discount') AS finalPrice FROM Order
 ```
 
 ### coalesce()
 
 Returns the first field/value not null parameter. If no field/value is not null, returns null.
 
-Syntax: ```coalesce(&lt;field&#124;value&gt;)```
+Syntax:
+```
+coalesce(&lt;field&#124;value&gt;)
+```
 
 Available since: 1.3.0
 
 #### Example
 
 ```sql
-SELECT coalesce(amount, amount2, amount3) from Account
+SELECT coalesce(amount, amount2, amount3) FROM Account
 ```
 
 ### if()
 
-Syntax: ```if(<expression>, <result-if-true>, <result-if-false>) ```
+Syntax:
+```
+if(<expression>, <result-if-true>, <result-if-false>)
+```
 
 Evaluates a condition (first parameters) and returns the second parameter if the condition is true, the third one otherwise
 
 #### Example: 
 ```
-select if(eval("name = 'John'"), "My name is John", "My name is not John") from Person
+SELECT if(eval("name = 'John'"), "My name is John", "My name is not John") FROM Person
 ```
 
 
@@ -256,14 +283,17 @@ select if(eval("name = 'John'"), "My name is John", "My name is not John") from 
 
 Returns the passed field/value (or optional parameter return_value_if_not_null). If field/value is not null, otherwise it returns return_value_if_null.
 
-Syntax: ```ifnull(&lt;field&#124;value&gt;, &lt;return_value_if_null&gt; [,&lt;return_value_if_not_null&gt;](,&lt;field&.md#124;value&gt;]*)```
+Syntax:
+```java
+ifnull(&lt;field&#124;value&gt;, &lt;return_value_if_null&gt; [,&lt;return_value_if_not_null&gt;](,&lt;field&.md#124;value&gt;]*)
+```
 
 Available since: 1.3.0
 
 #### Example
 
 ```sql
-SELECT ifnull(salary, 0) from Account
+SELECT ifnull(salary, 0) FROM Account
 ```
 
 ---
@@ -278,25 +308,28 @@ Syntax: ```expand(<field>)```
 #### Example
 
 ```sql
-select expand( addresses ) from Account. 
+SELECT EXPAND( addresses ) FROM Account. 
 ```
 This replaces the flatten() now deprecated
 
 ---
 ### flatten()
 
-_Deprecated, use the EXPAND() instead_.
+> Deprecated, use the EXPAND() instead.
 
 Extracts the collection in the field <field> and use it as result.
 
-Syntax: ```flatten(<field>)```
+Syntax:
+```
+flatten(<field>)
+```
 
 Available since: 1.0rc1
 
 #### Example
 
 ```sql
-select flatten( addresses ) from Account
+SELECT flatten( addresses ) FROM Account
 ```
 ---
 ### first()
@@ -324,7 +357,7 @@ Available since: 1.2.0
 #### Example
 
 ```sql
-select last( addresses ) from Account
+SELECT last( addresses ) FROM Account
 ```
 ---
 ### count()
@@ -338,7 +371,7 @@ Available since: 0.9.25
 #### Example
 
 ```sql
-select count(*) from Account
+SELECT COUNT(*) FROM Account
 ```
 ---
 ### min()
@@ -353,11 +386,11 @@ Available since: 0.9.25
 
 Returns the minimum salary of all the Account records:
 ```sql
-select min(salary) from Account
+SELECT min(salary) FROM Account
 ```
 Returns the minimum value between 'salary1', 'salary2' and 'salary3' fields.
 ```sql
-select min(salary1, salary2, salary3) from Account
+SELECT min(salary1, salary2, salary3) FROM Account
 ```
 ---
 ### max()
@@ -372,12 +405,12 @@ Available since: 0.9.25
 
 Returns the maximum salary of all the Account records:
 ```sql
-select max(salary) from Account.
+SELECT max(salary) FROM Account.
 ```
 
 Returns the maximum value between 'salary1', 'salary2' and 'salary3' fields.
 ```sql
-select max(salary1, salary2, salary3) from Account
+SELECT max(salary1, salary2, salary3) FROM Account
 ```
 ---
 ### avg()
@@ -391,7 +424,7 @@ Available since: 0.9.25
 #### Example
 
 ```sql
-select avg(salary) from Account
+SELECT avg(salary) FROM Account
 ```
 
 ---
@@ -406,7 +439,7 @@ Available since: 0.9.25
 #### Example
 
 ```sql
-select average(salary) from Account
+SELECT sum(salary) FROM Account
 ```
 ---
 ### date()
@@ -420,7 +453,7 @@ Available since: 0.9.25
 #### Example
 
 ```sql
-select from Account where created <= date('2012-07-02', 'yyyy-MM-dd')
+SELECT FROM Account WHERE created <= date('2012-07-02', 'yyyy-MM-dd')
 ```
 ---
 ### sysdate()
@@ -434,7 +467,7 @@ Available since: 0.9.25
 #### Example
 
 ```sql
-select sysdate('dd-MM-yyyy') from Account
+SELECT sysdate('dd-MM-yyyy') FROM Account
 ```
 ---
 ### format()
@@ -448,7 +481,7 @@ Available since: 0.9.25
 #### Example
 
 ```sql
-select format("%d - Mr. %s %s (%s)", id, name, surname, address) from Account
+SELECT format("%d - Mr. %s %s (%s)", id, name, surname, address) FROM Account
 ```
 ---
 ### dijkstra()
@@ -462,7 +495,7 @@ Available since: 1.3.0
 #### Example
 
 ```sql
-select dijkstra($current, #8:10, 'weight') from V
+SELECT dijkstra($current, #8:10, 'weight') FROM V
 ```
 ---
 ### shortestPath()
@@ -476,7 +509,7 @@ Available since: 1.3.0
 #### Example
 
 ```sql
-select shortestPath(#8:32, #8:10, 'BOTH')
+SELECT shortestPath(#8:32, #8:10, 'BOTH')
 ```
 ---
 ### distance()
@@ -490,7 +523,7 @@ Available since: 0.9.25
 #### Example
 
 ```sql
-select from POI where distance(x, y, 52.20472, 0.14056 ) <= 30
+SELECT FROM POI WHERE distance(x, y, 52.20472, 0.14056 ) <= 30
 ```
 ---
 ### distinct()
@@ -504,7 +537,7 @@ Available since: 1.0rc2
 #### Example
 
 ```sql
-select distinct(name) from City
+SELECT distinct(name) FROM City
 ```
 ---
 ### unionall()
@@ -518,7 +551,7 @@ Available since: 1.7
 #### Example
 
 ```sql
-select unionall(friends) from profile
+SELECT unionall(friends) FROM profile
 ```
 
 ```sql
@@ -536,11 +569,11 @@ Available since: 1.0rc2
 #### Example
 
 ```sql
-select intersect(friends) from profile where jobTitle = 'programmer'
+SELECT intersect(friends) FROM profile WHERE jobTitle = 'programmer'
 ```
 
 ```sql
-select intersect(inEdges, outEdges) from OGraphVertex
+SELECT intersect(inEdges, outEdges) FROM OGraphVertex
 ```
 ---
 ### difference()
@@ -554,11 +587,11 @@ Available since: 1.0rc2
 #### Example
 
 ```sql
-select difference(tags) from book
+SELECT difference(tags) FROM book
 ```
 
 ```sql
-select difference(inEdges, outEdges) from OGraphVertex
+SELECT difference(inEdges, outEdges) FROM OGraphVertex
 ```
 ---
 
@@ -573,11 +606,11 @@ Available since: 2.0.7
 #### Example
 
 ```sql
-select difference(tags) from book
+SELECT difference(tags) FROM book
 ```
 
 ```sql
-select difference(inEdges, outEdges) from OGraphVertex
+SELECT difference(inEdges, outEdges) FROM OGraphVertex
 ```
 
 ---
@@ -593,7 +626,7 @@ Available since: 1.2.0
 #### Example
 
 ```sql
-SELECT name, set(roles.name) as roles FROM OUser
+SELECT name, set(roles.name) AS roles FROM OUser
 ```
 ---
 ### list()
@@ -607,7 +640,7 @@ Available since: 1.2.0
 #### Example
 
 ```sql
-SELECT name, list(roles.name) as roles FROM OUser
+SELECT name, list(roles.name) AS roles FROM OUser
 ```
 ---
 ### map()
@@ -640,12 +673,12 @@ Available since: 1.7
 
 Returns last traversed item of TRAVERSE command:
 ```sql
-SELECT traversedElement(-1) FROM ( TRAVERSE out() from #34:3232 WHILE $depth <= 10 )
+SELECT traversedElement(-1) FROM ( TRAVERSE out() FROM #34:3232 WHILE $depth <= 10 )
 ```
 
 Returns last 3 traversed items of TRAVERSE command:
 ```sql
-SELECT traversedElement(-1, 3) FROM ( TRAVERSE out() from #34:3232 WHILE $depth <= 10 )
+SELECT traversedElement(-1, 3) FROM ( TRAVERSE out() FROM #34:3232 WHILE $depth <= 10 )
 ```
 ---
 ### traversedEdge()
@@ -664,12 +697,12 @@ Available since: 1.7
 
 Returns last traversed edge(s) of TRAVERSE command:
 ```sql
-SELECT traversedEdge(-1) FROM ( TRAVERSE outE(), inV() from #34:3232 WHILE $depth <= 10 )
+SELECT traversedEdge(-1) FROM ( TRAVERSE outE(), inV() FROM #34:3232 WHILE $depth <= 10 )
 ```
 
 Returns last 3 traversed edge(s) of TRAVERSE command:
 ```sql
-SELECT traversedEdge(-1, 3) FROM ( TRAVERSE outE(), inV() from #34:3232 WHILE $depth <= 10 )
+SELECT traversedEdge(-1, 3) FROM ( TRAVERSE outE(), inV() FROM #34:3232 WHILE $depth <= 10 )
 ```
 ---
 ### traversedVertex()
@@ -688,12 +721,12 @@ Available since: 1.7
 
 Returns last traversed vertex of TRAVERSE command:
 ```sql
-SELECT traversedVertex(-1) FROM ( TRAVERSE out() from #34:3232 WHILE $depth <= 10 )
+SELECT traversedVertex(-1) FROM ( TRAVERSE out() FROM #34:3232 WHILE $depth <= 10 )
 ```
 
 Returns last 3 traversed vertices of TRAVERSE command:
 ```sql
-SELECT traversedVertex(-1, 3) FROM ( TRAVERSE out() from #34:3232 WHILE $depth <= 10 )
+SELECT traversedVertex(-1, 3) FROM ( TRAVERSE out() FROM #34:3232 WHILE $depth <= 10 )
 ```
 ---
 ### mode()
@@ -707,7 +740,7 @@ Available since: 2.0-M1
 #### Example
 
 ```sql
-select mode(salary) from Account
+SELECT mode(salary) FROM Account
 ```
 ---
 ### median()
@@ -735,8 +768,8 @@ Available since: 2.0-M1
 #### Examples
 
 ```sql
-select percentile(salary, 95) from Account
-select percentile(salary, 25, 75) as IQR from Account
+SELECT percentile(salary, 95) FROM Account
+SELECT percentile(salary, 25, 75) AS IQR FROM Account
 ```
 ---
 ### variance()
@@ -750,7 +783,7 @@ Available since: 2.0-M1
 #### Example
 
 ```sql
-select variance(salary) from Account
+SELECT variance(salary) FROM Account
 ```
 ---
 ### stddev()
@@ -764,7 +797,7 @@ Available since: 2.0-M1
 #### Example
 
 ```sql
-select stddev(salary) from Account
+SELECT stddev(salary) FROM Account
 ```
 ---
 ### uuid()
@@ -832,6 +865,6 @@ Now you can execute it:
 
 ```java
 List<ODocument> result = database.command(
-  new OSQLSynchQuery<ODocument>("select from Account where bigger( salary, 10 ) > 10") )
+  new OSQLSynchQuery<ODocument>("SELECT FROM Account WHERE bigger( salary, 10 ) > 10") )
   .execute();
 ```

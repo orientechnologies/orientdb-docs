@@ -20,7 +20,7 @@ Returns a list of document containing 2 fields:
 Get all the records that contains a link to 5:0
 
 ```sql
-find references 5:0
+FIND REFERENCES 5:0
 ```
 
 Result example:
@@ -37,18 +37,18 @@ RESULT:
 Get all the references to the record of the default cluster (available since 1.0rc9):
 
 ```sql
-find references (select from cluster:default)
+FIND REFERENCES (SELECT FROM CLUSTER:default)
 ```
 Get all the records in Profile and !AnimalType classes that contains a link to 5:0 :
 
 ```sql
-find references 5:0 [Profile,AnimalType]
+FIND REFERENCES 5:0 [Profile,AnimalType]
 ```
 
 Get all the records in Profile cluster and !AnimalType class that contains a link to 5:0
 
 ```sql
-find references 5:0 [cluster:Profile,AnimalType]
+FIND REFERENCES 5:0 [CLUSTER:Profile,AnimalType]
 ```
 
 To know more about other SQL commands look at [SQL Commands](Commands.md).

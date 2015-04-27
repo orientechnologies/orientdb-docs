@@ -5,13 +5,13 @@ Displays the configuration where the opened database is located (local or remote
 ## Syntax
 
 ```
-config
+CONFIG
 ```
 
 ## Example
 
-```java
-> config
+```sql
+CONFIG
 
 REMOTE SERVER CONFIGURATION:
 +------------------------------------+--------------------------------+
@@ -41,6 +41,6 @@ REMOTE SERVER CONFIGURATION:
 
 ## See also
 
-To change a configuration value use the [config set](Console-Command-Config-Set.md).
+To change a configuration value use the [CONFIG SET](Console-Command-Config-Set.md).
 
 This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).

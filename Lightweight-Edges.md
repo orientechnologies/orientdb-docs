@@ -44,7 +44,7 @@ g.setUseLightweightEdges(true);
 Or via [SQL](SQL-Alter-Database.md):
 
 ```sql
-alter database custom useLightweightEdges=true
+ALTER DATABASE custom useLightweightEdges=true
 ```
 
 Changing `useLightweightEdges` setting to `true`, will not transform previous edges, but all new edges could be **Lightweight Edges** if they meet the requirements.

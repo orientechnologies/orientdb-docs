@@ -5,13 +5,13 @@ This command exports the current record in the format requested. The format must
 ## Syntax
 
 ```
-export record <format>
+EXPORT RECORD <format>
 ```
 
 ## Example
 
-```java
-> export record json
+```sql
+EXPORT RECORD JSON
 {
   'parent': null,
   'children': [5:5, 5:6],

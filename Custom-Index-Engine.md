@@ -12,7 +12,7 @@ Create your own facory that implements OIndexFactory.
 In your factory you have to declare:
 
 1. Which types of index you support
-2. Which types of algorithms you support
+1. Which types of algorithms you support
 
 and you have to implements the createIndex method
 
@@ -126,11 +126,11 @@ The key could be:
 * The key is the value to be indexed. Could be as written before
 * The value is a Set of OIdentifiable or OIdentifiable associated with the key
 
-## Create Index from Sql
+## Create Index from SQL
 
 You can create an index with your Index Engine with sql with this syntax
-```
-create index Foo.bar on Foo (bar) NOTUNIQUE ENGINE CUSTOM
+```sql
+CREATE INDEX Foo.bar ON Foo (bar) NOTUNIQUE ENGINE CUSTOM
 ```
 where CUSTOM is the name of your index engine
 

@@ -5,13 +5,13 @@ Closes the current opened database.
 ## Syntax
 
 ```
-disconnect
+DISCONNECT
 ```
 
 ## Example
 
-```java
-> disconnect
+```sql
+DISCONNECT
 
 Disconnecting from the database [../databases/petshop/petshop]...OK
 ```

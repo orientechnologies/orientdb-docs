@@ -23,15 +23,15 @@ DELETE VERTEX #10:231
 
 Deletes all user accounts which are marked with an incoming edge of class BadBehaviorInForum:
 ```sql
-DELETE VERTEX Account Where in.@Class = 'BadBehaviorInForum'
+DELETE VERTEX Account WHERE in.@Class = 'BadBehaviorInForum'
 ```
 
 Deletes all those EmailMessages which are marked as spam by isSpam property
 ```sql
-DELETE VERTEX EMailMessage Where isSpam = true
+DELETE VERTEX EMailMessage WHERE isSpam = true
 ```
 
 Deletes every vertex of class 'Attachment', which has an edge towards it of class 'HasAttachment', with a property 'date' of condition to be all (HasAttachment edges) which are older than 1990, and secondly, the vertex 'Email' which is connected to class Attachment has a condition on its property 'from' to be 'some...@example.com':
 ```sql
-DELETE VERTEX Attachment Where in[@Class = 'HasAttachment'].date <= "1990" and in.out[@Class = "Email"].from = 'some...@example.com'
+DELETE VERTEX Attachment WHERE in[@Class = 'HasAttachment'].date <= "1990" AND in.out[@Class = "Email"].from = 'some...@example.com'
 ```

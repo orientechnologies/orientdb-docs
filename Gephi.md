@@ -64,7 +64,7 @@ To use the OrientDB's SQL language use **<code>sql</code>** as language. For mor
 
 For example, to return the first 1,000 vertices (class V) with outgoing connections the query would be:
 ```sql
-select from V where out.size() > 0
+SELECT FROM V WHERE out.size() > 0
 ```
 
 Executed on "localhost" against the "demo" database + encoding becomes:

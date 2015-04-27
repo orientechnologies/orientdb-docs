@@ -5,7 +5,7 @@ Changes the value of a property.
 ## Syntax
 
 ```
-config set <config-name> <config-value>
+CONFIG SET <config-name> <config-value>
 ```
 
 Where:
@@ -15,14 +15,14 @@ Where:
 
 ## Example
 
-```java
-> config set db.cache.enabled false
+```sql
+CONFIG SET db.cache.enabled false
 
 Remote configuration value changed correctly
 ```
 
 ## See also
 
-To know all the configuration values use the [config](Console-Command-Config.md). To read a configuration value use the [config get](Console-Command-Config-Get.md).
+To know all the configuration values use the [CONFIG](Console-Command-Config.md). To read a configuration value use the [CONFIG GET](Console-Command-Config-Get.md).
 
 This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).

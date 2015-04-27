@@ -4,10 +4,9 @@ For now the Index Engine can only index Points. Other Shapes like rectangles and
 
 ## How to create a Spatial Index
 
-The index can be created on a Class that has two fields declared as Double (latitude,longitude) that are the coordinates of the Point.
+The index can be created on a class that has two fields declared as `DOUBLE` (`latitude`,`longitude`) that are the coordinates of the Point.
 
-For example we have a Class `Place` with 2 double fields `latitude` and `longitude`.
-To create the spatial index on City use this syntax.
+For example we have a class `Place` with 2 double fields `latitude` and `longitude`.  To create the spatial index on `City` use this syntax.
 
 ```sql
 CREATE INDEX Place.l_lon ON Place(latitude,longitude) SPATIAL ENGINE LUCENE
@@ -23,40 +22,46 @@ oClass.createProperty("longitude", OType.DOUBLE);
 oClass.createProperty("name", OType.STRING);
 oClass.createIndex("Place.latitude_longitude", "SPATIAL", null, null, "LUCENE", new String[] { "latitude", "longitude" });
 ```
+
 ## How to query the Spatial Index
 
 Two custom operators has been added to query the Spatial Index:
-1. **NEAR**: to find all Points near a given location (latitude, longitude)
-2. **WITHIN**: to find all Points that are within a given Shape
+1. `NEAR`: to find all Points near a given location (`latitude`, `longitude`)
+2. `WITHIN`: to find all Points that are within a given Shape
 
 ### NEAR operator
-Finds all Points near a given location (latitude, longitude).
+
+Finds all Points near a given location (`latitude`, `longitude`).
 
 #### Syntax
+
 ```sql
-select from Class where [<lat-field>,<long-field>] NEAR [<x>,<y>]
+SELECT FROM Class WHERE [<lat-field>,<long-field>] NEAR [<x>,<y>]
 ```
 
 To specify `maxDistance` we have to pass a special variable in the context:
+
 ```sql
-select  from Class where [<lat-field>,<long-field>,$spatial] NEAR [<x>,<y>,{"maxDistance": distance}]
+SELECT FROM Class WHERE [<lat-field>,<long-field>,$spatial] NEAR [<x>,<y>,{"maxDistance": distance}]
 ```
 
-The 'maxDistance' field has to be in kilometers, not radians. Results are sorted from nearest to farthest.
+The `maxDistance` field has to be in kilometers, not radians. Results are sorted from nearest to farthest.
 
 To know the exact distance between your Point and the Points matched, use the special variable in the context
 $distance.
 
 ```sql
-select *, $distance from Class where [<lat-field>,<long-field>,$spatial] NEAR [<x>,<y>,{"maxDistance": distance}]
+SELECT *, $distance FROM Class WHERE [<lat-field>,<long-field>,$spatial] NEAR [<x>,<y>,{"maxDistance": distance}]
 ```
 
 #### Examples
+
 Let's take the example we have written before. We have a Spatial Index on Class `Place` on properties `latitude` and `longitude`.
 
 Example: How to find the nearest Place of a given point:
+
 ```sql
-select *,$distance from Place where [latitude,longitude,$spatial] NEAR [51.507222,-0.1275,{"maxDistance":1}]
+SELECT *,$distance FROM Place WHERE [latitude,longitude,$spatial] NEAR [51.507222,-0.1275,{"maxDistance":1}]
 ```
 
 ### WITHIN operator
@@ -69,14 +74,15 @@ Finds all Points that are within a given Shape.
 #### Syntax
 
 ```sql
-select  from Class where [<lat field>,<long field>] WITHIN [ [ <lng1>, <lat1> ] , [ <lng2>, <lat2> ] ... ]
+SELECT FROM Class WHERE [<lat field>,<long field>] WITHIN [ [ <lng1>, <lat1> ] , [ <lng2>, <lat2> ] ... ]
 ```
 
 #### Examples
+
 Example with previous configuration:
 
 ```sql
-select * from Places where [latitude,longitude] WITHIN [[51.507222,-0.1275],[55.507222,-0.1275]]
+SELECT * FROM Places WHERE [latitude,longitude] WITHIN [[51.507222,-0.1275],[55.507222,-0.1275]]
 ```
 
 This query will return all Places within the given Bounding Box.
@@ -84,5 +90,5 @@ This query will return all Places within the given Bounding Box.
 ## Future Plans
 
 - Index All types of shape
-- Adding more operators such as INTERSECT
-- Extend the WITHIN operator to support not only Bounding Box
+- Adding more operators such as `INTERSECT`
+- Extend the `WITHIN` operator to support not only Bounding Box

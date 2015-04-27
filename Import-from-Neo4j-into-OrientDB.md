@@ -36,13 +36,13 @@ If you have OrientDB 2.0, this is the suggested method because it's easier and i
 ```
 $ cd $ORIENTDB_HOME/bin
 $ ./console.sh
-orientdb> create database plocal:/tmp/db/test
+orientdb> CREATE DATABASE plocal:/tmp/db/test
 creating database [plocal:/tmp/db/test] using the storage type [plocal]...
 Database created successfully.
 
 Current database is: plocal:/tmp/db/test
 
-orientdb {db=test}> import database /tmp/out.graphml
+orientdb {db=test}> IMPORT DATABASE /tmp/out.graphml
 
 Importing GRAPHML database database from /tmp/out.graphml...
 Transaction 8 has been committed in 12ms

@@ -28,13 +28,13 @@ Following the tags example above, the expression tags[1-2] returns ['Geek', 'Coo
 
 Example:
 ```sql
-SELECT * FROM profile WHERE phones['home'] like '+39%'
+SELECT * FROM profile WHERE phones['home'] LIKE '+39%'
 ```
 Works the same with double quotes.
 
 You can go in a chain (contacts is a map of map):
 ```sql
-SELECT * FROM profile WHERE contacts[phones][home] like '+39%'
+SELECT * FROM profile WHERE contacts[phones][home] LIKE '+39%'
 ```
 With lists and arrays you can pick an item element from a range:
 ```sql

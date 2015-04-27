@@ -1,18 +1,18 @@
 # Console - EXPORT
 
-Exports the current opened database to a file. The exported file is in [JSON](http://en.wikipedia.org/wiki/JSON) format using the [Export-Format](Export-Format.md). By default the file is compressed using the GZIP algorithm. The Export/[Import](Console-Command-Import.md) commands allow to migrate the database between different releases of OrientDB without loosing data. If you receive an error about the database version, export the database using the same version of OrientDB that has generated the database.
+Exports the current opened database to a file. The exported file is in [JSON](http://en.wikipedia.org/wiki/JSON) format using the [Export-Format](Export-Format.md). By default the file is compressed using the GZIP algorithm. The EXPORT/[IMPORT](Console-Command-Import.md) commands allow to migrate the database between different releases of OrientDB without loosing data. If you receive an error about the database version, export the database using the same version of OrientDB that has generated the database.
 
-Export doesn't lock your database, but browses it. This means that concurrent operation can be executed during the export, but the exported database couldn't be the exact replica when you issued the command because concurrent updates could occurs. If you need a snapshot of database at a point in a time, please use [Backup](Console-Command-Backup.md).
+Export doesn't lock your database, but browses it. This means that concurrent operation can be executed during the export, but the exported database couldn't be the exact replica when you issued the command because concurrent updates could occurs. If you need a snapshot of database at a point in a time, please use [BACKUP](Console-Command-Backup.md).
 
-Once exported, use the [Import](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [Backup Database](Console-Command-Backup.md) and [Restore Database](Console-Command-Restore.md) commands.
+Once exported, use the [IMPORT](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [BACKUP DATABASE](Console-Command-Backup.md) and [RESTORE DATABASE](Console-Command-Restore.md) commands.
 
-_NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore._
+>NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore.
 
 ## Syntax
 By default the export command exports the full database, but there are some flags to disable some parts.
 
 ```
-export database <output-file>
+EXPORT DATABASE <output-file>
       [-excludeAll]
       [-includeClass=<class-name>*]
       [-excludeClass=<class-name>*]
@@ -50,7 +50,7 @@ Where:
 
 ### Export the entire database ###
 ```
-orientdb> export database C:\temp\petshop.export
+orientdb> EXPORT DATABASE C:\temp\petshop.export
 
 Exporting current database to: C:\temp\petshop.export...
 
@@ -74,7 +74,7 @@ Export of database completed.
 ```
 ### Export the database's functions only ###
 ```
-orientdb> export database functions.gz -includeClass=OFunction
+orientdb> EXPORT DATABASE functions.gz -includeClass=OFunction
                  -includeInfo=false
                  -includeClusterDefinitions=false
                  -includeSchema=false
@@ -106,8 +106,8 @@ try{
 
 ## See also
 - [Export File Format](Export-Format.md)
-- [Import Database](Console-Command-Import.md)
-- [Backup Database](Console-Command-Backup.md)
-- [Restore Database](Console-Command-Restore.md)
+- [IMPORT DATABASE](Console-Command-Import.md)
+- [BACKUP DATABASE](Console-Command-Backup.md)
+- [RESTORE DATABASE](Console-Command-Restore.md)
 - [Console Commands](Console-Commands.md)
 - [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)

@@ -16,37 +16,37 @@ CREATE VERTEX [<class>] [CLUSTER <cluster>] [SET <field> = <expression>[,]*]
 ### Create a new vertex of the base class 'V', namely OGraphVertex
 
 ```sql
-create vertex
+CREATE VERTEX
 ```
 
 ### Create a new vertex type and a new vertex of the new type
 
 ```sql
-create class V1 extends V
-create vertex V1
+CREATE CLASS V1 EXTENDS V
+CREATE VERTEX V1
 ```
 
 ### Create a new vertex in a particular cluster
 
 ```sql
-create vertex V1 cluster recent
+CREATE VERTEX V1 CLUSTER recent
 ```
 
 ### Create a new vertex setting properties
 
 ```sql
-create vertex set brand = 'fiat'
+CREATE VERTEX SET brand = 'fiat'
 ```
 
 ### Create a new vertex of type V1 setting properties
 
 ```sql
-create vertex V1 set brand = 'fiat', name = 'wow'
+CREATE VERTEX V1 SET brand = 'fiat', name = 'wow'
 ```
 
 ### Create a vertex with JSON content
 ```sql
-create vertex Employee content { "name" : "Jay", "surname" : "Miner" }
+CREATE VERTEX Employee CONTENT { "name" : "Jay", "surname" : "Miner" }
 ```
 
 

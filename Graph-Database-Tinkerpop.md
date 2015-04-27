@@ -450,7 +450,7 @@ The OrientDB Blueprints implementation allows you to execute commands using SQL,
 ### SQL queries
 ```java
 for (Vertex v : (Iterable<Vertex>) graph.command(
-            new OCommandSQL("select expand( out('bough') ) from Customer where name = 'Jay'")).execute()) {
+            new OCommandSQL("SELECT EXPAND( out('bough') ) FROM Customer WHERE name = 'Jay'")).execute()) {
     System.out.println("- Bought: " + v);
 }
 ```
@@ -459,7 +459,7 @@ for (Vertex v : (Iterable<Vertex>) graph.command(
 To execute an asynchronous query:
 ```java
 graph.command(
-          new OSQLAsynchQuery<Vertex>("select from Member",
+          new OSQLAsynchQuery<Vertex>("SELECT FROM Member",
             new OCommandResultListener() {
               int resultCount =0;
               @Override
@@ -493,11 +493,11 @@ For more information look at the [available SQL commands](SQL.md).
 To execute multiple SQL commands in a batch, use the OCommandScript and SQL as the language. This is recommended when creating edges on the server side, to minimize the network roundtrip:
 
 ```java
-String cmd = "begin\n";
-cmd += "let a = create vertex set script = true\n";
-cmd += "let b = select from v limit 1\n";
-cmd += "let e = create edge from $a to $b retry 100\n";
-cmd += "commit\n";
+String cmd = "BEGIN\n";
+cmd += "LET a = CREATE VERTEX SET script = true\n";
+cmd += "LET b = SELECT FROM V LIMIT 1\n";
+cmd += "LET e = CREATE EDGE FROM $a TO $b RETRY 100\n";
+cmd += "COMMIT\n";
 cmd += "return $e";
 
 OIdentifiable edge = graph.command(new OCommandScript("sql", cmd)).execute();
@@ -537,7 +537,7 @@ Example:
 final OrientGraph graph = new OrientGraph("plocal:C:/temp/graph/db");
 try {
   List<ODocument> result = graph.getRawGraph().query(
-                                   new OSQLSynchQuery("select from V where color = 'red'"));
+                                   new OSQLSynchQuery("SELECT FROM V WHERE color = 'red'"));
 } finally {
   graph.shutdown();
 }

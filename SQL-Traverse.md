@@ -61,7 +61,7 @@ Traverse command uses the following variables in the context:
 
 Assuming #10:1234 is the [RID](Concepts.md#rid) of the record to start traversing:
 ```sql
-traverse * from #10:1234
+TRAVERSE * FROM #10:1234
 ```
 
 ### Social Network domain
@@ -72,15 +72,15 @@ In a social-network-like domain a profile is linked to all the friends. Below so
 
 Assuming #10:1234 is the [RID](Concepts.md#rid) of the record to start traversing get all the friends up to the third level of depth using the [BREADTH_FIRST](Java-Traverse.md#traversing-strategies) strategy:
 ```sql
-traverse friends from #10:1234 while $depth <= 3 strategy BREADTH_FIRST
+TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 strategy BREADTH_FIRST
 ```
 
 In case you want to filter per minimum depth create a predicate in the select. Example like before but excluding the first target vertex (#10:1234):
 ```sql
-select from ( traverse friends from #10:1234 while $depth <= 3 ) where $depth >= 1
+SELECT FROM ( TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 ) WHERE $depth >= 1
 ```
 
-*NOTE: You can also define the maximum depth in the SELECT clause but it's much more efficient to set it at the inner TRAVERSE statement because the returning record sets are already filtered by depth*
+>NOTE: You can also define the maximum depth in the SELECT clause but it's much more efficient to set it at the inner TRAVERSE statement because the returning record sets are already filtered by depth
 
 #### Mix with select to have more power
 
@@ -91,18 +91,18 @@ select from ( traverse friends from #10:1234 while $depth <= 3 ) where city = 'R
 
 Another example to extract all the movies of actors that have worked, at least once, in any movie produced by J.J. Abrams:
 ```sql
-select from (
-  traverse Movie.actors, Actor.movies from (
-    select from Movie where producer = "J.J. Abrams"
-  ) while $depth <= 3
-) where @class = 'Movie'
+SELECT FROM (
+  TRAVERSE Movie.actors, Actor.movies FROM (
+    SELECT FROM Movie WHERE producer = "J.J. Abrams"
+  ) WHILE $depth <= 3
+) WHERE @class = 'Movie'
 ```
 
 ### Display the current path
 
 To return or use the current path in traversal refer to the **$path** variable:
 ```sql
-select $path from ( traverse out from V while $depth <= 10 )
+SELECT $path FROM ( TRAVERSE out FROM V WHILE $depth <= 10 )
 ```
 
 ## Should I use TRAVERSE or SELECT?
@@ -130,17 +130,17 @@ Following this model all is based on the concepts of the Vertex (or Node) as the
 
 Example of traversing all the outgoing vertices found starting from the vertex with id #10:3434:
 ```sql
-traverse V.out, E.in from #10:3434
+TRAVERSE V.out, E.in FROM #10:3434
 ```
 
 So in a mailing-like domain to find all the messages sent in 1/1/2012 from the user 'Luca' assuming it's stored in the 'User' Vertex class and that messages are contained in the 'Message' Vertex class. Sent messages are stored as "out" connections of Edge class 'SentMessage':
 
 ```sql
-select from (
-  traverse V.out, E.in from (
-    select from User where name = 'Luca'
-  ) while $depth <= 2 and (@class = 'Message' || ( @class = 'SentMessage' and sentOn = '01/01/2012') )
-) where @class = 'Message'
+SELECT FROM (
+  TRAVERSE V.out, E.in FROM (
+    SELECT FROM User WHERE name = 'Luca'
+  ) WHILE $depth <= 2 AND (@class = 'Message' || ( @class = 'SentMessage' AND sentOn = '01/01/2012') )
+) WHERE @class = 'Message'
 ```
 
 ## Operator TRAVERSE
@@ -177,35 +177,37 @@ Where:
 Example of a query that returns all the vertices that have at least one friend (connected with out), up to the 3rd degree, that lives in Rome:
 
 ```sql
-select from Profile where any() traverse(0,3) (city = 'Rome')
+SELECT FROM Profile WHERE any() TRAVERSE(0,3) (city = 'Rome')
 ```
 
 This can be rewritten using the most power TRAVERSE command:
 ```sql
-select from Profile
-let $temp = (
-  select from (
-    traverse * from $current while $depth <= 3
+SELECT FROM Profile
+LET $temp = (
+  SELECT FROM (
+    TRAVERSE * FROM $current WHILE $depth <= 3
   )
-  where city = 'Rome'
+  WHERE city = 'Rome'
 )
-where $temp.size() > 0
+WHERE $temp.size() > 0
 ```
 ### Examples Of Graph Query.
 
+```
 Vertex    edge         Vertex
 User----->Friends----->User
           Label='f'
+```
 
 #### Query to Find the first level friends of User Whose record Id is #10:11
 ```sql
-select distinct(in.lid) as lid,distinct(in.fid) as fid   from (traverse V.out, E.in from #10:11 while $depth <=1) where @class='Friends'
+SELECT DISTINCT(in.lid) AS lid,distinct(in.fid) AS fid FROM (TRAVERSE V.out, E.in FROM #10:11 WHILE $depth <=1) WHERE @class='Friends'
 ```
 
 #### 2nd level friends of a user, to find that we have to just change the depth to 3
 
 ```sql
-SELECT distinct(in.lid) as lid, distinct(in.fid) as fid FROM (
+SELECT distinct(in.lid) AS lid, distinct(in.fid) AS fid FROM (
   TRAVERSE V.out, E.in FROM #10:11 WHILE $depth <=3
 ) WHERE @class='Friends'
 ```

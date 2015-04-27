@@ -32,5 +32,5 @@ CREATE FUNCTION test "print('\nTest!')"
 
 Create function 'allUsersButAdmin' in SQL with no parameters:
 ```sql
-CREATE FUNCTION allUsersButAdmin "select from ouser where name <> 'admin'" LANGUAGE SQL
+CREATE FUNCTION allUsersButAdmin "SELECT FROM ouser WHERE name <> 'admin'" LANGUAGE SQL
 ```

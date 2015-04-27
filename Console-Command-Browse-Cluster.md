@@ -5,7 +5,7 @@ This command displays all the records of a cluster.
 ## Syntax
 
 ```
-browse cluster <cluster-name>
+BROWSE CLUSTER <cluster-name>
 ```
 
 Where:
@@ -14,8 +14,8 @@ Where:
 
 ## Example
 
-```java
-> browse cluster City
+```sql
+BROWSE CLUSTER City
 
 ---+--------+-------------------
   #| REC ID |NAME

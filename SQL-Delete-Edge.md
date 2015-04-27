@@ -21,12 +21,12 @@ DELETE EDGE [<rid> (, <rid>)*]
 
 Delete edges where date is a property which might exist in one of more edges between the two vertices:
 ```sql
-DELETE EDGE from #11:101 TO #11:117 Where date >= "2012-01-15"
+DELETE EDGE FROM #11:101 TO #11:117 WHERE date >= "2012-01-15"
 ```
 
 Deletes edges filtering also by Edge's class:
 ```sql
-DELETE EDGE FROM #11:101 TO #11:117 WHERE @class = 'owns' and comment like "regex of forbidden words"
+DELETE EDGE FROM #11:101 TO #11:117 WHERE @class = 'owns' AND comment LIKE "regex of forbidden words"
 ```
 
 This is the faster alternative to <code>DELETE EDGE WHERE @class = 'owns' and date < "2011-11"</code>:
@@ -36,7 +36,7 @@ DELETE EDGE Owns WHERE date < "2011-11"
 
 Deletes edges where in.price shows the condition on 'to vertex' for the edge
 ```sql
-DELETE EDGE Owns WHERE date < "2011-11" and in.price >= 202.43
+DELETE EDGE Owns WHERE date < "2011-11" AND in.price >= 202.43
 ```
 
 #Deleting Edge using Java Code:

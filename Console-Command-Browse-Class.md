@@ -5,7 +5,7 @@ This command displays all the records of a class.
 ## Syntax
 
 ```
-browse class <class-name>
+BROWSE CLASS <class-name>
 ```
 
 Where:
@@ -14,8 +14,8 @@ Where:
 
 ## Example
 
-```java
-> browse class City
+```sql
+BROWSE CLASS City
 
 ---+--------+-------------------
   #| REC ID |NAME

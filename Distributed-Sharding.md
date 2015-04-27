@@ -83,7 +83,7 @@ All the query works by aggregating the result sets from all the involved nodes.
 Example of executing this query on node "usa":
 
 ```sql
-select from Client
+SELECT FROM Client
 ```
 
 Since local node (USA) already owns `client_usa` and `client_china`, 2/3 of data are local. The missing 1/3 of data is in `client_europe` that is managed only by node "Europe". So the query will be executed on local node "usa" and "Europe" providing the aggregated result back to the client.
@@ -91,7 +91,7 @@ Since local node (USA) already owns `client_usa` and `client_china`, 2/3 of data
 You can query also a particular cluster:
 
 ```sql
-select from cluster:client_china
+SELECT FROM CLUSTER:client_china
 ```
 
 In this case the local node (USA) is used, because `client_china` is hosted on local node.
@@ -100,7 +100,7 @@ In this case the local node (USA) is used, because `client_china` is hosted on l
 OrientDB supports [Map/Reduce](http://en.wikipedia.org/wiki/MapReduce) by using the OrientDB [SQL](SQL.md). The Map/Reduce operation is totally transparent to the developer. When a query involve multiple shards (clusters), OrientDB executes the query against all the involved server nodes (Map operation) and then merge the results (Reduce operation). Example:
 
 ```sql
-select max(amount), count(*), sum(amount) from Client
+SELECT MAX(amount), COUNT(*), SUM(amount) FROM Client
 ```
 
 ![image](http://www.orientdb.org/images/distributed-query-map.png)

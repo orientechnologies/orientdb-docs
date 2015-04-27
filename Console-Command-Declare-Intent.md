@@ -4,8 +4,8 @@ Declares an intent on current database. Intents are a way to tell to OrientDB wh
 
 ## Syntax
 
-```xml
-declare intent <intent-name>
+```sql
+DECLARE INTENT <intent-name>
 ```
 
 Where:
@@ -16,8 +16,8 @@ Where:
 
 ## Example
 
-```java
-> declare intent massiveinsert
+```sql
+DECLARE INTENT massiveinsert
 ```
 
 This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).

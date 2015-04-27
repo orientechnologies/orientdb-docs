@@ -71,77 +71,77 @@ SELECT $path, $depth FROM ( TRAVERSE * FROM Movie WHERE $depth <= 5 )
 
 Get all the records of type `Person` where the name starts with `Luk`:
 ```sql
-select * from Person where name like 'Luk%'
+SELECT * FROM Person WHERE name LIKE 'Luk%'
 ```
 or
 ```sql
-select * from Person where name.left(3) = 'Luk'
+SELECT * FROM Person WHERE name.left(3) = 'Luk'
 ```
 or
 ```sql
-select * from Person where name.substring(0,3) = 'Luk'
+SELECT * FROM Person WHERE name.substring(0,3) = 'Luk'
 ```
 
 Get all the records of type `!AnimalType` where the collection `races` contains at least one entry where the first character of the name, ignoring the case, is equal to `e`:
 ```sql
-select * from animaltype where races contains (name.toLowerCase().subString(0,1) = 'e')
+SELECT * FROM animaltype WHERE races CONTAINS(name.toLowerCase().subString(0,1) = 'e')
 ```
 
 Get all the records of type `!AnimalType` where the collection `races` contains at least one entry with name `European` or `Asiatic`:
 ```sql
-select * from animaltype where races contains (name in ['European','Asiatic'])
+SELECT * FROM animaltype WHERE races CONTAININS(name in ['European','Asiatic'])
 ```
 
 Get all the records of type `Profile` where any field contains the word `danger`:
 
 ```sql
-select from profile where any() like '%danger%'
+SELECT FROM profile WHERE any() LIKE '%danger%'
 ```
 
 Get any record at any level that has the word `danger`:
 ```sql
-select from profile where any() traverse ( any() like '%danger%' )
+SELECT FROM profile WHERE any() TRAVERSE( any() LIKE '%danger%' )
 ```
 
 Get all the records where up to the 3rd level of connections has some field that contains the word `danger` ignoring the case:
 ```sql
-select from Profile where any() traverse( 0,3 ) ( any().toUpperCase().indexOf( 'danger' ) > -1 )
+SELECT FROM Profile WHERE any() TRAVERSE( 0,3 ) ( any().toUpperCase().indexOf( 'danger' ) > -1 )
 ```
 
 Order the result set by the `name` in descending order:
 ```sql
-select from Profile order by name desc
+SELECT FROM Profile ORDER BY name DESC
 ```
 
 Returns the total of records per city:
 ```sql
-select sum(*) from Account group by city
+SELECT SUM(*) FROM Account GROUP BY city
 ```
 
 Traverse record starting from a root node:
 
 ```sql
-select from 11:4 where any() traverse(0,10) (address.city = 'Rome')
+SELECT FROM 11:4 WHERE any() TRAVERSE(0,10) (address.city = 'Rome')
 ```
 
 Query only a set of records:
 ```sql
-select from [#10:3, #10:4, #10:5]
+SELECT FROM [#10:3, #10:4, #10:5]
 ```
 
 Select only three fields from Profile:
 ```sql
-select nick, followings, followers from Profile
+SELECT nick, followings, followers FROM Profile
 ```
 
 Select the `name` field in upper-case and the `country name` of the linked city of the address:
 ```sql
-select name.toUppercase(), address.city.country.name from Profile
+SELECT name.toUppercase(), address.city.country.name FROM Profile
 ```
 
 Order by record creation. Starting from 1.7.7, using the expression "order by @rid desc", allows OrientDB to open an Inverse cursor against clusters. This is extremely fast and doesn't require classic ordering resources (RAM and CPU):
 ```sql
-select from Profile order by @rid desc
+SELECT FROM Profile ORDER BY @rid DESC
 ```
 
 ## LET block
@@ -163,8 +163,8 @@ Using LET becomes shorter and faster, because the relationships are traversed on
 ```sql
 SELECT FROM Profile
 LET $city = address.city
-WHERE $city.name like '%Saint%"' and
-    ( $city.country.name = 'Italy' or $city.country.name = 'France' )
+WHERE $city.name like '%Saint%"' AND
+    ( $city.country.name = 'Italy' OR $city.country.name = 'France' )
 ```
 
 In this case the path till `address.city` is traversed only once.
@@ -173,14 +173,14 @@ In this case the path till `address.city` is traversed only once.
 
 LET block allows you to assign a context variable the result of a sub-query. Example:
 ```sql
-select from Document
-let $temp = (
-    select @rid, $depth from (
-        traverse V.out, E.in from $parent.current
+SELECT FROM Document
+LET $temp = (
+    SELECT @rid, $depth FROM (
+        TRAVERSE V.out, E.in FROM $parent.current
     )
-    where @class = 'Concept' and (id = 'first concept' or id = 'second concept' )
+    WHERE @class = 'Concept' AND (id = 'first concept' OR id = 'second concept' )
 )
-where $temp.size() > 0
+WHERE $temp.size() > 0
 ```
 
 ## Usage in projection
@@ -189,8 +189,8 @@ Context variables can be part of result set used in [Projections](#Projections).
 ```sql
 SELECT $temp.name FROM Profile
 LET $temp = address.city
-WHERE $city.name like '%Saint%"' and
-    ( $city.country.name = 'Italy' or $city.country.name = 'France' )
+WHERE $city.name like '%Saint%"' AND
+    ( $city.country.name = 'Italy' OR $city.country.name = 'France' )
 ```
 
 # Conclusion

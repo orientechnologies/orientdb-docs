@@ -5,20 +5,20 @@ Controls the [Profiler](Profiler.md).
 ## Syntax
 
 ```
-profiler on|off|dump|reset
+PROFILER ON|OFF|DUMP|RESET
 ```
 
 Where:
-- on      Turn on the profiler and start recording
-- off     Turn off the profiler and stop recording
-- dump    Dump profiler's data
-- reset   Reset profiler's data
+- ON      Turn on the profiler and start recording
+- OFF     Turn off the profiler and stop recording
+- DUMP    Dump profiler's data
+- RESET   Reset profiler's data
 
 ## Example
 
 ```
-orientdb> profiler on
-orientdb> profiler dump
+orientdb> PROFILER ON
+orientdb> PROFILER DUMP
 ```
 
 This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).

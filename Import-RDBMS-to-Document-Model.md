@@ -52,16 +52,16 @@ At this point you should have a <code>.sql</code> file containing the Relational
 ```sql
 DROP TABLE IF EXISTS post;
 CREATE TABLE post (
-id int(11) NOT NULL auto_increment,
-title varchar(128),
+id INT(11) NOT NULL AUTO_INCREMENT,
+title VARCHAR(128),
 PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
-id int(11) NOT NULL auto_increment,
-postId int(11),
-text text,
+id INT(11) NOT NULL AUTO_INCREMENT,
+postId INT(11),
+text TEXT,
 PRIMARY KEY (id),
 CONSTRAINT `fk_comments`
     FOREIGN KEY (`postId` )
@@ -93,16 +93,16 @@ For persistent databases you can choose to create it in a remote server or local
 #### Use the embedded mode
 
 ```sql
-create database plocal:/tmp/db/blog admin admin plocal document
+CREATE DATABASE plocal:/tmp/db/blog admin admin plocal document
 ```
 
-This [will create a new database](Console-Command-Create-Db.md) under the directory "/tmp/db/blog".
+Thes [CREATE DATABASE](Console-Command-Create-Database.md) command creates a new database under the directory "/tmp/db/blog".
 
 #### Use the remote mode
 
 Or start a OrientDB server and create a database using the "remote" protocol in the connection URL. Example:
 ```sql
-create database remote:localhost/blog root dkdf383dhdsj plocal document
+CREATE DATABASE remote:localhost/blog root dkdf383dhdsj plocal document
 ```
 
 *NOTE: When you create a remote database you need the server's credentials to do it. Use the user "root" and the password stored in <code>config/orientdb-server-config.xml</code> file.*
@@ -113,12 +113,12 @@ create database remote:localhost/blog root dkdf383dhdsj plocal document
 
 If you already have a database where to import, just open it:
 ```sql
-connect plocal:/tmp/db/blog admin admin
+CONNECT plocal:/tmp/db/blog admin admin
 ```
 #### Use the remote mode
 
 ```sql
-connect remote:localhost/blog admin admin
+CONNECT remote:localhost/blog admin admin
 ```
 ## Declare the 'massive insert' intent
 
@@ -148,13 +148,13 @@ Leave only the <code>INSERT INTO</code> statements. OrientDB supports not only I
 
 ## Create links
 
-At this point you need to create links as relationships in OrientDB. The  [Create Link command](SQL-Create-Link.md) creates links between two or more records of type Document. In facts in the Relational world relationships are resolved as foreign keys.
+At this point you need to create links as relationships in OrientDB. The  [CREATE LINK command](SQL-Create-Link.md) creates links between two or more records of type Document. In facts in the Relational world relationships are resolved as foreign keys.
 
 Using OrientDB, instead, you have direct relationship as in your object model. So the navigation is from *Post* to *Comment* and not viceversa as for Relational model. For this reason you need to create a link as **INVERSE**.
 
 Execute:
 ```sql
-CREATE LINK comments TYPE linkset FROM comment.postId To post.id INVERSE
+CREATE LINK comments TYPE linkset FROM comment.postId TO post.id INVERSE
 ```
 
 ## Remove old constraints
@@ -203,17 +203,17 @@ Now enjoy with your new document-graph database and the following queries:
 
 Select all the post with comments:
 ```sql
-orientdb> select * from post where comments.size() > 0
+orientdb> SELECT * FROM post WHERE comments.size() > 0
 ```
 
 Select all the posts where comments contain the word 'flame' in the text property (before as column):
 ```sql
-orientdb> select * from post where comments contains ( text like '%flame%' )
+orientdb> SELECT * FROM post WHERE comments CONTAINS ( text like '%flame%' )
 ```
 
 Select all the posts commented today. In this case we're assuming a property "date" is present in Comment class:
 ```sql
-orientdb> select * from post where comments contains ( date > '2011-04-14 00:00:00' )
+orientdb> SELECT * FROM post WHERE comments CONTAINS ( date > '2011-04-14 00:00:00' )
 ```
 
 

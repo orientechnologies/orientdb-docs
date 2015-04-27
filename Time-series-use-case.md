@@ -22,19 +22,19 @@ Where Year, Month, Day and Hour are vertex classes. Each Vertex links the other 
 
 Create the classes:
 ```sql
-create class Year
-create class Month
-create class Day
-create class Hour
+CREATE CLASS Year
+CREATE CLASS Month
+CREATE CLASS Day
+CREATE CLASS Hour
 
-create property Year.month linkmap Month
-create property Month.day linkmap Day
-create property Day.hour linkmap Hour
+CREATE PROPERTY Year.month LINKMAP Month
+CREATE PROPERTY Month.day LINKMAP Day
+CREATE PROPERTY Day.hour LINKMAP Hour
 ```
 
 Example to retrieve the vertex relative to the date March 2012, 20th at 10am (2012/03/20 10:00:00):
 ```sql
-select month[3].day[20].hour[10].logs from Year where year = "2012"
+SELECT month[3].day[20].hour[10].logs FROM Year WHERE year = "2012"
 ```
 If you need more granularity than the Hour you can go ahead until the Time unit you need:
 
@@ -47,14 +47,14 @@ Now connect the record to the right Calendar vertex. If the usual way to retriev
 The "log" property connects the Time Unit to the Log records. So to retrieve all the log of March 2012, 20th at 10am:
 
 ```sql
-select flatten( month[3].day[20].hour[10].logs ) from Year where year = "2012"
+SELECT flatten( month[3].day[20].hour[10].logs ) FROM Year WHERE year = "2012"
 ```
 That could be used as starting point to retrieve only a sub-set of logs that satisfy certain rules. Example:
 
 ```sql
-select from (
-  select flatten( month[3].day[20].hour[10].logs ) from Year where year = "2012"
-) where priority = 'critical'
+SELECT FROM (
+  SELECT flatten( month[3].day[20].hour[10].logs ) FROM Year WHERE year = "2012"
+) WHERE priority = 'critical'
 ```
 That retrieves all the CRITICAL logs of March 2012, 20th at 10am.
 
@@ -62,26 +62,26 @@ That retrieves all the CRITICAL logs of March 2012, 20th at 10am.
 
 If you need multiple hours/days/months as result set you can use the UNION function to create a unique result set:
 ```sql
-select flatten( records ) from (
-  select union( month[3].day[20].hour[10].logs, month[3].day[20].hour[11].logs ) as records
-  from Year where year = "2012"
+SELECT flatten( records ) from (
+  SELECT union( month[3].day[20].hour[10].logs, month[3].day[20].hour[11].logs ) AS records
+  FROM Year WHERE year = "2012"
 )
 ```
 In this example we create a union between the 10th and 11th hours. But what about extracting all the hours of a day without writing a huge query? The shortest way is using the Traverse. Below the Traverse to get all the hours of one day:
 
 ```sql
-traverse hour from (
-  select flatten( month[3].day[20] ) from Year where year = "2012"
+TRAVERSE hour FROM (
+  SELECT flatten( month[3].day[20] ) FROM Year WHERE year = "2012"
 )
 ```
 
 So putting all together this query will extract all the logs of all the hours in a day:
 
 ```sql
-select flatten( logs ) from (
-  select union( logs ) as logs from (
-    traverse hour from (
-     select flatten( month[3].day[20] ) from Year where year = "2012"
+SELECT flatten( logs ) FROM (
+  SELECT union( logs ) AS logs FROM (
+    TRAVERSE hour FROM (
+     SELECT flatten( month[3].day[20] ) FROM Year WHERE year = "2012"
     )
   )
 )
@@ -102,18 +102,18 @@ You can link this records to the closest Time Unit like the example above, but y
 
 Create a new class to store the aggregated daily records:
 ```sql
-create class DailyLog
+CREATE CLASS DailyLog
 ```
 Create the new record from an aggregation of the hour:
 ```sql
-insert into DailyLog
-set win = (
-  select sum(win) as win from Hour where date between '2012-03-20 10:00:00' and '2012-03-20 11:00:00'
+INSERT INTO DailyLog
+SET win = (
+  SELECT SUM(win) AS win FROM Hour WHERE date BETWEEN '2012-03-20 10:00:00' AND '2012-03-20 11:00:00'
 )
 ```
 Link it in the Calendar graph assuming the previous command returned #23:45 as the RecordId of the brand new DailyLog record:
 ```sql
-update (
-  select flatten( month[3].day[20] ) from Year where year = "2012"
-) add logs = #23:45
+UPDATE (
+  SELECT flatten( month[3].day[20] ) FROM Year WHERE year = "2012"
+) ADD logs = #23:45
 ```

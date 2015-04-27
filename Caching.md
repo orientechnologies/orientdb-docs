@@ -36,7 +36,7 @@ When the client application asks for a record OrientDB checks:
 Local cache acts at database level. Each database instance has a Local cache enabled by default. This cache keeps the used records. Records will be removed from heap if 2 conditions will be satisfied:
 
 1. There are no links to these records from outside of database
-2. The Java Virtual Machine doesn't have enough memory to allocate for new data
+1. The Java Virtual Machine doesn't have enough memory to allocate for new data
 
 ## Empty Local cache
 
@@ -51,10 +51,13 @@ Disabling of local cache may lead to situation when 2 different instances of the
 and OConcurrentModificationException may be thrown during record update even in single thread mode.
 
 To disable it use the system property <code>cache.local.enabled</code> by setting it at startup:
+
 ```java
 java ... -Dcache.local.enabled=false ...
 ```
+
 or via code before to open the database:
+
 ```java
 OGlobalConfiguration.CACHE_LOCAL_ENABLED.setValue(false);
 ```

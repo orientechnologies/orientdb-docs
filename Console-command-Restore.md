@@ -1,11 +1,11 @@
 # Console - RESTORE
 
-Executes a restore of current opened database. The backup file is created using the [Backup Database command](Console-Command-Backup.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands.
+Executes a restore of current opened database. The backup file is created using the [BACKUP DATABASE](Console-Command-Backup.md). Look also to [EXPORT DATABASE](Console-Command-Export.md) and [IMPORT DATABASE](Console-Command-Import.md) commands.
 
 ## Syntax
 
 ```sql
-restore database <backup-file>
+RESTORE DATABASE <backup-file>
 ```
 
 Where:
@@ -14,7 +14,7 @@ Where:
 ## Example
 
 ```
-orientdb> restore database /backups/mydb.zip
+orientdb> RESTORE DATABASE /backups/mydb.zip
 
 Restore executed in 6,33 seconds
 ```
@@ -55,7 +55,7 @@ try{
 ```
 
 ## See also
-- [Backup Database](Console-command-Backup.md)
-- [Export Database](Console-command-Export.md)
-- [Import Database](Console-command-Import.md)
+- [BACKUP DATABASE](Console-command-Backup.md)
+- [EXPORT DATABASE](Console-command-Export.md)
+- [IMPORT DATABASE](Console-command-Import.md)
 - [Console-Commands](Console-Commands.md)
