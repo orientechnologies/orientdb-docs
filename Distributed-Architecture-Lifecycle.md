@@ -130,4 +130,4 @@ After the Server #2 left the Cluster the updated configuration is sent again to 
 Continue with:
 - [Distributed Architecture](Distributed-Architecture.md)
 - [Replication](Replication.md)
-- [Tutorial to setup a distributed database](wiki/Tutorial:-setup-a-distributed-database.md)
+- [Tutorial to setup a distributed database](Tutorial-Setup-a-distributed-database.md)
