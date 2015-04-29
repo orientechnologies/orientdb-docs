@@ -31,7 +31,7 @@ Example of backup against a database open with "plocal":
 ```
 
 ### Non-Blocking Backup
-backup.sh script supports non-blocking backup if the OS supports [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)). Example:
+backup.sh script supports non-blocking backup if the OS supports [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29). Example:
 
 ```
 ./backup.sh plocal:../database/testdb admin admin /dest/folder/backup.zip lvm
@@ -42,16 +42,16 @@ Same example like before, but against a remote database hosted on localhost:
 ./backup.sh remote:localhost/testdb root rootpwd /dest/folder/backup.zip lvm
 ```
 
-For more information about [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) and Copy On Write (COS) look at:
+For more information about [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29) and Copy On Write (COS) look at:
 - [File system snapshots with LVM](http://arstechnica.com/information-technology/2004/10/linux-20041013/)
 - [LVM snapshot backup](http://www.tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html)
 
 ### Using the console
-You can also use the [console](Console-command-Backup.md) to execute a backup. Below the same backup like before, but using the console.
+You can also use the [console](Console-Command-Backup.md) to execute a backup. Below the same backup like before, but using the console.
 ```sql
 orientdb> CONNECT plocal:../database/testdb admin admin
 orientdb> BACKUP DATABASE /dest/folder/backup.zip
-Backup executed in 0,52 seconds
+Backup executed in 0.52 seconds
 ```
 
 ## Restore database
@@ -59,7 +59,7 @@ Use the [console](Console-command-Restore.md) to restore a database. Example:
 
 ```
 orientdb> RESTORE DATABASE /backups/mydb.zip
-Restore executed in 6,33 seconds
+Restore executed in 6.33 seconds
 ```
 
 ## See also
