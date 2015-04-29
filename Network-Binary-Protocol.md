@@ -522,8 +522,9 @@ Where:
 - 'd': document
 
 and **mode** is:
-- 0 = synchronous (default mode waits for the answer)
-- 1 = asynchronous (don't need an answer)
+- 0 = **synchronous**: default mode waits for the answer
+- 1 = **asynchronous**, response identical to synchronous, but the driver should manage the answer in a callback
+- 2 = **no-response**: don't wait for the answer. This is useful on massive operations reducing the network latency
 
 The last part of response is referred to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
 
@@ -546,8 +547,9 @@ and **record-version** **policy** is:
 - '>-1': Standard document update (version control).
 
 and **mode** is:
-- 0 = synchronous (default mode waits for the answer)
-- 1 = asynchronous (don't need an answer)
+- 0 = **synchronous**: default mode waits for the answer
+- 1 = **asynchronous**, response identical to synchronous, but the driver should manage the answer in a callback
+- 2 = **no-response**: don't wait for the answer. This is useful on massive operations reducing the network latency
 
 and **update-content** is:
 - true - content of record has been changed and content should be updated in storage
@@ -565,10 +567,12 @@ Response: (payload-status:byte)
 ```
 
 Where:
-- **mode** is:
-- 0 = synchronous (default mode waits for the answer)
-- 1 = asynchronous (don't need an answer)
-- **payload-status** returns 1 if the record has been deleted, otherwise 0. If the record didn't exist 0 is returned.
+**mode** is:
+ - 0 = **synchronous**: default mode waits for the answer
+ - 1 = **asynchronous**, response identical to synchronous, but the driver should manage the answer in a callback
+ - 2 = **no-response**: don't wait for the answer. This is useful on massive operations reducing the network latency
+
+and **payload-status** returns 1 if the record has been deleted, otherwise 0. If the record didn't exist 0 is returned.
 
 ## REQUEST_COMMAND
 
