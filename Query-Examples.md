@@ -36,3 +36,10 @@ To find instead the DocElem vertices, use this (assuming that a DocElem is only 
 ```
 
 --------
+How to apply built-in math functions on projections? For example, to use the sum() function over 2 values returned from sub-queries using projections, the following syntax may be used:
+
+```sql
+select sum($a[0].count,$b[0].count) let $a = (select count(*) from e), $b = (select count(*) from v)
+```
+
+--------
