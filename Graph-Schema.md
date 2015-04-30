@@ -54,6 +54,18 @@ In Blueprints Edges has the concept of "label" to distinguish between edge types
     // CREATE THE EDGE
     Edge e = account.addEdge("Lives", address);
 
+### Inheritance tree
+Classes can extends other classes. Starting from 2.1 OrientDB supports also multiple inheritance. To create a class that extends a class different by "V" (Vertex) and E (Edge) types, pass the class name on construction:
+
+    graph.createVertexType(<class-name>, <super-class>); // VERTEX TYPE
+    graph.createEdgeType(<class-name>, <super-class>);  // EDGE TYPE
+
+Example to create a base class "Account" and two sub-classes "Provider" and "Customer":
+
+    graph.createVertexType("Account");
+    graph.createVertexType("Customer", "Account");
+    graph.createVertexType("Provider", "Account");
+
 ### Get custom types
 
 To retrieve such custom classes use the methods ``graph.getVertexType(<name>)`` and ``graph.getEdgeType(<name>)``. Example:
