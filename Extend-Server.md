@@ -7,8 +7,8 @@ Since the OrientDB server contains an integrated Web Server what about creating 
 Furthermore you can package your application together with the OrientDB server to distribute just a ZIP file containing the entire Application, Web server and Database.
 
 To customize the OrientDB server you have two powerful tools:
-- [Handlers](#Handlers)
-- [Custom commands](#Custom_commands)
+- [Handlers](#handlers-server-plugins)
+- [Custom commands](#custom-commands)
 
 To debug the server while you develop new feature follow [Debug the server](DB-Server.md#debug-the-server).
 
