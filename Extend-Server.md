@@ -54,7 +54,7 @@ public class PrinterHandler extends OServerPluginAbstract {
 
 ## Register the handler
 
-Once created register it to the server configuration in **orientdb-server-config.xml** file:
+Once created, register it to the server configuration in **orientdb-server-config.xml** file:
 
 ```xml
 <orient-server>
