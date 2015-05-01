@@ -70,6 +70,280 @@ Once created register it to the server configuration in **orientdb-server-config
 
 Note that you can specify arbitrary parameters in form of name and value. Those parameters can be read by the **config()** method. In this example a parameter "log" is read. Look upon to the example of handler to know how to read parameters specified in configuration.
 
+## Steps to register a function as a Plugin in OrientDB
+
+In this case we'll create a plugin that only registers one function in OrientDB: __pow__ (returns the value of the first argument raised to the power of the second argument). We'll also support [Modular exponentiation](http://en.wikipedia.org/wiki/Modular_exponentiation).
+
+The syntax will be `pow(<base>, <power> [, <mod>])`.
+
+* you should have a directory structure like this
+```bash
+    .
+    ├─ src
+    |   └─ main
+    |       ├─ assembly
+    |       |   └─ assembly.xml 
+    |       ├─ java
+    |       |   └─ com
+    |       |       └─ app
+    |       |           └─ OPowPlugin.java
+    |       └─ resources
+    |           └─ plugin.json 
+    |
+    └─ pom.xml 
+```
+
+
+##### OPowPlugin.java
+```java
+package com.app;
+
+import com.orientechnologies.common.log.OLogManager;
+import com.orientechnologies.orient.core.command.OCommandContext;
+import com.orientechnologies.orient.core.db.record.OIdentifiable;
+import com.orientechnologies.orient.core.sql.OSQLEngine;
+import com.orientechnologies.orient.core.sql.functions.OSQLFunctionAbstract;
+import com.orientechnologies.orient.server.OServer;
+import com.orientechnologies.orient.server.config.OServerParameterConfiguration;
+import com.orientechnologies.orient.server.plugin.OServerPluginAbstract;
+import java.util.ArrayList;
+import java.util.List;
+
+public class OPowPlugin extends OServerPluginAbstract {
+
+    public OPowPlugin() {
+    }
+
+    @Override
+    public String getName() {
+        return "pow-plugin";
+    }
+
+    @Override
+    public void startup() {
+        super.startup();
+        OSQLEngine.getInstance().registerFunction("pow", new OSQLFunctionAbstract("pow", 2, 3) {
+            @Override
+            public String getSyntax() {
+                return "pow(<base>, <power> [, <mod>])";
+            }
+
+            @Override
+            public Object execute(Object iThis, OIdentifiable iCurrentRecord, Object iCurrentResult, final Object[] iParams, OCommandContext iContext) {
+                if (iParams[0] == null || iParams[1] == null) {
+                    return null;
+                }
+                if (!(iParams[0] instanceof Number) || !(iParams[1] instanceof Number)) {
+                    return null;
+                }
+
+                final long base = ((Number) iParams[0]).longValue();
+                final long power = ((Number) iParams[1]).longValue();
+
+                if (iParams.length == 3) { // modular exponentiation
+                    if (iParams[2] == null) {
+                        return null;
+                    }
+                    if (!(iParams[2] instanceof Number)) {
+                        return null;
+                    }
+
+                    final long mod = ((Number) iParams[2]).longValue();
+                    if (power < 0) {
+                        OLogManager.instance().warn(this, "negative numbers as exponent are not supported");
+                    }
+                    return modPow(base, power, mod);
+                }
+
+                return power > 0 ? pow(base, power) : 1D / pow(base, -power);
+            }
+        });
+        OLogManager.instance().info(this, "pow function registered");
+    }
+
+    private double pow(long base, long power) {
+        double r = 1;
+        List<Boolean> bits = bits(power);
+        for (int i = bits.size() - 1; i >= 0; i--) {
+            r *= r;
+            if (bits.get(i)) {
+                r *= base;
+            }
+        }
+
+        return r;
+    }
+
+    private double modPow(long base, long power, long mod) {
+        double r = 1;
+        List<Boolean> bits = bits(power);
+        for (int i = bits.size() - 1; i >= 0; i--) {
+            r = (r * r) % mod;
+            if (bits.get(i)) {
+                r = (r * base) % mod;
+            }
+        }
+
+        return r;
+    }
+
+    private List<Boolean> bits(long n) {
+        List<Boolean> bits = new ArrayList();
+        while (n > 0) {
+            bits.add(n % 2 == 1);
+            n /= 2;
+        }
+
+        return bits;
+    }
+
+    @Override
+    public void config(OServer oServer, OServerParameterConfiguration[] iParams) {
+
+    }
+
+    @Override
+    public void shutdown() {
+        super.shutdown();
+    }
+}
+```
+
+#####  pom.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.app</groupId>
+    <artifactId>pow-plugin</artifactId>
+    <version>2.0.7</version>
+    <packaging>jar</packaging>
+
+    <name>pow-plugin</name>
+
+    <properties>
+        <orientdb.version>2.0.7</orientdb.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <!-- this is used for inheritance merges -->
+                        <phase>package</phase>
+                        <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration></configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.orientechnologies</groupId>
+            <artifactId>orientdb-core</artifactId>
+            <version>${orientdb.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.orientechnologies</groupId>
+            <artifactId>orientdb-server</artifactId>
+            <version>${orientdb.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+##### assembly.xml
+```xml
+<assembly>
+    <id>dist</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory/>
+            <unpack>true</unpack>
+            <includes>
+                <include>${groupId}:${artifactId}</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+</assembly>
+```
+
+##### plugin.json
+```json
+{
+	"name" : "pow-plugin",
+	"version" : "2.0.7",
+	"javaClass": "com.app.OPowPlugin",
+	"parameters" : {},
+	"description" : "The Pow Plugin",
+	"copyrights" : "No copyrights"
+}
+```
+
+
+* Build the project and then:
+
+```bash
+cp target/pow-plugin-2.0.7-dist.jar $ORIENTDB_HOME/plugins/
+```
+
+You should see the following in OrientDB server log:
+```bash
+INFO  Installing dynamic plugin 'pow-plugin-2.0.7-dist.jar'... [OServerPluginManager]
+INFO  pow function registered [OPowPlugin]
+```
+
+And now you can:
+```bash
+orientdb {db=Pow}> select pow(2,10)     
+
+----+------+------
+#   |@CLASS|pow   
+----+------+------
+0   |null  |1024.0
+----+------+------
+
+orientdb {db=Pow}> select pow(2,10,5)
+
+----+------+----
+#   |@CLASS|pow 
+----+------+----
+0   |null  |4.0 
+----+------+----
+
+```
+
+This small project is available [here](https://www.dropbox.com/s/3o448vbyh5dwx38/pow-plugin.tar.gz?dl=0).
+
 ## Creating a distributed change manager
 
 As more complete example let's create a distributed record manager by installing hooks to all the server's databases and push these changes to the remote client caches.
