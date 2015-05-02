@@ -78,7 +78,7 @@ for (OIdentifiable id : new OTraverse()
               .target( database.browseClass("Movie").iterator() )
               .predicate(new OCommandPredicate() {
 
-    public boolean evaluate(ORecord<?> iRecord, OCommandContext iContext) {
+    public Object evaluate(ORecord iRecord, ODocument iCurrentResult, OCommandContext iContext) {
       return ((Integer) iContext.getVariable("depth")) <= 5;
     }
   })) {
