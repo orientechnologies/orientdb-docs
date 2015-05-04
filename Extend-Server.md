@@ -10,7 +10,7 @@ To customize the OrientDB server you have two powerful tools:
 - [Handlers](#handlers-server-plugins)
 - [Custom commands](#custom-commands)
 
-To debug the server while you develop new feature follow [Debug the server](DB-Server.md#debug-the-server).
+To debug the server while you develop new feature follow [Debug the server](#debug-the-server).
 
 # Handlers (Server Plugins)
 
