@@ -1,4 +1,4 @@
-The OrientDB development team is very active so if you've started learning OrientDB right now we suggest to clone the source repository and use the "develop" branch (latest SNAPSHOT). Follow these [instructions](https://github.com/orientechnologies/orientdb/wiki/Download#compile-it-by-your-own). Is a snapshot stable enough? All the SNAPSHOTs pass the thousands of test cases, so the answer is YES. However don't worry, we usually create a new stable release from the SNAPSHOT about every 3 months. If however you're afraid using a SNAPSHOT yet, it's ok: use a [stable one](http://www.orientdb.org/download.htm) and follow the **[Installation instructions](Installation.md)**.
+The OrientDB development team is very active so if you've started learning OrientDB right now we suggest to clone the source repository and use the "develop" branch (latest SNAPSHOT). Follow these [instructions](https://github.com/orientechnologies/orientdb/wiki/Download#compile-it-by-your-own). Is a snapshot stable enough? All the SNAPSHOTs pass the thousands of test cases, so the answer is YES. However don't worry, we usually create a new stable release from the SNAPSHOT about every 3 months. If however you're afraid of using a SNAPSHOT yet, it's ok: use a [stable one](http://www.orientdb.com/download/) and follow the **[Installation instructions](Installation.md)**.
 
 
 |Release |Status|Suggested for|Maven Repository|GIT branch|
@@ -7,7 +7,7 @@ The OrientDB development team is very active so if you've started learning Orien
 |1.7.6|[Production](https://github.com/orientechnologies/orientdb/issues?milestone=23&state=closed)|Production|  [pom.xml](https://github.com/orientechnologies/orientdb/wiki/Download#last-stable)|[master](https://github.com/orientechnologies/orientdb)
 
 
-For older release or more information go to the official [download page](http://www.orientdb.org/download.htm).
+For older release or more information go to the official [download page](http://orientdb.com/download/).
 
 ------------
 ## What distribution should I use ? ##
@@ -26,7 +26,7 @@ This system is called "Semantic Versioning." Under this scheme, version numbers 
 
 # Distributions #
 
-Download **latest official release** at  [this page](http://www.orientdb.org/download.htm).
+Download **latest official release** at  [this page](http://orientdb.com/download/).
 
 ## Download binaries from Maven repository ##
 
@@ -161,14 +161,14 @@ Every time you compile a new version, assure to have the permissions to execute 
 
 # Badges
 
-Below the badges you can use in your web site, application and presentation to say to the world "Hey, I'm using OrientDB!". The best would be linking that button to the web site: <http://www.orientdb.org>
+Below the badges you can use in your web site, application and presentation to say to the world "Hey, I'm using OrientDB!". The best would be linking that button to the web site: <http://www.orientdb.com>
 
 Once used you can tell us your story to be published between the [Production deployments page](Production-Deployments.md).
 
 <table>
   <tr><td>Description</td><td>Image normal size</td><td>Image small size</td></tr>
-  <tr><td>Classic button</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_white.png)</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_white_small.png)</td></tr>
-  <tr><td>Reflex button</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_reflex.png)</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_reflex_small.png)</td></tr>
-  <tr><td>Blue button</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_blue.png)</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_blue_small.png)</td></tr>
-  <tr><td>Green button</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_green.png)</td><td>![image](http://www.orientdb.org/images/powered_by_orientdb_green_small.png)</td></tr>
+  <tr><td>Classic button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_white.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_white_small.png)</td></tr>
+  <tr><td>Reflex button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_reflex.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_reflex_small.png)</td></tr>
+  <tr><td>Blue button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_blue.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_blue_small.png)</td></tr>
+  <tr><td>Green button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_green.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_green_small.png)</td></tr>
 </table>
