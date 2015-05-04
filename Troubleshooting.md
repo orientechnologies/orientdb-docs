@@ -40,13 +40,15 @@ Look at: [Restore admin user](Security.md#restore-admin-user).
 
 ### WARNING: Connection re-acquired transparently after XXXms and Y retries: no errors will be thrown at application level
 
-This means that probably default timeouts are too low and server side operation need more time to complete. Follow these  [MemoryLocker.lockMemory](MemoryLocker.lockMemory.md)Performance-Tuning#remote_connections.suggestions]].
+This means that probably default timeouts are too low and server side operation need more time to complete. Follow these  [Performance Tuning](Performance-Tuning.md).
 
 ### Could not find artifact com.orientechnologies:orientdb-core:jar:1.0-SNAPSHOT in orientechnologies-repository(http://www.orientechnologies.com/listing/m2)
 
-Your maven configuration points to the old Orient Technologies repository: http://www.orientechnologies.com/listing/m2. Follow this configuration: [### Record id invalid -1:-2
+Your maven configuration points to the old Orient Technologies repository: http://www.orientechnologies.com/listing/m2.
 
-This message is relative to a temporary [Concepts#recordidrecordid](Download.md#via_maven_repository).]] generated inside a transaction. For more information look at [Transactions](Transactions.md). This means that the record hasn't been correctly serialized.
+### Record id invalid -1:-2
+
+This message is relative to a temporary record id generated inside a transaction. For more information look at [Transactions](Transactions.md). This means that the record hasn't been correctly serialized.
 
 ### Brand new records are created with version major than 0
 
@@ -56,7 +58,7 @@ A -> B -> C -> A
 
 When OrientDB starts to serialize records goes recursively from the root A. When A is encountered again to avoid loops it saves the record as empty just to get the RecordID to store into the record C. When the serialization stack ends the record A (that was the first of the stack) is updated because has been created as first but empty.
 
-### Why it's so slow with index and massive insertion?
+### Why is it so slow with index and massive insertions?
 
 Try to enable automatic flush of index nodes. Via API:
 ```java
