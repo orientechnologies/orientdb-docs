@@ -98,7 +98,7 @@ Vert.x is a lightweight, high performance application platform for the JVM that'
 
 <a href="http://www.axonframework.org"><img width="100" align="left" src="http://www.axonframework.org/wp-content/uploads/AxonFramework_logoTxt.png" /></a><br>
 
-[EventStore for Axonframework](http://code.google.com/p/data-storm/), which uses fully transactional (full ACID support) NoSQL database OrientDB. [Axon Framework](http://code.google.com/p/axonframework/) helps build scalable, extensible and maintainable applications by supporting developers apply the Command Query Responsibility Segregation (CQRS) architectural pattern
+[EventStore for Axonframework](http://www.axonframework.org/), which uses fully transactional (full ACID support) NoSQL database OrientDB. [Axon Framework](http://www.axonframework.org/) helps build scalable, extensible and maintainable applications by supporting developers apply the Command Query Responsibility Segregation (CQRS) architectural pattern
 
 ------
 
