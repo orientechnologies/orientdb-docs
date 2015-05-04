@@ -4,7 +4,7 @@ The **Truncate Class** command deletes the records of all the clusters defined a
 
 If the class has subclasses, they will not be affected by this command (eg. their records will remain in their clusters). If you want to also remove all the records from the class hierarchy, you have to use the POLYMORPHIC keyword.
 
-Truncate is not allowed on Graph classes (classes that extend V or E), but its execution can be forced using UNSAFE.
+Truncate is not allowed on Graph classes (classes that extend V or E), but its execution can be forced using UNSAFE. Forcing truncate operation is strongly discouraged, because it can leave the graph in an inconsistent state.
 
 ## Syntax
 
