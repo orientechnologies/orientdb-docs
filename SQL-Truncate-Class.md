@@ -2,10 +2,14 @@
 
 The **Truncate Class** command deletes the records of all the clusters defined as part of the class. By default every class has one cluster associated with the same name. This command acts at lower level then [SQL Delete Command](SQL-Delete.md).
 
+If the class has subclasses, they will not be affected by this command (eg. their records will remain in their clusters). If you want to also remove all the records from the class hierarchy, you have to use the POLYMORPHIC keyword.
+
+Truncate is not allowed on Graph classes (classes that extend V or E), but its execution can be forced using UNSAFE.
+
 ## Syntax
 
 ```
-TRUNCATE CLASS <class-name>
+TRUNCATE CLASS <class-name> [ POLYMORPHIC ] [ UNSAFE ] 
 ```
 
 Where:
