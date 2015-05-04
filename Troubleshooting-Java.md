@@ -53,9 +53,9 @@ Where <code>maxRetries</code> is the maximum number of attempt of reloading.
 ## Run in OSGi context
 
 (by Raman Gupta)
-OrientDB uses [ServiceRegistry](http://docs.oracle.com/javase/1.4.2/docs/api/javax/imageio/spi/ServiceRegistry.html) to load OIndexFactory and some OSGi container couldn't be happy with it.
+OrientDB uses [ServiceRegistry](http://docs.oracle.com/javase/7/docs/api/javax/imageio/spi/ServiceRegistry.html) to load OIndexFactory and some OSGi containers might not work with it.
 
-One solution is to set the TCCL so that the [ServiceRegistry](http://docs.oracle.com/javase/1.4.2/docs/api/javax/imageio/spi/ServiceRegistry.html) lookup works inside of osgi:
+One solution is to set the TCCL so that the [ServiceRegistry](http://docs.oracle.com/javase/7/docs/api/javax/imageio/spi/ServiceRegistry.html) lookup works inside of OSGi:
 ```java
 ODatabaseObjectTx db = null;
 ClassLoader origClassLoader = Thread.currentThread().getContextClassLoader();
