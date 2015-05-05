@@ -2,7 +2,7 @@ SQL - MOVE VERTEX
 
 This command moves one or more Vertices into another class or cluster. The new vertices will have a new identity ([RID](Concepts.md#recordid)). The command takes care of updating all the edges to point to the new vertices. If a cluster is specified as target and OrientDB is running distributed, then the vertices will be moved to the servers owner of the target cluster. 
 
-|![](images/warning.png)|NOTE: `MOVE VETEX` command updates all connected edges, but not [links](Concepts.md#relationships). If you work with Graph API, we suggest to always use edges to connect vertices and never links.|
+|![](images/warning.png)|NOTE: `MOVE VERTEX` command updates all connected edges, but not [links](Concepts.md#relationships). If you work with Graph API, we suggest to always use edges to connect vertices and never links.|
 |----|----|
 
 ## Syntax
