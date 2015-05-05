@@ -1,6 +1,6 @@
 # PLocal Engine
 
-Paginated Local storage engine, also called as **"plocal"**, is intended to be used as durable replacement of the previous [local storage](Local Storage.md).
+Paginated Local storage engine, also called as **"plocal"**, is intended to be used as durable replacement of the previous [local storage](Local-Storage.md).
 
 plocal storage is based on principle that using disk cache which contains disk data that are split by fixed size portions (pages) and write ahead logging approach (when changes in page are logged first in so called durable storage) we can achieve following characteristics:
 
