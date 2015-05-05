@@ -6,7 +6,7 @@ A graph database hosted in the OrientDB can be configured in Rexster and then ac
 
 ## Installation
 
-You can get the latest stable release of Rexster from it's [Download Page](https://github.com/tinkerpop/rexster/downloads).  The latest stable release when this page was last updated was *2.5.0*.
+You can get the latest stable release of Rexster from its [Download Page](https://github.com/tinkerpop/rexster/downloads).  The latest stable release when this page was last updated was *2.5.0*.
 
 Or you can build a snapshot by executing the following [Git](http://git-scm.com/) and [Maven](http://maven.apache.org/) commands:
 ```java
@@ -54,7 +54,7 @@ In the configuration file, there could be a sample `graph` element for an Orient
 
 The `<graph-name>` element must be unique within the list of configured graphs and reports the name used to identify your graph.
 The `<graph-enabled>` element states whether the graph should be loaded and managed by Rexster. Setting its contents to `false` will prevent that graph from loading to Rexster; setting explicitly to `true` the graph will be loaded.
-The `<graph-type>` element reports the type of graph by using an identifier (`orientgraph` for an OrientDB Graph instance) or the full name of the class that implements the [GraphConfiguration interface](https://github.com/tinkerpop/rexster/blob/master/src/main/java/com/tinkerpop/rexster/config/GraphConfiguration.java)
+The `<graph-type>` element reports the type of graph by using an identifier (`orientgraph` for an OrientDB Graph instance) or the full name of the class that implements the [GraphConfiguration interface](https://github.com/tinkerpop/rexster/blob/master/rexster-core/src/main/java/com/tinkerpop/rexster/config/GraphConfiguration.java)
 ([com.tinkerpop.rexster.OrientGraphConfiguration](https://github.com/orientechnologies/orientdb/blob/master/graphdb/src/main/java/com/tinkerpop/rexster/OrientGraphConfiguration.java) for an OrientDB Graph).
 
 The `<graph-file>` element reports the URL to the OrientDB database Rexster is expected to connect to:
