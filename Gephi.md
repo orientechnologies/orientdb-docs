@@ -13,7 +13,7 @@
 In this mini guide we will take a look at the first one: the streaming plugin.
 
 For more information:
-- [Gephi Graph Streaming format](http://wiki.gephi.org/index.php/Graph_Streaming)
+- [Gephi Graph Streaming format](https://github.com/gephi/gephi/wiki)
 - [Graph Streaming plugin](https://gephi.org/plugins/graph-streaming/)
 - [Tutorial video](http://www.youtube.com/watch?v=7SW_FDiY0sg)
 
