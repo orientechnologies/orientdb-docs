@@ -1,7 +1,6 @@
 SQL - MOVE VERTEX
 
-This command moves a Vertex into another class or cluster. 
-
+This command moves one or more Vertices into another class or cluster. The new vertices will have a new identity ([RID](Concepts.md)). The command takes care of updating all the edges to point to the new vertices. If a cluster is specified as target and OrientDB is running distributed, then the vertices will be moved to the servers owner of the target cluster. 
 
 ## Syntax
 
