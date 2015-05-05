@@ -502,21 +502,32 @@ SELECT dijkstra($current, #8:10, 'weight') FROM V
 
 Returns the shortest path between two vertices. Direction can be OUT (default), IN or BOTH.
 
-Syntax: ```shortestPath( <sourceVertex>, <destinationVertex> [, <direction> [, <edgeClassName>]])```
-
 Available since: 1.3.0
 
-#### Example
+Syntax: ```shortestPath( <sourceVertex>, <destinationVertex> [, <direction> [, <edgeClassName>]])```
+
+Where:
+- `sourceVertex` is the source vertex where to start the path
+- `destinationVertex` is the destination vertex where the path ends
+- `direction`, optional, is the direction of traversing. By default is "BOTH" (in+out). Supported values are "BOTH" (incoming and outgoing), "OUT" (outgoing) and "IN" (incoming)
+- `edgeClassName`, optional, is the edge class to traverse. By default all edges are crossed. Since 2.0.9 and 2.1-rc2
+
+#### Example on finding the shortest path between vertices #8:32 and #8:10
 
 ```sql
 SELECT shortestPath(#8:32, #8:10)
-
-SELECT shortestPath(#8:32, #8:10, 'BOTH')
-
-SELECT shortestPath(#8:32, #8:10, 'BOTH', 'MyEdgeClass')
 ```
 
-version with four parameters is available since 2.0.9
+#### Example on finding the shortest path between vertices #8:32 and #8:10 only crossing outgoing edges
+
+```sql
+SELECT shortestPath(#8:32, #8:10, 'OUT')
+```
+
+#### Example on finding the shortest path between vertices #8:32 and #8:10 only crossing incoming edges of type 'Friend'
+```sql
+SELECT shortestPath(#8:32, #8:10, 'IN', 'Friend')
+```
 
 ---
 ### distance()
