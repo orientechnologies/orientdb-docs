@@ -8,4 +8,7 @@ Better connection and session management
 Better Separation between network and disk data
 * Schema e storage structure on the network should be independent to the disk structure to allow backend evolution without break the network layer
 * Network record serialization format should be different to the disk format, the network format don't need record level version, and need partial data serialization for fetch plan and partial updates, keep them separate allow also to do a fast query-able format on the disk and a lighter network format.
-   
+
+Support for server side transaction
+
+* Need of support of server side transaction attached to a specif session, with relative kill/timeout management and eventual recover cross node.
