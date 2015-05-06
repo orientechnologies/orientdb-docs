@@ -31,7 +31,7 @@ EXPORT DATABASE <output-file>
 
 Where:
 - **output-file** is the output file path
-- **-excludeAll** exclude everything. This is useful to export only few things. Instead of exclude all the feature it's much easier exclude all, and include what you're interested. Example: "-excludeAll -includeSchema" to export the schema only. Available since v1.7.
+- **-excludeAll** exclude everything. This is useful to export only few things. Instead of exclude all the feature it's much easier exclude all, and include what you're interested. Example: "-excludeAll -includeSchema=<true|false>" to export the schema only. Available since v1.7.
 - **-includeClass** includes few classes to export. Class names must be separated by spaces
 - **-excludeClass** excludes few classes to export. Class names must be separated by spaces
 - **-includeCluster** includes few clusters to export. Cluster names must be separated by spaces
