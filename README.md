@@ -1,6 +1,6 @@
 #OrientDB Manual - version 2.0
 
-![image](http://www.orientdb.org/images/orientdb_logo_mid.png)
+![image](http://www.orientdb.com/images/orientdb_logo_mid.png)
 
 ## Quick Navigation
 
