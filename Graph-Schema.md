@@ -8,6 +8,8 @@ Although OrientDB can work in schema-less mode, sometimes you need to enforce yo
 
 NOTE: _Changes to the schema are not transactional, so execute them outside a transaction._
 
+To access to the schema, you can use [SQL](SQL.md#query-the-schema) or API. Will follow examples using Java API.
+
 For a tutorial look at the following links:
 - Orient Technologies's Blog post about [Using Schema with Graphs](http://orientechnologies.blogspot.it/2013/08/orientdb-using-schema-with-graphs.html)
 
