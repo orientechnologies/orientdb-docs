@@ -8,6 +8,8 @@ Although OrientDB can work in schema-less mode, sometimes you need to enforce yo
 
 NOTE: _Changes to the schema are not transactional, so execute them outside a transaction._
 
+To access to the schema, you can use [SQL](SQL.md#query-the-schema) or API. Will follow examples using Java API.
+
 To gain access to the schema APIs you get the OMetadata object from database instance you're using and then call its <code>getSchema()</code> method.
 
     OSchema schema = database.getMetadata().getSchema();
