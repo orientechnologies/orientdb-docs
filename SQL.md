@@ -127,6 +127,8 @@ OrientDB provides the `metadata:` target to retrieve information about OrientDB'
 - `schema`, to get classes and properties
 - `indexmanager`, to get information about indexes
 
+### Query the schema
+
 Get all the configured classes:
 ```
 select expand(classes) from metadata:schema
@@ -169,6 +171,8 @@ select expand(properties) from (
 3   |name    |7   |true     |false   |true   |null|null|null  |null        |null
 ----+--------+----+---------+--------+-------+----+----+------+------------+-----------
 ```
+
+### Query the available indexes
 
 Get all the configured indexes:
 
