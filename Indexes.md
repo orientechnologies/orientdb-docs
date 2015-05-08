@@ -420,26 +420,9 @@ ComparableBinary key1 = new ComparableBinary(new byte[] { 0, 1, 2, 3, 4, 5, 6, 7
 ODocument doc1 = new ODocument().field("k", "key1");
 index.put(key1, doc1);
 ```
+## Query the available indexes
 
-## Tips and Tricks
-
-### Retrieve the list of indexes
-
-Since OrientDB 1.6:
-```sql
-SELECT EXPAND(indexes) FROM METADATA:indexmanager
-```
-
-Since OrientDB 1.0:
-```sql
-SELECT EXPAND(indexes) FROM CLUSTER:0
-```
-
-Before OrientDB 1.0:
-
-```sql
-SELECT EXPAND(indexes) FROM #0:2
-```
+To access to the indexes, you can use [SQL](SQL.md#query-the-available-indexes).
 
 ## Create your index engine
 
