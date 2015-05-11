@@ -23,6 +23,8 @@ Indexes can be updated:
 
 - **Manually**, handled by the developer using Java API and SQL commands (see below). You can use them as Persistent Maps where they entry's value are the records pointed by index.
 
+Automatic indexes can be rebuilt by using [SQL Rebuild Index](SQL-Rebuild-Index.md) command.
+
 ## Index types
 
 The index type cannot be changed once created. The supported index types are the following:
