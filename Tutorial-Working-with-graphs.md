@@ -4,7 +4,7 @@ We already met the [Graph Model](Tutorial-Document-and-graph-model.md#graph-mode
 
 ### Create Vertexes and Edges
 
-OrientDB comes with a generic Vertex persistent class called `V` (OGraphVertex in previous releases) and `E` (OGraphEdge in the past) for Edge. You can create a new Vertex with:
+OrientDB comes with a generic Vertex persistent class called `V` and `E` for Edge. You can create a new Vertex with:
 
 ``` sql
 INSERT INTO V SET name = 'Jay'
@@ -17,7 +17,7 @@ In effect, the GraphDB model works on top of the underlying Document model, so a
 ``` sql
 CREATE VERTEX V SET name = 'Jay'
 
-Created vertex with RID #9:1
+ Created vertex with RID #9:1
 ```
 
 By using graph commands, OrientDB takes care of ensuring that the graph remains always consistent. All the Graph commands are:
