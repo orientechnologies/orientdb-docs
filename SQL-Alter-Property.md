@@ -1,6 +1,7 @@
 # SQL - ALTER PROPERTY
 
-The **Alter Property** command alters a class's property in the schema.
+The **Alter Property** command alters a class's property in the schema.  
+ 
 
 ## Syntax
 
@@ -16,18 +17,21 @@ Where:
 
 Supported attribute names are:
 - **LINKEDCLASS**, the linked class name. Accepts a string as value. NULL to remove it
-- **LINKEDTYPE**, the linked type name between those supported:[Types](https://github.com/orientechnologies/orientdb/wiki/Types). Accepts a string as value. NULL to remove it
+- **LINKEDTYPE**, the linked type name between those supported:[Types](Types.md). Accepts a string as value. NULL to remove it
 - **MIN**, the minimum value as constraint. Accepts strings, numbers or dates as value. NULL to remove it
 - **MANDATORY**, true if the property is mandatory. Accepts "true" or "false"
 - **MAX**, the maximum value as constraint. Accepts strings, numbers or dates as value. NULL to remove it
 - **NAME**, the property name. Accepts a string as value
 - **NOTNULL**, the property can't be null. Accepts "true" or "false"
 - **REGEXP** the regular expression as constraint. Accepts a string as value. NULL to remove it
-- **TYPE**, the type between those supported:[Types](https://github.com/orientechnologies/orientdb/wiki/Types) Accepts a string as value
+- **TYPE**, the type between those supported:[Types](Types.md) Accepts a string as value
 - **COLLATE**, sets the collate to define the strategy of comparison. By default is case sensitive. By setting it yo "ci", any comparison will be case-insensitive
 - **READONLY** the property value is immutable: it can't be changed after the first assignment. Use this with DEFAULT to have immutable values on creation. Accepts "true" or "false"
 - **CUSTOM** Set custom properties. Syntax is <code>&lt;name&gt; = &lt;value&gt;</code>. Example: stereotype = icon
 - **DEFAULT** (Since 2.1) set the default value. Default value can be a value or a function. See below for examples
+
+In case of alter of **NAME** or **TYPE** this command will run a data update that may take some time, depends on the amount of data, don't shutdown the database while this migration is running.
+
 ## Examples
 
 ### Change the name of the property 'age' in class 'Account' in 'born'
