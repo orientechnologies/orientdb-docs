@@ -18,14 +18,13 @@
   - [Database URL](Concepts.md#database-url)
   - [Database Usage](Concepts.md#database-usage)
 
-
 ## Record
 
-A record is the smallest unit that can be loaded from and stored into the database.
+A **Record** is the smallest unit that can be loaded from and stored into the database. A record can be a Document, a RecordBytes record (BLOB) a Vertex or even an Edge.
 
 ### Document
 
-Documents are the most flexible record type available in OrientDB. They are softly typed and are defined by schema classes with defined constraints but can also be used in schema-less mode. Documents handle fields in a flexible way. A Document can easily be imported and exported in JSON format. Below is an example of a Document in JSON:
+**Documents** are the most flexible record type available in OrientDB. They are softly typed and are defined by schema classes with defined constraints but can also be used in schema-less mode. Documents handle fields in a flexible way. A Document can easily be imported and exported in JSON format. Below is an example of a Document in JSON:
 
 ```json
 {
@@ -44,8 +43,16 @@ Documents are the most flexible record type available in OrientDB. They are soft
 ```
 OrientDB Documents support complex [relationships](Concepts.md#relationships). From a programmer's perspective this can be seen as a sort of persistent Map<String,Object>.
 
-### RecordID
+### Vertex
+A **Vertex**, or Node, is the fundamental unit of which graphs are formed. The vertex models the information, while **Edges** connect them. In OrientDB a Vertex is also a [Document](Concepts.ms#document) (see above). This means it can contains embedded records and arbitrary properties.
 
+### Edge
+A **Edge**, or Arc, is the connection between vertices. In OrientDB edges are bidirectional and can connect only 2 vertices. An Edge can be regular or lightweight. Regular edges are saved as [Document](Concepts.ms#document). To understand the difference look at [Lightweight-Edges](Lightweight-Edges.md). See also [Concepts.md#relationships] for more information.
+
+### RecordBytes
+Represents a binary object, like BLOB on Relational DBMS.
+
+### RecordID
 In OrientDB, each record has an auto assigned Unique ID. The RecordID (or RID) is composed in this way:
 
 ```
@@ -136,6 +143,8 @@ CLASS=Invoice                 CLASS=Customer
 
 <b>Record A</b> will contain the *reference* to **Record B** in the property called "customer". Note that both records are reachable by other records since they have a [RecordID](Concepts.md#recordid).
 
+With Graph API, [Edges](Concepts.md#edge) are represented with 2 links stored on both vertices to handle the bidirectional relationship.
+
 #### 1-1 and N-1 referenced relationships
 
 These kinds of relationships are expressed using the **LINK** type.
@@ -147,6 +156,9 @@ These kinds of relationships are expressed using the collection of links such as
 - **LINKLIST**, as an ordered list of links.
 - **LINKSET**, as an unordered set of links. It doesn't accepts duplicates.
 - **LINKMAP**, as an ordered map of links with **String** as the key type. A keys doesn't accept duplicates.
+
+With Graph API, [Edges](Concepts.md#edge) can connect only 2 vertices, so 1-N relationship is not allowed. To specify 1-N relatonships with Graphs, create multiple edges.
+
 
 ### Embedded relationships
 
