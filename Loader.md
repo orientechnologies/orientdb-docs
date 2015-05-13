@@ -31,11 +31,16 @@ Loads record and vertices into a OrientDB database.
 |dbUser|User Name|string|false|admin|
 |dbPassword|User Password|string|false|admin|
 |dbAutoCreate|If the database not exists, create it automatically|boolean|false|true|
+|dbAutoCreateProperties|Auto create properties in schema|boolean|false|false|
+|dbAutoDropIfExists|Auto drop the database if already exists|boolean|false|false|
 |tx|Use [transactions](Transactions.md) or not|boolean|false|false|
 |wal|Use WAL (Write Ahead Logging). Disable WAL to achieve better performances|boolean|false|true|
 |batchCommit|With [transactions](Transactions.md) enabled, commit every X entries. Use this to avoid having one huge transaction in memory|integer|false|0|
 |dbType|Database type, between 'graph' or 'document'|string|false|document|
+|cluster|Cluster name where to store the new record|string|false|-|
 |indexes|Contains the indexes used on ETL process. Before starting any declared index not present in database will be created automatically. Index configuration must have "type", "class" and "fields"|inner document|false|-|
+|useLightweightEdges|Changes the default setting about using [Lightweight Edges](Lightweight-Edges.md)|boolean|false|false|
+|standardElementConstraints|Changes the default setting about using the TinkerPop Blueprints constraints: values cannot be null and 'id'cannot be used as property name|boolean|false|true|
 
 #### Example
 Below an example of configuration to load in a OrientDB database called "dbpedia" in directory "/temp/databases" open using "plocal" protocol and used as "graph". The loading is transactional and commits the transaction every 1,000 inserts. To lookup vertices has been create the index against the property string "URI" in base vertex "V" class. The index is unique.
