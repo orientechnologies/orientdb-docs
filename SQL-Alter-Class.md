@@ -20,6 +20,7 @@ Where:
  - **STRICTMODE**, enable or disable the strict mode. With the strict mode enabled you work in schema-full mode and you can't add new properties to the record if they're in the class's schema definition.
  - **CLUSTERSELECTION** sets the strategy used on selecting the cluster where to create new records. On class creation the setting is inherited by the database's [cluster-selection property](SQL-Alter-Database.md). For more information look also at [Cluster Selection](Cluster-Selection.md).
  - **CUSTOM**, to set custom properties. Property name and value must be expressed using the syntax: "<code>&lt;name&gt;=&lt;value&gt;</code>" without spaces between name and value.
+ -  **ABSTRACT** convert to an abstract class or opposite using true and false
 - **attribute-value**, is the new attribute value to set.
 
 ## See also
@@ -65,6 +66,11 @@ To add a new cluster to a class and set its cluster-selection strategy as "balan
 CREATE CLUSTER Employee_1
 ALTER CLASS ADDCLUSTER Employee_1
 ALTER CLASS CLUSTERSELECTION balanced
+```
+
+To convert an class to abstract 
+```sql
+ALTER CLASS TheClass ABSTRACT true
 ```
 
 ## History
