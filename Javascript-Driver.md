@@ -2,7 +2,7 @@
 
 This driver wraps the most common use cases in database usage. All parameters required by methods or constructor are Strings. This library works on top of [HTTP RESTful protocol](OrientDB-REST.md).
 
-*Note: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting ](Javascript-Driver.md#cross-site-scripting).*
+*Note: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting](Javascript-Driver.md#cross-site-scripting).*
 
 The full source code is available here: **[oriendb-api.js](https://github.com/nuvolabase/orientdb/blob/master/server/src/site/js/orientdb-api.js)**.
 
