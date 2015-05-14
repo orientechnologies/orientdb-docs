@@ -642,7 +642,7 @@ Return types will be JSON plain text.
 
 ### Cross-site scripting
 
-To invoke OrientDB cross-site you can use the [Query](Query.md) command in GET and the JSONP protocol. Example:
+To invoke OrientDB cross-site you can use the `query` command in GET and the JSONP protocol. Example:
 ```xml
 <script type="text/javascript" src='http://127.0.0.1:2480/query/database/sql/select+from+XXXX?jsoncallback=var datajson='></script>
 ```
