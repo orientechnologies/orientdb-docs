@@ -42,10 +42,6 @@ Look at: [Restore admin user](Security.md#restore-admin-user).
 
 This means that probably default timeouts are too low and server side operation need more time to complete. Follow these  [Performance Tuning](Performance-Tuning.md).
 
-### Could not find artifact com.orientechnologies:orientdb-core:jar:1.0-SNAPSHOT in orientechnologies-repository(http://www.orientechnologies.com/listing/m2)
-
-Your maven configuration points to the old Orient Technologies repository: http://www.orientechnologies.com/listing/m2.
-
 ### Record id invalid -1:-2
 
 This message is relative to a temporary record id generated inside a transaction. For more information look at [Transactions](Transactions.md). This means that the record hasn't been correctly serialized.
