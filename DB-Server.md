@@ -26,7 +26,7 @@ To stop a running server, press CTRL+C in the open shell that runs the Server in
 The OrientDB distribution provides the [Orient Console](Console-Commands.md) tool as a console Java application that uses the binary protocol to work with the database.
 
 ### By OrientDB Studio
-Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](../orientdb-studio.wiki/Home-page.html), a client-side web app that uses the HTTP protocol to work with the database.
+Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](Home-page.md), a client-side web app that uses the HTTP protocol to work with the database.
 
 ### By your application
 Consider the [native APIs](Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB-REST.md).
@@ -70,7 +70,7 @@ Available plugins:
 Contains the list of protocols used by the [listeners section](#Listeners).
 The protocols supported today are:
 - **binary**: the Raw binary protocol used by OrientDB clients and console application.
-- **http**: the HTTP RESTful protocol used by [OrientDB Studio](../orientdb-studio.wiki/Home-page.html) and direct raw access from any language and browsers.
+- **http**: the HTTP RESTful protocol used by [OrientDB Studio](Home-page.md) and direct raw access from any language and browsers.
 
 ### Listeners
 
