@@ -1,4 +1,4 @@
-# Console - RESTORE
+# Console - RESTORE DATABASE
 
 Executes a restore of current opened database. The backup file is created using the [BACKUP DATABASE](Console-Command-Backup.md). Look also to [EXPORT DATABASE](Console-Command-Export.md) and [IMPORT DATABASE](Console-Command-Import.md) commands.
 
