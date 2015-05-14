@@ -46,7 +46,7 @@ As you can see the method is executed against a field/value. Methods can receive
 |[right()](SQL-Methods.md#right)|[size()](SQL-Methods.md#size)|[subString()](SQL-Methods.md#substring)|[trim()](SQL-Methods.md#trim)|[toJSON()](SQL-Methods.md#tojson)|[toLowerCase()](SQL-Methods.md#tolowercase)|
 |[toUpperCase()](SQL-Methods.md#touppercase)|[type()](SQL-Methods.md#type)|[values()](SQL-Methods.md#values)|
 
-### []
+### `[]`
 Execute an expression against the item. An item can be a multi-value object like a map, a list, an array or a document. For documents and maps, the item must be a string. For lists and arrays, the index is a number.
 
 Syntax: ```<value>[<expression>]```
