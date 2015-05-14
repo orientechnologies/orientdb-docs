@@ -1,6 +1,6 @@
 # OrientDB Server
 
-OrientDB Server (DB-Server from now) is a multi-threaded Java application that listens to remote commands and executes them against the Orient databases. OrientDB Server supports both [binary](Network-Binary-Protocol.md) and [HTTP](OrientDB_REST.md) protocols. The first one is used by the Orient native client and the Orient Console. The second one can be used by any languages since it's based on [HTTP RESTful API](OrientDB_REST.md). The HTTP protocol is used also by the [OrientDB Studio application](Home-page.md).
+OrientDB Server (DB-Server from now) is a multi-threaded Java application that listens to remote commands and executes them against the Orient databases. OrientDB Server supports both [binary](Network-Binary-Protocol.md) and [HTTP](OrientDB-REST.md) protocols. The first one is used by the Orient native client and the Orient Console. The second one can be used by any languages since it's based on [HTTP RESTful API](OrientDB-REST.md). The HTTP protocol is used also by the [OrientDB Studio application](Home-page.md).
 
 Starting from v1.7 OrientDB support [protected SSL connections](Using-SSL-with-OrientDB.md).
 
@@ -29,7 +29,7 @@ The OrientDB distribution provides the [Orient Console](Console-Commands.md) too
 Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](../orientdb-studio.wiki/Home-page.html), a client-side web app that uses the HTTP protocol to work with the database.
 
 ### By your application
-Consider the [native APIs](Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB_REST.md).
+Consider the [native APIs](Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB-REST.md).
 
 ## Distributed servers
 
