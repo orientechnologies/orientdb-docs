@@ -74,7 +74,7 @@ To know all the commands supported by the Orient console open it and type **help
 |[DICTIONARY REMOVE](Console-Command-Dictionary-Remove.md)|Removes the association in the dictionary|
 |[DISCONNECT](Console-Command-Disconnect.md)|Disconnects from the current database|
 |[DISPLAY RECORD](Console-Command-Display-Record.md)|Displays current record's attributes|
-|[DISPLAY RAW RECORD](display-raw-record.md)|Displays current record's raw format|
+|[DISPLAY RAW RECORD](Console-Command-Display-Raw-Record.md)|Displays current record's raw format|
 |[DROP CLASS](SQL-Drop-Class.md)|Drop a class|
 |[DROP CLUSTER](SQL-Drop-Cluster.md)|Drop a cluster|
 |[DROP DATABASE](Console-Command-Drop-Database.md)|Drop a database|
@@ -104,16 +104,15 @@ To know all the commands supported by the Orient console open it and type **help
 |[RELOAD RECORD](Console-Command-Reload-Record.md)|Reloads a record in memory and set it as the current one|
 |reload schema|Reloads the schema|
 |[ROLLBACK](Console-Command-Rollback.md)|Rollbacks the active transaction started with [begin](Console-Command-Begin.md)|
-|[SELECT](Console-Command-Select.md)|Executes a SQL query against the database and display the results. To know more about the [SQL syntax go here](SQL-Query.md)|
+|[SELECT](SQL-Query.md)|Executes a SQL query against the database and display the results. To know more about the [SQL syntax go here](SQL-Query.md)|
 |[REVOKE](SQL-Revoke.md)|Revokes a permission to a user|
 |[SET](Console-Command-Set.md)|Changes the value of a property|
 |[SLEEP](Console-Command-Sleep.md)|Sleep for the time specified. Useful on scripts|
-|[SHOW HOLES](Console-Command-Show-Holes.md)|Displays the database's holes|
 |[TRAVERSE](SQL-Traverse.md)|Traverse a graph of records|
 |[TRUNCATE CLASS](SQL-Truncate-Class.md)|Remove all the records of a class (by truncating all the underlying configured clusters)|
 |[TRUNCATE CLUSTER](SQL-Truncate-Cluster.md)|Remove all the records of a cluster|
 |[TRUNCATE RECORD](SQL-Truncate-Record.md)|Truncate a record you can't delete because it's corrupted|
-|[UPDATE](Console-Command-Update.md)|Updates a record in the current database using the SQL syntax. To know more about the [SQL syntax go here](SQL-Query.md)|
+|[UPDATE](SQL-Update.md)|Updates a record in the current database using the SQL syntax. To know more about the [SQL syntax go here](SQL-Query.md)|
 |help|Prints this help|
 |exit|Closes the console|
 
