@@ -55,7 +55,7 @@ Backup executed in 0.52 seconds
 ```
 
 ## Restore database
-Use the [console](Console-command-Restore.md) to restore a database. Example:
+Use the [console](Console-Command-Restore.md) to restore a database. Example:
 
 ```
 orientdb> RESTORE DATABASE /backups/mydb.zip
