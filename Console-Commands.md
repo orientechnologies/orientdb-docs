@@ -47,6 +47,7 @@ To know all the commands supported by the Orient console open it and type **help
 |[ALTER CLUSTER](SQL-Alter-Cluster.md)|Changes the cluster attributes|
 |[ALTER DATABASE](SQL-Alter-Database.md)|Changes the database attributes|
 |[ALTER PROPERTY](SQL-Alter-Property.md)|Changes the class's property schema|
+|[BACKUP DATABASE](Console-Command-Backup.md)|Backup a database|
 |[BEGIN](Console-Command-Begin.md)|Begins a new transaction|
 |[BROWSE CLASS](Console-Command-Browse-Class.md)|Browses all the records of a class|
 |[BROWSE CLUSTER](Console-Command-Browse-Cluster.md)|Browses all the records of a cluster|
@@ -102,8 +103,9 @@ To know all the commands supported by the Orient console open it and type **help
 |[REBUILD INDEX](SQL-Rebuild-Index.md)|Rebuild an index|
 |[RELEASE DATABASE](Console-Command-Release-Db.md)|Releases a [Console Freeze Database](Console-Command-Freeze-Db.md) database|
 |[RELOAD RECORD](Console-Command-Reload-Record.md)|Reloads a record in memory and set it as the current one|
-|reload schema|Reloads the schema|
+|RELOAD SCHEMA|Reloads the schema|
 |[ROLLBACK](Console-Command-Rollback.md)|Rollbacks the active transaction started with [begin](Console-Command-Begin.md)|
+|[RESTORE DATABASE](Console-Command-Restore.md)|Restore a database|
 |[SELECT](SQL-Query.md)|Executes a SQL query against the database and display the results. To know more about the [SQL syntax go here](SQL-Query.md)|
 |[REVOKE](SQL-Revoke.md)|Revokes a permission to a user|
 |[SET](Console-Command-Set.md)|Changes the value of a property|
