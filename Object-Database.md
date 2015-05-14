@@ -6,7 +6,6 @@
 
 To use the Object APi include the following jars in your classpath:
 ```java
-orient-commons-*.jar
 orientdb-core-*.jar
 orientdb-object-*.jar
 ```
