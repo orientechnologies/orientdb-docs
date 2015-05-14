@@ -2,7 +2,6 @@
 
 To use the Document API include the following jars in your classpath:
 ```
-orient-commons-*.jar
 orientdb-core-*.jar
 ```
 
