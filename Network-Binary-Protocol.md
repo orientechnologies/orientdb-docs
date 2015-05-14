@@ -163,7 +163,7 @@ The network protocol supports different types of information:
 <tr><th>int</th><td>4</td><td>4</td><td>Signed integer type</td><td>0001</td></tr>
 <tr><th>long</th><td>8</td><td>8</td><td>Signed long type</td><td>00000001</td></tr>
 <tr><th>bytes</th><td>4</td><td>N</td><td>Used for binary data. The format is <code>(length:int)[(bytes)]</code>. Send -1 as NULL</td><td><code>000511111</code></td></tr>
-<tr><th>string</th><td>4</td><td>N</td><td>Used for text messages.The format is: <code>(length:int)[(bytes)]((content:&lt;length&gt;.md)</code>. Send -1 as NULL</td><td><code>0005Hello</code></td></tr>
+<tr><th>string</th><td>4</td><td>N</td><td>Used for text messages.The format is: <code>(length:int)[(bytes)](content:&lt;length&gt;)</code>. Send -1 as NULL</td><td><code>0005Hello</code></td></tr>
 <tr><th>record</th><td>2</td><td>N</td><td>An entire record serialized. The format depends if a RID is passed or an entire record with its content. In case of null record then -2 as short is passed. In case of RID -3 is passes as short and then the RID: <code>(-3:short)(cluster-id:short)(cluster-position:long)</code>. In case of record: <code>(0:short)(record-type:byte)(cluster-id:short)(cluster-position:long)(record-version:int)(record-content:bytes)</code></td><td></td></tr>
 <tr><th>strings</th><td>4</td><td>N</td><td>Used for multiple text messages. The format is: <code>(length:int)[(Nth-string:string)]</code></td><td><code>00020005Hello0007World!</code></td></tr>
 </tbody>
