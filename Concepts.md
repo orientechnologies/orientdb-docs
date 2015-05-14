@@ -44,10 +44,10 @@ A **Record** is the smallest unit that can be loaded from and stored into the da
 OrientDB Documents support complex [relationships](Concepts.md#relationships). From a programmer's perspective this can be seen as a sort of persistent Map<String,Object>.
 
 ### Vertex
-A **Vertex**, or Node, is the fundamental unit of which [graphs](Tutorial-Working-with-graphs.md) are formed. The vertex models the information, while **Edges** connect them. In OrientDB a Vertex is also a [Document](Concepts.ms#document) (see above). This means it can contains embedded records and arbitrary properties.
+A **Vertex**, or Node, is the fundamental unit of which [graphs](Tutorial-Working-with-graphs.md) are formed. The vertex models the information, while **Edges** connect them. In OrientDB a Vertex is also a [Document](Concepts.md#document) (see above). This means it can contains embedded records and arbitrary properties.
 
 ### Edge
-A **Edge**, or Arc, is the connection between vertices in a [graph](Tutorial-Working-with-graphs.md). In OrientDB edges are bidirectional and can connect only 2 vertices. An Edge can be regular or lightweight. Regular edges are saved as [Document](Concepts.ms#document). To understand the difference look at [Lightweight-Edges](Lightweight-Edges.md). See also [Concepts.md#relationships] for more information.
+A **Edge**, or Arc, is the connection between vertices in a [graph](Tutorial-Working-with-graphs.md). In OrientDB edges are bidirectional and can connect only 2 vertices. An Edge can be regular or lightweight. Regular edges are saved as [Document](Concepts.md#document). To understand the difference look at [Lightweight-Edges](Lightweight-Edges.md). See also [Concepts.md#relationships] for more information.
 
 ### RecordBytes
 Represents a binary object, like BLOB on Relational DBMS.
