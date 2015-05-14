@@ -2,7 +2,6 @@
 
 To use the Graph API include the following jars in your classpath:
 ```
-orient-commons-*.jar
 orientdb-core-*.jar
 blueprints-core-*.jar
 orientdb-graphdb-*.jar 
