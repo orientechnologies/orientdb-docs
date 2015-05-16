@@ -4,6 +4,8 @@ When it comes to query languages, SQL is the mostly widely recognized standard. 
 
 Many SQL commands share the [WHERE condition](SQL-Where.md). Keywords and class names in OrientDB SQL are case insensitive. Field names and values are case sensitive. In the following examples keywords are in uppercase but this is not strictly required.
 
+If you are not yet familiar with SQL, we suggest you to get the course on [KhanAcademy](http://cs-blog.khanacademy.org/2015/05/just-released-full-introductory-sql.html).
+
 For example, if you have a class `MyClass` with a field named `id`, then the following SQL statements are equivalent:
 
 ```sql
