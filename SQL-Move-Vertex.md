@@ -40,8 +40,8 @@ It's very common the case when you start modeling your domain in a way, but then
 ```sql
 CREATE CLASS Customer EXTENDS Person
 CREATE CLASS Provider EXTENDS Person
-MOVE (SELECT FROM Person WHERE type = 'Customer') TO CLASS:Customer
-MOVE (SELECT FROM Person WHERE type = 'Provider') TO CLASS:Provider
+MOVE VERTEX (SELECT FROM Person WHERE type = 'Customer') TO CLASS:Customer
+MOVE VERTEX (SELECT FROM Person WHERE type = 'Provider') TO CLASS:Provider
 ALTER CLASS Person ABSTRACT TRUE
 ```
 
@@ -52,7 +52,7 @@ OrientDB allows you to scale up by just adding servers. As soon as you add a new
 With this example, we're moving all the customers that live in Italy, Germany or UK to the "customer_europe" cluster assigned to the node "Europe". In this way all the access to European customers will be faster to the applications connected to the European node:
 
 ```sql
-MOVE (SELECT FROM Customer WHERE ['Italy', 'Germany', 'UK'] IN out('city').out('country') ) TO CLUSTER:customer_europe
+MOVE VERTEX (SELECT FROM Customer WHERE ['Italy', 'Germany', 'UK'] IN out('city').out('country') ) TO CLUSTER:customer_europe
 ```
 
 ---
