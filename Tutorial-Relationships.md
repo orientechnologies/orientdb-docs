@@ -6,7 +6,7 @@ The most important feature of a **graph** database is the management of **relati
 
 The relational model (and RDBMS - relational database management systems) has long been thought to be the best way to handle relationships. Graph databases suggest a more modern approach to this topic.
 
-Most database developers are familiar with the relational model given it's 30+ years of dominance, spreading over generations of developers. Let's review how these systems manage relationships. As an example, we will use the relationships between the Customer and Address tables.
+Most database developers are familiar with the relational model given its 30+ years of dominance, spreading over generations of developers. Let's review how these systems manage relationships. As an example, we will use the relationships between the Customer and Address tables.
 
 ### 1-to-1 relationship
 
