@@ -116,6 +116,7 @@
        * [Commands](Network-Binary-Protocol-Commands.md)
 * [Use Cases](Use-Cases.md)
    * [Time Series](Time-series-use-case.md)
+   * [Chat](Chat-use-case.md)
    * [Key Value](Key-Value-use-case.md)
 * [Server](DB-Server.md)
    * [Embed the Server](Embedded-Server.md)
