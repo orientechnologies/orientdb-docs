@@ -4,5 +4,6 @@ This page contains the solution to the most common use cases. Please don't consi
 
 ## Use cases
 
-- [Time Series Use case](Time-series-use-case.md)
+- [Time Series](Time-series-use-case.md)
+- [Chat](Chat-use-case.md)
 - [Use OrientDB as a Key/Value DBMS](Key-Value-use-case.md)
