@@ -30,7 +30,7 @@ create class ItalianRestaurant extends ChatRoom
 
 Class "ItalianRestaurant" will extend all the properties from ChatRoom.
 
-Why creating a base class? Because you could always execute polymorphic queries that are cross-chatrooms, like get all the message from user "Jay":
+Why creating a base class? Because you could always execute polymorphic queries that are cross-chatrooms, like get all the message from user "Luca":
 
 ```sql
 select from ChatRoom where user.name = 'Luca'
