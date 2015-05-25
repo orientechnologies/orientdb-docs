@@ -10,7 +10,7 @@ The 2 most common use cases in a chat are:
 
 ## Create the initial schema
 
-In order to work with the ChatRooms, the rule of the thumb is creating a base abstract class ("ChatRoom") and then let to the concrete classes to represent individual ChatRooms.
+In order to work with the chat rooms, the rule of the thumb is creating a base abstract class ("ChatRoom") and then let to the concrete classes to represent individual ChatRooms.
 
 ### Create the base ChatRoom class
 
@@ -25,17 +25,16 @@ create property ChatRoom.user LINK OUser
 ### Create a new ChatRoom
 
 ```sql
-create class Client_34 extends ChatRoom
+create class ItalianRestaurant extends ChatRoom
 ```
 
-Class "Client_34" will extend all the properties from ChatRoom.
+Class "ItalianRestaurant" will extend all the properties from ChatRoom.
 
 Why creating a base class? Because you could always execute polymorphic queries that are cross-chatrooms, like get all the message from user "Jay":
 
 ```sql
 select from ChatRoom where user.name = 'Luca'
 ```
-
 
 ## Create a new message in the Chat Room
 
@@ -55,14 +54,14 @@ public ODocument addMessage(String chatRoom, String message, OUser user) {
 Example:
 
 ```java
-addMessage("Client_34", "This is a test", database.getUser());
+addMessage("ItalianRestaurant", "Have you ever been at Ponza island?", database.getUser());
 ```
 
 ## Retrieve last messages
-You can easily fetch pages of messages order by date desc by using the OrientDB's `@rid`. Example:
+You can easily fetch pages of messages ordered by date in descending order, by using the OrientDB's `@rid`. Example:
 
 ```sql
-select from Client_34 order by @rid desc skip 0 limit 50
+select from ItalianRestaurant order by @rid desc skip 0 limit 50
 ```
 
 You could write a generic method to access to a page of messages, like this:
@@ -73,10 +72,10 @@ public Iterable<ODocument> loadMessages(String chatRoom, fromLast, pageSize) {
 }
 ```
 
-Loading the 2nd (last) page, would become this query (with pageSize = 50):
+Loading the 2nd (last) page from chat "ItalianRestaurant", would become this query (with pageSize = 50):
 
 ```sql
-select from Client_34 order by @rid desc skip 50 limit 50
+select from ItalianRestaurant order by @rid desc skip 50 limit 50
 ```
 
 This is super fast and O(1) even with million of messages.
