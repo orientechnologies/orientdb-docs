@@ -47,13 +47,13 @@ Now connect the record to the right Calendar vertex. If the usual way to retriev
 The "log" property connects the Time Unit to the Log records. So to retrieve all the log of March 2012, 20th at 10am:
 
 ```sql
-SELECT flatten( month[3].day[20].hour[10].logs ) FROM Year WHERE year = "2012"
+SELECT expand( month[3].day[20].hour[10].logs ) FROM Year WHERE year = "2012"
 ```
 That could be used as starting point to retrieve only a sub-set of logs that satisfy certain rules. Example:
 
 ```sql
 SELECT FROM (
-  SELECT flatten( month[3].day[20].hour[10].logs ) FROM Year WHERE year = "2012"
+  SELECT expand( month[3].day[20].hour[10].logs ) FROM Year WHERE year = "2012"
 ) WHERE priority = 'critical'
 ```
 That retrieves all the CRITICAL logs of March 2012, 20th at 10am.
@@ -62,7 +62,7 @@ That retrieves all the CRITICAL logs of March 2012, 20th at 10am.
 
 If you need multiple hours/days/months as result set you can use the UNION function to create a unique result set:
 ```sql
-SELECT flatten( records ) from (
+SELECT expand( records ) from (
   SELECT union( month[3].day[20].hour[10].logs, month[3].day[20].hour[11].logs ) AS records
   FROM Year WHERE year = "2012"
 )
@@ -71,17 +71,17 @@ In this example we create a union between the 10th and 11th hours. But what abou
 
 ```sql
 TRAVERSE hour FROM (
-  SELECT flatten( month[3].day[20] ) FROM Year WHERE year = "2012"
+  SELECT expand( month[3].day[20] ) FROM Year WHERE year = "2012"
 )
 ```
 
 So putting all together this query will extract all the logs of all the hours in a day:
 
 ```sql
-SELECT flatten( logs ) FROM (
+SELECT expand( logs ) FROM (
   SELECT union( logs ) AS logs FROM (
     TRAVERSE hour FROM (
-     SELECT flatten( month[3].day[20] ) FROM Year WHERE year = "2012"
+     SELECT expand( month[3].day[20] ) FROM Year WHERE year = "2012"
     )
   )
 )
@@ -114,6 +114,6 @@ SET win = (
 Link it in the Calendar graph assuming the previous command returned #23:45 as the RecordId of the brand new DailyLog record:
 ```sql
 UPDATE (
-  SELECT flatten( month[3].day[20] ) FROM Year WHERE year = "2012"
+  SELECT expand( month[3].day[20] ) FROM Year WHERE year = "2012"
 ) ADD logs = #23:45
 ```
