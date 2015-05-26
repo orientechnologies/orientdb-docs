@@ -79,3 +79,13 @@ select from ItalianRestaurant order by @rid desc skip 50 limit 50
 ```
 
 This is super fast and O(1) even with million of messages.
+
+## Limitations
+
+Since OrientDB can handle only 32k clusters, you could have maximum 32k chat rooms. Unless you want to rewrite [FreeNode](https://freenode.net/index.shtml), 32k chat rooms will be enough. If you need more than this, the suggested solution is still using this approach, but with multiple databases (even on the same server, because one OrientDB Server instance can handle thousands of databases concurrently).
+
+In this case you could use one database to handle all the metadata, like the following classes:
+- ChatRoom, containing all the chatrooms, and the database where are stored. Example: `{ "@class": "ChatRoom", "description": "OrientDB public channel", "databaseName", "db1", "clusterName": "orientdb" }`
+- User, containing all the accounts with the edges to the ChatRooms where they are subscribed
+
+In the ChatRoom messages, instead of using the User's @RID, you can use the user's ID because OrientDB can't handle cross-database links.
