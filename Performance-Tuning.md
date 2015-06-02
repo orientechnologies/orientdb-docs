@@ -3,8 +3,8 @@
 This guide contains the general tips to optimize your application that use the OrientDB. Below you can find links for the specific guides different per database type used. Look at the specific guides based on the database type you're using:
 
 - [Document Database performance tuning](Performance-Tuning-Document.md)
+- [Graph Database performance tuning](Performance-Tuning-Graph.md) (Deprecated)
 - [Object Database performance tuning](Performance-Tuning-Object.md)
-- [Native Graph Database performance tuning](Performance-Tuning-Graph.md) (Deprecated)
 
 ## Configuration
 To tune OrientDB look at the [Configuration](Configuration.md) settings.
@@ -236,9 +236,5 @@ OGlobalConfiguration.TX_USE_LOG.setValue(false);
 
 *NOTE: Please note that in case of crash of the JVM the pending transaction OrientDB could not be able to rollback it.*
 
-## Keep the database small
-
-The smaller the database you have, the bigger are the number of records you can cache in memory. Furthermore small database means faster seek in filesystem and minor loading time from disk/network. In order to keep your database small follow the following suggestions:
-
-### Keep field names short
-OrientDB is schema-less that means field names are stored with the values too. So if you call a field "out" instead of "outVertices" you saves 8 characters, namely 8 bytes per record. Applying this to millions of records allows you to save several Megabytes.
+### Use the schema
+Starting from OrientDB 2.0, if fields are declared in the schema, field names are not stored in document/vertex/edge themselves. This improves performance and saves a lot of space on disk.
