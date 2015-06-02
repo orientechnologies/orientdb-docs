@@ -5,15 +5,17 @@ The **Create Class** command creates a new class in the schema. *NOTE: If a clus
 ## Syntax
 
 ```sql
-CREATE CLASS <class> [EXTENDS <super-class>] [CLUSTER <clusterId>*]
+CREATE CLASS <class> [EXTENDS <super-class>] [CLUSTER <clusterId>*] [CLUSTERS <total-cluster-number>] [ABSTRACT]
 ```
 
 Where:
 - *class* is the class name to create. The first character must be alphabetic and others can be any alphanumeric characters plus underscore _ and dash -.
 - *super-class*, optional, is the super-class to extend
 - *clusterId* can be a list separated by comma (,)
+- *total-cluster-number* is the number of clusters to create. Default is 1.
+- *ABSTRACT* set the class as abstract in the Object Oriented meaning, so no instances of this class can be created
 
-By default OrientDB creates 1 cluster per class, but this can be changed by setting the property ```minimumclusters``` at [database level](SQL-Alter-Database.md).
+By default OrientDB creates 1 cluster per class with the same name of the class in lowercase. If you work with multiple cores, we suggest to use multiple clusters to improve concurrency on insert. To change the number of clusters you can set the property ```minimumclusters``` at [database level](SQL-Alter-Database.md) or you can use the `CLUSTERS <total-cluster-number>` syntax.
 
 ## Cluster selection strategy
 OrientDB, by default, inherits the cluster selection by the [database](SQL-Alter-Database.md). By default is round-robin, but you can always change it after creation with [alter class command](SQL-Alter-Class.md). The supported strategies are:
