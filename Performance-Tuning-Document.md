@@ -14,12 +14,14 @@ You can avoid the creation of a new ODocument for each insertion by using the OD
 
 Example:
 ```java
+import com.orientechnologies.orient.core.intent.OIntentMassiveInsert;
+
 db.declareIntent( new OIntentMassiveInsert() );
 
-ODocument doc = new ODocument(db);
+ODocument doc = new ODocument();
 for( int i = 0; i < 1000000; ++i ){
   doc.reset();
-  doc.setClassname("Customer");
+  doc.setClassName("Customer");
   doc.field("id", i);
   doc.field("name", "Jason");
   doc.save();
