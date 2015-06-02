@@ -37,10 +37,29 @@ Loads record and vertices into a OrientDB database.
 |wal|Use WAL (Write Ahead Logging). Disable WAL to achieve better performances|boolean|false|true|
 |batchCommit|With [transactions](Transactions.md) enabled, commit every X entries. Use this to avoid having one huge transaction in memory|integer|false|0|
 |dbType|Database type, between 'graph' or 'document'|string|false|document|
+|class|Class name to use to store the new record|string|false|-|
 |cluster|Cluster name where to store the new record|string|false|-|
-|indexes|Contains the indexes used on ETL process. Before starting any declared index not present in database will be created automatically. Index configuration must have "type", "class" and "fields"|inner document|false|-|
+|classes|Creates classes (if not already defined in database). Look at [classes](Loader.md#classes) syntax for more information|inner document|false|-|
+|indexes|Contains the indexes used on ETL process. Before starting any declared index not present in database will be created automatically. Index configuration must have "type", "class" and "fields". Look at [indexes](Loader.md#indexes) syntax for more information|inner document|false|-|
 |useLightweightEdges|Changes the default setting about using [Lightweight Edges](Lightweight-Edges.md)|boolean|false|false|
 |standardElementConstraints|Changes the default setting about using the TinkerPop Blueprints constraints: values cannot be null and 'id'cannot be used as property name|boolean|false|true|
+
+##### classes
+
+| Parameter | Description | Type | Mandatory | Default value |
+|-----------|-------------|------|-----------|-----------|
+|name|Class name|string|true|-|
+|extends|Super class name|string|false|-|
+|clusters|Number of clusters to create under the class|integer|false|1|
+
+##### indexes
+
+| Parameter | Description | Type | Mandatory | Default value |
+|-----------|-------------|------|-----------|-----------|
+|name|Index name|string|false|-|
+|class|Class name where to create the index|string|true|-|
+|type|Index type between the available ones|string|true|-|
+|fields|Array of field names to index. To specify the field type use the syntax `<field-name>:<field-type>`|string|true|-|
 
 #### Example
 Below an example of configuration to load in a OrientDB database called "dbpedia" in directory "/temp/databases" open using "plocal" protocol and used as "graph". The loading is transactional and commits the transaction every 1,000 inserts. To lookup vertices has been create the index against the property string "URI" in base vertex "V" class. The index is unique.
@@ -55,6 +74,10 @@ Below an example of configuration to load in a OrientDB database called "dbpedia
       "batchCommit": 1000,
       "wal" : false,
       "dbType": "graph",
+      "classes": [
+        {"name":"Person", "extends": "V" },
+        {"name":"Customer", "extends": "Person", "clusters":8 }
+      ],
       "indexes": [{"class":"V", "fields":["URI:string"], "type":"UNIQUE" }]
     }
 ```
