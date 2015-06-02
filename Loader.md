@@ -50,7 +50,7 @@ Loads record and vertices into a OrientDB database.
 |-----------|-------------|------|-----------|-----------|
 |name|Class name|string|true|-|
 |extends|Super class name|string|false|-|
-|clusters|Number of clusters to create under the class|integer|false|1|
+|clusters|Number of clusters to create under the class. Since 2.1|integer|false|1|
 
 ##### indexes
 
