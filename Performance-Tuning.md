@@ -6,11 +6,8 @@ This guide contains the general tips to optimize your application that use the O
 - [Graph Database performance tuning](Performance-Tuning-Graph.md) (Deprecated)
 - [Object Database performance tuning](Performance-Tuning-Object.md)
 
-## Configuration
-To tune OrientDB look at the [Configuration](Configuration.md) settings.
-
-## Platforms
-- [Performance analysis on ZFS](http://carloprad.blogspot.it/2014/03/orientdb-on-zfs-performance-analysis.html)
+## Java
+OrientDB is written in Java, so it runs on top of Java Virtual Machine (JVM). OrientDB is compatible with Java 8 and we suggest to use this version to run OrientDB. Java 8 is faster than Java 7 and previous ones.
 
 ## Memory settings
 ### Server and Embedded settings
@@ -36,8 +33,10 @@ _NOTE: If the sum of maximum heap and disk cache buffer is too high, could cause
 ## JVM settings
 JVM settings are encoded in server.sh (and server.bat) batch files. You can change them to tune the JVM according to your usage and hw/sw settings. We found these setting work well on most configurations:
 ```java
--server -XX:+AggressiveOpts -XX:CompileThreshold=200
+-server -XX:+PerfDisableSharedMem
 ```
+
+This setting will disable writing debug information about the JVM. In case you need to profile the JVM, just remove this setting. For more information look at this post: http://www.evanjones.ca/jvm-mmap-pause.html.
 
 ### High concurrent updates
 
@@ -238,3 +237,10 @@ OGlobalConfiguration.TX_USE_LOG.setValue(false);
 
 ### Use the schema
 Starting from OrientDB 2.0, if fields are declared in the schema, field names are not stored in document/vertex/edge themselves. This improves performance and saves a lot of space on disk.
+
+## Configuration
+To tune OrientDB look at the [Configuration](Configuration.md) settings.
+
+## Platforms
+- [Performance analysis on ZFS](http://carloprad.blogspot.it/2014/03/orientdb-on-zfs-performance-analysis.html)
+
