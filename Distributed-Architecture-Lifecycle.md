@@ -95,6 +95,8 @@ In this case Server #2 joins the existent cluster.
 
 ![image](http://www.orientdb.org/images/cluster-join.png)
 
+When a node joins an existent cluster, the most updated copy of the database is downloaded to the joining node. If any copy of database was already present, that is moved under `backup/databases` folder.
+
 ### Multiple clusters
 
 Multiple clusters can coexist in the same network. Clusters can't see each others because are isolated black boxes.
