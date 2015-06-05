@@ -54,10 +54,11 @@ V2--RELATED(count=3)-->V1
 Need to build a query that, for a given vertex Vn, will find all vertices connected with RELATED edge to this Vn and also, for each pair [Vn, Vx] will calculate SUM of in_RELATED.count and out_RELATED.count.
 
 For that simple example above, this query result for V1 would be
-
+---------------------------
 |  Vertex   |    Count    |
 |-------------------------|
 |    V2     |      20     |
+---------------------------
 
 Solution:
 
