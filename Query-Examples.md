@@ -73,6 +73,6 @@ select v.name, sum(count) as cnt from (
   ) order by cnt desc group by v
 ```
 
-This was discussed in the google groups over here: "https://groups.google.com/forum/#!topic/orient-database/CRR-simpmLg". Thanks to Andrey for posing the problem and permitting it to be reproduced here.
+This was discussed in the google groups over here: "https://groups.google.com/forum/#!topic/orient-database/CRR-simpmLg". Thanks to Andrey for posing the problem.
 
 --------
