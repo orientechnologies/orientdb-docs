@@ -55,11 +55,10 @@ Need to build a query that, for a given vertex Vn, will find all vertices connec
 
 For that simple example above, this query result for V1 would be
 
----------------------------
 |  Vertex   |    Count    |
 |-----------|-------------|
 |    V2     |      20     |
----------------------------
+
 
 Solution:
 
