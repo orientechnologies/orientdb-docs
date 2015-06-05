@@ -1065,6 +1065,6 @@ Where:
 - **command** can be:
  - **kill** to kill a connection
  - **interrupt** to interrupt the operation (if possible)
-- **id**, as the connection id. To know all the connections use GET /connections/[&lt;db&gt;]
+- **id**, as the connection id. To know all the connections use GET /connection/[&lt;db&gt;]
 
 You've to execute this command authenticated in the OrientDB Server realm (no database realm), so get the root password from config/orientdb-server-config.xml file (last section).
