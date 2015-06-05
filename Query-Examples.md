@@ -26,20 +26,24 @@ User wishes to query those vertices filtering on certain properties of DocElem a
 To fetch the Model vertices where DocElem.type = "paragraph" and connected vertex Model has the property model like '%world%'
 
 ```sql
-    select from (select expand(out('hasModel')) from DocElem where type = "paragraph") where model like "%world%"
+    select from (select expand(out('hasModel')) from DocElem where 
+      type = "paragraph") where model like "%world%"
 ```
 
 To find instead the DocElem vertices, use this (assuming that a DocElem is only connected to one Model):
 
 ```sql
-    select * from DocElem where type = "paragraph" and out('hasModel')[0].model like '%world%'
+    select * from DocElem where type = "paragraph" and 
+      out('hasModel')[0].model like '%world%'
 ```
 
 --------
 How to apply built-in math functions on projections? For example, to use the sum() function over 2 values returned from sub-queries using projections, the following syntax may be used:
 
 ```sql
-select sum($a[0].count,$b[0].count) let $a = (select count(*) from e), $b = (select count(*) from v)
+  select sum($a[0].count,$b[0].count) 
+    let $a = (select count(*) from e), 
+        $b = (select count(*) from v)
 ```
 
 --------
