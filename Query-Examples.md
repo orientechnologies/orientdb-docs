@@ -43,3 +43,28 @@ select sum($a[0].count,$b[0].count) let $a = (select count(*) from e), $b = (sel
 ```
 
 --------
+
+Given the following schema: Vertices are connected with Edges of type RELATED which have property count.
+2 vertices can have connection in both ways at the same time.
+
+V1--RELATED(count=17)-->V2
+
+V2--RELATED(count=3)-->V1
+
+Need to build a query that, for a given vertex Vn, will find all vertices connected with RELATED edge to this Vn and also, for each pair [Vn, Vx] will calculate SUM of in_RELATED.count and out_RELATED.count.
+
+For that simple example above, this query result for V1 would be
+
+|  Vertex   |    Count    |
+|-------------------------|
+|    V2     |      20     |
+
+Solution:
+
+```sql
+select v.name, sum(count) as cnt from (select if(eval("in=#17:0"),out,in) as v,count from E where (in=#17:0 or out=#17:0)) order by cnt desc group by v
+```
+
+This was discussed in the google groups over here: "https://groups.google.com/forum/#!topic/orient-database/CRR-simpmLg". Thanks to Andrey for posing the problem and permitting it to be reproduced here.
+
+--------
