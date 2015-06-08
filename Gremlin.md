@@ -78,7 +78,7 @@ g.addVertex();
 ==>v[#5:0]
 ```
 
-# Create an edge =
+# Create an edge
 
 To create a new edge between two vertices, use the **addEdge(v1, v2, label)** method. The edge will be created with the label specified.
 
@@ -164,7 +164,7 @@ gremlin> g.V.outE('friend')
 ==>e[#6:0][#5:0-friend->#5:1]
 ```
 
-# Close the database =
+# Close the database
 
 To close a graph use the **shutdown()** method:
 ```java
