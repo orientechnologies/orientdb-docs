@@ -49,9 +49,9 @@ SELECT FROM orole
  ---+------+--------+------+---------------------------------------------------------------+-----------------
   0 | #4:0 | admin  | 1    | {}                                                            | null
   1 | #4:1 | reader | 0    | {database=2, database.schema=2, database.cluster.internal=2,  | null
-    |      |		|	   |  database.cluster.orole=2, database.cluster.ouser=2,          |
-    |  	   |		|	   |  database.class.*=2, database.cluster.*=2, database.command=2,|
-    |	   |		|	   |  database.hook.record=2                                       |
+    |      |        |      | {database.cluster.orole=2, database.cluster.ouser=2,          |
+    |  	   |        |      | database.class.*=2, database.cluster.*=2, database.command=2, |
+    |	   |        |      | database.hook.record=2                                        |
   2 | #4:2 |writer  | 0    | {database=2, database.schema=7, database.cluster.internal=2,  | null
     |      |        |      |  database.cluster.orole=2, database.cluster.ouser=2,          |
     |      |        |      |  database.class.*=15, database.cluster.*=15,                  |
