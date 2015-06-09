@@ -2,6 +2,9 @@
 
 OrientDB supports multi-threads access to the database. `ODatabase*` and `OrientGraph*` instances are not thread-safe, so you've to get *an instance per thread* and each database instance can be used *only in one thread per time*. For more information about how concurrency is managed by OrientDB look at [Concurrency](Concurrency.md).
 
+|![](images/warning.png)|Since v2.1 OrientDB doesn't allow implicit usage of multiple database instances from the same thread. Any attempt to manage multiple instances in the same thread must explicitly call the method `db.activateOnCurrentThread()` against the database instance BFORE you use it.|
+|---|---|
+
 Multiple database instances points to the same storage by using the same URL. In this case Storage is thread-save and orchestrates requests from different ```ODatabase*``` instances.
 
 ```
@@ -33,9 +36,11 @@ ODocument rec1 = database1.newInstance();
 ODocument rec2 = database2.newInstance();
 
 rec1.field("name", "Luca");
+database1.activateOnCurrentThread(); // MANDATORY SINCE 2.1
 database1.save(rec1); // force saving in database1 no matter where the record came from
 
 rec2.field("name", "Luke");
+database2.activateOnCurrentThread(); // MANDATORY SINCE 2.1
 database2.save(rec2); // force saving in database2 no matter where the record came from
 ```
 
@@ -52,20 +57,20 @@ ODatabaseDocument database = (ODatabaseDocument) ODatabaseRecordThreadLocal.INST
 Beware when you reuse database instances from different threads or then a thread handle multiple databases. In this case you can override the current database by calling this manually:
 
 ```java
-ODatabaseRecordThreadLocal.INSTANCE.set( database );
+database.activateOnCurrentThread();
 ```
 
 Where database is the current database instance. Example:
 
 ```java
-ODocument rec1 = database1.newInstance();
-ODocument rec2 = database2.newInstance();
 
-ODatabaseRecordThreadLocal.INSTANCE.set( database1 );
+database1.activateOnCurrentThread();
+ODocument rec1 = database1.newInstance();
 rec1.field("name", "Luca");
 rec1.save();
 
-ODatabaseRecordThreadLocal.INSTANCE.set( database2 );
+database2.activateOnCurrentThread();
+ODocument rec2 = database2.newInstance();
 rec2.field("name", "Luke");
 rec2.save();
 ```
@@ -108,7 +113,7 @@ When a database is not found in current thread it will be called the factory get
 
 ## Close a database
 
-What happens if you are working with two databases and close one? The Thread Local isn't a stack, so you loose the previous database in use. Example:
+What happens if you are working with two databases and close just one? The Thread Local isn't a stack, so you loose the previous database in use. Example:
 ```java
 ODatabaseDocumentTx db1 = new ODatabaseDocumentTx("local:/temo/db1").create();
 ODatabaseDocumentTx db2 = new ODatabaseDocumentTx("local:/temo/db2").create();
@@ -117,7 +122,7 @@ ODatabaseDocumentTx db2 = new ODatabaseDocumentTx("local:/temo/db2").create();
 db2.close();
 
 // NOW NO DATABASE IS SET IN THREAD LOCAL. TO WORK WITH DB1 SET IT IN THE THREAD LOCAL
-ODatabaseRecordThreadLocal.INSTANCE.set( db1 );
+db1.activateOnCurrentThread();
 ...
 ```
 
@@ -195,5 +200,6 @@ ODocument doc2 = new ODocument("Provider");
 doc2.field("name", "Chuck");
 doc2.save(); // THIS IS BOUND TO DB2 BECAUSE IT'S THE CURRENT ONE
 
+db1.activateOnCurrentThread();
 db1.commit(); // WILL COMMIT DOC1 ONLY
 ```
