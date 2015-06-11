@@ -33,6 +33,7 @@ And `item` can be:
 |@class|returns Class name only for record of type Schema Aware. It's null for the others|**@class** = 'Profile'|0.9.21|
 |@version|returns the record version as integer. Version starts from 0. Can't be null|**@version** > 0|0.9.21|
 |@size|returns the record size in bytes|**@size** > 1024|0.9.21|
+|@fields|returns the number of fields in document|select @fields from V|-|
 |@type|returns the record type between: 'document', 'column', 'flat', 'bytes'|**@type** = 'flat'|0.9.21|
 
 # Operators
