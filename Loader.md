@@ -34,6 +34,7 @@ Loads record and vertices into a OrientDB database.
 |dbAutoCreateProperties|Auto create properties in schema|boolean|false|false|
 |dbAutoDropIfExists|Auto drop the database if already exists|boolean|false|false|
 |tx|Use [transactions](Transactions.md) or not|boolean|false|false|
+|txUseLog|Use log in transaction. If WAL is disabled you can still use not reliable transactions by setting txUseLog=true. This is useful to group many operations in batch, like create edges|false|-|
 |wal|Use WAL (Write Ahead Logging). Disable WAL to achieve better performances|boolean|false|true|
 |batchCommit|With [transactions](Transactions.md) enabled, commit every X entries. Use this to avoid having one huge transaction in memory|integer|false|0|
 |dbType|Database type, between 'graph' or 'document'|string|false|document|
