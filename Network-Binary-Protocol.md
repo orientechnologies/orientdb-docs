@@ -1,6 +1,6 @@
 # Binary Protocol
 
-Current protocol version for 2.0-SNAPSHOT: **28**. Look at [compatibility](#Compatibility) for retro-compatibility.
+Current protocol version for 2.1-SNAPSHOT: **31**. Look at [compatibility](#Compatibility) for retro-compatibility.
 
 # Table of content
 - [Introduction](#introduction)
