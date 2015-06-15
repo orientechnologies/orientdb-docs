@@ -40,9 +40,13 @@ Current protocol version for 2.0-SNAPSHOT: **28**. Look at [compatibility](#Comp
 		- [SQL command payload](#sql-command-payload)
 		- [SQL Script command payload](#sql-script-command-payload)
 	- [REQUEST_TX_COMMIT](#request_tx_commit)
+	- [REQUEST_INDEX_GET](#request_index_get)
+	- [REQUEST_INDEX_PUT](#request_index_put)
+	- [REQUEST_INDEX_REMOVE](#request_index_remove)
 - [Special use of LINKSET types](#special-use-of-linkset-types)
 	- [Tree node binary structure](#tree-node-binary-structure)
 - [History](#history)
+	- [Version 31](#version-31)
 	- [Version 24](#version-24)
 	- [Version 23](#version-23)
 	- [Version 22](#version-22)
@@ -241,6 +245,9 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_SBTREE_BONSAI_FIRST_KEY<td>112</td><td>Get first key from sb-tree bonsai</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_SBTREE_BONSAI_GET_ENTRIES_MAJOR<td>113</td><td>Gets the portion of entries major than specified one. If returns 0 entries than the specified entrie is the largest</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_RIDBAG_GET_SIZE<td>114</td><td>Rid-bag specific operation. Send but does not save changes of rid bag. Retrieves computed size of rid bag.</td><td>no</td><td>1.7rc1</td></tr>
+<tr><td>REQUEST_INDEX_GET<td>120</td><td>Lookup in an index by key</td><td>no</td><td>2.1rc4</td></tr>
+<tr><td>REQUEST_INDEX_PUT<td>121</td><td>Create or update an entry in an index</td><td>no</td><td>2.1rc4</td></tr>
+<tr><td>REQUEST_INDEX_REMOVE<td>122</td><td>Remove an entry in an index by key</td><td>no</td><td>2.1rc4</td></tr>
 </table>
 
 # Response
@@ -576,7 +583,7 @@ and **payload-status** returns 1 if the record has been deleted, otherwise 0. If
 
 ## REQUEST_COMMAND
 
-Executes remote commands:
+Executes remote commands.
 
 ```
 Request: (mode:byte)(command-payload-length:int)(class-name:string)(command-payload)
@@ -600,7 +607,10 @@ Response is different for synchronous and asynchronous request:
 - **synch-result-type** can be:
  - 'n', means null result
  - 'r', means single record returned
- - 'l', collection of records. The format is:
+ - 'l', list of records. The format is:
+  - an integer to indicate the collection size
+  - all the records one by one
+ - 's', set of records. The format is:
   - an integer to indicate the collection size
   - all the records one by one
  - 'a', serialized result, a byte[] is sent
@@ -618,6 +628,7 @@ Response is different for synchronous and asynchronous request:
 ## REQUEST_TX_COMMIT
 
 Commits a transaction. This operation flushes all the pending changes to the server side.
+
 ```
 Request: (tx-id:int)(using-tx-log:byte)(tx-entry)*(0-byte indicating end-of-records)
 
@@ -646,6 +657,58 @@ This response contains two parts: a map of 'temporary' client-generated record i
 Look at [Optimistic Transaction](Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](Concepts.md#RecordID)s are managed.
 
 The last part or response is referred to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+
+
+## REQUEST_INDEX_GET
+
+Lookups in an index by key.
+
+```
+Request: (index-name:string)(key:document)(fetch-plan:string)
+Response: (result-type:byte)
+```
+
+Where:
+- **key** is stored in the field named "key" inside the document
+- **result-type** can be:
+ - 'n', means null result
+ - 'r', means single record returned
+ - 'l', list of records. The format is:
+  - an integer to indicate the collection size
+  - all the records one by one
+ - 's', set of records. The format is:
+  - an integer to indicate the collection size
+  - all the records one by one
+ - 'a', serialized result, a byte[] is sent
+- **synch-result-content**, can only be a record
+- **pre-fetched-record-size**, as the number of pre-fetched records not directly part of the result set but joined to it by fetching
+- **pre-fetched-record** as the pre-fetched record content
+
+
+## REQUEST_INDEX_PUT
+
+Create or update an entry in index by key.
+
+```
+Request: (index-name:string)(key:document)(value:rid)
+Response: no response
+```
+
+Where:
+- **key** is stored in the field named "key" inside the document
+
+
+## REQUEST_INDEX_REMOVE
+
+Remove an entry by key from an index. It returns true if the entry was present, otherwise false.
+
+```
+Request: (index-name:string)(key:document)
+Response: (found:boolean)
+```
+
+Where:
+- **key** is stored in the field named "key" inside the document
 
 ### REQUEST_CREATE_SBTREE_BONSAI
 ```
@@ -777,8 +840,11 @@ REQUEST_CONNECT
 * request add token session flag
 * response add of the token 
 
+## Version 31
+Added new commands to manipulate idexes: REQUEST_INDEX_GET, REQUEST_INDEX_PUT and REQUEST_INDEX_REMOVE.
+
 ## Version 26
-added cluster-id in the REQUEST_CREATE_RECORD response.
+Added cluster-id in the REQUEST_CREATE_RECORD response.
 
 ## Version 25
 Reviewd serialization of index changes in the REQUEST_TX_COMMIT for detais [#2676](https://github.com/orientechnologies/orientdb/issues/2676)
