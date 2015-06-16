@@ -516,6 +516,29 @@ Where:
 - 'f': flat data
 - 'd': document
 
+## REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
+
+Load a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md) only if the persistent version is more recent of the one in the request
+
+```
+Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:byte)(load-tombstones:byte)
+Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-content:bytes)]*]*
+```
+Where:
+-**version** the base version, record will returned only if has higher version  
+- **fetch-plan**, the [fetch plan](Fetching-Strategies.md) to use or an empty string
+- **ignore-cache**, tells if the cache must be ignored: 1 = ignore the cache, 0 = not ignore. since protocol v.9 (introduced in release 1.0rc9)
+- **load-tombstones**, the flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
+- **payload-status** can be:
+- 0: no records remain to be fetched
+- 1: a record is returned as resultset
+- 2: a record is returned as pre-fetched to be loaded in client's cache only. It's not part of the result set but the client knows that it's available for later access. This value is not currently used.
+- **record-type** is
+- 'b': raw bytes
+- 'f': flat data
+- 'd': document
+
+
 ## REQUEST_RECORD_CREATE
 
 Create a new record. Returns the position in the cluster of the new record. New records can have version > 0 (since v1.0) in case the RID has been recycled.
