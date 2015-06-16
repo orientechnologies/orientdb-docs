@@ -219,7 +219,7 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_DATACLUSTER_LH_CLUSTER_IS_USED</td><td>16</td><td></td><td>no</td><td>1.2.0</td></tr>
 <tr><td>REQUEST_RECORD_METADATA</td><td>29</td><td>Get metadata from a record.</td><td>no</td><td>1.4.0</td></tr>
 <tr><td><a href="#request_record_load">REQUEST_RECORD_LOAD</a></td><td>30</td><td>Load a record.</td><td>no</td><td></td></tr>
-<tr><td>REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST</td><td>44</td><td>Load a record.</td><td>no</td><td>2.1-rc4</td></tr>
+<tr><td><a href="#request_record_load_if_version_not_latest">REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST</a></td><td>44</td><td>Load a record.</td><td>no</td><td>2.1-rc4</td></tr>
 
 <tr><td><a href="#request_record_create">REQUEST_RECORD_CREATE</a></td><td>31</td><td>Add a record.</td><td>yes</td><td></td></tr>
 <tr><td><a href="#request_record_update">REQUEST_RECORD_UPDATE</a></td><td>32</td><td><Update a record./td><td>yes</td><td></td></tr>
