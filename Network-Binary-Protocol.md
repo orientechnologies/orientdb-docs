@@ -525,7 +525,7 @@ Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:strin
 Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-content:bytes)]*]*
 ```
 Where:
--**version** the base version, record will returned only if has higher version  
+- **version** the base version, record will returned only if has higher version  
 - **fetch-plan**, the [fetch plan](Fetching-Strategies.md) to use or an empty string
 - **ignore-cache**, tells if the cache must be ignored: 1 = ignore the cache, 0 = not ignore. since protocol v.9 (introduced in release 1.0rc9)
 - **load-tombstones**, the flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
