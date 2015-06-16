@@ -219,6 +219,8 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_DATACLUSTER_LH_CLUSTER_IS_USED</td><td>16</td><td></td><td>no</td><td>1.2.0</td></tr>
 <tr><td>REQUEST_RECORD_METADATA</td><td>29</td><td>Get metadata from a record.</td><td>no</td><td>1.4.0</td></tr>
 <tr><td><a href="#request_record_load">REQUEST_RECORD_LOAD</a></td><td>30</td><td>Load a record.</td><td>no</td><td></td></tr>
+<tr><td>REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST</td><td>44</td><td>Load a record.</td><td>no</td><td>2.1-rc4</td></tr>
+
 <tr><td><a href="#request_record_create">REQUEST_RECORD_CREATE</a></td><td>31</td><td>Add a record.</td><td>yes</td><td></td></tr>
 <tr><td><a href="#request_record_update">REQUEST_RECORD_UPDATE</a></td><td>32</td><td><Update a record./td><td>yes</td><td></td></tr>
 <tr><td><a href="#request_record_delete">REQUEST_RECORD_DELETE</a></td><td>33</td><td>Delete a record.</td><td>yes</td><td></td></tr>
@@ -232,6 +234,7 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td><a href="#request_db_reload">REQUEST_DB_RELOAD</a></td><td>73</td><td>Reload database.</td><td>no</td><td>1.0rc4</td></tr>
 <tr><td>REQUEST_PUSH_RECORD<td>79</td><td></td><td>no</td><td>1.0rc6</td></tr>
 <tr><td>REQUEST_PUSH_DISTRIB_CONFIG<td>80</td><td></td><td>no</td><td>1.0rc6</td></tr>
+<tr><td>REQUEST_PUSH_LIVE_QUERY<td>81</td><td></td><td>no</td><td>2.1-rc2</td></tr>
 <tr><td>REQUEST_DB_COPY<td>90</td><td></td><td>no</td><td>1.0rc8</td></tr>
 <tr><td>REQUEST_REPLICATION<td>91</td><td></td><td>no</td><td>1.0</td></tr>
 <tr><td>REQUEST_CLUSTER<td>92</td><td></td><td>no</td><td>1.0</td></tr>
@@ -593,7 +596,7 @@ Response:
 ```
 
 Where the request:
-- **mode** can be 'a' for asynchronous mode and 's' for synchronous mode
+- **mode** can be 'a' for asynchronous mode, 's' for synchronous mode and 'l' for live mode
 - **command-payload-length** is the length of the class-name field plus the command-payload field
 - **class-name** is the class name of the command implementation. There are short form for the most common commands:
  - **q** stands for query as idempotent command. It's like passing <code>com.orientechnologies.orient.core.sql.query.OSQLSynchQuery</code>
@@ -813,6 +816,17 @@ Where:
 The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. To compute it: 39 bytes + 10 * PAGE-SIZE bytes. For a page-size = 16 you'll have 39 + 160 = 199 bytes.
 
 # History
+
+
+## Version 31
+Added new commands to manipulate idexes: REQUEST_INDEX_GET, REQUEST_INDEX_PUT and REQUEST_INDEX_REMOVE.
+
+## Version 30
+Added new command REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
+
+## Version 29
+Added support support of live query in REQUEST_COMMAND, added new push command REQUEST_PUSH_LIVE_QUERY
+
 ## Version 28
 Since version 28 the [REQUEST_RECORD_LOAD](#request_record_load) response order is changed from:  
 `[(payload-status:byte)[(record-content:bytes)(record-version:int)(record-type:byte)]*]+`
@@ -839,9 +853,6 @@ REQUEST_DB_OPEN
 REQUEST_CONNECT  
 * request add token session flag
 * response add of the token 
-
-## Version 31
-Added new commands to manipulate idexes: REQUEST_INDEX_GET, REQUEST_INDEX_PUT and REQUEST_INDEX_REMOVE.
 
 ## Version 26
 Added cluster-id in the REQUEST_CREATE_RECORD response.
