@@ -135,9 +135,12 @@ doc.save( "client_usa" );
 
 ### Limitation
 
-1. Hot change of distributed configuration not available. This will be introduced at release 2.0 via command line and in visual way in the Workbench of the Enterprise Edition (commercial licensed).
+1. *Auto-Sharding* is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application. This will be addressed by next releases
+1. Sharded Indexes are not supported.
+1. If `hotAlignment=false` is set, when a node re-joins the cluster (after a failure or simply unreachability) the full copy of database form a node could have no all information about the shards.
+1. Auto-Sharding is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application
+1. Hot change of distributed configuration not available. This will be introduced at release 2.0 via command line and in visual way in the Workbench of the Enterprise Edition (commercial licensed)
 1. Not complete merging of results for all the projections. Some functions like AVG() doesn’t work on map/reduce
-
 
 ## Indexes
 All the indexes are managed locally to a server. This means that if a class is spanned across 3 clusters on 3 different servers, each server will have own local indexes. By executing a [distributed query (Map/Reduce like)](Distributed-Sharding.md#mapreduce) each server will use own indexes.
