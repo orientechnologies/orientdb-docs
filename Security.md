@@ -1,5 +1,8 @@
 # Security
 
+|---|---|
+|![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it's not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
+
 The security model of OrientDB is based on well known concepts built on users and roles. A database has **users**. Each [User](#User) has one or more **roles**. A [Role](#Role) is a combination of the working mode (more later) and a set of permissions.
 
 # Database security
