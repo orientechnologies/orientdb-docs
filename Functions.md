@@ -70,14 +70,20 @@ Number result = sum.execute(params);
 
 ## Usage via HTTP REST
 
-Each function is exposed as a REST service allowing the receiving of parameters. parameters are passed by position.
+Each function is exposed as a REST service allowing the receiving of parameters. Parameters can be passed by position in the URL, or starting from 2.1 can be passed in the request payload as JSON. In this case the mapping is not positional, but by name.
 
-Below how to execute the `sum` function created before:
+Example to execute the `sum` function created before passing 3 and 5 as parameters in the URL, so positional:
 ```
 http://localhost:2480/function/demo/sum/3/5
 ```
 
-This will return an HTTP 202 OK with an envelope containing the result of the calculation:
+Since 2.1, parameters can be passed also in the request's payload in a JSON, so by name:
+
+```json
+{ "a": 3, "b": 5 }
+```
+
+Both calls will return an HTTP 202 OK with an envelope containing the result of the calculation:
 ```
 {"result":[{"@type":"d","@version":0,"value":2}]}
 ```
