@@ -4,7 +4,7 @@ OrientDB Server (DB-Server from now) is a multi-threaded Java application that l
 
 Starting from v1.7 OrientDB support [protected SSL connections](Using-SSL-with-OrientDB.md).
 
-|![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it's not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
+|![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, for security reasons it's not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
 |---|---|
 
 ## Install as a service
