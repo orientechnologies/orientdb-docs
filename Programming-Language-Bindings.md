@@ -32,9 +32,9 @@ This is the list of the known drivers to use OrientDB through different language
     <td rowspan="3">
         <center><a href="http://nodejs.org"><img src="http://nodejs.org/images/logos/nodejs.png" alt="NodeJs" height="50px"/></a></center>
     </td>
-    <td><a href="https://github.com/codemix/oriento">Oriento</a></td>
+    <td><a href="https://github.com/orientechnologies/orientjs">OrientJS</a></td>
     <td>Native</td>
-    <td>Binary protocol, new branch that has been updated with the latest functionality. Tested on 1.7.0. Branched from <a href="https://github.com/nitrog7/node-orientdb">node-orientdb</a></td>
+    <td>Binary protocol, new branch that has been updated with the latest functionality. Tested on 1.7.0, 2.0.x and 2.1-rc*.</td>
 </tr><tr>
     <td><a href="https://github.com/Havelaer/node-orientdb-http">node-orientdb-http</a></td>
     <td>HTTP</td>
