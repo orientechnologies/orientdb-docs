@@ -104,6 +104,9 @@ All the operations that follow the open/connect must contain, as the first param
 
 This **Session-Id** can be used into the client to keep track of the requests if it handles multiple session bound to the same connection. In this way the client can implement a sharing policy to save resources. This requires that the client implementation handle the response returned and dispatch it to the correct caller thread.
 
+|![](images/warning.png)|Opening multiple TCP/IP sockets against OrientDB Server allow to parallelize requests. However pay attention to one Session-id per connection, otherwise requests will not be executed concurrently on the server side|
+|----|----|
+
 ## Token
 
 All the operation in a stateless session are based on the token, the token is a byte[] that contains all the information for the interaction with the server, the token is acquired at the mement of open or connect, and need to be resend for each request. the session id used in the stateful requests is still there and is used to associate the request to the response. in the response can be resend a token in case of expire renew.
