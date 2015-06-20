@@ -94,7 +94,11 @@ The first operation following the socket-level connection must be one of:
 In both cases a [Session-Id](#Session-Id) is sent back to the client. The server assigns a unique Session-Id to the client. This value must be used for all further operations against the server. You may open a database after connecting to the server, using the same Session-Id
 
 ## Session
-The session managment is implemented in two different way, one stateful another stateless this is choosed in the open/connect operation with a flag, the stateful is based on a [Session-id](#session-id) the stateless is based on a [Token](#token)
+The session management supports two modes: stateful and stateless:
+- the stateful is based on a [Session-id](#session-id)
+- the stateless is based on a [Token](#token)
+
+The session mode is selected at open/connect operation.
 
 ## Session-Id
 
@@ -109,24 +113,24 @@ This **Session-Id** can be used into the client to keep track of the requests if
 
 ## Token
 
-All the operation in a stateless session are based on the token, the token is a byte[] that contains all the information for the interaction with the server, the token is acquired at the mement of open or connect, and need to be resend for each request. the session id used in the stateful requests is still there and is used to associate the request to the response. in the response can be resend a token in case of expire renew.
+All the operation in a stateless session are based on the token, the token is a byte[] that contains all the information for the interaction with the server, the token is acquired at the moment of open or connect, and need to be resend for each request. the session id used in the stateful requests is still there and is used to associate the request to the response. in the response can be resend a token in case of expire renew.
 
 # Enable debug messages on protocol
 
-To make the development of a new client easier it's strongly suggested to activate debug mode on the binary channel. To activate this, edit the file orientdb-server-config.xml and configure the new parameter "network.binary.debug" on the "binary" or "distributed" listener. E.g.:
+To make the development of a new client easier it's strongly suggested to activate debug mode on the binary channel. To activate this, edit the file `orientdb-server-config.xml` and configure the new parameter `network.binary.debug` on the "binary" or "distributed" listener. E.g.:
 
 ```
 ...
 <listener protocol="distributed" port-range="2424-2430"
 ip-address="127.0.0.1">
-<parameters>
-<parameter name="network.binary.debug" value="true" />
-</parameters>
+  <parameters>
+    <parameter name="network.binary.debug" value="true" />
+  </parameters>
 </listener>
 ...
 ```
 
-In the log file (or the console if you have configured the orientdb-server-log.properties file)
+In the log file (or the console if you have configured the `orientdb-server-log.properties` file)
 all the packets received will be printed.
 
 # Exchange
