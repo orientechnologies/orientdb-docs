@@ -67,9 +67,7 @@ LIVE UNSUBSCRIBE 1234567
 
 Live Query is currently supported from the following interfaces
 * Java
-
-Following implementations are available in beta version or are waiting for approval
-* Node.js (Oriento)
+* Node.js [(OrientJS)](https://github.com/orientechnologies/orientjs)
 
 ## LiveQuery in Java
 
