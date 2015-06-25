@@ -642,11 +642,18 @@ Response is different for synchronous and asynchronous request:
  - 'n', means null result
  - 'r', means single record returned
  - 'l', list of records. The format is:
-  - an integer to indicate the collection size
-  - all the records one by one
+    - an integer to indicate the collection size
+    - an integer to indicate the collection size
+    - all the records and each entry is typed with a short that can be:
+       - '0' a record in the next bytes
+       - '-2' no record and is considered as a null record
+       - '-3' only a recordId in the next bytes 
  - 's', set of records. The format is:
-  - an integer to indicate the collection size
-  - all the records one by one
+    - an integer to indicate the collection size
+    - all the records and each entry is typed with a short that can be:
+       - '0' a record in the next bytes
+       - '-2' no record and is considered as a null record
+       - '-3' only a recordId in the next bytes 
  - 'a', serialized result, a byte[] is sent
 - **synch-result-content**, can only be a record
 - **pre-fetched-record-size**, as the number of pre-fetched records not directly part of the result set but joined to it by fetching
