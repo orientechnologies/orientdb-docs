@@ -15,6 +15,7 @@ Configure an automatic backup of databases. This task is configured as a [Server
   * **m** for minutes. Example 5m means 5 minutes
   * **h** for hours. Example 24h means every day
   * **d** for days. Example 1d means every day
+* **firsttime** time of first backup schedule. It's referring at current day. The format is: `HH:mm:ss`. GMT timezone is used.
 * **target.directory**: target directory, the default is "backup"
 * **target.fileName**: target file name configurable using the following variables between <code>${}</code>:
   * **<code>${DBNAME}</code>**, as the database name
