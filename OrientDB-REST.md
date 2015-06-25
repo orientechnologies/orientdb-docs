@@ -1054,6 +1054,20 @@ HTTP response:
     "totalWorkingTime": "0",
 ...
 ```
+### POST - Server
+Changes server configuration. Supported configuration are:
+- any setting contained in OGlobalConfiguation class, by using the prefix `configuration` in setting-name
+- logging level, by using the prefix `log` in setting-name
+
+Syntax: `http://<server>:[<port>]/server/<setting-name>/<setting-value>`
+
+#### Example ###
+
+### Example on changing the server log level to FINEST
+    localhost:2480/server/log.console/FINEST
+
+### Example on changing the default timeout for query to 10 seconds
+    localhost:2480/server/configuration.command.timeout/10000
 
 ## Connection ##
 
