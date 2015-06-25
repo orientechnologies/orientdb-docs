@@ -76,6 +76,7 @@
            * [Explain](SQL-Explain.md)
            * [Find References](SQL-Find-References.md)
            * [Grant](SQL-Grant.md)
+           * [Optimize Database](SQL-Optimize-Database.md)
            * [Rebuild Index](SQL-Rebuild-Index.md)
            * [Revoke](SQL-Revoke.md)
            * [Traverse](SQL-Traverse.md)
