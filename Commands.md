@@ -9,6 +9,6 @@
 | [DELETE](SQL-Delete.md) | [DELETE EDGE](SQL-Delete-Edge.md) | [CREATE PROPERTY](SQL-Create-Property.md) | | [ALTER DATABASE](SQL-Alter-Database.md)|  [GRANT](SQL-Grant.md) |
 | [TRAVERSE](SQL-Traverse.md) | |  [ALTER PROPERTY](SQL-Alter-Property.md) | | [CREATE DATABASE (console only)](Console-Command-Create-Database.md) | [REVOKE](SQL-Revoke.md) |
 | [TRUNCATE CLASS](SQL-Truncate-Class.md) | | [DROP PROPERTY](SQL-Drop-Property.md) | | [DROP DATABASE (console only)](Console-Command-Drop-Database.md) |[CREATE FUNCTION](SQL-Create-Function.md)|
-| [TRUNCATE CLUSTER](SQL-Truncate-Cluster.md) | | | | | |
+| [TRUNCATE CLUSTER](SQL-Truncate-Cluster.md) | | | | [OPTIMIZE DATABASE](SQL-Optimize-Database.md) | |
 | [TRUNCATE RECORD](SQL-Truncate-Record.md) | | | | | | |
 
