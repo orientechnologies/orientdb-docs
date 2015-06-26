@@ -1,6 +1,6 @@
 # Traverse
 
-OrientDB is a graph database. This means that the focal point is on relationships (links) and how are managed. The standard SQL language is not enough to work with tree or graphs because it hasn't the concept of recursion. This is the reason why OrientDB provide a new command to traverse trees and graphs: TRAVERSE. Traversing is the operation that cross relationships between records (documents, vertexes, nodes, etc). This operation is much much faster than executing a JOIN in a Relational database.
+OrientDB is a graph database. This means that the focal point is on relationships (links) and how they are managed. The standard SQL language is not enough to work with trees or graphs because it lacks the recursion concept. This is the reason why OrientDB provides a new command to traverse trees and graphs: TRAVERSE. Traversing is the operation that crosses relationships between records (documents, vertexes, nodes, etc). This operation is much much faster than executing a JOIN in a Relational database.
 
 The main concepts of Traversal are:
 - **target**, as the starting point where to traverse records. Can be:
@@ -8,37 +8,37 @@ The main concepts of Traversal are:
  - **[cluster](Concepts.md#cluster)**
  - **set of records**, specifying its [RecordID](Concepts.md#recordid)
  - **sub-command** that returns an <code>Iterable&lt;OIdentifiable&gt;</code>. You can nest multiple [select](SQL-Query.md) and [traverse](SQL-Traverse.md) all together
-- **fields**, the fields to traverse. Use <code>*</code>, <code>any()</code> or <code>all()</code> to traverse all the fields of a document
+- **fields**, the fields to traverse. Use <code>*</code>, <code>any()</code> or <code>all()</code> to traverse all fields in a document
 - **limit**, the maximum number of records to retrieve
-- **predicate**, as the predicate to execute against each document traversed. If the predicate returns true, then the document is returned, otherwise is skipped
-- **strategy**, as the way the traverse go in deep:
+- **predicate**, as the predicate to execute against each traversed document. If the predicate returns true, the document is returned, otherwise it is skipped
+- **strategy**, indicates how the graph traversed:
  - *[DEPTH_FIRST](https://github.com/orientechnologies/orientdb/wiki/Java-Traverse#depth_first-strategy)*, the default,
  - *[BREADTH_FIRST](https://github.com/orientechnologies/orientdb/wiki/Java-Traverse#breadth_first-strategy)*,
 
 ### Traversing strategies
 #### DEPTH_FIRST strategy
-This is the default strategy used by OrientDB traversal. It explores as far as possible along each branch before backtracking. It's implemented using recursion. To know more look at [Depth-First algorithm](http://en.wikipedia.org/wiki/Depth-first_search). Below the ordered steps executed while traversing the graph using *BREADTH_FIRST* strategy:
+This is the default strategy used by OrientDB for traversal. It explores as far as possible along each branch before backtracking. It's implemented using recursion. To know more look at [Depth-First algorithm](http://en.wikipedia.org/wiki/Depth-first_search). Below the ordered steps executed while traversing the graph using *BREADTH_FIRST* strategy:
 
 ![Depth-first-tree](http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Depth-first-tree.svg/600px-Depth-first-tree.svg.png)
 
 #### BREADTH_FIRST strategy
-It inspects all the neighboring nodes, then for each of those neighbor nodes in turn, it inspects their neighbor nodes which were unvisited, and so on. Compare **BREADTH_FIRST** with the equivalent, but more memory-efficient Iterative deepening **DEPTH_FIRST** search and contrast with **DEPTH_FIRST** search. To know more look at [Breadth-First algorithm](http://en.wikipedia.org/wiki/Breadth-first_search). Below the ordered steps executed while traversing the graph using *Depth-First* strategy:
+It inspects all the neighboring nodes, then for each of those neighbor nodes in turn, it inspects their neighbor nodes which were unvisited, and so on. Compare **BREADTH_FIRST** with the equivalent, but more memory-efficient iterative deepening **DEPTH_FIRST** search and contrast with **DEPTH_FIRST** search. To know more look at [Breadth-First algorithm](http://en.wikipedia.org/wiki/Breadth-first_search). Below the ordered steps executed while traversing the graph using *Depth-First* strategy:
 
 ![Breadth-first-tree](http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/600px-Breadth-first-tree.svg.png)
 
 ### Context variables
 
-During traversing some context variables are managed and can be used by the traverse condition:
+During traversal some context variables are managed and can be used by the traverse condition:
 - **$depth**, as an integer that contain the depth level of nesting in traversal. First level is 0
 - **$path**, as a string representation of the current position as the sum of traversed nodes
 - **$stack**, as the stack current node traversed
 - **$history**, as the entire collection of visited nodes
 
-Below how to traverse using different approaches.
+The following sections describe various traversal methods.
 
 ## SQL Traverse
 
-The simpler available way to execute a traversal is using the [SQL Traverse command](SQL-Traverse.md). Example to retrieve all the records connected **from** and **to** **Movie** records up to the **5th level of depth**:
+The simplest available way to execute a traversal is by using the [SQL Traverse command](SQL-Traverse.md). For instance, to retrieve all records connected **from** and **to** **Movie** records up to the **5th level of depth**:
 ```java
 for (OIdentifiable id : new OSQLSynchQuery<ODocument>("traverse in, out from Movie while $depth <= 5")) {
   System.out.println(id);
