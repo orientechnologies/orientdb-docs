@@ -125,8 +125,8 @@ LiveQuery is particularly useful in the following scenarios:
 ## Supported interfaces
 
 Live Query is currently supported from the following interfaces
-* Java
-* Node.js [(OrientJS)](https://github.com/orientechnologies/orientjs)
+* [Java](https://github.com/orientechnologies/orientdb-docs/blob/master/Live-Query.md#livequery-in-java)
+* [Node.js](https://github.com/orientechnologies/orientdb-docs/blob/master/Live-Query.md#livequery-in-nodejs) [(OrientJS)](https://github.com/orientechnologies/orientjs)
 
 ## LiveQuery in Java
 
