@@ -1,4 +1,6 @@
 # What's new?
+## Live Query
+(Luigi)
 
 
 # Migration from 2.0.x to 2.1.x
