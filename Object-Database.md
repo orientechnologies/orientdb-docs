@@ -1,6 +1,7 @@
 # Object API
 
-*Note: Object API allows to work with POJOs that bind [OrientDB documents](Document-Database.md). This API is not able work on top of [Graph-API](Graph-Database-Tinkerpop.md). If you are interested on using a Object-Graph mapping framework, look at the available ones that work on top of [Graph-API](Graph-Database-Tinkerpop.md) layer: [Object-Graph Mapping](http://wiki.syncleus.com/index.php/Ferma:Comparing_the_Alternatives).*
+|![](images/warning.png)|Object API allows to work with POJOs that bind [OrientDB documents](Document-Database.md). This API is not able work on top of [Graph-API](Graph-Database-Tinkerpop.md). If you are interested on using a Object-Graph mapping framework, look at the available ones that work on top of [Graph-API](Graph-Database-Tinkerpop.md) layer: [Object-Graph Mapping](http://wiki.syncleus.com/index.php/Ferma:Comparing_the_Alternatives).
+|---|----|
 
 # Requirements
 
