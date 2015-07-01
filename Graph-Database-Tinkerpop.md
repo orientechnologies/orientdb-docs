@@ -35,6 +35,7 @@ _NOTE_: Starting from v2.0, [Lightweight Edges](Lightweight-Edges.md) are disabl
 - **[Pipes](http://pipes.tinkerpop.com)** is a graph-based data flow framework for Java 1.6+. A process graph is composed of a set of process vertices connected to one another by a set of communication edges. Pipes supports the splitting, merging, and transformation of data from input to output.
 - **[Gremlin](http://wiki.github.com/tinkerpop/gremlin)** is a Turing-complete, graph-based programming language designed for key/value-pair multi-relational graphs. Gremlin makes use of an XPath-like syntax to support complex graph traversals. This language has application in the areas of graph query, analysis, and manipulation.
 - **[Rexster](http://rexster.tinkerpop.com)** is a RESTful graph shell that exposes any Blueprints graph as a standalone server. Extensions support standard traversal goals such as search, score, rank, and, in concert, recommendation. Rexster makes extensive use of Blueprints, Pipes, and Gremlin. In this way its possible to run Rexster over various graph systems. To configure Rexster to work with OrientDB follow this guide: [configuration](Rexster.md).
+- **[Sail Ouplementation](https://github.com/tinkerpop/blueprints/wiki/Sail-Ouplementation)** to use OrientDB as a RDF Triple Store 
 
 # Get started with Blueprints
 OrientDB supports different kind of storages and depends by the [Database URL](Concepts.md#database_url) used:
