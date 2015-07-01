@@ -1,7 +1,7 @@
 # What's new?
 ## Live Query
 
-OrientDB 2.1 includes the first experimental version of LiveQuery. See details  [here](https://github.com/orientechnologies/orientdb-docs/edit/master/Live-Query.md)
+OrientDB 2.1 includes the first experimental version of LiveQuery. See details  [here](https://github.com/orientechnologies/orientdb-docs/blob/master/Live-Query.md)
 
 # Migration from 2.0.x to 2.1.x
 
