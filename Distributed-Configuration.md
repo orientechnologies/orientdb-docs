@@ -50,6 +50,9 @@ Default **default-distributed-db-config.json** file content:
     "writeQuorum": 2,
     "failureAvailableNodesLessQuorum": false,
     "readYourWrites": true,
+    "servers": {
+        "*": "master"
+    },
     "clusters": {
         "internal": {
         },
@@ -73,6 +76,7 @@ Where:
 |**writeQuorum**|On "write" operation (any write on database) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at write time. Suggested value is N/2+1 where N is the number of replicas. In this way the quorum is reached only if the majority of nodes are coherent|<code>2</code>|
 |**failureAvailableNodesLessQuorum**|Decide to return error when the available nodes are less then quorum. Can be <code>true</code> or <code>false</code>|<code>false</code>|
 |**readYourWrites**|The write quorum is satisfied only when also the local node responded. This assure current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
+|**servers**|(Since v2.1) Optional, contains the map of server roles in the format <code>server-name</code> : <code>role</code>. <code>*</code> means any server. Available roles are "MASTER" (default) and "REPLICA". For more information look at [Server roles](Distributed-Architecture.md#server_roles)|-|
 |**clusters**|if the object containing the clusters' configuration as map <code>cluster-name</code> : <code>cluster-configuration</code>. <code>*</code> means all the clusters and is the cluster's default configuration|-|
 
 The **cluster** configuration inherits database configuration, so if you declare "writeQuorum" at database level, all the clusters will inherit that setting unless they define your own. Settings can be:
@@ -221,6 +225,9 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
     "writeQuorum": 2,
     "failureAvailableNodesLessQuorum": false,
     "readYourWrites": true,
+    "servers": {
+        "*": "master"
+    },
     "clusters": {
         "internal": {
         },
