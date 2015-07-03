@@ -99,6 +99,29 @@ Surrounding the transaction between a try/catch assures that any errors will rol
 
 _NOTE_: To work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes.
 
+## Optimistic approach
+OrientDB supports optimistic transactions, so no lock is kept when a transaction is running, but at commit time each graph element version is checked to see if there has been an update by another client. This is the reason why you should write your code to be concurrency-proof by handling the concurrent updating case:
+
+```java
+for (int retry = 0; retry < maxRetries; ++retry) {
+    try {
+        // LOOKUP FOR THE INVOICE VERTEX
+        Vertex invoice = graph.getVertices("invoiceId", 2323);
+        // CREATE A NEW ITEM
+        Vertex invoiceItem = graph.addVertex("class:InvoiceItem");
+        invoiceItem.field("price", 1000);
+        // ADD IT TO THE INVOICE
+        invoice.addEdge(invoiceItem);
+        graph.commit();
+
+        // OK, EXIT FROM RETRY LOOP
+        break;
+    } catch( ONeedRetryException e ) {
+        // SOMEONE HAVE UPDATE THE INVOICE VERTEX AT THE SAME TIME, RETRY IT
+    }
+}
+```
+
 # Working with Vertices and Edges
 
 ## Create a vertex
@@ -414,35 +437,6 @@ No, it works only at the current element level.
 
 **Can I add an edge against detached elements?**
 No, you can only get/set/remove a property while is detached. Any other operation that requires the database will throw an IllegalStateException.
-
-## Transactions
-OrientDB supports optimistic transactions, so no lock is kept when a transaction is running, but at commit time each graph element version is checked to see if there has been an update by another client. This is the reason why you should write your code to be concurrency-proof by handling the concurrent updating case:
-
-```java
-for (int retry = 0; retry < maxRetries; ++retry) {
-    try {
-        // LOOKUP FOR THE INVOICE VERTEX
-        Vertex invoice = graph.getVertices("invoiceId", 2323);
-        // CREATE A NEW ITEM
-        Vertex invoiceItem = graph.addVertex("class:InvoiceItem");
-        invoiceItem.field("price", 1000);
-        // ADD IT TO THE INVOICE
-        invoice.addEdge(invoiceItem);
-        graph.commit();
-
-        // OK, EXIT FROM RETRY LOOP
-        break;
-    } catch( ONeedRetryException e ) {
-        // SOMEONE HAVE UPDATE THE INVOICE VERTEX AT THE SAME TIME, RETRY IT
-    }
-}
-```
-
-### Auto-retry
-Starting with v.1.5, transactions are automaticaly retried if a timeout exception occurs. This happens in case of deadlocks or network latency. By default the AutoRetry setting is 10, but you can change it or disable it by setting it to 0, by calling:
-```java
-((OTransactionOptimistic) graph.getRawGraph().getTransaction()).setAutoRetries( 0 );
-```
 
 ## Execute commands
 The OrientDB Blueprints implementation allows you to execute commands using SQL, Javascript, and all the other supported languages.
