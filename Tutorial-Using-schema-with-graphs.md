@@ -98,8 +98,8 @@ CREATE PROPERTY Owns.in LINK Car
 The `MANDATORY` setting against a property prevents OrientDB from using a lightweight edge (no physical document is created).  Be sure to pay attention and not put spaces between `MANDATORY=TRUE`.
 
 ``` sql
-ALTER PROPERTY Owns.out MANDATORY = TRUE
-ALTER PROPERTY Owns.in MANDATORY = TRUE
+ALTER PROPERTY Owns.out MANDATORY=TRUE
+ALTER PROPERTY Owns.in MANDATORY=TRUE
 ```
 
 If we want to prohibit a Person vertex from having 2 edges against the same Car vertex, we have to define a `UNIQUE` index against out and in properties.
