@@ -164,7 +164,7 @@ ALTER CLASS E superclass ORestricted
 In this way, all the vertices and edges will inherit the record level security.
 
 Every time a class extends the `ORestricted` class, OrientDB, by a hook, injects a check before each CRUD operation:
-- `CREATE` new document: set the current database's user in the `_allow` field. To change this behavior look at [Customize on creation](#Customize_on_creation)
+- `CREATE` new document: set the current database's user in the `_allow` field. To change this behavior look at [customize on creation](#customize-on-creation)
 - `READ` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowRead` fields. If not, the record is skipped. This lets each query work per user.
 - `UPDATE` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowUpdate` field. If not, an `OSecurityException` is thrown.
 - `DELETE` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowDelete` field. If not, an `OSecurityException` is thrown
