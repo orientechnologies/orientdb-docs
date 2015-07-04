@@ -37,7 +37,9 @@ create vertex v set city = "Rome", date = date("0753-04-21 00:00:00 BC")
 
 This is the result:
 ```
-#9:10 | Rome | 0753-04-21 00:00:00 BC
++-------+------+------------------------+
+| #9:10 | Rome | 0753-04-21 00:00:00 BC |
++-------+------+------------------------+
 ```
 
 You could also not change the database date/time format, and use the format onat insertion time:
@@ -65,6 +67,8 @@ create vertex v set city = "Rome", date = date(-85889120400000)
 
 The result is identical to the previous one:
 ```
-#9:11 | 1 | V | Rome |0753-04-21 00:00:00 BC
++-------+------+------------------------+
+| #9:11 | Rome | 0753-04-21 00:00:00 BC |
++-------+------+------------------------+
 ```
 
