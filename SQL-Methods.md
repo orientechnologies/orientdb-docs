@@ -1,3 +1,5 @@
+# SQL Methods
+
 SQL Methods are similar to [SQL functions](SQL-Functions.md) but they apply to values. In Object Oriented paradigm they are called "methods", as functions related to a class. So what's the difference between a function and a method?
 
 This is a [SQL function](SQL-Functions.md):
@@ -119,7 +121,7 @@ SELECT FROM Users WHERE online.asBoolean() = true
 ---
 
 ### .asDate()
-Transforms the field into a Date type.
+Transforms the field into a Date type. To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```<value>.asDate()```
 
@@ -141,7 +143,7 @@ SELECT FROM Log WHERE time.asDateTime() < '01-01-2010 00:00:00'
 ---
 
 ### .asDateTime()
-Transforms the field into a Date type but parsing also the time information.
+Transforms the field into a Date type but parsing also the time information. To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```<value>.asDateTime()```
 
@@ -245,7 +247,7 @@ SELECT tags.asList() FROM Friend
 
 
 ### .asLong()
-Transforms the field into a Long type.
+Transforms the field into a Long type. To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```<value>.asLong()```
 
@@ -378,7 +380,7 @@ SELECT EXPAND( @this.exclude( 'password' ) ) FROM OUser
 ---
 
 ### .format()
-Returns the value formatted using the common "printf" syntax. For the complete reference goto [Java Formatter JavaDoc](http://java.sun.com/j2se/1.5.0/docs/api/java/util/Formatter.html#syntax). 
+Returns the value formatted using the common "printf" syntax. For the complete reference goto [Java Formatter JavaDoc](http://java.sun.com/j2se/1.5.0/docs/api/java/util/Formatter.html#syntax).  To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```<value>.format(<format>)```
 
