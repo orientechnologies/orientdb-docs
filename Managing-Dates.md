@@ -23,6 +23,37 @@ In order to simplify management of dates, OrientDB SQL parses automatically date
 - [.asDatetime()](SQL-Methods.md#asdatetime) to convert any type into a datetime
 - [.asLong()](SQL-Methods.md#aslong) to convert any date in long format (unixtime)
 
+## Extract pieces of date
+
+By using the [.format()](SQL-Methods.md#format) SQL method, you can extract dates in different formats. Example to extract only the year of orders:
+
+```sql
+select @rid, id, date.format('yyyy') as year from order
+```
+
++--------+----+------+
+| @RID   | id | year |
++--------+----+------+
+| #31:10 | 92 | 2015 |
+| #31:10 | 44 | 2014 |
+| #31:10 | 32 | 2014 |
+| #31:10 | 21 | 2013 |
++--------+----+------+
+
+You can also group them by year. This example extracts the number of orders grouped by year:
+
+```sql
+select date.format('yyyy') as year, count(*) from order oder by year
+```
+
++------+--------+
+| year |        |
++------+--------+
+| 2015 |      1 |
+| 2014 |      2 |
+| 2013 |      1 |
++------+--------+
+
 ## Dates before 1970
 
 To save dates before Jan 1st 1970, use negative numbers.
