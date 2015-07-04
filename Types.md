@@ -10,7 +10,7 @@ OrientDB supports several types natively. Below is the complete table.
 |3|Long|Big 64-bit signed integers|<code>java.lang.Long</code> or <code>long</code>|-2<sup>63</sup><br>+2<sup>63</sup>-1|Any Number, String|
 |4|Float|Decimal numbers|<code>java.lang.Float</code> or <code>float</code>|2<sup>-149</sup><br>(2-2<sup>-23</sup>)*2<sup>127</sup>|Any Number, String|
 |5|Double|Decimal numbers with high precision|<code>java.lang.Double</code> or <code>double</code>|2<sup>-1074</sup><br>(2-2<sup>-52</sup>)*2<sup>1023</sup>|Any Number, String|
-|6|Datetime|Any date with the precision up to milliseconds|<code>java.util.Date</code>|-<br>1002020303|Date, Long, String|
+|6|Datetime|Any date with the precision up to milliseconds. To know more about it, look at [Managing Dates](Managing-Dates.md)|<code>java.util.Date</code>|-<br>1002020303|Date, Long, String|
 |7|String|Any string as alphanumeric sequence of chars|<code>java.lang.String</code>|-<br>-|-|
 |8|Binary|Can contain any value as byte array|<code>byte[]</code>|0<br>2,147,483,647|String|
 |9|Embedded|The Record is contained inside the owner. The contained Record has no [RecordId](Concepts.md#recordid)|<code>ORecord</code>|-<br>-|ORecord|
@@ -23,7 +23,7 @@ OrientDB supports several types natively. Below is the complete table.
 |16|Link map|Links to other Records as value of the entries, while keys can only be Strings. It's a common [One-to-Many Relationship](Concepts.md#1-n-and-n-m-embedded-relationships). Only the [RecordId](Concepts.md#recordid)s are stored|<code>Map&lt;String,<br>&nbsp;&nbsp;&nbsp;&nbsp;? extends Record&gt;</code>|0<br>41,000,000 items|String|
 |17|Byte|Single byte. Useful to store small 8-bit signed integers|<code>java.lang.Byte</code> or <code>byte</code>|-128<br>+127|Any Number, String|
 |18|Transient|Any value not stored on database||||
-|19|Date|Any date as year, month and day|<code>java.util.Date</code>|-<bonetomanyr>-|Date, Long, String|
+|19|Date|Any date as year, month and day. To know more about it, look at [Managing Dates](Managing-Dates.md)|<code>java.util.Date</code>|-<bonetomanyr>-|Date, Long, String|
 |20|Custom|used to store a custom type providing the marshall and unmarshall methods|<code>OSerializableStream</code>|0<br>X|-|
 |21|Decimal|Decimal numbers without rounding|<code>java.math.BigDecimal</code>|?<br>?|Any Number, String|
 |22|LinkBag| List of [RecordId](Concepts.md#recordid)s as spec [RidBag](RidBag.md) | <code>ORidBag</code> | ?<br>? | - |
