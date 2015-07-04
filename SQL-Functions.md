@@ -444,7 +444,7 @@ SELECT sum(salary) FROM Account
 ---
 ### date()
 
-Returns a date formatting a string. &lt;date-as-string&gt; is the date in string format, and &lt;format&gt; is the date format following these [rules](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html). If no format is specified, then the default database format is used.
+Returns a date formatting a string. &lt;date-as-string&gt; is the date in string format, and &lt;format&gt; is the date format following these [rules](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html). If no format is specified, then the default database format is used. To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```date( <date-as-string> [<format>] [,<timezone>] )```
 
@@ -458,7 +458,7 @@ SELECT FROM Account WHERE created <= date('2012-07-02', 'yyyy-MM-dd')
 ---
 ### sysdate()
 
-Returns the current date time.
+Returns the current date time. To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```sysdate( [<format>] [,<timezone>] )```
 
