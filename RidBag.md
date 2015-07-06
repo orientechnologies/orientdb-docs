@@ -27,8 +27,9 @@ RidBag could be configured with OGlobalConfiguration.
 
 Setting `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to `-1` forces using of sbtree-based RidBag. Look at [Concurrency on adding edges]( Concurrency.md#concurrency-on-adding-edges) to know more about impact on graphs of this setting.
 
-| ![NOTE](images/warning.png) | _NOTE: While running as distributed, the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
+|    |    |
 |----|----|
+| ![NOTE](images/warning.png) | _NOTE: While running as distributed, the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
 
 #Interaction with remote clients
 > NOTE: This topic is rather for contributors or driver developers. OrientDB users don't have to care about bag internals.
