@@ -20,7 +20,7 @@ Where:
 - **pauseBetweenRetriesInMs**, are the milliseconds of delay between retries
 
 ## Control vertices version increment
-Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use Bonsai structure. By default Bonsai is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
+Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use [Bonsai structure](RidBag.md). By default [Bonsai](RidBag.md) is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
 
 ```
 -DridBag.embeddedToSbtreeBonsaiThreshold=-1
@@ -33,7 +33,7 @@ OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 
 For more information look at [Concurrency on adding edges](Concurrency.md#concurrency-on-adding-edges).
 
-| ![NOTE](images/warning.png) | _NOTE: While running as distributed, edge creation could be done in two steps (create+update). This could break some constraint defined at Edge's class level. To avoid this kind of problem disable the constrains in Edge's class. Furthermore the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
+| ![NOTE](images/warning.png) | _NOTE: While running as distributed, edge creation could be done in two steps (create+update). This could break some constraint defined at Edge's class level. To avoid this kind of problem disable the constrains in Edge's class. Furthermore in distributed mode, the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
 |----|----|
 
 ## Examples
