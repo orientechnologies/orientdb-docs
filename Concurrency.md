@@ -67,7 +67,7 @@ In order to guarantee atomicity and consistency, OrientDB acquire an exclusive l
 
 ## Concurrency on adding edges
 
-What happens when multiple clients add edges on the same vertex? OrientDB could throw the `OConcurrentModificationException` exception as well. Why? Because collection of edges are kept on vertices, so every time an edge is added or removed, both involved vertices are updated, and their versions incremented. To avoid this problem, you can use RIDBAG that are never embedded, so vertices will be never updated. 
+What happens when multiple clients add edges on the same vertex? OrientDB could throw the `OConcurrentModificationException` exception as well. Why? Because collection of edges are kept on vertices, so every time an edge is added or removed, both involved vertices are updated, and their versions incremented. To avoid this problem, you can use [RIDBAG Bonsai structure](RidBag.md) that are never embedded, so vertices will be never updated. 
 
 Set this configuration value at run-time before OrientDB is used:
 
