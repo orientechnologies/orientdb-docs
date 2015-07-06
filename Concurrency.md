@@ -81,6 +81,10 @@ Or, by setting the parameter at JVM level on startup (or even at run-time before
 java ... -DridBag.embeddedToSbtreeBonsaiThreshold=-1 ...
 ```
 
+| ![NOTE](images/warning.png) | _NOTE: While running as distributed, the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
+|----|----|
+
+
 ## Troubleshooting
 
 ### Reduce transaction size
