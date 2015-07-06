@@ -43,10 +43,10 @@ select @rid, id, date.format('yyyy') as year from order
 You can also group them by year. This example extracts the number of orders grouped by year:
 
 ```sql
-select date.format('yyyy') as year, count(*) from order oder by year
+select date.format('yyyy') as year, count(*) as total from order oder by year
 
 +------+--------+
-| year |        |
+| year |  total |
 +------+--------+
 | 2015 |      1 |
 | 2014 |      2 |
