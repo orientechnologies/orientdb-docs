@@ -218,11 +218,20 @@ db.liveQuery("live select from V")
 
 ## What's next
 
-LiveQuery implementation is an experimental feature. OrientDB team is working hard to make it stable and to support it on all the clients. 
+LiveQuery implementation is an *experimental* feature in 2.1, why?
+
+OrientDB team is working hard to make it stable and to support it on all the clients. To make live query stable in OrientDB 2.2, the following steps are needed:
+- finalize the connection loss management (what's happen when a connection is lost?)
+- check for memory leaks
+- ensure that ODatabaseDocumentTX.copy() works in all the scenarios (it seems it acts differently from remote to plocal, and we should also test it in distributed mode)
+- write some additional test cases
+- give an additional check to the OrientJs implementation 
+ 
+Maybe all this work will drive to some API changes, this is why it's marked as experimental.
 
 We are also considering integrations with existing frameworks like [(Meteor)](https://www.meteor.com/)
 
 You will find updates on this page in next months.
 
-|![](images/warning.png)|This feature is experimental and not covered by commercial support, use it at your own risk|
+|![](images/warning.png)|This feature is experimental in OrientDB 2.1 and not covered by commercial support, use it at your own risk. Starting from 2.2 Live Query will be released as Stable and will be covered by commercial support too.|
 |----|-----|
