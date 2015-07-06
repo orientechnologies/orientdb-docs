@@ -67,6 +67,7 @@ create vertex v set city = "Rome", date = date("0753-04-21 00:00:00 BC")
 ```
 
 This is the result:
+
 ```
 +-------+------+------------------------+
 | #9:10 | Rome | 0753-04-21 00:00:00 BC |
@@ -86,6 +87,7 @@ select date.asLong() from #9:4
 ```
 
 This is the result:
+
 ```
 -85889120400000
 ```
@@ -97,6 +99,7 @@ create vertex v set city = "Rome", date = date(-85889120400000)
 ```
 
 The result is identical to the previous one:
+
 ```
 +-------+------+------------------------+
 | #9:11 | Rome | 0753-04-21 00:00:00 BC |
