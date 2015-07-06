@@ -72,13 +72,13 @@ What happens when multiple clients add edges on the same vertex? OrientDB could 
 Set this configuration value at run-time before OrientDB is used:
 
 ```java
-OGlobalConfiguration.INDEX_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
+OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 ```
 
 Or, by setting the parameter at JVM level on startup (or even at run-time before OrientDB is used)
 
 ```
-java ... -Dindex.embeddedToSbtreeBonsaiThreshold=-1 ...
+java ... -DridBag.embeddedToSbtreeBonsaiThreshold=-1 ...
 ```
 
 ## Troubleshooting
