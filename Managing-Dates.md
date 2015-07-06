@@ -29,7 +29,6 @@ By using the [.format()](SQL-Methods.md#format) SQL method, you can extract date
 
 ```sql
 select @rid, id, date.format('yyyy') as year from order
-```
 
 +--------+----+------+
 | @RID   | id | year |
@@ -39,12 +38,12 @@ select @rid, id, date.format('yyyy') as year from order
 | #31:10 | 32 | 2014 |
 | #31:10 | 21 | 2013 |
 +--------+----+------+
+```
 
 You can also group them by year. This example extracts the number of orders grouped by year:
 
 ```sql
 select date.format('yyyy') as year, count(*) from order oder by year
-```
 
 +------+--------+
 | year |        |
@@ -53,6 +52,7 @@ select date.format('yyyy') as year, count(*) from order oder by year
 | 2014 |      2 |
 | 2013 |      1 |
 +------+--------+
+```
 
 ## Dates before 1970
 
