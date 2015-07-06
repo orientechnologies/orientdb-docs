@@ -9,6 +9,9 @@ This guide contains the general tips to optimize your application that use the O
 ## Java
 OrientDB is written in Java, so it runs on top of Java Virtual Machine (JVM). OrientDB is compatible with Java 8 and we suggest to use this version to run OrientDB. Java 8 is faster than Java 7 and previous ones.
 
+## JMX
+Starting from v2.1, OrientDB exposes internal metrics through [JMX Beans](JMX.md). Use this information to track and profile OrientDB.
+
 ## Memory settings
 ### Server and Embedded settings
 These settings are valid for both Server component and the JVM where is running the Java application that use OrientDB in Embedded Mode, by using directly [plocal](plocal-storage-engine.md).
