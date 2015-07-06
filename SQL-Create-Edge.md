@@ -33,7 +33,7 @@ OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 
 For more information look at [Concurrency on adding edges](Concurrency.md#concurrency-on-adding-edges).
 
-| ![NOTE](images/warning.png) | _NOTE: While running as distributed, edge creation could be done in two steps (create+update). This could break some constraint defined at Edge's class level. To avoid this kind of problem disable the constrains in Edge's class. Furthermore the edges are always managed as embedded, so setting of `embeddedToSbtreeBonsaiThreshold` has no effect._ |
+| ![NOTE](images/warning.png) | _NOTE: While running as distributed, edge creation could be done in two steps (create+update). This could break some constraint defined at Edge's class level. To avoid this kind of problem disable the constrains in Edge's class. Furthermore the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
 |----|----|
 
 ## Examples
