@@ -8,14 +8,13 @@ Before 2.1, if no edges were created, no error was thrown. Starting from 2.1, in
 Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use Bonsai structure. By default Bonsai is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
 
 ```
--Dindex.embeddedToSbtreeBonsaiThreshold=-1
+-DridBag.embeddedToSbtreeBonsaiThreshold=-1
 ``` 
 Or in Java by calling this before opening the database:
 
 ```java
-OGlobalConfiguration.INDEX_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
+OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 ```
-
 
 
 | ![NOTE](images/warning.png) | _NOTE: While running as distributed, edge creation could be done in two steps (create+update). This could break some constraint defined at Edge's class level. To avoid this kind of problem disable the constrains in Edge's class._ |
