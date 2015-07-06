@@ -4,6 +4,21 @@ This command creates a new Edge into the database. Edges, together with Vertices
 
 Before 2.1, if no edges were created, no error was thrown. Starting from 2.1, instead, if no edges are created, an `OCommandExecutionException` exception is thrown. This makes easier to use `CREATE EDGE` in transactions where if source or target vertices doesn't exist the entire transaction is rolled back.
 
+## Syntax
+
+```sql
+CREATE EDGE <class> [CLUSTER <cluster>] FROM <rid>|(<query>)|[<rid>]* TO <rid>|(<query>)|[<rid>]*
+                    [SET <field> = <expression>[,]*]|CONTENT {<JSON>}
+                    [RETRY <retry> [WAIT <pauseBetweenRetriesInMs]]
+```
+
+Where:
+- **class**, is the Edge's class name, or "E" if you don't use sub-types
+- **cluster**, is the cluster name where to physically store the edge
+- **JSON**, is the JSON content to set as record content, instead of field by field
+- **retry**, is the number of retries in case of conflict (optimistic approach)
+- **pauseBetweenRetriesInMs**, are the milliseconds of delay between retries
+
 ## Control vertices version increment
 Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use Bonsai structure. By default Bonsai is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
 
@@ -20,21 +35,6 @@ For more information look at [Concurrency on adding edges](Concurrency.md#concur
 
 | ![NOTE](images/warning.png) | _NOTE: While running as distributed, edge creation could be done in two steps (create+update). This could break some constraint defined at Edge's class level. To avoid this kind of problem disable the constrains in Edge's class. Furthermore the edges are always managed as embedded, so setting of `embeddedToSbtreeBonsaiThreshold` has no effect._ |
 |----|----|
-
-## Syntax
-
-```sql
-CREATE EDGE <class> [CLUSTER <cluster>] FROM <rid>|(<query>)|[<rid>]* TO <rid>|(<query>)|[<rid>]*
-                    [SET <field> = <expression>[,]*]|CONTENT {<JSON>}
-                    [RETRY <retry> [WAIT <pauseBetweenRetriesInMs]]
-```
-
-Where:
-- **class**, is the Edge's class name, or "E" if you don't use sub-types
-- **cluster**, is the cluster name where to physically store the edge
-- **JSON**, is the JSON content to set as record content, instead of field by field
-- **retry**, is the number of retries in case of conflict (optimistic approach)
-- **pauseBetweenRetriesInMs**, are the milliseconds of delay between retries
 
 ## Examples
 
