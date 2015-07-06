@@ -148,6 +148,8 @@ Edge lucaKnowsMarko = graph.addEdge(null, luca, marko, "knows");
 System.out.println("Created edge: " + lucaKnowsMarko.getId());
 ```
 
+If you're interested on optimizing creation of edges by concurrent threads/clients, look at [Concurrency on adding edges](Concurrency.md#concurrency-on-adding-edges).
+
 ## Retrieve all the Vertices
 
 To retrieve all the vertices use the `getVertices()` method:
