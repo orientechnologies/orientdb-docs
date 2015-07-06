@@ -24,6 +24,7 @@
    * [Concurrency](Concurrency.md)
    * [Schema](Schema.md)
    * [Cluster Selection](Cluster-Selection.md)
+   * [Managing Dates](Managing-Dates.md)
 * [Fetching Strategies](Fetching-Strategies.md)
 * [Indexes](Indexes.md)
    * [SB-Tree](SB-Tree-index.md)
