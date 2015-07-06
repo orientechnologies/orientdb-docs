@@ -25,7 +25,7 @@ RidBag could be configured with OGlobalConfiguration.
 + `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` (`ridBag.embeddedToSbtreeBonsaiThreshold`) - The threshold of LINKBAG conversion to sbtree-based implementation. _Default value: 40_.
 + `RID_BAG_SBTREEBONSAI_TO_EMBEDDED_THRESHOLD` (`ridBag.sbtreeBonsaiToEmbeddedToThreshold`) - The threshold of LINKBAG conversion to embedded implementation. _Disabled by default_.
 
-Setting `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to `-1` forces using of sbtree-based RidBag. Look at [Concurrency on adding edges]( Concurrency.md#concurrency-on-adding-edges)
+Setting `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to `-1` forces using of sbtree-based RidBag. Look at [Concurrency on adding edges]( Concurrency.md#concurrency-on-adding-edges) to know more about impact on graphs of this setting.
 
 | ![NOTE](images/warning.png) | _NOTE: While running as distributed, the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
 |----|----|
