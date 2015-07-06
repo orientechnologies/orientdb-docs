@@ -128,6 +128,21 @@ Live Query is currently supported from the following interfaces
 * [Java](https://github.com/orientechnologies/orientdb-docs/blob/master/Live-Query.md#livequery-in-java)
 * [Node.js](https://github.com/orientechnologies/orientdb-docs/blob/master/Live-Query.md#livequery-in-nodejs) [(OrientJS)](https://github.com/orientechnologies/orientjs)
 
+
+## Enabling LiveQuery
+
+LiveQuery is an experimental feature, so it's disabled by default. On a stand-alone server you just have to enable the 
+```OLiveQueryPlugin``` in config/orientdb-server-config.xml
+
+On an embedded (plocal) or in-memory instance, you have to manually register the LiveQuery hook:
+
+```java
+    OLiveCommandExecutorSQLFactory.init();
+    ODatabaseDocumentTx db = new ODatabaseDocumentTx("memory:YourDb");
+    db.activateOnCurrentThread();
+    db.registerHook(new OLiveQueryHook(db));
+```    
+    
 ## LiveQuery in Java
 
 To implement LiveQuery in Java you need two elements:
