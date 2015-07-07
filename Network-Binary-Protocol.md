@@ -311,141 +311,179 @@ Request: (user-name:string)(user-password:string)
 Response: empty
 ```
 Typically the credentials are those of the OrientDB server administrator. This is not the same as the *admin* user for individual databases.
+
+
 ## REQUEST_CONNECT
 
-This is the first operation requested by the client when it needs to work with the server instance. It returns the session id of the client.
+This is the first operation requested by the client when it needs to work with the server instance. This operation returns the [Session-Id](#Session-Id) of the new client to reuse for all the next calls.
 
 ```
 Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(user-name:string)(user-password:string)
 Response: (session-id:int)(token:bytes)
 ```
-Where:  
-request content:  
-- client's **driver-name** as string. Example: "OrientDB Java client"
-- client's **driver-version** as string. Example: "1.0rc8-SNAPSHOT"
-- client's **protocol-version** as short. Example: 7
-- client's **client-id** as string. Can be null for clients. In clustered configuration is the distributed node ID as TCP host+port. Example: "10.10.10.10:2480"
-- client's **serialization-impl** the [serialization format](#record-format) required by the client.
-- **token-session** as boolean, true if the client want to use a token based session otherwise false
-- **user-name** as string. Example: "root"
-- **user-password** as string. Example: "kdsjkkasjad"
-Typically the credentials are those of the OrientDB server administrator. This is not the same as the *admin* user for individual databases. It returns the [Session-Id](#Session-Id) to being reused for all the next calls.  
 
-response content:  
-- **session-id** the new session id or a match id in case of token auth  
-- **token:bytes** the token bytes or empty(size = 0) if the client send token-session=false or the server not support the token based session  
+#### Request
+
+- client's **driver-name** - the name of the client driver. Example: "OrientDB Java client".
+- client's **driver-version** - the version of the client driver. Example: "1.0rc8-SNAPSHOT"
+- client's **protocol-version** - the version of the protocol the client wants to use. Example: 30.
+- client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480".
+- client's **serialization-impl** - the [serialization format](#record-format) required by the client.
+- **token-session** - true if the client wants to use a token-based session, false otherwise.
+- **user-name** - the username of the user on the server. Example: "root".
+- **user-password** - the password of the user on the server. Example: "37aed6392".
+
+Typically the credentials are those of the OrientDB server administrator. This is not the same as the *admin* user for individual databases.
+
+
+#### Response
+
+- **session-id** - the new session id or a match id in case of token authentication.
+- **token** - the token for token-based authentication. If the clients sends **token-session** as false in the request or the server doesn't support token-based authentication, this will be an empty `byte[]`.
 
 
 ## REQUEST_DB_OPEN
 
-This is the first operation the client should call. It opens a database on the remote OrientDB Server. Returns the [Session-Id](#Session-Id) to being reused for all the next calls and the list of configured [clusters](Concepts.md#wiki-Cluster).
+This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#Session-Id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
 
 ```
 Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(database-name:string)(database-type:string)(user-name:string)(user-password:string)
-Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:string)(cluster-id:short)](cluster-config:bytes.md)(orientdb-release:string)
+Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:string)(cluster-id:short)](cluster-config:bytes)(orientdb-release:string)
 ```
-Where:
-request detail:
-- client's **driver-name** as string. Example: "OrientDB Java client"
-- client's **driver-version** as string. Example: "1.0rc8-SNAPSHOT"
-- client's **protocol-version** as short. Example: 7
-- client's **client-id** as string. Can be null for clients. In clustered configuration is the distributed node ID as TCP host+port. Example: "10.10.10.10:2480"
-- client's *serialization-impl* the [serialization format](#record-format) required by the client.
-- **token-session** as boolean, true if the client want to use a token based session otherwise false
-- **database-name** as string. Example: "demo"
-- **database-type** as string, can be 'document' or 'graph' (since version 8). Example: "document"
-- **user-name** as string. Example: "admin"
-- **user-password** as string. Example: "admin"
-- **cluster-config** is always null unless you're running in a server clustered configuration.
-- **orientdb-release** as string. Contains version of OrientDB release deployed on server and optionally build number. Example: "1.4.0-SNAPSHOT (build 13)"
 
-response detail :   
-- **session-id** the new session id or a match id in case of token auth  
-- **token:bytes** the token bytes or empty(size = 0) if the client send token-session=false or the server not support the token based session  
-- **num-of-clusters:short** the size of cluster definition array composed by **cluster-name:string** and **cluster-id:short** and **cluster-config**  
--  **orientdb-release** the decription of the token release  
+#### Request
+
+- client's **driver-name** - the name of the client driver. Example: "OrientDB Java client".
+- client's **driver-version** - the version of the client driver. Example: "1.0rc8-SNAPSHOT"
+- client's **protocol-version** - the version of the protocol the client wants to use. Example: 30.
+- client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480".
+- client's **serialization-impl** - the [serialization format](#record-format) required by the client.
+- **token-session** - true if the client wants to use a token-based session, false otherwise.
+- **database-name** - the name of the database to connect to. Example: "demo".
+- **database-type** - the type of the database to connect to. It can be either `document` or `graph` (since version 8). Example: "document".as string, can be 'document' or 'graph' (since version 8).
+- **user-name** - the username of the user on the server. Example: "root".
+- **user-password** - the password of the user on the server. Example: "37aed6392".
+
+#### Response
+
+- **session-id** - the new session id or a match id in case of token authentication.
+- **token** - the token for token-based authentication. If the clients sends **token-session** as false in the request or the server doesn't support token-based authentication, this will be an empty `byte[]`.
+- **num-of-clusters** - the size of the array of clusters in the form `(cluster-name:string)(cluster-id:short)` that follows this number.
+- **cluster-name**, **cluster-id** - the name and id of a cluster.
+- **cluster-config** - it's usually null unless running in a server clustered configuration.
+- **orientdb-release** - contains the version of the OrientDB release deployed on the server and optionally the build number. Example: "1.4.0-SNAPSHOT (build 13)".
+
 
 ## REQUEST_DB_CREATE
 
-Creates a database in the remote OrientDB server instance
+Creates a database in the remote OrientDB server instance.
 
 ```
 Request: (database-name:string)(database-type:string)(storage-type:string)
 Response: empty
 ```
-Where:
-- **database-name** as string. Example: "demo"
-- **database-type** as string, can be 'document' or 'graph' (since version 8). Example: "document"
-- **storage-type** can be one of the [supported types](Concepts.md#wiki-Database_URL):
-- plocal, as a persistent database
-- memory, as a volatile database
 
-NB. It doesn't make sense to use "remote" in this context
+#### Request
+
+- **database-name** - the name of the database to create. Example: "MyDatabase".
+- **database-type** - the type of the database to create. Can be either `document` or `graph` (since version 8). Example: "document".
+- **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+  - `plocal` - persistent database
+  - `memory` - volatile database
+
+**Note**: it doesn't make sense to use `remote` in this context.
+
 
 ## REQUEST_DB_CLOSE
 
-Closes the database and the network connection to the OrientDB Server instance. No return is expected. The socket is also closed.
+Closes the database and the network connection to the OrientDB server instance. No response is expected. The TCP socket is also closed.
 
 ```
 Request: empty
 Response: no response, the socket is just closed at server side
 ```
 
+
 ## REQUEST_DB_EXIST
 
-Asks if a database exists in the OrientDB Server instance. It returns true (non-zero) or false (zero).
+Asks if a database exists in the OrientDB server instance.
 
-```xml
-Request: (database-name:string) <-- before 1.0rc1 this was empty (server-storage-type:string - since 1.5-snapshot)
-Response: (result:byte)
+```
+Request: (database-name:string)(server-storage-type:string)
+Response: (result:boolean)
 ```
 
-Where:
-- **server-storage-type** can be one of the [supported types](Concepts.md#wiki-Database_URL):
-- plocal as a persistent database
-- memory, as a volatile database
+#### Request
+
+- **database-name** - the name of the target database. *Note* that this was empty before `1.0rc1`.
+- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+  - `plocal` - persistent database
+  - `memory` - volatile database
+
+#### Response
+
+- **result** - true if the given database exists, false otherwise.
 
 
 ## REQUEST_DB_RELOAD
 
-Reloads database information. Available since 1.0rc4.
+Reloads information about the given database. Available since `1.0rc4`.
 
 ```
 Request: empty
-Response:(num-of-clusters:short)[(cluster-name:string)(cluster-id:short)]
+Response: (num-of-clusters:short)[(cluster-name:string)(cluster-id:short)]
 ```
+
+#### Response
+
+- **num-of-clusters** - the size of the array of clusters in the form `(cluster-name:string)(cluster-id:short)` that follows this number.
+- **cluster-name**, **cluster-id** - the name and id of a cluster.
+
 
 ## REQUEST_DB_DROP
 
-Removes a database from the OrientDB Server instance. It returns nothing if the database has been deleted or throws a OStorageException if the database doesn't exists.
+Removes a database from the OrientDB server instance. This operation returns a successful response if the database is deleted successfully. Otherwise, if the database doesn't exist on the server, it returns an error (an `OStorageException`).
 
 ```
-Request: (database-name:string)(server-storage-type:string - since 1.5-snapshot)
+Request: (database-name:string)(storage-type:string)
 Response: empty
 ```
 
-Where:
-- **server-storage-type** can be one of the [supported types](Concepts.md#wiki-Database_URL):
-- plocal as a persistent database
-- memory, as a volatile database
+#### Request
+
+- **database-name** - the name of the database to remove.
+- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+  - `plocal` - persistent database
+  - `memory` - volatile database
+
 
 ## REQUEST_DB_SIZE
 
-Asks for the size of a database in the OrientDB Server instance.
+Returns the size of the currently open database.
 
 ```
 Request: empty
 Response: (size:long)
 ```
 
+#### Response
+
+- **size** - the size of the current database.
+
+
 ## REQUEST_DB_COUNTRECORDS
 
-Asks for the number of records in a database in the OrientDB Server instance.
+Returns the number of records in the currently open database.
 
 ```
 Request: empty
 Response: (count:long)
 ```
+
+#### Response
+
+- **count** - the number of records in the current database.
+
 
 ## REQUEST_DATACLUSTER_ADD
 
@@ -505,7 +543,7 @@ Response: 0000000000001000
 ```
 ## REQUEST_RECORD_LOAD
 
-Load a record by its [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md).
+Loads a record by its [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md).
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
@@ -530,50 +568,67 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
   - `b`: raw bytes
   - `f`: flat data
 
+
 ## REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
 
-Load a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md) only if the persistent version is more recent of the one in the request
+Loads a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
 
 ```
-Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:byte)(load-tombstones:byte)
+Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
 Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-content:bytes)]*]*
 ```
-Where:
-- **version** the base version, record will returned only if has higher version  
-- **fetch-plan**, the [fetch plan](Fetching-Strategies.md) to use or an empty string
-- **ignore-cache**, tells if the cache must be ignored: 1 = ignore the cache, 0 = not ignore. since protocol v.9 (introduced in release 1.0rc9)
-- **load-tombstones**, the flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
-- **payload-status** can be:
-- 0: no records remain to be fetched
-- 1: a record is returned as resultset
-- 2: a record is returned as pre-fetched to be loaded in client's cache only. It's not part of the result set but the client knows that it's available for later access. This value is not currently used.
-- **record-type** is
-- 'b': raw bytes
-- 'f': flat data
-- 'd': document
+
+#### Request
+
+- **cluster-id**, **cluster-position** - the RecordID of the record.
+- **version** - the version of the record to fetch.
+- **fetch-plan** - the [fetch plan](Fetching-Strategies.md) to use or an empty string.
+- **ignore-cache** - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
+- **load-tombstones** - a flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
+
+#### Response
+
+- `payload-status` - can be:
+  - `0`: no records remain to be fetched.
+  - `1`: a record is returned as resultset.
+  - `2`: a record is returned as pre-fetched to be loaded in client's cache only. It's not part of the result set but the client knows that it's available for later access. This value is not currently used.
+- `record-type` - can be:
+  - `d`: document
+  - `b`: raw bytes
+  - `f`: flat data
 
 
 ## REQUEST_RECORD_CREATE
 
-Create a new record. Returns the position in the cluster of the new record. New records can have version > 0 (since v1.0) in case the RID has been recycled.
+Creates a new record. Returns the RecordID of the newly created record.. New records can have version > 0 (since `1.0`) in case the RecordID has been recycled.
 
 ```
 Request: (cluster-id:short)(record-content:bytes)(record-type:byte)(mode:byte)
 Response: (cluster-id:short)(cluster-position:long)(record-version:int)(count-of-collection-changes)[(uuid-most-sig-bits:long)(uuid-least-sig-bits:long)(updated-file-id:long)(updated-page-index:long)(updated-page-offset:int)]*
 ```
-Where:
-- **datasegment-id** the segment id to store the data (since version 10 - 1.0-SNAPSHOT). -1 Means default one. Removed since 2.0
-- **record-type** is:
-- 'b': raw bytes
-- 'f': flat data
-- 'd': document
 
-and **mode** is:
-- 0 = **synchronous**: default mode waits for the answer
-- 1 = **asynchronous**, response identical to synchronous, but the driver should manage the answer in a callback
-- 2 = **no-response**: don't wait for the answer. This is useful on massive operations reducing the network latency
+#### Request
 
-The last part of response is referred to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+- **cluster-id** - the id of the cluster in which to create the new record.
+- **record-content** - the record to create serialized using the appropriate [serialization format](#record-format) chosen at connection time.
+- **record-type** - the type of the record to create. It can be:
+  - `d`: document
+  - `b`: raw bytes
+  - `f`: flat data
+- **mode** - can be:
+  - `0` - **synchronous**. It's the default mode which waits for the answer before the response is sent.
+  - `1` - **asynchronous**. The response is identical to the synchronous response, but the driver is encouraged to manage the answer in a callback.
+  - `1` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
+
+In versions before `2.0`, the response started with an additional **datasegment-id**, the segment id to store the data (available since version 10 - `1.0-SNAPSHOT`), with -1 meaning default one.
+
+#### Response
+
+- **cluster-id**, **cluster-position** - the RecordID of the newly created record.
+- **record-version** - the version of the newly created record.
+
+The last part of response (from `count-of-collection-changes` on) is referred to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+
 
 ## REQUEST_RECORD_UPDATE
 
@@ -653,13 +708,13 @@ Response is different for synchronous and asynchronous request:
     - all the records and each entry is typed with a short that can be:
        - '0' a record in the next bytes
        - '-2' no record and is considered as a null record
-       - '-3' only a recordId in the next bytes 
+       - '-3' only a recordId in the next bytes
  - 's', set of records. The format is:
     - an integer to indicate the collection size
     - all the records and each entry is typed with a short that can be:
        - '0' a record in the next bytes
        - '-2' no record and is considered as a null record
-       - '-3' only a recordId in the next bytes 
+       - '-3' only a recordId in the next bytes
  - 'a', serialized result, a byte[] is sent
 - **synch-result-content**, can only be a record
 - **pre-fetched-record-size**, as the number of pre-fetched records not directly part of the result set but joined to it by fetching
@@ -872,9 +927,9 @@ Added new command REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
 Added support support of live query in REQUEST_COMMAND, added new push command REQUEST_PUSH_LIVE_QUERY
 
 ## Version 28
-Since version 28 the [REQUEST_RECORD_LOAD](#request_record_load) response order is changed from:  
+Since version 28 the [REQUEST_RECORD_LOAD](#request_record_load) response order is changed from:
 `[(payload-status:byte)[(record-content:bytes)(record-version:int)(record-type:byte)]*]+`
-to:  
+to:
 `[(payload-status:byte)[(record-type:byte)(record-version:int)(record-content:bytes)]*]+`
 
 ## Version 27
@@ -888,15 +943,15 @@ Since version 27 is introduced an extension to allow use a token based session, 
 * the sessionId is needed only for match a response to a request
 * if used the token the connections can be shared between users and db of the same server, not needed to have connection associated to db and user.
 
-protocol methods changed:  
+protocol methods changed:
 
-REQUEST_DB_OPEN  
+REQUEST_DB_OPEN
 * request add token session flag
-* response add of the token  
+* response add of the token
 
-REQUEST_CONNECT  
+REQUEST_CONNECT
 * request add token session flag
-* response add of the token 
+* response add of the token
 
 ## Version 26
 Added cluster-id in the REQUEST_CREATE_RECORD response.
