@@ -627,54 +627,76 @@ In versions before `2.0`, the response started with an additional **datasegment-
 - **cluster-id**, **cluster-position** - the RecordID of the newly created record.
 - **record-version** - the version of the newly created record.
 
-The last part of response (from `count-of-collection-changes` on) is referred to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
 
 
 ## REQUEST_RECORD_UPDATE
 
-Update a record. Returns the new record's version.
+Updates the record identified by the given [RecordID](Concepts.md#RecordID). Returns the new version of the record.
+
 ```
 Request: (cluster-id:short)(cluster-position:long)(update-content:boolean)(record-content:bytes)(record-version:int)(record-type:byte)(mode:byte)
 Response: (record-version:int)(count-of-collection-changes)[(uuid-most-sig-bits:long)(uuid-least-sig-bits:long)(updated-file-id:long)(updated-page-index:long)(updated-page-offset:int)]*
 ```
-Where **record-type** is:
-- 'b': raw bytes
-- 'f': flat data
-- 'd': document
 
-and **record-version** **policy** is:
+#### Request
+
+- **cluster-id**, **cluster-position** - the RecordID of the record to update.
+- **update-content** - can be:
+  - true - the content of the record has been changed and should be updated in the storage.
+  - false - the record was modified but its own content has not changed: related collections (e.g. RidBags) have to be updated, but the record version and its contents should not be updated.
+- **record-content** - the new contents of the record serialized using the appropriate [serialization format](#record-format) chosen at connection time.
+- **record-version** - the version of the record to update.
+- **record-type** - the type of the record to create. It can be:
+  - `d`: document
+  - `b`: raw bytes
+  - `f`: flat data
+- **mode** - can be:
+  - `0` - **synchronous**. It's the default mode which waits for the answer before the response is sent.
+  - `1` - **asynchronous**. The response is identical to the synchronous response, but the driver is encouraged to manage the answer in a callback.
+  - `1` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
+
+#### Response
+
+- **record-version** - the new version of the updated record
+
+---
+
+TODO: **policy** has to be either removed from the description or added to the response
+
+**policy** is:
 - '-1': Document update, version increment, no version control.
 - '-2': Document update, no version control nor increment.
 - '-3': Used internal in transaction rollback (version decrement).
 - '>-1': Standard document update (version control).
 
-and **mode** is:
-- 0 = **synchronous**: default mode waits for the answer
-- 1 = **asynchronous**, response identical to synchronous, but the driver should manage the answer in a callback
-- 2 = **no-response**: don't wait for the answer. This is useful on massive operations reducing the network latency
+---
 
-and **update-content** is:
-- true - content of record has been changed and content should be updated in storage
-- false - the record was modified but its own content has not been changed. So related collections (e.g. rig-bags) have to be updated, but record version and content should not be.
+The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
 
-The last part of response is referred to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
 
 ## REQUEST_RECORD_DELETE
 
-Delete a record by its [RecordID](Concepts.md#RecordID). During the optimistic transaction the record will be deleted only if the versions match. Returns true if has been deleted otherwise false.
+Delete a record identified by the given [RecordID](Concepts.md#RecordID). During the optimistic transaction the record will be deleted only if the given version and the version of the record on the server match. This operation returns true if the record is deleted successfully, false otherwise.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(record-version:int)(mode:byte)
-Response: (payload-status:byte)
+Response: (has-been-deleted:boolean)
 ```
 
-Where:
-**mode** is:
- - 0 = **synchronous**: default mode waits for the answer
- - 1 = **asynchronous**, response identical to synchronous, but the driver should manage the answer in a callback
- - 2 = **no-response**: don't wait for the answer. This is useful on massive operations reducing the network latency
+#### Request
 
-and **payload-status** returns 1 if the record has been deleted, otherwise 0. If the record didn't exist 0 is returned.
+- **cluster-id**, **cluster-position** - the RecordID of the record to delete.
+- **record-version** - the version of the record to delete.
+- **mode** - can be:
+  - `0` - **synchronous**. It's the default mode which waits for the answer before the response is sent.
+  - `1` - **asynchronous**. The response is identical to the synchronous response, but the driver is encouraged to manage the answer in a callback.
+  - `1` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
+
+#### Response
+
+- **has-been-deleted** - true if the record is deleted successfully, false if it's not or if the record with the given RecordID doesn't exist.
+
 
 ## REQUEST_COMMAND
 
