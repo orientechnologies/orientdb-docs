@@ -505,24 +505,30 @@ Response: 0000000000001000
 ```
 ## REQUEST_RECORD_LOAD
 
-Load a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md)
+Load a record by its [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md).
 
 ```
-Request: (cluster-id:short)(cluster-position:long)(fetch-plan:string)(ignore-cache:byte)(load-tombstones:byte)
+Request: (cluster-id:short)(cluster-position:long)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
 Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-content:bytes)]*]+
 ```
-Where:
-- **fetch-plan**, the [fetch plan](Fetching-Strategies.md) to use or an empty string
-- **ignore-cache**, tells if the cache must be ignored: 1 = ignore the cache, 0 = not ignore. since protocol v.9 (introduced in release 1.0rc9)
-- **load-tombstones**, the flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
-- **payload-status** can be:
-- 0: no records remain to be fetched
-- 1: a record is returned as resultset
-- 2: a record is returned as pre-fetched to be loaded in client's cache only. It's not part of the result set but the client knows that it's available for later access. This value is not currently used.
-- **record-type** is
-- 'b': raw bytes
-- 'f': flat data
-- 'd': document
+
+#### Request
+
+- `cluster-id`, `cluster-position` - the RecordID of the record.
+- `fetch-plan` - the [fetch plan](Fetching-Strategies.md) to use or an empty string.
+- `ignore-cache` - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
+- `load-tombstones` - a flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
+
+#### Response
+
+- `payload-status` - can be:
+  - `0`: no records remain to be fetched.
+  - `1`: a record is returned as resultset.
+  - `2`: a record is returned as pre-fetched to be loaded in client's cache only. It's not part of the result set but the client knows that it's available for later access. This value is not currently used.
+- `record-type` - can be:
+  - `d`: document
+  - `b`: raw bytes
+  - `f`: flat data
 
 ## REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
 
