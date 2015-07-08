@@ -119,3 +119,9 @@ Jackrabbit module to use OrientDB as backend.
 &nbsp;&nbsp;Plugin for <a href="http://fuelphp.com">FuelPHP framework</a>.
 
 ------
+
+<a href="https://github.com/raymanrt/orientqb">orientqb</a><br>
+
+orientqb is a builder for OSQL query language written in Java. orientqb has been thought to help developers in writing complex queries dynamically and aims to be simple but powerful.
+
+------
