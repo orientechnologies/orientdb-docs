@@ -618,7 +618,7 @@ Response: (cluster-id:short)(cluster-position:long)(record-version:int)(count-of
 - **mode** - can be:
   - `0` - **synchronous**. It's the default mode which waits for the answer before the response is sent.
   - `1` - **asynchronous**. The response is identical to the synchronous response, but the driver is encouraged to manage the answer in a callback.
-  - `1` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
+  - `2` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
 
 In versions before `2.0`, the response started with an additional **datasegment-id**, the segment id to store the data (available since version 10 - `1.0-SNAPSHOT`), with -1 meaning default one.
 
@@ -654,7 +654,7 @@ Response: (record-version:int)(count-of-collection-changes)[(uuid-most-sig-bits:
 - **mode** - can be:
   - `0` - **synchronous**. It's the default mode which waits for the answer before the response is sent.
   - `1` - **asynchronous**. The response is identical to the synchronous response, but the driver is encouraged to manage the answer in a callback.
-  - `1` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
+  - `2` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
 
 #### Response
 
@@ -691,7 +691,7 @@ Response: (has-been-deleted:boolean)
 - **mode** - can be:
   - `0` - **synchronous**. It's the default mode which waits for the answer before the response is sent.
   - `1` - **asynchronous**. The response is identical to the synchronous response, but the driver is encouraged to manage the answer in a callback.
-  - `1` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
+  - `2` - **no-response**. Don't wait for the answer (*fire and forget*). This mode is useful on massive operations since it reduces network latency.
 
 #### Response
 
