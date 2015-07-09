@@ -66,3 +66,31 @@ SELECT * FROM Class WHERE [prop1,prop2] LUCENE "(prop1:foo AND props2:bar)"
 ```
 
 With this syntax the engine parse the query using the [QueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html).
+
+### Create a manual Lucene Index
+
+Starting from 2.1 the plugin support index creation without the need of a class
+
+To create a manual index use this syntax
+
+```
+CREATE INDEX <name> FULLTEXT ENGINE LUCENE  [<key-type>] [METADATA {<metadata>}]
+```
+
+Example 
+
+```
+create index Manual FULLTEXT ENGINE LUCENE STRING,STRING
+```
+
+You can then insert values in index with insert into the index:
+
+```
+insert into index:manual (key,rid) values(['Enrico','Rome'],#5:0)
+```
+
+and query the index
+
+```
+select from index:manual where key LUCENE 'Enrico'
+```
