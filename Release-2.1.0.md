@@ -7,6 +7,13 @@ OrientDB 2.1 includes the first experimental version of LiveQuery. See details  
 
 Databases created with release 2.0.x are compatible with 2.1, so you don't have to export/import the database. 
 
+## Difference function
+
+In 2.0.x difference() function had inconsistent behavior: it actually worked as a symmetric difference (see [4366](https://github.com/orientechnologies/orientdb/issues/4366), [3969](https://github.com/orientechnologies/orientdb/issues/3969))
+In 2.1 it was refactored to perform normal difference ([https://proofwiki.org/wiki/Definition:Set_Difference](https://proofwiki.org/wiki/Definition:Set_Difference)) and another function was created for symmetric difference (called "symmetricDifference()").
+
+If for some reason you application relied on the (wrong) behavior of difference() function, please change your queries to invoke symmetricDifference() instead
+
 # Strict SQL parser
 
 V 2.1 introduces a new implementation of the new SQL parser. This implementation is more strict, so some queries that were allowed in 2.0.x could not work now.
