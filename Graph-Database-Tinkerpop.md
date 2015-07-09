@@ -269,6 +269,10 @@ You can also have both UNIQUE index against custom types:
 ```java
 graph.createKeyIndex("name", Vertex.class, new Parameter("type", "UNIQUE"), new Parameter("class", "Customer"));
 ```
+To create in index case insensitive us the additional parameter "collate":
+```java
+graph.createKeyIndex("name", Vertex.class, new Parameter("type", "UNIQUE"), new Parameter("class", "Customer"),new Parameter("collate", "ci"));
+```
 To get a vertex or an edge by key prefix use the class name before the property. For the example above use `Customer.name` in place of only `name` to use the index created against the field `name` of class `Customer`:
 ```java
 for (Vertex v : graph.getVertices("Customer.name", "Jay")) {
