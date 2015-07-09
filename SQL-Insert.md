@@ -114,14 +114,14 @@ INSERT INTO Profile (name, address) VALUES ('Luca', { "@type" : "d", "street" : 
 
 #### Copy records in another class
 ```sql
-INSERT INTO GermanyClient FROM ( SELECT FROM Client WHERE country = 'Germany' )
+INSERT INTO GermanyClient FROM SELECT FROM Client WHERE country = 'Germany'
 ```
 
 Will insert all the records from Client where the country is "Germany".
 
 #### Copy records in another class adding a field
 ```sql
-INSERT INTO GermanyClient FROM ( SELECT *, true AS copied FROM Client WHERE country = 'Germany' )
+INSERT INTO GermanyClient FROM SELECT *, true AS copied FROM Client WHERE country = 'Germany'
 ```
 
 Will insert all the records from Client where the country is "Germany" and will add an additional field called "copied" with value true.
