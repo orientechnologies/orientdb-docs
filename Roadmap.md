@@ -52,6 +52,10 @@ Last update: July 10th 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
+| Core | Override of properties | 0% |
 | SQL | New SQL Executor | 5% |
-
-
+| Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 0% |
+| Transactions | Enhance isolation level also for remote commands| 0% |
+| Distributed | Load balancing on client | 0% |
+| Distributed | Replication of in-memory databases | 0% |
+| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
