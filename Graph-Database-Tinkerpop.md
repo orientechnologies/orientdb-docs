@@ -5,7 +5,6 @@ To use the Graph API include the following jars in your classpath:
 orientdb-core-*.jar
 blueprints-core-*.jar
 orientdb-graphdb-*.jar 
-(blueprints-orient-graph-*.jar only for OrientDB < v1.7)
 ```
 
 If you're connected to a remote server (not local/plocal/memory modes) include also:
