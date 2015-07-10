@@ -660,18 +660,6 @@ Response: (record-version:int)(count-of-collection-changes)[(uuid-most-sig-bits:
 
 - **record-version** - the new version of the updated record
 
----
-
-TODO: **policy** has to be either removed from the description or added to the response
-
-**policy** is:
-- '-1': Document update, version increment, no version control.
-- '-2': Document update, no version control nor increment.
-- '-3': Used internal in transaction rollback (version decrement).
-- '>-1': Standard document update (version control).
-
----
-
 The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
 
 
