@@ -234,6 +234,7 @@
 * [Available Plugins](Plugins.md)
    * [Rexster](Rexster.md)
    * [Gephi Graph Render](Gephi.md)
+* [Roadmap](Roadmap.md)
 * [Upgrade](Upgrade.md)
    * [Backward compatibility](Backward-compatibility.md)
    * [From 2.0.x to 2.1.x](Migration-from-2.0.x-to-2.1.x.md)
