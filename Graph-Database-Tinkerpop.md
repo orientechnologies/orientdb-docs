@@ -388,6 +388,13 @@ List<ODocument> photos = loadedPerson.getRecord().field("out_Photos");
 photos.add(photos.remove(9));
 ```
 
+To have the same result by using SQL, execute the following commands:
+
+```sql
+create property out_Photos LINKLIST
+alter property User.out_Photos custom ordered=true
+```
+
 ## Working on detached elements
 
 When you work with web applications, it’s very common to query elements and render them to the user to let him apply some changes. Once the user updates some fields and presses the “save” button, what happens?
