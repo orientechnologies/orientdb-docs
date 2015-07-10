@@ -19,15 +19,18 @@ Last update: July 10th 2015
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | OrientJS| Native unmarshaling of requests by using C code| 0% |
-| Core| Dirty Manager| 0% |
+| Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 0% |
 | Core | Incremental Backup | 0% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 70% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
+| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | Distributed | Fast synchronization by using Incremental Backup | 0% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
-| SQL | [Sequences](https://github.com/orientechnologies/orientdb/pull/3744) | 80% |
+| SQL | Live Query -> Stable | 0% |
+| SQL | New functions (strings, maths) | 40% |
+| SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 80% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 70% |
@@ -35,3 +38,20 @@ Last update: July 10th 2015
 | Console | Dislay distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 0% |
 | Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+
+
+## Release 3.0
+```
+- Development started on.: September 2015
+- Expected first RC......: November 2015
+- Expected final GA......: December 2015
+```
+
+### Status
+Last update: July 10th 2015
+
+| Module | Feature | Status                     |
+|--------|---------|----------------------------|
+| SQL | New SQL Executor | 5% |
+
+
