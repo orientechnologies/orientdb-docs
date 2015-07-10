@@ -10,7 +10,7 @@
 |[Installation](Tutorial-Installation.html) | [Supported Data Types](Types.html) | [Gremlin](Gremlin.html) | 
 |[First Steps](Tutorial-Introduction-to-the-NoSQL-world.html) | [Inheritance](Inheritance.html) | [HTTP API](OrientDB-REST.html) |
 |[Troubleshooting](Troubleshooting.html) |[Security](Security.html)| [Java API](Java-API.html)|
-|[Enterprise Edition](Enterprise-Edition.html)| [Indexes](Indexes.html) | [NodeJS](https://github.com/codemix/oriento)|
+|[Enterprise Edition](Enterprise-Edition.html)| [Indexes](Indexes.html) | [NodeJS](https://github.com/orientechnologies/orientjs)|
 | | [ACID Transactions](Transactions.html) | [PHP](https://github.com/orientechnologies/PhpOrient) |
 | | [Functions](Functions.html) | [Python](https://github.com/orientechnologies/pyorient)|
 | | [Caching Levels](Caching.html) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
