@@ -23,12 +23,15 @@ Last update: July 10th 2015
 | Core | Incremental Backup | 0% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 70% |
+| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
 | Distributed | Fast synchronization by using Incremental Backup | 0% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
-| SQL | Sequences | 80% |
+| SQL | [Sequences](https://github.com/orientechnologies/orientdb/pull/3744) | 80% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 70% |
 | Java API | ODocument.eval()  | 0% |
-| Console | Dislay distirbuted information on class/clusters https://github.com/orientechnologies/orientdb/issues/3967| 0% |
+| Console | Dislay distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 0% |
+| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
