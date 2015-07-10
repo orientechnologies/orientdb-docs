@@ -26,6 +26,7 @@ Last update: July 10th 2015
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | Distributed | Fast synchronization by using Incremental Backup | 0% |
+| SQL | Pattern matching | 20% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
 | SQL | Live Query -> Stable | 0% |
