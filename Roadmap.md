@@ -10,7 +10,7 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ```
 - Development started on.: June 25th 2015
 - Expected first RC......: August 2015
-- Expected final GA......: August 2015
+- Expected final GA......: September 2015
 ```
 
 ### Status
@@ -19,7 +19,7 @@ Last update: July 10th 2015
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | OrientJS| Native unmarshaling of requests by using C code| 0% |
-| Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 0% |
+| Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 50% |
 | Core | Incremental Backup | 0% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 70% |
@@ -38,6 +38,7 @@ Last update: July 10th 2015
 | Console | Dislay distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 0% |
 | Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| Lucene | Faceted search | 20% |
 
 
 ## Release 3.0
@@ -58,4 +59,5 @@ Last update: July 10th 2015
 | Transactions | Enhance isolation level also for remote commands| 0% |
 | Distributed | Load balancing on client | 0% |
 | Distributed | Replication of in-memory databases | 0% |
+| Distributed | Auto-Sharding | 0% |
 | Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
