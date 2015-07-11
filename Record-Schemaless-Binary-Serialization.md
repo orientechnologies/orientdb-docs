@@ -136,32 +136,28 @@ The `item` data structure has the following shape:
 
 ### EMBEDDEDMAP
 
-The link map allow to have as key the types:
-STRING,SHORT,INTEGER,LONG,BYTE,DATE,DECIMAL,DATETIME,DATA,FLOAT,DOUBLE
-the serialization of the map is divided in a header and a values
+Maps can have keys with the following types:
 
-    +---------------------------+-------------------------+
-    | header:headerStructure    | values:valueStructure   |
-    +---------------------------+-------------------------+
+- STRING
+- SHORT
+- INTEGER
+- LONG
+- BYTE
+- DATE
+- DATETIME
+- DECIMAL
+- FLOAT
+- DOUBLE
 
-header structure
+As of now though, **all keys are converted to STRINGs**.
 
-    +--------------+------------------+
-    | keyType:byte | keyValue:byte[]  |
-    +--------------+------------------+
+An EMBEDDEDMAP is serialized as an header and a list of values.
 
-**_Current implementation convert all the keys to string_**
-**keyType** is the type of the key, can be only one of the listed type.
-**keyValue** the value of the key serialized with the serializer of the type
+    (size:varint)(header:header-structure)(values:byte[][])
 
-value structure
-
-    +---------------+---------------+
-    |valueType:byte | value:byte[]  |
-    +---------------+---------------+
-
-**valueType** the OType of the stored value
-**value** the value serialized with the serializer selected by OType
+- **size** - the number of key-value pairs in the map
+- **header** - serialized as `(key-type:byte)(key-value:byte[])(pointer-to-data:int32)(value-type:byte)` (where `pointer-to-data` is the same as the one in the header, offsetting from the start of the top-level document).
+- **values** - the values serialized according to their type.
 
 ### LINK
 
@@ -190,7 +186,7 @@ Maps of links can have keys with the following types:
 - FLOAT
 - DOUBLE
 
-As of now though, all keys are converted to STRINGs.
+As of now though, **all keys are converted to STRINGs**.
 
 A LINKMAP is serialized as the number of key-value pairs and then the list of key-value pairs.
 
