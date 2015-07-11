@@ -181,6 +181,8 @@ The network protocol supports different types of information:
 </tbody>
 </table>
 
+**Note** when the type of a field in a response depends on the values of the previous fields, that field will be written without the type (e.g., `(a-field)`). The type of the field will be then specified based on the values of the previous fields in the description of the response.
+
 # Record format
 The record format is choose during the [CONNECT](#request_connect) or [DB_OPEN](#request_db_open) request, the formats available are:
 
