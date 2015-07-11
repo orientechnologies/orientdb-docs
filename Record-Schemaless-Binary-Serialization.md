@@ -206,14 +206,14 @@ A `key-value` pair is serialized as:
 
 ### DECIMAL
 
-The Decimal is converted to an integer and stored as scale and value (example "10234.546" is stored as scale "3" and value as:"10234546")
+Decimals are converted to integers and stored as the scale and the value. For example, `10234.546` is storead as scale `3` and value `10234546`.
 
-    +---------------+-------------------+--------------+
-    | scale:byte[4] | valueSize:byte[4] | value:byte[] |
-    +---------------+-------------------+--------------+
+    (scale:int32)(value-size:int32)(value:byte[])
 
-**scale** an 4 byte integer that represent the scale of the value
-**valueSize** the length of the value bytes
-**value** the bytes that represent the value of the decimal in big-endian order.
+- **scale** - the scale of the decimal.
+- **value-size** - the number of bytes that form the `value`.
+- **value** - the bytes representing the value of the decimal (in big-endian order).
 
 ### LINKBAG
+
+No documentation yet. :(
