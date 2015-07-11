@@ -697,15 +697,21 @@ Response:
 - asynchronous commands: [(asynch-result-type:byte)[(asynch-result-content:?)]*](pre-fetched-record-size.md)[(pre-fetched-record)]*+
 ```
 
-Where the request:
-- **mode** can be 'a' for asynchronous mode, 's' for synchronous mode and 'l' for live mode
-- **command-payload-length** is the length of the class-name field plus the command-payload field
-- **class-name** is the class name of the command implementation. There are short form for the most common commands:
- - **q** stands for query as idempotent command. It's like passing <code>com.orientechnologies.orient.core.sql.query.OSQLSynchQuery</code>
- - **c** stands for command as non-idempotent command (insert, update, etc). It's like passing <code>com.orientechnologies.orient.core.sql.OCommandSQL</code>
- - **s** stands for script. It's like passing <code>com.orientechnologies.orient.core.command.script.OCommandScript</code>. Script commands by using any supported server-side scripting like [Javascript command](Javascript-Command.md). Since v1.0.
- - **any other values** is the class name. The command will be created via reflection using the default constructor and invoking the <code>fromStream()</code> method against it
-- **command-payload** is the command's serialized payload (see [Network-Binary-Protocol-Commands](Network-Binary-Protocol-Commands.md))
+#### Request
+
+- **mode** - it can assume one of the following values:
+  - `a` - asynchronous mode
+  - `s` - synchronous mode
+  - `l` - live mode
+- **command-payload-length** - the length of the **class-name** field plus the length of the **command-payload** field.
+- **class-name** - the class name of the command implementation. There are some short forms for the most common commands, which are:
+  - `q` - stands for "query" as idempotent command (e.g., `SELECT`). It's like passing `com.orientechnologies.orient.core.sql.query.OSQLSynchquery`.
+  - `c` - stands for "command" as non-idempotent command (e.g., `INSERT` or `UPDATE`). It's like passing `com.orientechnologies.orient.core.sql.OCommandSQL`.
+  - `s` - stands for "script" (for server-side scripting using languages like [JavaScript](Javascript-Command.md)). It's like passing `com.orientechnologies.orient.core.command.script.OCommandScript`.
+  - any other string - the string is the class name of the command. The command will be created via reflection using the default constructor and invoking the `fromStream()` method against it.
+- **command-payload** - is the payload of the command as specified in [the "Commands" section](Network-Binary-Protocol-Commands.md).
+
+#### Response
 
 Response is different for synchronous and asynchronous request:
 - **synchronous**:
@@ -780,8 +786,15 @@ Request: (index-name:string)(key:document)(fetch-plan:string)
 Response: (result-type:byte)
 ```
 
-Where:
-- **key** is stored in the field named "key" inside the document
+#### Request
+
+- **index-name** - the name of the index.
+- **key** - a document whose `"key"` field contains the key.
+- **fetch-plan** - the [fetch plan](Fetching-Strategies.md) to use or an empty string.
+
+#### Response
+
+- **key** - is stored in the field named "key" inside the document
 - **result-type** can be:
  - 'n', means null result
  - 'r', means single record returned
