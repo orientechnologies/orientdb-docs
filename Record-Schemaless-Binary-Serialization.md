@@ -164,23 +164,16 @@ value structure
 **value** the value serialized with the serializer selected by OType
 
 ### LINK
-The link is stored as two 64 bit integer
 
-    +--------------+--------------+
-    |cluster:64int | record:64Int |
-    +--------------+--------------+
+The link is stored as two 64 bit integers: the cluster id and the record's position in the cluster.
 
-**cluster** orientdb cluster id
-**record** orientdb record id
+    (cluster-id:int64)(record-position:int64)
 
 ### LINKLIST, LINKSET
 
-    +-------------+---------------------+
-    | size:varint | collection:LINK[] |
-    +-------------+---------------------+
+Link collections (lists and sets) are serialized as the size of the collection and then a list of LINKs.
 
-**size** the number of links in the collection
-**collection** an array of LINK each element is serialized as LINK type.
+    (size:varint)(links:LINK[])
 
 ### LINKMAP
 The link map allow to have as key the types:
