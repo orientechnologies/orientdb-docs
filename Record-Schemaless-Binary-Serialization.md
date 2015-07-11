@@ -1,147 +1,138 @@
 # Schemaless Serialization
 
-The binary schemaless serialization is an attempt to define a serialization format that can serialize a document containing all the information about the structure and the data, with no need of a external schema definition and with support for partial serialization/deserialization.
+The binary schemaless serialization is an attempt to define a serialization format that can serialize a document containing all the information about the structure and the data with support for partial serialization/deserialization.
 
-The whole record is structured in three main segments
+The types described here are different from the types used in the binary protocol.
 
+A serialized record has the following shape:
 
-    +---------------+------------------+---------------+-------------+
-    | version:byte  | className:string | header:byte[] | data:byte[] |
-    +---------------+------------------+---------------+-------------+
+    (serialization-version:byte)(class-name:string)(header:byte[])(data:byte[])
 
 ## Version
-1 byte that contain the version of the current record serialization, to allow progressive serialization upgrade
+
+1 byte that contains the version of the current serialization (in order to allow progressive serialization upgrades).
+
 ## Class Name
-A String containing the name of the class of the record, if the record has no class will be just an empty string, the serialization of the string is the same of the String value
+
+A string containing the name of the class of the record. If the record has no class, `class-name` will be just an empty string.
 
 ## Header
-The header contains the list of fields names of the current record with the association to the data location
 
+The header contains a list of fields of the serialized records, along with their position in the `data` field. The header has the following shape:
 
-    +----------------------------+
-    | fields:field_definition[]  |
-    +----------------------------+
+    (field:field-definition)+
 
-field definition
+Where `field-definition` has this shape:
 
-    +-----------------------------+-------------------+-------------------------------+----------------+
-    | field_name_length|id:varint | field_name:byte[] | pointer_to_data_structure:int | data_type:byte |
-    +-----------------------------+-------------------+-------------------------------+----------------+
+    (field-type:varint)(field-contents:byte[])
 
-**field_name_length** varint that describe the field, if positive is the size of the string that fallow next if negative is and id of current property referred in the schema, if is 0 mark the end of the header.      
-**field_name** the field name present only with **field_name_length** > 0  
-**pointer_to_data** a pointer to the data structure in the data segment that contains the field value or 0 if the field is null  
-**data_type** the field type id, the supported types are defined here[ OType](https://github.com/orientechnologies/orientdb/wiki/Types) present only with **field_name_length** > 0   
+The field contents depend on the value of the `field-type` varint. Once decoded to an integer, its value can be:
 
-###Property ID
-The property Id will be stored in **field_name_length** as negative value, for decode it should translated to positive value and decrased by 1: (**field_name_length** * -1) -1 == propertyId.  
+- `0` - signals the end of the header
+- a positive number `i` - signals that what follows is a named field (and it's the length of the field name, see below)
+- a negative number `i` - signals that what follows is a property (and it encodes the property id, see below)
 
-the relative property will be found in the schema, stored in the globalProperty list at the root of the document that rapresent the schema definition.
+#### Named fields
+
+Named fields are encoded as:
+
+    (field-name:string)(pointer-to-data-structure:int32)(data-type:byte)
+
+- `field-name` - the name of the field. The `field-type` varint is included in `field-name` (as per the string encoding) as mentioned above.
+- `pointer-to-data-structure` - a pointer to the data structure for the current field in the `data` segment. It's `0` if the field is null.
+- `data-type` - the type id of the type of the value for the current field. The supported types (with their ids) are defined in [this section](Types.md).
+
+#### Properties
+
+Properties are encoded as:
+
+    (property-id:varint)(pointer-to-data-structure:int32)
+
+- `property-id` - is the `field-type` described above. It's a negative value that encodes a property id. Decoding of this value into the corresponding property id can be done using this formula: `(property-id * -1) - 1`. The property identified by this id will be found in the schema (with its name and its type), stored in the `globalProperties` field at the root of the document that represents the schema definition.
+- `pointer-to-data-structure` - a pointer to the data structure for the current field in the `data` segment. It's `0` if the field is null.
 
 ## Data
-The data segment is where the data is stored is composed by an array of data structure
 
-    +------------------------+
-    | data:data_structure[]  |
-    +------------------------+
+The data segment is where the values of the fields are stored. It's an array of data structures (each with a type described by the corresponding field).
 
-each data structures content is depended to the field type, each type have it's own serialization structure
+    (data:data-structure[])
 
-## field_data serialization by type
+Each type is serialized differently, as described below.
 
-### SHORT,INTEGER,LONG
-The Integer numbers will be serialized as variable size integer
-it use the same format of protobuf specified [HERE](https://developers.google.com/protocol-buffers/docs/encoding?csw=1)  
--64 < value < 64 1 byte  
--8192 < value <  8192 2 byte  
--1048576 < value < 1048576 3 byte  
--134217728 < value < 134217728 4 byte  
--17179869184 < value < 17179869184 5 byte  
+## Type serialization
 
-all the negative value are translated to positive using the ZigZag encoding
+### SHORT, INTEGER, LONG
 
-the algorithm can be also extended for longer values!
+Integers are encoded using the varint (with ZigZag) algorithm used by Google's ProtoBuf (and specified [here](https://developers.google.com/protocol-buffers/docs/encoding?csw=1)).
 
 ### BYTE
 
-The byte is stored as byte
+Bytes is stored raw, as single bytes.
 
 ### BOOLEAN
-The boolean is serialized as a byte:
-0 = false
-1 = true
+
+Booleans are serialized using a single byte, `0` meaning false and `1` meaning true.
 
 ### FLOAT
-This is stored as flat byte array copying the memory from the float memory
 
-    +---------------+
-    | float:byte[4] |
-    +---------------+
+This is stored as flat byte array copying the memory from the float memory.
+
+    (float:byte[4])
+
 ### DOUBLE
-This is stored as flat byte array copying the memory from the double memory
 
-    +---------------+
-    | float:byte[8] |
-    +---------------+
+This is stored as flat byte array copying the memory from the double memory.
 
+    (double:byte[8])
 
 ### DATETIME
 
-The date is converted to millisecond unix epoch and stored as the type LONG
+The date is converted to milliseconds (from the Unix epoch) and stored as the type LONG.
 
 ### DATE
 
-The date is converted to second unix epoch,moved at midnight UTC+0, divided by 86400(seconds in a day) and stored as the type LONG
+The date is converted to seconds (from the Unix epoch), moved to midnight UTC+0, divided by 86400 (the number of seconds in a day) and stored as the type LONG.
 
 ### STRING
-The string are stored as binary structure with UTF-8 encoding
 
-    +-------------+----------------+
-    | size:varInt | string:byte[]  |
-    +-------------+----------------+
+Strings are stored as binary structures (encoded as UTF-8). Strings are preceded by their size (in bytes).
 
-**size** the number of the bytes in the string stored(not the length of the string) as variable size integer
-**string** the bytes of the string in UTF-8 encodings
+    (size:varint)(string:byte[])
+
+- **size** - the number of the bytes in the string stored as a varint
+- **string** - the bytes of the string encoded as UTF-8
 
 ### BINARY
-The BINARY store bytes in a row way on the storage
 
-    +--------------+----------------+
-    | size:varInt  | bytes:byte[]   |
-    +--------------+----------------+
+Byte arrays are stored like STRINGs.
 
-**size** the number of the bytes to store
-**bytes** the row bytes
+    (size:varint)(bytes:byte[])
+
+- **size** - the number of the bytes to store
+- **bytes** - the raw bytes
 
 ### EMBEDDED
-The  embedded document is serialized calling the document serializer in recursive fashion, in the following structure
 
-embedded document
+Embedded documents are serialized using the protocol described in this document (recursively). The serialized document is just a byte array.
 
-    +-----------------------------+
-    | serialized_document:bytes[] |
-    +-----------------------------+
-
-**serialized_document the bytes of the serialized document
+    (serialized-document:bytes[])
 
 ### EMBEDDEDLIST, EMBEDDEDSET
 
-The embedded collections is stored as an array of bytes that contain the serialized document in the embedded mode.
+The embedded collections are stored as an array of bytes that contain the serialized document in the embedded mode.
 
-    +-------------+------------+-------------------+
-    |size:varInt  | type:Otype | items:item_data[] |
-    +-------------+------------+-------------------+
+    (size:varint)(collection-type:byte)(items:item[])
 
-**size** the number of items in the list
-**type** the type of the types in the list or ANY if the type is unknown
-**items** an array of value serialized by type or if the type is ANY the item will have it's own structure.
+- **size** - the number of items in the list/set
+- **collection-type** - the type of the elements in the list or ANY if the type is unknown.
+- **items** an array of values serialized by type or if the type of the collection is ANY the item will have it's own structure.
 
-the item_data structure is:
-    +------------------+--------------+
-    | data_type:OType  | data:byte[]  |
-    +------------------+--------------+
-**data_type** the type of the data stored in the item.
-**data** the data stored with the format choose by the OType.
+The `item` data structure has the following shape:
+
+    (data-type:byte)(data:byte)
+
+- **data-type** - the type id of the data in the item
+- **data** - the data in the item serialized according to the **data-type**
 
 ### EMBEDDEDMAP
 
