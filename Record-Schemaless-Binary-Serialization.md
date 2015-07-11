@@ -176,23 +176,33 @@ Link collections (lists and sets) are serialized as the size of the collection a
     (size:varint)(links:LINK[])
 
 ### LINKMAP
-The link map allow to have as key the types:
-STRING,SHORT,INTEGER,LONG,BYTE,DATE,DECIMAL,DATETIME,DATA,FLOAT,DOUBLE
-the serialization of the linkmap is a list of entry
 
-    +----------------------------+
-    | values:link_map_entry[]    |
-    +----------------------------+
+Maps of links can have keys with the following types:
 
-link_map_entry structure
+- STRING
+- SHORT
+- INTEGER
+- LONG
+- BYTE
+- DATE
+- DATETIME
+- DECIMAL
+- FLOAT
+- DOUBLE
 
-    +--------------+------------------+------------+
-    | keyType:byte | keyValue:byte[]  | link:LINK  |
-    +--------------+------------------+------------+
+As of now though, all keys are converted to STRINGs.
 
-**keyType** is the type of the key, can be only one of the listed type.
-**keyValue** the value of the key serialized with the serializer of the type
-**link** the link value store with the formant of a LINK
+A LINKMAP is serialized as the number of key-value pairs and then the list of key-value pairs.
+
+    (size:varint)(key-value-pairs:key-value[])
+
+A `key-value` pair is serialized as:
+
+    (key-type:byte)(key-value:byte[])(link:LINK)
+
+- **key-type** - the type id of the type of the key
+- **key-value** - the value of the key, serialized according to **key-type**
+- **link** - the link value
 
 ### DECIMAL
 
