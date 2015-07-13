@@ -26,7 +26,7 @@ CREATE CLASS Invoice EXTENDS OTriggered
 ALTER CLASS Invoice CUSTOM onAfterCreate=invoiceCreated
 ```
 
-Now let's create the function `invoiceCreated` in Javascript that print to console the invoice number created.
+Now let's create the function `invoiceCreated` in Javascript that print to server console the invoice number created.
 
 ```sql
 CREATE FUNCTION invoiceCreated "print('\\nInvoice created: ' + doc.field('number'));" LANGUAGE Javascript
@@ -38,7 +38,7 @@ Now try the hook by creating a new `Invoice` document.
 INSERT INTO Invoice CONTENT { number: 100, notes: 'This is a test' }
 ```
 
-And this will appear in the console:
+And this will appear in the server console:
 
 ```
 Invoice created: 100
