@@ -23,7 +23,7 @@ DELETE VERTEX #10:231
 
 Deletes all user accounts which are marked with an incoming edge of class BadBehaviorInForum:
 ```sql
-DELETE VERTEX Account WHERE in.@Class = 'BadBehaviorInForum'
+DELETE VERTEX Account WHERE in.@Class CONTAINS 'BadBehaviorInForum'
 ```
 
 Deletes all those EmailMessages which are marked as spam by isSpam property
