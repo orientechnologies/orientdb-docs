@@ -71,8 +71,8 @@ Below the serialization of types in JSON and Binary format (always refers to lat
 |Double|100.33|Value ends with 'd'. Example: 10020.2302d|
 |Decimal|1000.3333|Value ends with 'c'. Example: 234.923c|
 |Boolean|true|'true' or 'false'. Example: true|
-|Date|1002020303|Value in milliseconds ends with 'a'. Example: 1002020303a|
-|Datetime|1002020303|Value in milliseconds ends with 't'. Example: 1002020303t|
+|Date|1436983328000|Value in milliseconds ends with 'a'. Example: 1436983328000a|
+|Datetime|1436983328000|Value in milliseconds ends with 't'. Example: 1436983328000t|
 |Binary|base64 encoded binary, like: "A3ERjRFdc0023Kc"|Bytes surrounded with `_` characters. Example: `_`2332322`_`|
 |Link|#10:3|Just the RID. Example: #10:232|
 |Link list|<code>[#10:3, #10:4]</code>|Collections values separated by commas and surrounded by brackets "[ ]". Example: [#10:3, #10:6]|
