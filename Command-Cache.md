@@ -9,4 +9,6 @@ Starting from release 2.2, OrientDB supports caching of commands results. Cachin
 Using a cache that hold old data could be meaningless, unless you could accept eventually consistency. For this reason the command cache supports 2 eviction strategies:
 - **INVALIDATE_ALL** to remove all the query results. This is faster than **PER_CLUSTER** if many writes occur.
 - **PER_CLUSTER** to remove all the query results related only to the modified cluster
-- 
+
+
+## DRAFT
