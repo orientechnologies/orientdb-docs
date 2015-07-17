@@ -139,13 +139,9 @@ HTTP response:
     "osArch": "amd64",
     "javaVendor": "Oracle Corporation",
     "javaVersion": "23.0-b21"
-  }, "classes": [
-  {
-    "id": 0,
-    "name": "ORole",
-    "clusters": [3],
-    "defaultCluster": 3, "records": 0},
-...
+  }, "classes": [],
+  ...
+}
 ```
 ### POST - Database ###
 
@@ -154,6 +150,7 @@ Create a new database.
 Syntax: `http://<server>:[<port>]/database/<database>/<type>`
 
 HTTP POST request: `http://localhost:2480/database/demo/plocal`
+
 HTTP response: `{ "classes" : [], "clusters": [], "users": [], "roles": [], "config":[], "properties":{} }`
 
 ## Class ##
