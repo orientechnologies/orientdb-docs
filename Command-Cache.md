@@ -5,11 +5,11 @@ Starting from release 2.2, OrientDB supports caching of commands results. Cachin
 - there are a few heavy queries that result a small result set
 - you have available RAM to use or caching results
 
-By default command cache is disabled. To enable it set `command.timeout=true`.
+By default, the command cache is disabled. To enable it, set `command.timeout=true`.
 
 ## Settings
 
-There are some settings to tune the comman cache. Below the table containing all of them.
+There are some settings to tune the command cache. Below find the table containing all the available settings.
 
 |Parameter|Description|Type|Default value|
 |---------|-----------|----|-------------|
@@ -20,7 +20,7 @@ There are some settings to tune the comman cache. Below the table containing all
 
 ## Eviction strategies
 
-Using a cache that hold old data could be meaningless, unless you could accept eventually consistency. For this reason the command cache supports 2 eviction strategies:
+Using a cache that holds old data could be meaningless, unless you could accept eventual consistency. For this reason, the command cache supports 2 eviction strategies to keep the cache consistent:
 - **INVALIDATE_ALL** to remove all the query results at every Create, Update and Delete operation. This is faster than **PER_CLUSTER** if many writes occur.
 - **PER_CLUSTER** to remove all the query results only related to the modified cluster. This operation is more expensive then **INVALIDATE_ALL**
 
