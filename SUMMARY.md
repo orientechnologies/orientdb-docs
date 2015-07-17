@@ -35,6 +35,7 @@
 * [Security](Security.md)
    * [SSL](Using-SSL-with-OrientDB.md)
 * [Caching](Caching.md)
+* [Command Cache](Command-Cache.md)
 * [Functions](Functions.md)
 * [Transaction](Transactions.md)
 * [Hook - Triggers](Hook.md)
