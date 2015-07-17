@@ -7,6 +7,13 @@ blueprints-core-*.jar
 orientdb-graphdb-*.jar 
 ```
 
+Also include the following 3rd party jars:
+```
+jna-*.jar
+jna-platform-*.jar
+concurrentlinkedhashmap-lru-*.jar
+```
+
 If you're connected to a remote server (not local/plocal/memory modes) include also:
 ```
 orientdb-client-*.jar
