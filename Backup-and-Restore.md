@@ -55,7 +55,7 @@ Backup executed in 0.52 seconds
 ```
 
 ## Restore database
-Use the [console](Console-Command-Restore.md) to restore a database or Java API. The restore operation must be done against a new database. Merging of databases with restore operation is not supported. For this reason, use the [export]((Console-Command-Export.md))/[import](Console-Command-Import.md) database. Example:
+Use the [console](Console-Command-Restore.md) to restore a database or Java API. The restore operation must be done against a new database. Merging of databases with restore operation is not supported. For this reason, use the [export](Console-Command-Export.md)/[import](Console-Command-Import.md) database. Example:
 
 ```
 orientdb> RESTORE DATABASE /backups/mydb.zip
