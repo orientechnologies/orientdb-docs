@@ -1,6 +1,8 @@
 # Console - RESTORE DATABASE
 
-Executes a restore of current opened database. The backup file is created using the [BACKUP DATABASE](Console-Command-Backup.md). Look also to [EXPORT DATABASE](Console-Command-Export.md) and [IMPORT DATABASE](Console-Command-Import.md) commands.
+Executes a restore of a database. The restore operation must be done against a new database. Merging of databases with restore operation is not supported. For this reason, use the [export]((Console-Command-Export.md))/[import](Console-Command-Import.md) database. 
+
+The backup file is created using the [BACKUP DATABASE](Console-Command-Backup.md). Look also to [EXPORT DATABASE](Console-Command-Export.md) and [IMPORT DATABASE](Console-Command-Import.md) commands.
 
 ## Syntax
 
@@ -14,6 +16,7 @@ Where:
 ## Example
 
 ```
+orientdb> CREATE DATABASE plocal:/temp/mydb
 orientdb> RESTORE DATABASE /backups/mydb.zip
 
 Restore executed in 6,33 seconds
