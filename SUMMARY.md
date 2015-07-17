@@ -230,6 +230,7 @@
        * [Import From Neo4j](Import-from-Neo4j-into-OrientDB.md)
    * [Logging](Logging.md)
 * [Enterprise Edition](Enterprise-Edition.md)
+   * [Auditing](Auditing.md)
 * [Troubleshooting](Troubleshooting.md)
    * [Java](Troubleshooting-Java.md)
    * [Query Examples](Query-Examples.md)
