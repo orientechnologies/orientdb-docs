@@ -70,9 +70,33 @@ UPDATE Account ADD addresses = #12:0
 ```
 
 ### Example 4: Remove a value from a collection
+
+If you know the exact value you want to remove:
+
+Remove an element from a link list/set
 ```sql
-UPDATE Account REMOVE addresses=#12:0
+UPDATE Account REMOVE addresses = #12:0
 ```
+
+Remove an element from a list/set of strings
+```sql
+UPDATE Account REMOVE addresses = 'Foo'
+```
+
+Filtering on value attributes:
+
+Remove addresses based in the city of Rome
+```sql
+UPDATE Account REMOVE addresses = addresses[city = 'Rome']
+```
+
+Filtering based on position in the collection:
+
+Remove the second element from a list (position numbers start from 0, so addresses[1] is the second element)
+```sql
+UPDATE Account REMOVE addresses = addresses[1]
+```
+
 
 ### Example 5: Put a map entry into a map
 ```sql
