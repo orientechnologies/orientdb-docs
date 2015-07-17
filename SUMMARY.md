@@ -120,6 +120,7 @@
    * [Time Series](Time-series-use-case.md)
    * [Chat](Chat-use-case.md)
    * [Key Value](Key-Value-use-case.md)
+   * [Queue system](Queue-use-case.md)
 * [Server](DB-Server.md)
    * [Embed the Server](Embedded-Server.md)
    * [Plugins](Extend-Server.md)
