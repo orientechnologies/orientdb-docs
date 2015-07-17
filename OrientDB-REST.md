@@ -147,6 +147,14 @@ HTTP response:
     "defaultCluster": 3, "records": 0},
 ...
 ```
+### POST - Database ###
+
+Create a new database.
+
+Syntax: `http://<server>:[<port>]/database/<database>/<type>`
+
+HTTP POST request: `http://localhost:2480/database/demo/plocal`
+HTTP response: `{ "classes" : [], "clusters": [], "users": [], "roles": [], "config":[], "properties":{} }`
 
 ## Class ##
 
