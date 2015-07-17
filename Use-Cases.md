@@ -7,3 +7,4 @@ This page contains the solution to the most common use cases. Please don't consi
 - [Time Series](Time-series-use-case.md)
 - [Chat](Chat-use-case.md)
 - [Use OrientDB as a Key/Value DBMS](Key-Value-use-case.md)
+- [Distributed and Transactional Queues](Queue-use-case.md)
