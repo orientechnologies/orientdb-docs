@@ -184,7 +184,7 @@
    * [Properties](Console-Command-Properties.md)
    * [Release DB](Console-Command-Release-Db.md)
    * [Reload Record](Console-Command-Reload-Record.md)
-   * [Restore](Console-command-Restore.md)
+   * [Restore](Console-Command-Restore.md)
    * [Revoke](Console-Command-Revoke.md)
    * [Rollback](Console-Command-Rollback.md)
    * [Set](Console-Command-Set.md)
