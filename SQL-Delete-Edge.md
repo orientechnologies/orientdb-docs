@@ -5,7 +5,8 @@ This command deletes one or more edges from the database. Use this command if yo
 ## Syntax
 
 ```sql
-DELETE EDGE <rid>|[<rid> (, <rid>)*]|FROM <rid>|TO <rid>|[<class>] [WHERE <conditions>]> [LIMIT <MaxRecords>] [BATCH <batch-size>]
+DELETE EDGE <rid>|[<rid> (, <rid>)*]|FROM <rid>|TO <rid>|[<class>] [WHERE <conditions>]>
+            [LIMIT <MaxRecords>] [BATCH <batch-size>]
 ```
 
 Where:
