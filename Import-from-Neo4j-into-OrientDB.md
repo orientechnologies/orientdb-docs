@@ -105,6 +105,7 @@ new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttr
 Congratulations! The database has been imported into OrientDB.
 
 ### Tricks and Tips
+#### Memory problems
 If you experiment out of memory problems, try to reduce the batchSize (default is 1000), by setting the `batchSize` property. Example from console:
 
 ```
@@ -115,6 +116,18 @@ Example from Java API:
 
 ```java
 new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).setBatchSize(100).inputGraph("/temp/neo4j.graphml");
+```
+
+#### Store the vertices ids
+By deault OrientDB uses own IDs for vertices. If you want to save the original ids for vertices, use the option `storeVertexIds=true`. Example from console:
+
+```
+orientdb {db=test}> IMPORT DATABASE /tmp/out.graphml storeVertexIds=true
+```
+Example from Java API:
+
+```java
+new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).setStoreVertexIds(true).inputGraph("/temp/neo4j.graphml");
 ```
 
 -----
