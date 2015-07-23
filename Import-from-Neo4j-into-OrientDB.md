@@ -28,9 +28,9 @@ Wrote to GraphML-file /tmp/out.graphml 0. 100%: nodes = 302 rels = 834 propertie
 ```
 
 ## 3) Import the database into OrientDB
-The third and last step can be done in 2 ways, based on the OrientDB version you are using.
+The third and last step can be done in 3 ways, based on the OrientDB version you are using.
 
-### 3a) With OrientDB 2.0.x or further
+### 3a) Using the console with OrientDB 2.0.x or further
 If you have OrientDB 2.0, this is the suggested method because it's easier and is able to import Neo4j labels as OrientDB classes automatically.
 
 ```
@@ -48,7 +48,7 @@ Importing GRAPHML database database from /tmp/out.graphml...
 Transaction 8 has been committed in 12ms
 ```
 
-### 3b) With OrientDB 1.7 or previous
+### 3b) Using the console with OrientDB 1.7 or previous
 This method uses the standard Gremlin importer, but doesn't take in consideration any label declared in Neo4j, so everything is imported as V (base Vertex class) and E (base Edge class). After importing you could need to refactor your graph element to fit in a more structured schema.
 
 To import the GraphML file into OrientDB complete the following steps:
@@ -72,7 +72,50 @@ gremlin> g.loadGraphML('/tmp/out.graphml');
 gremlin> quit
 ```
 
+### 3c) Using Java API
+Java API are called by console. Using Java API directly allows you more control on the importing process. 
+
+Example of simple importing:
+```java
+new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).inputGraph("/temp/neo4j.graphml");
+```
+
+#### Define custom strategies
+Starting from OrientDB 2.1 you can customize the importing process by specifying custom strategies for vertex and edge attributes. The suppoted strategies are:
+- `com.orientechnologies.orient.graph.graphml.OIgnoreGraphMLImportStrategy` to ignore an attribute and
+- `com.orientechnologies.orient.graph.graphml.ORenameGraphMLImportStrategy` to rename an attribute
+
+Example to ignore the vertex attribute "__type__":
+
+```java
+new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
+```
+
+Example to ignore the edge attribute "weight":
+
+```java
+new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineEdgeAttributeStrategy("weight", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
+```
+Example on renaming the vertex attribute "__type__" in just "type":
+
+```java
+new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new ORenameGraphMLImportStrategy("type")).inputGraph("/temp/neo4j.graphml");
+```
+----
 Congratulations! The database has been imported into OrientDB.
+
+### Tricks and Tips
+If you experiment out of memory problems, try to reduce the batchSize (default is 1000), by setting the `batchSize` property. Example from console:
+
+```
+orientdb {db=test}> IMPORT DATABASE /tmp/out.graphml batchSize=100
+```
+
+Example from Java API:
+
+```java
+new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).setBatchSize(100).inputGraph("/temp/neo4j.graphml");
+```
 
 -----
 *Neo4j is a registered trademark of Neo Technology Inc.
