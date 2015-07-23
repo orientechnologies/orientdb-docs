@@ -85,18 +85,18 @@ Starting from OrientDB 2.1 you can customize the importing process by specifying
 - `com.orientechnologies.orient.graph.graphml.OIgnoreGraphMLImportStrategy` to ignore an attribute and
 - `com.orientechnologies.orient.graph.graphml.ORenameGraphMLImportStrategy` to rename an attribute
 
-Example to ignore the vertex attribute "__type__":
+Example to ignore the vertex attribute `type`:
 
 ```java
 new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
 ```
 
-Example to ignore the edge attribute "weight":
+Example to ignore the edge attribute `weight`:
 
 ```java
 new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineEdgeAttributeStrategy("weight", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
 ```
-Example on renaming the vertex attribute "__type__" in just "type":
+Example on renaming the vertex attribute `type` in just `type`:
 
 ```java
 new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new ORenameGraphMLImportStrategy("type")).inputGraph("/temp/neo4j.graphml");
