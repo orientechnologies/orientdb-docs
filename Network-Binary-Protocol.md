@@ -742,33 +742,67 @@ Response is different for synchronous and asynchronous request:
 Commits a transaction. This operation flushes all the pending changes to the server side.
 
 ```
-Request: (tx-id:int)(using-tx-log:byte)(tx-entry)*(0-byte indicating end-of-records)
-
- tx-entry: (operation-type:byte)(cluster-id:short)(cluster-position:long)(record-type:byte)(entry-content)
-  entry-content for CREATE: (record-content:bytes)
-  entry-content for UPDATE: (version:record-version)(content-changed:boolean)(record-content:bytes)
-  entry-content for DELETE: (version:record-version)
-
+Request: (transaction-id:int)(using-tx-log:boolean)(tx-entry)*(0-byte indicating end-of-records)
 Response: (created-record-count:int)[(client-specified-cluster-id:short)(client-specified-cluster-position:long)(created-cluster-id:short)(created-cluster-position:long)]*(updated-record-count:int)[(updated-cluster-id:short)(updated-cluster-position:long)(new-record-version:int)]*(count-of-collection-changes:int)[(uuid-most-sig-bits:long)(uuid-least-sig-bits:long)(updated-file-id:long)(updated-page-index:long)(updated-page-offset:int)]*
 ```
 
-Where:
-- **tx-id** is the Transaction's Id
-- **using-tx-log** tells if the server must use the Transaction Log to recover the transaction. 1 = true, 0 = false. Use always 1 (true) by default to assure consistency. _NOTE: Disabling the log could speed up execution of transaction, but can't be rollbacked in case of error. This could bring also at inconsistency in indexes as well, because in case of duplicated keys the rollback is not called to restore the index status._
-- **operation-type** can be:
- - 1, for **UPDATES**
- - 2, for **DELETES**
- - 3, for **CREATIONS**
-- **record-content** depends on the operation type:
- - For **UPDATED** (1): <code>(original-record-version:int)(record-content:bytes)</code>
- - For **DELETED** (2): <code>(original-record-version:int)</code>
- - For **CREATED** (3): <code>(record-content:bytes)</code>
+#### Request
 
-This response contains two parts: a map of 'temporary' client-generated record ids to 'real' server-provided record ids for each CREATED record, and a map of UPDATED record ids to update record-versions.
+- **transaction-id** - the id of the transaction. Read the "Transaction ID" section below for more information.
+- **using-tx-log** - tells the server whether to use the transaction log to recover the transaction or not. Use `true` by default to ensure consistency. *Note*: disabling the log could speed up the execution of the transaction, but it makes impossible to rollback the transaction in case of errors. This could lead to inconsistencies in indexes as well, since in case of duplicated keys the rollback is not called to restore the index status.
+- **tx-entry** - a list of elements (terminated by a 0 byte) with the form described below.
+
+##### Transaction entry
+
+Each transaction entry can specify one out of three actions to perform: create, update or delete.
+
+The general form of a transaction entry (**tx-entry** above) is:
+
+```
+(operation-type:byte)(cluster-id:short)(cluster-position:long)(record-type:byte)(entry-content)
+```
+
+The values of these attributes depend directly on the operation types.
+
+##### Update
+
+- **operation-type** - has the value 1.
+- **cluster-id**, **cluster-position** - the RecordID of the record to update.
+- **record-type** - the type of the record to update (`d` for document, `b` for raw bytes and `f` for flat data).
+- **entry-content** - has the form `(version:int)(update-content:boolean)(record-content:bytes)` where:
+  - **update-content** - can be:
+    - true - the content of the record has been changed and should be updated in the storage.
+    - false - the record was modified but its own content has not changed: related collections (e.g. RidBags) have to be updated, but the record version and its contents should not be updated.
+  - **version** - the version of the record to update.
+  - **record-content** - the new contents of the record serialized using the appropriate [serialization format](#record-format) chosen at connection time.
+
+###### Delete
+
+- **operation-type** - has the value 2.
+- **cluster-id**, **cluster-position** - the RecordID of the record to update.
+- **record-type** - the type of the record to update (`d` for document, `b` for raw bytes and `f` for flat data).
+- **entry-content** - has the form `(version:int)` where:
+  - **version** - the version of the record to delete.
+
+###### Create
+
+- **operation-type** - has the value 3.
+- **cluster-id**, **cluster-position** - when creating a new record, set the cluster id to `-1`. The cluster position must be an integer `< -1`, unique in the scope of the transaction (meaning that if two new records are being created in the same transaction, they should have two different ids both `< -1`).
+- **record-type** - the type of the record to update (`d` for document, `b` for raw bytes and `f` for flat data).
+- **entry-content** - has the form `(record-content:bytes)` where:
+  - **record-content** - the new contents of the record serialized using the appropriate [serialization format](#record-format) chosen at connection time.
+
+##### Transaction ID
+
+Each transaction must have an ID; the client is responsible for assigning an ID to each transaction. The ID must be unique in the scope of each session.
+
+#### Response
+
+The response contains two parts: a map of "temporary" client-generated record ids to "real" server-provided record ids for each **created** record, and a map of **updated** record ids to update record versions.
 
 Look at [Optimistic Transaction](Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](Concepts.md#RecordID)s are managed.
 
-The last part or response is referred to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
 
 
 ## REQUEST_INDEX_GET
