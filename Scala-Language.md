@@ -11,8 +11,11 @@ Usually the main problems are related to calling conventions between Scala and J
 Be careful to pass parameters to methods with varargs like `db.query(...)`. You need to convert it to java's repeated args correctly.
 
 Look at these links:
+
 http://stackoverflow.com/questions/3022865/calling-java-vararg-method-from-scala-with-primitives
+
 http://stackoverflow.com/questions/1008783/using-varargs-from-scala
+
 http://stackoverflow.com/questions/3856536/how-to-pass-a-string-scala-vararg-to-a-java-method-using-scala-2-8
 
 ## Collections
@@ -20,15 +23,17 @@ http://stackoverflow.com/questions/3856536/how-to-pass-a-string-scala-vararg-to-
 You can only use java collections when define pojos. If you use scala collections, they can be persisted, but can't be queried.
 
 This's not a problem, if you imported:
-```java
+
+``` scala
 import scala.collection.JavaConverters._
 import scala.collection.JavaConversions._
 ```
+
 You don't need to convert Java and Scala collections manually (even don't need to invoke `.asJava` or `.asScala`) You can treat these java collections as scala's.
 
 ## models.scala
 
-```java
+``` scala
 package models
 
 import javax.persistence.{Version, Id}
@@ -58,29 +63,31 @@ class Question {
 	override def toString = "Question: " + this.id + ", title: " + this.title + ", belongs: " + user.name
 }
 ```
+
 ## test.scala
 
-```java
+``` scala
 package models
 
 import com.orientechnologies.orient.core.id.ORecordId
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery
 import scala.collection.JavaConverters._
 import scala.collection.JavaConversions._
-import com.orientechnologies.orient.core.db.`object`.{ODatabaseObject, ODatabaseObjectPool, OObjectDatabaseTx}
+import com.orientechnologies.orient.`object`.db.{OObjectDatabaseTx,OObjectDatabasePool}
+import com.orientechnologies.orient.core.db.`object`.ODatabaseObject
 
 object Test {
 	implicit def dbWrapper(db: OObjectDatabaseTx) = new {
-		def queryBySql[T](sql:-String,-params:-AnyRef*.md): List[T] = {
+		def queryBySql[T](sql: String, params: AnyRef*): List[T] = {
 			val params4java = params.toArray
-			val results: java.util.List[T] = db.query(new OSQLSynchQuery[T](sql.md), params4java: _*)
+			val results: java.util.List[T] = db.query(new OSQLSynchQuery[T](sql), params4java: _*)
 			results.asScala.toList
 		}
 	}
 
 	def main(args: Array[String]) = {
 		// ~~~~~~~~~~~~~ create db ~~~~~~~~~~~~~~~~~~~
-		var uri: String = "local:test/orientdb"
+		var uri: String = "plocal:test/orientdb"
 		var db: OObjectDatabaseTx = new OObjectDatabaseTx(uri)
 		if (!db.exists) {
 			db.create()
@@ -125,29 +132,29 @@ object Test {
 		println("Question count: " + questionCount)
 
 		// ~~~~~~~~~~~~~~~~~ get all users ~~~~~~~~~~~~
-		val users = db.queryBySql[User]("select-from-User".md)
+		val users = db.queryBySql[User]("select from User")
 		for (user <- users) {
 			println(" - user: " + user)
 		}
 
 		// ~~~~~~~~~~~~~~~~~~ get the first user ~~~~~~~~
-		val firstUser = db.queryBySql[User]("select-from-User-limit-1".md).head
+		val firstUser = db.queryBySql[User]("select from User limit 1").head
 		println("First user: " + firstUser)
 
 		// query by id
-		val userById = db.queryBySql[User]("select-from-User-where-@rid-=-?",-new-ORecordId(user.id))
+		val userById = db.queryBySql[User]("select from User where @rid = ?", new ORecordId(user.id))
 		println("User by id: " + userById)
 
 		// query by field
-		val userByField = db.queryBySql[User]("select-from-User-where-name-=-?",-user.name)
+        val userByField = db.queryBySql[User]("select from User where name = ?", user.name)
 		println("User by field: " + userByField)
 
 		// query by city
-		val userByCity = db.queryBySql[User]("select-from-User-where-addresses-contains-(-city-=-?-.md)", "NY")
+		val userByCity = db.queryBySql[User]("select from User where addresses contains ( city = ? )", "NY")
 		println("User by city: " + userByCity)
 
 		// query questions of the user
-		val questions = db.queryBySql[Question]("select-from-Question-where-user-=-?",-user.md)
+		val questions = db.queryBySql[Question]("select from Question where user = ?", user)
 		for (q <- questions) {
 			println(" - question: " + q)
 		}
