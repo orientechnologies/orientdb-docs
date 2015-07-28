@@ -44,6 +44,9 @@ database2.activateOnCurrentThread(); // MANDATORY SINCE 2.1
 database2.save(rec2); // force saving in database2 no matter where the record came from
 ```
 
+In version 2.0.x, method ```activateOnCurrentThread()``` does not exist, you can use ```setCurrentDatabaseInThreadLocal()``` instead.
+
+
 # Get current database
 
 To get the current database from the [ThreadLocal](http://download.oracle.com/javase/6/docs/api/java/lang/ThreadLocal.html) use:
@@ -57,7 +60,8 @@ ODatabaseDocument database = (ODatabaseDocument) ODatabaseRecordThreadLocal.INST
 Beware when you reuse database instances from different threads or then a thread handle multiple databases. In this case you can override the current database by calling this manually:
 
 ```java
-database.activateOnCurrentThread();
+database.activateOnCurrentThread(); //v 2.1
+// for OrientDB v. 2.0.x: database.setCurrentDatabaseInThreadLocal();
 ```
 
 Where database is the current database instance. Example:
