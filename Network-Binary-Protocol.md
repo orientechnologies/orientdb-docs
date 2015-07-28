@@ -767,10 +767,10 @@ Each transaction entry can specify one out of three actions to perform: create, 
 The general form of a transaction entry (**tx-entry** above) is:
 
 ```
-(operation-type:byte)(cluster-id:short)(cluster-position:long)(record-type:byte)(entry-content)
+(1:byte)(operation-type:byte)(cluster-id:short)(cluster-position:long)(record-type:byte)(entry-content)
 ```
 
-The values of these attributes depend directly on the operation types.
+The first byte means that there's another entry next. The values of the rest of these attributes depend directly on the operation type.
 
 ##### Update
 
@@ -806,7 +806,12 @@ Each transaction must have an ID; the client is responsible for assigning an ID 
 
 #### Response
 
-The response contains two parts: a map of "temporary" client-generated record ids to "real" server-provided record ids for each **created** record, and a map of **updated** record ids to update record versions.
+The response contains two parts:
+
+- a map of "temporary" client-generated record ids to "real" server-provided record ids for each **created** record (not guaranteed to have the same order as the records in the request).
+- a map of **updated** record ids to update record versions.
+
+If the version of a created record is not `0`, then the RecordID of the created record will also appear in the list of "updated" records, along with its new version. This is a [known bug](https://github.com/orientechnologies/orientdb/issues/4660).
 
 Look at [Optimistic Transaction](Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](Concepts.md#RecordID)s are managed.
 
