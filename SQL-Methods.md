@@ -717,7 +717,7 @@ Returns the record in JSON format.
 Syntax: ```<value>.toJSON([<format>])```
 
 Where:
-- **format** optional, allows custom formatting rules. Rules are the following:
+- **format** optional, allows custom formatting rules (separate multiple options by comma). Rules are the following:
  - **type** to include the fields' types in the "@fieldTypes" attribute
  - **rid** to include records's RIDs as attribute "@rid"
  - **version** to include records' versions in the attribute "@version"
@@ -734,7 +734,10 @@ Applies to the following types:
 
 #### Examples
 ```sql
+create class Test extends V
+insert into Test content {"attr1": "value 1", "attr2": "value 2"}
 
+select @this.toJson('rid,version,fetchPlan:in_*:-2 out_*:-2') from Test
 ```
 #### History
 - 0.9.8: First version
