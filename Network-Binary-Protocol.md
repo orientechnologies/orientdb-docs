@@ -256,7 +256,7 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_CREATE_SBTREE_BONSAI<td>110</td><td>Creates an sb-tree bonsai on the remote server</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_SBTREE_BONSAI_GET<td>111</td><td>Get value by key from sb-tree bonsai</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_SBTREE_BONSAI_FIRST_KEY<td>112</td><td>Get first key from sb-tree bonsai</td><td>no</td><td>1.7rc1</td></tr>
-<tr><td>REQUEST_SBTREE_BONSAI_GET_ENTRIES_MAJOR<td>113</td><td>Gets the portion of entries major than specified one. If returns 0 entries than the specified entrie is the largest</td><td>no</td><td>1.7rc1</td></tr>
+<tr><td>REQUEST_SBTREE_BONSAI_GET_ENTRIES_MAJOR<td>113</td><td>Gets the portion of entries greater than the specified one. If returns 0 entries than the specified entrie is the largest</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_RIDBAG_GET_SIZE<td>114</td><td>Rid-bag specific operation. Send but does not save changes of rid bag. Retrieves computed size of rid bag.</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_INDEX_GET<td>120</td><td>Lookup in an index by key</td><td>no</td><td>2.1rc4</td></tr>
 <tr><td>REQUEST_INDEX_PUT<td>121</td><td>Create or update an entry in an index</td><td>no</td><td>2.1rc4</td></tr>

@@ -19,7 +19,7 @@ For more information:
 
 # Getting started
 
-Before to start assure you've [OrientDB 1.1.0-SNAPSHOT](https://oss.sonatype.org/content/groups/public/com/orientechnologies/orientdb/1.1.0-SNAPSHOT/) or major.
+Before to start assure you've [OrientDB 1.1.0-SNAPSHOT](https://oss.sonatype.org/content/groups/public/com/orientechnologies/orientdb/1.1.0-SNAPSHOT/) or greater.
 
 ## Download and install
 

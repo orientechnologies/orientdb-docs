@@ -15,7 +15,7 @@ OrientDB RESTful HTTP protocol allows to talk with a [OrientDB Server instance](
 
 This protocol uses the four methods of the HTTP protocol:
 
-- **GET**, to retrieve values from the database. It's idempotent that means no changes to the database happen. Remember that in IE6 the URL can be maximum of 2,083 characters. Other browsers supports major length, but if you want to stay compatible with all limit to 2,083 characters
+- **GET**, to retrieve values from the database. It's idempotent that means no changes to the database happen. Remember that in IE6 the URL can be maximum of 2,083 characters. Other browsers supports longer URLs, but if you want to stay compatible with all limit to 2,083 characters
 - **POST**, to insert values into the database
 - **PUT**, to change values into the database
 - **DELETE**, to delete values from the database
@@ -984,7 +984,7 @@ HTTP response: No response.
 
 ### GET - Query ###
 
-Execute a query against the database. Query means only idempotent commands like SQL SELECT and TRAVERSE. Idempotent means the command is read-only and can't change the database. Remember that in IE6 the URL can be maximum of 2,083 characters. Other browsers supports major length, but if you want to stay compatible with all limit to 2,083 characters.
+Execute a query against the database. Query means only idempotent commands like SQL SELECT and TRAVERSE. Idempotent means the command is read-only and can't change the database. Remember that in IE6 the URL can be maximum of 2,083 characters. Other browsers supports longer URLs, but if you want to stay compatible with all limit to 2,083 characters.
 
 Syntax: `http://<server>:[<port>]/query/<database>/<language>/<query-text>[/<limit>][/<fetchPlan>]`
 

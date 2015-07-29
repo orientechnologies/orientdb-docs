@@ -9,7 +9,7 @@ OrientDB RESTful HTTP protocol allows to talk with a OrientDB Server instance us
 To interact against OrientDB indexes use the four methods of the HTTP protocol in REST fashion:
 
 - **PUT**, to create or modify an entry in the database
-- **GET**, to retrieve an entry from the database. It's idempotent that means no changes to the database happen. Remember that in IE6 the URL can be maximum of 2,083 characters. Other browsers supports major length, but if you want to stay compatible with all limit to 2,083 characters
+- **GET**, to retrieve an entry from the database. It's idempotent that means no changes to the database happen. Remember that in IE6 the URL can be maximum of 2,083 characters. Other browsers supports longer URLs, but if you want to stay compatible with all limit to 2,083 characters
 - **DELETE**, to delete an entry from the database
 
 ## Create an entry ##

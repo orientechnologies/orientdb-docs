@@ -3,8 +3,8 @@
 This tutorial explains step-by-step how to create partitioned graphs using the [Record Level Security](Security.md#record_level_security) feature introduced in OrientDB 1.2.0. This feature is so powerful we can totally separate database's records as sand-boxes where each "Restricted" records can't be accessed by non authorized users. This tutorial demonstrates this sand-boxes works well also with the GraphDB API and the [TinkerPop stack](Graph-Database-Tinkerpop.md). Partitioning graphs allows to build real [Multi-tenant](http://en.wikipedia.org/wiki/Multitenancy) applications in a breeze.
 
 Requirements:
-- OrientDB 1.2.0-SNAPSHOT or major
-- TinkerPop Blueprints 2.2.0 or major.
+- OrientDB 1.2.0-SNAPSHOT or higher
+- TinkerPop Blueprints 2.2.0 or higher.
 
 ## Create a new empty graph database
 
