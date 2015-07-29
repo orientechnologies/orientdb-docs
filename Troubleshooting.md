@@ -46,7 +46,7 @@ This means that probably default timeouts are too low and server side operation 
 
 This message is relative to a temporary record id generated inside a transaction. For more information look at [Transactions](Transactions.md). This means that the record hasn't been correctly serialized.
 
-### Brand new records are created with version major than 0
+### Brand new records are created with version greater than 0
 
 This happens in graphs. Think to this graph of records:
 
