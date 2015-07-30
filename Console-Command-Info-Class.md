@@ -13,7 +13,8 @@ INFO CLASS <class-name>
 ```sql
 INFO CLASS Profile
 
-Class................: Profile (id=4)
+CLASS 'Profile'
+
 Default cluster......: profile (id=10)
 Supported cluster ids: [10]
 Properties:
