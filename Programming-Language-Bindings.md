@@ -160,6 +160,17 @@ This is the list of the known drivers to use OrientDB through different language
     <td>To help Scala developers using OrientDB</td>
 </tr>
 
+
+<tr>
+    <td rowspan="2">
+        <center><a href="https://www.r-project.org/"><img src="https://www.r-project.org/Rlogo.png" alt="R" height="50px"/></a></center>
+    </td>
+    <td><a href="https://github.com/retrography/OrientR">R driver</a></td>
+    <td>HTTP</td>
+    <td>R Bridge to execute queries against OrientDB Server</td>
+</tr>
+
+
 <tr>
     <td rowspan="2">
         <center><a href="http://clojure.org"><img src="http://clojure.org/space/showimage/clojure-icon.gif" alt="Clojure" height="50px"/></a></center>
