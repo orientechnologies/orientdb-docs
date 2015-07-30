@@ -1,6 +1,6 @@
 # Console - INFO CLASS
 
-Displays all the information about the selected class
+Displays all the information about the selected class.
 
 ## Syntax
 
