@@ -177,6 +177,7 @@
    * [Indexes](Console-Command-Indexes.md)
    * [Info](Console-Command-Info.md)
    * [Info Class](Console-Command-Info-Class.md)
+   * [Info Property](Console-Command-Info-Property.md)
    * [Insert](Console-Command-Insert.md)
    * [List Databases](Console-Command-List-Databases.md)
    * [Load Record](Console-Command-Load-Record.md)
