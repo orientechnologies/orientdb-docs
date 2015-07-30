@@ -162,7 +162,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 
 <tr>
-    <td rowspan="2">
+    <td rowspan="1">
         <center><a href="https://www.r-project.org/"><img src="https://www.r-project.org/Rlogo.png" alt="R" height="50px"/></a></center>
     </td>
     <td><a href="https://github.com/retrography/OrientR">R driver</a></td>
