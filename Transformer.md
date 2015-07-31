@@ -7,7 +7,7 @@ Before the execution, the `$input` variable is always assigned, so you can get a
 
 |[CSV](Transformer.md#csv)|[FIELD](Transformer.md#field)|[MERGE](Transformer.md#merge)|[VERTEX](Transformer.md#vertex)|
 |-----|-----|-----|-----|
-|[CODE](Transformer.md#code) |[LINK](Transformer.md#link)|[EDGE](Transformer.md#edge)|[SKIP](Transformer.md#skip) |
+|[CODE](Transformer.md#code) |[LINK](Transformer.md#link)|[EDGE](Transformer.md#edge)|[FLOW](Transformer.md#flow) |
 |[LOG](Transformer.md#log)|[BLOCK](Transformer.md#block) | [COMMAND](Transformer.md#command)|
 
 
@@ -220,23 +220,23 @@ Creates an EDGE from the current vertex, with class "Parent", to all the vertice
 ```
 -----
 
-### SKIP
-Skip an execution in pipeline if the condition in "expression" field is true.
+### FLOW
+Control the pipeline flow. Supported operations are "skip" and "halt". This transformer usually plays with "if" attribute.
 
 Component description.
-- Component name: **skip**
-- Supported inputs types: [**ODocument**, **OrientVertex**]
+- Component name: **flow**
+- Supported inputs types: **Any**
 - Output: same type as input
 
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|expression|SQL expression to evaluate. If true the current execution is skipped|string|true|-|
+|operation|Flow operation between: skip and halt|string|true|-|
 
 #### Example
 Skip the current record if name is null:
 ```json
-{ "skip": { "expression": "name is null"} }
+{ "flow": { "if": "name is null", "operation" : "skip" } }
 ```
 -----
 
@@ -299,7 +299,7 @@ Logs the input object to System.out.
 
 Component description.
 - Component name: **log**
-- Supported inputs types: [**Any**]
+- Supported inputs types: **Any**
 - Output: **Any**
 
 #### Syntax
