@@ -299,14 +299,25 @@ SELECT ifnull(salary, 0) FROM Account
 ---
 ### expand()
 
-Expands the collection in the field <field> and use it as result.
-
 Available since: 1.4.0
+
+This function has two meanings:
+
+- When used on a collection field, it unwinds the collection in the field <field> and use it as result. 
+- When used on a link (RID) field, it expands the document pointed by that link. 
 
 Syntax: ```expand(<field>)```
 
+Since version 2.1 the preferred operator to unwind collections is [UNWIND](SQL-Query.md#unwind). Expand usage for this use case will probably be deprecated in next releases
+
 #### Example
 
+on collectinos:
+```sql
+SELECT EXPAND( addresses ) FROM Account. 
+```
+
+on RIDs
 ```sql
 SELECT EXPAND( addresses ) FROM Account. 
 ```
