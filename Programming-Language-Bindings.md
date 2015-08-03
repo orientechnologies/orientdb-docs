@@ -170,6 +170,14 @@ This is the list of the known drivers to use OrientDB through different language
     <td>R Bridge to execute queries against OrientDB Server</td>
 </tr>
 
+<tr>
+    <td rowspan="1">
+        <center><a href="http://elixir-lang.org/"><img src="http://elixir-lang.org/images/logo/logo.png" alt="Elixir" height="50px"/></a></center>
+    </td>
+    <td><a href="https://github.com/MyMedsAndMe/marco_polo">MarcoPolo Elixir driver</a></td>
+    <td>Binary</td>
+    <td>This driver allows Elixir application to interact with OrientDB. Elixir language leverages the Erlang VM, known for running low-latency, distributed and fault-tolerant systems, while also being successfully used in web development and the embedded software domain.</td>
+</tr>
 
 <tr>
     <td rowspan="2">
