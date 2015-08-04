@@ -219,7 +219,7 @@ animal.setLocation( "Madrid" );
 animal = db.save( animal );
 ```
 
-Note that the behaviour depends by the transaction begun if any. See [Transactions](Transactions.md)
+Note that the behaviour depends by the transaction begun if any. See [Transactions](Transactions.md).
 
 ## Browse all the records in a cluster
 
