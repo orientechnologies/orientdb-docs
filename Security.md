@@ -126,16 +126,16 @@ Resources are strings bound to OrientDB concepts.
 
 >**NOTE**: resources are case-sensitive
 
-- `database`
-- `database.class`
-- `database.class.<class-name>`
-- `database.cluster`
-- `database.cluster.<cluster-name>`
-- `database.query`
-- `database.command`
-- `database.config`
+- `database`, checked on accessing to the database
+- `database.class.<class-name>`, checked on accessing on specific class
+- `database.cluster.<cluster-name>`, checked on accessing on specific cluster
+- `database.query`, checked on query execution 
+- `database.command`, checked on command execution 
+- `database.schema`, checked to access to the schema
+- `database.function`, checked on function execution
+- `database.config`, checked on accessing at database configuration
 - `database.hook.record`
-- `server.admin`
+- `server.admin`, checked on accessing to remote server administration
 
 Example:
 
