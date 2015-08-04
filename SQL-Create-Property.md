@@ -45,7 +45,12 @@ Where:
     - **link**
     - **byte**
 - **linked-class**, the contained class in containers (see above).
-- `UNSAFE`, optional, avoid check on existent records. With millions of records this operation could take time. If you are sure the property is new, you can skip the check by using `UNSAFE`. Since 2.0. 
+- **UNSAFE**, optional, avoid check on existent records. With millions of records this operation could take time. If you are sure the property is new, you can skip the check by using **UNSAFE**. Since 2.0. 
+
+## Existing Data Validation
+
+On Property creation the data is checked for **property** and **type**, in case the persistent data has not compatible values for the specified **type** the property creation fail, no other constraint are applied on the persistent data.
+
 
 ## Examples
 
