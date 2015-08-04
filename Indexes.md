@@ -273,7 +273,7 @@ DELETE FROM INDEX:dictionary
 
 ## Null values
 
-Indexes by default ignore null values. For such reason queries against `NULL` value that use indexes return no entries.
+Indexes by default don't support null values. Queries against `NULL` value that use indexes fail with "Null keys are not supported." exception.
 
 If you want to index also null values set `{ ignoreNullValues : false }` as metadata. Example:
 
