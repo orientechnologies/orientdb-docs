@@ -1,6 +1,6 @@
 # Console - REVOKE
 
-The **SQL REVOKE** command changes the permission of a role revoking the access to one or more resources.
+The **SQL REVOKE** command changes the permission of a role revoking the access to one or more resources. It works as opposite to the [SQL GRANT](SQL-Command-Grant.md) command.
 
 ## Syntax
 
