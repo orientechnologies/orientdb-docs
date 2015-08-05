@@ -62,6 +62,7 @@ Example to log all the delete operations (`class="*"`), and log all the CRUD ope
 
 ## Log record structure
 Auditing Log records have the following structure:
+
 |Field|Type|Description|Values|
 |-----|----|-----------|------|
 |`date`|DATE|Date of execution|-|
