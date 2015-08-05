@@ -70,12 +70,12 @@ Auditing Log records have the following structure:
 |`operation`|BYTE|Type of operation|0=READ, 1=UPDATE, 2=DELETE, 3=CREATE, 4=COMMAND|
 |`record`|LINK|Link to the record subjected of the log|-|
 |`note`|STRING|Optional message|-|
-|`changes`|Only for UDPATE operation, contains the map of changed fields in the form `{"from":<old-value>, "to":<new-value>}`|-|
+|`changes`|MAP|Only for UDPATE operation, contains the map of changed fields in the form `{"from":<old-value>, "to":<new-value>}`|-|
 
 
 ## Customize the message
 
 Messages can be customized, adding placeholder for variable resolved at run-time. Below there is the list of suppoted variable:
+
 - `${command}`, is the executed command as text
-- `${field.<field-name>}`, to use the field value. Example: `${field.surname}` to get the field "surname" from the current record
-- 
+- `${field.<field-name>}`, to use the field value. Example: `${field.surname}` to get the field "surname" from the current record 
