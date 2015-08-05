@@ -10,7 +10,7 @@ This page summarizes all the most important information about the server as:
 - CPU, RAM and DISK used
 - Live chart with CRUD operations in real-time
 
-![Statistics][images/studio-stats.png]
+![Statistics](images/studio-stats.png)
 
 ##Connections
 Displays all the active connections to the server. Connections can be [HTTP](OrientDB-REST.md) or [Binary](Network-Binary-Protocol.md). Each connection reports the following information:
