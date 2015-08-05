@@ -9,24 +9,24 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ## Release 2.2
 ```
 - Development started on.: June 25th 2015
-- Expected first RC......: August 2015
-- Expected final GA......: September 2015
+- Expected first RC......: September 2015
+- Expected final GA......: October 2015
 ```
 
 ### Status
-Last update: July 10th 2015
+Last update: August 5th 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | OrientJS| Native unmarshaling of requests by using C code| 0% |
-| Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 50% |
+| Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 90% |
 | Core | Incremental Backup | 0% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 70% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | Distributed | Fast synchronization by using Incremental Backup | 0% |
-| SQL | Pattern matching | 20% |
+| SQL | Pattern matching | 50% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
 | SQL | Live Query -> Stable | 0% |
