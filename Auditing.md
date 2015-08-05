@@ -1,6 +1,8 @@
 # Auditing
 Starting from OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). This page refers to the Auditing feature and how to work with it. Studio web tool provides a GUI on Auditing that makes configuration easier. Look at [Auditing page in Studio](Studio-Auditing.md).
 
+By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough priviledges, can directly query the auditing log. Example on retrieving last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
+
 ## Configuration
 To turn on auditing, create the JSON configuration file with name `auditing-config.json` under the database folder. This is the syntax for configuration:
 
