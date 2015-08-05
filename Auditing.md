@@ -1,5 +1,5 @@
 # Auditing
-Starting from OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/).
+Starting from OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). Look also at [Auditing page in Studio](Studio-Auditing.md).
 
 ## Configuration
 Auditing can be configurable by using the following syntax:
