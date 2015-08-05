@@ -16,12 +16,12 @@ To turn on auditing, create the JSON configuration file with name `auditing-conf
       "onDeleteEnabled": <true|false>, "onDeleteMessage": "<message>"
     }
   },
-  "commands": {
+  "commands": [
     {
       "regex": "<regexp to match>",
       "message": "<message>"
     }
-  }
+  ]
 }
 ```
 
@@ -31,16 +31,16 @@ Where:
 - `class-name`: class name to configure
 - `polymorphic`: uses this class definition also for all sub classes. By default class definition is polymorphic
 - `onCreateEnabled`: enable auditing for creation of records. Default is `false`
-- `onCreateMessage`: custom message to write in the auditing record on create record. It supports dynamic binding of values, look at [Auditing.md#customize_the_message]
+- `onCreateMessage`: custom message to write in the auditing record on create record. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize_the_message)
 - `onReadEnabled`: enable auditing on reading of records. Default is `false`
-- `onReadMessage`: custom message to write in the auditing record on read record. It supports dynamic binding of values, look at [Auditing.md#customize_the_message]
+- `onReadMessage`: custom message to write in the auditing record on read record. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize_the_message)
 - `onUpdateEnabled`: enable auditing on updating of records. Default is `false`
-- `onUpdateMessage`: custom message to write in the auditing record on update record. It supports dynamic binding of values, look at [Auditing.md#customize_the_message]
+- `onUpdateMessage`: custom message to write in the auditing record on update record. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize_the_message)
 - `onUpdateChanges`: write all the previous values per field. Default is `true` if `onUpdateEnabled` is true.
 - `onDeleteEnabled`: enable auditing on deletion creation of records. Default is `false`
-- `onDeleteMessage`: custom message to write in the auditing record on delete record. It supports dynamic binding of values, look at [Auditing.md#customize_the_message]
+- `onDeleteMessage`: custom message to write in the auditing record on delete record. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize_the_message)
 - `regexp`: is the regular expression to match in order to log the command execution
-- `message`: is the optional message to log when the command is logged. It supports dynamic binding of values, look at [Auditing.md#customize_the_message]
+- `message`: is the optional message to log when the command is logged. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize_the_message)
 
 Example:
 ```json
