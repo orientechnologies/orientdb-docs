@@ -3,12 +3,12 @@ This is the section to work with OrientDB Server as DBA/DevOps. Starting from Or
 
 ## Statistics
 This page summarizes all the most important information about the current server and the other servers connected in cluster if any:
-- Server status
-- Operations per second
-- Active Connections
-- Warnings
-- CPU, RAM and DISK used
-- Live chart with CRUD operations in real-time
+- `Server status`
+- `Operations per second`
+- `Active Connections`
+- `Warnings`
+- `CPU`, `RAM` and `DISK` used
+- `Live chart` with CRUD operations in real-time
 
 ![Statistics](images/studio-stats-2servers.png)
 
