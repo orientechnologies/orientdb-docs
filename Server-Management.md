@@ -12,19 +12,43 @@ This page summarizes all the most important information about the server as:
 
 ![Statistics](images/studio-stats.png)
 
-##Connections
-Displays all the active connections to the server. Connections can be [HTTP](OrientDB-REST.md) or [Binary](Network-Binary-Protocol.md). Each connection reports the following information:
--
+## Connections
+Displays all the active connections to the server. Each connection reports the following information:
+- Session ID, as the unique session number
+- Client, as the unique client number
+- Address, is the connection source
+- Database, the database name used
+- User, the database user
+- Total Requests, as the total number of requests executed by the connection
+- Command Info, as the running command
+- Command Detail, as the detail about the running command
+- Last Command On, is the last time a request has been executed
+- Last Command Info, is the informaton about last operation executed
+- Last Command Detail, is the informaton about the details of last operation executed
+- Last Execution Time, is the execution time o last request
+- Total Working Time, is the total execution time taken by current connection so far
+- Connected Since, is the date when the connection has been created
+- Protocol, is the protocol between [HTTP](OrientDB-REST.md) and [Binary](Network-Binary-Protocol.md)
+- Client ID, a text representing the client connection
+- Driver, the driver name
 
-![Connections](images/connections.png)
+Each session can be interrupted or even killed.
 
-##Configuration
+![Connections](images/studio-conns.png)
 
-![Configuration](images/serverConfig.png)
+## Configuration
+This panel shows the Server settings divided in two boxes:
+- Properties, as the custom settings in `config/orientdb-server-config.xml` file
+- Global Configuration, as all the global configuration. Only few of them can be changed at run-time with the "Save" button
 
-## Storage
+![Configuration](images/studio-configuration.png)
 
-![Storage](images/storage.png)
+## Storages
+This panel shows the [storages](Concepts.md#storage) used by the server. Below the information reported per storage:
+- Name, is the storage name
+- Type, where `OLocalPaginatedStorage` (plocal) means persstent and `ODirectMemoryStorage` (memory) is in memory only
+- Path, as the path on server's file system where the storage is located
+- Active Users. This infomation couldn't be updated with the real number of users that are using the database
 
-
+![Storage](images/studio-dbs.png)
 
