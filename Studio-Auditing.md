@@ -2,7 +2,7 @@
 
 ###(Enterprise only)
 
-Studio 2.1 includes a new functionality called Auditing.
+Studio 2.1 includes a new functionality called [Auditing](Auditing.md).
 
 It allows to monitory all the activities (CRUD, schema manipulation) executed by database users.
 
