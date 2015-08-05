@@ -3,6 +3,14 @@ Starting from OrientDB 2.1, the Auditing component is part of the [Enterprise Ed
 
 By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough priviledges, can directly query the auditing log. Example on retrieving last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
 
+## Security first
+For security reasons, no roles should be able to access to the `AuditingLog` records. For this reason before using Auditing assure to revoke any priviledge on cluster `AuditingLog`. You can do that form Studio, security panel, or via SQL by using the [SQL REVOKE](Console-Command-Revoke.md) command. Example on revoking any access to the writer and reader roles:
+
+```sql
+REVOKE ALL ON database.cluster.auditinglog TO writer
+REVOKE ALL ON database.cluster.auditinglog TO reader
+```
+
 ## Configuration
 To turn on auditing, create the JSON configuration file with name `auditing-config.json` under the database folder. This is the syntax for configuration:
 
