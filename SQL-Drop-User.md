@@ -1,5 +1,7 @@
 # SQL - DROP USER 
 
+(Since v2.2)
+
 Drops a user from the current database.
 
 Note this is simply a wrapper around OUser table. Look up [Security](Security) for more details.

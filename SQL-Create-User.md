@@ -1,5 +1,7 @@
 # SQL - CREATE USER 
 
+(Since v2.2)
+
 Creates a user in the current database, with the specified password and an optional role.
 Note that if a role isn't specified, a default role ("writer") is used.
 
