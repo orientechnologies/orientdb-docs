@@ -40,3 +40,17 @@ IMPORTANT: in 2.1 if you close and re-open the storage, you have to re-register 
 
 ### API changes
 
+#### ODatabaseDocumentTx.activateOnCurrentThread()
+If by upgading to v2.1 you see errors of kind "Database instance is not set in current thread...", this means that you used the same ODatabase instance across multiple threads. This was always forbidden, but some users did it with unpredictable results and random errors. For this reason in v2.1 OrientDB always checks that the ODatabase instance was bound to the current thread.
+
+We introduced a new API to allow moving a ODatabase instance across threads. Before to use a ODatabase instance call the method `ODatabaseDocumentTx.activateOnCurrentThread()` and the ODatabase instance will be bound to the current thread. Example:
+
+```java
+ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal/temp/mydb").open("admin", "admin");
+new Thread(){
+  public void run() {
+    db.activateOnCurrentThread(); // <---- BOUND THE DATABASE ON CURRENT THREAD
+    db.command(new OCommandSQL("select from MyProject where thisSummerIsVeryHot = true")).execute();
+  }
+}.start();
+```
