@@ -38,5 +38,5 @@ Before 2.1 entity class cache was static, so you could not manage multiple OObje
 
 IMPORTANT: in 2.1 if you close and re-open the storage, you have to re-register your POJO classes.
 
-## API changes
+### API changes
 
