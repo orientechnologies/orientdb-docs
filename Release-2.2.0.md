@@ -3,8 +3,16 @@
 ## What's new?
 
 ### Command Cache
-(Luca)
+OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](Command-Cache.md) to know more.
 
+### Sequences
+-In progress-
+
+### Encryption at rest
+-In progress-
+
+### New ODocument.eval()
+To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
 
 ## Migration from 2.1.x to 2.2.x
 
@@ -12,3 +20,6 @@ Databases created with release 2.1.x are compatible with 2.2.x, so you don't hav
 
 ### API changes
 
+#### ODocument.field()
+
+To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. This is because we simplified the `.field()` method to don't accept expressoion anymore. This allows to boost up performance on such used method. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
