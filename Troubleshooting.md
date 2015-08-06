@@ -69,11 +69,13 @@ java ... -Dmvrbtree.optimizeThreshold=-1 ...
 
 This happens if you've migrated a database created with an old version of OrientDB where indexes were managed in different way. Just drop and recreate the indexes.
 
+
+### Error: com.orientechnologies.orient.core.exception.OStorageException: Cannot open local storage '/tmp/databases/demo' with mode=rw
 ### com.orientechnologies.common.concur.lock.OLockException: File '/tmp/databases/demo/default.0.oda' is locked by another process, maybe the database is in use by another process. Use the remote mode with a OrientDB server to allow multiple access to the same database
 
-This is because the database is locked by another process is using it. To fix:
-- check there's no a process is using OrientDB. Most of the times a OrientDB Server is running. Just shutdown it and retry
-- set the [storage.keepOpen](http://code.google.com/p/orient/wiki/PerformanceTuning#Parameters) setting to false
+Both errors have the same meaning: a "plocal" database can't be opened by multiple JVM at the same time. To fix:
+- check if there's no process using OrientDB (most of the times a OrientDB Server is running i the background). Just shutdown that server and retry
+- if you need multiple access to the same database, don't use "plocal" directly, but rather start a server and access to the database by using "remote" protocol. In this way the server is able to share the same database with multiple clients.
 
 
 ### 012-04-20 11:29:56:132 SEVE Received unread response from /10.0.0.2:2434 for session=0, probably corrupted data from the network connection. Cleared dirty data in the buffer (330 bytes): [----7-c-o-m-.-o-r-i-e-n-t-e-c-h-n-o-l-o-g-i-e-s-.-c-o-m-m-o-n-.-c-o-n-c-u-r-.-l-o-c-k-.-O-L-o-c-k...] [OChannelBinaryClient
