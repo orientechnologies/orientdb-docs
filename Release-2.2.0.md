@@ -1,4 +1,4 @@
-# OrientDB v 2.2.0
+# Release 2.2.x
 
 ## What's new?
 
