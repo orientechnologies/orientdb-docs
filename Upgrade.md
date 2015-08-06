@@ -14,6 +14,7 @@ So between PATCH versions the compatibility is assured (example 1.7.0 -> 1.7.8).
 
 | FROM |TO | Guide | Blueprints | Database |Binary Protocol|HTTP Protocol|
 |-----|----|------------|----------|--------|-----------|-----------|----------|----------|---|
+| 2.0.x | 2.1.x | [Release 2.1.x](Release-2.1.0.md) | Final v2.6.0 |[Automatic](Backward-compatibility.md) | 30 |10|
 | 1.7.x | 2.0.x | [Migration-from-1.7.x-to-2.0.x](Migration-from-1.7.x-to-2.0.x.md) | Final v2.6.0 | [Automatic](Backward-compatibility.md) | 25 |10|
 | 1.6.x | 1.7.x | [Migration-from-1.6.x-to-1.7.x](Migration-from-1.6.x-to-1.7.x.md) | Final v2.5.0 | [Automatic](Backward-compatibility.md) | 20, 21 |10|
 | 1.5.x | 1.6.x | [Migration-from-1.5.x-to-1.6.x](Migration-from-1.5.x-to-1.6.x.md) | Changed v2.5.x | [Automatic](Backward-compatibility.md) | 18, 19|10|
