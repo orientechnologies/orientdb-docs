@@ -20,6 +20,8 @@ V 2.1 introduces a new implementation of the new SQL parser. This implementation
 
 For backward compatibility, you can disable the new parser from Studio -> DB -> Configuration -> remove the flag from strictSql (bottom right of the page)
 
+![strictSQL](images/strictSQL.png)
+
 Important improvements of the new parser are:
 * full support for named (:param) and unnamed (?) input parameters: now you can use input parameters almost everywhere in a query: in subqueries, function parameters, between square brackets, as a query target
 * better management of blank spaces and newline characters: the old parser was very sensitive to presence or absence of blank spaces (especially in particular points, eg. before and after square brackets), now the problem is completely fixed
