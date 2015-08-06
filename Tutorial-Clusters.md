@@ -51,7 +51,7 @@ For most cases physical clusters are preferred because the database must be pers
 To view all clusters, from the console run the [`CLUSTERS`](Console-Command-Clusters.md) command:
 
 ``` sql
-CLUSTERS
+orientdb> list clusters
 
  CLUSTERS:
  -------------+------+-----------+-----------+
@@ -71,7 +71,7 @@ CLUSTERS
 Since by default each class has its own cluster, we can query the database's users by class or by cluster:
 
 ``` sql
-BROWSE CLUSTER OUser
+orientdb> browse cluster OUser
 
  ---+------+--------+--------+---------------------------------------------------------------------------+--------+-------- 
   # | @RID | @CLASS | name   | password                                                                  | status | roles
