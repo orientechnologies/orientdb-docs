@@ -8,6 +8,12 @@ OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disab
 ### Sequences
 -In progress-
 
+### Parallel queries
+Starting from v2.2, the OrientDB SQL executor will decide if execute or not a query in parallel. Before v2.2 executing parallel queries could be done only manually by appending the `PARALLEL` keyword at the end of SQL SELECT. [Issue 4578](https://github.com/orientechnologies/orientdb/issues/4578).
+
+### Automatic usage of Multiple clusters
+Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
+
 ### Encryption at rest
 -In progress-
 
