@@ -20,7 +20,7 @@
 
 ### Operations
 - [Installation](Tutorial-Installation.md)
-- [3rdy party Plugins](Plugins.md)
+- [3rd party Plugins](Plugins.md)
 - [Upgrade](Upgrade.md) 
 - [Configuration](Configuration.md)
 - [Distributed Architecture](Distributed-Architecture.md)(replication, sharding and high-availability)
