@@ -23,7 +23,7 @@
 - [3rd party Plugins](Plugins.md)
 - [Upgrade](Upgrade.md) 
 - [Configuration](Configuration.md)
-- [Distributed Architecture](Distributed-Architecture.md)(replication, sharding and high-availability)
+- [Distributed Architecture](Distributed-Architecture.md) (replication, sharding and high-availability)
 - [Performance Tuning](Performance-Tuning.md)
 - [ETL to Import any kind of data into OrientDB](ETL-Introduction.md)
 - [Import from Relational DB](Import-From-RDBMS.md)
