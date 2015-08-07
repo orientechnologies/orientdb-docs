@@ -24,6 +24,12 @@ For backward compatibility, you can disable the new parser from Studio -> DB -> 
 
 ![strictSQL](images/strictSQL.png)
 
+Or via console by executing this command, just once:
+
+```sql
+ALTER DATABASE custom strictSQL=false
+```
+
 Important improvements of the new parser are:
 * full support for named (:param) and unnamed (?) input parameters: now you can use input parameters almost everywhere in a query: in subqueries, function parameters, between square brackets, as a query target
 * better management of blank spaces and newline characters: the old parser was very sensitive to presence or absence of blank spaces (especially in particular points, eg. before and after square brackets), now the problem is completely fixed
@@ -49,7 +55,7 @@ We introduced a new API to allow moving a ODatabase instance across threads. Bef
 ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal/temp/mydb").open("admin", "admin");
 new Thread(){
   public void run() {
-    db.activateOnCurrentThread(); // <---- BOUND THE DATABASE ON CURRENT THREAD
+    db.activateOnCurrentThread(); // <---- BINDS THE DATABASE ON CURRENT THREAD
     db.command(new OCommandSQL("select from MyProject where thisSummerIsVeryHot = true")).execute();
   }
 }.start();
