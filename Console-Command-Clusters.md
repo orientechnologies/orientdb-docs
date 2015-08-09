@@ -1,19 +1,19 @@
-# Console - CLUSTERS
+# Console - LIST CLUSTERS
 
 Displays all the clusters configured in the current database.
 
 ## Syntax
 
 ```
-CLUSTERS
+LIST CLUSTERS
 ```
 
 ## Example
 
 ```sql
-CLUSTERS
+LIST CLUSTERS
 
-CLUSTERS:
+CLUSTERS
 --------------------+------+--------------------+-----------+
 NAME                |  ID  | TYPE               | ELEMENTS  |
 --------------------+------+--------------------+-----------+
