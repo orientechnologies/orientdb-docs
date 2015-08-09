@@ -1,19 +1,19 @@
-# Console - CLASSES
+# Console - LIST CLASSES
 
 Displays all the classes configured in the current database.
 
 ## Syntax
 
 ```
-CLASSES
+LIST CLASSES
 ```
 
 ## Example
 
 ```sql
-CLASSES
+LIST CLASSES
 
-CLASSES:
+CLASSES
 --------------------+------+------------------------------------------+-----------+
 NAME                |  ID  | CLUSTERS                                 | ELEMENTS  |
 --------------------+------+------------------------------------------+-----------+
