@@ -15,7 +15,7 @@ Building the image on your own
 ------------------------------
 
 1. Clone this project to a local folder:
-```bash
+  ```bash
 git clone https://github.com/orientechnologies/orientdb-docker.git
 ```
 2. Build the image:
