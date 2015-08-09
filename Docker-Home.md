@@ -15,16 +15,16 @@ Building the image on your own
 ------------------------------
 
 1. Clone this project to a local folder:
-  ```bash
+```bash
 git clone https://github.com/orientechnologies/orientdb-docker.git
 ```
 2. Build the image:
-  ```bash
+```bash
 docker build -t <YOUR_DOCKER_HUB_USER>/orientdb-2.0 .
 ```
 
 3. Push it to your Docker Hub repository (it will ask for your login credentials):
-  ```bash
+```bash
 docker push <YOUR_DOCKER_HUB_USER>/orientdb-2.0
 ```
 
