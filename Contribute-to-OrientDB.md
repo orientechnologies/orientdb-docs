@@ -21,3 +21,46 @@ You can find eclipse java formatter config file here: [_base/ide/eclipse-formatt
 
 If you use IntelliJ IDEA you can install [this](http://plugins.jetbrains.com/plugin/?id=6546) plugin and use formatter profile mentioned above.
 
+## Debugging
+
+### Run OrientDB as standalone server
+The settings to run OrientDB Server as stand-alone (where the OrientDB's home is `/repositories/orientdb/releases/orientdb-community-2.2-SNAPSHOT`) are:
+
+Main Class: `com.orientechnologies.orient.server.OServerMain`
+VM parameters: 
+```
+-server
+-DORIENTDB_HOME=/repositories/orientdb/releases/orientdb-community-2.2-SNAPSHOT
+-Dorientdb.www.path=src/site
+-Djava.util.logging.config.file=${ORIENTDB_HOME}/config/orientdb-server-log.properties
+-Dorientdb.config.file=${ORIENTDB_HOME}/config/orientdb-server-config.xml
+-Drhino.opt.level=9
+```
+Use classpath of module: `orientdb-graphdb`
+
+
+### Run OrientDB distributed
+The settings to run OrientDB Server as distributed (where the OrientDB's home is `/repositories/orientdb/releases/orientdb-community-2.2-SNAPSHOT`) are:
+
+Main Class: `com.orientechnologies.orient.server.OServerMain`
+VM parameters: 
+```
+-server
+-DORIENTDB_HOME=/repositories/orientdb/releases/orientdb-community-2.2-SNAPSHOT
+-Dorientdb.www.path=src/site
+-Djava.util.logging.config.file=${ORIENTDB_HOME}/config/orientdb-server-log.properties
+-Dorientdb.config.file=${ORIENTDB_HOME}/config/orientdb-server-config.xml
+-Drhino.opt.level=9
+-Ddistributed=true
+```
+Use classpath of module: `orientdb-distributed`
+
+In order to debug OrientDB in distributed mode, changed the scope to "runtime" in file distributed/pom.xml:
+
+<groupId>com.orientechnologies</groupId>
+<artifactId>orientdb-graphdb</artifactId>
+<version>${project.version}</version>
+<scope>runtime</scope>
+
+In this way IDE like IntelliJ can start the server correctly that requires graphdb dependency.
+
