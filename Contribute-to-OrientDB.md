@@ -57,10 +57,12 @@ Use classpath of module: `orientdb-distributed`
 
 In order to debug OrientDB in distributed mode, changed the scope to "runtime" in file distributed/pom.xml:
 
+```xml
 <groupId>com.orientechnologies</groupId>
 <artifactId>orientdb-graphdb</artifactId>
 <version>${project.version}</version>
 <scope>runtime</scope>
+```
 
 In this way IDE like IntelliJ can start the server correctly that requires graphdb dependency.
 
