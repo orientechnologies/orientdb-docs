@@ -271,12 +271,23 @@ Every request has a response unless the command supports the asynchronous mode (
 - **N bytes** optional token, is only present for token based session (REQUEST_CONNECT/REQUEST_DB_OPEN return a token) and is usually empty(N=0) is only filled up by the server when renew of an expiring token is required.
 - **N bytes**: Message content depending on the operation requested
 
+# Push Request
+
+A push request is a message sent by the server without any request from the client, it has a similar structure of a response and is distinguished using the respose status byte:
+
+- **1 byte**: Success status has value 3 in case of push request
+- **4 bytes**: [Session-Id](#Session-Id) has everytime MIN_INTEGER value (-2^31)	
+- **1 byte**: Push command id
+- **N bytes**: Message content depending on the push massage, this is written ass a `(content:bytes)` having inside the details of the specific message.
+
+
 ## Statuses
 
 Every time the client sends a request, and the command is not in asynchronous mode (look at the table above), client must read the one-byte response status that indicates OK or ERROR. The rest of response bytes depends on this first byte.
 ```
 * OK = 0;
 * ERROR = 1;
+* PUSH_REQUEST = 3
 ```
 
 
@@ -977,6 +988,25 @@ Where:
 - **RID LIST** as the list of [RIDs](Concepts.md#RecordID) containing the references to the records. This is pre-allocated to the configured page-size. Since each [RID](Concepts.md#RecordID) takes 10 bytes, a page-size of 16 means 16 x 10bytes = 160bytes
 
 The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. To compute it: 39 bytes + 10 * PAGE-SIZE bytes. For a page-size = 16 you'll have 39 + 160 = 199 bytes.
+
+
+### REQUEST_PUSH_LIVE_QUERY
+
+```
+(operation:byte)(query_token:int)(record-type:byte)(record-version:int)(cluster-id:short)(cluster-position:long)(record-content:bytes)
+```
+where:
+**operation** the tipe of operation happend, possible values
+  - *LOADED* = 0
+  - *UPDATED* = 1 
+  - *DELETED* = 2
+  - *CREATED* = 3
+**query_token** the token that identify the relative query of the push message, it match the result token of the live query command request.
+**record-type** type of the record ('d' or 'b') 
+**record-version**  record version
+**cluster-id** record cluster id 
+**cluster-position** record cluster postion
+**record-content** record content
 
 # History
 
