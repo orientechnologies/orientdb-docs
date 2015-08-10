@@ -42,6 +42,7 @@
 
 ### Resources
 - [User Group](http://orientdb.com/active-user-community) - Have question, troubles, problems?
+- [#orientdb IRC channel on freenode](http://webchat.freenode.net/?channels=orientdb)
 - [Professional Support](http://orientdb.com/support)
 - [Training](http://orientdb.com/training) - Training and classes.
 - [Events](http://orientdb.com/event) - Follow OrientDB at the next event!
@@ -64,6 +65,3 @@ This documentation is also available in [PDF format](OrientDB-Manual.pdf).
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
 >Every effort has been made to ensure the accuracy of this manual. However, Orient Technologies, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.
-
-
-
