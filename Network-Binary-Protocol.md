@@ -244,7 +244,7 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td><a href="#request_db_reload">REQUEST_DB_RELOAD</a></td><td>73</td><td>Reload database.</td><td>no</td><td>1.0rc4</td></tr>
 <tr><td>REQUEST_PUSH_RECORD<td>79</td><td></td><td>no</td><td>1.0rc6</td></tr>
 <tr><td>REQUEST_PUSH_DISTRIB_CONFIG<td>80</td><td></td><td>no</td><td>1.0rc6</td></tr>
-<tr><td>REQUEST_PUSH_LIVE_QUERY<td>81</td><td></td><td>no</td><td>2.1-rc2</td></tr>
+<tr><td><a href="#request_push_live_query">REQUEST_PUSH_LIVE_QUERY</a><td>81</td><td></td><td>no</td><td>2.1-rc2</td></tr>
 <tr><td>REQUEST_DB_COPY<td>90</td><td></td><td>no</td><td>1.0rc8</td></tr>
 <tr><td>REQUEST_REPLICATION<td>91</td><td></td><td>no</td><td>1.0</td></tr>
 <tr><td>REQUEST_CLUSTER<td>92</td><td></td><td>no</td><td>1.0</td></tr>
@@ -995,18 +995,19 @@ The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. 
 ```
 (operation:byte)(query_token:int)(record-type:byte)(record-version:int)(cluster-id:short)(cluster-position:long)(record-content:bytes)
 ```
-where:
-**operation** the tipe of operation happend, possible values
+where:  
+**operation** the tipe of operation happend, possible values  
   - *LOADED* = 0
   - *UPDATED* = 1 
   - *DELETED* = 2
   - *CREATED* = 3
-**query_token** the token that identify the relative query of the push message, it match the result token of the live query command request.
-**record-type** type of the record ('d' or 'b') 
-**record-version**  record version
-**cluster-id** record cluster id 
-**cluster-position** record cluster postion
-**record-content** record content
+  
+**query_token** the token that identify the relative query of the push message, it match the result token of the live query command request.  
+**record-type** type of the record ('d' or 'b')   
+**record-version**  record version  
+**cluster-id** record cluster id   
+**cluster-position** record cluster postion  
+**record-content** record content  
 
 # History
 
