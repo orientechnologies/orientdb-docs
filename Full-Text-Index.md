@@ -1,7 +1,8 @@
 # Lucene Full Text Index
 
-Full text index can be created using the OrientDB SQL syntax as written [here](https://github.com/orientechnologies/orientdb/wiki/Indexes). Specify the index engine to use the lucene full text capabilities.
+Full text index can be created using the OrientDB SQL syntax as written [here](https://github.com/orientechnologies/orientdb-docs/blob/master/Indexes.md). Specify the index engine to use the lucene full text capabilities.
 
+Starting from OrientDB 2.0, Lucene plugin is part of the OrientDB distribution.
 Syntax:
 
 ```sql
