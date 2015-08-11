@@ -1,5 +1,10 @@
 # Database Security
 
+See also:
+- [Server security](Server-Security.md)
+- [Database Encryption](Database-Encryption.md)
+- [Secure SSL connections](Using-SSL-with-OrientDB.md)
+
 The security model of OrientDB is based on well known concepts built on users and roles. A database has **users**. Each [User](#User) has one or more **roles**. A [Role](#Role) is a combination of the working mode (more later) and a set of permissions.
 
 ![Security overview](http://www.orientdb.org/images/orientdb-dbsecurity.png)
