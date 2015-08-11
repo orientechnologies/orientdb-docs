@@ -381,6 +381,48 @@ The boolean parameter works the same as with the detach() method.
 Animal animal = database.load(rid);
 animal = database.detachAll(animal,true);
 ```
+#### Lazy detachAll
+
+_(Since 2.2)_
+
+When calling detachAll(object,true) on a large object tree, the call may become slow, especially when working with remote connections. It will recurse through every link in the tree and load all dependencies. 
+
+To only load parts of the object tree, you can add the @OneToOne(fetch=FetchType.LAZY) annotation like so:
+
+```java
+public class LazyParent {
+
+    @Id
+    private String id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private LazyChild child;
+...
+public class LazyChild {
+
+    @Id
+    private ORID id;
+
+    private String name;
+
+    public ORID getId() {
+        return id;
+    }
+
+    public void setId(ORID id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+```
+In the above example, when calling detachAll(lazyParent,true), the child variable (if a link is available) will contain a normal LazyChild object, but only with the id loaded. So the name property will be null, as will any other property that is added to the class. The id object can be used to load the LazyChild object in a later stage.
 
 ## Execute a query
 
