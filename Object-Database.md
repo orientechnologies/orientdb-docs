@@ -383,6 +383,8 @@ animal = database.detachAll(animal,true);
 ```
 #### Lazy detachAll
 
+_(Since 2.2)_
+
 When calling detachAll(object,true) on a large object tree, the call may become slow, especially when working with remote connections. It will recurse through every link in the tree and load all dependencies. 
 
 To only load parts of the object tree, you can add the @OneToOne(fetch=FetchType.LAZY) annotation like so:
