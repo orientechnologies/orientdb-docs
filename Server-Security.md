@@ -4,21 +4,30 @@
 |---|---|
 |![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
 
-A single OrientDB server can manage multiple databases at a time, each one with its own users. The HTTP protocol is handled by using different realms. This is the reason why each OrientDB Server instance has its own users to handle the server instance itself.
+A single OrientDB server can manage multiple databases at a time, each one with its own users. When used through the HTTP protocol, OrientDB server uses one realm pe database.
 
-When the OrientDB Server starts it checks to see if there is already a `root` user configured. If not, it creates the `root` user and inserts it into the `config/orientdb-server-config.xml` file with an automatically generated very long password. Feel free to change the password, but restart the server to pick up the change.
-
-The `root` user is in a section that looks like this:
-
+Server users are stored in `config/orientdb-server-config.xml` file under the tag `<users>`. Example:
 ```xml
-<users>
-  <user name="root"
-        password="{SHA-256}FAFF343DD54DKFJFKDA95F05A"
-        resources="*" />
-</users>
+    <users>
+        <user name="root" password="{SHA-256}55F95B91628EF3E679628ACB23AE" resources="*" />
+        <user name="guest" password="guest" resources="connect,server.listDatabases,server.dblist" />
+    </users>
 ```
 
-Since the password is not encrypted, whoever is installing OrientDB must protect the entire directory (not only config folder) to avoid access by unauthorized users.
+When the OrientDB Server starts the first time, it creates the `root` user automatically by asking the password in console. If no password is specified, an random passwod is generated. Starting from OrientDB 2.2, passwords are hashed using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm.
+
+## Configuration
+To avoid untrusted users add a new user or change the password on server configuration, protect the file `config/orientdb-server-config.xml` by disabling `write` access. It's good rule also disabling `read` access to avoid any user can read the hashed password. In facts, even i the password is hashed, there are many techniques to guess the real password. These techniques could be more or less complicated and time consuming.
+
+|   |   |
+|---|---|
+|![](images/warning.png)|It's strongly suggested to allow the read/write access to the entire OrientDB `config` directory only to the user that will start OrientDB server.|
+
+## Manage users
+Starting from OrientDB 2.2, the console is able to manage server users thanks to the following commands:
+- [`list server users`](Console-Command-List-Server-Users.md), to display all the users
+- [`set server user`](Console-Command-Set-Server-User.md), to create or modify a user
+- [`drop server user`](Console-Command-Drop-Server-User.md), to drop a user
 
 ## Server's resources
 
