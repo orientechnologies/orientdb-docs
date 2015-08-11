@@ -1,5 +1,10 @@
 # Server Security
 
+See also:
+- [Database security](Database-Security.md)
+- [Database Encryption](Database-Encryption.md)
+- [Secure SSL connections](Using-SSL-with-OrientDB.md)
+
 |   |   |
 |---|---|
 |![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
