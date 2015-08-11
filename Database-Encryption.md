@@ -5,7 +5,7 @@ See also:
 - [Server security](Server-Security.md)
 - [Secure SSL connections](Using-SSL-with-OrientDB.md)
 
-Starting from v2.2, OrientDB can encrypt the record content on disk. This deny anybody to access to the database content, even bypassing the OrientDB security system.
+Starting from v2.2, OrientDB can encrypt the records on disk. This denies anybody from accessing to the database content, even bypassing the OrientDB security system. The encryption key is not saved in database but must be provided at run-time. If the encryption key is lost, the database, or the encrypted portion, can't be read anymore.
 
 Encryption uses the "compression" interface and act at cluster (collection) level. The supported algorithms are:
 - `aes-encrypted` that uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
@@ -40,7 +40,7 @@ In this way the entire database will be encrypted on disk. The encryption key is
 
 ## Encrypt only certain clusters
 
-To encrypt only a few clusters, set the encryption to "nothing" (default) and conigure the encryption per cluster through the [`alter cluster`](SQL-Alter-Cluster.md) command:
+To encrypt only a few clusters, set the encryption to "nothing" (default) and configure the encryption per cluster through the [`alter cluster`](SQL-Alter-Cluster.md) command:
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/tmp/db/encrypted");
@@ -49,11 +49,11 @@ db.create();
 db.command(new OCommandSQL("alter cluster Salary compression aes-encrypted")).execute();
 ```
 
-Note that the key is the same for the entire database. You cannot use diferent keys per cluster. If the compression/encryption seting is applied on an non empty clususter, then an error will be raised.
+Note that the key is the same for the entire database. You cannot use different keys per cluster. If the compression/encryption setting is applied on an non empty cluster, then an error is raised.
 
-## Open a encrypted database
+## Open an encrypted database
 
-Since the encryption setting are stored with the database, it's not necessary to speciy the encryption algorithm at open time, but only the encryption key. Example:
+Since the encryption setting are stored with the database, it's not necessary to specify the encryption algorithm at open time, but only the encryption key. Example:
 
 ```java
 db.setProperty(OGlobalConfiguration.STORAGE_COMPRESSION_OPTIONS.getKey(), "T1JJRU5UREJfSVNfQ09PTA==");
@@ -61,4 +61,3 @@ db.open("admin", "admin");
 ```
 
 If on database open, a null or invalid key is passed, then a `OSecurityException` exception is thrown.
-
