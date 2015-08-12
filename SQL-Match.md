@@ -282,7 +282,7 @@ Suppose you have the following graph:
 
 The following
 
-```
+```sql
 MATCH {
   class: Person,
   where: (name = 'a')
@@ -297,7 +297,7 @@ This means that the path item ```out("FriendOf")``` will be traversed exactly on
 traversal will be returned
 
 If you add a ```while``` condition:
-```
+```sql
 MATCH {
   class: Person,
   where: (name = 'a')
@@ -313,7 +313,7 @@ If you have a ```while``` condition on a match path item, this item will be eval
 that means that also the starting node (```a``` in this case) will be returned as the result of zero traversal.
 
 To exclude the starting point, you have to add a ```where``` condition, like following:
-```
+```sql
 MATCH {
   class: Person,
   where: (name = 'a')
@@ -336,7 +336,7 @@ his grandparents are at level 2 and so on, you are interested in all ancestors a
 
 This query does the trick
 
-```
+```sql
 MATCH {
   class: Person,
   where: (name = 'a')
