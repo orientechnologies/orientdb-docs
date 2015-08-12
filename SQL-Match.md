@@ -284,8 +284,8 @@ The following
 
 ```sql
 MATCH {
-  class: Person,
-  where: (name = 'a')
+    class: Person,
+    where: (name = 'a')
   }.out("FriendOf"){
     as: friend
   }
@@ -299,8 +299,8 @@ traversal will be returned
 If you add a ```while``` condition:
 ```sql
 MATCH {
-  class: Person,
-  where: (name = 'a')
+    class: Person,
+    where: (name = 'a')
   }.out("FriendOf"){
     as: friend,
     while: ($depth <= 1)
@@ -315,8 +315,8 @@ that means that also the starting node (```a``` in this case) will be returned a
 To exclude the starting point, you have to add a ```where``` condition, like following:
 ```sql
 MATCH {
-  class: Person,
-  where: (name = 'a')
+    class: Person,
+    where: (name = 'a')
   }.out("FriendOf"){
     as: friend,
     while: ($depth <= 1)
@@ -338,8 +338,8 @@ This query does the trick
 
 ```sql
 MATCH {
-  class: Person,
-  where: (name = 'a')
+    class: Person,
+    where: (name = 'a')
   }.out("Parent"){
     as: ancestor,
     while: (true)
