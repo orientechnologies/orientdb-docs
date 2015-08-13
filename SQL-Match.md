@@ -309,8 +309,8 @@ RETURN friend
 ```
 the query will return both ```a``` and ```b```.
 
-If you have a ```while``` condition on a match path item, this item will be evaluated zero to N times,
-that means that also the starting node (```a``` in this case) will be returned as the result of zero traversal.
+If you have a ```while``` condition on a match path item, this item will be evaluated **zero to N times**,
+that means that **also the starting node** (```a``` in this case) **will be returned** as the result of zero traversal.
 
 To exclude the starting point, you have to add a ```where``` condition, like following:
 ```sql
