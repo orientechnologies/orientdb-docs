@@ -26,7 +26,15 @@ java ... -Dstorage.compressionMethod=aes-encrypted -Dstorage.compressionOptions=
 ```
 
 ## Create an encrypted database 
+### Create via Console
 
+To create an encypted database, use the -compression option on [create database command](Console-Command-Create-Database.md). before that set the encryption key by storing it as console's configuration value with name `storage.compressionOptions`. Example:
+```
+orientdb> config set storage.compressionOptions T1JJRU5UREJfSVNfQ09PTA==
+orientdb> create database plocal:/tmp/db/encrypted admin admin plocal document -compression=aes-encrypted
+```
+
+### Create via Java API
 To create a new database with AES algorithm, set the encryption algorithm and the encryption key as database properties:
 
 ```java
@@ -51,8 +59,23 @@ db.command(new OCommandSQL("alter cluster Salary compression aes-encrypted")).ex
 
 Note that the key is the same for the entire database. You cannot use different keys per cluster. If the compression/encryption setting is applied on an non empty cluster, then an error is raised.
 
+If you're using the console, remember to set the encryption key `storage.compressionOptions` before setting the encryption. Example:
+```
+orientdb> config set storage.compressionOptions T1JJRU5UREJfSVNfQ09PTA==
+orientdb> alter cluster Salary compression aes-encrypted
+```
+
 ## Open an encrypted database
 
+## Open via Console
+
+If you're using the console, remember to set the encryption key `storage.compressionOptions` before opening the database. Example:
+```
+orientdb> config set storage.compressionOptions T1JJRU5UREJfSVNfQ09PTA==
+orientdb> connect plocal:/tmp/db/encrypted admin admin
+```
+
+## Open via Java API
 Since the encryption setting are stored with the database, it's not necessary to specify the encryption algorithm at open time, but only the encryption key. Example:
 
 ```java
