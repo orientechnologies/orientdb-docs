@@ -261,10 +261,10 @@ select expand(manager) from (
       where: (name = ?)
     }.out('WorksAt')
      .out('ParentDepartment'){
-        while: (in('ManagerOf').size() == 0),
-        where: (in('ManagerOf').size() > 0)
+        while: (out('Manager').size() == 0),
+        where: (out('Manager').size() > 0)
     }
-    .in('ManagerOf'){as: manager}
+    .out('Manager'){as: manager}
   return manager
 )
 
