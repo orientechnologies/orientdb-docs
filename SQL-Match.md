@@ -263,8 +263,9 @@ select expand(manager) from (
      .out('ParentDepartment'){
         while: (out('Manager').size() == 0),
         where: (out('Manager').size() > 0)
+    }.out('Manager'){
+    	as: manager
     }
-    .out('Manager'){as: manager}
   return manager
 )
 
