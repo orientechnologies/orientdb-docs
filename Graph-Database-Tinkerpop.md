@@ -103,7 +103,7 @@ try{
 
 Surrounding the transaction between a try/catch assures that any errors will rollback the transaction to the previous status for all the involved elements. For more information, look at [Concurrency](Concurrency.md).
 
-_NOTE_: To work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes. A non-transactional graph instance created with <code>OrientGraphNoTx graph = factory.getNoTx();</code> is only useful if you don't work with data but want to define the [database schema](Graph-Schema.md).
+_NOTE_: To work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes. A non-transactional graph instance created with <code>OrientGraphNoTx graph = factory.getNoTx();</code> is only useful if you don't work with data but want to define the [database schema](Graph-Schema.md) or for [bulk inserts](#using-non-transactional-graphs).
 
 ## Optimistic approach
 OrientDB supports optimistic transactions, so no lock is kept when a transaction is running, but at commit time each graph element version is checked to see if there has been an update by another client. This is the reason why you should write your code to be concurrency-proof by handling the concurrent updating case:
@@ -174,7 +174,7 @@ for (Edge e : graph.getEdges()) {
 }
 ```
 
-NOTE: Starting from OrientDB v1.4.x (until 2.0, where the opposite is true) edges by default are stored as links not as records (i.e. useLightweightEdges=true by default). This is to improve performance. As a consequence, getEdges will only retrieve records of class E.  With useLightweightEdges=true, records of class E are only created under certain circumstances (e.g. if the Edge has properties) otherwise they will be links on the in and out vertices.  If you really want `getEdges()` to return all edges, disable the Lightweight-Edge feature by executing this command once: `alter database custom useLightweightEdges=false`.  This will only take effect for new edges so you'll have to convert the links to actual edges before getEdges will return all edges. For more information look at: [Troubleshooting#why-i-cant-see-all-the-edges](Troubleshooting.md#why-i-cant-see-all-the-edges).
+NOTE: Starting from OrientDB v1.4.x (until 2.0, where the opposite is true) edges by default are stored as links not as records (i.e. useLightweightEdges=true by default). This is to improve performance. As a consequence, getEdges will only retrieve records of class E.  With useLightweightEdges=true, records of class E are only created under certain circumstances (e.g. if the Edge has properties) otherwise they will be links on the in and out vertices.  If you really want `getEdges()` to return all edges, disable the Lightweight-Edge feature by executing this command once: `alter database custom useLightweightEdges=false`.  This will only take effect for new edges so you'll have to convert the links to actual edges before getEdges will return all edges. For more information look at: [Troubleshooting: Why can't I see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges).
 
 ## Removing a Vertex
 
@@ -275,7 +275,7 @@ You can also have both UNIQUE index against custom types:
 ```java
 graph.createKeyIndex("name", Vertex.class, new Parameter("type", "UNIQUE"), new Parameter("class", "Customer"));
 ```
-To create acase insensitive index use the additional parameter "collate":
+To create a case insensitive index use the additional parameter "collate":
 ```java
 graph.createKeyIndex("name", Vertex.class, new Parameter("type", "UNIQUE"), new Parameter("class", "Customer"),new Parameter("collate", "ci"));
 ```
