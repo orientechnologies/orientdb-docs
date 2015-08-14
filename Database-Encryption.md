@@ -69,7 +69,7 @@ orientdb> alter cluster Salary encryption aes
 
 ## Open an encrypted database
 
-## Open via Console
+### Open via Console
 
 If you're using the console, remember to set the encryption key `storage.encryptionKey` before opening the database. Example:
 ```
@@ -77,7 +77,7 @@ orientdb> config set storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==
 orientdb> connect plocal:/tmp/db/encrypted admin admin
 ```
 
-## Open via Java API
+### Open via Java API
 Since the encryption setting are stored with the database, it's not necessary to specify the encryption algorithm at open time, but only the encryption key. Example:
 
 ```java
