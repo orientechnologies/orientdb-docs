@@ -142,6 +142,15 @@ This is the list of the known drivers to use OrientDB through different language
 </tr>
 
 <tr>
+    <td>
+        <center><a href="http://www.groovy-lang.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" alt="Groovy" height="30px"/></a></center>
+    </td>
+    <td><a href="https://github.com/eugene-kamenev/orientdb-groovy">OrientDB Groovy</a></td>
+    <td>Java wrapper</td>
+    <td>This project contains Groovy AST Transformations trying to mimic grails-entity style. All useful information you can find in Spock tests dir. Document API and Graph API with gremlin are supported. Built with OrientDB 2.1.0 and Apache Groovy 2.4.4.</td>
+</tr>
+
+<tr>
     <td rowspan="3">
         <center><a href="https://en.wikipedia.org/wiki/Scala_%28programming_language%29"><img src="https://upload.wikimedia.org/wikipedia/en/8/85/Scala_logo.png" alt="Scala" height="30px"/></a></center>
     </td>
