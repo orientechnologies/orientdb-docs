@@ -14,7 +14,7 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ```
 
 ### Status
-Last update: August 12, 2015
+Last update: August 17, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
@@ -34,7 +34,7 @@ Last update: August 12, 2015
 | SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 80% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
-| SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 70% |
+| SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
 | Console | Dislay distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 0% |
 | Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
