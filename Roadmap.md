@@ -19,7 +19,7 @@ Last update: August 12, 2015
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | OrientJS| Native unmarshaling of requests by using C code| 25% |
-| Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 100% |
+| Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 95% |
 | Core | Incremental Backup | 0% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 100% |
@@ -29,7 +29,7 @@ Last update: August 12, 2015
 | SQL | Pattern matching | 90% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
-| SQL | Live Query -> Stable | 0% |
+| SQL | Live Query -> Stable | 50% |
 | SQL | New functions (strings, maths) | 40% |
 | SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 80% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
