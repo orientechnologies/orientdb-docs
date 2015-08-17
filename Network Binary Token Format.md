@@ -4,7 +4,6 @@ The Binary Token is used in the binary network protocol to keep session informat
 
 ##Token content datail
 
-
 * *type* the format of token to allow extensibility.
 * *algorithm* the alogrithm used to generate the validation signature.
 * *key id* the identifier of the key used for sign the token.
@@ -19,4 +18,4 @@ The Binary Token is used in the binary network protocol to keep session informat
 * *server user name* if is a server user keep the username bacause doesn't exist an user id.
 * *expiry* the type when the token is considerated expired. 
 
-## token serilization
+## token serialization
