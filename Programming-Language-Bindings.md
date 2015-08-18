@@ -1,4 +1,4 @@
-# API
+r# API
 
 OrientDB supports 3 kinds of drivers:
 - **Native binary remote**, that talks directly against the TCP/IP socket using the [binary protocol](https://github.com/nuvolabase/orientdb/wiki/Network-Binary-Protocol)
@@ -123,9 +123,14 @@ This is the list of the known drivers to use OrientDB through different language
 </tr>
 
 <tr>
-    <td rowspan="3">
-        <center><a href="http://www.ruby-lang.org"><img src="https://www.ruby-lang.org/images/header-ruby-logo.png" alt="Ruby" height="35px"/></a></center>
+    <td rowspan="4">
+        <center><a href="http://www.ruby-lang.org"><img src="https://www.ruby-lang.org/images/header-ruby-logo.png" alt="Ruby" height="35px"/></a></center></td>
     </td>
+    <td><a href="https://github.com/topofocus/active-orient">Active-Orient</a></td>
+    <td>HTTP</td>
+    <td>Use OrientDB to persistently store dynamic Ruby-Objects and use database queries to manage even very large datasets.</td>
+</tr>
+<tr>
     <td><a href="https://github.com/aemadrid/orientdb-jruby">OrientDB-JRuby</a></td>
     <td>Native</td>
     <td>Through Java driver</td>
