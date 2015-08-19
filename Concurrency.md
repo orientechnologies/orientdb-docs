@@ -81,7 +81,7 @@ Or, by setting the parameter at JVM level on startup (or even at run-time before
 java ... -DridBag.embeddedToSbtreeBonsaiThreshold=-1 ...
 ```
 
-| ![NOTE](images/warning.png) | _NOTE: While running as distributed, the edges are always managed as embedded, so setting of `ridBag.embeddedToSbtreeBonsaiThreshold` has no effect._ |
+| ![NOTE](images/warning.png) | _NOTE: While running in distributed mode SBTrees are not supported. If using a distributed database then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` to avoid replication errors._ |
 |----|----|
 
 

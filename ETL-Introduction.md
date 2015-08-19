@@ -40,6 +40,10 @@ $ cd $ORIENTDB_HOME/bin
 $ ./oetl.sh config-dbpedia.json
 ```
 
+|    |    |
+|----|----|
+| ![NOTE](images/warning.png) | _NOTE: If importing data for use in a distributed database then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` for the ETL process to avoid replication errors when the database is updated online._ |
+
 ## Available Components
 - [Blocks](Block.md)
 - [Sources](Source.md)
