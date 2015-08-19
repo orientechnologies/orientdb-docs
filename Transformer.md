@@ -127,7 +127,7 @@ Component description.
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
 |class|Vertex class name to assign|string|false|V|
-|skipDuplicates|Vertices with duplicate keys are skipped. If `skipDuplicates:true` and a UNIQUE constraint is defined on vertices ETL will ignore it with no exceptions. Available v. 2.1|boolean|false|false|
+|skipDuplicates|Vertices with duplicate keys are skipped. If `skipDuplicates:true` and a UNIQUE constraint is defined on vertices, the ETL will ignore the duplicate with no exceptions. Available since v2.1|boolean|false|false|
 
 #### Example
 Transform the ODocument in a Vertex setting as class the value of "$className" variable:
@@ -151,8 +151,9 @@ Component description.
 |direction|Edge direction|string|false|'out'|
 |class|Edge's class name|string|false|'E'|
 |lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|-|
-|targetVertexFields|Fields to set in the target vertex (since 2.1)|object|false|-|
-|edgeFields|Fields to set in the edge (since 2.1)|object|false|-|
+|targetVertexFields|Fields to set in the target vertex (since v2.1)|object|false|-|
+|edgeFields|Fields to set in the edge (since v2.1)|object|false|-|
+|skipDuplicates|Duplicated edges are skipped. If `skipDuplicates:true` and a UNIQUE constraint is defined on both "out" and "in" properties in the edge's class, the ETL will ignore the duplicate with no exceptions. Available v 2.2|boolean|false|false|
 |unresolvedLinkAction|Action to execute in case the JOIN hasn't been resolved. Actions can be: 'NOTHING' (do nothing), CREATE (create a OrientVertex setting as primary key the join value), WARNING (increment warnings), ERROR (increment errors), HALT (interrupt the process), SKIP (skip current row).|string|false|NOTHING|
 
 #### Example 1
