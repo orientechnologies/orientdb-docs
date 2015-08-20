@@ -1,5 +1,17 @@
 # Web Server
 
+|   |   |
+|---|---|
+|![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
+
+## Maximum content length
+
+OrientDB by default allow request content of maximum 1MB. To change this limitation set the global configuration `network.http.maxLength` to the needed value.
+
+## Charset
+
+OrientDB uses UTF-8 as default charset. To change it set the global configuration `network.http.charset`.
+
 ## JSONP
 
 JSONP is supported by OrientDB Web Server, but disable by default. To enable it set the coniguration `network.http.jsonp=true`
