@@ -4,6 +4,9 @@
 |---|---|
 |![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
 
+Global settings can be set at JVM startup (`java ... -D<setting>=<value>"`) or in `orientdb-server-config.xml` file under "properties" XML tag.
+
+
 ## Maximum content length
 
 OrientDB by default allow request content of maximum 1MB. To change this limitation set the global configuration `network.http.maxLength` to the needed value.
