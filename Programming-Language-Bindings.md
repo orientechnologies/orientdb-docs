@@ -5,6 +5,8 @@ OrientDB supports 3 kinds of drivers:
 - **HTTP REST/JSON**, that talks directly against the TCP/IP socket using the [HTTP protocol](https://github.com/nuvolabase/orientdb/wiki/OrientDB-REST)
 - **Java wrapped**, as a layer that links in some way the native Java driver. This is pretty easy for languages that run into the JVM like Scala, Groovy and JRuby
 
+Look also at the available integration with [Plugins and Frameworks](Plugins.md).
+
 This is the list of the known drivers to use OrientDB through different languages:
 
 <table>
@@ -235,9 +237,5 @@ This is the list of the library to use OrientDB by using such standard:
 <a href="http://www.tinkerpop.com"><img src="http://www.tinkerpop.com/images/tinkerpop-splash.png" /></a>
 ### TinkerPop Blueprints
 [TinkerPop Blueprints](https://github.com/tinkerpop/blueprints/wiki), the standard for Graph Databases. OrientDB is 100% compliant with latest version
-
-<a href="http://www.oracle.com/technetwork/java/index-jsp-135919.html"><img src="http://service-architecture.static-barryandassociates.com/images/database/jdo-logo.gif" /></a>
-### JDO
-- [JDO 2.2](http://www.oracle.com/technetwork/java/index-jsp-135919.html) and [JPA 2](http://www.oracle.com/technetwork/articles/javaee/jpa-137156.html) by using the [Data Nucleus](http://www.datanucleus.org) adapter: [datanucleus](https://github.com/luigidellaquila/datanucleus-store-orientdb/)
 
 All the trademarks are property of their legal owners.
