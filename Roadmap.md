@@ -23,6 +23,7 @@ Last update: August 18, 2015
 | Core | Incremental Backup | 0% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 100% |
+| Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | Distributed | Fast synchronization by using Incremental Backup | 0% |
