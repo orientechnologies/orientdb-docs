@@ -14,7 +14,11 @@ If you're looking for drivers or JDBC connector go to  [Programming-Language-Bin
 
 ------
 
-<a href="https://github.com/PhantomYdn/wicket-orientdb"><img src="http://wicket.apache.org/guide/img/apache-wicket.png" width="300"></a><br>
+<a href="https://github.com/faizod/orientdb-liquibase-plugin"><img src="https://raw.githubusercontent.com/liquibase/liquibase.github.com/master/custom_images/liquibase_logo.gif" width="300"></a>
+
+------
+
+<a href="https://github.com/PhantomYdn/wicket-orientdb"><img src="http://www.thebuzzmedia.com/wp-content/uploads/2010/02/apache-wicket-web-framework-logo.png" width="300"></a><br>
  
 With proper mark-up/logic separation, a POJO data model, and a refreshing lack of XML, Apache Wicket makes developing web-apps simple and enjoyable again. Swap the boilerplate, complex debugging and brittle code for powerful, reusable components written with plain Java and HTML.
 
@@ -34,7 +38,7 @@ Guice (pronounced 'juice') is a lightweight dependency injection framework for J
 
 ------
 
-<a href="http://vertx.io/"><img src="http://vertx.io/logo-white-big.png" width="200"></a>
+<a href="http://vertx.io/"><img src="http://vertx.io/assets/logo-sm.png" width="200"></a>
 <br>
 
 Vert.x is a lightweight, high performance application platform for the JVM that's designed for modern mobile, web, and enterprise applications.
