@@ -134,7 +134,7 @@ doc.save( "client_usa" );
 ```
 
 ## Sharding and Split brain network problem
-OrientDB guarantees strong consistency if it's configured to have a `writeQuorum` set at least at the majority of nodes (`>= (N/2+1)`). In case of Sharding you could have a situation where you'd need a relative `writeQuorum` to a certain partition of your data. While `writeQuorum` setting can be configured at database and also cluster level, it's not suggested to set a value minor than the majority, because in case of re-merge of the 2 split networks, you'd have both network partitions with update data and OrientDB doesn't support (yet) the merging of 2 non-read only networks. So the suggestion is to always provide a `writeQuorum` at least at the majority of nodes, even with sharded configuration.
+OrientDB guarantees strong consistency if it's configured to have a `writeQuorum` to the majority of the nodes. For more information look at [Split Brain network problem](Distributed-Architecture.md#split-brain-network-problem). In case of Sharding you could have a situation where you'd need a relative `writeQuorum` to a certain partition of your data. While `writeQuorum` setting can be configured at database and cluster level too, it's not suggested to set a value minor than the majority, because in case of re-merge of the 2 split networks, you'd have both network partitions with updated data and OrientDB doesn't support (yet) the merging of 2 non read-only networks. So the suggestion is to always provide a `writeQuorum` at least at the majority of nodes, even with sharded configuration.
 
 ### Limitation
 
