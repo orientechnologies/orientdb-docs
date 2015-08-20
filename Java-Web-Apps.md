@@ -10,6 +10,8 @@ There are mainly 2 solutions:
 
 ## Manual control
 
+### Graph API
+
 ```java
 package com.orientechnologies.test;
 import javax.servlet.*;
@@ -19,10 +21,32 @@ public class Example extends HttpServlet {
                     HttpServletResponse response)
         throws IOException, ServletException
   {
-    ODatabaseDocument database = ODatabaseDocumentPool.global().acquire("local:/temp/db", "admin", "admin");
+    OrientBaseGraph graph = new OrientGraph("plocal:/temp/db", "admin", "admin");
 
     try {
+     // USER CODE
 
+    } finally {
+      graph.shutdown();
+    }
+  }
+}
+```
+
+### Document API
+
+```java
+package com.orientechnologies.test;
+import javax.servlet.*;
+
+public class Example extends HttpServlet {
+  public void doGet(HttpServletRequest request,
+                    HttpServletResponse response)
+        throws IOException, ServletException
+  {
+    ODatabaseDocumentTx database = new ODatabaseDocumentTx("plocal:/temp/db").open("admin", "admin");
+
+    try {
      // USER CODE
 
     } finally {
@@ -34,14 +58,14 @@ public class Example extends HttpServlet {
 
 ## Automatic control using Servlet Filters
 
-Servlets are the best way to automatise database control inside WebApps. The trick is to create a Filter that get a database from the pool and binds it in current ThreadLocal before to execute the Servlet code. Once returned the ThreadLocal is cleared and database released to the pool.
+Servlets are the best way to automatise database control inside WebApps. The trick is to create a Filter that get a reference of the graph and binds it in the current ThreadLocal before to execute the Servlet code. Once returned the ThreadLocal is cleared and graph instance released.
 
 [JaveEE Servlets](http://www.oracle.com/technetwork/java/javaee/servlet/index.html)
 ## Create a Filter class
 
-### Create a database instance per request
+### Filter with Graph API 
 
-In this example a new database instance is created per request, opened and at the end closed.
+In this example a new graph instance is created per request, opened and at the end closed.
 ```java
 package com.orientechnologies.test;
 import javax.servlet.*;
@@ -50,19 +74,19 @@ public class OrientDBFilter implements Filter {
 
   public void doFilter(ServletRequest request, ServletResponse response,
           FilterChain chain) {
-      ODatabaseDocument database = new ODatabaseDocumentTx("local:/temp/db").open("admin", "admin");
+      OrientBaseGraph graph = new OrientGraph("plocal:/temp/db", "admin", "admin");
       try{
         chain.doFilter(request, response);
       } finally {
-        database.close();
+        graph.shutdown();
       }
   }
 }
 ```
 
-### Use the database pool
+### Filter with Document API 
 
-In this example the database pool is used.
+In this example a new graph instance is created per request, opened and at the end closed.
 ```java
 package com.orientechnologies.test;
 import javax.servlet.*;
@@ -71,16 +95,12 @@ public class OrientDBFilter implements Filter {
 
   public void doFilter(ServletRequest request, ServletResponse response,
           FilterChain chain) {
-      ODatabaseDocument database = ODatabaseDocumentPool.global().acquire("local:/temp/db", "admin", "admin");
+      ODatabaseDocumentTx database = new ODatabaseDocumentTx("plocal:/temp/db").open("admin", "admin");
       try{
         chain.doFilter(request, response);
       } finally {
         database.close();
       }
-  }
-
-  public void destroy() {
-      ODatabaseDocumentPool.global().close();
   }
 }
 ```
