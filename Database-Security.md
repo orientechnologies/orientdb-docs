@@ -176,13 +176,13 @@ Every time a class extends the `ORestricted` class, OrientDB, uses special field
 If you want to allow full control of a record to a user, add the user's RID in `_allow` set. If you want to provide only READ permission, use `_allowRead`. In this example we allow the user with RID #5:10 to read record #43:22 by using SQL:
 
 ```sql
-INSERT INTO #43:22 ADD _allowRead #5:10
+UPDATE #43:22 ADD _allowRead #5:10
 ```
 
 In this example we remove the right previously granted:
 
 ```sql
-INSERT INTO #43:22 REMOVE _allowRead #5:10
+UPDATE #43:22 REMOVE _allowRead #5:10
 ```
 
 ### Run-time check
