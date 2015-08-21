@@ -153,7 +153,7 @@ To grant and revoke permissions use the [GRANT](SQL-Grant.md) and [REVOKE](SQL-R
 
 ## Record-level security
 
-This is also called "horizontal security" because it doesn't act at the schema level (vertically) but per each record. Due to this, we can totally separate database records as sand-boxes where each "Restricted" record can only be accessed by authorized users.
+This is also called "horizontal security" because it doesn't act at the schema level (vertically), but per each record. Due to this, we can totally separate database records as sand-boxes where each "Restricted" record can only be accessed by authorized users.
 
 To activate this kind of advanced security, let the [classes](Concepts.md#class) you want extend the `ORestricted` super class. If you're working with a Graph Database you should let V (Vertex) and E (Edge) classes extend ORestricted class:
 
@@ -161,9 +161,32 @@ To activate this kind of advanced security, let the [classes](Concepts.md#class)
 ALTER CLASS V superclass ORestricted
 ALTER CLASS E superclass ORestricted
 ```
-In this way, all the vertices and edges will inherit the record level security.
+In this way, all the vertices and edges will inherit the record level security. Starting from OrientDB v2.1, you can use the multiple inheritance to let only certain vertices or edges classes to be "restricted". Example:
 
-Every time a class extends the `ORestricted` class, OrientDB, by a hook, injects a check before each CRUD operation:
+``` sql
+CREATE CLASS Order EXTENDS V, ORestricted
+```
+
+Every time a class extends the `ORestricted` class, OrientDB, uses special fields of type Set<OIdentifiable> to store authorization on each record:
+- `_allow` contains who can entirely access to the record (all CRUD operations)
+- `_allowRead` contains who can read the record
+- `_allowUpdate` contains who can update the record
+- `_allowDelete` contains who can delete the record
+
+If you want to allow full control of a record to a user, add the user's RID in `_allow` set. If you want to provide only READ permission, use `_allowRead`. In this example we allow the user with RID #5:10 to read record #43:22 by using SQL:
+
+```sql
+INSERT INTO #43:22 ADD _allowRead #5:10
+```
+
+In this example we remove the right previously granted:
+
+```sql
+INSERT INTO #43:22 REMOVE _allowRead #5:10
+```
+
+### Run-time check
+OrientDB checks the record level security by using a hook that injects a check before each CRUD operation:
 - `CREATE` new document: set the current database's user in the `_allow` field. To change this behavior look at [customize on creation](#customize-on-creation)
 - `READ` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowRead` fields. If not, the record is skipped. This lets each query work per user.
 - `UPDATE` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowUpdate` field. If not, an `OSecurityException` is thrown.
