@@ -170,6 +170,22 @@ Every time a class extends the `ORestricted` class, OrientDB, by a hook, injects
 
 The "allow" fields (`_allow`, `_allowRead`, `_allowUpdate`, `_allowDelete`) can contain instances of `OUser` and `ORole` records (both classes extend OIdentity). Use `OUser` to allow a single [user](#User) and use `ORole` to allow all the users that are part of a [role](#Role).
 
+### Usage via API
+#### Graph API
+```java
+OrientVertex v = graph.addVertex("class:Invoice");
+v.setProperty("amount", 1234567);
+graph.getRawGraph().getMetadata().getSecurity().allowUser(v.getRecord(), ORestrictedOperation.ALLOW_READ, "report");
+v.save();
+```
+
+#### Document API
+```java
+ODocument invoice = new ODocument("Invoice").field("amount", 1234567);
+database.getMetadata().getSecurity().allowUser(invoice, ORestrictedOperation.ALLOW_READ, "report");
+invoice.save();
+```
+
 ### Customize on creation
 
 By default every time someone creates a Restricted record (when its class extends the `ORestricted` class) the current user is inserted in the `_allow` field. This can be changed by setting custom properties in the class schema supporting these properties:
