@@ -27,7 +27,7 @@ LIMIT <number>
 
 - **ClassName**: a valid target class name
 - **as**: alias for a node of the pattern
-- **where**: filter condition to match a node in the pattenr
+- **where**: filter condition to match a node in the pattern
 - **functionName**: a graph function representing a connection between two nodes (eg. ```out(), in(), outE(), inE()...```)
 - **while**: a condition that has to be met to allow the traversal of this path
 - **maxDepth**: the maximum depth for this single path
