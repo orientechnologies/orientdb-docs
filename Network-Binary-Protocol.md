@@ -429,7 +429,7 @@ Response: (result:boolean)
 #### Request
 
 - **database-name** - the name of the target database. *Note* that this was empty before `1.0rc1`.
-- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to be checked for existance. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
 
