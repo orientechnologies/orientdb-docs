@@ -587,7 +587,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 Loads a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
 
 ```
-Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
+Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)
 Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-content:bytes)]*]*
 ```
 
@@ -597,7 +597,6 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 - **version** - the version of the record to fetch.
 - **fetch-plan** - the [fetch plan](Fetching-Strategies.md) to use or an empty string.
 - **ignore-cache** - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
-- **load-tombstones** - a flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
 
 #### Response
 
