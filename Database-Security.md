@@ -19,7 +19,7 @@ By convention three users are always created by default each time you create a n
 - `reader`, with default password "`reader`", is the classic read-only user. The `reader` can read any records but can't modify or delete them and has no access to internal information such as users and roles, themselves.
 - `writer`, with the default password "`writer`", is like the user `reader` but can also create, update, and delete records.
 
-Users are themselves records stored inside the cluster "OUser". The passwords are stored in hash format using the strong algorithm [SHA-256](http://en.wikipedia.org/wiki/SHA-2).
+Users are themselves records stored inside the cluster "OUser". The passwords are stored in hash format using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) algorithm. Look at [Password management](Database-Security.md#password-management) for more information. 
 
 The user status is stored in the field `status` and can be: `SUSPENDED` or `ACTIVE`. Only `ACTIVE` users can log in.
 
@@ -331,3 +331,11 @@ You can enable this feature even on graphs. Follow this tutorial to look how to 
 ## Restore the admin user
 
 In case your database is corrupted or you need to re-install the "admin" user, look at [Restore the admin user](Server-Security.md#restore-the-admin-user).
+
+## Password management
+
+User passwords are stored in OUser records by using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) HASH algorithm using a random 24 bit length Salt per user for a configurable number of iterations (by default is 65,536). 
+
+In order to speedup the hashing of password, OrientDB uses a password cache implemented as a LRU with maximum 500 entries. To change this setting set the global configuration `security.userPasswordSaltCacheSize` to the entries to cache. Use `0` to completely disable the cache.
+
+>**NOTE**: If an attacker have access to the JVM memory dump, he could access to this map containing all the passwords. If you want to protect against this attack, disable the in memory password cache.
