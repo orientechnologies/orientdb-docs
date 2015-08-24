@@ -55,15 +55,39 @@ Can be one or more aliases defined in the ```as``` block, ```$matches``` to indi
 
 ### Examples
 
+Sample dataset: People
+
+| @rid  |    name   |   surname   | out_Friend     | in_Friend        |
+|-------|-----------|-------------|----------------|------------------|
+| #12:0 | John      | Doe         | [#12:1, #12:3] |                  |
+| #12:1 | John      | Smith       | [#12:2]        | [#12:0]          |
+| #12:2 | Jenny     | Smith       |                | [#12:1]          |
+| #12:3 | Frank     | Bean        |                | [#12:0]         |
+
+
+
 **Get all people whose name is John**
 ```SQL
 MATCH {class: Person, as: people, where: (name = 'John')} RETURN people
 ```
+result:
+
+| people |
+|--------|
+| #12:0  |
+| #12:1  |
 
 **Get all people whose name is John and whose surname is Smith**
 ```SQL
 MATCH {class: Person, as: people, where: (name = 'John' and surname = 'Smith')} RETURN people
 ```
+
+result:
+
+| people |
+|--------|
+| #12:1  |
+
 
 **Get all people whose name is John, together with their friends**
 ```SQL
@@ -76,6 +100,13 @@ MATCH {class: Person, as: people, where: (name = 'John' and surname = 'Smith')} 
   }
   RETURN person, friend
 ```
+
+| people | friend |
+|--------|--------|
+| #12:0  | #12:1  |
+| #12:0  | #12:3  |
+| #12:1  | #12:2  |
+
 expanding attributes
 
 ```SQL
@@ -94,6 +125,13 @@ FROM (
 )
 ```
 
+| name   | surname  | friendName | friendSurname |
+|--------|----------|------------|---------------|
+| John   | Doe      | John       | Smith         |
+| John   | Doe      | Frank      | Bean          |
+| John   | Smith    | John       | Doe           |
+| John   | Smith    | Jenny      | Smith         |
+
 **Friends of friends**
 
 ```SQL
@@ -107,6 +145,13 @@ FROM (
   }
   RETURN person, friendOfFriend
 ```
+| people | friendOfFriend |
+|--------|----------------|
+| #12:0  | #12:0          |
+| #12:0  | #12:2          |
+| #12:1  | #12:1          |
+| #12:1  | #12:3          |
+
 exclude myself
 
 ```SQL
@@ -122,6 +167,11 @@ exclude myself
   RETURN person, friendOfFriend
 ```
 
+| people | friendOfFriend |
+|--------|----------------|
+| #12:0  | #12:2          |
+| #12:1  | #12:3          |
+
 **Friends of friends, until level 6**
 ```SQL
   MATCH {
@@ -135,6 +185,14 @@ exclude myself
   }
   RETURN person, friend
 ```
+| people | friend         |
+|--------|----------------|
+| #12:0  | #12:1          |
+| #12:0  | #12:2          |
+| #12:0  | #12:3          |
+| #12:1  | #12:2          |
+| #12:1  | #12:0          |
+| #12:1  | #12:3          |
 
 **nested paths: friends until depth 6, since a date (suppose this date is on the "Friend" edge)**
 
@@ -199,6 +257,11 @@ Find common friends of John and Jenny
   }
   RETURN friend
 ```
+
+| friend |
+|--------|
+| #12:1  |
+
 
 The same, with two match expressions:
 
@@ -271,6 +334,7 @@ select expand(manager) from (
 
 ```
 
+
 ### Deep traversal (while condition)
 
 A match path item will act in different ways if you have a ```while``` condition or not.
@@ -293,6 +357,11 @@ MATCH {
 RETURN friend  
 ```
 
+| friend |
+|--------|
+| b      |
+
+
 will return ```b``` only.
 This means that the path item ```out("FriendOf")``` will be traversed exactly once and only the result of that 
 traversal will be returned
@@ -308,6 +377,12 @@ MATCH {
   }
 RETURN friend  
 ```
+
+| friend |
+|--------|
+| a      |
+| b      |
+
 the query will return both ```a``` and ```b```.
 
 If you have a ```while``` condition on a match path item, this item will be evaluated **zero to N times**,
