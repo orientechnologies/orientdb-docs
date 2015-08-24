@@ -19,7 +19,7 @@ By convention three users are always created by default each time you create a n
 - `reader`, with default password "`reader`", is the classic read-only user. The `reader` can read any records but can't modify or delete them and has no access to internal information such as users and roles, themselves.
 - `writer`, with the default password "`writer`", is like the user `reader` but can also create, update, and delete records.
 
-Users are themselves records stored inside the cluster "OUser". The passwords are stored in hash format using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) algorithm. Look at [Password management](Database-Security.md#password-management) for more information. 
+Users are themselves records stored inside the cluster "OUser". The passwords are stored in hash. Starting from OrientDB v2.2 the algorithm is [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2). Before v2.2 a [SHA-256](https://en.wikipedia.org/wiki/SHA-2) was used. Look at [Password management](Database-Security.md#password-management) for more information. 
 
 The user status is stored in the field `status` and can be: `SUSPENDED` or `ACTIVE`. Only `ACTIVE` users can log in.
 
@@ -334,7 +334,7 @@ In case your database is corrupted or you need to re-install the "admin" user, l
 
 ## Password management
 
-User passwords are stored in OUser records by using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) HASH algorithm using a random 24 bit length Salt per user for a configurable number of iterations (by default is 65,536). 
+User passwords are stored in OUser records by using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) HASH algorithm using a random 24 bit length Salt per user for a configurable number of iterations (by default is 65,536). Before v2.2 a [SHA-256](https://en.wikipedia.org/wiki/SHA-2) was used.
 
 In order to speedup the hashing of password, OrientDB uses a password cache implemented as a LRU with maximum 500 entries. To change this setting set the global configuration `security.userPasswordSaltCacheSize` to the entries to cache. Use `0` to completely disable the cache.
 
