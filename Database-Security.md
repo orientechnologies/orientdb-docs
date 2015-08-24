@@ -334,8 +334,10 @@ In case your database is corrupted or you need to re-install the "admin" user, l
 
 ## Password management
 
-User passwords are stored in OUser records by using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) HASH algorithm using a random 24 bit length Salt per user for a configurable number of iterations (by default is 65,536). Before v2.2 a [SHA-256](https://en.wikipedia.org/wiki/SHA-2) was used.
+User passwords are stored in OUser records by using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) HASH algorithm using a random 24 bit length Salt per user for a configurable number of iterations (by default is 65,536). Using a higher iteration count makes any attack slower, but it slows down also the OrientDB authentication. To change the SALT iteration count, change the global configuration `security.userPasswordSaltIterations`.
 
-In order to speedup the hashing of password, OrientDB uses a password cache implemented as a LRU with maximum 500 entries. To change this setting set the global configuration `security.userPasswordSaltCacheSize` to the entries to cache. Use `0` to completely disable the cache.
+>**NOTE**: Before OrientDB v2.2 a simple [SHA-256](https://en.wikipedia.org/wiki/SHA-2) was used.
+
+In order to speedup the hashing of password, OrientDB uses a password cache implemented as a LRU with maximum 500 entries. To change this setting, set the global configuration `security.userPasswordSaltCacheSize` to the entries to cache. Use `0` to completely disable the cache.
 
 >**NOTE**: If an attacker have access to the JVM memory dump, he could access to this map containing all the passwords. If you want to protect against this attack, disable the in memory password cache.
