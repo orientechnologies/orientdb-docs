@@ -10,26 +10,26 @@ Match statements allows to query the db in a declarative way, using pattern matc
 ```
 MATCH 
   {
-    [class: <ClassName>], 
-    [as: <Alias>], 
-    [where: (<WhereCondition>)]
+    [class: <className>], 
+    [as: <alias>], 
+    [where: (<whereCondition>)]
   }
   .<functionName>(){
-    [class: <ClassName>], 
-    [as: <Alias>], 
-    [where: (<WhereCondition>)], 
-    [while: (<WhileCondition>)]
+    [class: <className>], 
+    [as: <alias>], 
+    [where: (<whereCondition>)], 
+    [while: (<whileCondition>)]
     [maxDepth: <number>]
   }*
 RETURN <alias> [, <alias>]*
 LIMIT <number>
 ```
 
-- **ClassName**: a valid target class name
-- **Alias**: alias for a node of the pattern
-- **WhereCondition**: filter condition (a normal WHERE contition supported in SQL) to match a node in the pattern
+- **className**: a valid target class name
+- **alias**: alias for a node of the pattern
+- **whereCondition**: filter condition (a normal WHERE contition supported in SQL) to match a node in the pattern
 - **functionName**: a graph function representing a connection between two nodes (eg. ```out(), in(), outE(), inE()...```)
-- **WhileCondition**: a condition (a normal WHERE contition supported in SQL) that has to be met to allow the traversal of this path
+- **whileCondition**: a condition (a normal WHERE contition supported in SQL) that has to be met to allow the traversal of this path
 - **maxDepth**: the maximum depth for this single path
 - **return** ```<alias> [, <alias>]*```: specifies the elements in the pattern that have to be returned. 
 Can be one or more aliases defined in the ```as``` block, ```$matches``` to indicate all the defined alias, 
