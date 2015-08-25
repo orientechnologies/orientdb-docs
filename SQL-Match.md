@@ -57,13 +57,9 @@ Can be one or more aliases defined in the ```as``` block, ```$matches``` to indi
 
 Sample dataset: People
 
-| @rid  |    name   |   surname   | out_Friend     | in_Friend        |
-|-------|-----------|-------------|----------------|------------------|
-| #12:0 | John      | Doe         | [#12:1, #12:3] |                  |
-| #12:1 | John      | Smith       | [#12:2]        | [#12:0]          |
-| #12:2 | Jenny     | Smith       |                | [#12:1]          |
-| #12:3 | Frank     | Bean        |                | [#12:0]         |
+![](images/match-example-table.png)
 
+![](images/match-example-graph.png)
 
 
 **Get all people whose name is John**
@@ -104,7 +100,9 @@ result:
 | people | friend |
 |--------|--------|
 | #12:0  | #12:1  |
+| #12:0  | #12:2  |
 | #12:0  | #12:3  |
+| #12:1  | #12:0  |
 | #12:1  | #12:2  |
 
 expanding attributes
@@ -128,6 +126,7 @@ FROM (
 | name   | surname  | friendName | friendSurname |
 |--------|----------|------------|---------------|
 | John   | Doe      | John       | Smith         |
+| John   | Doe      | Jenny      | Smith         |
 | John   | Doe      | Frank      | Bean          |
 | John   | Smith    | John       | Doe           |
 | John   | Smith    | Jenny      | Smith         |
@@ -138,7 +137,7 @@ FROM (
   MATCH {
     class: Person, 
     as: person, 
-    where: (name = 'John')
+    where: (name = 'John' and surname = 'Doe')
   }.both('Friend')
    .both('Friend'){
     as: friendOfFriend
@@ -148,9 +147,10 @@ FROM (
 | people | friendOfFriend |
 |--------|----------------|
 | #12:0  | #12:0          |
+| #12:0  | #12:1          |
 | #12:0  | #12:2          |
-| #12:1  | #12:1          |
-| #12:1  | #12:3          |
+| #12:0  | #12:3          |
+| #12:0  | #12:4          |
 
 exclude myself
 
@@ -158,7 +158,7 @@ exclude myself
   MATCH {
     class: Person, 
     as: person, 
-    where: (name = 'John')
+    where: (name = 'John' and surname = 'Doe')
   }.both('Friend')
    .both('Friend'){
     as: friendOfFriend,
@@ -169,15 +169,17 @@ exclude myself
 
 | people | friendOfFriend |
 |--------|----------------|
+| #12:0  | #12:1          |
 | #12:0  | #12:2          |
-| #12:1  | #12:3          |
+| #12:0  | #12:3          |
+| #12:0  | #12:4          |
 
 **Friends of friends, until level 6**
 ```SQL
   MATCH {
     class: Person, 
     as: person, 
-    where: (name = 'John')
+    where: (name = 'John' and surname = 'Doe')
   }.both('Friend'){
     as: friend,
     where: ($matched.person != $currentMatch)
@@ -187,12 +189,11 @@ exclude myself
 ```
 | people | friend         |
 |--------|----------------|
+| #12:0  | #12:0          |
 | #12:0  | #12:1          |
 | #12:0  | #12:2          |
 | #12:0  | #12:3          |
-| #12:1  | #12:2          |
-| #12:1  | #12:0          |
-| #12:1  | #12:3          |
+| #12:0  | #12:4          |
 
 **nested paths: friends until depth 6, since a date (suppose this date is on the "Friend" edge)**
 
@@ -221,6 +222,8 @@ in this case, the condition ```($depth < 6)``` refers to six times traversing th
   )
 ```
 
+Try it with regular edges ;-)
+
 **multiple paths: friends of my friends who are also my friends**
 
 ```SQL
@@ -228,7 +231,7 @@ in this case, the condition ```($depth < 6)``` refers to six times traversing th
   {
     class: Person, 
     as: person, 
-    where: (name = 'John')
+    where: (name = 'John' and surname = 'Doe')
   }.both('Friend')
    .both('Friend'){
     as: friend
@@ -239,6 +242,11 @@ in this case, the condition ```($depth < 6)``` refers to six times traversing th
   RETURN person, friend
 ```
 
+| people | friend         |
+|--------|----------------|
+| #12:0  | #12:1          |
+| #12:0  | #12:2          |
+
 
 **common friends**
 
@@ -248,7 +256,7 @@ Find common friends of John and Jenny
   MATCH 
   {
     class: Person, 
-    where: (name = 'John')
+    where: (name = 'John' and surname = 'Doe')
   }.both('Friend'){
     as: friend
   }.both('Friend'){
@@ -269,7 +277,7 @@ The same, with two match expressions:
   MATCH 
   {
     class: Person, 
-    where: (name = 'John')
+    where: (name = 'John' and surname = 'Doe')
   }.both('Friend'){
     as: friend
   },
