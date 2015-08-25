@@ -30,7 +30,7 @@ LIMIT <number>
 - **WhereCondition**: filter condition (a normal WHERE contition supported in SQL) to match a node in the pattern
 - **functionName**: a graph function representing a connection between two nodes (eg. ```out(), in(), outE(), inE()...```)
 - **WhileCondition**: a condition (a normal WHERE contition supported in SQL) that has to be met to allow the traversal of this path
-- **maxDepth: <number>**: the maximum depth for this single path
+- **maxDepth**: the maximum depth for this single path
 - **return** ```<alias> [, <alias>]*```: specifies the elements in the pattern that have to be returned. 
 Can be one or more aliases defined in the ```as``` block, ```$matches``` to indicate all the defined alias, 
 ```$paths``` to indicate full traversed paths
