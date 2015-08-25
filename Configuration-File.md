@@ -126,3 +126,11 @@ There are also special variables used by ETL process:
 |maxRetries|Maximum number of retries in case the loader raises a ONeedRetryException: concurrent modification of the same records|integer|false|10|
 |parallel|Executes pipelines in parallel by using all the available cores.|boolean|false|false|
 |haltOnError|Halt the process in case of unmanaged error. If it is false, the process continue in case of errors. The encountered error number is reported at the end of importing. Since 2.0.9.|boolean|false|true|
+
+
+### Run-time configuration
+
+In ETL JSON file you can define variable that will be resolved at run-time with system properties. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+```
+$ ./oetl.sh config-dbpedia.json -DdatabaseURL=plocal:/temp/mydb
+```
