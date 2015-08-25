@@ -14,23 +14,21 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ```
 
 ### Status
-Last update: August 18, 2015
+Last update: August 25, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| OrientJS| Native unmarshaling of requests by using C code| 25% |
+| OrientJS| Native unmarshaling of requests by using C++ code| 50% |
 | Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 95% |
-| Core | Incremental Backup | 0% |
+| Core | Incremental Backup | 20% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
-| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
-| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | Distributed | Fast synchronization by using Incremental Backup | 0% |
-| SQL | Pattern matching | 90% |
+| SQL | Pattern matching | 95% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
-| SQL | Live Query -> Stable | 50% |
+| SQL | Live Query -> Stable | 80% |
 | SQL | New functions (strings, maths) | 40% |
 | SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 80% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
@@ -42,7 +40,7 @@ Last update: August 18, 2015
 | Console | Dislay distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 0% |
 | Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
-| Lucene | Faceted search | 20% |
+| Lucene | New module for indexing of shapes, not only points | 50% |
 
 
 ## Release 3.0
@@ -58,6 +56,8 @@ Last update: July 10th 2015
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | Core | Override of properties | 0% |
+| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
+| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | SQL | New SQL Executor | 5% |
 | Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 0% |
 | Transactions | Enhance isolation level also for remote commands| 0% |
@@ -65,3 +65,4 @@ Last update: July 10th 2015
 | Distributed | Replication of in-memory databases | 0% |
 | Distributed | Auto-Sharding | 0% |
 | Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
+| Lucene | Faceted search | 20% |
