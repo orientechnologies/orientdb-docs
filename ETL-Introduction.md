@@ -44,6 +44,13 @@ $ ./oetl.sh config-dbpedia.json
 |----|----|
 | ![NOTE](images/warning.png) | _NOTE: If importing data for use in a distributed database then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` for the ETL process to avoid replication errors when the database is updated online._ |
 
+### Run-time configuration
+
+In ETL JSON file you can define variable that will be resolved at run-time with system properties. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+```
+$ ./oetl.sh config-dbpedia.json -DdatabaseURL=plocal:/temp/mydb
+```
+
 ## Available Components
 - [Blocks](Block.md)
 - [Sources](Source.md)
