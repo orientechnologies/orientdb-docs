@@ -4,6 +4,7 @@
 
 Match statements allows to query the db in a declarative way, using pattern matching.
 
+
 ## Syntax 
 
 ### Simplified
@@ -114,6 +115,8 @@ result:
 | #12:1  | #12:2  |
 
 ### Expanding attributes
+
+MATCH statement can be used as a subquery inside another statement. This allows to obtain details and aggregate data from the inner select.
 
 ```SQL
 SELECT 
@@ -443,3 +446,127 @@ MATCH {
   }
 RETURN ancestor  
 ```
+
+## Best practices
+
+A query can involve multiple multiple operations, based on the domain model and the use case. Some of them, like projection and aggregation, can easily be described with a SELECT statement, others, like pattern matching and deep traversal, are better described with a MATCH statement.
+
+SELECT and MATCH statements should be used together (eg. subqueries), giving each statement the right responsibilities. Here we summarize some good practices:
+- filtering based on record attributes for a single class is a trivial operation with both a SELECT or a MATCH statement, eg. finding all people whose name is 'John' can be written this way:
+```sql
+SELECT from Person where name = 'John'
+```
+or
+```sql
+MATCH {class: Person, as: person, where: (name = 'John')} RETURN preson
+```
+
+The efficiency is the same, both queries will use an index. With a select you will obtain expanded records, with a MATCH you will only obtain RIDs.
+
+- filtering based on record attributes of connected elements (eg. neighbor vertices) is sometimes tricky using SELECT, while with MATCH it is a simple operation.
+
+eg. find all people living in Rome and having a friend called 'John'. You can write this query in three different ways:
+
+```sql
+SELECT from Person where both('Friend').name contains 'John' and out('LivesIn').name contains 'Rome'
+```
+
+```sql
+SELECT FROM (SELECT both('Friend') from Person where name 'John') where out('LivesIn').name contains 'Rome'
+```
+
+```sql
+SELECT FROM (SELECT in('LivesIn') from City where name = 'Rome') where both('Friend').name contains 'John'
+```
+
+The first version is more readable, but it will not use indices, so it's the less optimal in terms of execution time.
+The second and third versions will be able to use an index if it exists (on Person.name or City.name, both in the subquery), but they are much trickier to read. Which index is used depends only on the way you write the query, eg. if you only have an index on City.name (but not on Person.name), the second version will use no indexes.
+
+With a MATCH statement, the query will become
+
+```sql
+MATCH 
+  {
+	class: Person, 
+	where: (name = 'John')
+  }.both("Friend"){
+	as: result
+  }.out('LivesIn'){
+	class: City, 
+	where: (name = 'Rome')
+  }
+RETURN result
+```
+
+The query executor will optimize the query for you, choosing indexes when they exist. 
+
+Moreover, the query becomes much more readable, especially in complex cases (multiple nested SELECT).
+
+- TRAVERSE statements are very limited, you should use MATCH instead:
+
+A simple statement like
+```sql
+TRAVERSE out('Friend') from (SELECT from Person where name = 'John') while $depth < 3
+```
+
+can be written as
+```sql
+MATCH 
+  {
+	class: Person, 
+	where: (name = 'John')
+  }.both("Friend"){
+	as: friend,
+	while: ($depth < 3)
+  }
+RETURN friend
+```
+
+Now let's consider to have a 'since' date property on the 'Friend' edge and you want to traverse the relationship only for edges where 'since' is greater than a certain date. With a TRAVERSE statement it would be
+
+```sql
+TRAVERSE bothE('Friend')[since > date('2012-07-02', 'yyyy-MM-dd')].bothV() from (SELECT from Person where name = 'John') while $depth < 3
+```
+
+unfortunately this statement DOESN'T WORK in current release. You can express it with a MATCH statement:
+
+```sql
+MATCH 
+  {
+	class: Person, 
+	where: (name = 'John')
+  }.(
+  	bothE("Friend"){
+  		where: (since > date('2012-07-02', 'yyyy-MM-dd'))
+  	}.bothV()
+  ){
+	as: friend,
+	while: ($depth < 3)
+  }
+RETURN friend
+```
+
+- Projections and grouping operations are better expressed with a SELECT statement, so if you need to filter and do projection/aggregation in the same query, you can use SELECT and MATCH in the same statement.
+
+This is particularly important when you expect a result that contains attributes from different connected records (cartesian product), eg. retrieve people names, their friends names and the date since when they are friends:
+
+```
+SELECT person.name as name, friendship.since as since, friend.name as friend
+FROM (
+	MATCH
+	  {
+	  	class: Person,
+	  	as: person
+	  }.bothE('Friend'){
+	  	as: friendship
+	  }.bothV(){
+	  	as: friend,
+	  	where: ($matched.person != $currentMatch)
+	  }
+	RETURN person, friendship, friend
+)
+```
+
+
+
+
