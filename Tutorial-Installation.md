@@ -42,6 +42,12 @@ $ cd orientdb
 $ ant clean install
 ```
 
+In this tutorial, we use a sample database called *GratefulDeadConcerts*. Run the following command to have the *GratefulDeadConcerts* database installed with Apache Ant:
+
+``` console
+$ ant clean install -Dorientdb.test.env=ci
+```
+
 After the compilation, all the binaries are placed under the `../releases/` directory.
 
 #### Change Permissions
