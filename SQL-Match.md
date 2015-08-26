@@ -33,7 +33,7 @@ LIMIT <number>
 - **maxDepth**: the maximum depth for this single path
 - **return** ```<alias> [, <alias>]*```: specifies the elements in the pattern that have to be returned. 
 Can be one or more aliases defined in the ```as``` block, ```$matches``` to indicate all the defined alias, 
-```$paths``` to indicate full traversed paths. See also [context variables](SQL-Match.md#context-variables)
+```$paths``` to indicate full traversed paths. 
 
 ### BNF
 ```
