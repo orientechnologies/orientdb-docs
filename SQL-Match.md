@@ -280,8 +280,8 @@ The same, with two match expressions:
     where: (name = 'John' and surname = 'Doe')
   }.both('Friend'){
     as: friend
-  },
-  
+  }
+  ,
   {
     class: Person, 
     where: (name = 'Jenny')
