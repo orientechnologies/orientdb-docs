@@ -224,7 +224,7 @@ in this case, the condition ```($depth < 6)``` refers to six times traversing th
 
 Try it with regular edges ;-)
 
-**multiple paths: friends of my friends who are also my friends**
+**Multiple paths: friends of my friends who are also my friends**
 
 ```SQL
   MATCH 
@@ -246,8 +246,12 @@ Try it with regular edges ;-)
 | #12:0  | #12:1          |
 | #12:0  | #12:2          |
 
+In this case our MATCH statement is made of two match expressions, the first one matches friends of friends, the second one matches direct friends.
+These two expressions share common aliases (person and friend).
 
-**common friends**
+To match the whole statement, a result has to match both match expressions, where the alias values for the first expression have to be the same as for the second one.
+
+**Common friends**
 
 Find common friends of John and Jenny
 
