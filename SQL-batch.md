@@ -5,7 +5,7 @@ OrientDB allows execution of arbitrary scripts written in Javascript or any scri
 Batch of commands are very useful when you have to execute multiple things at the server side avoiding the network roundtrip for each command.
 
 SQL Batch supports all the OrientDB [SQL commands](SQL.md), plus the following:
-- ```begin```
+- ```begin [isolation <isolation-level>]```, where `<isolation-level>` can be `READ_COMMITTED`, `REPEATABLE_READ`. By default is `READ_COMMITTED`
 - ```commit [retry <retry>]```, where:
  - <retry> is the number of retries in case of concurrent modification exception
 - ```let <variable> = <SQL>```, to assign the result of a SQL command to a variable. To reuse the variable prefix it with the dollar sign $
