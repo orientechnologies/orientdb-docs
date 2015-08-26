@@ -235,10 +235,9 @@ Try it with regular edges ;-)
   }.both('Friend')
    .both('Friend'){
     as: friend
-  },
-  
+  }
+  ,
   { as: person }.both('Friend'){ as: friend }
-  
   RETURN person, friend
 ```
 
