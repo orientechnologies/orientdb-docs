@@ -35,13 +35,6 @@ commit retry 100
 return $edge
 ```
 
-Just plain OrientDB SQL, but with a few new items:
-- *```begin```* -> begins a transaction
-- *```rollback```* -> rollbacks an active transaction
-- *```commit [retry <times>]```* -> commits an active transaction
-- *```let <variable> = <command>```* -> executes a command and assigns it in the context as . That variable can be used in further commands by prefixing it with $
-- *```return <$variable>|<value>|null```* -> returns a value instead of last command result (default)
-
 Note the usage of $account and $city in further SQL commands.
 
 ## Pessimistic transaction
