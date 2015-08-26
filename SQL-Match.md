@@ -4,7 +4,7 @@
 
 Match statements allows to query the db in a declarative way, using pattern matching.
 
-# Syntax 
+## Syntax 
 
 ### Simplified
 ```
@@ -37,23 +37,32 @@ Can be one or more aliases defined in the ```as``` block, ```$matches``` to indi
 
 ### BNF
 ```
-	MatchStatement := ( <MATCH> MatchExpression ( <COMMA> MatchExpression )* <RETURN> Identifier ( <COMMA> Identifier )* ( Limit )? )
+MatchStatement     := ( <MATCH> MatchExpression ( <COMMA> MatchExpression )* <RETURN> Identifier ( <COMMA> Identifier )* ( Limit )? )
 	
-	MatchExpression	:=	( MatchFilter ( ( MatchPathItem | MultiMatchPathItem ) )* )
+MatchExpression	   := ( MatchFilter ( ( MatchPathItem | MultiMatchPathItem ) )* )
 	
-	MatchPathItem	:=	( MethodCall ( MatchFilter )? )
+MatchPathItem	   := ( MethodCall ( MatchFilter )? )
 	
-	MatchPathItemFirst	:=	( FunctionCall ( MatchFilter )? )
+MatchPathItemFirst := ( FunctionCall ( MatchFilter )? )
 	
-	MultiMatchPathItem	:=	( <DOT> <LPAREN> MatchPathItemFirst ( MatchPathItem )* <RPAREN> ( MatchFilter )? )
+MultiMatchPathItem := ( <DOT> <LPAREN> MatchPathItemFirst ( MatchPathItem )* <RPAREN> ( MatchFilter )? )
 	
-	MatchFilter	:=	( <LBRACE> ( MatchFilterItem ( <COMMA> MatchFilterItem )* )? <RBRACE> )
+MatchFilter        := ( <LBRACE> ( MatchFilterItem ( <COMMA> MatchFilterItem )* )? <RBRACE> )
 	
-	MatchFilterItem	:=	( ( <CLASS> <COLON> Expression )  | ( <AS> <COLON> Identifier ) | ( <WHERE> <COLON> <LPAREN> ( WhereClause ) <RPAREN> ) | ( <WHILE> <COLON> <LPAREN> ( WhereClause ) <RPAREN> ) | ( <MAXDEPTH> <COLON> Integer ) )
-
+MatchFilterItem    := ( ( <CLASS> <COLON> Expression )  | ( <AS> <COLON> Identifier ) | ( <WHERE> <COLON> <LPAREN> ( WhereClause ) <RPAREN> ) | ( <WHILE> <COLON> <LPAREN> ( WhereClause ) <RPAREN> ) | ( <MAXDEPTH> <COLON> Integer ) )
 ```
 
-### Examples
+## Context Variables
+
+MATCH statement uses the following context variables:
+
+- ```$matched```: the current matched record, defined as a record whose attributes are all the aliases (```as```) 
+explicitly defined in the statement. This can be used in ```where``` and ```while``` conditions to refer current partial match, or as a ```RETURN``` value
+- ```$currentMatch```: the current (right) node during match
+- ```$depth```: the traversal depth on a single path item, where a ```while``` condition is defined
+
+
+## Examples
 
 Sample dataset: People
 
@@ -62,7 +71,7 @@ Sample dataset: People
 ![](images/match-example-graph.png)
 
 
-**Get all people whose name is John**
+### Get all people whose name is John
 ```SQL
 MATCH {class: Person, as: people, where: (name = 'John')} RETURN people
 ```
@@ -73,7 +82,7 @@ result:
 | #12:0  |
 | #12:1  |
 
-**Get all people whose name is John and whose surname is Smith**
+### Get all people whose name is John and whose surname is Smith
 ```SQL
 MATCH {class: Person, as: people, where: (name = 'John' and surname = 'Smith')} RETURN people
 ```
@@ -85,7 +94,7 @@ result:
 | #12:1  |
 
 
-**Get all people whose name is John, together with their friends**
+### Get all people whose name is John, together with their friends
 ```SQL
   MATCH {
     class: Person, 
@@ -105,7 +114,7 @@ result:
 | #12:1  | #12:0  |
 | #12:1  | #12:2  |
 
-expanding attributes
+### Expanding attributes
 
 ```SQL
 SELECT 
@@ -131,7 +140,7 @@ FROM (
 | John   | Smith    | John       | Doe           |
 | John   | Smith    | Jenny      | Smith         |
 
-**Friends of friends**
+### Friends of friends
 
 ```SQL
   MATCH {
@@ -152,7 +161,7 @@ FROM (
 | #12:0  | #12:3          |
 | #12:0  | #12:4          |
 
-exclude myself
+### Exclude myself
 
 ```SQL
   MATCH {
@@ -174,7 +183,8 @@ exclude myself
 | #12:0  | #12:3          |
 | #12:0  | #12:4          |
 
-**Friends of friends, until level 6**
+### Friends of friends, until level 6
+
 ```SQL
   MATCH {
     class: Person, 
@@ -195,8 +205,10 @@ exclude myself
 | #12:0  | #12:3          |
 | #12:0  | #12:4          |
 
-**nested paths: friends until depth 6, since a date (suppose this date is on the "Friend" edge)**
+### Nested paths: friends until depth 6, since a date
 
+ Suppose this date is on the "Friend" edge.
+ 
 ```SQL
   MATCH {
     class: Person, 
@@ -213,7 +225,8 @@ exclude myself
   RETURN person, friend
 ```
 
-in this case, the condition ```($depth < 6)``` refers to six times traversing the block 
+In this case, the condition ```($depth < 6)``` refers to six times traversing the block:
+
 ```sql
 (
       bothE('Friend'){
@@ -222,9 +235,7 @@ in this case, the condition ```($depth < 6)``` refers to six times traversing th
   )
 ```
 
-Try it with regular edges ;-)
-
-**Multiple paths: friends of my friends who are also my friends**
+### Multiple paths: friends of my friends who are also my friends
 
 ```SQL
   MATCH 
@@ -251,9 +262,9 @@ These two expressions share common aliases (person and friend).
 
 To match the whole statement, a result has to match both match expressions, where the alias values for the first expression have to be the same as for the second one.
 
-**Common friends**
+### Common friends
 
-Find common friends of John and Jenny
+Find common friends of John and Jenny.
 
 ```SQL
   MATCH 
@@ -272,7 +283,6 @@ Find common friends of John and Jenny
 | friend |
 |--------|
 | #12:1  |
-
 
 The same, with two match expressions:
 
@@ -294,7 +304,7 @@ The same, with two match expressions:
   RETURN friend
 ```
 
-**Real use case: manager in an incomplete hierarchy**
+### Real use case: manager in an incomplete hierarchy
 
 Suppose you have a hierarchy of departments as follows:
 
@@ -346,7 +356,6 @@ select expand(manager) from (
 
 ```
 
-
 ### Deep traversal (while condition)
 
 A match path item will act in different ways if you have a ```while``` condition or not.
@@ -357,7 +366,7 @@ Suppose you have the following graph:
 [name='a'] -FriendOf-> [name='b'] -FriendOf-> [name='c']
 ```
 
-The following
+The following statement will return ```b``` only:
 
 ```sql
 MATCH {
@@ -374,7 +383,6 @@ RETURN friend
 | b      |
 
 
-will return ```b``` only.
 This means that the path item ```out("FriendOf")``` will be traversed exactly once and only the result of that 
 traversal will be returned
 
@@ -395,12 +403,13 @@ RETURN friend
 | a      |
 | b      |
 
-the query will return both ```a``` and ```b```.
+The query will return both ```a``` and ```b```.
 
 If you have a ```while``` condition on a match path item, this item will be evaluated **zero to N times**,
 that means that **also the starting node** (```a``` in this case) **will be returned** as the result of zero traversal.
 
 To exclude the starting point, you have to add a ```where``` condition, like following:
+
 ```sql
 MATCH {
     class: Person,
@@ -416,13 +425,13 @@ RETURN friend
 The general rule is the following:
 - ```while``` condition defines if next traversal has to be executed (it is evaluated also at level zero, on the origin node)
 - ```where``` condition defines if the current element (the origin node at the zero iteration, the right node on iteration > 0) 
-has to be returned as a result of the traversal
+Has to be returned as a result of the traversal
 
 An example to understand: suppose you have a genealogical tree and you are interested in having a person, his grandfather,
 the gradnfather of this grandfather and so on; so saying that the person is at level zero, his parents are at level 1, 
 his grandparents are at level 2 and so on, you are interested in all ancestors at even level (level % 2 == 0)
 
-This query does the trick
+This query does the trick:
 
 ```sql
 MATCH {
@@ -435,14 +444,3 @@ MATCH {
   }
 RETURN ancestor  
 ```
-
-
-
-
-### Context Variables
-
-- ```$matched```: the current matched record, defined as a record whose attributes are all the aliases (```as```) 
-explicitly defined in the statement. This can be used in ```where``` and ```while``` conditions to refer current partial match, 
-or as a ```RETURN``` value
-- ```$currentMatch``` the current (right) node during match
-- ```$depth``` the traversal depth on a single path item, where a ```while``` condition is defined
