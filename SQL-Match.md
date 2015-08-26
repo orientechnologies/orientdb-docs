@@ -29,7 +29,7 @@ LIMIT <number>
 - **alias**: alias for a node of the pattern
 - **whereCondition**: filter condition (a normal WHERE contition supported in SQL) to match a node in the pattern. Here you can also  use $currentMatch and $matched [context variables](SQL-Match.md#context-variables). 
 - **functionName**: a graph function representing a connection between two nodes (eg. ```out(), in(), outE(), inE()...```)
-- **whileCondition**: a condition (a normal WHERE contition supported in SQL) that has to be met to allow the traversal of this path. Here you can also  use $currentMatch and $matched [context variables](SQL-Match.md#context-variables). Defining a While condition allows deep traversal and slightly changes the behavior of a match execution, see [below](SQL-Match.md#deep-traversal-while-condition) for details.
+- **whileCondition**: a condition (a normal WHERE contition supported in SQL) that has to be met to allow the traversal of this path. Here you can also  use $currentMatch, $matched and $depth [context variables](SQL-Match.md#context-variables). Defining a While condition allows deep traversal and slightly changes the behavior of a match execution, see [below](SQL-Match.md#deep-traversal-while-condition) for details.
 - **maxDepth**: the maximum depth for this single path
 - **return** ```<alias> [, <alias>]*```: specifies the elements in the pattern that have to be returned. Can be one or more aliases defined in the ```as``` block, ```$matches``` to indicate all the defined alias, 
 ```$paths``` to indicate full traversed paths. 
