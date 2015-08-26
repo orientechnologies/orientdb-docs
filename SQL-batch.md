@@ -9,7 +9,7 @@ SQL Batch supports all the OrientDB [SQL commands](SQL.md), plus the following:
 - ```commit [retry <retry>]```, where:
  - <retry> is the number of retries in case of concurrent modification exception
 - ```let <variable> = <SQL>```, to assign the result of a SQL command to a variable. To reuse the variable prefix it with the dollar sign $
-- ```sleep <ms>```, put the batch in wait for <ms> milliseconds.
+- ```sleep <ms>```, put the batch in wait for `<ms>` milliseconds.
 - ```console.log <text>```, Log a message in the console. Context variables can be used with `${<variable>}`. Since 2.2.
 - ```console.error <text>```, Write a message in the console's standard output. Context variables can be used with `${<variable>}`. Since 2.2.
 - ```console.output <text>```, Write a message in the console's standard error. Context variables can be used with `${<variable>}`. Since 2.2.
