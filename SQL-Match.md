@@ -31,8 +31,7 @@ LIMIT <number>
 - **functionName**: a graph function representing a connection between two nodes (eg. ```out(), in(), outE(), inE()...```)
 - **whileCondition**: a condition (a normal WHERE contition supported in SQL) that has to be met to allow the traversal of this path. Here you can also  use $currentMatch and $matched [context variables](SQL-Match.md#context-variables). Defining a While condition allows deep traversal and slightly changes the behavior of a match execution, see [below](SQL-Match.md#deep-traversal-while-condition) for details.
 - **maxDepth**: the maximum depth for this single path
-- **return** ```<alias> [, <alias>]*```: specifies the elements in the pattern that have to be returned. 
-Can be one or more aliases defined in the ```as``` block, ```$matches``` to indicate all the defined alias, 
+- **return** ```<alias> [, <alias>]*```: specifies the elements in the pattern that have to be returned. Can be one or more aliases defined in the ```as``` block, ```$matches``` to indicate all the defined alias, 
 ```$paths``` to indicate full traversed paths. 
 
 ### BNF
@@ -313,28 +312,28 @@ Suppose you have a hierarchy of departments as follows:
           (employees in department)    
                                        
                                        
-                [a]0                   
-                 (p1)                  
+                [m0]0                   
+                 (e1)                  
                  /   \                 
                 /     \                
                /       \               
-           [b]1         2[d]           
-          (p2, p3)     (p4, p5)        
+           [m1]1        [m2]2
+          (e2, e3)     (e4, e5)        
              / \         / \           
             3   4       5   6          
-          (p6) (p7)   (p8)  (p9)       
+          (e6) (e7)   (e8)  (e9)       
           /  \                         
-      [c]7     8                       
-      (p10)   (p11)                    
+      [m3]7    8                       
+      (e10)   (e11)                    
        /                               
       9                                
-  (p12, p13)                         
+  (e12, e13)                         
 ```
 
 Short description:
-- Department 0 is the company itself, "a" is the CEO
-- p10 works at department 7, his manager is "c"
-- p12 works at department 9, this department has no direct manager, so p12's manager is c (the upper manager)
+- Department 0 is the company itself, manager 0 ("m0") is the CEO
+- e10 works at department 7, his manager is "m3"
+- e12 works at department 9, this department has no direct manager, so e12's manager is "m3" (the upper manager)
 
 
 To find the manager of a person:
