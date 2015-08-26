@@ -299,32 +299,33 @@ The same, with two match expressions:
 Suppose you have a hierarchy of departments as follows:
 
 ```
-    ______ [manager] department _______
-    _____ (employees in department)____
-    ___________________________________
-    ___________________________________
-    ____________[a]0___________________
-    _____________(p1)__________________
-    _____________/___\_________________
-    ____________/_____\________________
-    ___________/_______\_______________
-    _______[b]1_________2[d]___________
-    ______(p2, p3)_____(p4, p5)________
-    _________/_\_________/_\___________
-    ________3___4_______5___6__________
-    ______(p6)_(p7)___(p8)__(p9)_______
-    ______/__\_________________________
-    __[c]7_____8_______________________
-    __(p10)___(p11)____________________
-    ___/_______________________________
-    __9________________________________
-    (p12, p13)_________________________
-
-short description:
-Department 0 is the company itself, "a" is the CEO
-p10 works at department 7, his manager is "c"
-p12 works at department 9, this department has no direct manager, so p12's manager is c (the upper manager)
+           [manager] department        
+          (employees in department)    
+                                       
+                                       
+                [a]0                   
+                 (p1)                  
+                 /   \                 
+                /     \                
+               /       \               
+           [b]1         2[d]           
+          (p2, p3)     (p4, p5)        
+             / \         / \           
+            3   4       5   6          
+          (p6) (p7)   (p8)  (p9)       
+          /  \                         
+      [c]7     8                       
+      (p10)   (p11)                    
+       /                               
+      9                                
+  (p12, p13)                         
 ```
+
+Short description:
+- Department 0 is the company itself, "a" is the CEO
+- p10 works at department 7, his manager is "c"
+- p12 works at department 9, this department has no direct manager, so p12's manager is c (the upper manager)
+
 
 To find the manager of a person:
 
