@@ -161,7 +161,7 @@ Contains the exported records with metadata (prefixed by @) and fields.
 
 |Parameter|Description|JSON Type|
 |---------|-----------|---------|
-|record-type|Record type: d = document, b = binary, f = flat|String|
+|record-type|Record type: d = document, b = binary|String|
 |record-id|[RecordID](Concepts.md#recordid) in the format <code>#&lt;cluster-id&gt;:&lt;cluster-position&gt;</code>|String|
 |record-version|Record version from 0 to 2,147,483,647|Integer|
 |record-class|Record class name|String|
@@ -212,7 +212,6 @@ Contains the exported records with metadata (prefixed by @) and fields.
     {"name": "ouser", "id": 4, "type": "PHYSICAL"},
     {"name": "orids", "id": 5, "type": "PHYSICAL"},
     {"name": "csv", "id": 6, "type": "PHYSICAL"},
-    {"name": "flat", "id": 7, "type": "PHYSICAL"},
     {"name": "binary", "id": 8, "type": "PHYSICAL"},
     {"name": "account", "id": 9, "type": "PHYSICAL"},
     {"name": "company", "id": 10, "type": "PHYSICAL"},
