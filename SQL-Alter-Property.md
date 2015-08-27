@@ -18,9 +18,17 @@ Where:
 Supported attribute names are:
 - **LINKEDCLASS**, the linked class name. Accepts a string as value. NULL to remove it
 - **LINKEDTYPE**, the linked type name between those supported:[Types](Types.md). Accepts a string as value. NULL to remove it
-- **MIN**, the minimum value as constraint. Accepts strings, numbers or dates as value. NULL to remove it
+- **MIN**, the minimum value as constraint. NULL to remove it. Accepts strings, numbers or dates as value depending on the type:
+ - `String` set the minimum length of the string
+ - `Numbers` set the minimum value for the number
+ - `Date` set the minimum date accepted
+ - `Multi-Value` (List, Set, Maps) set the minimum number of entries
 - **MANDATORY**, true if the property is mandatory. Accepts "true" or "false"
-- **MAX**, the maximum value as constraint. Accepts strings, numbers or dates as value. NULL to remove it
+- **MAX**, the maximum value as constraint. NULL to remove it. Accepts strings, numbers or dates as value depending on the type:
+ - `String` set the maximum length of the string
+ - `Numbers` set the maximum value for the number
+ - `Date` set the maximum date accepted
+ - `Multi-Value` (List, Set, Maps) set the maximum number of entries
 - **NAME**, the property name. Accepts a string as value
 - **NOTNULL**, the property can't be null. Accepts "true" or "false"
 - **REGEXP** the regular expression as constraint. Accepts a string as value. NULL to remove it
