@@ -203,7 +203,7 @@ order.createProperty("items", OType.EMBEDDEDLIST, orderItem);
 
 ### Constraints
 
-OrientDB supports a number of constrains for each field:
+OrientDB supports a number of constrains for each field. For more information look at [SQL Alter Property command](SQL-Alter-Property.md):
 
 - **Minimum value**, accepts a string because works also for date ranges `setMin()`
 - **Maximum value**, accepts a string because works also for date ranges `setMax()`
