@@ -130,7 +130,7 @@ There are also special variables used by ETL process:
 
 ### Run-time configuration
 
-In ETL JSON file you can define variable that will be resolved at run-time with system properties. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+In ETL JSON file you can define variable that will be resolved at run-time by passing them at startup. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
 ```
-$ ./oetl.sh config-dbpedia.json -DdatabaseURL=plocal:/temp/mydb
+$ ./oetl.sh config-dbpedia.json -databaseURL=plocal:/temp/mydb
 ```
