@@ -43,6 +43,7 @@ OrientDB supports SQL as a query language with some differences compared with SQ
 If you want learn SQL, there are many online courses such as:
 - [Online course Introduction to Databases by Jennifer Widom from Stanford university](https://www.coursera.org/course/db)
 - [Introduction to SQL at W3 Schools](http://www.w3schools.com/sql/sql_intro.asp)
+- [Beginner guide to SQL](https://blog.udemy.com/beginners-guide-to-sql/)
 - [SQLCourse.com](http://www.sqlcourse2.com/intro2.html)
 - [YouTube channel Basic SQL Training by Joey Blue](http://www.youtube.com/playlist?list=PLD20298E653A970F8)
 
