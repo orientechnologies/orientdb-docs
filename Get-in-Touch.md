@@ -18,7 +18,7 @@ The best Web Chat, where we have an open channel. Use this is you have a questio
 We're big fans of IRC here at OrientDB. We have a #orientdb channel on Freenode - stop by and say hi, you can even use [Freenode's webchat service](http://webchat.freenode.net/) so don't need to install anything to access it.
 
 ## Twitter
-[@orientechno](https://twitter.com/orientechno)
+[@orientdb](https://twitter.com/orientdb)
 
 Follow and chat to us on Twitter.
 
@@ -30,6 +30,6 @@ If you spot a bug, then please raise an issue in our main GitHub project oriente
 If you want to brainstorm a potential new feature, then the OrientDB Google Group (see above) is probably a better place to start.
 
 ## Email
-[info@orientechnologies.com](mailto:info@orientechnologies.com)
+[info@orientdb.com](mailto:info@orientdb.com)
 
 If you want more information about Commercial [Support](http://www.orientechnologies.com/support/), [Consultancy](http://www.orientechnologies.com/consulting/) or [Training](http://www.orientechnologies.com/training/), email us.
