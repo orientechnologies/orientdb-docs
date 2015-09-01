@@ -2,6 +2,7 @@
 
 When you run [distributed](Distributed-Architecture.md) on multiple servers, you could face on a drop of performance you got with single node. While it's normal that replication has a cost, there are many ways to improve perormance on distributed configuration:
 - [Use transactions](Distributed-Configuration-Tuning.md#use-transactions)
+- [Asynchronous replication](Distributed-Configuration-Tuning.md#asynchronous-replication)
 
 ## Use transactions
 Even though when you update graphs you should always work in transactions, OrientDB allows also to work outside of them. Common cases are read-only queries or massive and non concurrent operations can be restored in case of failure. When you run on distributed configuration, using transactions helps to reduce latency. This is because the distributed operation happens only at commit time. Distributing one big operation is much efficient than transfering small multiple operations, because the latency.
