@@ -18,8 +18,7 @@ In order to enable Enterprise feature, copy the provided **agent-*.jar** file un
 
 Once installed, the Agent Plugin displays the license information. Example:
 
-    2013-12-18 16:52:43:206 INFO Installing dynamic plugin 'agent-1.6.2.jar'... [OServerPluginManager]
-
+    2013-12-18 16:52:43:206 INFO Installing dynamic plugin 'agent-1.6.2.jar'...
     ************************************************
     *       ORIENTDB  -  ENTERPRISE EDITION        *
     *                                              *
@@ -27,7 +26,6 @@ Once installed, the Agent Plugin displays the license information. Example:
     ************************************************
     * Version...: 1.6.2                            *
     * License...: 2P2tA1EO8oOoS/WkR2/023kdks922JDw *
-    * Expires in: -25 days                         *
     ************************************************
 
 _NOTE: OrientDB Enterprise Plugin and OrientDB Server must be of the same main version. Workbench 1.7.x works against all Agents 2.7.x. If you don't have the right version please write to the Orient Technologies: info@orientechnologies.com._
@@ -39,18 +37,14 @@ Download the right OrientDB Workbench distribution, using the same Agent version
 - Workbench Web Application v. **2.1.0**:
  - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-2.1.0.tar.gz&amp;os=win)
  - MacOSX: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-2.1.0.tar.gz&amp;os=mac)
- - Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-2.1.0.tar.gz&amp;os=win)
+ - Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-2.1.0.tar.gz&amp;os=multi)
 - Workbench Web Application v. **1.7.4**:
- - Windows users: [ZIP](http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/-/-/-/-/-/orientdb-workbench-1.7.4.zip/-/-/multi)
- - MacOSX, Linux, Any Unix like OSs: [TAR.GZ](http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/-/-/-/-/-/orientdb-workbench-1.7.4.tar.gz/-/-/multi)
- - [Help](http://www.orientechnologies.com/enterprise/1.7.4/introduction.html)
-- Workbench Web Application v. **1.6.2**:
- - Windows users: [ZIP](http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/-/-/-/-/-/orientdb-workbench-1.6.2.zip/-/-/multi)
- - MacOSX, Linux, Any Unix like OSs: [TAR.GZ](http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/-/-/-/-/-/orientdb-workbench-1.6.2.tar.gz/-/-/multi)
- - [Help](http://www.orientechnologies.com/enterprise/1.6.2/introduction.html)
-- Workbench Web Application v. **1.6.1**:
- - Windows users: [ZIP](http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/-/-/-/-/-/orientdb-workbench-1.6.1.zip/-/-/multi)
- - MacOSX, Linux, Any Unix like OSs: [TAR.GZ](http://www.orientdb.org/portal/function/portal/download/unknown@unknown.com/-/-/-/-/-/orientdb-workbench-1.6.1.tar.gz/-/-/multi)
+ - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-1.7.4.tar.gz&amp;os=multi)
+ - MacOSX, Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-1.7.4.tar.gz&amp;os=multi)
+ - [Help](http://orientdb.com/docs/enterprise/1.7.4/introduction.html)
+
+
+http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-community-2.1.1.tar.gz&amp;os=mac
 
 ## Install
 Uncompress the Workbench distribution to a local directory. For Windows user it's a **ZIP** file, for all the others is a **TAR.GZ** archive.
