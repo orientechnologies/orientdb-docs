@@ -71,6 +71,6 @@ Once started the Workbench ends with these messages:
 
 Now point your browser to the local server's IP address, port 2491, example: **http://localhost:2491**. This is the login page. Use the default credentials as user "admin" and password "admin" (you can change it once logged in).
 
-![Login page](http://www.orientechnologies.com/enterprise/last/login.png)
+![Login page](http://orientdb.com/enterprise/last/login.png)
 
-For the complete guide goto [Workbench Guide](http://www.orientechnologies.com/enterprise/last/userguide.html).
+For the complete guide goto [Workbench Guide](http://orientdb.com/enterprise/last/userguide.html).
