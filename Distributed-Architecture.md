@@ -16,6 +16,7 @@ OrientDB uses the [Hazelcast Open Source project](http://www.hazelcast.com) to m
 - [Sharding](Distributed-Sharding.md)
 - [Distributed Cache](Distributed-Cache.md)
 - [Tutorial to setup a distributed database](Tutorial-Setup-a-distributed-database.md)
+- [Tuning](Distributed-Configuration-Tuning.md)
 
 ## Server roles
 OrientDB has a multi-master distributed architecture (called also as "master-less") where each server can read and write. Starting from v2.1, OrientDB support the role of "REPLICA", where the server is in read-only mode, accepting only idempotent commands, like Reads and Query. Furthermore when the server joins the distributed cluster as "REPLICA", own record clusters are not created like does the "MASTER" nodes.
