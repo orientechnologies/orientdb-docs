@@ -51,7 +51,7 @@ OrientDB supports different kind of storages and depends by the [Database URL](C
 
 # Working with the GraphDB
 
-Before working with a graph you need an instance of [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class. The constructor gets a [URL](Concepts.md#database_url) that is the location of the database. If the database already exists, it will be opened, otherwise it will be created. In multi-threaded applications use one [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance per thread.
+Before working with a graph you need an instance of [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class. The constructor gets a [URL](Concepts.md#database_url) that is the location of the database. If the database already exists, it will be opened, otherwise it will be created. However a new database can only be created in **plocal** or **memory** mode, not in **remote** mode. In multi-threaded applications use one [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance per thread.
 
 Remember to always close the graph once done using the <code>.shutdown()</code> method.
 
@@ -103,7 +103,7 @@ try{
 
 Surrounding the transaction between a try/catch assures that any errors will rollback the transaction to the previous status for all the involved elements. For more information, look at [Concurrency](Concurrency.md).
 
-_NOTE_: To work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes.
+_NOTE_: To work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes. A non-transactional graph instance created with <code>OrientGraphNoTx graph = factory.getNoTx();</code> is only useful if you don't work with data but want to define the [database schema](Graph-Schema.md) or for [bulk inserts](#using-non-transactional-graphs).
 
 ## Optimistic approach
 OrientDB supports optimistic transactions, so no lock is kept when a transaction is running, but at commit time each graph element version is checked to see if there has been an update by another client. This is the reason why you should write your code to be concurrency-proof by handling the concurrent updating case:
@@ -174,7 +174,7 @@ for (Edge e : graph.getEdges()) {
 }
 ```
 
-NOTE: Starting from OrientDB v1.4.x (until 2.0, where the opposite is true) edges by default are stored as links not as records (i.e. useLightweightEdges=true by default). This is to improve performance. As a consequence, getEdges will only retrieve records of class E.  With useLightweightEdges=true, records of class E are only created under certain circumstances (e.g. if the Edge has properties) otherwise they will be links on the in and out vertices.  If you really want `getEdges()` to return all edges, disable the Lightweight-Edge feature by executing this command once: `alter database custom useLightweightEdges=false`.  This will only take effect for new edges so you'll have to convert the links to actual edges before getEdges will return all edges. For more information look at: https://github.com/orientechnologies/orientdb/wiki/Troubleshooting#why-i-cant-see-all-the-edges.
+NOTE: Starting from OrientDB v1.4.x (until 2.0, where the opposite is true) edges by default are stored as links not as records (i.e. useLightweightEdges=true by default). This is to improve performance. As a consequence, getEdges will only retrieve records of class E.  With useLightweightEdges=true, records of class E are only created under certain circumstances (e.g. if the Edge has properties) otherwise they will be links on the in and out vertices.  If you really want `getEdges()` to return all edges, disable the Lightweight-Edge feature by executing this command once: `alter database custom useLightweightEdges=false`.  This will only take effect for new edges so you'll have to convert the links to actual edges before getEdges will return all edges. For more information look at: [Troubleshooting: Why can't I see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges).
 
 ## Removing a Vertex
 
@@ -233,7 +233,7 @@ props.put("born", "Victoria, TX");
 vertex.setProperties(props);
 ```
 
-### Creating Element and properties all together
+### Creating Element and Properties all together
 
 If you want to create a vertex or an edge while setting the initial properties, the OrientDB Blueprints implementation offers new methods to do it:
 
@@ -255,7 +255,7 @@ These methods are especially useful if you've declared constraints in the schema
 
 ## Using Indices
 
-OrientDB allows execution queries against any field of vertices and edges, indexed and not-indexed. The first rule to speed up queries is to setup indices on the key properties you use in the query. For example, if you have a query that is looking for all the vertices with the name 'OrientDB' you do this:
+OrientDB allows execution of queries against any field of vertices and edges, indexed and not-indexed. The first rule to speed up queries is to setup indices on the key properties you use in the query. For example, if you have a query that is looking for all the vertices with the name 'OrientDB' you do this:
 ```java
 graph.getVertices("name", "OrientDB");
 ```
@@ -275,7 +275,7 @@ You can also have both UNIQUE index against custom types:
 ```java
 graph.createKeyIndex("name", Vertex.class, new Parameter("type", "UNIQUE"), new Parameter("class", "Customer"));
 ```
-To create in index case insensitive us the additional parameter "collate":
+To create a case insensitive index use the additional parameter "collate":
 ```java
 graph.createKeyIndex("name", Vertex.class, new Parameter("type", "UNIQUE"), new Parameter("class", "Customer"),new Parameter("collate", "ci"));
 ```
@@ -294,7 +294,7 @@ For more information about indices look at [Index guide](Indexes.md).
 
 # Using Non-Transactional Graphs
 
-To speed up operations like on massive insertions you can avoid transactions by using a different class than OrientGraph: **OrientGraphNoTx**. In this case each operation is *atomic* and data is updated at each operation. When the method returns, the underlying storage is updated. Use this for bulk inserts and massive operations.
+To speed up operations like on massive insertions you can avoid transactions by using a different class than OrientGraph: **OrientGraphNoTx**. In this case each operation is *atomic* and data is updated at each operation. When the method returns, the underlying storage is updated. Use this for bulk inserts and massive operations or for schema definition.
 
 _NOTE_: Using non-transactional graphs could create corruption in the graph if changes are made in multiple threads at the same time.  So use non-transactional graph instances only for non multi-threaded operations.
 
@@ -307,12 +307,12 @@ Starting from v1.6 OrientDB supports configuration of the graph by setting all t
 |blueprints.orientdb.username	|User name	|admin|
 |blueprints.orientdb.password	|User password	|admin|
 |blueprints.orientdb.saveOriginalIds	|Saves the original element IDs by using the property _id_. This could be useful on import of a graph to preserve original ids.	|false|
-|blueprints.orientdb.keepInMemoryReferences	|Avoids keeping records in memory by using only RIDs|	false|
+|blueprints.orientdb.keepInMemoryReferences	|Avoids keeping records in memory by using only RIDs |false|
 |blueprints.orientdb.useCustomClassesForEdges	|Uses the Edge's label as OrientDB class. If it doesn't exist create it under the hood.	|true|
-|blueprints.orientdb.useCustomClassesForVertex	|Uses Vertex's label as OrientDB class. If it doesn't exist create it under the hood.|	true|
-|blueprints.orientdb.useVertexFieldsForEdgeLabels	|Stores the Edge's relationships in the Vertex by using the Edge's class. This allows using multiple fields and makes faster traversal by edge's label (class).|	true|
+|blueprints.orientdb.useCustomClassesForVertex	|Uses Vertex's label as OrientDB class. If it doesn't exist create it under the hood. |true|
+|blueprints.orientdb.useVertexFieldsForEdgeLabels	|Stores the Edge's relationships in the Vertex by using the Edge's class. This allows using multiple fields and makes faster traversal by edge's label (class). |true|
 |blueprints.orientdb.lightweightEdges	|Uses lightweight edges. This avoids creating a physical document per edge. Documents are created only when the Edges have properties.	|true|
-|blueprints.orientdb.autoStartTx	|Auto starts a transaction as soon as the graph is changed by adding/remote vertices and edges and properties.|	true|
+|blueprints.orientdb.autoStartTx	|Auto starts a transaction as soon as the graph is changed by adding/remote vertices and edges and properties. |true|
 
 # Gremlin usage
 
@@ -463,11 +463,12 @@ The OrientDB Blueprints implementation allows you to execute commands using SQL,
 ### SQL queries
 ```java
 for (Vertex v : (Iterable<Vertex>) graph.command(
-            new OCommandSQL("SELECT EXPAND( out('bough') ) FROM Customer WHERE name = 'Jay'")).execute()) {
+            new OCommandSQL("SELECT EXPAND( out('bought') ) FROM Customer WHERE name = 'Jay'")).execute()) {
     System.out.println("- Bought: " + v);
 }
 ```
 
+It is possible to have parameters in a query using [prepared queries](Document-Database.md#prepared-query).
 
 To execute an asynchronous query:
 ```java
