@@ -47,7 +47,7 @@ database2.save(rec2); // force saving in database2 no matter where the record ca
 In version 2.0.x, method ```activateOnCurrentThread()``` does not exist, you can use ```setCurrentDatabaseInThreadLocal()``` instead.
 
 
-# Get current database
+## Get current database
 
 To get the current database from the [ThreadLocal](http://download.oracle.com/javase/6/docs/api/java/lang/ThreadLocal.html) use:
 
@@ -55,7 +55,7 @@ To get the current database from the [ThreadLocal](http://download.oracle.com/ja
 ODatabaseDocument database = (ODatabaseDocument) ODatabaseRecordThreadLocal.INSTANCE.get();
 ```
 
-# Manual control
+## Manual control
 
 Beware when you reuse database instances from different threads or then a thread handle multiple databases. In this case you can override the current database by calling this manually:
 
@@ -79,7 +79,7 @@ rec2.field("name", "Luke");
 rec2.save();
 ```
 
-# Custom database factory
+## Custom database factory
 
 Since v1.2 Orient provides an interface to manage custom database management in MultiThreading cases:
 
@@ -130,24 +130,40 @@ db1.activateOnCurrentThread();
 ...
 ```
 
-# Multi Version Concurrency Control
+## Multi Version Concurrency Control
 
 If two threads update the same record, then the last one receive the following exception:
 "OConcurrentModificationException: Cannot update record #X:Y in storage 'Z' because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=vA your=vB)"
 
 This is because every time you update a record, the version is incremented by 1. So the second update fails checking the current record version in database is higher than the version contained in the record to update.
 
-To fix this problem you can:
-- if your JVM is the only client is writing to the database then disabling the Level1 cache could be enough: http://code.google.com/p/orient/wiki/Caching#Level_1
-- disable MVCC by setting the {db.mvcc} parameter to false: <code>java -Ddb.mvcc=false</code>
-- If you're using the GraphDB api look at: [concurrency](http://code.google.com/p/orient/wiki/GraphDatabaseRaw#ConcurrencyGraphDB)
+This is an example of code to manage the concurrency properly:
 
-If you want to leave the MVCC and write code concurrency proof:
+### Graph API
+
 ```java
 for( int retry = 0; retry < maxRetries; ++retry ) {
   try{
     // APPLY CHANGES
-    document.field( name, "Luca" );
+    vertex.setProperty( "name", "Luca" );
+    vertex.addEdge( "Buy", product );
+
+    break;
+  } catch( ONeedRetryException e ) {
+    // RELOAD IT TO GET LAST VERSION
+    vertex.reload();
+    product.reload();
+  }
+}
+```
+
+### Document API
+
+```java
+for( int retry = 0; retry < maxRetries; ++retry ) {
+  try{
+    // APPLY CHANGES
+    document.field( "name", "Luca" );
 
     document.save();
     break;
@@ -165,7 +181,7 @@ for( int retry = 0; retry < maxRetries; ++retry ) {
   try{
     // CREATE A NEW ITEM
     ODocument invoiceItem = new ODocument("InvoiceItem");
-    invoiceItem.field( price, 213231 );
+    invoiceItem.field( "price", 213231 );
     invoiceItem.save();
 
     // ADD IT TO THE INVOICE
