@@ -3,8 +3,8 @@
 This guide contains the general tips to optimize your application that use the OrientDB. Below you can find links for the specific guides different per database type used. Look at the specific guides based on the database type you're using:
 
 - [Document Database performance tuning](Performance-Tuning-Document.md)
-- [Graph Database performance tuning](Performance-Tuning-Graph.md) (Deprecated)
 - [Object Database performance tuning](Performance-Tuning-Object.md)
+- [Distributed Configuration tuning](Distributed-Configuration-Tuning.md)
 
 ## Java
 OrientDB is written in Java, so it runs on top of Java Virtual Machine (JVM). OrientDB is compatible with Java 8 and we suggest to use this version to run OrientDB. Java 8 is faster than Java 7 and previous ones.
