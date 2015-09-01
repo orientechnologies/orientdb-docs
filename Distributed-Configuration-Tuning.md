@@ -2,7 +2,10 @@
 
 When you run [distributed](Distributed-Architecture.md) on multiple servers, you could face on a drop of performance you got with single node. While it's normal that replication has a cost, there are many ways to improve perormance on distributed configuration:
 - [Use transactions](Distributed-Configuration-Tuning.md#use-transactions)
-- [Asynchronous replication](Distributed-Configuration-Tuning.md#asynchronous-replication)
+- [Replication vs Sharding](Distributed-Configuration-Tuning.md#replication-vs-sharding)
+- [Scale up on writes](Distributed-Configuration-Tuning.md#scale-up-on-writes)
+- [Scale up on reads](Distributed-Configuration-Tuning.md#scale-up-on-reads)
+- [Replication vs Sharding](Distributed-Configuration-Tuning.md#replication-vs-sharding)
 
 ## Generic advices
 ### Use transactions
