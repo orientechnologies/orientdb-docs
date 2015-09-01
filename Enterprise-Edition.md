@@ -28,7 +28,7 @@ Once installed, the Agent Plugin displays the license information. Example:
     * License...: 2P2tA1EO8oOoS/WkR2/023kdks922JDw *
     ************************************************
 
-_NOTE: OrientDB Enterprise Plugin and OrientDB Server must be of the same main version. Workbench 1.7.x works against all Agents 2.7.x. If you don't have the right version please write to the Orient Technologies: info@orientechnologies.com._
+_NOTE: OrientDB Enterprise Plugin and OrientDB Server must be of the same main version. Workbench 1.7.x works against all Agents 2.0.x. If you don't have the right version please write to the Orient Technologies: info@orientdb.com._
 
 ## OrientDB Enterprise Workbench
 
