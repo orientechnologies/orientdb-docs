@@ -1,4 +1,4 @@
-#OrientDB Manual - version 2.1
+#OrientDB Manual - version 2.1.x
 
 ![image](http://www.orientdb.com/images/orientdb_logo_mid.png)
 
@@ -33,7 +33,7 @@
 ### Quick References
 - [Console](Console-Commands.md)
 - [Studio](Home-page.md) web tool
-- [Workbench](userguide.md) (Enterprise Edition) 
+- [Workbench](http://orientdb.com/enterprise/last/introduction.html) (Enterprise Edition) 
 - [OrientDB Server](DB-Server.md)
 - [Network-Binary-Protocol](Network-Binary-Protocol.md) 
 - [Gephi Graph Analysis Visual tool](Gephi.md)
