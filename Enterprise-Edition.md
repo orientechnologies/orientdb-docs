@@ -1,8 +1,8 @@
 # Enterprise Edition
 
-This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more information look at [OrientDB Enterprise Edition](http://www.orientechnologies.com/enterprise.htm).
+This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more information look at [OrientDB Enterprise Edition](http://orientdb.com/enterprise.htm).
 
-Enterprise Edition is in Beta stage, ask for a Trial by writing to: info@orientechnologies.com.
+Enterprise Edition is in Beta stage, ask for a Trial by writing to: info@orientdb.com.
 
 OrientDB Enterprise Edition is composed by 2 modules:
 - Enterprise **Agent**
@@ -38,12 +38,12 @@ Download the right OrientDB Workbench distribution, using the same Agent version
  - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-2.1.0.tar.gz&os=win)
  - MacOSX: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-2.1.0.tar.gz&os=mac)
  - Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-2.1.0.tar.gz&os=multi)
- - [Help](http://orientdb.com/docs/enterprise/1.7.4/introduction.html)
+ - [Help](http://orientdb.com/enterprise/last/introduction.html)
 - Workbench Web Application v. **1.7.4**:
  - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-1.7.4.tar.gz&os=multi)
  - MacOSX: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-1.7.4.tar.gz&os=mac)
  - Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-1.7.4.tar.gz&os=multi)
- - [Help](http://orientdb.com/docs/enterprise/1.7.4/introduction.html)
+ - [Help](http://orientdb.com/enterprise/1.7.4/introduction.html)
 
 
 ## Install
