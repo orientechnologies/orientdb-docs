@@ -91,7 +91,7 @@ The first operation following the socket-level connection must be one of:
 - [Connect to the server](#connect) to work with the OrientDB Server instance
 - [Open a database](#db_open) to open an existing database
 
-In both cases a [Session-Id](#Session-Id) is sent back to the client. The server assigns a unique Session-Id to the client. This value must be used for all further operations against the server. You may open a database after connecting to the server, using the same Session-Id
+In both cases a [Session-Id](#session-id) is sent back to the client. The server assigns a unique Session-Id to the client. This value must be used for all further operations against the server. You may open a database after connecting to the server, using the same Session-Id
 
 ## Session
 The session management supports two modes: stateful and stateless:
@@ -195,7 +195,7 @@ The CSV format is the default for all the versions 0.* and 1.* or for any client
 
 Each request has own format depending of the operation requested. The operation requested is indicated in the first byte:
 - *1 byte* for the operation. See [Operation types](#Operation_types) for the list
-- **4 bytes** for the [Session-Id](#Session-Id) number as Integer
+- **4 bytes** for the [Session-Id](#session-id) number as Integer
 - **N bytes** optional token bytes only present if the REQUEST_CONNECT/REQUEST_DB_OPEN return a token.
 - **N bytes** = message content based on the operation type
 
@@ -267,7 +267,7 @@ Each request has own format depending of the operation requested. The operation 
 
 Every request has a response unless the command supports the asynchronous mode (look at the table above).
 - **1 byte**: Success status of the request if succeeded or failed (0=OK, 1=ERROR)
-- **4 bytes**: [Session-Id](#Session-Id) (Integer)
+- **4 bytes**: [Session-Id](#session-id) (Integer)
 - **N bytes** optional token, is only present for token based session (REQUEST_CONNECT/REQUEST_DB_OPEN return a token) and is usually empty(N=0) is only filled up by the server when renew of an expiring token is required.
 - **N bytes**: Message content depending on the operation requested
 
@@ -276,7 +276,7 @@ Every request has a response unless the command supports the asynchronous mode (
 A push request is a message sent by the server without any request from the client, it has a similar structure of a response and is distinguished using the respose status byte:
 
 - **1 byte**: Success status has value 3 in case of push request
-- **4 bytes**: [Session-Id](#Session-Id) has everytime MIN_INTEGER value (-2^31)	
+- **4 bytes**: [Session-Id](#session-id) has everytime MIN_INTEGER value (-2^31)
 - **1 byte**: Push command id
 - **N bytes**: Message content depending on the push massage, this is written ass a `(content:bytes)` having inside the details of the specific message.
 
@@ -328,7 +328,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 
 ## REQUEST_CONNECT
 
-This is the first operation requested by the client when it needs to work with the server instance. This operation returns the [Session-Id](#Session-Id) of the new client to reuse for all the next calls.
+This is the first operation requested by the client when it needs to work with the server instance. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls.
 
 ```
 Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(user-name:string)(user-password:string)
@@ -357,7 +357,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 
 ## REQUEST_DB_OPEN
 
-This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#Session-Id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
+This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
 
 ```
 Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(database-name:string)(database-type:string)(user-name:string)(user-password:string)
@@ -429,7 +429,7 @@ Response: (result:boolean)
 #### Request
 
 - **database-name** - the name of the target database. *Note* that this was empty before `1.0rc1`.
-- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to be checked for existance. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
 
@@ -587,7 +587,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 Loads a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
 
 ```
-Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
+Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)
 Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-content:bytes)]*]*
 ```
 
@@ -597,7 +597,6 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 - **version** - the version of the record to fetch.
 - **fetch-plan** - the [fetch plan](Fetching-Strategies.md) to use or an empty string.
 - **ignore-cache** - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
-- **load-tombstones** - a flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
 
 #### Response
 
