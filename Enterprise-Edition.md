@@ -35,16 +35,16 @@ _NOTE: OrientDB Enterprise Plugin and OrientDB Server must be of the same main v
 ### Download
 Download the right OrientDB Workbench distribution, using the same Agent version:
 - Workbench Web Application v. **2.1.0**:
- - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-2.1.0.tar.gz&amp;os=win)
- - MacOSX: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-2.1.0.tar.gz&amp;os=mac)
- - Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-2.1.0.tar.gz&amp;os=multi)
+ - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-2.1.0.tar.gz&os=win)
+ - MacOSX: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-2.1.0.tar.gz&os=mac)
+ - Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-2.1.0.tar.gz&os=multi)
+ - [Help](http://orientdb.com/docs/enterprise/1.7.4/introduction.html)
 - Workbench Web Application v. **1.7.4**:
- - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-1.7.4.tar.gz&amp;os=multi)
- - MacOSX, Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-workbench-1.7.4.tar.gz&amp;os=multi)
+ - Windows users: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-1.7.4.tar.gz&os=multi)
+ - MacOSX: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-1.7.4.tar.gz&os=mac)
+ - Linux, Any Unix like OSs: [TAR.GZ](http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-workbench-1.7.4.tar.gz&os=multi)
  - [Help](http://orientdb.com/docs/enterprise/1.7.4/introduction.html)
 
-
-http://orientdb.com/download.php?email=unknown@unknown.com&amp;file=orientdb-community-2.1.1.tar.gz&amp;os=mac
 
 ## Install
 Uncompress the Workbench distribution to a local directory. For Windows user it's a **ZIP** file, for all the others is a **TAR.GZ** archive.
