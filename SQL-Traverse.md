@@ -46,7 +46,6 @@ Traverse command uses the following variables in the context:
 - **$parent**, to access to the parent's context if any. This is useful when the Traverse is called in a sub-query
 - **$current**, current record iterated. To access to the upper level record in nested queries use $parent.$current
 - **$depth**, as the current depth of nesting
-- **$depth**, as the current depth of nesting
 - **$path**, as the string representation of the current path. Example <code>#6:0.in.#5:0#.out</code>. You can also display it with -> <code>select $path from (traverse ** from V)</code>
 - **$stack**, as the List of operation in the stack. Use it to access to the history of the traversal. It's a List<OTraverseAbstractProcess<?>> where process implementations are:
  - **OTraverseRecordSetProcess**, usually the first one it's the base target of traverse
