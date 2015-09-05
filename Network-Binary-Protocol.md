@@ -1,6 +1,6 @@
 # Binary Protocol
 
-Current protocol version for 2.1-SNAPSHOT: **31**. Look at [compatibility](#Compatibility) for retro-compatibility.
+Current protocol version for 2.1.x: **32**. Look at [compatibility](#Compatibility) for retro-compatibility.
 
 # Table of content
 - [Introduction](#introduction)
@@ -731,14 +731,13 @@ Response is different for synchronous and asynchronous request:
  - 'n', means null result
  - 'r', means single record returned
  - 'l', list of records. The format is:
-    - an integer to indicate the collection size
-    - an integer to indicate the collection size
+    - an integer to indicate the collection size. Starting form v32, size can be -1 to stream a resultset. Last item will be null
     - all the records and each entry is typed with a short that can be:
        - '0' a record in the next bytes
        - '-2' no record and is considered as a null record
        - '-3' only a recordId in the next bytes
  - 's', set of records. The format is:
-    - an integer to indicate the collection size
+    - an integer to indicate the collection size. Starting form v32, size can be -1 to stream a resultset. Last item will be null
     - all the records and each entry is typed with a short that can be:
        - '0' a record in the next bytes
        - '-2' no record and is considered as a null record
@@ -1010,6 +1009,8 @@ where:
 
 # History
 
+## Version 32
+Added support for streamable resultset. The change is easy: size = -1 and last item is null.
 
 ## Version 31
 Added new commands to manipulate idexes: REQUEST_INDEX_GET, REQUEST_INDEX_PUT and REQUEST_INDEX_REMOVE.
