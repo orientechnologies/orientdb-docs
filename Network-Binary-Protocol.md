@@ -21,6 +21,7 @@ Current protocol version for 2.1.x: **32**. Look at [compatibility](#Compatibili
 	- [REQUEST_SHUTDOWN](#request_shutdown)
 	- [REQUEST_CONNECT](#request_connect)
 	- [REQUEST_DB_OPEN](#request_db_open)
+	- [REQUEST_DB_REOPEN](#request_db_reopen)
 	- [REQUEST_DB_CREATE](#request_db_create)
 	- [REQUEST_DB_CLOSE](#request_db_close)
 	- [REQUEST_DB_EXIST](#request_db_exist)
@@ -360,7 +361,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
 
 ```
-Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(database-name:string)(database-type:string)(user-name:string)(user-password:string)
+Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(database-name:string)(user-name:string)(user-password:string)
 Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:string)(cluster-id:short)](cluster-config:bytes)(orientdb-release:string)
 ```
 
@@ -373,7 +374,6 @@ Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:str
 - client's **serialization-impl** - the [serialization format](#record-format) required by the client.
 - **token-session** - true if the client wants to use a token-based session, false otherwise.
 - **database-name** - the name of the database to connect to. Example: "demo".
-- **database-type** - the type of the database to connect to. It can be either `document` or `graph` (since version 8). Example: "document".as string, can be 'document' or 'graph' (since version 8).
 - **user-name** - the username of the user on the server. Example: "root".
 - **user-password** - the password of the user on the server. Example: "37aed6392".
 
@@ -385,6 +385,15 @@ Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:str
 - **cluster-name**, **cluster-id** - the name and id of a cluster.
 - **cluster-config** - it's usually null unless running in a server clustered configuration.
 - **orientdb-release** - contains the version of the OrientDB release deployed on the server and optionally the build number. Example: "1.4.0-SNAPSHOT (build 13)".
+
+## REQUEST_DB_REOPEN
+
+Used on new sockets for associate the specific socket with the server side session for the specific client, can be used exclusively with the token authentication
+
+```
+Request:empty 
+Response:(session-id:int)
+```
 
 
 ## REQUEST_DB_CREATE
@@ -1013,6 +1022,12 @@ where:
 **record-content** record content  
 
 # History
+
+## version 33
+
+Removed the token data from error heandling header in case of non token session.
+Removed the db-type from REQUEST_DB_OPEN
+added REQUEST_DB_REOPEN
 
 ## Version 32
 Added support of streamable resultset in case of sync command, added a new result of type 'i' that stream the result in the same way of async result.
