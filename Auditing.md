@@ -11,6 +11,11 @@ REVOKE ALL ON database.cluster.auditinglog TO writer
 REVOKE ALL ON database.cluster.auditinglog TO reader
 ```
 
+## Polymorphism
+OrientDB schema is polymorphic (taken from Object Orientated paradigm). This means that if you have the class "Person" and the 2 classes "Employee" and "Provider" that extend "Person", all the auditing settings on "Person" will be inherited by "Employee" and "Provider" (if the checkbox "polymorphic" is enabled on class "Person"). 
+
+This makes you life easier when you want to profile only certain classes. For example, you could create an abstract class "Profiled" and let all the classes you want to profile to extend it. Starting from v2.1, OrientDB supports multiple inheritance, so it's not a problem extending more classes.
+
 ## Configuration
 To turn on auditing, create the JSON configuration file with name `auditing-config.json` under the database folder. This is the syntax for configuration:
 
