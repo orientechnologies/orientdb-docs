@@ -743,6 +743,11 @@ Response is different for synchronous and asynchronous request:
        - '-2' no record and is considered as a null record
        - '-3' only a recordId in the next bytes
  - 'a', serialized result, a byte[] is sent
+ - 'i', iterable of records
+   - the result records will be streamed, no size as start is given, each entry has a flag at the start(same as **asynch-result-type**)
+     - 0: no record remain to be fetched
+     - 1: a record in the next bytes
+     - 2: a recordin the next bytes to be loaded in client's cache only. It's not part of the result set but
 - **synch-result-content**, can only be a record
 - **pre-fetched-record-size**, as the number of pre-fetched records not directly part of the result set but joined to it by fetching
 - **pre-fetched-record** as the pre-fetched record content
@@ -1010,7 +1015,7 @@ where:
 # History
 
 ## Version 32
-Added support for streamable resultset. The change is easy: size = -1 and last item is null.
+Added support of streamable resultset in case of sync command, added a new result of type 'i' that stream the result in the same way of async result.
 
 ## Version 31
 Added new commands to manipulate idexes: REQUEST_INDEX_GET, REQUEST_INDEX_PUT and REQUEST_INDEX_REMOVE.
@@ -1109,7 +1114,7 @@ Removed double serialization of commands parameters, now the parameters are dire
 
 Current release of OrientDB server supports older client versions.
 - version 33: 100% compatible 2.2-SNAPSHOT
-- version 32: 100% compatible 2.2-SNAPSHOT
+- version 32: 100% compatible 2.1-SNAPSHOT
 - version 31: 100% compatible 2.1-SNAPSHOT
 - version 30: 100% compatible 2.1-SNAPSHOT
 - version 29: 100% compatible 2.1-SNAPSHOT
