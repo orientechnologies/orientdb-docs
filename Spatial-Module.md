@@ -119,7 +119,17 @@ insert into TestLineSTring set name = 'Test2' , location = St_GeomFromText("LINE
 select from TestLineString where location && "LINESTRING(1 2, 4 6)"
 ```
 
+## Spatial Indexes
 
+To speed up spatial search and match condition, spatial operators and functions can use a spatial index if defined to avoid sequential full scan of every records.
+
+The current spatial index implementation is built upon lucene-spatial.
+
+The syntax for creating a spatial index on a geometry field is :
+
+```
+CREATE INDEX <name> ON <class-name> (geometry-field) SPATIAL ENGINE LUCENE
+```
 
 ## Install 
 
