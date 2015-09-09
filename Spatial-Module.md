@@ -20,10 +20,14 @@ OrientDB supports the following Geometry objects :
 
 
 OrientDB stores those objects like embedded documents with special classes.
-The module creates abstract classes that represent each Geometry object, and those classes
-can be used as embedded document in user defined classes to provide geospatial information.
+The module creates abstract classes that represent each Geometry object type, and those classes
+can be embedded in user defined classes to provide geospatial information.
 
-If the extension is loaded in OrientDB you can 
+Each spatial classes (Geometry Collection excluded) comes with a field coordinates that will be used to store the geometry structure.
+The "coordinates" field of a geometry object is composed of one position (in the case of a Point geometry), an array of positions (LineString or MultiPoint geometries), an array of arrays of positions (Polygons, MultiLineStrings), or a multidimensional array of positions (MultiPolygon).
+
+### Example
+
 
 OrientDB follows The Open Geospatial Consortium [OGC](http://www.opengeospatial.org/standards/sfs) for extending SQL to support spatial data.
 OrientDB implements a subset of SQL-MM functions with ST prefix (Spatial Type)
