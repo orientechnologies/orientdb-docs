@@ -26,7 +26,21 @@ can be embedded in user defined classes to provide geospatial information.
 Each spatial classes (Geometry Collection excluded) comes with a field coordinates that will be used to store the geometry structure.
 The "coordinates" field of a geometry object is composed of one position (in the case of a Point geometry), an array of positions (LineString or MultiPoint geometries), an array of arrays of positions (Polygons, MultiLineStrings), or a multidimensional array of positions (MultiPolygon).
 
-### Example
+### Geometry data Example 
+
+Restaurants Domain
+
+```
+create class Restaurant extends V
+create property Restaurant.name STRING
+create property Restaurant.location EMBEDDED Point
+```
+
+To insert restaurants with location
+
+```
+create vertex Restar
+```
 
 
 OrientDB follows The Open Geospatial Consortium [OGC](http://www.opengeospatial.org/standards/sfs) for extending SQL to support spatial data.
