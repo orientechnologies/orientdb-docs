@@ -18,13 +18,14 @@ Represents a source file where to start reading. Files can be text files or comp
 |-----------|-------------|------|-----------|-----------|
 |path|File path|string|true|-|
 |lock|Lock the file while the extraction phase|boolean|false|false|
+|encoding|File encoding|string|false|UTF-8|
 
 
 #### Example
 Extracts from the file "/temp/actor.tar.gz":
 
 ```json
-{ "file": { "path": "/temp/actor.tar.gz", "lock" : true } }
+{ "file": { "path": "/temp/actor.tar.gz", "lock" : true , "encoding" : "UTF-8"} }
 ```
 
 -----
