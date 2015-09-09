@@ -38,6 +38,7 @@ create property Restaurant.location EMBEDDED OPoint
 
 To insert restaurants with location
 
+From SQL
 ```
 insert into  Restaurant set name = 'Dar Poeta', location = {"@class": "OPoint","coordinates" : [12.4684635,41.8914114]}
 ```
@@ -47,6 +48,19 @@ ST_GeomFromText to create the OrientDB geometry object.
 
 ```
 insert into  Restaurant set name = 'Dar Poeta', location = St_GeomFromText("POINT (12.4684635 41.8914114)")
+```
+
+From JAVA
+
+```
+ODocument location = new ODocument("OPoint");
+location.field("coordinates", Arrays.asList(12.4684635, 41.8914114));
+
+ODocument doc = new ODocument("Restaurant");
+doc.field("name","Dar Poeta");
+doc.field("location",location);
+
+doc.save();
 ```
 
 
