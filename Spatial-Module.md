@@ -33,13 +33,13 @@ Restaurants Domain
 ```
 create class Restaurant
 create property Restaurant.name STRING
-create property Restaurant.location EMBEDDED Point
+create property Restaurant.location EMBEDDED OPoint
 ```
 
 To insert restaurants with location
 
 ```
-insert into  Restaurant set name = 'Dar Poeta', location = {"@class": "Point","coordinates" : [12.4684635,41.8914114]}
+insert into  Restaurant set name = 'Dar Poeta', location = {"@class": "OPoint","coordinates" : [12.4684635,41.8914114]}
 ```
 
 
@@ -47,6 +47,26 @@ OrientDB follows The Open Geospatial Consortium [OGC](http://www.opengeospatial.
 OrientDB implements a subset of SQL-MM functions with ST prefix (Spatial Type)
 
 ## Functions
+
+### ST_AsText
+
+Syntax : ST_AsText(geom)
+
+Example
+
+```
+select ST_AsText({"@class": "OPoint","coordinates" : [12.4684635,41.8914114]})
+
+ST_AsText
+----------
+
+```
+
+### ST_GeomFromText
+
+### ST_Within
+
+### ST_Contains
 
 ## Operators
 
