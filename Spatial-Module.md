@@ -64,6 +64,19 @@ POINT (12.4684635 41.8914114)
 
 ### ST_GeomFromText
 
+Syntax : ST_GeomFromText(text)
+
+Example
+
+```
+select ST_GeomFromText("POINT (12.4684635 41.8914114)")
+
+ST_GeomFromText
+----------------------------------------------------------------------------------
+{"@type":"d","@version":0,"@class":"OPoint","coordinates":[12.4684635,41.8914114]}
+
+```
+
 ### ST_Within
 
 ### ST_Contains
