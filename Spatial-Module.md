@@ -1,6 +1,6 @@
 # Spatial Module
 
-(since 2.2) Replace for [Spatial-Index](Spatial-Index.md)
+(since 2.2) Replacement for [Spatial-Index](Spatial-Index.md)
 
 
 OrientDB offers a brand new module to handle geospatial information. 
