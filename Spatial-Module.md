@@ -122,3 +122,16 @@ select from TestLineString where location && "LINESTRING(1 2, 4 6)"
 
 
 ## Install 
+
+### 2.2.0-SNAPSHOT
+
+* Take the latest OrientDB 2.2.0-Snapshot [here](https://oss.sonatype.org/content/repositories/snapshots/com/orientechnologies/orientdb-community/2.2.0-SNAPSHOT/)
+* `git clone git@github.com:orientechnologies/orientdb-lucene.git`
+* enter orientdb-lucene directory
+* ` mvn assembly:assembly` add -DskipTests if you want to skip tests
+* grab the jar orientdb-lucene-2.x.x-snaphost-dist.jar in target directory and copy it into plugins folder of OrientDB distribution
+
+
+### 2.2 GA
+
+This module is part of orientdb-lucene plugin and will be included in OrientDB 2.2 GA
