@@ -101,7 +101,7 @@ Example
 create class TestLineString
 create property TestLineString.location EMBEDDED OLineString
 insert into TestLineSTring set name = 'Test1' , location = St_GeomFromText("LINESTRING(0 0, 3 3)")
-insert into TestLineSTring set name = 'Test1' , location = St_GeomFromText("LINESTRING(0 1, 0 5)")
+insert into TestLineSTring set name = 'Test2' , location = St_GeomFromText("LINESTRING(0 1, 0 5)")
 select from TestLineString where location && "LINESTRING(1 2, 4 6)"
 ```
 
