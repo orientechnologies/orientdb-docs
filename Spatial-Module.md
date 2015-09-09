@@ -31,7 +31,7 @@ The "coordinates" field of a geometry object is composed of one position (in the
 Restaurants Domain
 
 ```
-create class Restaurant extends V
+create class Restaurant
 create property Restaurant.name STRING
 create property Restaurant.location EMBEDDED Point
 ```
@@ -39,7 +39,7 @@ create property Restaurant.location EMBEDDED Point
 To insert restaurants with location
 
 ```
-create vertex Restar
+insert into  Restaurant set name = 'Dar Poeta', location = {"@class": "Point","coordinates" : [12.4684635,41.8914114]}
 ```
 
 
