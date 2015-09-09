@@ -59,7 +59,7 @@ select ST_AsText({"@class": "OPoint","coordinates" : [12.4684635,41.8914114]})
 
 ST_AsText
 ----------
-
+POINT (12.4684635 41.8914114)
 ```
 
 ### ST_GeomFromText
