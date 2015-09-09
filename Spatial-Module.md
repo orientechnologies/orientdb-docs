@@ -24,7 +24,7 @@ The module creates abstract classes that represent each Geometry object type, an
 can be embedded in user defined classes to provide geospatial information.
 
 Each spatial classes (Geometry Collection excluded) comes with a field coordinates that will be used to store the geometry structure.
-The "coordinates" field of a geometry object is composed of one position (in the case of a Point geometry), an array of positions (LineString or MultiPoint geometries), an array of arrays of positions (Polygons, MultiLineStrings), or a multidimensional array of positions (MultiPolygon).
+The "coordinates" field of a geometry object is composed of one position ( Point), an array of positions (LineString or MultiPoint ), an array of arrays of positions (Polygons, MultiLineStrings), or a multidimensional array of positions (MultiPolygon).
 
 ### Geometry data Example 
 
@@ -40,6 +40,13 @@ To insert restaurants with location
 
 ```
 insert into  Restaurant set name = 'Dar Poeta', location = {"@class": "OPoint","coordinates" : [12.4684635,41.8914114]}
+```
+
+or in alternative if you use [WKT](https://it.wikipedia.org/wiki/Well-Known_Text) format you can use the function
+ST_GeomFromText to create the OrientDB geometry object.
+
+```
+insert into  Restaurant set name = 'Dar Poeta', location = St_GeomFromText("POINT (12.4684635 41.8914114)")
 ```
 
 
@@ -84,8 +91,19 @@ ST_GeomFromText
 ## Operators
 
 ### A && B
+
 Overlaps operator. Returns true if bounding box of A overlaps bounding box of B.
 This operator will use an index if available.
+
+Example
+
+```
+create class TestLineString
+create property TestLineString.location EMBEDDED OLineString
+insert into TestLineSTring set name = 'Test1' , location = St_GeomFromText("LINESTRING(0 0, 3 3)")
+insert into TestLineSTring set name = 'Test1' , location = St_GeomFromText("LINESTRING(0 1, 0 5)")
+select from TestLineString where location && "LINESTRING(1 2, 4 6)"
+```
 
 
 
