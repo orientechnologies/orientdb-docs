@@ -5,9 +5,12 @@ Look also at [Replication](Replication.md) and pages.
 The distributed configuration is made of 3 files under the **config/** directory:
 - [orientdb-server-config.xml](Distributed-Configuration.md#orientdb-server-configxml)
 - [default-distributed-db-config.json](Distributed-Configuration.md#default-distributed-db-configjson)
-- [Asynchronous replication mode](Distributed-Configuration.md#asynchronous-replication-mode)
 - [hazelcast.xml](Distributed-Configuration.md#hazelcastxml)
   - [Cloud support](Distributed-Configuration.md#cloud-support)
+
+Main topics:
+- [Asynchronous replication mode](Distributed-Configuration.md#asynchronous-replication-mode)
+
 
 ## orientdb-server-config.xml
 
@@ -38,7 +41,7 @@ Where:
 
 ## default-distributed-db-config.json
 
-This is the JSON file containing the default configuration for distributed databases. The first time a database run in distributed version this file is copied in the database's folder, then every time the cluster shape changes the database specific file is changed.
+This is the JSON file containing the default configuration for distributed databases. The first time a database run in distributed version this file is copied in the database's folder with name `distributed-config.json`. Every time the cluster shape changes the database specific file is changed. To restore distributed database settings, remove the file `distributed-config.json` from the database folder, and the `default-distributed-db-config.json` file will be used.
 
 Default **default-distributed-db-config.json** file content:
 ```json
