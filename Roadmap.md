@@ -46,8 +46,8 @@ Last update: August 25, 2015
 ## Release 3.0
 ```
 - Development started on.: September 2015
-- Expected first RC......: November 2015
-- Expected final GA......: December 2015
+- Expected first RC......: December 2015
+- Expected final GA......: January 2016
 ```
 
 ### Status
