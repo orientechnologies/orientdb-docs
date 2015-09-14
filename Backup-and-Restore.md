@@ -2,7 +2,7 @@
 
 OrientDB supports backup and restore operations like any RDBMS.
 
-Backup executes a complete backup against the currently opened database. The backup file is compressed using the ZIP algorithm. To restore the database use the [Restore Database command](Console-command-Restore.md). Backup is much faster than [Export Database](Console-Command-Export.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands. Backup can be done automatically by enabling the [Automatic-Backup](Automatic-Backup.md) Server plugin.
+Backup executes a complete backup against the currently opened database. The backup file is compressed using the ZIP algorithm. To restore the database use the [Restore Database command](Console-Command-Restore.md). Backup is much faster than [Export Database](Console-Command-Export.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands. Backup can be done automatically by enabling the [Automatic-Backup](Automatic-Backup.md) Server plugin.
 
 ## When to use backup and when export?
 Backup does a consistent copy of database, all further write operations are locked waiting to finish it. The database is in read-only mode during backup operation. If you need an read/write database during backup setup a distributed cluster of nodes.

@@ -4,7 +4,7 @@ Exports the current opened database to a file. The exported file is in [JSON](ht
 
 Export doesn't lock your database, but browses it. This means that concurrent operation can be executed during the export, but the exported database couldn't be the exact replica when you issued the command because concurrent updates could occurs. If you need a snapshot of database at a point in a time, please use [BACKUP](Console-Command-Backup.md).
 
-Once exported, use the [IMPORT](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [BACKUP DATABASE](Console-Command-Backup.md) and [RESTORE DATABASE](Console-command-Restore.md) commands.
+Once exported, use the [IMPORT](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [BACKUP DATABASE](Console-Command-Backup.md) and [RESTORE DATABASE](Console-Command-Restore.md) commands.
 
 >NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore.
 
@@ -108,6 +108,6 @@ try{
 - [Export File Format](Export-Format.md)
 - [IMPORT DATABASE](Console-Command-Import.md)
 - [BACKUP DATABASE](Console-Command-Backup.md)
-- [RESTORE DATABASE](Console-command-Restore.md)
+- [RESTORE DATABASE](Console-Command-Restore.md)
 - [Console Commands](Console-Commands.md)
 - [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)

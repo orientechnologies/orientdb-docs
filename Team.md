@@ -4,7 +4,7 @@ If you want to contribute to the project, follow the [Contributor rules](https:/
 
 # Committers
 
-Committers have reached the <a href="http://orientechnologies.com/certification.htm"><b>Joda Level</b> OrientDB certification</a>. They coordinates updates, patches, new tasks and answer actively to the [Google Group](http://groups.google.com/group/orient-database). They talk in a private Mailing List to take decision all together. All the committers refer to the [Committer's guide](Committers-Guide.md).
+Committers have reached the <a href="http://orientechnologies.com/certification.htm"><b>Joda Level</b> OrientDB certification</a>. They coordinates updates, patches, new tasks and answer actively to the [Google Group](http://groups.google.com/group/orient-database). They talk in a private Mailing List to take decision all together. All the committers refer to the Committer's guide.
 
 ## Luca Garulli
 <img src="http://www.orientechnologies.com/wp-content/uploads/2014/06/LucaGarulli-small.jpg" width="150" align="right" style="padding: 0 0 20px 20px;" />

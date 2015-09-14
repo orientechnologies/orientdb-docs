@@ -1,6 +1,6 @@
 # Full Text
 
-Full Text indexes allow to index text as single word and its radix. Full text indexes are like a search engine on your database. If you are using the Lucene engine, please refer to [Lucene Full-Text index](orientdb-lucene.wiki/Full-Text-Index.md).
+Full Text indexes allow to index text as single word and its radix. Full text indexes are like a search engine on your database. If you are using the Lucene engine, please refer to [Lucene Full-Text index](Full-Text-Index.md).
 
 ### Create a FullText Index
 
