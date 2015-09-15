@@ -8,106 +8,111 @@ The concept of [class](Concepts.md#class) is well known to those who program usi
 
 To list all the configured classes, type the [`CLASSES`](Console-Command-Classes.md) command in the console:
 
-``` sql
-CLASSES
+<pre>
+orientdb> <code class="lang-sql userinput">CLASSES</code>
 
- CLASSES:
- -------------------+-----------+-----------+
-  NAME              | CLUSTERS  | RECORDS   |
- -------------------+-----------+-----------+
-  AbstractPerson    | -1        |         0 |
-  Account           | 11        |      1126 |
-  Actor             | 91        |         3 |
-  Address           | 19        |       166 |
-  Animal            | 17        |         0 |
-  ....              | ....      |      .... |
-  Whiz              | 14        |      1001 |
- -------------------+-----------+-----------+
-  TOTAL                               22775 |
- -------------------------------------------+
-```
+CLASSES:
+-------------------+-----------+-----------+
+ NAME              | CLUSTERS  | RECORDS   |
+-------------------+-----------+-----------+
+ AbstractPerson    | -1        |         0 |
+ Account           | 11        |      1126 |
+ Actor             | 91        |         3 |
+ Address           | 19        |       166 |
+ Animal            | 17        |         0 |
+ ....              | ....      |      .... |
+ Whiz              | 14        |      1001 |
+-------------------+-----------+-----------+
+ TOTAL                               22775 |
+-------------------------------------------+
+</pre>
 
 To create a new class, use the [`CREATE CLASS`](SQL-Create-Class.md) command:
 
-``` sql
-CREATE CLASS Student
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE CLASS Student</code>
 
- Class created successfully. Total classes in database now: 92
-```
+Class created successfully. Total classes in database now: 92
+</pre>
 
 OrientDB allows you to work in a schema-less mode, without defining properties. However, properties are mandatory if you define indexes or constraints. To create a new property use the [`CREATE PROPERTY`](SQL-Create-Property.md) command. Here is an example of creating three properties against the `Student` class:
 
-``` sql
-CREATE PROPERTY Student.name string
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.name string</code>
 
- Property created successfully with id=1
+Property created successfully with id=1
 
-CREATE PROPERTY Student.surname string
 
- Property created successfully with id=2
+orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.surname string</code>
 
-CREATE PROPERTY Student.birthDate date
+Property created successfully with id=2
 
- Property created successfully with id=3
-```
+
+orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.birthDate date</code>
+
+Property created successfully with id=3
+</pre>
 
 To display the class `Student`, use the [`INFO CLASS`](Console-Command-Info-Class.md) command:
 
-``` sql
-INFO CLASS Student
+<pre>
+orientdb> <code class="lang-sql userinput">INFO CLASS Student</code>
 
- Class................: Student
- Default cluster......: student (id=96)
- Supported cluster ids: [96]
- Properties:
- -------------+---------+--------------------+-----------+----------+----------+------+------+
-  NAME        | TYPE    | LINKED TYPE/CLASS  | MANDATORY | READONLY | NOT NULL | MIN  | MAX  |
- -------------+---------+--------------------+-----------+----------+----------+------+------+
-  birthDate   | DATE    | null               | false     | false    | false    |      |      |
-  name        | STRING  | null               | false     | false    | false    |      |      |
-  surname     | STRING  | null               | false     | false    | false    |      |      |
- -------------+---------+--------------------+-----------+----------+----------+------+------+
-```
+Class................: Student
+Default cluster......: student (id=96)
+Supported cluster ids: [96]
+Properties:
+-----------+--------+--------------+-----------+----------+----------+----+-----+
+ NAME      | TYPE   | LINKED TYPE/ | MANDATORY | READONLY | NOT NULL |MIN |MAX |
+           |        | CLASS        |           |          |          |    |     |
+-----------+--------+--------------+-----------+----------+----------+----+-----+
+ birthDate | DATE   | null         | false     | false    | false    |    |     |
+ name      | STRING | null         | false     | false    | false    |    |     |
+ surname   | STRING | null         | false     | false    | false    |    |     |
+-----------+--------+--------------+-----------+----------+----------+----+-----+
+</pre>
 
 To add a constraint, use the [`ALTER CLASS`](SQL-Alter-Class.md) command. For example, let's specify that the `name` field should be at least 3 characters:
 
-``` sql
-ALTER PROPERTY Student.name MIN 3
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MIN 3</code>
 
- Property updated successfully
-```
+Property updated successfully
+</pre>
 
 To see all the records in a class, use the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command:
 
-```sql
-BROWSE CLASS OUser
-```
+<pre>
+orientdb> <code class="lang-sql userinput">BROWSE CLASS OUser</code>
+</pre>
 
 In this case we are listing all of the users of the database. This is not particularly secure. You should further deepen the OrientDB [Security](Security.md) system, but for now `OUser` is a class like any other. For each query the console always shows us the number of the records in the result set and the [record's ID](Concepts.md#RecordID).
 
-```
- ---+------+--------+--------+---------------------------------------------------------------------------+--------+-------+
-  # | @RID | @Class | name   | password                                                                  | status | roles |
- ---+------+--------+--------+---------------------------------------------------------------------------+--------+-------+
-  0 | #5:0 | OUser  | admin  | {SHA-256}8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918 | ACTIVE | [1]   |
-  1 | #5:1 | OUser  | reader | {SHA-256}3D0941964AA3EBDCB00CCEF58B1BB399F9F898465E9886D5AEC7F31090A0FB30 | ACTIVE | [1]   |
-  2 | #5:2 | OUser  | writer | {SHA-256}B93006774CBDD4B299389A03AC3D88C3A76B460D538795BC12718011A909FBA5 | ACTIVE | [1]   |
- ---+------+--------+--------+---------------------------------------------------------------------------+--------+-------+
-```
+<pre>
+orientdb> <code class="lang-sql userinput">BROWSE CLASS OUser</code>
+
+---+------+-------+--------+-----------------------------------+--------+-------+
+ # | @RID | @Class| name   | password                          | status | roles |
+---+------+-------+--------+-----------------------------------+--------+-------+
+ 0 | #5:0 | OUser | admin  | {SHA-256}8C6976E5B5410415BDE90... | ACTIVE | [1]   |
+ 1 | #5:1 | OUser | reader | {SHA-256}3D0941964AA3EBDCB00EF... | ACTIVE | [1]   |
+ 2 | #5:2 | OUser | writer | {SHA-256}B93006774CBDD4B299389... | ACTIVE | [1]   |
+---+------+-------+--------+-----------------------------------+--------+-------+
+</pre>
 
 The first column is a number used as an identifier to display the record's detail. To show the first record in detail, it is necessary to use the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command with the number of the record, in this case 0:
 
-``` sql
-DISPLAY RECORD 0
+<pre>
+orientdb> <code class="lang-sql userinput">DISPLAY RECORD 0</code>
 
- +----------------------------------------------------------------------------------------------+
- | Document - @class: OUser                            @rid: #5:0         @version: 1           |
- +----------------------------------------------------------------------------------------------+
- |             Name | Value                                                                     |
- +----------------------------------------------------------------------------------------------+
- |             name | admin                                                                     |
- |         password | {SHA-256}8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918 |
- |           status | ACTIVE                                                                    |
- |            roles | [#4:0=#4:0]                                                               |
- +----------------------------------------------------------------------------------------------+
-```
+------------------------------------------------------------------------------+
+ Document - @class: OUser                      @rid: #5:0      @version: 1    |
+----------+-------------------------------------------------------------------+
+     Name | Value                                                             |
+----------+-------------------------------------------------------------------+
+     name | admin                                                             |
+ password | {SHA-256}8C6976E5B5410415BDE908BD4DEE15DFB167A9C873F8A81F6F2AB... |
+   status | ACTIVE                                                            |
+    roles | [#4:0=#4:0]                                                       |
+----------+-------------------------------------------------------------------+
+</pre>

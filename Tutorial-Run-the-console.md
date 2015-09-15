@@ -4,31 +4,31 @@ OrientDB provides a command line interface. It can be used to connect to and wor
 
 You can start the command line interface by executing `console.sh` (or `console.bat` on Windows) located in the `bin/` directory:
 
-``` console
+```sh
 $ cd bin
 $ ./console.sh
 ```
 
 You should now see a welcome message:
 
-```
+<pre>
 OrientDB console v.1.6 www.orientechnologies.com
 Type 'HELP' to display all the commands supported.
 
-orientdb>
-```
+orientdb&gt;
+</pre>
 
 Type the "help" or "?" command to see all available console commands:
 
-``` sql
-HELP
+<pre>
+orientdb> <code class="lang-sql userinput">HELP</code>
 
- AVAILABLE COMMANDS:
-  * alter class <command-text>    Alter a class in the database schema
-  ...
-  * help                          Print this help
-  * exit                          Close the console
-```
+AVAILABLE COMMANDS:
+ * alter class <command-text>    Alter a class in the database schema
+ ...
+ * help                          Print this help
+ * exit                          Close the console
+</pre>
 
 ### Connecting to server instance
 
@@ -36,28 +36,28 @@ Some console commands such as `list databases` or `create database` can be run w
 
 If you have the required credentials, you should now be able to connect using the following command:
 
-```
-CONNECT remote:localhost root password
+<pre>
+orientdb> <code class="lang-sql userinput">CONNECT remote:localhost root password</code>
 
- Connecting to remote Server instance [remote:localhost] with user 'root'...OK
-```
+Connecting to remote Server instance [remote:localhost] with user 'root'...OK
+</pre>
 
 Next, you can (for example) list databases using the command:
 
-```
-LIST DATABASES
+<pre>
+orientdb> <code class="lang-sql userinput">LIST DATABASES</code>
 
- Found 1 databases:
-  * GratefulDeadConcerts (plocal)
-```
+Found 1 databases:
+* GratefulDeadConcerts (plocal)
+ </pre>
 
 To connect to another database we can again use the `connect` command from the console and specify the server URL, username, and password. By default each database has an "admin" user with password "admin" ([change the default password](Security.md#work-with-users) on your real database). To connect to the *GratefulDeadConcerts* database on the local server execute the following:
 
-```
-CONNECT remote:localhost/GratefulDeadConcerts admin admin
+<pre>
+orientdb> <code class="lang-sql userinput">CONNECT remote:localhost/GratefulDeadConcerts admin admin</code>
 
- Connecting to database [remote:localhost/GratefulDeadConcerts] with user 'admin'...OK
-```
+Connecting to database [remote:localhost/GratefulDeadConcerts] with user 'admin'...OK
+</pre>
 
 Let's analyze the URL we have used: `remote:localhost/GratefulDeadConcerts`. The first part is the protocol, "remote" in this case, which contacts the server using the TCP/IP protocol. "localhost" is the host name or IP address where the server resides; in this case it is on the same machine. "GratefulDeadConcerts" is the name of the database to which we want to connect.
 

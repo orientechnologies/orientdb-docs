@@ -6,9 +6,9 @@ Most NoSQL products have a custom query language. OrientDB focuses on standards 
 
 To start, let's write a query that returns the same result as the previous `BROWSE CLUSTER OUser` and `BROWSE CLASS OUser`:
 
-```sql
-SELECT FROM OUser
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM OUser</code>
+</pre>
 
 Starting from this simple query, we can notice 2 interesting things:
 
@@ -23,37 +23,37 @@ The target can also be:
 
 Similar to standard SQL, OrientDB supports WHERE conditions to filter the returning records by specifying one or more conditions. For example:
 
-```sql
-SELECT FROM OUser WHERE name LIKE 'l%'
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM OUser WHERE name LIKE 'l%'</code>
+</pre>
 
 Returns all OUser records where the name starts with 'l'. For more information, look at all the supported operators and functions: [WHERE](SQL-Where.md).
 
 OrientDB also supports the `ORDER BY` clause to order the result set by one or more fields. For example:
 
-```sql
-SELECT FROM Employee WHERE city = 'Rome' ORDER BY surname ASC, name ASC
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE city='Rome' ORDER BY surname ASC, name ASC</code>
+</pre>
 
 This will return all of the Employees who live in Rome, ordered by surname and name in ascending order. You can also use the `GROUP BY` clause to group results. For example:
 
-```sql
-SELECT SUM(salary) FROM Employee WHERE age < 40 GROUP BY job
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT SUM(salary) FROM Employee WHERE age < 40 GROUP BY job</code>
+</pre>
 
 This returns the sum of the salaries of all the employees with age under 40 grouped by job type. To limit the result set you can use the `LIMIT` keyword. For example, to limit the result set to maximum of 20 items:
 
-```sql
-SELECT FROM Employee WHERE gender = 'male' LIMIT 20
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' LIMIT 20</code>
+</pre>
 
 Thanks to the SKIP keyword you can easily manage pagination. Use SKIP to pass over records from the result set. For example, to divide the result set in 3 pages you could do something like:
 
-```sql
-SELECT FROM Employee WHERE gender = 'male' LIMIT 20
-SELECT FROM Employee WHERE gender = 'male' SKIP 20 LIMIT 20
-SELECT FROM Employee WHERE gender = 'male' SKIP 40 LIMIT 20
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' LIMIT 20</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' SKIP 20 LIMIT 20</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' SKIP 40 LIMIT 20</code>
+</pre>
 
 Now that we have the basic skills to execute queries, let's discuss how to manage relationships.
 
@@ -62,41 +62,44 @@ Now that we have the basic skills to execute queries, let's discuss how to manag
 
 OrientDB supports ANSI-92 syntax:
 
-```sql
-INSERT INTO Employee (name, surname, gender) VALUES ('Jay', 'Miner', 'M')
-```
+<pre>
+orientdb> <code class="lang-sql userinput">INSERT INTO Employee(name, surname, gender)
+          VALUES('Jay', 'Miner', 'M')</code>
+</pre>
 
 And the simplified:
-```sql
-INSERT INTO Employee SET name = 'Jay', surname = 'Miner', gender = 'M'
-```
+
+<pre>
+orientdb> <code class="lang-sql userinput">INSERT INTO Employee SET name='Jay', surname='Miner', gender='M'</code>
+</pre>
 
 Since OrientDB was created for the web, it can natively ingest JSON data:
 
-```sql
-INSERT INTO Employee content {name : 'Jay', surname : 'Miner', gender : 'M'}
-```
+<pre>
+orientdb> <code class="lang-sql userinput">INSERT INTO Employee CONTENT</code> <code class="lang-json userinput">{name : 'Jay', surname : 'Miner',
+          gender : 'M'}</code>
+</pre>
 
 ### `UPDATE`
 
 The ANSI-92 syntax is supported. Example:
 
-```sql
-UPDATE Employee SET local = TRUE WHERE city = 'London'
-```
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE Employee SET local=TRUE WHERE city='London'</code>
+</pre>
 
 Also using JSON with the "merge" keyword to merge the input JSON with current record:
 
-```sql
-UPDATE Employee MERGE { local : true } WHERE city = 'London'
-```
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE Employee MERGE { local : TRUE } WHERE city='London'</code>
+</pre>
 
 
 ### `DELETE`
 
 This also respects the ANSI-92 compliant syntax:
 
-```sql
-DELETE FROM Employee WHERE city <> 'London'
-```
+<pre>
+orientdb> <code class="lang-sql userinput">DELETE FROM Employee WHERE city <> 'London'
+</pre>
 

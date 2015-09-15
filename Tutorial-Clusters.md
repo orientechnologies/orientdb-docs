@@ -30,9 +30,9 @@ If you know the location of a customer you're looking for you can query the targ
 
 To add a new cluster to a class, use the [ALTER CLASS](SQL-Alter-Class.md) command. To remove a cluster use REMOVECLUSTER in [ALTER CLASS](SQL-Alter-Class.md) command. Example to create the cluster "USA_Customers" under the "Customer" class:
 
-```sql
-ALTER CLASS Customer ADDCLUSTER USA_Customers
-```
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER CLASS Customer ADDCLUSTER USA_Customers</code>
+</pre>
 
 The benefits of using different physical places to store records are:
 
@@ -50,37 +50,37 @@ For most cases physical clusters are preferred because the database must be pers
 
 To view all clusters, from the console run the [`CLUSTERS`](Console-Command-Clusters.md) command:
 
-``` sql
-orientdb> list clusters
+<pre>
+orientdb> <code class="lang-sql userinput">LIST CLUSTERS</code>
 
- CLUSTERS:
- -------------+------+-----------+-----------+
-  NAME        | ID   | TYPE      | RECORDS   |
- -------------+------+-----------+-----------+
-  account     | 11   | PHYSICAL  |      1107 |
-  actor       | 91   | PHYSICAL  |         3 |
-  address     | 19   | PHYSICAL  |       166 |
-  animal      | 17   | PHYSICAL  |         0 |
-  animalrace  | 16   | PHYSICAL  |         2 |
-  ....        | .... | ....      |      .... |
- -------------+------+-----------+-----------+
-  TOTAL                                23481 |
- --------------------------------------------+
-```
+CLUSTERS:
+-------------+------+-----------+-----------+
+ NAME        | ID   | TYPE      | RECORDS   |
+-------------+------+-----------+-----------+
+ account     | 11   | PHYSICAL  |      1107 |
+ actor       | 91   | PHYSICAL  |         3 |
+ address     | 19   | PHYSICAL  |       166 |
+ animal      | 17   | PHYSICAL  |         0 |
+ animalrace  | 16   | PHYSICAL  |         2 |
+ ....        | .... | ....      |      .... |
+-------------+------+-----------+-----------+
+ TOTAL                                23481 |
+--------------------------------------------+
+</pre>
 
 Since by default each class has its own cluster, we can query the database's users by class or by cluster:
 
-``` sql
-orientdb> browse cluster OUser
+<pre>
+orientdb> <code class="lang-sql userinput">BROWSE CLUSTER OUser</code>
 
- ---+------+--------+--------+---------------------------------------------------------------------------+--------+-------- 
-  # | @RID | @CLASS | name   | password                                                                  | status | roles
- ---+------+--------+--------+---------------------------------------------------------------------------+--------+--------
-  0 | #5:0 | OUser  | admin  | {SHA-256}8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918 | ACTIVE | [1]
-  1 | #5:1 | OUser  | reader | {SHA-256}3D0941964AA3EBDCB00CCEF58B1BB399F9F898465E9886D5AEC7F31090A0FB30 | ACTIVE | [1]
-  2 | #5:2 | OUser  | writer | {SHA-256}B93006774CBDD4B299389A03AC3D88C3A76B460D538795BC12718011A909FBA5 | ACTIVE | [1]
- ---+------+--------+--------+---------------------------------------------------------------------------+--------+--------
-```
+---+------+--------+--------+-------------------------------------+--------+-------- 
+ # | @RID | @CLASS | name   | password                            | status | roles
+---+------+-------+--------+--------------------------------------+--------+--------
+ 0 | #5:0 | OUser | admin  | {SHA-256}8C6976E5B5410415BDE908BD... | ACTIVE | [1]
+ 1 | #5:1 | OUser | reader | {SHA-256}3D0941964AA3EBDCB00CCEF5... | ACTIVE | [1]
+ 2 | #5:2 | OUser | writer | {SHA-256}B93006774CBDD4B299389A03... | ACTIVE | [1]
+---+------+--------+--------+-------------------------------------+--------+--------
+</pre>
 
 The result is identical to `BROWSE CLASS OUser` executed in the classes section because there is only one cluster for the OUser class in this example.
 

@@ -16,9 +16,10 @@ RDBMSs store the value of the target record in the "address" column of the Custo
 
 To retrieve the address pointed to by customer "Luca", the query in a RDBMS would be:
 
-```sql
-SELECT B.location FROM Customer A, Address B WHERE A.name = 'Luca' AND A.address = B.id
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B WHERE A.name= Luca'
+          AND A.address=B.id</code>
+</pre>
 
 This is a **`JOIN`**! A `JOIN` is executed at run-time every time you retrieve a relationship.
 
@@ -29,9 +30,11 @@ Since RDBMS have no concept of collections the Customer table cannot have multip
 ![RDBMS 1-to-N](http://www.orientdb.org/images/rdbms-1toN.jpg)
 
 To extract all addresses of Customer 'Luca', the query in RDBMS reads:
-```sql
-SELECT B.location FROM Customer A, Address B WHERE A.name = 'Luca' AND B.customer = A.id
-```
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B WHERE A.name='Luca'
+          AND B.customer=A.id</code>
+</pre>
 
 ### Many-to-Many relationship
 
@@ -41,9 +44,10 @@ The most complex case is the Many-to-Many relationship. To handle this type of a
 
 To extract all addresses of Customer 'Luca's the query in RDBMS becomes:
 
-```sql
-SELECT B.location FROM Customer A, Address B, CustomerAddress C WHERE A.name = 'Luca' AND B.id = A.id AND B.address = C.id
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B, CustomerAddress C
+          WHERE A.name='Luca' AND B.id=A.id AND B.address=C.id</code>
+</pre>
 
 
 ### The problem with `JOIN`
