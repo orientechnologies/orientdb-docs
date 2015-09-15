@@ -36,7 +36,7 @@ The easiest and fastest way to start using OrientDB is to download binaries from
 
 Alternatively, you can clone the Community Edition project from [GitHub](https://github.com/orientechnologies/orientdb) and compile it. This allows you access to the latest functionality without waiting for a distribution binary. To build the Community Edition, you must first install [Apache Ant](http://ant.apache.org/bindownload.cgi) and follow these steps:
 
-``` console
+```sh
 $ git clone git@github.com:orientechnologies/orientdb.git
 $ cd orientdb
 $ ant clean install
@@ -47,7 +47,7 @@ After the compilation, all the binaries are placed under the `../releases/` dire
 #### Change Permissions
 The Mac OS X, Linux, and UNIX-based operating systems typically require you to change the permissions to execute scripts. The following command will apply the necessary permissions for these scripts in the `bin/` directory of the OrientDB distribution:
 
-``` console
+```sh
 $ chmod 755 bin/*.sh
 $ chmod -R 777 config
 ```
@@ -55,7 +55,7 @@ $ chmod -R 777 config
 #### Use inside of OSGi container
 OrientDB uses a `ConcurrentLinkedHashMap` implementation provided by [concurrentlinkedhashmap](https://code.google.com/p/concurrentlinkedhashmap/) to create the LRU based cache. This library actively uses the sun.misc package which is usually not exposed as a system package. To overcome this limitation you should add property `org.osgi.framework.system.packages.extra` with value `sun.misc` to your list of framework properties. It may be as simple as passing an argument to the VM starting the platform: 
 
-``` console
+```sh
 $ java -Dorg.osgi.framework.system.packages.extra=sun.misc
 ```
 

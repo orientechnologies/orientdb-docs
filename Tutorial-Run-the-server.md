@@ -2,7 +2,7 @@
 
 After you have downloaded the binary distribution of OrientDB and unpacked it, you are now able to start the server. This is done by executing `server.sh` (or `server.bat` on Windows) located in `bin` directory:
 
-``` console
+```sh
 $ cd bin
 $ ./server.sh
 ```
