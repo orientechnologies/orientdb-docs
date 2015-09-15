@@ -17,7 +17,7 @@ RDBMSs store the value of the target record in the "address" column of the Custo
 To retrieve the address pointed to by customer "Luca", the query in a RDBMS would be:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B WHERE A.name= Luca'
+orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B WHERE A.name='Luca'
           AND A.address=B.id</code>
 </pre>
 
