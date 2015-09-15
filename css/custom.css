@@ -1,0 +1,7 @@
+/* Custom CSS for Documentation */
+.userinput {
+    font-weight:bold;
+}
+.replaceable {
+    font-style: italic;
+}
