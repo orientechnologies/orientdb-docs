@@ -9,7 +9,7 @@ The **Insert** command creates a new record in the database. Records can be sche
 INSERT INTO [class:]<class>|cluster:<cluster>|index:<index>
   [(<field>[,]*) VALUES (<expression>[,]*)[,]*]|
   [SET <field> = <expression>|<sub-command>[,]*]|
-  [CONTENT {<JSON>}]|
+  [CONTENT {<JSON>}]
   [RETURN <expression>] 
   [FROM <query>]
 ```
