@@ -37,7 +37,7 @@ INSERT INTO Profile SET name = 'Jay', surname = 'Miner'
 
 JSON content syntax:
 ```sql
-INSERT INTO Profile CONTENT {"name": "Jay", "surname" = "Miner"}
+INSERT INTO Profile CONTENT {"name": "Jay", "surname": "Miner"}
 ```
 
 ### Insert a new record of type Profile, but in a different cluster than the default one
@@ -86,7 +86,7 @@ INSERT INTO Diver SET name = 'Luca', buddy = (SELECT FROM Diver WHERE name = 'Ma
 ### Sub-inserts
 
 ```sql
-insert into Diver SET name = 'Luca', buddy = (insert into Diver name = 'Marko')
+INSERT INTO Diver SET name = 'Luca', buddy = (INSERT INTO Diver SET name = 'Marko')
 ```
 
 ### Insert in a different cluster
