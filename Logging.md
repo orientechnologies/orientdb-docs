@@ -7,7 +7,7 @@ OrientDB uses the Java Logging framework bundled with the Java Virtual Machine. 
 
 Where:
 - `<date>` is the log date in the following format: `yyyy-MM-dd HH:mm:ss:SSS`
-- `<level>` is the logging level (see above for all the available levels) as 5 chars output
+- `<level>` is the logging level (see below for all the available levels) as 5 chars output
 - `<message>` is the text of log, it can be any size
 - `[<class>]` is the Java class that logged (optional)
 
