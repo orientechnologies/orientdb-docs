@@ -95,3 +95,14 @@ OLogManager.installCustomFormatter();
 LogFormatter is installed automatically by Server. To disable it define the setting `orientdb.installCustomFormatter` to `false`. Example:
 
     java ... -Dorientdb.installCustomFormatter=false=false ...
+
+OrientDB's default log format is:
+```
+<date> <level> <message> [<requester>]
+```
+
+Where:
+- `<date>` is the log date in the following format: `yyyy-MM-dd HH:mm:ss:SSS`
+- `<level>` is the logging level (see above for all the available levels) as 5 chars output
+- `<message>` is the text of log, it can be any size
+- `[<class>]` is the Java class that logged (optional)
