@@ -204,6 +204,11 @@ var gdb = orient.getGraph();
 var results = gdb.command( "sql", "select from Employee where company = ?", [ "Orient Technologies" ] );
 ```
 
+The result of command is an array of objects, where objects can be:
+- OrientVertex instances if vertices are returned
+- OrientEdge instances if edges are returned
+- OIdentifiable, or any subclasses of it, instances if records are returned
+
 ## Write your own repository classes
 
 Functions are the perfect place to write the logic for your application to access to the database. You could adopt a [DDD](http://en.wikipedia.org/wiki/Domain-driven_design) approach allowing the function to work as a [Repository](http://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks_of_DDD) or a [DAO](http://en.wikipedia.org/wiki/Data_access_object).
