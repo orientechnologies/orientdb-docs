@@ -92,7 +92,15 @@ public void main(String[] args){
   ...
 }
 ```
+### On remote server
+Execute a HTTP POST against the URL: `/server/log.<type>/<level>`. Where:
+- `<type>` can be "console" or "file"
+- `<level>` is one of the supported levels (see above)
 
+Example of valid URLS:
+
+    /server/log.console/FINEST
+    /server/log.file/FINEST
 
 ## Install Log formatter
 
