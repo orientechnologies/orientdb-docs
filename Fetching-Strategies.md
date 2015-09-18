@@ -30,13 +30,13 @@ Where use fetch-plans?
 
 ## Remote connection
 
-When a client executes a query (or load directly one single record) setting a fetch plan with level different to `0`, then the server traverses all the records of the returning result set and sends them to the client in the same call.
+When a client executes a query (or directly loads one single record) setting a fetch plan with a level different to `0`, then the server traverses all the records of the returning result set and sends them to the client in the same call.
 
-The client avoid to connect directly them to the record by using always the lazy collections (i.e.: `OLazyRecordList`). Instead, loads all the connected records into the local client. In this ways the collections remain lazy but when you're accessing to the content, the record is early loaded from the local cache avoiding other connections.
+The client avoids to connect them directly to the record by always using the lazy collections (i.e.: `OLazyRecordList`). Instead, all the connected records are loaded into the local client. In this ways the collections remain lazy but when you're accessing the content, the record is early loaded from the local cache avoiding other connections.
 
 ## Format
 
-The fetch plan comes in form of a String and can be used at run-time on:
+The fetch plan comes in the form of a String and can be used at run-time on:
 
 - query
 - record loading
@@ -124,5 +124,3 @@ for (Account a : database.browseClass(Account.class).setFetchPlan("*:0 addresses
 ```
 
 >**NOTE:** Fetching Object will mean their presence inside your domain entities. So if you load an object using fetchplan `*:0` all LINK type references won't be loaded._
-
-
