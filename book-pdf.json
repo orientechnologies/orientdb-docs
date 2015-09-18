@@ -14,7 +14,6 @@
             "all": "http://www.orientechnologies.com"
         }
     },
-	"output": "deploy/pdf",
     "pdf": {
         "toc": true,
         "pageNumbers": true,
