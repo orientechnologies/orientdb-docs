@@ -130,7 +130,22 @@ There are also special variables used by ETL process:
 
 ### Run-time configuration
 
-In ETL JSON file you can define variable that will be resolved at run-time by passing them at startup. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+In ETL JSON file you can define variables that will be resolved at run-time by passing them at startup.
+Values passed by command line *override* values defined in the config section.
+You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+
 ```
 $ ./oetl.sh config-dbpedia.json -databaseURL=plocal:/temp/mydb
+```
+In case *databaseUrl* was assigned in the *config* section, its value wil be overridden by command line value:
+
+```json
+{
+  "config": {
+    "log": "debug",
+    "fileDirectory": "/temp/databases/dbpedia_csv/",
+    "fileName": "Person.csv.gz"
+    "databaseUrl": "plocal:/temp/currentDb"
+  },
+  ...
 ```
