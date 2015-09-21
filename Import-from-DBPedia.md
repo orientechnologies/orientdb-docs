@@ -1,6 +1,6 @@
 # Import from DB-Pedia
 
-[DBPedia](http://wiki.dbpedia.org/DBpediaAsTables) exports all the entities as GZipped CSV files.
+[DBPedia](http://oldwiki.dbpedia.org/DBpediaAsTables) exports all the entities as GZipped CSV files.
 Features:
 - First line contains column names, second, third and forth has meta information we'll skip (look at ```"skipFrom": 1, "skipTo": 3```in CSV transformer)
 - The vertex class name is created automatically based on file name, so we can use the same file against any DBPedia file
