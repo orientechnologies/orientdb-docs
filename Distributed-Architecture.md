@@ -45,14 +45,13 @@ OrientDB guarantees strong consistency if it's configured to have a `writeQuorum
 
 ## Limitations
 OrientDB v 2.0.x has some limitations you should notice when you work in Distributed Mode:
-- `hotAlignment:true` could bring the database status as inconsistent. Please set it always to 'false`, the default
+- `hotAlignment:true` could bring the database status as inconsistent. Please set it always to 'false', the default
 - Creation of a database on multiple nodes could cause synchronization problems when clusters are automatically created. Please create the databases before to run in distributed mode
 - If an error happen during CREATE RECORD, the operation is fixed across the entire cluster, but some node could have a wrong RID upper bound (the created record, then deleted as fix operation). In this case a new database deploy operation must be executed
 - Constraints with distributed databases could cause problems because some operations are executed at 2 steps: create + update. For example in some circumstance edges could be first created, then updated, but constraints like MANDATORY and NOTNULL against fields would fail at the first step making the creation of edges not possible on distributed mode.
 Limitation
 - Auto-Sharding is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application. This will be addressed by next releases
 - Sharded Indexes are not supported
-- If hotAlignment=false is set, when a node re-joins the cluster (after a failure or simply unreachability) the full copy of database form a node could have no all information about the shards
-- Auto-Sharding is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application
+- If hotAlignment=false is set, when a node re-joins the cluster (after a failure or simply unreachability) the full copy of database from a node could have no all information about the shards
 - Hot change of distributed configuration not available. This will be introduced at release 2.0 via command line and in visual way in the Workbench of the Enterprise Edition (commercial licensed)
 - Not complete merging of results for all the projections when running on sharder configuration. Some functions like AVG() doesn’t work on map/reduce

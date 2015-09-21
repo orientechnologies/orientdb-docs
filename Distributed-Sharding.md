@@ -24,7 +24,7 @@ This is an example of configuration where the Client [class](Concepts.md#class) 
 
 ## Configuration
 In order to keep things simple, the entire OrientDB Distributed Configuration is stored on a single JSON file.
-Example of [distributed database configuration](Distributed-Configuration.md#default-distributed-db-configjson) for (Multiple servers per cluster)[Distributed-Sharding#Multiple-servers-per-cluster] use case:
+Example of [distributed database configuration](Distributed-Configuration.md#default-distributed-db-configjson) for (Multiple servers per cluster)[Distributed-Sharding.md#Multiple-servers-per-cluster] use case:
 
 ```json
 {
@@ -140,8 +140,7 @@ OrientDB guarantees strong consistency if it's configured to have a `writeQuorum
 
 1. *Auto-Sharding* is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application. This will be addressed by next releases
 1. Sharded Indexes are not supported.
-1. If `hotAlignment=false` is set, when a node re-joins the cluster (after a failure or simply unreachability) the full copy of database form a node could have no all information about the shards.
-1. Auto-Sharding is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application
+1. If `hotAlignment=false` is set, when a node re-joins the cluster (after a failure or simply unreachability) the full copy of database from a node could have no all information about the shards.
 1. Hot change of distributed configuration not available. This will be introduced at release 2.0 via command line and in visual way in the Workbench of the Enterprise Edition (commercial licensed)
 1. Not complete merging of results for all the projections. Some functions like AVG() doesn’t work on map/reduce
 
