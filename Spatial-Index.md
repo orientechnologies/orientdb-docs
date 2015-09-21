@@ -89,6 +89,9 @@ This query will return all Places within the given Bounding Box.
 
 ## Future Plans
 
+In OrientDB 2.2 a new [Spatial-Module](Spatial-Module.md) will replace this implementation
+with:
+
+- GeoSpatial standard (ST_*) fuctions 
 - Index All types of shape
-- Adding more operators such as `INTERSECT`
-- Extend the `WITHIN` operator to support not only Bounding Box
+
