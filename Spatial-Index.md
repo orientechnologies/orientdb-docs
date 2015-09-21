@@ -36,13 +36,13 @@ Finds all Points near a given location (`latitude`, `longitude`).
 #### Syntax
 
 ```sql
-SELECT FROM Class WHERE [<lat-field>,<long-field>] NEAR [<x>,<y>]
+SELECT FROM Class WHERE [<lat-field>,<long-field>] NEAR [lat,lon]
 ```
 
 To specify `maxDistance` we have to pass a special variable in the context:
 
 ```sql
-SELECT FROM Class WHERE [<lat-field>,<long-field>,$spatial] NEAR [<x>,<y>,{"maxDistance": distance}]
+SELECT FROM Class WHERE [<lat-field>,<long-field>,$spatial] NEAR [lat,lon,{"maxDistance": distance}]
 ```
 
 The `maxDistance` field has to be in kilometers, not radians. Results are sorted from nearest to farthest.
@@ -51,7 +51,7 @@ To know the exact distance between your Point and the Points matched, use the sp
 $distance.
 
 ```sql
-SELECT *, $distance FROM Class WHERE [<lat-field>,<long-field>,$spatial] NEAR [<x>,<y>,{"maxDistance": distance}]
+SELECT *, $distance FROM Class WHERE [<lat-field>,<long-field>,$spatial] NEAR [lat,lon,{"maxDistance": distance}]
 ```
 
 #### Examples
@@ -74,7 +74,7 @@ Finds all Points that are within a given Shape.
 #### Syntax
 
 ```sql
-SELECT FROM Class WHERE [<lat field>,<long field>] WITHIN [ [ <lng1>, <lat1> ] , [ <lng2>, <lat2> ] ... ]
+SELECT FROM Class WHERE [<lat field>,<long field>] WITHIN [ [ <lat1>, <lon1> ] , [ <lat2>, <lon2> ] ... ]
 ```
 
 #### Examples
