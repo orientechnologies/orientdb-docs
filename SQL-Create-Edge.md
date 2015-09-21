@@ -9,7 +9,7 @@ Before 2.1, if no edges were created, no error was thrown. Starting from 2.1, in
 ```sql
 CREATE EDGE <class> [CLUSTER <cluster>] FROM <rid>|(<query>)|[<rid>]* TO <rid>|(<query>)|[<rid>]*
                     [SET <field> = <expression>[,]*]|CONTENT {<JSON>}
-                    [RETRY <retry> [WAIT <pauseBetweenRetriesInMs]]
+                    [RETRY <retry> [WAIT <pauseBetweenRetriesInMs]] [BATCH <batch-size>]
 ```
 
 Where:
@@ -18,6 +18,7 @@ Where:
 - **JSON**, is the JSON content to set as record content, instead of field by field
 - **retry**, is the number of retries in case of conflict (optimistic approach)
 - **pauseBetweenRetriesInMs**, are the milliseconds of delay between retries
+- `BATCH` optional block gets the `<batch-size>` to execute the command in small blocks, avoiding memory problems when the number of vertices is high (Transaction consumes RAM). By default is 100. To execute the entire operation in one transaction, disable the batch by setting the `<batch-size>` to `-1`. Since 2.1.3
 
 ## Control vertices version increment
 Creation and deletion of edges cause updating of versions in involved vertices. To avoid this behavior use [Bonsai structure](RidBag.md). By default [Bonsai](RidBag.md) is used as soon as the threshold is reached to optimize operations. To always use Bonsai, set this configuration on JVM (or in `orientdb-server-config.xml` file): 
