@@ -61,6 +61,7 @@ Loads record and vertices into a OrientDB database.
 |class|Class name where to create the index|string|true|-|
 |type|Index type between the available ones|string|true|-|
 |fields|Array of field names to index. To specify the field type use the syntax `<field-name>:<field-type>`|string|true|-|
+|metadata|Additional index metadata|string|false|-|
 
 #### Example
 Below an example of configuration to load in a OrientDB database called "dbpedia" in directory "/temp/databases" open using "plocal" protocol and used as "graph". The loading is transactional and commits the transaction every 1,000 inserts. To lookup vertices has been create the index against the property string "URI" in base vertex "V" class. The index is unique.
@@ -79,7 +80,12 @@ Below an example of configuration to load in a OrientDB database called "dbpedia
         {"name":"Person", "extends": "V" },
         {"name":"Customer", "extends": "Person", "clusters":8 }
       ],
-      "indexes": [{"class":"V", "fields":["URI:string"], "type":"UNIQUE" }]
+      "indexes": [
+        {"class":"V", "fields":["URI:string"], "type":"UNIQUE" },
+        {"class":"Person", "fields":["town:string"], "type":"NOTUNIQUE" ,
+            metadata : { "ignoreNullValues" : false }
+        }
+      ]
     }
 ```
 
