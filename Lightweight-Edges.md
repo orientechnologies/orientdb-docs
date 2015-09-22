@@ -1,8 +1,6 @@
 # Lightweight Edges
 
-OrientDB supports **Lightweight Edges** from v1.4. **Lightweight Edges** are like regular edges, but they have no identity on database. Lightweight edges can be used only when:
-- no properties are defined on edge
-- two vertices are connected by maximum 1 edge, so if you already have one edge between two vertices and you're creating a new edge between the same vertices, the second edge will be regular
+OrientDB supports **Lightweight Edges** as regular edges, but without an identity on database. Lightweight edges can be used only when no properties are defined on edge.
 
 By avoiding the creation of the underlying Document, **Lightweight Edges** have the same impact on speed and space as with Document [LINKs](Concepts.md#relationships), but with the additional bonus to have bidirectional connections. This means you can use the MOVE VERTEX command to refactor your graph with no broken LINKs.
 
