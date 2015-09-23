@@ -99,7 +99,17 @@ ST_GeomFromText
 ```
 
 ### ST_Within
-TODO
+
+Returns true if geom1 is inside geom2
+
+Syntax : ST_Within(geom1,geom2)
+
+This operator will use an index if available.
+
+Example
+```
+select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12.314015 41.963125, 12.6605063 41.963125, 12.6605063 41.8262816, 12.314015 41.8262816))')
+```
 ### ST_Contains
 TODO
 ## Operators
