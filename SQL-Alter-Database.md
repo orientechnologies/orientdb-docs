@@ -28,7 +28,7 @@ Where: **attribute-value** attribute's value to set and **attribute-name** betwe
  - `content`, in case the version is different checks if the content is changed, otherwise use the highest version and avoid throwing exception
  - `automerge`, merges the changes
 - **CUSTOM** sets custom properties
-- **VALIDATION**, (Since v2.2) disable or enable the validation for the entire database. This setting is not persistent, so at the next restart the validation is active (Default). Disabling the validation sometimes is needed in case of remote import database
+- **VALIDATION**, (Since v2.2) disable or enable the validation for the entire database. This setting is not persistent, so at the next restart the validation is active (Default). Disabling the validation sometimes is needed in case of [remote import database](Console-Command-Import.md#validation-errors).
 
 
 ## See also

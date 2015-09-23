@@ -62,6 +62,8 @@ Remember to re-enable validation once finished:
 
     ALTER DATABASE validation true
 
+For more information look at [ALTER DATABASE](SQL-Alter-Database.md) command.
+
 ### Cluster ids
 If during the importing you experience that "Imported cluster 'XXX' has id=6 different from the original: 5" means that your database was created with an ancient version of OrientDB:
 ```
