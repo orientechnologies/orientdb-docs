@@ -23,11 +23,14 @@ Where: **attribute-value** attribute's value to set and **attribute-name** betwe
  - **round-robin**, put the Class's configured clusters in a ring and returns a different cluster every time restarting from the first when the ring is completed
  - **balanced**, checks the records in all the clusters and returns the smaller cluster. This allows the cluster to have all the underlying clusters balanced on size. On adding a new cluster to an existent class, the new empty cluster will be filled before the others because more empty then the others. In distributed configuration when configure clusters on different servers this setting allows to keep the server balanced with the same amount of data. Calculation of cluster size is made every 5 or more seconds to avoid to slow down insertion
 - **MINIMUMCLUSTERS**, as the minimum number of clusters to create automatically when a new class is created. By default is 1, but on multi CPU/core having multiple clusters/files improves read/write performance
-- **CONFLICTSTRATEGY**, (since 2.0) is the name of the strategy used to handle conflicts when OrientDB's MVCC finds an update or delete operation executed against an old record. The strategy is applied for the entire database, but single clusters can have own strategy (use [ALTER CLUSTER](SQL-Alter-Cluster.md) command for this). While it's possible to inject custom logic by writing a Java class, the out of the box modes are:
+- **CONFLICTSTRATEGY**, (since v2.0) is the name of the strategy used to handle conflicts when OrientDB's MVCC finds an update or delete operation executed against an old record. The strategy is applied for the entire database, but single clusters can have own strategy (use [ALTER CLUSTER](SQL-Alter-Cluster.md) command for this). While it's possible to inject custom logic by writing a Java class, the out of the box modes are:
  - `version`, the default, throw an exception when versions are different
  - `content`, in case the version is different checks if the content is changed, otherwise use the highest version and avoid throwing exception
  - `automerge`, merges the changes
 - **CUSTOM** sets custom properties
+- **VALIDATION**, (Since v2.2) disable or enable the validation for the entire database. This setting is not persistent, so at the next restart the validation is active (Default). Disabling the validation sometimes is needed in case of remote import database
+
+
 ## See also
 - [Console Command Create Database](Console-Command-Create-Database.md)
 - [Console Command Drop Database](Console-Command-Drop-Database.md)
