@@ -69,7 +69,7 @@ And `item` can be:
 |--------|---------------|-----------|-------------------|
 |AND|true if both the conditions are true|name = 'Luke' **and** surname like 'Sky%'|0.9.1|
 |OR|true if at least one of the condition is true|name = 'Luke' **or** surname like 'Sky%'|0.9.1|
-|NOT|true if the condition is false|**not** name = 'Luke'|Not supported yet|
+|NOT|true if the condition is false. NOT needs parenthesis on the right with the condition to negate|**not** ( name = 'Luke')|1.2|
 
 
 ## Mathematics Operators
