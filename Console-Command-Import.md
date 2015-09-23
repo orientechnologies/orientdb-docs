@@ -53,6 +53,16 @@ Importing records...
 
 ## Troubleshooting
 
+### Validation errors
+Starting from v2.2, OrientDB supports disabling of validation at database level. If you're importing a database against a remote server and you're experiencing an error of type OValidationException, then disable the validation before importing the database. To do that execute this command:
+
+    ALTER DATABASE validation false
+
+Remember to re-enable validation once finished:
+
+    ALTER DATABASE validation true
+
+### Cluster ids
 If during the importing you experience that "Imported cluster 'XXX' has id=6 different from the original: 5" means that your database was created with an ancient version of OrientDB:
 ```
 - Creating cluster 'company'...Error on database import happened just before line 16, column 52
