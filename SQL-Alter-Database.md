@@ -37,10 +37,10 @@ Where: **attribute-value** attribute's value to set and **attribute-name** betwe
 
 ## Examples
 
-### Change the database type to "graph"
+### Disable new SQL strict parser
 
 ```sql
-ALTER DATABASE TYPE graph
+ALTER DATABASE custom strictSQL=false
 ```
 
 ### Use GraphDB created with releases before 1.4
