@@ -27,7 +27,7 @@ For backward compatibility, you can disable the new parser from Studio -> DB -> 
 Or via console by executing this command, just once:
 
 ```sql
-ALTER DATABASE custom strictSQL=false
+ALTER DATABASE custom strictSql=false
 ```
 
 Important improvements of the new parser are:
