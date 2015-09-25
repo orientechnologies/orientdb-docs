@@ -4,6 +4,8 @@
 * [Getting Started](Tutorial-Introduction-to-the-NoSQL-world.md)
    * [Multi-Model Database](Tutorial-Document-and-graph-model.md)
    * [Installation](Tutorial-Installation.md)
+	 * [Install as Service on Unix](Unix-Service.md)
+	 * [Install as Service on Windows](Windows-Service.md)
    * [Run the server](Tutorial-Run-the-server.md)
    * [Run the console](Tutorial-Run-the-console.md)
    * [Classes](Tutorial-Classes.md)

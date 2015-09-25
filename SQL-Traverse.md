@@ -13,7 +13,7 @@ To know more look at [Java-Traverse](Java-Traverse.md) page.
 ```sql
 TRAVERSE <[class.]field>|*|any()|all()
          [FROM <target>]
-         [LET <Assignment>*]
+         [MAXDEPTH <number>]
          WHILE <condition>
          [LIMIT <max-records>]
          [STRATEGY <strategy>]
@@ -21,7 +21,7 @@ TRAVERSE <[class.]field>|*|any()|all()
 
 - **[fields](#Fields)** are the list of fields you want to traverse
 - **[target](#Target)** can be a class, one or more clusters, a single [RID](Concepts.md#recordid), a set of [RID](Concepts.md#recordid)s or another command like another TRAVERSE (as recursion) or a [SELECT](SQL-Query.md)
-- **[LET](SQL-Query.md#let_block)** is the part that bind context variables to be used in projections, conditions or sub-queries
+- **MAXDEPTH** is the maximum depth for traversal, 0 means only root node, negative values are not allowed
 - **[while](SQL-Where.md)** condition to continue the traversing while it's true. Usually it's used to limit the traversing depth by using `$depth` where x is the maximum level of depth you want to reach. **$depth** is the first context variable that reports the depth level during traversal. *NOTE: the old 'where' keyword is deprecated*
 - **max-records** sets the maximum result the command can return
 - **[strategy](Java-Traverse.md#traversing-strategies)**, to specify how to traverse the graph

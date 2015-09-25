@@ -1,48 +1,82 @@
-# Run the console
+# Running the OrientDB Console
 
-OrientDB provides a command line interface. It can be used to connect to and work with remote or local OrientDB servers.
+There are various methods you can use to connect to your database server and the individual databases, once the server is running, such as the [Network Binary](Network-Binary-Protocol.md) and [HTTP/REST](OrientDB-REST.d) protocols.  In addition to these, OrientDB provides a command-line interface for connecting to and working with the database server.
 
-You can start the command line interface by executing `console.sh` (or `console.bat` on Windows) located in the `bin/` directory:
 
-```sh
-$ cd bin
-$ ./console.sh
-```
+## Starting the OrientDB Console
 
-You should now see a welcome message:
+In the OrientDB installation directory, (that is, `$ORIENTDB_HOME`, where you installed the database), under `bin`, there is a file called `console.sh` on Unix-based systems and on Windows `console.bat`.
+
+To launch the OrientDB console, run the following command after you start the database server:
 
 <pre>
-OrientDB console v.1.6 www.orientechnologies.com
-Type 'HELP' to display all the commands supported.
+$ <code class="lang-sh userinput">cd $ORIENTDB_HOME/bin</code>
+$ <code class="lang-sh userinput">./console.sh</code>
 
-orientdb&gt;
+OrientDB console v.2.1.2 (build 0) www.orientdb.com
+Type 'HELP' to display all the commands supported.
+Installing extensions for GREMLIN language v.2.6.0
+
+orientdb>
 </pre>
 
-Type the "help" or "?" command to see all available console commands:
+The OrientDB console is now running.  From this prompt you can connect to and manage any remote or local databases available to you.
+
+## Using the `HELP` Command
+
+In the event that you are unfamiliar with OrientDB and the available commands, or if you need help at and time.  You can use the `HELP` command, or type `?` into the console prompt.
 
 <pre>
 orientdb> <code class="lang-sql userinput">HELP</code>
 
 AVAILABLE COMMANDS:
- * alter class <command-text>    Alter a class in the database schema
- ...
- * help                          Print this help
- * exit                          Close the console
+ * alter class &lt;command-text&gt;   Alter a class in the database schema
+ * alter cluster &lt;command-text&gt; Alter class in the database schema
+ ...                            ...
+ * help                         Print this help
+ * exit                         Close the console
 </pre>
 
-### Connecting to server instance
-
-Some console commands such as `list databases` or `create database` can be run while only connected to a server instance (you do not have to be connected to a database). Other commands require you to be connected to a database. Before you can connect to a fresh server instance and fully control it, you need to know the [root password](Security.md#orientdb-server-security). The root password is located in `config/orientdb-server-config.xml` (just search for the **users** element). If you want to change it, modify the XML file and then restart the server.
-
-If you have the required credentials, you should now be able to connect using the following command:
+For each console command available to you, `HELP` documents its basic use and what it does.  If you know the particular command and need details on its use, you can provide arguments to `HELP` for further clarification.
 
 <pre>
-orientdb> <code class="lang-sql userinput">CONNECT remote:localhost root password</code>
+orientdb> <code class="lang-sql userinput">HELP SELECT</code>
+
+COMMAND: SELECT
+- Execute a query against the database and display the results.
+SYNTAX: select &lt;query-text&gt;
+WHERE:
+- &lt;query-text&gt;: The query to execute
+</pre>
+
+## Connecting to Server Instances
+
+There are some console commands, such as `LIST DATABASES` or `CREATE DATABASE`,that you can run while only connected to the server instance.  For other commands, however, you must also connect to a database before they run without error.
+
+>Before you can connect to a fresh server instance and fully control it, you need to know the [root password](Security.md#orientdb-server-security) for the database.  The root password is located in the configuration file at `config/orientdb-server-config.xml`.  You can find it by searching for the `<users>` element.  If you want to change it, edit the configuration file and restart the server.
+
+>```xml
+>...
+><users>
+>    <user resources="*"
+>	      password="my_root_password"
+>		  name="root"/>
+>	<user resources="connect,server.listDatabases,server.dblist"
+>	      password="my_guest_password"
+>		  name="guest"/>
+></users>
+>...
+>```
+
+With the required credentials, you can connect to the database server instance on your system, or establish a remote connection to one running on a different machine.
+
+<pre>
+orientdb> <code class="lang-sql userinput">CONNECT remote:localhost root my_root_password</code>
 
 Connecting to remote Server instance [remote:localhost] with user 'root'...OK
 </pre>
 
-Next, you can (for example) list databases using the command:
+Once you have established a connection to the database server, you can begin to execute commands on that server, such as `LIST DATABASES` and `CREATE DATABASE`.
 
 <pre>
 orientdb> <code class="lang-sql userinput">LIST DATABASES</code>
@@ -51,7 +85,11 @@ Found 1 databases:
 * GratefulDeadConcerts (plocal)
  </pre>
 
-To connect to another database we can again use the `connect` command from the console and specify the server URL, username, and password. By default each database has an "admin" user with password "admin" ([change the default password](Security.md#work-with-users) on your real database). To connect to the *GratefulDeadConcerts* database on the local server execute the following:
+To connect to this database or to a different one, use the `CONNECT` command from the console and specify the server URL, username, and password.  By default, each database has an `admin` user with a password of `admin`.
+
+>**Warning**: Always [change the default password](Security.md#word-with-suers) on production databases.
+
+The above `LIST DATABASES` command shows a `GratefulDeadConcerts` installed on the local server.  To connect to this database, run the following command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CONNECT remote:localhost/GratefulDeadConcerts admin admin</code>
@@ -59,8 +97,15 @@ orientdb> <code class="lang-sql userinput">CONNECT remote:localhost/GratefulDead
 Connecting to database [remote:localhost/GratefulDeadConcerts] with user 'admin'...OK
 </pre>
 
-Let's analyze the URL we have used: `remote:localhost/GratefulDeadConcerts`. The first part is the protocol, "remote" in this case, which contacts the server using the TCP/IP protocol. "localhost" is the host name or IP address where the server resides; in this case it is on the same machine. "GratefulDeadConcerts" is the name of the database to which we want to connect.
+The `CONNECT` command takes a specific syntax for its URL.  That is, `remote:localhost/GratefulDeadConcerts` in the example.  It has three parts:
 
-The OrientDB distribution comes with the bundled database *GratefulDeadConcerts* which represents the Graph of the [Grateful Dead's](http://en.wikipedia.org/wiki/Grateful_Dead) concerts. This database can be used by anyone to start exploring the features and characteristics of OrientDB.
+- **Protocol**: The first part of the database address is the protocol the console should use in the connection.  In the example, this is `remote`, indicating that it should use the TCP/IP protocol.
 
-For more detailed information about the commands see the [console](Console-Commands.md) page.
+- **Address**: The second part of the database address is hostname or IP address of the database server that you want the console to connect to.  In the example, this is `localhost`, since the connection is made to a server instance running on the local file system.
+
+- **Database**: The third part of the address is the name of the database that you want to use.  In the case of the example, this is `GratefulDeadConcerts`.
+
+
+For more detailed information about the commands, see [Console Commands](Console-Commands.md).
+
+> **Note**: The OrientDB distribution comes with the bundled database `GratefulDeadConcerts` which represents the Graph of the [Grateful Dead's](http://en.wikipedia.org/wiki/Grateful_Dead) concerts. This database can be used by anyone to start exploring the features and characteristics of OrientDB.
