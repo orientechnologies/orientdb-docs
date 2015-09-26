@@ -1,5 +1,7 @@
-_book
+source/_book
 *~
 *#
 .#*
-
+deploy/*
+node_modules
+npm-debug.log

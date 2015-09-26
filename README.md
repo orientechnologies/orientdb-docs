@@ -1,67 +1,49 @@
-#OrientDB Manual - version 2.1.x
-
-![image](http://www.orientdb.com/images/orientdb_logo_mid.png)
-
-## Quick Navigation
-
-|Getting Started	|Main Topics    |Developers   |
-|-----------------------|---------------|-------------|
-|[Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](Concepts.md)  | [SQL](SQL.md)| 
-|[Installation](Tutorial-Installation.md) | [Supported Data Types](Types.md) | [Gremlin](Gremlin.md) | 
-|[First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](Inheritance.md) | [HTTP API](OrientDB-REST.md) |
-|[Troubleshooting](Troubleshooting.md) |[Security](Security.md)| [Java API](Java-API.md)|
-|[Enterprise Edition](Enterprise-Edition.md)| [Indexes](Indexes.md) | [NodeJS](https://github.com/codemix/oriento)|
-| | [ACID Transactions](Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
-| | [Functions](Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
-| | [Caching Levels](Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
-| | [Common Use Cases](Use-Cases.md) | [Other Drivers](Programming-Language-Bindings.md) |
-| | | [Network Binary Protocol](Network-Binary-Protocol.md) |
-| | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
-
-### Operations
-- [Installation](Tutorial-Installation.md)
-- [3rd party Plugins](Plugins.md)
-- [Upgrade](Upgrade.md) 
-- [Configuration](Configuration.md)
-- [Distributed Architecture](Distributed-Architecture.md) (replication, sharding and high-availability)
-- [Performance Tuning](Performance-Tuning.md)
-- [ETL to Import any kind of data into OrientDB](ETL-Introduction.md)
-- [Import from Relational DB](Import-From-RDBMS.md)
-- [Backup and Restore](Backup-and-Restore.md)
-- [Export and Import](Export-and-Import.md)
-
-### Quick References
-- [Console](Console-Commands.md)
-- [Studio](Home-page.md) web tool
-- [Workbench](http://orientdb.com/enterprise/last/introduction.html) (Enterprise Edition) 
-- [OrientDB Server](DB-Server.md)
-- [Network-Binary-Protocol](Network-Binary-Protocol.md) 
-- [Gephi Graph Analysis Visual tool](Gephi.md)
-- [Rexster Support and configuration](Rexster.md)
-- [Continuous integration](http://helios.orientechnologies.com/)
-
-### Resources
-- [User Group](http://orientdb.com/active-user-community) - Have question, troubles, problems?
-- [#orientdb IRC channel on freenode](http://webchat.freenode.net/?channels=orientdb)
-- [Professional Support](http://orientdb.com/support)
-- [Training](http://orientdb.com/training) - Training and classes.
-- [Events](http://orientdb.com/event) - Follow OrientDB at the next event!
-- [Team](Team.md) - Meet the team behind OrientDB
-- [Contribute](Contribute-to-OrientDB.md) - Contribute to the project.
-- [Who is using OrientDB?](http://orientdb.com/customers) - Clients using OrientDB in production.
-
-## Questions or Need Help?
-Check out our [Get in Touch](Get-in-Touch.md) page for different ways of getting in touch with us.
-
-
-## PDF
-This documentation is also available in [PDF format](OrientDB-Manual.pdf).
-
-## Past releases
-- [v1.7.8](http://orientdb.com/docs/1.7.8/)
-- [v2.0.x](http://orientdb.com/docs/2.0/)
-
+# OrientDB Documentation
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
->Every effort has been made to ensure the accuracy of this manual. However, Orient Technologies, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.
+![image](http://www.orientdb.com/images/orientdb_logo_mid.png)
+
+## Documentation Builds
+
+Building the OrientDB Documentation website and PDF requires that you install Git, Node.js and GitBook on your system.  While you can install Git and Node.js through your package manager, GitBook requires `npm`, the Node.js package manager tool.  Be sure that you install GitBook in global mode:
+
+```sh
+$ sudo npm install gitbook-cli -g
+```
+
+The documentation builds are managed through `make`.  The packaged `Makefile` has the following build targets:
+
+- `create`: Builds the documentation website at `./deploy/latest`.
+- `pdf`: Builds the documentation PDF at `./deploy/pdf`.
+- `install`: Installs GitBook plugins needed for build.
+- `clean`: Removes content from `./deploy/latest`.
+- `pull`: Pulls down latest documentation source files from GitHub.
+- `all`: Runs website and PDF builds.
+
+
+## Rules and Code Conventions
+
+### Links
+
+In order for GitBook to properly format and process links, (and to ensure that it throws the appropriate warnings in the event of errors), you MUST use the following format:
+
+- Internal Links to Docs Page: `[Title](filename.md)`
+- Internal Link to Chapter: `[Title](filename.md#chapter_heading)`
+- External Links: `[Title](http://example.com)`
+
+### Warning Boxes
+
+GitBook does not include admonition boxes by default.  Use the following format to create them:
+
+```markdown
+| | |
+|----|-----|
+|![](images/warning.png)|YOUR MESSAGE|
+```
+
+
+
+
+
+
