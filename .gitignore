@@ -3,3 +3,4 @@ source/_book
 *#
 .#*
 deploy/*
+node_modules
