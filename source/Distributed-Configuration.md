@@ -1,20 +1,19 @@
 # Distributed Configuration
 
-Look also at [Replication](Replication.md) and pages.
-
-The distributed configuration is made of 3 files under the **config/** directory:
+The distributed configuration consists of 3 files under the **config/** directory:
 - [orientdb-server-config.xml](Distributed-Configuration.md#orientdb-server-configxml)
 - [default-distributed-db-config.json](Distributed-Configuration.md#default-distributed-db-configjson)
 - [hazelcast.xml](Distributed-Configuration.md#hazelcastxml)
   - [Cloud support](Distributed-Configuration.md#cloud-support)
 
 Main topics:
+- [Replication](Replication.md)
 - [Asynchronous replication mode](Distributed-Configuration.md#asynchronous-replication-mode)
-
+- [Return distributed configuration at run-time](Distributed-Configuration.md#return-distributed-configuration-at-run-time)
 
 ## orientdb-server-config.xml
 
-To enable and configure the clustering between nodes, add and enable the **OHazelcastPlugin**.  This task is configured as a [Server handler](DB-Server.md#handlers). The default configuration is reported below.
+To enable and configure the clustering between nodes, add and enable the **OHazelcastPlugin** plugin. It is configured as a [Server handler](DB-Server.md#handlers). The default configuration is reported below.
 
 File **orientdb-server-config.xml**:
 ```xml
@@ -242,6 +241,22 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
     }
 }
 ```
+
+## Return distributed configuration at run-time
+
+### Database configuration
+_NOTE: available only in Enteprise Edition_
+
+To retrieve the distributed configuration for a database, execute a HTTP GET operation against the URL `http://<server>:<port>/distributed/database/<database-name>`. Example:
+
+    curl -u root:root "http://localhost:2480/distributed/database/GratefulDeadConcerts"
+
+### Queues
+_NOTE: available only in Enteprise Edition_
+
+OrientDB uses distributed queues to exchange messages between OrientDB servers. To have metrics about queues, execute a HTTP GET operation against the URL `http://<server>:<port>/distributed/queue/<queue-name>`. Use `*` as queue name to return stats for all he queues. Example:
+
+    curl -u root:root "http://localhost:2480/distributed/queue/*"
 
 ## Misc
 
