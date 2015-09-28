@@ -2,6 +2,11 @@
 _NOTE: available only in Enteprise Edition_
 
 ## Node status
+To retrieve the distributed configuration of a OrientDB server, execute a HTTP GET operation against the URL `http://<server>:<port>/distributed/node`. Example:
+
+    curl -u root:root "http://localhost:2480/distributed/node"
+
+Result:
 
 ```json
 {
@@ -50,11 +55,96 @@ To retrieve the distributed configuration for a database, execute a HTTP GET ope
 
     curl -u root:root "http://localhost:2480/distributed/database/GratefulDeadConcerts"
 
+
+Result:
+
+```json
+```
+
 ### Queues
-_NOTE: available only in Enteprise Edition_
 
 OrientDB uses distributed queues to exchange messages between OrientDB servers. To have metrics about queues, execute a HTTP GET operation against the URL `http://<server>:<port>/distributed/queue/<queue-name>`. Use `*` as queue name to return stats for all he queues. Example:
 
     curl -u root:root "http://localhost:2480/distributed/queue/*"
 
 
+Result:
+
+```json
+{
+    "queues": [
+        {
+            "avgAge": 0,
+            "backupItemCount": 0,
+            "emptyPollOperationCount": 0,
+            "eventOperationCount": 0,
+            "maxAge": 0,
+            "minAge": 0,
+            "name": "orientdb.node.node1.benchmark.insert.request",
+            "nextMessages": [],
+            "offerOperationCount": 0,
+            "otherOperationsCount": 0,
+            "ownedItemCount": 0,
+            "partitionKey": "orientdb.node.node1.benchmark.insert.request",
+            "pollOperationCount": 0,
+            "rejectedOfferOperationCount": 0,
+            "serviceName": "hz:impl:queueService",
+            "size": 0
+        },
+        {
+            "avgAge": 1,
+            "backupItemCount": 0,
+            "emptyPollOperationCount": 0,
+            "eventOperationCount": 0,
+            "maxAge": 1,
+            "minAge": 1,
+            "name": "orientdb.node.node2.response",
+            "nextMessages": [],
+            "offerOperationCount": 60,
+            "otherOperationsCount": 12,
+            "ownedItemCount": 0,
+            "partitionKey": "orientdb.node.node2.response",
+            "pollOperationCount": 60,
+            "rejectedOfferOperationCount": 0,
+            "serviceName": "hz:impl:queueService",
+            "size": 0
+        },
+        {
+            "avgAge": 0,
+            "backupItemCount": 0,
+            "emptyPollOperationCount": 0,
+            "eventOperationCount": 0,
+            "maxAge": 0,
+            "minAge": 0,
+            "name": "orientdb.node.node2.benchmark.request",
+            "nextMessages": [],
+            "offerOperationCount": 0,
+            "otherOperationsCount": 0,
+            "ownedItemCount": 0,
+            "partitionKey": "orientdb.node.node2.benchmark.request",
+            "pollOperationCount": 0,
+            "rejectedOfferOperationCount": 0,
+            "serviceName": "hz:impl:queueService",
+            "size": 0
+        },
+        {
+            "avgAge": 1,
+            "backupItemCount": 0,
+            "emptyPollOperationCount": 0,
+            "eventOperationCount": 0,
+            "maxAge": 1,
+            "minAge": 1,
+            "name": "orientdb.node.node1.GratefulDeadConcerts.request",
+            "nextMessages": [],
+            "offerOperationCount": 44,
+            "otherOperationsCount": 53,
+            "ownedItemCount": 0,
+            "partitionKey": "orientdb.node.node1.GratefulDeadConcerts.request",
+            "pollOperationCount": 44,
+            "rejectedOfferOperationCount": 0,
+            "serviceName": "hz:impl:queueService",
+            "size": 0
+        }
+    ]
+}
+```
