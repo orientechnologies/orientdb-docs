@@ -1,14 +1,15 @@
 # Distributed Configuration
 
-Look also at [Replication](Replication.md) and pages. The distributed configuration is made of 3 files under the **config/** directory:
+The distributed configuration consists of 3 files under the **config/** directory:
 - [orientdb-server-config.xml](Distributed-Configuration.md#orientdb-server-configxml)
 - [default-distributed-db-config.json](Distributed-Configuration.md#default-distributed-db-configjson)
 - [hazelcast.xml](Distributed-Configuration.md#hazelcastxml)
   - [Cloud support](Distributed-Configuration.md#cloud-support)
 
 Main topics:
+- [Replication](Replication.md)
 - [Asynchronous replication mode](Distributed-Configuration.md#asynchronous-replication-mode)
-
+- [Return distributed configuration at run-time](Distributed-Configuration.md#return-distributed-configuration-at-run-time)
 
 ## orientdb-server-config.xml
 
