@@ -97,10 +97,16 @@ Execute a HTTP POST against the URL: `/server/log.<type>/<level>`. Where:
 - `<type>` can be "console" or "file"
 - `<level>` is one of the supported levels (see above)
 
-Example of valid URLS:
+#### Examples
+The examples below uses CURL to execute a HTTP POST command against OrientDB Server. Server's "root" user and password were used, replace with your own password.
 
-    /server/log.console/FINEST
-    /server/log.file/FINEST
+Enable the finest tracing level to console:
+
+    curl -u root:root -X POST http://localhost:2480/server/log.console/FINEST
+
+Enable the finest tracing level to file:
+
+    curl -u root:root -X POST http://localhost:2480/server/log.file/FINEST
 
 ## Install Log formatter
 
