@@ -59,6 +59,35 @@ To retrieve the distributed configuration for a database, execute a HTTP GET ope
 Result:
 
 ```json
+{
+    "autoDeploy": true,
+    "clusters": {
+        "*": {
+            "servers": [
+                "node1",
+                "node2",
+                "<NEW_NODE>"
+            ]
+        },
+        "v": {
+            "servers": [
+                "node2",
+                "node1",
+                "<NEW_NODE>"
+            ]
+        }
+    },
+    "executionMode": "undefined",
+    "failureAvailableNodesLessQuorum": false,
+    "hotAlignment": false,
+    "readQuorum": 1,
+    "readYourWrites": true,
+    "servers": {
+        "*": "master"
+    },
+    "version": 21,
+    "writeQuorum": 2
+}
 ```
 
 ### Queues
