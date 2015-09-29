@@ -1,7 +1,7 @@
 # Sequences and auto increment
 Starting from v2.2, OrientDB supports sequences like most of RDBMS. What's a sequence? It's a structure that manage counters. Sequences are mostly used when you need a number that always increments. Sequence types can be:
-- *ORDERED*: each call to `.next()` will result in a new value.
-- *CACHED*: the sequence will cache N items on each node, thus improving the performance if many `.next()` calls are required. However, this may create holes.
+- **ORDERED**: each call to `.next()` will result in a new value.
+- **CACHED**: the sequence will cache N items on each node, thus improving the performance if many `.next()` calls are required. However, this may create holes.
 
 To manipulate sequences you can use the Java API or SQL commands.
 
