@@ -30,7 +30,7 @@ Where:
 
 ```sql
 CREATE SEQUENCE idseq
-INSERT INTO account SET id = (select sequence('idseq').next())
+INSERT INTO account SET id = sequence('idseq').next()
 ```
 
 To know more about other SQL commands look at [SQL commands](SQL).
