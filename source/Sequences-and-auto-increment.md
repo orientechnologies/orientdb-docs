@@ -1,10 +1,18 @@
 # Sequences and auto increment
-Starting from v2.2, OrientDB supports sequences like most of RDBMS. What's a sequence? It's a structure that manage counters. Sequences are mostly used when you need a number that always increments.
+Starting from v2.2, OrientDB supports sequences like most of RDBMS. What's a sequence? It's a structure that manage counters. Sequences are mostly used when you need a number that always increments. Sequence types can be:
+- Ordered: Each call to .next() will result in a new value.
+- Cached: The sequence will cache N items on each node, thus improving the performance if many .next() calls are required. However, this may create holes.
 
 To manipulate sequences you can use the Java API or SQL commands.
 
 ## Create a sequence
-### Java API
+
+### Create a sequence with Java API
+```java
+OSequenceLibrary sequenceLibrary = database.getMetadata().getSequenceLibrary();
+OSequence seq = sequenceLibrary.createSequence("idseq", SEQUENCE_TYPE.ORDERED, new OSequence.CreateParams().setStart(0));
+```
+
 ### SQL CREATE SEQUENCE
 ```sql
 CREATE SEQUENCE <sequence> [TYPE <CACHED|ORDERED>] [START <value>] [INCREMENT <value>] [CACHE <value>]
@@ -12,30 +20,18 @@ CREATE SEQUENCE <sequence> [TYPE <CACHED|ORDERED>] [START <value>] [INCREMENT <v
 
 For more information look at [SQL CREATE SEQUENCE](SQL-Create-Sequence.md).
 
-Sequence types:
- * Ordered: Each call to .next() will result in a new value.
- * Cached: The sequence will cache N items on each node, thus improving the performance if many .next() calls are required. 
-However, this may create holes.
-
-## Alter a sequence
-```sql
-ALTER SEQUENCE <sequence> [START <value>] [INCREMENT <value>] [CACHE <value>]
-```
-
-For more information look at [SQL ALTER SEQUENCE](SQL-Alter-Sequence.md).
-
-
-## Drop a sequence
-```sql
-DROP SEQUENCE <sequence>
-```
-
-For more information look at [SQL DROP SEQUENCE](SQL-Drop-Sequence.md).
 
 ## Using a sequence
+
+### Using a sequence with Java API
+
+### Using a sequence from SQL
+You can use a sequence from SQL with the following syntax:
+
 ```sql
-SELECT sequence('<sequence>').<method>
+sequence('<sequence>').<method>
 ```
+
 Where:
 - `method` can be:
  - `next()` retrieves the next value
@@ -43,6 +39,31 @@ Where:
  - `reset()` resets the sequence value to it's initial value
 
 Example
+```sql
+INSERT INTO Account SET id = sequence('mysequence').next()
+```
+
+## Alter a sequence
+
+## Alter a sequence with Java API
+
+### SQL ALTER SEQUENCE
+```sql
+ALTER SEQUENCE <sequence> [START <value>] [INCREMENT <value>] [CACHE <value>]
+```
+
+For more information look at [SQL ALTER SEQUENCE](SQL-Alter-Sequence.md).
+
+## Drop a sequence
+
+## Drop a sequence with Java API
+
+### SQL DROP SEQUENCE
+```sql
+DROP SEQUENCE <sequence>
+```
+
+For more information look at [SQL DROP SEQUENCE](SQL-Drop-Sequence.md).
 
 # OrientDB before v2.2
 
