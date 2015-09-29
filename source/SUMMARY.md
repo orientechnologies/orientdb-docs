@@ -232,6 +232,7 @@
    * [Distributed Architecture](Distributed-Architecture.md)
        * [Lifecycle](Distributed-Architecture-Lifecycle.md)
        * [Configuration](Distributed-Configuration.md)
+         * [Runtime Configuration](Distributed-Runtime.md)
        * [Server Manager](Distributed-Server-Manager.md)
        * [Replication](Replication.md)
        * [Sharding](Distributed-Sharding.md)
