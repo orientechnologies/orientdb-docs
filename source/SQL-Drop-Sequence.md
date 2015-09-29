@@ -1,27 +1,24 @@
-# SQL - DROP PROPERTY
+# SQL - DROP SEQUENCE
 
-The **Drop Property** command removes a property from the schema. This doesn't remove the property values in records, but just change the schema information. Records will continue to have the property values if any.
+(Since v.2.2)
+
+Drops a sequence.
 
 ## Syntax
 
 ```xml
-DROP PROPERTY <class>.<property>
+DROP SEQUENCE <sequence>
 ```
 
 Where:
-- **class** is the class of the schema
-- **property**, is the property created into the **class**
+- `sequence` is the name of the sequence to drop
 
 ## Examples
 
-Remove the property 'name' in class 'User':
+Drop a sequence
 
 ```java
-DROP PROPERTY user.name
+DROP SEQUENCE idseq
 ```
 
-To create a new property use the [Create Property](SQL-Create-Property.md) command.
-
 To know more about other SQL commands look at [SQL commands](SQL.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
