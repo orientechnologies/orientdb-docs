@@ -30,7 +30,7 @@ The "coordinates" field of a geometry object is composed of one position ( Point
 
 Restaurants Domain
 
-```
+```SQL
 create class Restaurant
 create property Restaurant.name STRING
 create property Restaurant.location EMBEDDED OPoint
@@ -39,20 +39,20 @@ create property Restaurant.location EMBEDDED OPoint
 To insert restaurants with location
 
 From SQL
-```
+```SQL
 insert into  Restaurant set name = 'Dar Poeta', location = {"@class": "OPoint","coordinates" : [12.4684635,41.8914114]}
 ```
 
 or in alternative if you use [WKT](https://it.wikipedia.org/wiki/Well-Known_Text) format you can use the function
 ST_GeomFromText to create the OrientDB geometry object.
 
-```
+```SQL
 insert into  Restaurant set name = 'Dar Poeta', location = St_GeomFromText("POINT (12.4684635 41.8914114)")
 ```
 
 From JAVA
 
-```
+```JAVA
 ODocument location = new ODocument("OPoint");
 location.field("coordinates", Arrays.asList(12.4684635, 41.8914114));
 
@@ -75,7 +75,7 @@ Syntax : ST_AsText(geom)
 
 Example
 
-```
+```SQL
 select ST_AsText({"@class": "OPoint","coordinates" : [12.4684635,41.8914114]})
 
 ST_AsText
@@ -89,7 +89,7 @@ Syntax : ST_GeomFromText(text)
 
 Example
 
-```
+```SQL
 select ST_GeomFromText("POINT (12.4684635 41.8914114)")
 
 ST_GeomFromText
@@ -98,9 +98,49 @@ ST_GeomFromText
 
 ```
 
+### ST_Equals
+
+Returns true if geom1 is spatially equal to geom2
+
+Syntax : ST_Equals(geom1,geom2)
+
+Example
+```SQL
+
+SELECT ST_Equals(ST_GeomFromText('LINESTRING(0 0, 10 10)'), ST_GeomFromText('LINESTRING(0 0, 5 5, 10 10)'))
+
+ST_Equals
+-----------
+true
+```
 ### ST_Within
-TODO
+
+Returns true if geom1 is inside geom2
+
+Syntax : ST_Within(geom1,geom2)
+
+This function will use an index if available.
+
+Example
+```SQL
+select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12.314015 41.963125, 12.6605063 41.963125, 12.6605063 41.8262816, 12.314015 41.8262816))')
+```
 ### ST_Contains
+TODO
+
+### ST_Disjoint
+TODO
+
+### ST_Intersect
+TODO
+
+### ST_AsBinary
+TODO
+
+### ST_Envelope
+TODO
+
+### ST_Buffer
 TODO
 ## Operators
 
@@ -111,7 +151,7 @@ This operator will use an index if available.
 
 Example
 
-```
+```SQL
 create class TestLineString
 create property TestLineString.location EMBEDDED OLineString
 insert into TestLineSTring set name = 'Test1' , location = St_GeomFromText("LINESTRING(0 0, 3 3)")
@@ -127,7 +167,7 @@ The current spatial index implementation is built upon lucene-spatial.
 
 The syntax for creating a spatial index on a geometry field is :
 
-```
+```SQL
 CREATE INDEX <name> ON <class-name> (geometry-field) SPATIAL ENGINE LUCENE
 ```
 

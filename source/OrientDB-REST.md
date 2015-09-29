@@ -426,7 +426,7 @@ Syntax: `http://<server>:[<port>]/batch/<database>`
 
 Content: { "transaction" : <true|false>, "operations" : [ { "type" : "<type>" }* ] }
 
-Returns: Number of operations executed.
+Returns: the result of last operation.
 
 Where:
 *type* can be:

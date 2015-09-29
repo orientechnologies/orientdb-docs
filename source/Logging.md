@@ -66,7 +66,8 @@ $ java -Djava.util.logging.config.file=mylog.properties ...
 
 To change the logging level without modify the logging configuration just set the *"log.console.level"* and *"log.file.level"* system variables to the requested levels.
 
-### In the server configuration
+### At startup
+#### In the server configuration
 
 Open the file **orientdb-server-config.xml** and add or update these lines at the end of the file inside the <code>&lt;properties&gt;</code> section:
 ```xml
@@ -74,7 +75,7 @@ Open the file **orientdb-server-config.xml** and add or update these lines at th
 <entry value="fine" name="log.file.level" />
 ```
 
-### At startup
+#### In server.sh (or .bat) script
 
 Set the system property *"log.console.level"* and *"log.file.level"* to the levels you want using the -D parameter of java.
 
@@ -85,6 +86,7 @@ $ java -Dlog.console.level=FINE ...
 
 ### At run-time
 
+#### By using Java code
 The system variable can be setted at startup using the <code>System.setProperty()</code> API. Example:
 ```java
 public void main(String[] args){
@@ -92,15 +94,22 @@ public void main(String[] args){
   ...
 }
 ```
-### On remote server
+
+#### On remote server
 Execute a HTTP POST against the URL: `/server/log.<type>/<level>`. Where:
 - `<type>` can be "console" or "file"
 - `<level>` is one of the supported levels (see above)
 
-Example of valid URLS:
+##### Examples
+The examples below uses [cURL](https://en.wikipedia.org/wiki/CURL) to execute a HTTP POST command against OrientDB Server. Server's "root" user and password were used, replace with your own password.
 
-    /server/log.console/FINEST
-    /server/log.file/FINEST
+Enable the finest tracing level to console:
+
+    curl -u root:root -X POST http://localhost:2480/server/log.console/FINEST
+
+Enable the finest tracing level to file:
+
+    curl -u root:root -X POST http://localhost:2480/server/log.file/FINEST
 
 ## Install Log formatter
 

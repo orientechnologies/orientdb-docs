@@ -13,7 +13,7 @@ To know more look at [Java-Traverse](Java-Traverse.md) page.
 ```sql
 TRAVERSE <[class.]field>|*|any()|all()
          [FROM <target>]
-         [LET <Assignment>*]
+         [MAXDEPTH <number>]
          WHILE <condition>
          [LIMIT <max-records>]
          [STRATEGY <strategy>]
@@ -21,7 +21,7 @@ TRAVERSE <[class.]field>|*|any()|all()
 
 - **[fields](#Fields)** are the list of fields you want to traverse
 - **[target](#Target)** can be a class, one or more clusters, a single [RID](Concepts.md#recordid), a set of [RID](Concepts.md#recordid)s or another command like another TRAVERSE (as recursion) or a [SELECT](SQL-Query.md)
-- **[LET](SQL-Query.md#let_block)** is the part that bind context variables to be used in projections, conditions or sub-queries
+- **MAXDEPTH** is the maximum depth for traversal, 0 means only root node, negative values are not allowed
 - **[while](SQL-Where.md)** condition to continue the traversing while it's true. Usually it's used to limit the traversing depth by using `$depth` where x is the maximum level of depth you want to reach. **$depth** is the first context variable that reports the depth level during traversal. *NOTE: the old 'where' keyword is deprecated*
 - **max-records** sets the maximum result the command can return
 - **[strategy](Java-Traverse.md#traversing-strategies)**, to specify how to traverse the graph
@@ -71,7 +71,7 @@ In a social-network-like domain a profile is linked to all the friends. Below so
 
 Assuming #10:1234 is the [RID](Concepts.md#rid) of the record to start traversing get all the friends up to the third level of depth using the [BREADTH_FIRST](Java-Traverse.md#traversing-strategies) strategy:
 ```sql
-TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 strategy BREADTH_FIRST
+TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 STRATEGY BREADTH_FIRST
 ```
 
 In case you want to filter per minimum depth create a predicate in the select. Example like before but excluding the first target vertex (#10:1234):
@@ -85,7 +85,7 @@ SELECT FROM ( TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 ) WHERE $depth >=
 
 Traverse command can be combined with [SQL SELECT](SQL-Query.md) statement to filter the result set. Below the same example above but filtering by Rome as city:
 ```sql
-select from ( traverse friends from #10:1234 while $depth <= 3 ) where city = 'Rome'
+SELECT FROM ( TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 ) WHERE city = 'Rome'
 ```
 
 Another example to extract all the movies of actors that have worked, at least once, in any movie produced by J.J. Abrams:
@@ -110,7 +110,7 @@ If traversing information, such as relationship names and depth level, are known
 This query traverses the "follow" relationship of Twitter accounts getting the 2nd level of friendship:
 ```sql
 SELECT FROM (
-  TRAVERSE out('follow') FROM TwitterAccounts WHERE $depth <= 2
+  TRAVERSE out('follow') FROM TwitterAccounts WHILE $depth <= 2
 ) WHERE $depth = 2
 ```
 

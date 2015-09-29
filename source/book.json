@@ -14,7 +14,6 @@
             "all": "http://www.orientechnologies.com"
         }
     },
-	"output": "deploy/pdf",
     "pdf": {
         "toc": true,
         "pageNumbers": true,
@@ -27,5 +26,16 @@
             "bottom": 36
         },
         "footerTemplate": "Copyright (c) Orient Technologies LTD"
+    },
+    "plugins": [
+        "ga", "anchors", "reveal"
+    ],
+    "pluginsConfig": {
+        "ga": {
+            "token": "UA-28543690-2"
+        },
+	"addcssjs":{
+		"css": ["css/custom.css"]
+	}
     }
 }
