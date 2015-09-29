@@ -119,13 +119,28 @@ Returns true if geom1 is inside geom2
 
 Syntax : ST_Within(geom1,geom2)
 
-This operator will use an index if available.
+This function will use an index if available.
 
 Example
 ```SQL
 select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12.314015 41.963125, 12.6605063 41.963125, 12.6605063 41.8262816, 12.314015 41.8262816))')
 ```
 ### ST_Contains
+TODO
+
+### ST_Disjoint
+TODO
+
+### ST_Intersect
+TODO
+
+### ST_AsBinary
+TODO
+
+### ST_Envelope
+TODO
+
+### ST_Buffer
 TODO
 ## Operators
 
