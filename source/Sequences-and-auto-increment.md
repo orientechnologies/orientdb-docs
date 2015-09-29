@@ -15,11 +15,11 @@ OSequence seq = sequenceLibrary.createSequence("idseq", SEQUENCE_TYPE.ORDERED, n
 
 ### SQL CREATE SEQUENCE
 ```sql
-CREATE SEQUENCE <sequence> [TYPE <CACHED|ORDERED>] [START <value>] [INCREMENT <value>] [CACHE <value>]
+CREATE SEQUENCE idseq
+INSERT INTO account SET id = sequence('idseq').next()
 ```
 
 For more information look at [SQL CREATE SEQUENCE](SQL-Create-Sequence.md).
-
 
 ## Using a sequence
 
@@ -51,19 +51,11 @@ INSERT INTO Account SET id = sequence('mysequence').next()
 
 ## Alter a sequence with Java API
 
-Example:
-
 ```java
 graph.getRawGraph().getMetadata().getSequenceLibrary().getSequence("idseq").updateParams( new OSequence.CreateParams().setStart(1000) );
 ```
 
 ### SQL ALTER SEQUENCE
-```sql
-ALTER SEQUENCE <sequence> [START <value>] [INCREMENT <value>] [CACHE <value>]
-```
-
-Example:
-
 ```sql
 ALTER SEQUENCE idseq START 1000
 ```
@@ -78,11 +70,6 @@ graph.getRawGraph().getMetadata().getSequenceLibrary().dropSequence("idseq");
 ```
 
 ### SQL DROP SEQUENCE
-```sql
-DROP SEQUENCE <sequence>
-```
-
-Example:
 
 ```sql
 DROP SEQUENCE idseq
