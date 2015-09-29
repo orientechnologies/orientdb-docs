@@ -1,7 +1,7 @@
 # Sequences and auto increment
 Starting from v2.2, OrientDB supports sequences like most of RDBMS. What's a sequence? It's a structure that manage counters. Sequences are mostly used when you need a number that always increments. Sequence types can be:
-- Ordered: Each call to .next() will result in a new value.
-- Cached: The sequence will cache N items on each node, thus improving the performance if many .next() calls are required. However, this may create holes.
+- *ORDERED*: each call to `.next()` will result in a new value.
+- *CACHED*: the sequence will cache N items on each node, thus improving the performance if many `.next()` calls are required. However, this may create holes.
 
 To manipulate sequences you can use the Java API or SQL commands.
 
@@ -24,6 +24,10 @@ For more information look at [SQL CREATE SEQUENCE](SQL-Create-Sequence.md).
 ## Using a sequence
 
 ### Using a sequence with Java API
+```java
+OSequence seq = graph.getRawGraph().getMetadata().getSequenceLibrary().getSequence("idseq");
+graph.addVertex("class:Account", "id", seq.next());
+```
 
 ### Using a sequence from SQL
 You can use a sequence from SQL with the following syntax:
@@ -47,20 +51,41 @@ INSERT INTO Account SET id = sequence('mysequence').next()
 
 ## Alter a sequence with Java API
 
+Example:
+
+```java
+graph.getRawGraph().getMetadata().getSequenceLibrary().getSequence("idseq").updateParams( new OSequence.CreateParams().setStart(1000) );
+```
+
 ### SQL ALTER SEQUENCE
 ```sql
 ALTER SEQUENCE <sequence> [START <value>] [INCREMENT <value>] [CACHE <value>]
+```
+
+Example:
+
+```sql
+ALTER SEQUENCE idseq START 1000
 ```
 
 For more information look at [SQL ALTER SEQUENCE](SQL-Alter-Sequence.md).
 
 ## Drop a sequence
 
-## Drop a sequence with Java API
+### Drop a sequence with Java API
+```java
+graph.getRawGraph().getMetadata().getSequenceLibrary().dropSequence("idseq");
+```
 
 ### SQL DROP SEQUENCE
 ```sql
 DROP SEQUENCE <sequence>
+```
+
+Example:
+
+```sql
+DROP SEQUENCE idseq
 ```
 
 For more information look at [SQL DROP SEQUENCE](SQL-Drop-Sequence.md).
