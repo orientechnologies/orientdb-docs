@@ -96,7 +96,7 @@ All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md
     "if": "${os.name}.indexOf('nux')"
   }
 }
-````
+```
 
 ## Log setting
 Most of the blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), supports the `log` setting. Log can be one of the following values (case insensitive): `[NONE, ERROR, INFO, DEBUG]`. By default is `INFO`.
@@ -127,11 +127,66 @@ There are also special variables used by ETL process:
 |parallel|Executes pipelines in parallel by using all the available cores.|boolean|false|false|
 |haltOnError|Halt the process in case of unmanaged error. If it is false, the process continue in case of errors. The encountered error number is reported at the end of importing. Since 2.0.9.|boolean|false|true|
 
+## Split configuration on multiple files
+
+Configuration can be splitted into several files allowing composition of common parts, such as paths, urls, database references.
+The previous configuration could be splitted in two files:
+
+a configuration file with input path for Person csv: *personConfig.json*
+```json
+{
+  "config": {
+    "log": "debug",
+    "fileDirectory": "/temp/databases/dbpedia_csv/",
+    "fileName": "Person.csv.gz"
+  }
+}
+```
+
+a common configuration files where other parts are configured: *commonConfig.json*
+```json
+{
+  "begin": [
+   { "let": { "name": "$filePath",  "value": "$fileDirectory.append( $fileName )"} },
+   { "let": { "name": "$className", "value": "$fileName.substring( 0, $fileName.indexOf(".") )"} }
+  ],
+  "source" : {
+    "file": { "path": "$filePath", "lock" : true }
+  },
+  "extractor" : {
+    "row": {}
+  },
+  "transformers" : [
+   { "csv": { "separator": ",", "nullValue": "NULL", "skipFrom": 1, "skipTo": 3 } },
+   { "merge": { "joinFieldName":"URI", "lookup":"V.URI" } },
+   { "vertex": { "class": "$className"} }
+  ],
+  "loader" : {
+    "orientdb": {
+      "dbURL": "plocal:/temp/databases/dbpedia",
+      "dbUser": "admin",
+      "dbPassword": "admin",
+      "dbAutoCreate": true,
+      "tx": false,
+      "batchCommit": 1000,
+      "dbType": "graph",
+      "indexes": [{"class":"V", "fields":["URI:string"], "type":"UNIQUE" }]
+    }
+  }
+}
+```
+
+Then pass the splittef files to otel.sh:
+```
+$ ./oetl.sh commonConfig.json personConfig.json
+```
+
+
 
 ### Run-time configuration
 
 In ETL JSON file you can define variables that will be resolved at run-time by passing them at startup.
-Values passed by command line *override* values defined in the config section.
+Values passed by command line *override* values defined in the config section, even in case multiple configuration files are used.
 You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
 
 ```
@@ -149,3 +204,4 @@ In case *databaseUrl* was assigned in the *config* section, its value wil be ove
   },
   ...
 ```
+
