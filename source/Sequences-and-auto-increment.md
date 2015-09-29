@@ -1,32 +1,48 @@
-## Sequences and auto increment
+# Sequences and auto increment
 Starting from v2.2, OrientDB supports sequences like most of RDBMS. What's a sequence? It's a structure that manage counters. Sequences are mostly used when you need a number that always increments.
 
-### Usage
+To manipulate sequences you can use the Java API or SQL commands.
 
-#### Create a sequence
+## Create a sequence
+### Java API
+### SQL CREATE SEQUENCE
 ```sql
 CREATE SEQUENCE <sequence> [TYPE <CACHED|ORDERED>] [START <value>] [INCREMENT <value>] [CACHE <value>]
 ```
+
+For more information look at [SQL CREATE SEQUENCE](SQL-Create-Sequence.md).
 
 Sequence types:
  * Ordered: Each call to .next() will result in a new value.
  * Cached: The sequence will cache N items on each node, thus improving the performance if many .next() calls are required. 
 However, this may create holes.
 
-#### Drop a sequence
+## Alter a sequence
+```sql
+ALTER SEQUENCE <sequence> [START <value>] [INCREMENT <value>] [CACHE <value>]
+```
+
+For more information look at [SQL ALTER SEQUENCE](SQL-Alter-Sequence.md).
+
+
+## Drop a sequence
 ```sql
 DROP SEQUENCE <sequence>
 ```
 
-#### Using a sequence
+For more information look at [SQL DROP SEQUENCE](SQL-Drop-Sequence.md).
+
+## Using a sequence
 ```sql
-SELECT #<sequence>.<function>
+SELECT sequence('<sequence>').<method>
 ```
 Where:
-- `function` can be:
+- `method` can be:
  - `next()` retrieves the next value
  - `current()` gets the current value
  - `reset()` resets the sequence value to it's initial value
+
+Example
 
 # OrientDB before v2.2
 
