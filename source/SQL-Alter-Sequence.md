@@ -11,7 +11,7 @@ ALTER SEQUENCE <sequence> [START <start>] [INCREMENT <increment>] [CACHE <cache>
 ```
 
 Where:
-- `sequence` is the sequence name to create
+- `sequence` is the sequence name to alter
 - `start` set the initial value of the sequence
 - `increment` set the value to increment when `.next()` is called
 - `cache` set the number of values to pre-cache in case the sequence is of type CACHED
