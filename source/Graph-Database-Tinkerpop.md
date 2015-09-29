@@ -51,7 +51,7 @@ OrientDB supports different kind of storages and depends by the [Database URL](C
 
 # Working with the GraphDB
 
-Before working with a graph you need an instance of [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class. The constructor gets a [URL](Concepts.md#database_url) that is the location of the database. If the database already exists, it will be opened, otherwise it will be created. However a new database can only be created in **plocal** or **memory** mode, not in **remote** mode. In multi-threaded applications use one [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance per thread.
+Before working with a graph you need an instance of [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class. The constructor gets a [URL](Concepts.md#database_url) that is the location of the database. If the database already exists, it will be opened, otherwise it will be created. However a new database can only be created in **plocal** or **memory** mode, not in **remote** mode. In multi-threaded applications use one [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance per thread. Also all the graph components (Vertices and Edges) are not thread-safe, so sharing them between threads could cause unpredictable errors.
 
 Remember to always close the graph once done using the <code>.shutdown()</code> method.
 
@@ -296,7 +296,7 @@ For more information about indices look at [Index guide](Indexes.md).
 
 To speed up operations like on massive insertions you can avoid transactions by using a different class than OrientGraph: **OrientGraphNoTx**. In this case each operation is *atomic* and data is updated at each operation. When the method returns, the underlying storage is updated. Use this for bulk inserts and massive operations or for schema definition.
 
-_NOTE_: Using non-transactional graphs could create corruption in the graph if changes are made in multiple threads at the same time.  So use non-transactional graph instances only for non multi-threaded operations.
+_NOTE_: Using non-transactional graphs could create corruption in the graph if changes are made in multiple threads at the same time. So use non-transactional graph instances only for non multi-threaded operations.
 
 # Configure the Graph
 Starting from v1.6 OrientDB supports configuration of the graph by setting all the properties during construction:
@@ -328,7 +328,7 @@ Look at these pages about GREMLIN usage:
 
 # Multi-Threaded Applications
 
-Multi-threaded applications must use one OrientGraph instance per thread. For more information about multi-threading look at [Java Multi Threading](Java-Multi-Threading.md).
+Multi-threaded applications must use one OrientGraph instance per thread. For more information about multi-threading look at [Java Multi Threading](Java-Multi-Threading.md). Also all the graph components (Vertices and Edges) are not thread-safe, so sharing them between threads could cause unpredictable errors.
 
 # Blueprints Extensions
 
