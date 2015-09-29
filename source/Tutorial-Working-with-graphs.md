@@ -181,7 +181,7 @@ In most of the cases Edges are used from Vertices, so this doesn't cause any par
 orientdb> <code class="lang-sql userinput">ALTER DATABASE CUSTOM useLightweightEdges=FALSE
 </pre>
 
-This will only take effect for new edges. For more information look at: [Why I can't see all the edges](Troubleshooting.md#why-i-cant-see-all-the-edges).
+This will only take effect for new edges. For more information look at: [Why I can't see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges).
 
 
 For more information look at [Graph API](Graph-Database-Tinkerpop.md).
