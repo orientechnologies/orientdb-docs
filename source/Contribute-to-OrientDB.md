@@ -5,7 +5,7 @@ In order to contribute issues and pull requests, please sign OrientDB's [Contrib
 ## Pushing into main repository
 If you'd like to contribute to OrientDB with a patch follow the following steps:
 * fork the repository interested in your change. The main one is https://github.com/orientechnologies/orientdb, but plugins, drivers and other components reside in other projects under [Orient Technologies](https://github.com/orientechnologies/) umbrella.
-* select the "develop" branch i present
+* select the "develop" branch if present
 * apply your changes,
 * test that Test Suite hasn't been broken by running:
  * `mvn clean test`

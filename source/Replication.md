@@ -5,19 +5,19 @@ OrientDB supports the [Multi Master replication](http://en.wikipedia.org/wiki/Mu
 Replication works only in the [Distributed-Architecture](Distributed-Architecture.md).
 
 ## Sharing of database
-In Distributed Architecture the replicated database must have he same name. When a OrientDB Server is starting, sends the list of current databases (all the databases located under ```$ORIENTDB_HOME/databases``` directory) to all the nodes in the cluster. If other nodes have databases with the same name, a replication is automatically set.
+In Distributed Architecture the replicated database must have the same name. When an OrientDB Server is starting, it sends the list of current databases (all the databases located under ```$ORIENTDB_HOME/databases``` directory) to all the nodes in the cluster. If other nodes have databases with the same name, a replication is automatically set.
 
 ![image](http://www.orientdb.org/images/distributed-db-share.png)
 
 _NOTE: In Distributed Architecture assure to avoid conflict with database names, otherwise 2 different databases could start replication with the chance to get corrupted._
 
-If the [database configuration](https://github.com/orientechnologies/orientdb/wiki/Distributed-Configuration#default-distributed-db-configjson) has the setting ```"autoDeploy" : true```, then the databases are automatically deployed across the network to the other nodes as soon as they join the cluster.
+If the [database configuration](Distributed-Configuration#default-distributed-db-configjson) has the setting ```"autoDeploy" : true```, then the databases are automatically deployed across the network to the other nodes as soon as they join the cluster.
 
 ![image](http://www.orientdb.org/images/distributed-db-autodeploy.png)
 
 ## Server unreachable
 
-In case a server becomes unreachable, the node is removed by [database configuration](https://github.com/orientechnologies/orientdb/wiki/Distributed-Configuration#default-distributed-db-configjson) unless the setting ```"hotAlignment" : true```. In this case all the new synchronization messages are kept in a distributed queue.
+In case a server becomes unreachable, the node is removed by [database configuration](Distributed-Configuration#default-distributed-db-configjson) unless the setting ```"hotAlignment" : true```. In this case all the new synchronization messages are kept in a distributed queue.
 
 ![image](http://www.orientdb.org/images/distributed-srv-unreacheable.png)
 
