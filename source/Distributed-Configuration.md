@@ -73,7 +73,7 @@ Where:
 |---------|-----------|-------------|
 |**autoDeploy**|Auto deploy the database in case the joining node hasn't it. It can be <code>true</code> or <code>false</code>|<code>true</code>|
 |**hotAlignment**|In case a node left the cluster <code>hotAlignment</code> the synchronization queue is left or not for hot alignment when the node will join the cluster again. It can be <code>true</code> or <code>false</code>|<code>true</code>|
-|**executionMode**|. It can be <code>undefined</code> to let to the client to decide per call execution if synchronous (default) or asynchronous. <code>synchronous</code> forces synchronous mode, and  <code>asynchronous</code> forces asynchronous mode|<code>undefined</code>|
+|**executionMode**|It can be <code>undefined</code> to let to the client to decide per call execution if synchronous (default) or asynchronous. <code>synchronous</code> forces synchronous mode, and  <code>asynchronous</code> forces asynchronous mode|<code>undefined</code>|
 |**readQuorum**|On "read" operation (record read, query and traverse) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
 |**writeQuorum**|On "write" operation (any write on database) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at write time. Suggested value is N/2+1 where N is the number of replicas. In this way the quorum is reached only if the majority of nodes are coherent|<code>2</code>|
 |**failureAvailableNodesLessQuorum**|Decide to return error when the available nodes are less then quorum. Can be <code>true</code> or <code>false</code>|<code>false</code>|
@@ -258,7 +258,7 @@ Example of TXT record for domain **dbservers.mydomain.com**:
 v=opf1 s=192.168.0.101:2424 s=192.168.0.133:2424
 ```
 
-In this way if you open a database against the URL <code>remote:dbservers.mydomain.com/demo</code> the OrientDB client library will try to connect to the address **192.168.0.101** port 2424. If the connection fails, then the next address **192.168.0.133:** port 3434 is tried.
+In this way if you open a database against the URL <code>remote:dbservers.mydomain.com/demo</code> the OrientDB client library will try to connect to the address **192.168.0.101** port 2424. If the connection fails, then the next address **192.168.0.133:** port 2424 is tried.
 
 To enable this feature in Java Client driver set ```network.binary.loadBalancing.enabled=true```:
 
