@@ -5,3 +5,7 @@
 .replaceable {
     font-style: italic;
 }
+
+section.normal p {
+    text-align: justify;
+}

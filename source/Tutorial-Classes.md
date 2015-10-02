@@ -1,31 +1,41 @@
 # Classes
 
-It's easier to introduce OrientDB's basic concepts by outlining the Document Database API. It is more similar to Relational DBMS concepts and therefore a little more natural to follow for many developers. These basic concepts are shared between all of OrientDB's APIs: Document, Object, and Graph.
+Multi-model support in the OrientDB engine provides a number of ways to approaching and understanding its basic concepts.  These concepts are clearest when viewed from the perspective of the Document Database API. Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API records always use the [Document](Concepts.md#document) type.  Documents are formed by a set of key/value pairs, referred to as fields and properties, and can belong to a class.
 
-As with the relational DBMS, OrientDB has the concept of [records](Concepts.md#record) as an element of storage. There are different types of [records](Concepts.md#record), but for the next examples we will always use the [document](Concepts.md#document) type. A [document](Concepts.md#document) is composed of attributes and can belong to one [class](Concepts.md#class). Going forward we will also refer to the attributes with the terms "fields" and "properties".
+The [Class](Concepts.md#class) is a concept drawn from the Object-oriented programming paradigm.  It is a type of data model that allows you to define certain rules for records that belong to it.  In the traditional Document database model, it is comparable to the collection, while in the Relational database model it is the table.
 
-The concept of [class](Concepts.md#class) is well known to those who program using object-oriented languages. Classes are also used in OrientDB as a type of data model according to certain rules. To learn more about Classes in general take a look at [Wikipedia](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming).
+>For more information on classes in general, see [Wikipedia](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming).
 
-To list all the configured classes, type the [`CLASSES`](Console-Command-Classes.md) command in the console:
+
+## Listing Classes
+
+To list all the configured classes on your system, use the [`CLASSES`](Console-Command-Classes.md) command in the console:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CLASSES</code>
 
 CLASSES:
--------------------+-----------+-----------+
- NAME              | CLUSTERS  | RECORDS   |
--------------------+-----------+-----------+
- AbstractPerson    | -1        |         0 |
- Account           | 11        |      1126 |
- Actor             | 91        |         3 |
- Address           | 19        |       166 |
- Animal            | 17        |         0 |
- ....              | ....      |      .... |
- Whiz              | 14        |      1001 |
--------------------+-----------+-----------+
- TOTAL                               22775 |
--------------------------------------------+
+-------------------+------------+----------+-----------+
+ NAME              | SUPERCLASS |CLUSTERS  | RECORDS   |
+-------------------+------------+----------+-----------+
+ AbstractPerson    |            | -1       |         0 |
+ Account           |            | 11       |      1126 |
+ Actor             |            | 91       |         3 |
+ Address           |            | 19       |       166 |
+ Animal            |            | 17       |         0 |
+ ....              | ....       | ....     |      .... |
+ Whiz              |            | 14       |      1001 |
+-------------------+------------+----------+-----------+
+ TOTAL                                           22775 |
+-------------------------------------------------------+
 </pre>
+
+
+
+
+## Creating Classes
+
+
 
 To create a new class, use the [`CREATE CLASS`](SQL-Create-Class.md) command:
 
@@ -34,6 +44,8 @@ orientdb> <code class="lang-sql userinput">CREATE CLASS Student</code>
 
 Class created successfully. Total classes in database now: 92
 </pre>
+
+### Adding Properties to a Class
 
 OrientDB allows you to work in a schema-less mode, without defining properties. However, properties are mandatory if you define indexes or constraints. To create a new property use the [`CREATE PROPERTY`](SQL-Create-Property.md) command. Here is an example of creating three properties against the `Student` class:
 
@@ -52,6 +64,8 @@ orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.birthDate dat
 
 Property created successfully with id=3
 </pre>
+
+### Displaying Class Information
 
 To display the class `Student`, use the [`INFO CLASS`](Console-Command-Info-Class.md) command:
 
@@ -72,6 +86,8 @@ Properties:
 -----------+--------+--------------+-----------+----------+----------+----+-----+
 </pre>
 
+### Adding Constraints to Properties
+
 To add a constraint, use the [`ALTER CLASS`](SQL-Alter-Class.md) command. For example, let's specify that the `name` field should be at least 3 characters:
 
 <pre>
@@ -79,6 +95,8 @@ orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MIN 3</co
 
 Property updated successfully
 </pre>
+
+## Viewing Records in a Class
 
 To see all the records in a class, use the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command:
 

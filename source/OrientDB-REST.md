@@ -383,7 +383,10 @@ HTTP response:
 Execute a command against the database. Returns the records affected or the list of records for queries. Command executed via POST can be non-idempotent (look at [Query](#query)).
 
 Syntax: `http://<server>:[<port>]/command/<database>/<language>[/<command-text>[/limit[/<fetchPlan>]]]`
-content: `<command-text>`
+
+The content can be `<command-text>` or starting from v2.2 a json containing the command and parameters:
+- by parameter name: `{"command":<command-text>, "parameters":{"<param-name>":<param-value>} }`
+- by parameter position: `{"command":<command-text>, "parameters":[<param-value>] }`
 
 Where:
 - *`<language>`* is the name of the language between those supported. OrientDB distribution comes with "sql" and GraphDB distribution has both "sql" and "gremlin"
@@ -391,11 +394,30 @@ Where:
 - *`limit`* is the maximum number of record to return. Optional, default is 20
 - *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
 
-The *command-text* can appear in either the URL or the content of the POST transmission.
+The *command-text* can appear in either the URL or the content of the POST transmission. Where the command-text is included in the URL, it must be encoded as per normal URL encoding. By default the result is returned in JSON. To have the result in CSV, pass "Accept: text/csv" in HTTP Request.
 
-Where the command-text is included in the URL, it must be encoded as per normal URL encoding.
+Starting from v2.2, the HTTP payload can be a JSON with both command to execute and parameters. Example:
 
-By default the result is returned in JSON. To have the result in CSV, pass "Accept: text/csv" in HTTP Request.
+Execute a query passing parameters by name:
+
+```json
+{
+  "command": "select from V where name = :name and city = :city",
+  "parameters": {
+    "name": "Luca",
+    "city": "Rome"
+  }
+}
+```
+
+Execute a query passing parameters by position:
+
+```json
+{
+  "command": "select from V where name = ? and city = ?",
+  "parameters": [ "Luca", "Rome" ]
+}
+```
 
 Read the [SQL section](SQL.md) or the [Gremlin introduction](Gremlin.md) for the type of commands.
 
