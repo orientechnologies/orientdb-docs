@@ -7,7 +7,7 @@ Backup executes a complete backup against the currently opened database. The bac
 ## When to use backup and when export?
 Backup does a consistent copy of database, all further write operations are locked waiting to finish it. The database is in read-only mode during backup operation. If you need an read/write database during backup setup a distributed cluster of nodes.
 
-Export, instead, doesn't lock the database and allow concurrent writes during the export process. This means the exported database could have changes executed during the export.
+Export, instead, doesn't lock the database and allows concurrent writes during the export process. This means the exported database could have changes executed during the export.
 
 ## Backup database
 Starting from v1.7.8, OrientDB comes with the script "backup.sh" under the "bin" directory. This script executes the backup by using the console. Syntax:
