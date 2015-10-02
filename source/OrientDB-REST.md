@@ -383,7 +383,9 @@ HTTP response:
 Execute a command against the database. Returns the records affected or the list of records for queries. Command executed via POST can be non-idempotent (look at [Query](#query)).
 
 Syntax: `http://<server>:[<port>]/command/<database>/<language>[/<command-text>[/limit[/<fetchPlan>]]]`
-The content can be `<command-text>` or starting from v2.2 a json containing the command and parameters, by name or positional: - `{"command":<command-text>, "parameters":{"<param-name>":<param-value>} }`
+
+The content can be `<command-text>` or starting from v2.2 a json containing the command and parameters, by name or positional:
+- `{"command":<command-text>, "parameters":{"<param-name>":<param-value>} }`
 - `{"command":<command-text>, "parameters":[<param-value>] }`
 
 Where:
