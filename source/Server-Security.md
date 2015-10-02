@@ -22,7 +22,7 @@ Server users are stored in `config/orientdb-server-config.xml` file under the ta
 When the OrientDB Server starts the first time, it creates the `root` user automatically by asking the password in console. If no password is specified, an random passwod is generated. Starting from OrientDB 2.2, passwords are hashed using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm.
 
 ## Configuration
-To avoid untrusted users add a new user or change the password on server configuration, protect the file `config/orientdb-server-config.xml` by disabling `write` access. It's good rule also disabling `read` access to avoid any user can read the hashed password. In facts, even i the password is hashed, there are many techniques to guess the real password. These techniques could be more or less complicated and time consuming.
+To avoid untrusted users add a new user or change the password on server configuration, protect the file `config/orientdb-server-config.xml` by disabling `write` access. It's good rule also disabling `read` access to avoid any user can read the hashed password. In facts, even if the password is hashed, there are many techniques to guess the real password. These techniques could be more or less complicated and time consuming.
 
 |   |   |
 |---|---|
