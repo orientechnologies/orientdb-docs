@@ -63,7 +63,7 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 
 ### Concurrency level
 
-In order to guarantee atomicity and consistency, OrientDB acquire an exclusive lock on the storage during transaction commit. This means transactions are serialized. Giving this limitation, _the OrientDB team is already working on improving parallelism to achieve better scalability on multi-core machines by optimizing internal structure to avoid exclusive locking._
+In order to guarantee atomicity and consistency, OrientDB acquires an exclusive lock on the storage during transaction commit. This means transactions are serialized. Giving this limitation, _the OrientDB team is already working on improving parallelism to achieve better scalability on multi-core machines by optimizing internal structure to avoid exclusive locking._
 
 ## Concurrency on adding edges
 
