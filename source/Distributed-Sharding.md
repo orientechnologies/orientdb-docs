@@ -1,6 +1,6 @@
 # Sharding
 
-OrientDB supports sharding of data at class level, by using multiple [clusters](Concepts.md#cluster)[clusters] per per [class](Concepts.md#class), where each cluster has own list of server where data is replicated. From a logical point of view all the records stored in clusters that are part of the same class, are records of that class.
+OrientDB supports sharding of data at class level, by using multiple [clusters](Concepts.md#cluster) per [class](Concepts.md#class), where each cluster has own list of server where data is replicated. From a logical point of view all the records stored in clusters that are part of the same class, are records of that class.
 
 Follows an example that split the [class](Concepts.md#class) “Client” in 3 [clusters](Concepts.md#cluster):
 
@@ -16,9 +16,9 @@ Shards, based on clusters, work against indexed and non-indexed class/clusters.
 You can assign each [cluster](Concepts.md#cluster) to one or more servers. If more servers are enlisted the records will be copied in all the servers. This is similar to what [RAID](http://en.wikipedia.org/wiki/RAID) stands for Disks. The first server in the list will be the **master server** for that cluster.
 
 This is an example of configuration where the Client [class](Concepts.md#class) has been split in the 3 [clusters](Concepts.md#cluster) client_usa, client_europe and client_china, each one with different configuration:
-- `client_usa`, will be managed by "usa" and "china" nodes
-- `client_europe`, will be managed by all the nodes (it would be equivalent as writing `“<NEW_NODE>”`, see cluster "*", the default one)
-- `client_china`, will be managed only by "china" node
+- `client_usa`, will be managed by "usa" and "europe" nodes
+- `client_europe`, will be managed only by "europe" node
+- `client_china`, will be managed by all the nodes (it would be equivalent as writing `“<NEW_NODE>”`, see cluster "*", the default one)
 
 ![image](http://www.orientdb.org/images/distributed-sharding-replica-class.png)
 
@@ -59,18 +59,18 @@ Example of [distributed database configuration](Distributed-Configuration.md#def
 
 OrientDB automatically creates a new [cluster](Concepts.md#cluster) per each class as soon as node joins the distributed cluster. These cluster names have the node name as suffix: `<class>_<node>`. Example: `client_usa`. When a node goes down, the [clusters](Concepts.md#cluster) where the node was master are reassigned to other servers. As soon as that node returns up and running, OrientDB will reassign the previous [clusters](Concepts.md#cluster) where it was master to the same node again following the convention `<class>_<node>`.
 
-This is defined as "Cluster Locality". The local node is always selected when a ne record is created. This avoids conflicts and allow to insert record in parallel on multiple nodes. This means also that in distributed mode you can't select the cluster selection strategy, because "local" strategy is always injected to all the cluster automatically.
+This is defined as "Cluster Locality". The local node is always selected when a new record is created. This avoids conflicts and allows to insert record in parallel on multiple nodes. This means also that in distributed mode you can't select the cluster selection strategy, because "local" strategy is always injected to all the cluster automatically.
 
 If you want to change permanently the mastership of [clusters](Concepts.md#cluster), rename the cluster with the suffix of the node you want assign as master.
 
 ## CRUD Operations
 ### Create new records
 
-In the configuration above, if a new Client record is created on node USA, then the selected cluster will be `client_usa`, because it's the local cluster for class Client. Now, `client_usa` is managed by both USA and CHINA nodes, so the "create record" operation is sent to both "usa" (locally) and "china" nodes.
+In the configuration above, if a new Client record is created on node USA, then the selected cluster will be `client_usa`, because it's the local cluster for class Client. Now, `client_usa` is managed by both USA and EUROPE nodes, so the "create record" operation is sent to both "usa" (locally) and "europe" nodes.
 
 ### Update and Delete of records
 
-Updating and Deleting of records always involves all the nodes where the record is stored. No matter the node that receive the update operation. If we update record `#13:22` that is stored on cluster `13`, namely `client_china` in the example above, then the update is sent to nodes: "china", "usa", "europe".
+Updating and Deleting of records always involves all the nodes where the record is stored. No matter the node that receives the update operation. If we update record `#13:22` that is stored on cluster `13`, namely `client_china` in the example above, then the update is sent to nodes: "china", "usa", "europe".
 
 ### Read records
 
