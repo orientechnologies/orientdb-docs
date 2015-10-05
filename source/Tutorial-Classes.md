@@ -6,9 +6,6 @@ The [Class](Concepts.md#class) is a concept drawn from the Object-oriented progr
 
 >For more information on classes in general, see [Wikipedia](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming).
 
-
-## Listing Classes
-
 To list all the configured classes on your system, use the [`CLASSES`](Console-Command-Classes.md) command in the console:
 
 <pre>
@@ -32,10 +29,11 @@ CLASSES:
 
 
 
+## Working with Classes
 
-## Creating Classes
+In order to start using classes with your own applications, you need to understand how to create and configure them for use.  As a concept, the class in OrientDB has the closest relationship with the table in Relational databases, but (unlike tables) classes can be schema-less, schema-full or mixed.  Classes can inherit from other classes, creating trees of classes.  Each class has its own cluster or clusters, (created by default, if none are defined).
 
-
+>For more information on classes in OrientDB, see [Class](Concepts.md#class).
 
 To create a new class, use the [`CREATE CLASS`](SQL-Create-Class.md) command:
 
@@ -45,29 +43,41 @@ orientdb> <code class="lang-sql userinput">CREATE CLASS Student</code>
 Class created successfully. Total classes in database now: 92
 </pre>
 
+This creates a class called `Student`.  Given that no cluster was defined in the [`CREATE CLASS`](SQL-Create-Class.md) command, OrientDB creates a default cluster called `student`, to contain records assigned to this class.  For the moment, the class has no records or properties tied to it.  It is now displayed in the [`CLASSES`](Console-Command-Classes.md) listings.
+
+
+
 ### Adding Properties to a Class
 
-OrientDB allows you to work in a schema-less mode, without defining properties. However, properties are mandatory if you define indexes or constraints. To create a new property use the [`CREATE PROPERTY`](SQL-Create-Property.md) command. Here is an example of creating three properties against the `Student` class:
+As mentioned above, OrientDB does allow you to work in a schema-less mode.  That is, to create classes without defining their properties.  However, in the event that you would like to define indexes or constraints for your class, properties are mandatory.  Following the comparison to Relational databases, if classes in OrientDB are similar to tables, properties are the rows on those tables.
+
+To create new properties on `Student`, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command in the console:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.name string</code>
+orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.name STRING</code>
 
 Property created successfully with id=1
 
 
-orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.surname string</code>
+orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.surname STRING</code>
 
 Property created successfully with id=2
 
 
-orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.birthDate date</code>
+orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.birthDate DATE</code>
 
 Property created successfully with id=3
 </pre>
 
+These commands create three new properties on the `Student` class to provide you with areas to define the individual student's name, surname and date of birth.
+
+
+
 ### Displaying Class Information
 
-To display the class `Student`, use the [`INFO CLASS`](Console-Command-Info-Class.md) command:
+On occasion, you may need to reference a particular class to see what clusters it belongs to and any properties configured for its use.  Using the [`INFO CLASS`](Console-Command-Info-Class.md), you can display information on the current  configuration and properties of a class.
+
+To display information on the class `Student`, use the [`INFO CLASS`](Console-Command-Info-Class.md) command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">INFO CLASS Student</code>
@@ -76,19 +86,23 @@ Class................: Student
 Default cluster......: student (id=96)
 Supported cluster ids: [96]
 Properties:
------------+--------+--------------+-----------+----------+----------+----+-----+
- NAME      | TYPE   | LINKED TYPE/ | MANDATORY | READONLY | NOT NULL |MIN |MAX |
-           |        | CLASS        |           |          |          |    |     |
------------+--------+--------------+-----------+----------+----------+----+-----+
- birthDate | DATE   | null         | false     | false    | false    |    |     |
- name      | STRING | null         | false     | false    | false    |    |     |
- surname   | STRING | null         | false     | false    | false    |    |     |
------------+--------+--------------+-----------+----------+----------+----+-----+
+-----------+--------+--------------+-----------+----------+----------+-----+-----+
+ NAME      | TYPE   | LINKED TYPE/ | MANDATORY | READONLY | NOT NULL | MIN | MAX |
+           |        | CLASS        |           |          |          |     |     |
+-----------+--------+--------------+-----------+----------+----------+-----+-----+
+ birthDate | DATE   | null         | false     | false    | false    |     |     |
+ name      | STRING | null         | false     | false    | false    |     |     |
+ surname   | STRING | null         | false     | false    | false    |     |     |
+-----------+--------+--------------+-----------+----------+----------+-----+-----+
 </pre>
 
 ### Adding Constraints to Properties
 
-To add a constraint, use the [`ALTER CLASS`](SQL-Alter-Class.md) command. For example, let's specify that the `name` field should be at least 3 characters:
+Constraints create limits on the data values assigned to properties.  For instance, the type, the minimum or maximum size of, whether or not a value is mandatory or if null values are permitted to the property.
+
+To add a constraint, use the [`ALTER PROPERTY`](SQL-Alter-Property.md) command:
+
+
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MIN 3</code>
@@ -96,15 +110,50 @@ orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MIN 3</co
 Property updated successfully
 </pre>
 
+This command adds a constraint to `Student` on the `name` property.  It sets it so that any value given to this class and property must have a minimum of three characters.
+
+
 ## Viewing Records in a Class
 
-To see all the records in a class, use the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command:
+Classes contain and define records in OrientDB.  You can view all records that belong to a class using the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command and data belonging to a particular record with the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command.
+
+In the above examples, you created a `Student` class and defined the schema for records that belong to that class, but you did not create these records or add any data.  As a result, running these commands on the `Student` class returns no results.  Instead, for the examples below, consider the `OUser` class.
 
 <pre>
-orientdb> <code class="lang-sql userinput">BROWSE CLASS OUser</code>
+orientdb> <code class="lang-sql userinput">INFO CLASS OUser</code>
+
+CLASS 'OUser'
+
+Super classes........: [OIdentity]
+Default cluster......: ouser (id=5)
+Supported cluster ids: [5]
+Cluster selection....: round-robin
+Oversize.............: 0.0
+
+PROPERTIES
+----------+---------+--------------+-----------+----------+----------+-----+-----+
+ NAME     | TYPE    | LINKED TYPE/ | MANDATORY | READONLY | NOT NULL | MIN | MAX |
+          |         | CLASS        |           |          |          |     |     |
+----------+---------+--------------+-----------+----------+----------+-----+-----+
+ password | STRING  | null         | true      | false    | true     |     |     |
+ roles    | LINKSET | ORole        | false     | false    | false    |     |     |
+ name     | STRING  | null         | true      | false    | true     |     |     |
+ status   | STRING  | null         | true      | false    | true     |     |     |
+----------+---------+--------------+-----------+----------+----------+-----+-----+
+
+INDEXES (1 altogether)
+-------------------------------+----------------+
+ NAME                          | PROPERTIES     |
+-------------------------------+----------------+
+ OUser.name                    | name           |
+-------------------------------+----------------+
+
 </pre>
 
-In this case we are listing all of the users of the database. This is not particularly secure. You should further deepen the OrientDB [Security](Security.md) system, but for now `OUser` is a class like any other. For each query the console always shows us the number of the records in the result set and the [record's ID](Concepts.md#RecordID).
+OrientDB ships with a number of default classes, which it uses in configuration and in managing data on your system, (the classes with the `O` prefix shown in the [`CLASSES`](Console-Command-Classes.md) command output).  The `OUser` class defines the users on your database.
+
+To see records assigned to the `OUser` class, run the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command:
+
 
 <pre>
 orientdb> <code class="lang-sql userinput">BROWSE CLASS OUser</code>
@@ -118,7 +167,13 @@ orientdb> <code class="lang-sql userinput">BROWSE CLASS OUser</code>
 ---+------+-------+--------+-----------------------------------+--------+-------+
 </pre>
 
-The first column is a number used as an identifier to display the record's detail. To show the first record in detail, it is necessary to use the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command with the number of the record, in this case 0:
+|||
+|---|-----|
+|![](images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure.  To further improve security in production environments, see [Security](Security.md).|
+
+When you run [`BROWSE CLASS`](Console-Command-Browse-Class.md), the first column in the output provides the identifier number, which you can use to display detailed information on that particular record.
+
+To show the first record browsed from the `OUser` class, run the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">DISPLAY RECORD 0</code>
@@ -134,3 +189,6 @@ orientdb> <code class="lang-sql userinput">DISPLAY RECORD 0</code>
     roles | [#4:0=#4:0]                                                       |
 ----------+-------------------------------------------------------------------+
 </pre>
+
+Bear in mind that this command references the last call of [`BROWSE CLASS`](Console-Command-Browse-Class.md).  You can continue to display other records, but you cannot display records from another class until you browse that particular class.
+
