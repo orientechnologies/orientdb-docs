@@ -138,8 +138,27 @@ TODO
 TODO
 
 ### ST_Envelope
-TODO
+Returns a geometry representing the bounding box of the supplied geometry
 
+Syntax : ST_Envelope(geometry)
+
+Example 
+
+```SQL
+SELECT ST_AsText(ST_Envelope(ST_GeomFromText('POINT(1 3)')));
+
+ST_AsText
+----------
+POINT (1 3)
+```
+
+```SQL
+SELECT ST_AsText(ST_Envelope(ST_GeomFromText('LINESTRING(0 0, 1 3)')))
+
+ST_AsText
+-----------------------------------
+POLYGON ((0 0, 0 3, 1 3, 1 0, 0 0))
+```
 ### ST_Buffer
 TODO
 ## Operators
