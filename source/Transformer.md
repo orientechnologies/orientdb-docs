@@ -12,7 +12,7 @@ Before the execution, the `$input` variable is always assigned, so you can get a
 
 
 ### CSV *Deprecated*
-*DEPRECATED* : use the new csv extractor instead
+*DEPRECATED* : use the new [csv extractor](Extractor.md#csv) instead
 Converts a String in a Document parsing it as CSV.
 
 Component description.
