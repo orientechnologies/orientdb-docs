@@ -74,9 +74,8 @@ Below are 2 files containing the ETL to import Posts and Comments separately.
 ```json
 {
   "source": { "file": { "path": "/temp/datasets/posts.csv" } },
-  "extractor": { "row": {} },
+  "extractor": { "csv": {} },
   "transformers": [
-    { "csv": {} },
     { "vertex": { "class": "Post" } }
   ],
   "loader": {
@@ -101,9 +100,8 @@ The Loader contains all the information to connect to an OrientDB database. We h
 ```json
 {
   "source": { "file": { "path": "/temp/datasets/comments.csv" } },
-  "extractor": { "row": {} },
+  "extractor": { "csv": {} },
   "transformers": [
-    { "csv": {} },
     { "vertex": { "class": "Comment" } },
     { "edge": { "class": "HasComments",
                 "joinFieldName": "postId",

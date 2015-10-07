@@ -11,7 +11,8 @@ Before the execution, the `$input` variable is always assigned, so you can get a
 |[LOG](Transformer.md#log)|[BLOCK](Transformer.md#block) | [COMMAND](Transformer.md#command)|
 
 
-### CSV
+### CSV *Deprecated*
+*DEPRECATED* : use the new csv extractor instead
 Converts a String in a Document parsing it as CSV.
 
 Component description.

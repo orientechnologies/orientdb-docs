@@ -37,9 +37,8 @@ In order to import this file in OrientDB, we have to create the following file a
 ```json
 {
   "source": { "file": { "path": "/temp/openbeer/openbeerdb_csv/categories.csv" } },
-  "extractor": { "row": {} },
+  "extractor": { "csv": {} },
   "transformers": [
-    { "csv": {} },
     { "vertex": { "class": "Category" } }
   ],
   "loader": {
@@ -87,9 +86,8 @@ In this case we'll correlate the Style with the Category created earlier. This i
 ```json
 {
   "source": { "file": { "path": "/temp/openbeer/openbeerdb_csv/styles.csv" } },
-  "extractor": { "row": {} },
+  "extractor": { "csv": {} },
   "transformers": [
-    { "csv": {} },
     { "vertex": { "class": "Style" } },
     { "edge": { "class": "HasCategory",  "joinFieldName": "cat_id", "lookup": "Category.id" } }
   ],
@@ -133,9 +131,8 @@ Breweries have no outgoing relations with other entities, so this is a plain imp
 ```json
 {
   "source": { "file": { "path": "/temp/openbeer/openbeerdb_csv/breweries.csv" } },
-  "extractor": { "row": {} },
+  "extractor": { "csv": {} },
   "transformers": [
-    { "csv": {} },
     { "vertex": { "class": "Brewery" } }
   ],
   "loader": {
@@ -183,10 +180,9 @@ This is the `breweries.json` to use with OrientDB ETL for the next step.
 {
   "config" : { "haltOnError": false },
   "source": { "file": { "path": "/temp/openbeer/openbeerdb_csv/beers.csv" } },
-  "extractor": { "row": {} },
+  "extractor": { "csv": { "columns": ["id","brewery_id","name","cat_id","style_id","abv","ibu","srm","upc","filepath","descript","last_mod"],
+                                "columnsOnFirstLine": true } },
   "transformers": [
-    { "csv": { "columns": ["id","brewery_id","name","cat_id","style_id","abv","ibu","srm","upc","filepath","descript","last_mod"],
-               "columnsOnFirstLine": true } },
     { "vertex": { "class": "Beer" } },
     { "edge": { "class": "HasCategory",  "joinFieldName": "cat_id", "lookup": "Category.id" } },
     { "edge": { "class": "HasBrewery",  "joinFieldName": "brewery_id", "lookup": "Brewery.id" } },
