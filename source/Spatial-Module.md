@@ -126,7 +126,28 @@ Example
 select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12.314015 41.963125, 12.6605063 41.963125, 12.6605063 41.8262816, 12.314015 41.8262816))')
 ```
 ### ST_Contains
-TODO
+Returns true if geom1 contains geom2
+
+Syntax : ST_Contains(geom1,geom2)
+
+This function will use an index if available.
+
+Example
+```SQL
+select ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_GeomFromText('POINT(0 0)'))
+
+ST_Contains
+----------
+true
+```
+
+```SQL
+select ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_Buffer(ST_GeomFromText('POINT(0 0)'),20))
+
+ST_Contains
+----------
+false
+```
 
 ### ST_Disjoint
 Returns true if geom1 does not spatially intersects geom2
