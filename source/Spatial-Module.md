@@ -174,8 +174,28 @@ ST_Disjoint
 false
 ```
 
-### ST_Intersect
-TODO
+### ST_Intersects
+Returns true if geom1 spatially intersects geom2
+
+Syntax: ST_Intersects(geom1,geom2)
+
+Example
+
+```SQL
+SELECT ST_Intersects(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 2 0, 0 2 )'));
+
+ST_Intersects
+-------------
+false
+```
+
+```SQL
+SELECT ST_Intersects(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 0 0, 0 2 )'));
+
+ST_Intersects
+-------------
+true
+```
 
 ### ST_AsBinary
 Returns the Well-Known Binary (WKB) representation of the geometry
