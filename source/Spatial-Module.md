@@ -157,9 +157,16 @@ false
 TODO
 
 ### ST_AsBinary
-TODO
+Returns the Well-Known Binary (WKB) representation of the geometry
 
-### ST_Envelope
+Syntax :  ST_AsBinary(geometry)
+
+Example
+
+```SQL
+SELECT ST_AsBinary(ST_GeomFromText('POINT(0 0)'))
+```
+### ST_Envelope 
 Returns a geometry representing the bounding box of the supplied geometry
 
 Syntax : ST_Envelope(geometry)
