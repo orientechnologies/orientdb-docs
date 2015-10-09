@@ -1,53 +1,87 @@
 # SQL
 
-Most NoSQL products have a custom query language. OrientDB focuses on standards when it comes to query languages. Instead of inventing "Yet Another Query Language", we started from the widely used and well understood SQL. We then extended it to support more complex graph concepts like Trees and Graphs. Why SQL? SQL ubiquitous in the database developer world, it is familiar. Also, it is more readable and concise than Map Reduce scripts.
+Most NoSQL products employ a custom query language.  In this, OrientDB differs by focusing on standards in query languages.  That is, instead of inventing "Yet Another Query Language," it begins with the widely used and well-understand language of SQL.  It then extends SQL to support more complex graphing concepts, such as Trees and Graphs/
 
-### `SELECT`
+Why SQL?  Because SQL is ubiquitous in the database development world.  It is familiar and more readable and concise than its competitors, such as Map Reduce scripts.
 
-To start, let's write a query that returns the same result as the previous `BROWSE CLUSTER OUser` and `BROWSE CLASS OUser`:
+
+## `SELECT`
+
+The [`SELECT`](SQL-Query.md) statement queries the database and returns results that match the given parameters.  For instance, earlier in [Getting Started](Tutorial-Introduction-to-the-NoSQL-world.md), two queries were presented that give the same results: `BROWSE CLUSTER ouser` and `BROWSE CLASS OUser`.  Here is a third option, gotten through a [`SELECT`](SQL-Query.md) statement.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM OUser</code>
 </pre>
 
-Starting from this simple query, we can notice 2 interesting things:
+Notice that the query has no projections.  What this means is that you do not need to enter a character to indicate that the query should return the entire record, such as the asterisk in the Relational model, (that is, `SELECT * FROM OUser`).
 
-- This query has no projections. This stands for "the entire record" like using the star (*).
-- OUser is a class. By default queries are executed against classes.
+Additionally, OUser is a class.  By default, OrientDB executes queries against classes.  Targets can also be:
 
-The target can also be:
+- **Clusters**  To execute against a cluster, rather than a class, prefix `CLUSTER` to the target name.
 
-- a **cluster**, by prefixing with "cluster:". Example: `SELECT FROM CLUSTER:OUser`
-- one or more **Record IDs**, by using the [RecordID](Concepts.md#recordId) directly. For example: `SELECT FROM #10:3` or `SELECT FROM [#10:1, #10:3, #10:5]`
-- an **index**, by prefixing with `INDEX:`. For example: `SELECT VALUE FROM INDEX:dictionary WHERE key = 'Jay'`
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:Ouser</code>
+  </pre>
 
-Similar to standard SQL, OrientDB supports WHERE conditions to filter the returning records by specifying one or more conditions. For example:
+- **Record ID** To execute against one or more [Record ID's](Concepts.md#recordId), use the identifier(s) as your target.  For example.
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM #10:3</code>
+  orientdb> <code class="lang-sql userinput">SELECT FROM [#10:1, #10:30, #10:5]</code>
+  </pre>
+
+- **Indexes** To execute a query against an index, prefix ``INDEX`` to the target name.
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT VALUE FROM INDEX:dictionary WHERE key='Jay'</code>
+  </pre>
+
+### `WHERE`
+
+Much as the standard implementation of SQL, OrientDB supports [`WHERE`](SQL-Where.md) conditions to filter the returning records.  For example,
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM OUser WHERE name LIKE 'l%'</code>
 </pre>
 
-Returns all OUser records where the name starts with 'l'. For more information, look at all the supported operators and functions: [WHERE](SQL-Where.md).
+This returns all `OUser` records where the name begins with `l`.  For more information on supported operators and functions, see [`WHERE`](SQL-Where.md).
 
-OrientDB also supports the `ORDER BY` clause to order the result set by one or more fields. For example:
+### `ORDER BY`
+
+In addition to [`WHERE`](SQL-Where.md), OrientDB also supports `ORDER BY` clauses.  This allows you to order the results returned by the query according to one or more fields, in either ascending or descending order.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE city='Rome' ORDER BY surname ASC, name ASC</code>
 </pre>
 
-This will return all of the Employees who live in Rome, ordered by surname and name in ascending order. You can also use the `GROUP BY` clause to group results. For example:
+The example queries the `Employee` class, it returns a listing of all employees in that class who live in Rome and it orders the results by surname and name, in ascending order.
+
+
+### `GROUP BY`
+
+In the event that you need results of the query grouped together according to the values of certain fields, you can manage this using the `GROUP BY` clause.
+
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT SUM(salary) FROM Employee WHERE age < 40 GROUP BY job</code>
 </pre>
 
-This returns the sum of the salaries of all the employees with age under 40 grouped by job type. To limit the result set you can use the `LIMIT` keyword. For example, to limit the result set to maximum of 20 items:
+In the example, you query the `Employee` class for the sum of the salaries of all employees under the age of forty, grouped by their job types.
+
+### `LIMIT`
+
+In the event that your query returns too many results, making it difficult to read or manage, you can use the `LIMIT` clause to reduce it to the top most of the return values.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' LIMIT 20</code>
 </pre>
 
-Thanks to the SKIP keyword you can easily manage pagination. Use SKIP to pass over records from the result set. For example, to divide the result set in 3 pages you could do something like:
+In the example, you query the `Employee` class for a list of male employees.  Given that there are likely to be a number of these, you limit the return to the first twenty entries.
+
+
+### `SKIP`
+
+When using the `LIMIT` clause with queries, you can only view the topmost of the return results.  In the event that you would like to view certain results further down the list, for instance the values from twenty to forty, you can paginate your results using the `SKIP` keyword in the `LIMIT` clause.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' LIMIT 20</code>
@@ -55,51 +89,60 @@ orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='ma
 orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' SKIP 40 LIMIT 20</code>
 </pre>
 
-Now that we have the basic skills to execute queries, let's discuss how to manage relationships.
+The first query returns the first twenty results, the second returns the next twenty results, the third up to sixty.  You can use these queries to manage pages at the application layer.
 
 
-### `INSERT`
+## `INSERT`
 
-OrientDB supports ANSI-92 syntax:
+The [`INSERT`](SQL-Insert.md) statement adds new data to a class and cluster.  OrientDB supports three forms of syntax used to insert new data into your database.
 
-<pre>
-orientdb> <code class="lang-sql userinput">INSERT INTO Employee(name, surname, gender)
+- The standard ANSI-93 syntax:
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO	Employee(name, surname, gender)
           VALUES('Jay', 'Miner', 'M')</code>
-</pre>
+  </pre>
 
-And the simplified:
+- The simplified ANSI-92 syntax:
 
-<pre>
-orientdb> <code class="lang-sql userinput">INSERT INTO Employee SET name='Jay', surname='Miner', gender='M'</code>
-</pre>
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Employee SET name='Jay', surname='Miner', gender='M'</code>
+  </pre>
 
-Since OrientDB was created for the web, it can natively ingest JSON data:
+- The JSON syntax:
 
-<pre>
-orientdb> <code class="lang-sql userinput">INSERT INTO Employee CONTENT</code> <code class="lang-json userinput">{name : 'Jay', surname : 'Miner',
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Employee CONTENT</code> <code class="lang-json userinput">{name : 'Jay', surname : 'Miner',
           gender : 'M'}</code>
-</pre>
+  </pre>
 
-### `UPDATE`
-
-The ANSI-92 syntax is supported. Example:
-
-<pre>
-orientdb> <code class="lang-sql userinput">UPDATE Employee SET local=TRUE WHERE city='London'</code>
-</pre>
-
-Also using JSON with the "merge" keyword to merge the input JSON with current record:
-
-<pre>
-orientdb> <code class="lang-sql userinput">UPDATE Employee MERGE { local : TRUE } WHERE city='London'</code>
-</pre>
+Each of these queries adds Jay Miner to the `Employee` class.  You can choose whichever syntax that works best with your application. 
 
 
-### `DELETE`
+## `UPDATE`
 
-This also respects the ANSI-92 compliant syntax:
+The [`UPDATE`](SQL-Update.md) statement changes the values of existing data in a class and cluster.  In OrientDB there are two forms of syntax used to update data on your database.
+
+- The standard ANSI-92 syntax:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Employee SET local=TRUE WHERE city='London'</code>
+  </pre>
+
+- The JSON syntax, used with the `MERGE` keyword, which merges the changes with the current record:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Employee MERGE { local : TRUE } WHERE city='London'</code>
+  </pre>
+
+Each of these statements updates the `Employee` class, changing the `local` property to `TRUE` when the employee is based in London.
+
+
+## `DELETE`
+
+The [`DELETE`](SQL-Delete.md) statement removes existing values from your class and cluster.  OrientDB supports the standard ANSI-92 compliant syntax for these statements:
 
 <pre>
 orientdb> <code class="lang-sql userinput">DELETE FROM Employee WHERE city <> 'London'
 </pre>
 
+Here, entries are removed from the `Employee` class where the employee in question is not based in London.

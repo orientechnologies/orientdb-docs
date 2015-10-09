@@ -1,75 +1,92 @@
 # Relationships
 
-The most important feature of a **graph** database is the management of **relationships**. Many users come to OrientDB from [MongoDB](http://www.mongodb.org) or other document databases because they lack efficient support of relationships.
+One of the most important features of Graph databases lies in how they manage relationships.  Many users come to OrientDB from MongoDB due to OrientDB having more efficient support for relationships.
 
-## Relational Model
 
-The relational model (and RDBMS - relational database management systems) has long been thought to be the best way to handle relationships. Graph databases suggest a more modern approach to this topic.
+## Relations in Relational Databases
 
-Most database developers are familiar with the relational model given its 30+ years of dominance, spreading over generations of developers. Let's review how these systems manage relationships. As an example, we will use the relationships between the Customer and Address tables.
+Most database developers are familiar with the Relational model of databases and with relational database management systems, such as MySQL and MS-SQL.  Given its more than thirty years of dominance, this has long been thought the best way to handle relationships.  By contrast, Graph databases suggest a more modern approach to this concept.
 
-### 1-to-1 relationship
+Consider, as an example, a database where you need to establish relationships between `Customer` and `Address` tables.
 
-RDBMSs store the value of the target record in the "address" column of the Customer table. This is called a **foreign key**. The foreign key points to the **primary key** of the related record in the Address table:
+### 1-to-1 Relationship
+
+Relational databases store the value of the target record in the `address` row of the `Customer` table.  This is the Foreign Key.  The foreign key points to the Primary Key of the related record in the `Address` table.
 
 ![RDBMS 1-to-1](http://www.orientdb.org/images/rdbms-1to1.jpg)
 
-To retrieve the address pointed to by customer "Luca", the query in a RDBMS would be:
+Consider a case where you want to view the address of a customer named Luca.  In a Relational database, like MySQL, this is how you would query the table:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B WHERE A.name='Luca'
-          AND A.address=B.id</code>
+mysql> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B
+          WHERE A.name='Luca' AND A.address=B.id;</code>
 </pre>
 
-This is a **`JOIN`**! A `JOIN` is executed at run-time every time you retrieve a relationship.
+What happens here is a `JOIN`.  That is, the contents of two tables are joined to form the results.  The database executes the `JOIN` every time you retrieve the relationship.
 
-### 1-to-Many relationship
 
-Since RDBMS have no concept of collections the Customer table cannot have multiple foreign keys. The way to manage a 1-to-Many relationship is by moving the foreign key to the Address table.
+### 1-to-Many Relationship
+
+Given that Relational databases have no concept of a collections, the `Customer` table cannot have multiple foreign keys.  The only way to manage a 1-to-Many Relationship in databases of this kind is to move the Foreign Key to the `Address` table.
 
 ![RDBMS 1-to-N](http://www.orientdb.org/images/rdbms-1toN.jpg)
 
-To extract all addresses of Customer 'Luca', the query in RDBMS reads:
+For example, consider a case where you want to return all addresses connected to the customer Luca, this is how you would query the table:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B WHERE A.name='Luca'
-          AND B.customer=A.id</code>
+mysql> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B
+          WHERE A.name='Luca' AND B.customer=A.id;</code>
 </pre>
 
 ### Many-to-Many relationship
 
-The most complex case is the Many-to-Many relationship. To handle this type of association, RDBMSs need a separate, intermediary table that matches both Customer and Addresses in all required combinations. This results in a **double `JOIN`** per record at runtime;
+The most complicated case is the Many-to-Many relationship.  To handle associations of this kind, Relational databases require a separate, intermediary table that matches rows from both `Customer` and `Address` tables in all required combinations.  This results in a double `JOIN` per record at runtime.
 
 ![RDBMS Many-to-Many](http://www.orientdb.org/images/rdbms-NtoM.jpg)
 
-To extract all addresses of Customer 'Luca's the query in RDBMS becomes:
+For example, consider a case where you want to return all address for the customer Luca, this is how you would query the table:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B, CustomerAddress C
-          WHERE A.name='Luca' AND B.id=A.id AND B.address=C.id</code>
+mysql> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Address B, CustomerAddress C
+          WHERE A.name='Luca' AND B.id=A.id AND B.address=C.id;</code>
 </pre>
 
 
-### The problem with `JOIN`
+## Understanding `JOIN`
 
-With document and relational DBMS, the more data you have, the slower the database will perform. Joins have heavy runtime costs. In comparison, OrientDB handles relationships as physical links to the records, assigned only once when the edge is created O(1). Compare this to an RDBMS that “computes“ the relationship every single time you query a database O(LogN). With OrientDB, speed of traversal is not affected by the database size. It is always constant regardless if it has one record or 100 billion records. This is critical in the age of Big Data.
+In Document and Relational database systems, the more data that you have, the slower the database responds and `JOIN` operations have a heavy runtime cost.
 
-Searching for an ID at runtime each time you execute a query, for every record could be very expensive! The first optimization with RDMS is using indexes. Indexes speed up searches but they slow down `INSERT`, `UPDATE` and `DELETE` operations.  In addition, they occupy substantial space on disk and in memory. You also need to qualify - are you sure the lookup into an index is actually fast? Let's try to understand how indexes work.
+For Relational database systems, the database computes the relationship every time you query the server.  That translates to `O(log N / block_size)`.  OrientDB handles relationships as physical links to the records and assigns them only once, when the edge is created.  That is, `O(1)`.
 
-### Do indexes solve the problem with `JOIN`?
+In OrientDB, the speed of traversal is not affected by the size of the database.  It is always constant regardless of whether it has one record or one hundred billion records.  This is a critical feature in the age of Big Data.
 
-The database industry has plenty of indexing algorithms. The most common in both Relational and NoSQL DBMS is the [B+Tree](http://en.wikipedia.org/wiki/B%2B_tree). All balanced trees work in similar ways. Here is and example of how it would work when you're looking for "Luca": after only 5 hops the record is found.
+Searching fr an identifier at runtime each time you execute a query, for every record could grow very expensive.  The first optimization with Relational databases is the use of indexing.  Indexes speed up searches, but they slow down [`INSERT`](SQL-Insert.md), [`UPDATE`](SQL-Update.md), and [`DELETE`](SQL-Delete.md) operations.  Additionally, they occupy a substantial amount of space on the disk and in memory.
+
+Consider also whether searching an index is actually fast.
+
+### Indexes and `JOIN`
+
+In the database industry there are a number of indexing algorithms available.  The most common in both Relational and NoSQL database systems is the [B+ Tree](http://en.wikipedia.org/wiki/B%2B_tree).
+
+Balance trees all work in a similar manner.  For example, consider a case where you're looking for an entry with the name `Luca`: after only five hops, the record is found.
 
 ![RDBMS Indexes](http://www.orientdb.org/images/index-lookup.jpg)
 
-But what if there were millions or billions of records? There would be many, many more hops. And this operation is executed on every JOIN per record! Imagine joining 4 tables with thousands of records: the number of JOINS could be in the millions!
+While this is fine on a small database, consider what would happen if there were millions or billions of records.  The database would have to go through many, many more hops to find `Luca`.  And, the database would execute this operation on every `JOIN` per record.  Picture: joining four tables with thousands of records.  The number of `JOIN` operations could run in the millions.
 
 ## Relations in OrientDB
 
-OrientDB doesn't use JOINs. Instead it uses LINKs. A LINK is a relationship managed by storing the target [RID](Tutorial-Record-ID.md) in the source record. It's much like storing a pointer between 2 objects in memory. When you have Invoice -> Customer, then you have a pointer to Customer inside Invoice as an attribute. It's exactly the same. In this way it's like your database was in memory, a memory of several exabytes.
+There is no `JOIN` in OrientDB.  Instead, it uses `LINK`.  `LINK` is a relationship managed by storing the target [Record ID](Tutorial-Record-ID.md) in the source record.  It is similar to storing the pointer between two objects in memory.
 
-What about 1-to-N relationships? These relationships are handled as a collection of [RIDs](Tutorial-Record-ID.md), like you would manage objects in memory. OrientDB supports different kinds of relationships:
-- **`LINK`**, to point to one record only
-- **`LINKSET`**, to point to several records. Like Java Sets, the same RID can only be included once. The pointers also have no order
-- **`LINKLIST`**, to point to several records. Like Java Lists, they are ordered and can contain duplicates
-- **`LINKMAP`**, to point to several records with a key stored in the source record. The Map values are the RIDs. Works like the Java `Map<?,Record>`.
+When you have `Invoice` linked to `Customer`, then you have a pointer to `Customer` inside `Invoice` as an attribute.  They are exactly the same.  In this way, it's as though your database was kept in memory: a memory of several exabytes.
+
+### Types of Relationships
+
+In 1-to-N relationships, OrientDB handles the relationship as a collection of Record ID's, as you would when managing objects in memory.
+
+OrientDB supports several different kinds of relationships:
+
+- `LINK` Relationship that points to one record only.
+- `LINKSET` Relationship that points to several records.  It is similar to Java sets, the same Record ID can only be included once.  The pointers have no order.
+- `LINKLIST` Relationship that points to several records.  It is similar to Java lists, they are ordered and can contain duplicates.
+- `LINKMAP` Relationship that points to several records with a key stored in the source record.  The Map values are the Record ID's.  It is similar to Java `Map<?,Record>`.
