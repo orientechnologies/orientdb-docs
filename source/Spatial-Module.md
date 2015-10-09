@@ -129,7 +129,29 @@ select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12
 TODO
 
 ### ST_Disjoint
-TODO
+Returns true if geom1 does not spatially intersects geom2
+
+Syntax: St_Disjoint(geom1,geom2)
+
+This function does not use indexes
+
+Example
+
+```SQL
+SELECT ST_Disjoint(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 2 0, 0 2 )'));
+
+ST_Disjoint
+-----------------
+true
+```
+
+```SQL
+SELECT ST_Disjoint(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 0 0, 0 2 )'));
+
+ST_Disjoint
+-----------------
+false
+```
 
 ### ST_Intersect
 TODO
