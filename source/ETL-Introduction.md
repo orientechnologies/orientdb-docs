@@ -64,4 +64,4 @@ Examples:
 - [Import from JSON](Import-from-JSON.md)
 - [Import DBPedia](Import-from-DBPedia.md)
 - [Import from a DBMS](Import-from-DBMS.md)
-- [Import from Parse (Facebook)](http://www.orientechnologies.com/docs/last/orientdb-etl.wiki/Import-from-PARSE.html)
+- [Import from Parse (Facebook)](Import-from-PARSE.html)

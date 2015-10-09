@@ -126,20 +126,109 @@ Example
 select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12.314015 41.963125, 12.6605063 41.963125, 12.6605063 41.8262816, 12.314015 41.8262816))')
 ```
 ### ST_Contains
-TODO
+Returns true if geom1 contains geom2
+
+Syntax : ST_Contains(geom1,geom2)
+
+This function will use an index if available.
+
+Example
+```SQL
+select ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_GeomFromText('POINT(0 0)'))
+
+ST_Contains
+----------
+true
+```
+
+```SQL
+select ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_Buffer(ST_GeomFromText('POINT(0 0)'),20))
+
+ST_Contains
+----------
+false
+```
 
 ### ST_Disjoint
-TODO
+Returns true if geom1 does not spatially intersects geom2
 
-### ST_Intersect
-TODO
+Syntax: St_Disjoint(geom1,geom2)
+
+This function does not use indexes
+
+Example
+
+```SQL
+SELECT ST_Disjoint(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 2 0, 0 2 )'));
+
+ST_Disjoint
+-----------------
+true
+```
+
+```SQL
+SELECT ST_Disjoint(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 0 0, 0 2 )'));
+
+ST_Disjoint
+-----------------
+false
+```
+
+### ST_Intersects
+Returns true if geom1 spatially intersects geom2
+
+Syntax: ST_Intersects(geom1,geom2)
+
+Example
+
+```SQL
+SELECT ST_Intersects(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 2 0, 0 2 )'));
+
+ST_Intersects
+-------------
+false
+```
+
+```SQL
+SELECT ST_Intersects(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 0 0, 0 2 )'));
+
+ST_Intersects
+-------------
+true
+```
 
 ### ST_AsBinary
-TODO
+Returns the Well-Known Binary (WKB) representation of the geometry
 
-### ST_Envelope
-TODO
+Syntax :  ST_AsBinary(geometry)
 
+Example
+
+```SQL
+SELECT ST_AsBinary(ST_GeomFromText('POINT(0 0)'))
+```
+### ST_Envelope 
+Returns a geometry representing the bounding box of the supplied geometry
+
+Syntax : ST_Envelope(geometry)
+
+Example 
+
+```SQL
+SELECT ST_AsText(ST_Envelope(ST_GeomFromText('POINT(1 3)')));
+
+ST_AsText
+----------
+POINT (1 3)
+```
+
+```SQL
+SELECT ST_AsText(ST_Envelope(ST_GeomFromText('LINESTRING(0 0, 1 3)')))
+
+ST_AsText
+-----------------------------------
+POLYGON ((0 0, 0 3, 1 3, 1 0, 0 0))
+```
 ### ST_Buffer
 TODO
 ## Operators

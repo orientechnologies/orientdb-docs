@@ -23,10 +23,9 @@ Features:
     "file": { "path": "$filePath", "lock" : true }
   },
   "extractor" : {
-    "row": {}
+   { "csv": { "separator": ",", "nullValue": "NULL", "skipFrom": 1, "skipTo": 3 } },
   },
   "transformers" : [
-   { "csv": { "separator": ",", "nullValue": "NULL", "skipFrom": 1, "skipTo": 3 } },
    { "merge": { "joinFieldName":"URI", "lookup":"V.URI" } },
    { "vertex": { "class": "$className"} }
   ],
