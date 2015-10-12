@@ -196,6 +196,7 @@
    * [Info Property](Console-Command-Info-Property.md)
    * [Insert](Console-Command-Insert.md)
    * [List Databases](Console-Command-List-Databases.md)
+   * [List Connections](Console-Command-List-Connections.md)
    * [Load Record](Console-Command-Load-Record.md)
    * [Profiler](Console-Command-Profiler.md)
    * [Properties](Console-Command-Properties.md)

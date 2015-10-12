@@ -97,6 +97,7 @@ To know all the commands supported by the Orient console open it and type **help
 |[JS](Javascript-Command.md#via_console)|Executes a Javascript in the console|
 |[JSS](Javascript-Command.md#via_console)|Executes a Javascript in the server|
 |[LIST DATABASES](Console-Command-List-Databases.md)|List the available databases|
+|[LIST CONNECTIONS](Console-Command-List-Connections.md)|List the available connections|
 |[LOAD RECORD](Console-Command-Load-Record.md)|Loads a record in memory and set it as the current one|
 |[PROFILER](Console-Command-Profiler.md)|Controls the [Profiler](Profiler.md)|
 |[PROPERTIES](Console-Command-Properties.md)|Returns all the configured properties|
