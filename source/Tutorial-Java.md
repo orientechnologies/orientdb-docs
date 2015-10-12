@@ -76,7 +76,7 @@ Please note that, in this example, we have used a partially schema-full mode, as
 
 ## SQL queries
 
-TinkerPop interfaces allow to execute fluent queries or Gremlin queries, but you can still use the power of OrientBD SQL by using the `.command()` method. Example:
+TinkerPop interfaces allow to execute fluent queries or Gremlin queries, but you can still use the power of OrientDB SQL by using the `.command()` method. Example:
 ```java
 for (Vertex v : (Iterable<Vertex>) graph.command(
             new OCommandSQL("SELECT EXPAND( OUT('bough') ) FROM Customer WHERE name='Jay'")).execute()) {
