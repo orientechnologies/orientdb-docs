@@ -5,12 +5,25 @@ This command deletes one or more edges from the database. Use this command if yo
 ## Syntax
 
 ```sql
-DELETE EDGE <rid>|[<rid> (, <rid>)*]|FROM <rid>|TO <rid>|[<class>] [WHERE <conditions>]>
-            [LIMIT <MaxRecords>] [BATCH <batch-size>]
+DELETE EDGE 
+	( <rid>
+	  |
+	  [<rid> (, <rid>)*]
+	  |
+	  ( [ FROM (<rid> | <select_statement> ) ] [ TO ( <rid> | <select_statement> ) ] )
+	  |
+	  [<class>] 
+	(
+	[WHERE <conditions>]
+	[LIMIT <MaxRecords>] 
+	[BATCH <batch-size>]
 ```
 
 Where:
+- `FROM` the starting point vertex of the edge to delete
+- `TO` the end point vertex of the edge to delete
 - [WHERE](SQL-Where.md) clause is common to the other SQL commands.
+- `LIMIT` the maximum number of edges to delete
 - `BATCH` optional block (since v2.1) gets the `<batch-size>` to execute the command in small blocks, avoiding memory problems when the number of vertices is high (Transaction consumes RAM). By default is 100.
 
 ## Control vertices version increment
@@ -62,6 +75,21 @@ Deletes edges with a condition in blocks of 1000 each (Since v2.1)
 ```sql
 DELETE EDGE Owns WHERE date < "2011-11" BATCH 1000
 ```
+
+# Deleting Edges from a subquery
+
+Suppose you have an edge with RID = #11:0, the following query **DOES NOT DELETE** the edge
+
+```sql
+DELETE EDGE FROM (SELECT FROM #11:0)
+```
+
+To delete the edge with a subquery, the right syntax is:
+
+```sql
+DELETE EDGE E WHERE @rid in (SELECT FROM #11:0)
+```
+
 
 # Deleting Edge using Java Code:
 
