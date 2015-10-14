@@ -6,14 +6,29 @@ SRC = source
 
 MODULES = node_modules/gitbook-plugin-ga node_modules/gitbook-plugin-anchors node_modules/gitbook-plugin-addcssjs node_modules/gitbook-plugin-reveal node_modules/gitbook-plugin-highlight
 
+NODECALL = node --stack-size=32000
+MAC_GITBOOK = /usr/local/bin/gitbook 
+LINUX_GITBOOK = /usr/bin/gitbook
+PLATFORM = "$(shell uname)"
+ifeq ($(PLATFORM), "Darwin")
+	GITBOOK = $(MAC_GITBOOK)
+endif
+ifeq ($(PLATFORM), "Linux")
+	GITBOOK = $(LINUX_GITBOOK)
+endif
+
+
+
+
+
 
 # Build Local Website
 create: clean install
-	gitbook build $(SRC) --output=$(WEB)
+	$(NODECALL) $(GITBOOK) build $(SRC) --output=$(WEB)
 
 # Build PDF
 pdf: clean install
-	gitbook pdf $(SRC) --output=$(PDF)
+	$(NODECALL) $(GITBOOK) pdf $(SRC) --output=$(PDF)
 
 # Pull Updates
 pull:
