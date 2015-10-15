@@ -22,7 +22,11 @@ To execute quick expression starting from a ODocument and Vertex/Edge objects, u
 
 ## Migration from 2.1.x to 2.2.x
 
-Databases created with release 2.1.x are compatible with 2.2.x, so you don't have to export/import the database. Check your database directory: if you have a file *.wal, delete it before migration.
+Databases created with release 2.1.x are compatible with 2.2.x, so you don't have to export/import the database.
+
+### Security and speed
+
+OrientDB v2.2 increase security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycle for SALT: more is harder to decode but is slower. Change setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
 
 ### API changes
 
