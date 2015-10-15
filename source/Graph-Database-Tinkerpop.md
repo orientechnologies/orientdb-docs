@@ -112,7 +112,9 @@ OrientDB supports optimistic transactions, so no lock is kept when a transaction
 for (int retry = 0; retry < maxRetries; ++retry) {
     try {
         // LOOKUP FOR THE INVOICE VERTEX
-        Vertex invoice = graph.getVertices("invoiceId", 2323);
+        Iterable<Vertex> invoices = graph.getVertices("invoiceId", 2323);
+        Vertex invoice = invoices.iterator().next();
+        
         // CREATE A NEW ITEM
         Vertex invoiceItem = graph.addVertex("class:InvoiceItem");
         invoiceItem.field("price", 1000);
