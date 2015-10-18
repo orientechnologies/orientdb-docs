@@ -50,7 +50,7 @@ To know more look at the Java enumeration: <code>[OGlobalConfiguration.java](htt
 
 ##### environment.dumpCfgAtStartup
 
-Dumps the configuration at application startup.
+Dumps the configuration during application startup..
 
 ```
 Setting name...: environment.dumpCfgAtStartup
@@ -61,7 +61,7 @@ Hidden.........: false
 
 ##### environment.concurrent
 
-Specifies if running in multi-thread environment. Setting this to false turns off the internal lock management.
+Specifies if running in multi-thread environment. Setting this to false turns off the internal lock management..
 
 ```
 Setting name...: environment.concurrent
@@ -72,7 +72,7 @@ Hidden.........: false
 
 ##### environment.allowJVMShutdown
 
-Allows to shutdown the JVM if needed/requested.
+Allows the shutdown of the JVM, if needed/requested..
 
 ```
 Setting name...: environment.allowJVMShutdown
@@ -87,7 +87,7 @@ Hidden.........: false
 
 ##### script.pool.maxSize
 
-Maximum number of instances in the pool of script engines.
+Maximum number of instances in the pool of script engines..
 
 ```
 Setting name...: script.pool.maxSize
@@ -102,7 +102,7 @@ Hidden.........: false
 
 ##### memory.useUnsafe
 
-Indicates whether Unsafe will be used if it is present.
+Indicates whether Unsafe will be used, if it is present..
 
 ```
 Setting name...: memory.useUnsafe
@@ -113,7 +113,7 @@ Hidden.........: false
 
 ##### memory.directMemory.safeMode
 
-Indicates whether to do perform range check before each direct memory update, it is true by default, but usually it can be safely put to false. It is needed to set to true only after dramatic changes in storage structures..
+Indicates whether to perform a range check before each direct memory update. It is true by default, but usually it can be safely set to false. It should only be to true after dramatic changes have been made in the storage structures..
 
 ```
 Setting name...: memory.directMemory.safeMode
@@ -124,7 +124,7 @@ Hidden.........: false
 
 ##### memory.directMemory.trackMode
 
-If 'track mode' is switched on then following steps are performed: 1. direct memory JMX bean is registered. 2. You may check amount of allocated direct memory as property of JMX bean. 3. If memory leak is detected then JMX event will be fired. This mode provides big overhead and may be used only for testing purpose.
+If 'track mode' is switched on, then the following steps are performed: 1. direct memory JMX bean is registered. 2. You may check amount of allocated direct memory as a property of the JMX bean. 3. If a memory leak is detected, then a JMX event will be fired. This mode causes a large overhead and should be used for testing purposes only..
 
 ```
 Setting name...: memory.directMemory.trackMode
@@ -135,7 +135,7 @@ Hidden.........: false
 
 ##### memory.directMemory.onlyAlignedMemoryAccess
 
-Some architectures does not allow unaligned memory access or suffer from speed degradation, on this platforms flag should be set to true.
+Some architectures do not allow unaligned memory access or may suffer from speed degradation. For such platforms, this flag should be set to true..
 
 ```
 Setting name...: memory.directMemory.onlyAlignedMemoryAccess
@@ -150,7 +150,7 @@ Hidden.........: false
 
 ##### jvm.gc.delayForOptimize
 
-Minimal amount of time (seconds) since last System.gc() when called after tree optimization.
+Minimal amount of time (in seconds), since the last System.gc(), when called after tree optimization..
 
 ```
 Setting name...: jvm.gc.delayForOptimize
@@ -165,7 +165,7 @@ Hidden.........: false
 
 ##### storage.diskCache.bufferSize
 
-Size of disk buffer in megabytes.
+Size of disk buffer in megabytes..
 
 ```
 Setting name...: storage.diskCache.bufferSize
@@ -176,7 +176,7 @@ Hidden.........: false
 
 ##### storage.diskCache.writeCachePart
 
-Percent of disk cache which is use as write cache.
+Percentage of disk cache, which is used as write cache.
 
 ```
 Setting name...: storage.diskCache.writeCachePart
@@ -187,7 +187,7 @@ Hidden.........: false
 
 ##### storage.diskCache.writeCachePageTTL
 
-Max time till page will be flushed from write cache in seconds.
+Max time until a page will be flushed from write cache (in seconds)..
 
 ```
 Setting name...: storage.diskCache.writeCachePageTTL
@@ -198,7 +198,7 @@ Hidden.........: false
 
 ##### storage.diskCache.writeCachePageFlushInterval
 
-Interval between flushing of pages from write cache in ms..
+Interval between flushing of pages from write cache (in ms)..
 
 ```
 Setting name...: storage.diskCache.writeCachePageFlushInterval
@@ -209,7 +209,7 @@ Hidden.........: false
 
 ##### storage.diskCache.writeCacheFlushInactivityInterval
 
-Interval between 2 writes to the disk cache, if writes are done with interval more than provided all files will be fsynced before next write, which allows do not do data restore after server crash (in ms).
+Interval between 2 writes to the disk cache, if writes are done with an interval more than provided, all files will be fsynced before the next write, which doesn't allow /allows a data restore after a server crash (in ms)..
 
 ```
 Setting name...: storage.diskCache.writeCacheFlushInactivityInterval
@@ -220,7 +220,7 @@ Hidden.........: false
 
 ##### storage.diskCache.writeCacheFlushLockTimeout
 
-Maximum amount of time till write cache will be wait before page flush in ms.
+Maximum amount of time the write cache will wait before a page flushes (in ms, -1 to disable).
 
 ```
 Setting name...: storage.diskCache.writeCacheFlushLockTimeout
@@ -231,7 +231,7 @@ Hidden.........: false
 
 ##### storage.diskCache.diskFreeSpaceLimit
 
-Minimum amount of space on disk after which database will work only in read mode, in megabytes.
+Minimum amount of space on disk, which, when exceeded, will cause the database to switch to read-only mode (in megabytes)..
 
 ```
 Setting name...: storage.diskCache.diskFreeSpaceLimit
@@ -242,7 +242,7 @@ Hidden.........: false
 
 ##### storage.diskCache.diskFreeSpaceCheckInterval
 
-Interval, in seconds, after which storage periodically checks whether amount of free space enough to work in write mode.
+The interval (in seconds), after which the storage periodically checks whether the amount of free disk space is enough to work in write mode.
 
 ```
 Setting name...: storage.diskCache.diskFreeSpaceCheckInterval
@@ -253,7 +253,7 @@ Hidden.........: false
 
 ##### storage.configuration.syncOnUpdate
 
-Should we perform force sync of storage configuration for each update.
+Indicates a force sync should be performed for each update on the storage configuration..
 
 ```
 Setting name...: storage.configuration.syncOnUpdate
@@ -275,7 +275,7 @@ Hidden.........: false
 
 ##### storage.encryptionMethod
 
-Record encryption method used in storage Possible values : 'aes' and 'des'. Default is no encryption.
+Record encryption method used in storage. Possible values : 'aes' and 'des'. Default is nothing for no encryption..
 
 ```
 Setting name...: storage.encryptionMethod
@@ -286,7 +286,7 @@ Hidden.........: false
 
 ##### storage.encryptionKey
 
-Contains the storage encryption key. This setting is hidden.
+Contains the storage encryption key. This setting is hidden..
 
 ```
 Setting name...: storage.encryptionKey
@@ -297,7 +297,7 @@ Hidden.........: true
 
 ##### storage.makeFullCheckpointAfterCreate
 
-Indicates whether full checkpoint should be performed if storage was created.
+Indicates whether a full checkpoint should be performed, if storage was created..
 
 ```
 Setting name...: storage.makeFullCheckpointAfterCreate
@@ -308,7 +308,7 @@ Hidden.........: false
 
 ##### storage.makeFullCheckpointAfterOpen
 
-Indicates whether full checkpoint should be performed if storage was opened. It is needed to make fuzzy checkpoints to work without issues.
+Indicates whether a full checkpoint should be performed, if storage was opened. It is needed so fuzzy checkpoints can work properly..
 
 ```
 Setting name...: storage.makeFullCheckpointAfterOpen
@@ -319,7 +319,7 @@ Hidden.........: false
 
 ##### storage.makeFullCheckpointAfterClusterCreate
 
-Indicates whether full checkpoint should be performed if storage was opened.
+Indicates whether a full checkpoint should be performed, if storage was opened.
 
 ```
 Setting name...: storage.makeFullCheckpointAfterClusterCreate
@@ -330,7 +330,7 @@ Hidden.........: false
 
 ##### storage.useWAL
 
-Whether WAL should be used in paginated storage.
+Whether WAL should be used in paginated storage..
 
 ```
 Setting name...: storage.useWAL
@@ -341,7 +341,7 @@ Hidden.........: false
 
 ##### storage.wal.syncOnPageFlush
 
-Should we perform force sync during WAL page flush.
+Indicates whether a force sync should be performed during WAL page flush..
 
 ```
 Setting name...: storage.wal.syncOnPageFlush
@@ -352,7 +352,7 @@ Hidden.........: false
 
 ##### storage.wal.cacheSize
 
-Maximum size of WAL cache (in amount of WAL pages, each page is 64k) <= 0 means that caching will be switched off..
+Maximum size of WAL cache (in amount of WAL pages, each page is 64k) If set to 0, caching will be disabled..
 
 ```
 Setting name...: storage.wal.cacheSize
@@ -363,7 +363,7 @@ Hidden.........: false
 
 ##### storage.wal.maxSegmentSize
 
-Maximum size of single. WAL segment in megabytes.
+Maximum size of single WAL segment (in megabytes)..
 
 ```
 Setting name...: storage.wal.maxSegmentSize
@@ -374,7 +374,7 @@ Hidden.........: false
 
 ##### storage.wal.maxSize
 
-Supposed, maximum size of WAL on disk in megabytes. This size may be more or less. .
+Maximum size of WAL on disk (in megabytes)..
 
 ```
 Setting name...: storage.wal.maxSize
@@ -396,7 +396,7 @@ Hidden.........: false
 
 ##### storage.wal.shutdownTimeout
 
-Maximum wait interval between events when background flush thread will receive shutdown command and when background flush will be stopped (in ms.).
+Maximum wait interval between events, when the background flush threadreceives a shutdown command and when the background flush will be stopped (in ms.).
 
 ```
 Setting name...: storage.wal.shutdownTimeout
@@ -418,7 +418,7 @@ Hidden.........: false
 
 ##### storage.wal.reportAfterOperationsDuringRestore
 
-Amount of processed log operations, after which status of data restore procedure will be printed 0 or negative value, means that status will not be printed.
+Amount of processed log operations, after which status of data restore procedure will be printed (0 or a negative value, disables the logging)..
 
 ```
 Setting name...: storage.wal.reportAfterOperationsDuringRestore
@@ -429,7 +429,7 @@ Hidden.........: false
 
 ##### storage.wal.restore.batchSize
 
-Amount of wal records are read at once in single batch during restore procedure.
+Amount of WAL records, which are read at once in a single batch during a restore procedure..
 
 ```
 Setting name...: storage.wal.restore.batchSize
@@ -440,7 +440,7 @@ Hidden.........: false
 
 ##### storage.wal.readCacheSize
 
-Size of WAL read cache in amount of pages.
+Size of WAL read cache in amount of pages..
 
 ```
 Setting name...: storage.wal.readCacheSize
@@ -451,7 +451,7 @@ Hidden.........: false
 
 ##### storage.wal.fuzzyCheckpointShutdownWait
 
-Interval which we should wait till shutdown (in seconds).
+The amount of time the DB should wait until it shuts down (in seconds)..
 
 ```
 Setting name...: storage.wal.fuzzyCheckpointShutdownWait
@@ -462,7 +462,7 @@ Hidden.........: false
 
 ##### storage.wal.fullCheckpointShutdownTimeout
 
-Timeout till DB will wait that full checkpoint is finished during DB close (in seconds)).
+The amount of time the DB will wait, until a checkpoint is finished, during a DB shutdown (in seconds)..
 
 ```
 Setting name...: storage.wal.fullCheckpointShutdownTimeout
@@ -473,7 +473,7 @@ Hidden.........: false
 
 ##### storage.wal.path
 
-Path to the wal file on the disk, by default is placed in DB directory but it is highly recomended to use separate disk to store log operations.
+Path to the WAL file on the disk. By default, it is placed in the DB directory, but it is highly recommended to use a separate disk to store log operations..
 
 ```
 Setting name...: storage.wal.path
@@ -484,7 +484,7 @@ Hidden.........: false
 
 ##### storage.diskCache.pageSize
 
-Size of page of disk buffer in kilobytes,!!! NEVER CHANGE THIS VALUE !!!.
+Size of page of disk buffer (in kilobytes). !!! NEVER CHANGE THIS VALUE !!!.
 
 ```
 Setting name...: storage.diskCache.pageSize
@@ -495,7 +495,7 @@ Hidden.........: false
 
 ##### storage.lowestFreeListBound
 
-The minimal amount of free space (in kb) in page which is tracked in paginated storage.
+The least amount of free space (in kb) in a page, which is tracked in paginated storage..
 
 ```
 Setting name...: storage.lowestFreeListBound
@@ -504,20 +504,9 @@ Set at run-time: false
 Hidden.........: false
 ```
 
-##### storage.cluster.usecrc32
-
-Indicates whether crc32 should be used for each record to check record integrity.
-
-```
-Setting name...: storage.cluster.usecrc32
-Default value..: false
-Set at run-time: false
-Hidden.........: false
-```
-
 ##### storage.lockTimeout
 
-Maximum timeout in milliseconds to lock the storage.
+Maximum amount of time (in ms) to lock the storage..
 
 ```
 Setting name...: storage.lockTimeout
@@ -528,7 +517,7 @@ Hidden.........: false
 
 ##### storage.record.lockTimeout
 
-Maximum timeout in milliseconds to lock a shared record.
+Maximum of time (in ms) to lock a shared record..
 
 ```
 Setting name...: storage.record.lockTimeout
@@ -539,10 +528,21 @@ Hidden.........: false
 
 ##### storage.useTombstones
 
-When record will be deleted its cluster position will not be freed but tombstone will be placed instead.
+When a record is deleted, the space in the cluster will not be freed, but rather tombstoned..
 
 ```
 Setting name...: storage.useTombstones
+Default value..: false
+Set at run-time: false
+Hidden.........: false
+```
+
+##### storage.cluster.usecrc32
+
+Indicates whether crc32 should be used for each record to check record integrity..
+
+```
+Setting name...: storage.cluster.usecrc32
 Default value..: false
 Set at run-time: false
 Hidden.........: false
@@ -565,7 +565,7 @@ Hidden.........: false
 
 ##### record.downsizing.enabled
 
-On updates if the record size is lower than before, reduces the space taken accordingly. If enabled this could increase defragmentation, but it reduces the used space.
+On updates, if the record size is lower than before, this reduces the space taken accordingly. If enabled this could increase defragmentation, but it reduces the used disk space..
 
 ```
 Setting name...: record.downsizing.enabled
@@ -580,7 +580,7 @@ Hidden.........: false
 
 ##### object.saveOnlyDirty
 
-Object Database only saves objects bound to dirty records.
+Object Database only! It saves objects bound to dirty records..
 
 ```
 Setting name...: object.saveOnlyDirty
@@ -595,7 +595,7 @@ Hidden.........: false
 
 ##### db.pool.min
 
-Default database pool minimum size.
+Default database pool minimum size..
 
 ```
 Setting name...: db.pool.min
@@ -606,7 +606,7 @@ Hidden.........: false
 
 ##### db.pool.max
 
-Default database pool maximum size.
+Default database pool maximum size..
 
 ```
 Setting name...: db.pool.max
@@ -617,7 +617,7 @@ Hidden.........: false
 
 ##### db.pool.idleTimeout
 
-Timeout for checking of free database in the pool.
+Timeout for checking for free databases in the pool..
 
 ```
 Setting name...: db.pool.idleTimeout
@@ -628,7 +628,7 @@ Hidden.........: false
 
 ##### db.pool.idleCheckDelay
 
-Delay time on checking for idle databases.
+Delay time on checking for idle databases..
 
 ```
 Setting name...: db.pool.idleCheckDelay
@@ -639,7 +639,7 @@ Hidden.........: false
 
 ##### db.mvcc.throwfast
 
-Use fast-thrown exceptions for MVCC OConcurrentModificationExceptions. No context information will be available, use where these exceptions are handled and the detail is not neccessary.
+Use fast-thrown exceptions for MVCC OConcurrentModificationExceptions. No context information will be available. Set to true, when these exceptions are thrown, but the details are not necessary..
 
 ```
 Setting name...: db.mvcc.throwfast
@@ -650,7 +650,7 @@ Hidden.........: false
 
 ##### db.validation
 
-Enables or disables validation of records.
+Enables or disables validation of records..
 
 ```
 Setting name...: db.validation
@@ -661,7 +661,7 @@ Hidden.........: false
 
 ##### db.makeFullCheckpointOnIndexChange
 
-When index metadata is changed full checkpoint is performed.
+When index metadata is changed, a full checkpoint is performed..
 
 ```
 Setting name...: db.makeFullCheckpointOnIndexChange
@@ -672,7 +672,7 @@ Hidden.........: false
 
 ##### db.makeFullCheckpointOnSchemaChange
 
-When index schema is changed full checkpoint is performed.
+When index schema is changed, a full checkpoint is performed..
 
 ```
 Setting name...: db.makeFullCheckpointOnSchemaChange
@@ -683,7 +683,7 @@ Hidden.........: false
 
 ##### db.document.serializer
 
-The default record serializer used by the document database.
+The default record serializer used by the document database..
 
 ```
 Setting name...: db.document.serializer
@@ -720,7 +720,7 @@ Hidden.........: false
 
 ##### nonTX.recordUpdate.synch
 
-Executes a synch against the file-system at every record operation. This slows down records updates but guarantee reliability on unreliable drives.
+Executes a sync against the file-system for every record operation. This slows down record updates, but guarantees reliability on unreliable drives..
 
 ```
 Setting name...: nonTX.recordUpdate.synch
@@ -731,7 +731,7 @@ Hidden.........: false
 
 ##### nonTX.clusters.sync.immediately
 
-List of clusters to sync immediately after update separated by commas. Can be useful for manual index.
+List of clusters to sync immediately after update (separated by commas). Can be useful for a manual index..
 
 ```
 Setting name...: nonTX.clusters.sync.immediately
@@ -746,7 +746,7 @@ Hidden.........: false
 
 ##### tx.trackAtomicOperations
 
-This setting is used only for debug purpose, it track stac trace of methods where atomic operation is started..
+This setting is used only for debug purposes. It creates a stack trace of methods, when an atomic operation is started..
 
 ```
 Setting name...: tx.trackAtomicOperations
@@ -816,7 +816,7 @@ Hidden.........: false
 
 ##### index.embeddedToSbtreeBonsaiThreshold
 
-Amount of values after which index implementation will use sbtree as values container. Set to -1 to force always using it.
+Amount of values, after which the index implementation will use an sbtree as a values container. Set to -1, to disable and force using an sbtree..
 
 ```
 Setting name...: index.embeddedToSbtreeBonsaiThreshold
@@ -827,7 +827,7 @@ Hidden.........: false
 
 ##### index.sbtreeBonsaiToEmbeddedThreshold
 
-Amount of values after which index implementation will use embedded values container (disabled by default).
+Amount of values, after which index implementation will use an embedded values container (disabled by default).
 
 ```
 Setting name...: index.sbtreeBonsaiToEmbeddedThreshold
@@ -838,7 +838,7 @@ Hidden.........: false
 
 ##### index.auto.synchronousAutoRebuild
 
-Synchronous execution of auto rebuilding of indexes in case of db crash.
+Synchronous execution of auto rebuilding of indexes, in case of a DB crash.
 
 ```
 Setting name...: index.auto.synchronousAutoRebuild
@@ -849,7 +849,7 @@ Hidden.........: false
 
 ##### index.auto.lazyUpdates
 
-Configure the TreeMaps for automatic indexes as buffered or not. -1 means buffered until tx.commit() or db.close() are called.
+Configure the TreeMaps for automatic indexes, as buffered or not. -1 means buffered until tx.commit() or db.close() are called..
 
 ```
 Setting name...: index.auto.lazyUpdates
@@ -860,7 +860,7 @@ Hidden.........: false
 
 ##### index.flushAfterCreate
 
-Flush storage buffer after index creation.
+Flush storage buffer after index creation..
 
 ```
 Setting name...: index.flushAfterCreate
@@ -882,18 +882,18 @@ Hidden.........: false
 
 ##### index.durableInNonTxMode
 
-Indicates whether index implementation for plocal storage will be durable in non-Tx mode, false by default.
+Indicates whether index implementation for plocal storage will be durable in non-Tx mode (false by default)..
 
 ```
 Setting name...: index.durableInNonTxMode
-Default value..: false
+Default value..: true
 Set at run-time: false
 Hidden.........: false
 ```
 
 ##### index.txMode
 
-Indicates index durability level in TX mode. Can be ROLLBACK_ONLY or FULL (ROLLBACK_ONLY by default).
+Indicates the index durability level in TX mode. Can be ROLLBACK_ONLY or FULL (ROLLBACK_ONLY by default)..
 
 ```
 Setting name...: index.txMode
@@ -904,7 +904,7 @@ Hidden.........: false
 
 ##### index.cursor.prefetchSize
 
-Default prefetch size of index cursor.
+Default prefetch size of index cursor..
 
 ```
 Setting name...: index.cursor.prefetchSize
@@ -930,7 +930,7 @@ Hidden.........: false
 
 ##### hashTable.slitBucketsBuffer.length
 
-Length of buffer (in pages) where buckets that were splited but not flushed to the disk are kept. This buffer is used to minimize random IO overhead..
+Length of buffer (in pages), where buckets that were split, but not flushed to the disk, are kept. This buffer is used to minimize random IO overhead..
 
 ```
 Setting name...: hashTable.slitBucketsBuffer.length
@@ -945,7 +945,7 @@ Hidden.........: false
 
 ##### sbtree.maxDepth
 
-Maximum depth of sbtree which will be traversed during key look up till it will be treated like broken (64 by default).
+Maximum depth of sbtree, which will be traversed during key look up until it will be treated as broken (64 by default).
 
 ```
 Setting name...: sbtree.maxDepth
@@ -956,7 +956,7 @@ Hidden.........: false
 
 ##### sbtree.maxKeySize
 
-Maximum size of key which can be put in SBTree in bytes (10240 by default).
+Maximum size of a key, which can be put in the SBTree in bytes (10240 by default).
 
 ```
 Setting name...: sbtree.maxKeySize
@@ -967,7 +967,7 @@ Hidden.........: false
 
 ##### sbtree.maxEmbeddedValueSize
 
-Maximum size of value which can be put in SBTree without creation link to standalone page in bytes (40960 by default).
+Maximum size of value which can be put in an SBTree without creation link to a standalone page in bytes (40960 by default).
 
 ```
 Setting name...: sbtree.maxEmbeddedValueSize
@@ -982,7 +982,7 @@ Hidden.........: false
 
 ##### sbtreebonsai.bucketSize
 
-Size of bucket in OSBTreeBonsai in kB. Contract: bucketSize < storagePageSize, storagePageSize % bucketSize == 0..
+Size of bucket in OSBTreeBonsai (in kB). Contract: bucketSize < storagePageSize, storagePageSize % bucketSize == 0..
 
 ```
 Setting name...: sbtreebonsai.bucketSize
@@ -993,7 +993,7 @@ Hidden.........: false
 
 ##### sbtreebonsai.linkBagCache.size
 
-Amount of LINKBAG collections are cached to avoid constant reloading of data.
+Amount of LINKBAG collections to be cached, to avoid constant reloading of data..
 
 ```
 Setting name...: sbtreebonsai.linkBagCache.size
@@ -1004,7 +1004,7 @@ Hidden.........: false
 
 ##### sbtreebonsai.linkBagCache.evictionSize
 
-How many items of cached LINKBAG collections will be removed when cache limit is reached.
+The number of cached LINKBAG collections, which will be removed, when the cache limit is reached..
 
 ```
 Setting name...: sbtreebonsai.linkBagCache.evictionSize
@@ -1015,7 +1015,7 @@ Hidden.........: false
 
 ##### sbtreebonsai.freeSpaceReuseTrigger
 
-How much free space should be in sbtreebonsai file before it will be reused during next allocation.
+How much free space should be in an sbtreebonsai file, before it will be reused during the next allocation..
 
 ```
 Setting name...: sbtreebonsai.freeSpaceReuseTrigger
@@ -1030,7 +1030,7 @@ Hidden.........: false
 
 ##### ridBag.embeddedDefaultSize
 
-Size of embedded RidBag array when created (empty).
+Size of embedded RidBag array, when created (empty).
 
 ```
 Setting name...: ridBag.embeddedDefaultSize
@@ -1041,7 +1041,7 @@ Hidden.........: false
 
 ##### ridBag.embeddedToSbtreeBonsaiThreshold
 
-Amount of values after which LINKBAG implementation will use sbtree as values container. Set to -1 to force always using it.
+Amount of values after which a LINKBAG implementation will use sbtree as values container. Set to -1 to always use an sbtree..
 
 ```
 Setting name...: ridBag.embeddedToSbtreeBonsaiThreshold
@@ -1052,7 +1052,7 @@ Hidden.........: false
 
 ##### ridBag.sbtreeBonsaiToEmbeddedToThreshold
 
-Amount of values after which LINKBAG implementation will use embedded values container (disabled by default).
+Amount of values, after which a LINKBAG implementation will use an embedded values container (disabled by default)..
 
 ```
 Setting name...: ridBag.sbtreeBonsaiToEmbeddedToThreshold
@@ -1067,7 +1067,7 @@ Hidden.........: false
 
 ##### collections.preferSBTreeSet
 
-This config is experimental.
+This configuration setting is experimental..
 
 ```
 Setting name...: collections.preferSBTreeSet
@@ -1082,7 +1082,7 @@ Hidden.........: false
 
 ##### file.trackFileClose
 
-Log all the cases when files are closed. This is needed only for internal debugging purpose.
+Log all the cases when files are closed. This is needed only for internal debugging purposes..
 
 ```
 Setting name...: file.trackFileClose
@@ -1104,7 +1104,7 @@ Hidden.........: false
 
 ##### file.deleteDelay
 
-Delay time in ms to wait for another attempt to delete a locked file.
+Delay time (in ms) to wait for another attempt to delete a locked file..
 
 ```
 Setting name...: file.deleteDelay
@@ -1115,7 +1115,7 @@ Hidden.........: false
 
 ##### file.deleteRetry
 
-Number of retries to delete a locked file.
+Number of retries to delete a locked file..
 
 ```
 Setting name...: file.deleteRetry
@@ -1130,7 +1130,7 @@ Hidden.........: false
 
 ##### jna.disable.system.library
 
-This property disable to using JNA installed in your system. And use JNA bundled with database.
+This property disables using JNA, should it be installed on your system. (Default true) To use JNA bundled with database..
 
 ```
 Setting name...: jna.disable.system.library
@@ -1145,7 +1145,7 @@ Hidden.........: false
 
 ##### security.userPasswordSaltIterations
 
-Number of iterations to generate the salt or user password. Changing this setting does not affect stored passwords.
+Number of iterations to generate the salt or user password. Changing this setting does not affect stored passwords..
 
 ```
 Setting name...: security.userPasswordSaltIterations
@@ -1156,7 +1156,7 @@ Hidden.........: false
 
 ##### security.userPasswordSaltCacheSize
 
-Cache size of hashed salt passwords. The cache works as LRU. Use 0 to disable the cache.
+Cache size of hashed salt passwords. The cache works as LRU. Use 0 to disable the cache..
 
 ```
 Setting name...: security.userPasswordSaltCacheSize
@@ -1171,7 +1171,7 @@ Hidden.........: false
 
 ##### network.maxConcurrentSessions
 
-Maximum number of concurrent sessions.
+Maximum number of concurrent sessions..
 
 ```
 Setting name...: network.maxConcurrentSessions
@@ -1182,7 +1182,7 @@ Hidden.........: false
 
 ##### network.socketBufferSize
 
-TCP/IP Socket buffer size.
+TCP/IP Socket buffer size..
 
 ```
 Setting name...: network.socketBufferSize
@@ -1193,7 +1193,7 @@ Hidden.........: false
 
 ##### network.lockTimeout
 
-Timeout in ms to acquire a lock against a channel.
+Timeout (in ms) to acquire a lock against a channel..
 
 ```
 Setting name...: network.lockTimeout
@@ -1204,7 +1204,7 @@ Hidden.........: false
 
 ##### network.socketTimeout
 
-TCP/IP Socket timeout in ms.
+TCP/IP Socket timeout (in ms)..
 
 ```
 Setting name...: network.socketTimeout
@@ -1215,7 +1215,7 @@ Hidden.........: false
 
 ##### network.requestTimeout
 
-Request completion timeout in ms .
+Request completion timeout (in ms)..
 
 ```
 Setting name...: network.requestTimeout
@@ -1226,7 +1226,7 @@ Hidden.........: false
 
 ##### network.retry
 
-Number of times the client retries its connection to the server on failure.
+Number of attempts to connect to the server on failure..
 
 ```
 Setting name...: network.retry
@@ -1237,7 +1237,7 @@ Hidden.........: false
 
 ##### network.retryDelay
 
-Number of ms the client waits before reconnecting to the server on failure.
+The time (in ms) the client must wait, before reconnecting to the server on failure..
 
 ```
 Setting name...: network.retryDelay
@@ -1248,7 +1248,7 @@ Hidden.........: false
 
 ##### network.binary.loadBalancing.enabled
 
-Asks for DNS TXT record to determine if load balancing is supported.
+Asks for DNS TXT record, to determine if load balancing is supported..
 
 ```
 Setting name...: network.binary.loadBalancing.enabled
@@ -1259,7 +1259,7 @@ Hidden.........: false
 
 ##### network.binary.loadBalancing.timeout
 
-Maximum time (in ms) to wait for the answer from DNS about the TXT record for load balancing.
+Maximum time (in ms) to wait for the answer from DNS about the TXT record for load balancing..
 
 ```
 Setting name...: network.binary.loadBalancing.timeout
@@ -1270,7 +1270,7 @@ Hidden.........: false
 
 ##### network.binary.maxLength
 
-TCP/IP max content length in bytes of BINARY requests.
+TCP/IP max content length (in bytes) of BINARY requests..
 
 ```
 Setting name...: network.binary.maxLength
@@ -1281,7 +1281,7 @@ Hidden.........: false
 
 ##### network.binary.readResponse.maxTimes
 
-Maximum times to wait until response will be read. Otherwise response will be dropped from chanel.
+Maximum attempts, until a response can be read. Otherwise, the response will be dropped from the channel..
 
 ```
 Setting name...: network.binary.readResponse.maxTimes
@@ -1292,7 +1292,7 @@ Hidden.........: false
 
 ##### network.binary.debug
 
-Debug mode: print all data incoming on the binary channel.
+Debug mode: print all data incoming on the binary channel..
 
 ```
 Setting name...: network.binary.debug
@@ -1303,7 +1303,7 @@ Hidden.........: false
 
 ##### network.http.maxLength
 
-TCP/IP max content length in bytes for HTTP requests.
+TCP/IP max content length (in bytes) for HTTP requests..
 
 ```
 Setting name...: network.http.maxLength
@@ -1325,7 +1325,7 @@ Hidden.........: false
 
 ##### network.http.jsonResponseError
 
-Http response error in json.
+Http response error in json..
 
 ```
 Setting name...: network.http.jsonResponseError
@@ -1336,7 +1336,7 @@ Hidden.........: false
 
 ##### network.http.jsonp
 
-Enable the usage of JSONP if requested by the client. The parameter name to use is 'callback'.
+Enable the usage of JSONP, if requested by the client. The parameter name to use is 'callback'..
 
 ```
 Setting name...: network.http.jsonp
@@ -1347,7 +1347,7 @@ Hidden.........: false
 
 ##### network.http.sessionExpireTimeout
 
-Timeout after which an http session is considered tp have expired (seconds).
+Timeout, after which an http session is considered to have expired (in seconds)..
 
 ```
 Setting name...: network.http.sessionExpireTimeout
@@ -1358,7 +1358,7 @@ Hidden.........: false
 
 ##### network.http.useToken
 
-Enable Token based sessions for http.
+Enable Token based sessions for http..
 
 ```
 Setting name...: network.http.useToken
@@ -1369,7 +1369,7 @@ Hidden.........: false
 
 ##### network.token.secretyKey
 
-Network token sercret key.
+Network token sercret key..
 
 ```
 Setting name...: network.token.secretyKey
@@ -1380,7 +1380,7 @@ Hidden.........: false
 
 ##### network.token.encriptionAlgorithm
 
-Network token algorithm.
+Network token algorithm..
 
 ```
 Setting name...: network.token.encriptionAlgorithm
@@ -1391,26 +1391,11 @@ Hidden.........: false
 
 ##### network.token.expireTimeout
 
-Timeout after which an binary session is considered tp have expired (minutes).
+Timeout, after which a binary session is considered to have expired (in minutes)..
 
 ```
 Setting name...: network.token.expireTimeout
 Default value..: 60
-Set at run-time: false
-Hidden.........: false
-```
-----
-
-### Oauth2
-
-
-##### oauth2.secretkey
-
-Http OAuth2 secret key.
-
-```
-Setting name...: oauth2.secretkey
-Default value..: 
 Set at run-time: false
 Hidden.........: false
 ```
@@ -1421,7 +1406,7 @@ Hidden.........: false
 
 ##### profiler.enabled
 
-Enable the recording of statistics and counters.
+Enables the recording of statistics and counters..
 
 ```
 Setting name...: profiler.enabled
@@ -1443,7 +1428,7 @@ Hidden.........: false
 
 ##### profiler.autoDump.interval
 
-Dumps the profiler values at regular intervals. Time is expressed in seconds.
+Dumps the profiler values at regular intervals (in seconds)..
 
 ```
 Setting name...: profiler.autoDump.interval
@@ -1458,7 +1443,7 @@ Hidden.........: false
 
 ##### log.console.level
 
-Console logging level.
+Console logging level..
 
 ```
 Setting name...: log.console.level
@@ -1469,7 +1454,7 @@ Hidden.........: false
 
 ##### log.file.level
 
-File logging level.
+File logging level..
 
 ```
 Setting name...: log.file.level
@@ -1484,7 +1469,7 @@ Hidden.........: false
 
 ##### cache.local.impl
 
-Local Record cache implementation.
+Local Record cache implementation..
 
 ```
 Setting name...: cache.local.impl
@@ -1510,7 +1495,7 @@ Hidden.........: false
 
 ##### command.timeout
 
-Default timeout for commands expressed in milliseconds.
+Default timeout for commands (in ms)..
 
 ```
 Setting name...: command.timeout
@@ -1521,7 +1506,7 @@ Hidden.........: false
 
 ##### command.cache.enabled
 
-Enable command cache.
+Enable command cache..
 
 ```
 Setting name...: command.cache.enabled
@@ -1543,7 +1528,7 @@ Hidden.........: false
 
 ##### command.cache.minExecutionTime
 
-Minimum execution time to consider caching result set.
+Minimum execution time to consider caching the result set..
 
 ```
 Setting name...: command.cache.minExecutionTime
@@ -1554,7 +1539,7 @@ Hidden.........: false
 
 ##### command.cache.maxResultsetSize
 
-Maximum resultset time to consider caching result set.
+Maximum resultset time to consider caching result set..
 
 ```
 Setting name...: command.cache.maxResultsetSize
@@ -1569,7 +1554,7 @@ Hidden.........: false
 
 ##### query.parallelAuto
 
-Auto enable parallel query if requirement are met.
+Auto enable parallel query, if requirements are met..
 
 ```
 Setting name...: query.parallelAuto
@@ -1580,7 +1565,7 @@ Hidden.........: false
 
 ##### query.parallelMinimumRecords
 
-Minimum number of records to activate parallel query automatically.
+Minimum number of records to activate parallel query automatically..
 
 ```
 Setting name...: query.parallelMinimumRecords
@@ -1591,7 +1576,7 @@ Hidden.........: false
 
 ##### query.parallelResultQueueSize
 
-Size of the queue that hold result on parallel execution. The queue is blocking, so in case the queue is full, the query threads are in wait.
+Size of the queue that holds results on parallel execution. The queue is blocking, so in case the queue is full, the query threads will be in a wait state..
 
 ```
 Setting name...: query.parallelResultQueueSize
@@ -1600,9 +1585,31 @@ Set at run-time: false
 Hidden.........: false
 ```
 
+##### query.scanPrefetchPages
+
+Pages to prefetch during scan. Setting this value higher makes scans faster, because it reduces the number of I/O operations, though it consumes more memory. (Use 0 to disable).
+
+```
+Setting name...: query.scanPrefetchPages
+Default value..: 20
+Set at run-time: false
+Hidden.........: false
+```
+
+##### query.scanBatchSize
+
+Scan clusters in blocks of records. This setting reduces the lock time on the cluster during scans. A high value mean a faster execution, but also a lower concurrency level. Set to 0 to disable batch scanning. Disabling batch scanning is suggested for read-only databases only.
+
+```
+Setting name...: query.scanBatchSize
+Default value..: 100000
+Set at run-time: false
+Hidden.........: false
+```
+
 ##### query.scanThresholdTip
 
-If total number of records scanned in a query is major than this threshold a warning is given. Use 0 to disable it.
+If the total number of records scanned in a query exceeds this setting, then a warning is given. (Use 0 to disable).
 
 ```
 Setting name...: query.scanThresholdTip
@@ -1613,7 +1620,7 @@ Hidden.........: false
 
 ##### query.limitThresholdTip
 
-If total number of returned records in a query is major than this threshold a warning is given. Use 0 to disable it.
+If the total number of returned records exceeds this value, then a warning is given. (Use 0 to disable).
 
 ```
 Setting name...: query.limitThresholdTip
@@ -1628,7 +1635,7 @@ Hidden.........: false
 
 ##### statement.cacheSize
 
-Number of parsed SQL statements kept in cache.
+Number of parsed SQL statements kept in cache..
 
 ```
 Setting name...: statement.cacheSize
@@ -1643,7 +1650,7 @@ Hidden.........: false
 
 ##### client.channel.maxPool
 
-Maximum size of pool of network channels between client and server. A channel is a TCP/IP connection.
+Maximum size of pool of network channels between client and server. A channel is a TCP/IP connection..
 
 ```
 Setting name...: client.channel.maxPool
@@ -1654,7 +1661,7 @@ Hidden.........: false
 
 ##### client.connectionPool.waitTimeout
 
-Maximum time which client should wait a connection from the pool when all connection are used.
+Maximum time, where the client should wait for a connection from the pool, when all connections busy..
 
 ```
 Setting name...: client.connectionPool.waitTimeout
@@ -1665,7 +1672,7 @@ Hidden.........: false
 
 ##### client.channel.dbReleaseWaitTimeout
 
-Delay in ms. after which data modification command will be resent if DB was frozen.
+Delay (in ms), after which a data modification command will be resent, if the DB was frozen..
 
 ```
 Setting name...: client.channel.dbReleaseWaitTimeout
@@ -1676,7 +1683,7 @@ Hidden.........: false
 
 ##### client.ssl.enabled
 
-Use SSL for client connections.
+Use SSL for client connections..
 
 ```
 Setting name...: client.ssl.enabled
@@ -1687,7 +1694,7 @@ Hidden.........: false
 
 ##### client.ssl.keyStore
 
-Use SSL for client connections.
+Use SSL for client connections..
 
 ```
 Setting name...: client.ssl.keyStore
@@ -1698,7 +1705,7 @@ Hidden.........: false
 
 ##### client.ssl.keyStorePass
 
-Use SSL for client connections.
+Use SSL for client connections..
 
 ```
 Setting name...: client.ssl.keyStorePass
@@ -1709,7 +1716,7 @@ Hidden.........: false
 
 ##### client.ssl.trustStore
 
-Use SSL for client connections.
+Use SSL for client connections..
 
 ```
 Setting name...: client.ssl.trustStore
@@ -1720,7 +1727,7 @@ Hidden.........: false
 
 ##### client.ssl.trustStorePass
 
-Use SSL for client connections.
+Use SSL for client connections..
 
 ```
 Setting name...: client.ssl.trustStorePass
@@ -1731,7 +1738,7 @@ Hidden.........: false
 
 ##### client.session.tokenBased
 
-Request a token based session to the server.
+Request a token based session to the server..
 
 ```
 Setting name...: client.session.tokenBased
@@ -1757,7 +1764,7 @@ Hidden.........: false
 
 ##### server.openAllDatabasesAtStartup
 
-If true, the server opens all the available databases at startup. Since 2.2.
+If true, the server opens all the available databases at startup. Available since 2.2.
 
 ```
 Setting name...: server.openAllDatabasesAtStartup
@@ -1768,7 +1775,7 @@ Hidden.........: false
 
 ##### server.channel.cleanDelay
 
-Time in ms of delay to check pending closed connections.
+Time in ms of delay to check pending closed connections..
 
 ```
 Setting name...: server.channel.cleanDelay
@@ -1779,7 +1786,7 @@ Hidden.........: false
 
 ##### server.cache.staticFile
 
-Cache static resources loading.
+Cache static resources upon loading..
 
 ```
 Setting name...: server.cache.staticFile
@@ -1801,7 +1808,7 @@ Hidden.........: false
 
 ##### server.log.dumpClientExceptionFullStackTrace
 
-Dumps the full stack trace of the exception to sent to the client.
+Dumps the full stack trace of the exception sent to the client.
 
 ```
 Setting name...: server.log.dumpClientExceptionFullStackTrace
@@ -1816,7 +1823,7 @@ Hidden.........: false
 
 ##### distributed.crudTaskTimeout
 
-Maximum timeout in milliseconds to wait for CRUD remote tasks.
+Maximum timeout (in ms) to wait for CRUD remote tasks..
 
 ```
 Setting name...: distributed.crudTaskTimeout
@@ -1827,7 +1834,7 @@ Hidden.........: false
 
 ##### distributed.commandTaskTimeout
 
-Maximum timeout in milliseconds to wait for Command remote tasks.
+Maximum timeout (in ms) to wait for Command remote tasks..
 
 ```
 Setting name...: distributed.commandTaskTimeout
@@ -1838,7 +1845,7 @@ Hidden.........: false
 
 ##### distributed.commandLongTaskTimeout
 
-Maximum timeout in milliseconds to wait for Long-running remote tasks.
+Maximum timeout (in ms) to wait for Long-running remote tasks..
 
 ```
 Setting name...: distributed.commandLongTaskTimeout
@@ -1849,7 +1856,7 @@ Hidden.........: false
 
 ##### distributed.deployDbTaskTimeout
 
-Maximum timeout in milliseconds to wait for database deployment.
+Maximum timeout (in ms) to wait for database deployment..
 
 ```
 Setting name...: distributed.deployDbTaskTimeout
@@ -1860,7 +1867,7 @@ Hidden.........: false
 
 ##### distributed.deployChunkTaskTimeout
 
-Maximum timeout in milliseconds to wait for database chunk deployment.
+Maximum timeout (in ms) to wait for database chunk deployment..
 
 ```
 Setting name...: distributed.deployChunkTaskTimeout
@@ -1871,7 +1878,7 @@ Hidden.........: false
 
 ##### distributed.deployDbTaskCompression
 
-Compression level between 0 and 9 to use in backup for database deployment.
+Compression level (between 0 and 9) to use in backup for database deployment..
 
 ```
 Setting name...: distributed.deployDbTaskCompression
@@ -1882,7 +1889,7 @@ Hidden.........: false
 
 ##### distributed.queueTimeout
 
-Maximum timeout in milliseconds to wait for the response in replication.
+Maximum timeout (in ms) to wait for the response in replication..
 
 ```
 Setting name...: distributed.queueTimeout
@@ -1893,7 +1900,7 @@ Hidden.........: false
 
 ##### distributed.asynchQueueSize
 
-Queue size to handle distributed asynchronous operations. 0 = dynamic allocation (up to 2^31-1 entries).
+Queue size to handle distributed asynchronous operations. (0 = dynamic allocation, which means up to 2^31-1 entries).
 
 ```
 Setting name...: distributed.asynchQueueSize
@@ -1904,7 +1911,7 @@ Hidden.........: false
 
 ##### distributed.asynchResponsesTimeout
 
-Maximum timeout in milliseconds to collect all the asynchronous responses from replication.
+Maximum timeout (in ms) to collect all the asynchronous responses from replication..
 
 ```
 Setting name...: distributed.asynchResponsesTimeout
@@ -1915,7 +1922,7 @@ Hidden.........: false
 
 ##### distributed.purgeResponsesTimerDelay
 
-Maximum timeout in milliseconds to collect all the asynchronous responses from replication.
+Maximum timeout (in ms) to collect all the asynchronous responses from replication..
 
 ```
 Setting name...: distributed.purgeResponsesTimerDelay
@@ -1924,9 +1931,20 @@ Set at run-time: false
 Hidden.........: false
 ```
 
+##### distributed.queueMaxSize
+
+Maximum queue size to mark a node as stalled. (0 = no maximum, which means up to 2^31-1 entries).
+
+```
+Setting name...: distributed.queueMaxSize
+Default value..: 100
+Set at run-time: false
+Hidden.........: false
+```
+
 ##### distributed.backupDirectory
 
-Directory where to copy an existent database before to download from the cluster.
+Directory where the copy of an existent database is saved, before it is downloaded from the cluster..
 
 ```
 Setting name...: distributed.backupDirectory
@@ -1937,7 +1955,7 @@ Hidden.........: false
 
 ##### distributed.concurrentTxMaxAutoRetry
 
-Maximum retries the transaction coordinator can execute a transaction automatically if records are locked. Minimum is 1 (no retry).
+Maximum attempts the transaction coordinator should execute a transaction automatically, if records are locked. (Minimum is 1 = no attempts).
 
 ```
 Setting name...: distributed.concurrentTxMaxAutoRetry
@@ -1948,12 +1966,27 @@ Hidden.........: false
 
 ##### distributed.concurrentTxAutoRetryDelay
 
-Delay in ms between attempts on executing a distributed transaction failed because of records locked. 0=no delay.
+Delay (in ms) between attempts on executing a distributed transaction, which had failed because of locked records. (0=no delay).
 
 ```
 Setting name...: distributed.concurrentTxAutoRetryDelay
 Default value..: 100
 Set at run-time: true
+Hidden.........: false
+```
+----
+
+### Oauth2
+
+
+##### oauth2.secretkey
+
+Http OAuth2 secret key..
+
+```
+Setting name...: oauth2.secretkey
+Default value..: 
+Set at run-time: false
 Hidden.........: false
 ```
 ----
@@ -2096,7 +2129,6 @@ Default value..: false
 Set at run-time: false
 Hidden.........: false
 ```
-Process finished with exit code 0
 
 
 *NOTE: On 64-bit systems you have not the limitation of 32-bit systems with memory.*
