@@ -43,6 +43,7 @@ OGlobalConfiguration.dumpConfiguration(System.out);
 
 To know more look at the Java enumeration: <code>[OGlobalConfiguration.java](https://github.com/nuvolabase/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/config/OGlobalConfiguration.java)</code>.
 
+
 ----
 
 ### Environment
@@ -209,7 +210,7 @@ Hidden.........: false
 
 ##### storage.diskCache.writeCacheFlushInactivityInterval
 
-Interval between 2 writes to the disk cache, if writes are done with an interval more than provided, all files will be fsynced before the next write, which doesn't allow /allows a data restore after a server crash (in ms)..
+Interval between 2 writes to the disk cache, if writes are done with an interval more than provided, all files will be fsynced before the next write, which allows a data restore after a server crash (in ms)..
 
 ```
 Setting name...: storage.diskCache.writeCacheFlushInactivityInterval
@@ -264,7 +265,7 @@ Hidden.........: false
 
 ##### storage.compressionMethod
 
-Record compression method used in storage. Possible values : gzip, nothing, snappy, snappy-native. Default is 'nothing'.
+Record compression method used in storage. Possible values : gzip, nothing, snappy, snappy-native. Default is 'nothing' that means no compression..
 
 ```
 Setting name...: storage.compressionMethod
@@ -275,7 +276,7 @@ Hidden.........: false
 
 ##### storage.encryptionMethod
 
-Record encryption method used in storage. Possible values : 'aes' and 'des'. Default is nothing for no encryption..
+Record encryption method used in storage. Possible values : 'aes' and 'des'. Default is 'nothing' for no encryption..
 
 ```
 Setting name...: storage.encryptionMethod
@@ -882,7 +883,7 @@ Hidden.........: false
 
 ##### index.durableInNonTxMode
 
-Indicates whether index implementation for plocal storage will be durable in non-Tx mode (false by default)..
+Indicates whether index implementation for plocal storage will be durable in non-Tx mode (true by default)..
 
 ```
 Setting name...: index.durableInNonTxMode
@@ -1900,7 +1901,7 @@ Hidden.........: false
 
 ##### distributed.asynchQueueSize
 
-Queue size to handle distributed asynchronous operations. (0 = dynamic allocation, which means up to 2^31-1 entries).
+Queue size to handle distributed asynchronous operations. The bigger is the queue, the more operation are buffered, but also more memory it's consumed. 0 = dynamic allocation, which means up to 2^31-1 entries..
 
 ```
 Setting name...: distributed.asynchQueueSize
@@ -1911,7 +1912,7 @@ Hidden.........: false
 
 ##### distributed.asynchResponsesTimeout
 
-Maximum timeout (in ms) to collect all the asynchronous responses from replication..
+Maximum timeout (in ms) to collect all the asynchronous responses from replication. After this time the operation is rolled back (through an UNDO)..
 
 ```
 Setting name...: distributed.asynchResponsesTimeout
@@ -1922,7 +1923,7 @@ Hidden.........: false
 
 ##### distributed.purgeResponsesTimerDelay
 
-Maximum timeout (in ms) to collect all the asynchronous responses from replication..
+Maximum timeout (in ms) to collect all the asynchronous responses from replication. This is the delay the purge thread uses to check asynchronous requests in timeout..
 
 ```
 Setting name...: distributed.purgeResponsesTimerDelay
@@ -1933,7 +1934,7 @@ Hidden.........: false
 
 ##### distributed.queueMaxSize
 
-Maximum queue size to mark a node as stalled. (0 = no maximum, which means up to 2^31-1 entries).
+Maximum queue size to mark a node as stalled. If the numer of messages in queue are more than this values, the node is restarted with a remote command (0 = no maximum, which means up to 2^31-1 entries)..
 
 ```
 Setting name...: distributed.queueMaxSize
