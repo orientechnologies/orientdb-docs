@@ -28,8 +28,9 @@ Extracts content row by row.
 
 -----
 
-### csv
+### csv (since 2.1.4)
 Extract content from csv files. [Apache Commons-csv](https://commons.apache.org/proper/commons-csv/) is used to parse csv files. 
+This component is avaliable since version **2.1.4**
 
 - Component name. **csv**
 - Output class: [**ODocument**]
