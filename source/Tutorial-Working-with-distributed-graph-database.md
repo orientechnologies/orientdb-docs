@@ -1,26 +1,29 @@
 # Working with Distributed Graphs
 
-Once a server has joined the distributed cluster, all the clients are constantly notified about it so that in case of failure they will switch transparently to the next available server. Check this by using the console. When OrientDB runs in distributed configuration, the current cluster shape is visible with the [`info`](Console-Command-Info.md) command.
+When OrientDB joins a distributed cluster, all clients connecting to the server node are constantly notified about this state.  This ensures that, in the event that server node fails, the clients can switch transparently to the next available server.
+
+You can check this through the console.  When OrientDB runs in a distributed configuration,t he current cluster shape is visible through the [`INFO`](Console-Command-Info.md) command.
+
 
 <pre>
-$ <code class="lang-sh userinput">cd bin</code>
-$ <code class="lang-sh userinput">./console.sh</code>
+$ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/console.sh</code>
 
 OrientDB console v.1.6 www.orientechnologies.com
 Type 'help' to display all the commands supported.
 Installing extensions for GREMLIN language v.2.5.0-SNAPSHOT
 
+
 orientdb> <code class="lang-sql userinput">CONNECT remote:localhost/GratefulDeadConcerts admin admin</code>
 
 Connecting to database [remote:localhost/GratefulDeadConcerts] with user 'admin'...OK
+
 
 orientdb> <code class="lang-sql userinput">INFO</code>
 
 Current database: GratefulDeadConcerts (url=remote:localhost/GratefulDeadConcerts)
 </pre>
 
-Cluster configuration:
-
+For reference purposes, the server nodes in the example have the following configurations.  As you can see, it is a two node cluster running a single server host.  The first node listens on port `2481` while the second on port `2480`.
 
 ```json
 {
@@ -53,7 +56,9 @@ Cluster configuration:
 }
 ```
 
-Now let's create a new vertex by connecting with the console against Node1:
+## Testing Distributed Architecture
+
+Once you have a distributed database up and running, you can begin to test its operations on a running environment.  For example, begin by creating a vertex, setting the `node` property to `1`.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET node = 1</code>
@@ -61,23 +66,38 @@ orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET node = 1</code>
 Created vertex 'V#9:815{node:1} v1' in 0,013000 sec(s).
 </pre>
 
-Now from another shell (Command Prompt on Windows) connect to the node2 and execute this command:
+From another console, connect to the second node and execute the following command:
 
 
 <pre>
 orinetdb> <code class="lang-sql userinput">SELECT FROM V WHERE node = 1</code>
 
-----+--------+-------
- #  | @RID   | node
-----+--------+-------
- 0  | #9:815 | 1
-----+--------+-------
+----+--------+-------+
+ #  | @RID   | node  |
+----+--------+-------+
+ 0  | #9:815 | 1     |
+----+--------+-------+
 1 item(s) found. Query executed in 0.19 sec(s).
 </pre>
 
-The vertex has been correctly replicated on Node2. Cool! Now kill the node1 process. You will see these messages in the console of node2:
+This shows that the vertex created on the first node has successfully replicated to the second node.
+
+## Logs in Distributed Architecture
+
+From time to time server nodes go down.  This does not necessarily relate to problems in OrientDB, (for instance, it could originate from limitations in system resources).
+
+To test this out, kill the first node.  For example, assuming the first node has a process identifier, (that is, a PID), of `1254` on your system, run the following command:
 
 <pre>
+$ <code class="lang-sh userinput">kill -9 1254</code>
+</pre>
+
+This command kills the process on PID `1254`.  Now, check the log messages for the second node:
+
+
+<pre>
+$ <code class="lang-sh userinput">less orientdb.log</code>
+
 INFO [192.168.1.179]:2435 [orientdb] Removing Member [192.168.1.179]:2434
      [ClusterService]
 INFO [192.168.1.179]:2435 [orientdb]
@@ -91,7 +111,7 @@ INFO [192.168.1.179]:2435 [orientdb] Partition balance is ok, no need to
      re-partition cluster data...  [PartitionService]
 </pre>
 
-Node2 recognizes that Node1 is unreachable. Let's see if the console connected to the node1 reports the failure. Test it by executing a query:
+What the logs show you is that the second node is now aware that it cannot reach the first node.  You can further test this by running the console connected to the first node..
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM V LIMIT 2</code>
@@ -101,17 +121,17 @@ WARN Caught I/O errors from /192.168.1.179:2425 (local
 	 java.io.IOException: Stream closed) [OStorageRemote]
 WARN Connection re-acquired transparently after 30ms and 1 retries: no errors
      will be thrown at application level [OStorageRemote]
----+------+----------------+--------+--------------+------+-----------------+----------------+-------------+----------------
- # | @RID | name        | song_type | performances | type | out_followed_by | out_written_by | out_sung_by | in_followed_by
----+------+----------------+--------+--------------+------+-----------------+----------------+-------------+----------------
- 1 | #9:1 | HEY BO DIDDLEY | cover  | 5            | song | [5]             | #9:7           | #9:8        | [4]
- 2 | #9:2 | IM A MAN       | cover  | 1            | song | [2]             | #9:9           | #9:9        | [2]
----+------+----------------+--------+--------------+------+-----------------+----------------+-------------+----------------
+---+------+----------------+--------+--------------+------+-----------------+-----
+ # | @RID | name        | song_type | performances | type | out_followed_by | ...
+---+------+----------------+--------+--------------+------+-----------------+-----
+ 1 | #9:1 | HEY BO DIDDLEY | cover  | 5            | song | [5]             | ...
+ 2 | #9:2 | IM A MAN       | cover  | 1            | song | [2]             | ...
+---+------+----------------+--------+--------------+------+-----------------+-----
 </pre>
 
-Wow! The console auto switched to the next available node2. The warning reports that everything happens in a transparent way, so the application doesn't need to manage this.
+This shows that the console auto-switched to the next available node.  That is, it switched to the second node upon noticing that the first was no longer functional.  The warnings reports show what happened in a transparent way, so that the application doesn't need to manage the issue.
 
-Now, from the console connected to the Node2, create a new vertex:
+From the console connected to the second node, create a new vertex.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET node=2</code>
@@ -119,20 +139,24 @@ orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET node=2</code>
 Created vertex 'V#9:816{node:2} v1' in 0,014000 sec(s).
 </pre>
 
-The operation has been journaled to be synchronized to the Node1 once it comes online again. Now let's restart Node1 and see if auto re-alignment succeeds. Connect with the console against Node1 to check if the node has been aligned after the restart:
+Given that the first node remains nonfunctional, OrientDB journals the operation.  Once the first node comes back online, the second node synchronizes the changes into it.
+
+Restart the first node and check that it successfully auto-realigns.  Reconnect the console to the first node and run the following command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM V WHERE node=2</code>
 
----+--------+-------
- # | @RID   | node
----+--------+-------
- 0 | #9:816 | 2
----+--------+-------
+---+--------+-------+
+ # | @RID   | node  |
+---+--------+-------+
+ 0 | #9:816 | 2     |
+---+--------+-------+
 1 item(s) found. Query executed in 0.209 sec(s).
 </pre>
 
-Aligned! You can do the same with N servers where every server is a Master. There are no limits on the number of running servers. With many servers across a not-fast network, you could tune the network timeouts to be more permissive and let a big, distributed cluster of servers do the work properly.
+This shows that the first node has realigned itself with the second node.
 
-For more information look at [Distributed Architecture](Distributed-Architecture.md#how-does-it-work).
+This process is repeatable with N server nodes, where every server is a master.  There is no limit to the number of running servers.  With many servers spread across a slow network, you can tune the network timeouts to be more permissive and let a large, distributed cluster of servers work properly.
+
+For more information, [Distributed Architecture](Distributed-Architecture.md#how-does-it-work).
 

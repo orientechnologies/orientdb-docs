@@ -1,21 +1,29 @@
-# Setup a Distributed Database
-OrientDB can run in a [Distributed Architecture](Distributed-Architecture.md) by sharing a database across multiple server instances.
+# Setting up a Distributed Graph Database
 
-For the purpose of this tutorial we're going to run two servers. There are two ways to share the same database across multiple nodes:
-- Prior to startup, copy the specific database directory (under /databases) to all the servers.
-- Alternately, keep the database on the first node running and then start up each subsequent database instance. The default configuration automatically shares the database with new servers that join.
+In addition to the standard deployment architecture, where it runs as a single, standalone database instance, you can also deploy OrientDB using [Distributed Architecutre](Distributed-Architecture.md).  In this environment, it shares the database across multiple server instances.
 
-## Start the first server node
-To start OrientDB in distributed mode, don't use `bin/server.sh` (or `.bat` on Windows), but rather the `bin/dserver.sh` (or `bin\dserver.bat`) script:
+## Launching Distributed Server Cluster
 
-```sh
-$ cd bin
-$ ./dserver.sh
-```
+There are two ways to share a database across multiple server nodes:
 
-Note that the same configuration file `orientdb-server-config.xml` is still used. For more information, look at [Distributed Configuration](Distributed-Configuration.md).
+- Prior to startup, copy the specific database directory, under `$ORIENTDB_HOME/database` to all servers.
 
-When starting the distributed server (dserver) for the first time, you will be prompted to enter the node name:
+- Keep the database on the first running server node, then start every other server node.  Under the default configurations, OrientDB automatically shares the database with the new servers that join.
+
+This tutorial assumes that you want to start a distributed database using the second method.
+
+
+### Starting the First Server Node
+
+Unlike the standard standalone deployment of OrientDB, there is a different script that you need to use when launching a distributed server instance.  Instead of `server.sh`, you use `dserver.sh`.  In the case of Windows, use `dserver.bat`.  Whichever you need, you can find it in the `bin` of your installation directory.
+
+<pre>
+$ <code class="lang-sh userinput">./bin/dserver.sh</code>
+</pre>
+
+Bear in mind that OrientDB uses the same `orientdb-server-config.xml` configuration file, regardless of whether it's running as a server or distributed server.  For more information, see [Distributed Configuration](Distributed-Configuration.md).
+
+The first time you start OrientDB as a distributed server, it generates the following output:
 
 ```
 +---------------------------------------------------------------+
@@ -32,18 +40,29 @@ When starting the distributed server (dserver) for the first time, you will be p
 Node name [BLANK=auto generate it]:
 ```
 
-Once entered, the node name will be stored in the nodeName parameter of the OHazelcastPlugin in the orientdb-server-config.xml file.
+You need to give the node a name here.  OrientDB stores it in the `nodeName` parameter of `OHazelcastPlugin`.  It adds the variable to your `orientdb-server-config.xml` configuration file.
 
-Upon starting, OrientDB loads all the databases in the "databases" directory and configures them to run in distributed mode. For this reason, on the first load the default distributed configuration contained in `config/default-distributed-db-config.json` is copied into each database's directory and renamed `distributed-config.json`. On subsequent starts, the file `databases/GratefulDeadConcerts/distributed-config.json` (as an example) will be used instead of the default configuration. This is because the shape of the cluster of servers changes every time nodes join or leave, and the configuration is kept updated by OrientDB on each server node.
+#### Distributed Startup Process
 
-To know more about the meaning of the configuration contained in the `config/default-distributed-db-config.json` file look at [Distributed Configuration](Distributed-Configuration.md).
+When OrientDB starts as a distributed server instance, it loads all databases in the `database` directory and configures them to run in distributed mode.  For this reason, the first load, OrientDB copies the default distributed configuration, (that is, the `default-distributed-db-config.json` configuration file), into each database's directory, renaming it `distributed-config.json`.  On subsequent starts, each database uses this file instead of the default configuration file.  Since the shape of the cluster changes every time nodes join or leave, the configuration is kept up to date by each distributed server instance.
 
+For more information on working with the `default-distributed-db-config.json` configuration file, see [Distributed Configuration](Distributed-Configuration.md).
 
-## Start the second server node
+### Starting Additional Server Nodes
 
-Now start the second server like the first one. Make sure that both servers have the same Hazelcast credentials to join the same cluster in the `config/hazelcast.xml` file. The fastest way to do this is to copy & paste the OrientDB directory from the first node to the other ones. If you run multiple server instances in the same host (makes sense only for testing purpose) remember to change the port in `config/hazelcast.xml`.
+When you have the first server node running, you can begin to start the other server nodes.  Each server requires the same Hazelcast credentials in order to join the same cluster.  You can define these in the `hazelcast.xml` configuration file.
 
-Once the other node is online, both nodes see each other and dump a message like this:
+The fastest way to initialize multiple server nodes is to copy the OrientDB installation directory from the first node to each of the subsequent nodes.  For instance,
+
+<pre>
+$ <code class="lang-sh userinput">scp user@ip_address $ORIENTDB_HOME</code>
+</pre>
+
+This copies both the databases and their configuration files onto the new distributed server node.
+
+>Bear in mind, if you run multiple server instances on the same host, such as when testing, you need to change the port entry in the `hazelcast.xml` configuration file.
+
+For the other server nodes in the cluster, use the same `dserver.sh` command as you used in starting the first node.  When the other server nodes come online, they begin to establish network connectivity with each other.  Monitoring the logs, you can see where they establish connections from messages such as this:
 
 <pre>
 WARN [node1384014656983] added new node id=Member [192.168.1.179]:2435 name=null
@@ -92,11 +111,11 @@ WARN [node1383734730415]->[node1384015873680] sending the compressed database
      GratefulDeadConcerts over the network, total 339,66Kb [ODeployDatabaseTask]
 </pre>
 
-In this case 2 server nodes were started on the same machine (IP=10.37.129.2) but with 2 different ports (2434 and 2435 where the current is "this"). The rest of the log is relative to the distribution of the database to the second server.
+In the example, two server nodes were started on the same machine.  It has an IP address of 10.37.129.2, but is using OrientDB on two different ports: 2434 and 2435, where the current is called `this`.  The remainder of the log is relative to the distribution of the database to the second server.
 
-On the second server node output you'll see these messages:
+On the second server node output, OrientDB dumps messages like this:
 
-<pre>
+```
 WARN [node1384015873680]<-[node1383734730415] installing database
      GratefulDeadConcerts in databases/GratefulDeadConcerts... [OHazelcastPlugin]
 WARN [node1384015873680] installed database GratefulDeadConcerts in
@@ -104,8 +123,9 @@ WARN [node1384015873680] installed database GratefulDeadConcerts in
 WARN [node1384015873680] database GratefulDeadConcerts is online [OHazelcastPlugin]
 WARN [node1384015873680] updated node status to 'ONLINE' [OHazelcastPlugin]
 INFO OrientDB Server v1.6.1-SNAPSHOT is active. [OServer]
-</pre>
+```
 
-This means that the database "GratefulDeadConcerts" has been correctly installed from the first node (node1383734730415) through the network.
+
+What these messages mean is that the database `GratefulDeadConcerts` was correctly installed from the first node, that is `node1383734730415` through the network.
 
 

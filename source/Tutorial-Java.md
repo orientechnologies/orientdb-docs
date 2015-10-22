@@ -1,20 +1,28 @@
 # Java Tutorial
 
-If you're only used to working with traditional RDBMS databases, you'll find that OrientDB is a very different beast. Since OrientDB is able to support document mode, graph mode, and object-oriented mode, different Java APIs are required. But there are some similarities too: in a roughly similar way to JDBC, a [Blueprints](https://github.com/tinkerpop/blueprints/) API exists, made by Tinkerpop, which supports the basic operations on a graph database. There is an OrientDB "driver" (or, better, "adapter") which makes it possible to operate without having to deal with OrientDB classes, and the resulting code should be mainly portable (Blueprints offers more adapters for other graph database products).
+In the event that you are used only to Relation database systems, you may find OrientDB a very unfamiliar system to work with.  Given that it also supports Document, Graph and Object-Oriented modes, it requires different Java API's.  But, there are some similarities between them too.
 
-In any case, if you need to tweak the database configuration, you need to use the OrientDB APIs directly. It's a good idea to use a mix: Blueprints when you can and the OrientDB APIs when you need them.
+Similar to JDBC, a [Blueprints](https://github.com/tinkerpop/blueprints) API exists, made by Tinkerpop, which supports the basic operations on a graph database.  There is an OrientDB driver, (or, to be more accurate, an adapter), which makes it possible to operate without having to deal with OrientDB classes.  This means that the resulting code is more portable, given that Blueprints offers adapters to other graphing database systems.
 
-### OrientDB Java APIs
+If you need to tweak the database configuraiton, you need to use OrientDB API's directly.  It is recommend that in these situations you use a mix: Bluepringts when you can, the OrientDB API's where necessary.
 
-OrientDB comes with 3 different APIs. Pick your based on your model (for more information look at [Java API](Java-API.md)):
+
+## OrientDB Java APIs
+
+There are three different API's that OrientDB ships with.  Choose one based on your mode.
 
 - [Graph API](Graph-Database-Tinkerpop.md) (suggested)
 - [Document API](Document-Database.md)
 - [Object API](Object-Database.md)
 
+OrientDB comes with 3 different APIs. Pick your based on your model (for more information look at [Java API](Java-API.md)):
+
+For more information on the API's in general, see [Java API](Java-API.md)
+
+
 ### Graph API
 
-#### Connecting to a database
+#### Connecting to a Graph Database
 
 The first object you need is a `OrientGraph`:
 
@@ -24,17 +32,17 @@ import com.tinkerpop.blueprints.impls.orient.OrientGraph;
 OrientGraph graph = new OrientGraph("local:test", "username", "password");
 ```
 
-Even though OrientDB can work with the generic class "V" for Vertices and "E" for Edges, it's much more powerful to define custom types for both Vertices and Edges:
+
+#### Inserting Vertices and Edges
+
+While OrientDB can work with the generic `V` class for verticies and `E` class for edges, you gain much more power by defining custom types for both vertices and edges.
 
 ```java
 odb.createVertexType("Person");
 odb.createVertexType("Address");
 ```
 
-The Blueprint adapter is **thread-safe** and will **automatically create a transaction when needed** (e.g. at the first operation if a transaction hasn't been explicitly started). You have to specify where the transaction ends (commit or rollback) - see below for more details.
-
-
-#### Inserting vertices and edges
+The Blueprint adapter for OrientDB is thread-safe and automatically creates a transaction where necessary.  That is, it creates a transaction at the first operation, in the event that a transaction has not yet explicitly been started.  You have to specify where transactions end, for commits or rollbacks.
 
 To add vertices into the database with the Blueprints API:
 
@@ -49,43 +57,53 @@ vAddress.setProperty("city", "San Francisco");
 vAddress.setProperty("state", "California");
 ```
 
-Note the specific Blueprints syntax `"class:<class name>"` that you must use in the creation of an object to specify its class. It is not mandatory: it is also possible to specify a `null` value, which means that a vertex will be created with the class `V`, as it's the superclass of all vertices in OrientDB):
+Bear in mind, the specific syntax with Blueprint is `class:<class name>`.  You must use this syntax in creating an object to specify its class.  This is not mandatory.  It is also possible to specify a `null` value, (which means a vertex is created with the class `V`, as its the superclass for all vertices in OrientDB).
 
 ```java
 Vertex vPerson = graph.addVertex(null);
 ```
 
-A consequence is that we won't be able to distinguish it from other vertices in a query. To add an edge a similar API is used:
+In consequence of this is that you cannot distinguish `null` vertices from other vertices in a query.
+
+Use a similar API in adding an edge:
 
 ```java
 OrientEdge eLives = graph.addEdge(null, vPerson, vAddress, "lives");
 ```
-In OrientDB the Blueprints "label" concept is bound to Edge's class. You can create an edge of class "lives" by passing it as label (see the example above) or as class name:
+
+In OrientDB, the Blueprints label concept is bound to an edge's class.  You can create an edge of the class `lives` by passing it as a label or as a class name.
 
 ```java
 OrientEdge eLives = graph.addEdge("class:lives", vPerson, vAddress, null);
 ```
 
-Now we have created
+You have now created:
 
 ```
 [John Smith:Person] --[lives]--> [Van Ness Ave:Address]
 ```
 
-Please note that, in this example, we have used a partially schema-full mode, as we defined the vertex types, but not their properties. OrientDB will dynamically accept everything working in schema-less mode by default.
+Bear in mind that, in this example, you have used a partially schema-full mode, as you defined the vertex types, but not their properties.  By default, OrientDB dynamically accepts everything working in a schema-less mode.
 
-## SQL queries
 
-TinkerPop interfaces allow to execute fluent queries or Gremlin queries, but you can still use the power of OrientDB SQL by using the `.command()` method. Example:
+### SQL queries
+
+The Tinkerpop interfaces allow you to execute fluent queries or Germlin queries, but you can still use the power of OrientDB SQL through the `.command()` method.
+
 ```java
 for (Vertex v : (Iterable<Vertex>) graph.command(
             new OCommandSQL("SELECT EXPAND( OUT('bough') ) FROM Customer WHERE name='Jay'")).execute()) {
-    System.out.println("- Bought: " + v);
-}
+                  System.out.println("- Bought: " + v);
+            }
 ```
-Along with queries, you can execute any SQL command like CREATE VERTEX, UPDATE, or DELETE VERTEX. In the example below it sets a new property called "local" to true on all the Customers that live in Rome:
 
+In addition to queries, you can also execute any SQL command, such as [CREATE VERTEX](SQL-Create-Vertex.md), [Update](SQL-Update.md), or [DELETE VERTEX](SQL-Delete-Vertex.md).  
+
+
+Along with queries, you can execute any SQL command like CREATE VERTEX, UPDATE, or DELETE VERTEX. For example,
 ```java
 int modified = graph.command(
           new OCommandSQL("UPDATE Customer SET local = true WHERE 'Rome' IN out('lives').name")).execute());
 ```
+
+This sets a new property called `local` to `true` on all instances in the `Customer` class that live in Rome.
