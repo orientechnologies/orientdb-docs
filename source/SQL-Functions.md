@@ -38,7 +38,7 @@ In this case `first()` function doesn't aggregate everything in only one record,
 |[both()](SQL-Functions.md#both)  | [max()](SQL-Functions.md#max) | [list()](SQL-Functions.md#list)             | [format()](SQL-Functions.md#format)
 |[outE()](SQL-Functions.md#outE)  | [sum()](SQL-Functions.md#sum) | [difference()](SQL-Functions.md#difference) | [distance()](SQL-Functions.md#distance)
 |[inE()](SQL-Functions.md#inE)    |                               | [first()](SQL-Functions.md#first)           | [ifnull()](SQL-Functions.md#ifnull)
-|[bothE()](SQL-Functions.md#bothE)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalescence()](SQL-Functions.md#coalescence)
+|[bothE()](SQL-Functions.md#bothE)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalesce()](SQL-Functions.md#coalesce)
 |[outV()](SQL-Functions.md#outV)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
 |[inV()](SQL-Functions.md#inV)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
 |[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|
@@ -51,7 +51,7 @@ In this case `first()` function doesn't aggregate everything in only one record,
 
 |       |       |       |       |
 |-------|-------|-------|-------|
-|[avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) | [bothE()](SQL-Functions.md#bothE) | [coalescence()](SQL-Functions.md#coalescence) | 
+|[avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) | [bothE()](SQL-Functions.md#bothE) | [coalesce()](SQL-Functions.md#coalesce) | 
 |[count()](SQL-Functions.md#count)|[date()](SQL-Functions.md#date) | [difference()](SQL-Functions.md#difference) | [dijkstra()](SQL-Functions.md#dijkstra) |
 |[distance()](SQL-Functions.md#distance) | [distinct()](SQL-Functions.md#distinct) | [eval()](SQL-Functions.md#eval) | [expand()](SQL-Functions.md#expand) |
 |[format()](SQL-Functions.md#format) | [first()](SQL-Functions.md#first) | [flatten()](SQL-Functions.md#flatten) | [if()](SQL-Functions.md#if) | |
@@ -253,7 +253,7 @@ Returns the first field/value not null parameter. If no field/value is not null,
 
 Syntax:
 ```
-coalesce(&lt;field&#124;value&gt;)
+coalesce(<field|value> [, <field-n|value-n>]*)
 ```
 
 Available since: 1.3.0

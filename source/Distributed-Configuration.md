@@ -242,9 +242,14 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
 }
 ```
 
-## Misc
+## Load balancing
+### Use multiple addresses
+OrientDB automatically switches to an available node in case of failure, the first connect must be done to an active server. For this reason when running distributed, it's good practice to always connect the clients to a set of URL, instead of just one. You can separate hosts/addresses toby using semicolon (;). Example: `remote:server1:2424;server2:8888;server3`.
 
-### Load balancing
+By using multiple hosts/addresses, the client will try to connect to server in order.
+
+
+### Use the DNS
 
 The simplest and most powerful way to achieve load balancing seems to use some hidden (to some) properties of DNS. The trick is to create a TXT record listing the servers.
 

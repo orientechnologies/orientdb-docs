@@ -15,7 +15,7 @@ Starting from v2.2, the OrientDB SQL executor will decide if execute or not a qu
 Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
 
 ### Encryption at rest
--In progress-
+OrientDB v2.2 can encrypt database at file system level [89](https://github.com/orientechnologies/orientdb/issues/89).
 
 ### New ODocument.eval()
 To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
@@ -27,6 +27,8 @@ Databases created with release 2.1.x are compatible with 2.2.x, so you don't hav
 ### Security and speed
 
 OrientDB v2.2 increase security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycle for SALT: more is harder to decode but is slower. Change setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
+
+To improve performance consider also avoiding opening and closing connection, but rather using a connection pool.
 
 ### API changes
 
