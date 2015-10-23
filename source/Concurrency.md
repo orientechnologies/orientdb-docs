@@ -1,92 +1,111 @@
 # Concurrency
 
-OrientDB has an optimistic approach to concurency: [Optimistic Concurrency Control (OCC)](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) assumes that multiple transactions can frequently complete without interfering with each other. While running, transactions use data resources without acquiring locks on those resources. Before committing, each transaction verifies that no other transaction has modified the data it has read. If the check reveals conflicting modifications, the committing transaction rolls back and can be restarted.
+OrientDB uses an optimistic approach to concurrency.  Optimistic Concurrency Control, or [OCC](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) assumes that multiple transactions can compete frequently without interfering with each other.
 
-OCC is generally used in environments with low data contention. When conflicts are rare, transactions can complete without the expense of managing locks and without having transactions wait for other transactions' locks to clear, leading to higher throughput than other concurrency control methods. However, if contention for data resources is frequent, the cost of repeatedly restarting transactions hurts performance significantly; it is commonly thought that other concurrency control methods have better performance under these conditions. However, locking-based ("pessimistic") methods also can deliver poor performance because locking can drastically limit effective concurrency even when deadlocks are avoided." - Wikipedia
+## Optimistic Concurrency in OrientDB
 
-OrientDB uses this approach on both **Atomic Operations** and **Transactions**.
+Optimistic concurrency control is used in environments with low data contention.  That is, where conflicts are rare and transactions can complete without the expense of managing locks and without having transactions wait for locks to clear.  This means a reduced throughput over other concurrency control methods.
 
-## Atomic Operations
+OrientDB uses OCC for both [Atomic Operations](Concurrency.md#atomic-operations) and [Transactions](Concurrency.md#transactions).
 
-OrientDB supports [Multi Version Concurrency Control (MVCC)](http://en.wikipedia.org/wiki/Multiversion_concurrency_control) with atomic operations. This allows to avoid locking server side resources. At save time the version in database is checked. If it's equals to the record version contained in the operation, the operation succeed. If the version found in database is higher than the record version contained in the operation, then another thread/user already updated the same record in the meanwhile. In this case an `OConcurrentModificationException` exception is thrown.
 
-Since this behavior is considered normal on Optimistic Systems, the developer should write a concurrency-proof code that retry X times before to report the error, by catching the exception, reloading the affected records and try updating them again. Below an example of saving a document.
+### Atomic Operations
+
+OrientDB supports Multi Version Concurrency Control, or [MVCC](http://en.wikipedia.org/wiki/Multiversion_concurrency_control), with atomic operations.  This allows it to avoid locking server side resources.  At the same time, it checks the version in the database.  If the version is equal to the record version contained in the operation, the operation is successful.  If the version found that is higher than the record version contained in the operaetion, then another thread or user has already updated the same record.  In this case, OrientDB generates an `OConcurrentModificationException` exception.
+
+Given that behavior of this kind is normal on systems that use optimistic concurrency control, developers need to write concurrency-proof code.  Under this design, the application retries transactions *x* times before reporting the error.  It does this by catching the exception, reloading the affected records and attempting to update them again.  For example, consider the code for saving a document,
+
 
 ```java
 int maxRetries = 10;
-List<ODocument> result = db.query("select from Client where id = '39w39D32d2d'");
+List<ODocument> result = db.query("SELECT FROM Client WHERE id = '39w39D32d2d'");
 ODocument address = result.get(0);
 
 for (int retry = 0; retry < maxRetries; ++retry) {
-  try {
-    // LOOKUP FOR THE INVOICE VERTEX
-    address.field( "street", street );
-    address.field( "zip", zip );
-    address.field( "city", cityName );
-    address.field( "country", countryName );
+     try {
+          // LOOKUP FOR THE INVOICE VERTEX
+          address.field( "street", street );
+          address.field( "zip", zip );
+          address.field( "city", cityName );
+          address.field( "country", countryName );
 
-    address.save();
+          address.save();
 
-    // OK, EXIT FROM RETRY LOOP
-    break;
-  } catch( ONeedRetryException e ) {
-    // SOMEONE HAVE UPDATE THE ADDRESS DOCUMENT AT THE SAME TIME, RETRY IT
-  }
+          // EXIT FROM RETRY LOOP
+          break;
+	 }
+	 catch( ONeedRetryException e ) {
+          // IF SOMEONE UPDATES THE ADDRESS DOCUMENT
+          // AT THE SAME TIME, RETRY IT.
+     }
 }
 ```
 
-## Transactions
+### Transactions
 
-OrientDB supports optimistic transactions, so no lock is kept when a transaction is running, but at commit time each record (document, or graph element) version is checked to see if there has been an update by another client. This is the reason why you should write your code to be concurrency-proof by handling the concurrent updating case. Optimistic concurrency requires the transaction is retried in case of conflict. Example with connecting a new vertex to an existent one:
+OrientDB supports optimistic transactions.  The database does not use locks when transactions are running, but when the transaction commits, each record (document or graph element) version is checked to see if there have been updates from another client.  For this reason, you need to code your applications to be concurrency-proof.
+
+Optimistic concurrency requires that you retire the transaction in the event of conflicts.  For example, consider a case where you want to connect a new vertex to an existing vertex:
 
 ```java
 int maxRetries = 10;
 for (int retry = 0; retry < maxRetries; ++retry) {
-  try {
-    // LOOKUP FOR THE INVOICE VERTEX
-    Vertex invoice = graph.getVertices("invoiceId", 2323);
-    // CREATE A NEW ITEM
-    Vertex invoiceItem = graph.addVertex("class:InvoiceItem");
-    invoiceItem.field("price", 1000);
-    // ADD IT TO THE INVOICE
-    invoice.addEdge(invoiceItem);
+     try {
+          // LOOKUP FOR THE INVOICE VERTEX
+          Vertex invoice = graph.getVertices("invoiceId", 2323);
+		  
+          // CREATE A NEW ITEM
+          Vertex invoiceItem = graph.addVertex("class:InvoiceItem");
+          invoiceItem.field("price", 1000);
+		  
+          // ADD IT TO THE INVOICE
+          invoice.addEdge(invoiceItem);
 
-    graph.commit();
+          graph.commit();
 
-    // OK, EXIT FROM RETRY LOOP
-    break;
-  } catch( OConcurrentModificationException e ) {
-    // SOMEONE HAVE UPDATE THE INVOICE VERTEX AT THE SAME TIME, RETRY IT
-  }
+          // EXIT FROM RETRY LOOP
+          break;
+     }
+	 catch( OConcurrentModificationException e ) {
+          // SOMEONE HAVE UPDATE THE INVOICE VERTEX
+		  // AT THE SAME TIME, RETRY IT
+     }
 }
 ```
 
-### Concurrency level
+#### Concurrency Level
 
-In order to guarantee atomicity and consistency, OrientDB acquires an exclusive lock on the storage during transaction commit. This means transactions are serialized. Giving this limitation, _the OrientDB team is already working on improving parallelism to achieve better scalability on multi-core machines by optimizing internal structure to avoid exclusive locking._
+In order to guarantee atomicity and consistency, OrientDB sues an exclusive lock on the storage during transaction commits.  This means that transactions are serialized.
 
-## Concurrency on adding edges
+Given this limitation, developers with OrientDB are working on improving parallelism to achieve better scalability on multi-core machines, by optimizing internal structure to avoid exclusive locking.
 
-What happens when multiple clients add edges on the same vertex? OrientDB could throw the `OConcurrentModificationException` exception as well. Why? Because collection of edges are kept on vertices, so every time an edge is added or removed, both involved vertices are updated, and their versions incremented. To avoid this problem, you can use [RIDBAG Bonsai structure](RidBag.md) that are never embedded, so vertices will be never updated. 
 
-Set this configuration value at run-time before OrientDB is used:
+## Concurrency when Adding Edges
+
+Consider the case where multiple clients attempt to add edges on the same vertex.  OrientDB could throw the `OConcurrentModificationException` exception.  This occurs because collections of edges are kept on vertices.  Meaning that, every time OrientDB adds or removes an edge, both vertices update and their versions increment.  You can avoid this issue by using [RIDBAG Bonsai structure](RidBag.md), which are never embedded, so the edge never updates the vertices.
+ 
+To use this configuration at run-time, before launching OrientDB, use this code:
 
 ```java
 OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 ```
 
-Or, by setting the parameter at JVM level on startup (or even at run-time before OrientDB is used)
+Alternatively, you can set a parameter for the Java virtual-machine on startup, or even at run-time, before OrientDB is used:
 
-```
-java ... -DridBag.embeddedToSbtreeBonsaiThreshold=-1 ...
-```
+<pre>
+$ <code class="lang-sql userinput">java -DridBag.embeddedToSbtreeBonsaiThreshold=-1</code>
+</pre>
 
-| ![NOTE](images/warning.png) | _NOTE: While running in distributed mode SBTrees are not supported. If using a distributed database then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` to avoid replication errors._ |
-|----|----|
+
+| ![NOTE](images/warning.png) | While running in distributed mode SBTrees are not supported. If using a distributed database then you must set <pre>ridBag.embeddedToSbtreeBonsaiThreshold = Integer.MAX\_VALUE</pre>  to avoid replication errors. |
+|----|:----|
 
 
 ## Troubleshooting
 
-### Reduce transaction size
+### Reduce Transaction Size
 
-`OConcurrentModificationException` can be thrown when even the first element has been update concurrently. This means that if you have thousands of record involved in the transaction, one changed record is enough to rollback it and throw `OConcurrentModificationException`. For this reason, if you plan to update many elements in the same transaction with high concurrency on the same vertices, a best practice is reducing the transaction size.
+Occasionally, OrientDB can throw the `OConcurrentModificationException` exception even when you concurrently update the first element.  What this means is that, if you have thousands of records involved in the transaction, one changed record is enough to roll it back and raise the `OConcurrentModificationException` exception.
+
+For this reason, if you plan to update many elements in the same transaction with high concurrency on the same vertices, the best practice is to reduce the transaction size.
+
