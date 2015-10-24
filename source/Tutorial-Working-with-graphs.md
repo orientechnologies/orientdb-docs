@@ -154,7 +154,7 @@ The users Luca and Jay are friends.  They have Record ID's of ``#12:0`` and ``#1
 orientdb> <code class="lang-sql userinput">CREATE EDGE Friend FROM #12:0 TO #11:2</code>
 </pre>
 
-In the `Friend` relationship, orientation is not important.  That is, if Luca is a friend of Jay's then Jay is a freind of Luca's.  Therefore, you should use the `BOTH()` function.
+In the `Friend` relationship, orientation is not important.  That is, if Luca is a friend of Jay's then Jay is a friend of Luca's.  Therefore, you should use the `BOTH()` function.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT EXPAND( BOTH( 'Friend' ) ) FROM Person WHERE name = 'Luca'</code>
