@@ -6,6 +6,31 @@ This guide contains the general tips to optimize your application that use the O
 - [Object Database performance tuning](Performance-Tuning-Object.md)
 - [Distributed Configuration tuning](Distributed-Configuration-Tuning.md)
 
+## I/O benchmark
+The main requirement for a fast DBMS is having good I/O. In order to understand the performance of your hw/sw configuration. If you have a Unix derived OS (like Linux, MacOSX, etc.), the simplest way to have your raw I/O performance is running this two commands:
+
+```
+dd if=/dev/zero of=/tmp/output.img bs=8k count=256k
+rm /tmp/output.img
+```
+
+This is the output on a fast SSD (1.4 GB/sec):
+```
+262144+0 records in
+262144+0 records out
+2147483648 bytes transferred in 1.467536 secs (1463326070 bytes/sec)
+```
+
+And this is what you usually get with a HD connected with a USB 3.0 (90 MB/sec):
+
+```
+262144+0 records in
+262144+0 records out
+2147483648 bytes transferred in 23.699740 secs (90612119 bytes/sec)
+```
+
+As you can notice the first configuration (SSD) is 16x faster than the second configuration (HD). Sensible differences can be found between bare metal hw and Virtual Machines.
+
 ## Java
 OrientDB is written in Java, so it runs on top of Java Virtual Machine (JVM). OrientDB is compatible with Java 8 and we suggest to use this version to run OrientDB. Java 8 is faster than Java 7 and previous ones.
 
