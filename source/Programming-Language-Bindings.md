@@ -82,7 +82,7 @@ This is the list of the known drivers to use OrientDB through different language
     </td>
     <td><a href="https://github.com/orientechnologies/pyorient">PyOrient</a></td>
     <td>Binary</td>
-    <td><b>Official Driver</b> for Python, compatible with OrientDB 1.7 and further.</td>
+    <td>Community driver for Python, compatible with OrientDB 1.7 and further.</td>
 </tr>
 <tr>
     <td><a href="http://bulbflow.com">Bulbflow project</a></td>
