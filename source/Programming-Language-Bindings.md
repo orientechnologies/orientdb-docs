@@ -1,4 +1,4 @@
-r# API
+# API
 
 OrientDB supports 3 kinds of drivers:
 - **Native binary remote**, that talks directly against the TCP/IP socket using the [binary protocol](https://github.com/nuvolabase/orientdb/wiki/Network-Binary-Protocol)
@@ -18,7 +18,7 @@ This is the list of the known drivers to use OrientDB through different language
 </tr>
 <tr>
     <td rowspan="2">
-      <center><a href="https://en.wikipedia.org/wiki/Java_%28programming_language%29"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Java_logo_and_wordmark.svg/300px-Java_logo_and_wordmark.svg.png" alt="JAVA" height="50px"/></a></center>
+      <center><a href="https://upload.wikimedia.org/wikipedia/en/8/88/Java_logo.png"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Java_logo_and_wordmark.svg/300px-Java_logo_and_wordmark.svg.png" alt="JAVA" height="50px"/></a></center>
     </td>
     <td><a href="Java-API.html">Java&nbsp;(native)&nbsp;API</a></td>
     <td>Native</td>
