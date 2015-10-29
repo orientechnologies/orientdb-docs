@@ -2,10 +2,10 @@
     "title": "OrientDB Manual",
     "description": "OrientDB Documentation",
     "links": {
-        "home": "http://www.orientechnologies.com",
-        "about": "http://www.orientechnologies.com",
+        "home": "http://orientdb.com",
+        "about": "http://orientdb.com",
         "issues": "https://github.com/orientechnologies/orientdb/issues",
-        "contribute": "http://www.orientechnologies.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
+        "contribute": "http://orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
         "sharing": {
             "google": "https://plus.google.com/108716918285358206552/posts",
             "facebook": "https://www.facebook.com/groups/orientdb/",
@@ -14,7 +14,9 @@
             "all": "http://www.orientechnologies.com"
         }
     },
-
+    "search": {
+        "maxIndexSize": 1000000000
+    },
     "pdf": {
         "toc": true,
         "pageNumbers": true,
@@ -29,7 +31,7 @@
         "footerTemplate": "Copyright (c) Orient Technologies LTD"
     },
     "plugins": [
-        "ga", "anchors", "reveal", "addcssjs"
+        "ga", "anchors", "collapsible-menu", "versions", "edit-link",
     ],
     "pluginsConfig": {
         "ga": {
@@ -37,6 +39,22 @@
         },
 	"addcssjs":{
 		"css": ["css/custom.css"]
-	}
+	},
+	"versions": {
+		"gitbookConfigURL": "http://orientdb.com/docs/book.json",
+		"options": [
+			{ "value": "http://orientdb.com/docs/1.7.8/", "text": "Version 1.7.x" },
+			{ "value": "http://orientdb.com/docs/2.0/", "text": "Version 2.0.x" },
+			{ "value": "http://orientdb.com/docs/2.1", "text": "Version 2.1.x" },
+			{ "value": "http://orientdb.com/docs/last", "text": "Version last", "selected": true }
+		] 
+    	},
+	"edit-link": {
+                "base": "https://github.com/orientechnologies/orientdb-docs/edit/master/source",
+                "label": "Edit This Page"
+        },
+    	"github": {
+      		"url": "https://github.com/orientechnologies/orientdb"
+  	}
     }
 }
