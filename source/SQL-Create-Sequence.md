@@ -7,7 +7,7 @@ Creates a new sequence.
 ## Syntax
 
 ```sql
-CREATE SEQUENCE <sequence> [TYPE <CACHED|ORDERED>] [START <start>] [INCREMENT <increment>] [CACHE <cache>]
+CREATE SEQUENCE <sequence> TYPE <CACHED|ORDERED> [START <start>] [INCREMENT <increment>] [CACHE <cache>]
 ```
 
 Where:
@@ -29,7 +29,7 @@ Where:
 ### Create and use a new sequence to handle id numbers
 
 ```sql
-CREATE SEQUENCE idseq
+CREATE SEQUENCE idseq TYPE ORDERED
 INSERT INTO account SET id = sequence('idseq').next()
 ```
 
