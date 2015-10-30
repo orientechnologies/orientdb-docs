@@ -105,7 +105,8 @@ $ <code class="lang-sql userinput">java -DridBag.embeddedToSbtreeBonsaiThreshold
 
 ### Reduce Transaction Size
 
-Occasionally, OrientDB can throw the `OConcurrentModificationException` exception even when you concurrently update the first element.  What this means is that, if you have thousands of records involved in the transaction, one changed record is enough to roll it back and raise the `OConcurrentModificationException` exception.
+On occasion, OrientDB throws the `OConcurrentModificationException` exception even when you concurrently update the first element.  In particularly large transactions, such as whereyou have thousands of records involved in a transaction, one changed record is enough to roll the entire process back with an `OConcurrentModificationException` exception.
 
-For this reason, if you plan to update many elements in the same transaction with high concurrency on the same vertices, the best practice is to reduce the transaction size.
+To avoid issues of this kind, if you plan to update many elements in the same transaction with high-concurrency on the same vertices, a best practice is to reduce the transaction size.
+
 
