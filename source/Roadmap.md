@@ -18,29 +18,29 @@ Last update: September 28, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| OrientJS| Native unmarshaling of requests by using C++ code| 70% |
+| OrientJS| Native unmarshaling of requests by using C++ code| 95% |
 | Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 100% |
-| Core | Incremental Backup | 90% |
+| Core | Incremental Backup | 100% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
 | Distributed | Fast synchronization by using Incremental Backup | 10% |
-| SQL | Pattern matching | 95% |
+| SQL | Pattern matching | 100% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
 | SQL | Live Query -> Stable | 90% |
 | SQL | New functions (strings, maths) | 40% |
-| SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 90% |
+| SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 100% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
 | Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 100% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
-| Console | Dislay distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 20% |
+| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 20% |
 | Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
-| Lucene | New module for indexing of shapes, not only points | 75% |
+| Lucene | New module for indexing of shapes, not only points | 90% |
 
 
 ## Release 3.0
