@@ -9,12 +9,12 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ## Release 2.2
 ```
 - Development started on.: June 25th 2015
-- Expected first RC......: October 2015
-- Expected final GA......: November 2015
+- Expected first RC......: November 5th 2015
+- Expected final GA......: December 2015
 ```
 
 ### Status
-Last update: September 28, 2015
+Last update: October 30, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
@@ -24,7 +24,7 @@ Last update: September 28, 2015
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
 | Core | AES and DES enchryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
-| Distributed | Fast synchronization by using Incremental Backup | 10% |
+| Distributed | Fast synchronization by using Incremental Backup | This is in discussion because technical problems. It could be postponed. |
 | SQL | Pattern matching | 100% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
