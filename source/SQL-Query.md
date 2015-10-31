@@ -39,7 +39,7 @@ SELECT [<Projections>] [FROM <Target> [LET <Assignment>*]]
 
 ## Projections
 
-In the standard SQL, projections are mandatory. In OrientDB if it's omitted, the entire record set is returned. It is the equivalent of the `*` keyword. Example:
+In standard SQL, projections are mandatory. In OrientDB, if it's omitted, the entire record set is returned. It is the equivalent of the `*` keyword. Example:
 ```sql
 SELECT FROM Account
 ```
@@ -112,17 +112,17 @@ Get all the records where up to the 3rd level of connections has some field that
 SELECT FROM Profile WHERE any() TRAVERSE( 0,3 ) ( any().toUpperCase().indexOf( 'danger' ) > -1 )
 ```
 
-Order the result set by the `name` in descending order:
+Order the result set by `name` in descending order:
 ```sql
 SELECT FROM Profile ORDER BY name DESC
 ```
 
-Returns the total of records per city:
+Return the total of records per city:
 ```sql
 SELECT SUM(*) FROM Account GROUP BY city
 ```
 
-Traverse record starting from a root node:
+Traverse records starting from a root node:
 
 ```sql
 SELECT FROM 11:4 WHERE any() TRAVERSE(0,10) (address.city = 'Rome')
@@ -150,11 +150,11 @@ SELECT FROM Profile ORDER BY @rid DESC
 
 ## LET block
 
-The `LET` block contains the list of context variables to assign each time a record is evaluated. These values are destroyed once the query execution ends. Context variables can be used in projections, conditions and sub-queries.
+The `LET` block contains the list of context variables to assign each time a record is evaluated. These values are destroyed once the query execution ends. Context variables can be used in projections, conditions, and sub-queries.
 
 ## Assign fields to reuse multiple times
 
-OrientDB allows crossing relationships, but if in a single query you need to evaluate the same branch of nested relationship, it's definitely better using a context variable that refers to the full relationship.
+OrientDB allows crossing relationships, but if in a single query you need to evaluate the same branch of the nested relationship, it's definitely better using a context variable that refers to the full relationship.
 
 Example:
 ```sql
@@ -175,7 +175,7 @@ In this case the path till `address.city` is traversed only once.
 
 ## Sub-query
 
-LET block allows you to assign a context variable the result of a sub-query. Example:
+LET block allows you to assign a context variable to the result of a sub-query. Example:
 ```sql
 SELECT FROM Document
 LET $temp = (
@@ -201,18 +201,18 @@ WHERE $city.name like '%Saint%"' AND
 
 (since 2.1)
 
-allows to unwind collection fields and obtain multiple records as a result, one for each element in the collection:
+Allows unwinding of collection fields and obtaining multiple records as a result, one for each element in the collection:
 
 ```sql
 SELECT name, out("Friend").name as friendName from Person
 ```
-the result will be something like
+The result will be something like
 ```
 | name   | friendName         |
 | 'John' | [ 'Mark', 'Steve'] |
 ```
 
-if you want one record for each element in friendName, you can rewrite the query using UNWIND:
+If you want one record for each element in friendName, you can rewrite the query using UNWIND:
 
 ```sql
 SELECT name, out("Friend").name as friendName from Person UNWIND friendName
