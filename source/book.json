@@ -31,7 +31,7 @@
         "footerTemplate": "Copyright (c) Orient Technologies LTD"
     },
     "plugins": [
-        "ga", "anchors", "collapsible-menu", "versions", "edit-link",
+        "ga", "anchors", "collapsible-menu", "versions", "edit-link", "addcssjs"
     ],
     "pluginsConfig": {
         "ga": {
