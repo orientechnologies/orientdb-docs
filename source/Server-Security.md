@@ -9,7 +9,7 @@ See also:
 |---|---|
 |![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
 
-A single OrientDB server can manage multiple databases at a time, each one with its own users. When used through the HTTP protocol, OrientDB server uses one realm pe database.
+A single OrientDB server can manage multiple databases at a time, each one with its own users. When used through the HTTP protocol, OrientDB server uses one realm per database.
 
 Server users are stored in `config/orientdb-server-config.xml` file under the tag `<users>`. Example:
 ```xml
@@ -19,10 +19,10 @@ Server users are stored in `config/orientdb-server-config.xml` file under the ta
     </users>
 ```
 
-When the OrientDB Server starts the first time, it creates the `root` user automatically by asking the password in console. If no password is specified, an random passwod is generated. Starting from OrientDB 2.2, passwords are hashed using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm.
+When the OrientDB Server starts for the first time, it creates the `root` user automatically by asking the password in console. If no password is specified, a random passwod is generated. Starting from OrientDB 2.2, passwords are hashed using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm.
 
 ## Configuration
-To avoid untrusted users add a new user or change the password on server configuration, protect the file `config/orientdb-server-config.xml` by disabling `write` access. It's good rule also disabling `read` access to avoid any user can read the hashed password. In facts, even if the password is hashed, there are many techniques to guess the real password. These techniques could be more or less complicated and time consuming.
+To avoid untrusted users add a new user or change the password on server configuration, protect the file `config/orientdb-server-config.xml` by disabling `write` access. It's good rule also disabling `read` access to avoid any user to read the hashed password. In fact, even if the password is hashed, there are many techniques to guess the real password. These techniques could be more or less complicated and time consuming.
 
 |   |   |
 |---|---|
@@ -96,7 +96,7 @@ If the class `OUser` has been dropped or the `admin` user has been deleted, you 
   INSERT INTO ORole SET name = 'admin', mode = 1, rules = {"database.bypassrestricted":15}
   ```
 
-1. If the user "admin" doesn't exist, create it by executing the following command:
+1. If the user `admin` doesn't exist, create it by executing the following command:
 
   ```sql
   INSERT INTO OUser SET name = 'admin', password = 'admin', status = 'ACTIVE',
