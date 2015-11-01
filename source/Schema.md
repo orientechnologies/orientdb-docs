@@ -1,105 +1,125 @@
 # Schema
 
-Although OrientDB can work in schema-less mode, sometimes you need to enforce your data model using a schema. OrientDB supports schema-full or schema-hybrid solutions where the second one means to set such constraints only for certain fields and leave the user to add custom fields to the records. This mode is at class level, so you can have the `Employee` class as schema-full and `EmployeeInformation` class as schema-less.
+While OrientDb works in a schema-less mode, you may find at times the need to enforce a schema on your data model.  OrientDB supports both schema-full and schema-hybrid solutions.
 
-- **Schema-Full**: enable the strict-mode at class level and set all the fields as mandatory
-- **Schema-Less**: create classes with no properties. Default mode is non strict-mode so records can have arbitrary fields
-- **Schema-Hybrid**, called also **Schema-Mixed** is the most used: create classes and define some fields but leave the record to define own custom fields
+In the case of schema-hybrid mode, you only set constraints for certain fields and leave the user to add custom fields to the record.  This mode occurs at a class level, meaning that you can have an `Employee` class as schema-full and an `EmployeeInformation` calss as schema-less.
 
-> **NOTE**: Changes to the schema are not transactional, so execute them outside a transaction.
+- **Schema-full** Enables strict-mode at a class-level and sets all fields as mandatory.
+- **Schema-less** Enables classes with no properties.  Default is non-strict-mode, meaning that records can have arbitrary fields.
+- **Schema-hybrid** Enables classes with some fields, but allows records to define custom fields.  This is also sometimes called schema-mixed.
 
-To access to the schema, you can use [SQL](SQL.md#query-the-schema) or API. Will follow examples using Java API.
+>**NOTE** Changes to the schema are not transactional.  You must execute these commands outside of a transaction. 
 
-To gain access to the schema APIs you need in the Schema instance of the database you're using.
+You can access the schema through [SQL](SQL.md#query-the-schema) or through the Java API.  Examples here use the latter.  To access the schema API in Java, you need the Schema instance of the database you want to use.  For example,
+
 
 ```java
 OSchema schema = database.getMetadata().getSchema();
 ```
 
+
+
 ## Class
 
-A Class is a concept taken from the Object Oriented paradigm. In OrientDB defines a type of record. It's the closest concept to a Relational DBMS Table. Class can be schema-less, schema-full or mixed.
+OrientDB draws from the Object Oriented programming paradigm in the concept of the Class.  A class is a type of record.  In comparison to Relational database systems, it is most similar in conception to the table.
 
-A class can inherit from another, shaping a tree of classes. This means that the sub-class extends the parent one inheriting all the attributes.
+Classes can be schema-less, schema-full or schema-hybrid.  They can inherit from other classes, shaping a tree of classes.  In other words, a sub-class extends the parent class, inheriting all attributes.
 
-Each class has its clusters that can be logical (by default) or physical. A class must have at least one cluster defined (as its default cluster), but can support multiple ones. In this case by default OrientDB will write new records in the default cluster, but reads will always involve all the defined clusters.
+Each class has its own clusters.  By default, these clusters are logical, but they can also be physical.  A given class must have at least one cluster defined as its default, but it can support multiple clusters.  OrientDB writes new records into the default cluster, but always reads from all defined clusters.
 
-When you create a new class by default a new physical cluster is created with the same name of the class in lower-case.
+When you create a new class, OrientDB creates a default physical cluster that uses the same name as the class, but in lowercase.
 
-### Create a persistent class
+### Creating Persistent Classes
 
-Each class contains one or more properties. This mode is similar to the classic Relational DBMS approach where you define tables before storing records.
+Classes contain one or more properties.  This mode is similar to the classical model of the Relational database, where you must define tables before you can begin to store records.  
 
-Example of creation of Account class. By default a new [Cluster](Concepts#cluster] will be created to keep the class instances:
+To create a persistent class in Java, use the `createClass()` method:
 
 ```java
 OClass account = database.getMetadata().getSchema().createClass("Account");
 ```
 
-### Get a persistent class
+This method creates the class `Account` on the database.  It simultaneously creates the physical cluster `account`, to provide storage for records in the class `Account`.
 
-To retrieve a persistent class use the `getClass(String)` method. If the class not exists NULL is returned.
+
+### Getting Persistent Classes
+
+With the new persistent class created, you may also need to get its contents.
+
+To retrieve a persistent class in Java, use the `getClass()` method:
 
 ```java
 OClass account = database.getMetadata().getSchema().getClass("Account");
 ```
 
-### Drop a persistent class
+This method retrieves from the database the persistent class `Account`.  If the query finds that the `Account` class does not exist, it returns `NULL`.
 
-To drop a persistent class use the `OSchema.dropClass(String)` method.
+
+### Dropping Persistent Classes
+
+In the event that you no longer want the class, you can drop, or delete, it from the database.
+
+To drop a persistent class in Java, use the `OSchema.dropClass()` method:
 
 ```java
 database.getMetadata().getSchema().dropClass("Account");
 ```
 
-The records of the removed class will be not deleted unless you explicitly delete them before to drop the class. Example:
+This method drops the class `Account` from your database.  It does not delete records that belong to this class unless you explicitly ask it to do so:
 
 ```java
-database.command( new OCommandSQL("DELETE FROM Account") ).execute();
+database.command(new OCommandSQL("DELETE FROM Account")).execute();
 database.getMetadata().getSchema().dropClass("Account");
 ```
 
 ### Constraints
 
-To work in schema-full mode set the strict mode at class level by calling the `setStrictMode(true)` method. In this case record of that class can't have not-defined properties.
+Working in schema-full mode requires that you set the strict mode at the class-level, by defining the `setStrictMode()` method to `TRUE`.  In this case, records of that class cannot have undefined properties.
 
-## Property
 
-Properties are the fields of the class. In this guide Property is synonym of Field.
+## Properties
 
-### Create the Class property
+In OrientDB, a property is a field assigned to a class.  For the purposes of this tutorial, consider Property and Field as synonymous.
 
-Once the class has been created, you can define fields (properties). Below an example:
+### Creating Class Properties
+
+After you create a class, you can define fields for that class.  To define a field, use the `createProperty()` method.
+
 
 ```java
 OClass account = database.getMetadata().getSchema().createClass("Account");
-account.createProperty("id", OType.INTEGER);
-account.createProperty("birthDate", OType.DATE);
+account.createProperty("id", OType.Integer);
+account.createProperty("birthDate", OType.Date);
 ```
-Please note that each field must belong to one of [supported types](Types.md).
 
-### Drop the Class property
+These lines create a class `Account`, then defines two properties `id` and `birthDate`.  Bear in mind that each field must belong to one of the [supported types](Types.md).  Here these are the integer and date types.
 
-To drop a persistent class property use the `OClass.dropProperty(String)` method.
+
+### Dropping Class Properties
+
+In the event that you would like to remove properties from a class you can do so using the `dropProperty()` method under `OClass`.
 
 ```java
 database.getMetadata().getSchema().getClass("Account").dropProperty("name");
 ```
 
-The dropped property will not be removed from records unless you explicitly delete them using the [SQL UPDATE + REMOVE statement](SQL-Update.md). Example:
+When you drop a property from a class, it does not remove records from that class unless you explicitly ask for it, using the [`UPDATE... REMOVE`](SQL-Update.md) statements.  For instance,
+
 
 ```java
 database.getMetadata().getSchema().getClass("Account").dropProperty("name");
 database.command(new OCommandSQL("UPDATE Account REMOVE name")).execute();
 ```
 
-### Define relationships
+The first method drops the property from the class.  The second updates the database to remove the property.
 
-OrientDB supports two types of relationships: **referenced** and **embedded**.
+## Relationships
 
-#### Referenced relationships
+OrientDB supports two types of relationships: referenced and embedded.
 
-OrientDB uses a direct **link** to the referenced record(s) without the need of costly `JOIN`s of the Relational world. Example:
+### Referenced Relationships
+
+In the case of referenced relationships, OrientDB uses a direct link to the referenced record or records.  This allows the database to avoid the costly `JOIN` operations used by Relational databases.
 
 ```
                   customer
@@ -107,11 +127,13 @@ OrientDB uses a direct **link** to the referenced record(s) without the need of 
 CLASS=Invoice                 CLASS=Customer
   RID=5:23                       RID=10:2
 ```
-**Record A** will contain the *reference* to the **Record B** in the property called `customer`. Note that both records are reachable by any other records since they have a [RecordID](Concepts.md#recordid).
 
-#### 1-1 and N-1 referenced relationships
+In the example, Record A contains the reference to Record B in the property `customer`.  Both records are accessible by any other records since each has a [Record ID](Concepts.md#recordid).
 
-1-1 and N-1 referenced relationships are expressed using the **LINK** type.
+#### 1:1 and *n*:1 Reference Relationships
+
+In one to one and many to one relationships, the reference relationship is expressed using teh `LINK` type.  For instance.
+
 
 ```java
 OClass customer= database.getMetadata().getSchema().createClass("Customer");
@@ -123,17 +145,18 @@ invoice.createProperty("date", OType.DATE);
 invoice.createProperty("customer", OType.LINK, customer);
 ```
 
-In this case records of class `Invoice` will link to a record of class `Customer` using the field `customer`.
+Here, records of the class `Invoice` link to a record of the class `Customer`, through the field `customer`.
 
-#### 1-N and N-M referenced relationships
+#### 1:*n* and *n*:*n* Reference Relationships.
 
-1-N and N-M referenced relationships are expressed using the collection of links such as:
+In one to many and many to many relationships, OrientDB expresses the referenced relationship using collections of links.
 
-- **LINKLIST** as an ordered list of links
-- **LINKSET** as an unordered set of links. It doesn't accept duplicates
-- **LINKMAP** as an ordered map of links with **String** key. It doesn't accept duplicated keys
+- `LINKLIST` An ordered list of links.
+- `LINKSET` An unordered set of links, that does not accept duplicates.
+- `LINKMAP` An ordered map of links, with a string key.  It does not accept duplicate keys.
 
-Example of a 1-N relationship between the classes `Order` and `OrderItem`:
+For example, 
+
 
 ```java
 OClass orderItem = db.getMetadata().getSchema().createClass("OrderItem");
@@ -146,9 +169,11 @@ order.createProperty("date", OType.DATE);
 order.createProperty("items", OType.LINKLIST, orderItem);
 ```
 
-#### Embedded relationships
+Here, you have two classes: `Order` and `OrderItem` and a 1:*n* referenced relationship is created between them.
 
-Embedded records, instead, are contained inside the record that embeds them. It's a kind of relationship stronger than the reference. The embedded record will not have a own [RecordID](Concepts.md#recordid) since it can't be directly referenced by other records. It's only accessible via the container record. If the container record is deleted, then the embedded record will be deleted too. Example:
+### Embedded Relationships
+
+In the case of embedded relationships, OrientDB contains the relationship within the record.  Embedded relationships are stronger than referenced relationships, but the embedded record does not have its own [Record ID](Concepts.md#recordid).  Because of this, you cannot reference them directly through other records.  The relationship is only accessible through the container record.  If the container record is deleted, then the embedded record is also deleted.
 
 ```
                   address
@@ -157,17 +182,16 @@ CLASS=Account               CLASS=Address
   RID=5:23                     NO RID!
 ```
 
-**Record A** will contain the entire **Record B** in the property called `address`. **Record B** can be reached only by traversing the container record.
+Here, Record A contains the entirety of Record B in the property `address`.  You can only reach Record B by traversing the container, Record A.
 
-Example:
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE Address.city = 'Rome'</code>
+</pre>
 
-```java
-SELECT FROM account WHERE address.city = 'Rome'
-```
+#### 1:1 and *n*:1 Embedded Relationships
 
-#### 1-1 and N-1 embedded relationships
+For one to one and many to one embedded relationships, OrientDB uses links of the `EMBEDDED` type.  For example, 
 
-1-1 and N-1 embedded relationships are expressed using the `EMBEDDED` type.
 
 ```java
 OClass address = database.getMetadata().getSchema().createClass("Address");
@@ -177,18 +201,17 @@ account.createProperty("id", OType.INTEGER);
 account.createProperty("birthDate", OType.DATE);
 account.createProperty("address", OType.EMBEDDED, address);
 ```
+Here, records of the class `Account` embed records for the class `Address`.
 
-In this case, records of class `Account` will embed a record of class `Address`.
+#### 1:*n* and *n*:*n* Embedded Relationships
 
-#### 1-N and N-M embedded relationships
+In the case of one to many and many to many relationships, OrientDB sues a collection embedded link types:
 
-1-N and N-M embedded relationships are expressed using the collection of links such as:
+- `EMBEDDEDLIST` An ordered list of records.
+- `EMBEDDEDSET` An unordered set of records.  It doesn't accept duplicates.
+- `EMBEDDEDMAP` An ordered map of records as key-value pairs.  It doesn't accept duplicate keys.
 
-- **EMBEDDEDLIST**, as an ordered list of records
-- **EMBEDDEDSET**, as an unordered set of records. It doesn't accepts duplicates
-- **EMBEDDEDMAP**, as an ordered map of records as value with key a **String**. It doesn't accepts duplicated keys
-
-Example of a 1-N relationship between the class `Order` and `OrderItem`:
+For example,
 
 ```java
 OClass orderItem = db.getMetadata().getSchema().createClass("OrderItem");
@@ -201,17 +224,21 @@ order.createProperty("date", OType.DATE);
 order.createProperty("items", OType.EMBEDDEDLIST, orderItem);
 ```
 
-### Constraints
+This establishes a one to many relationship between the classes `Order` and `OrderItem`.
 
-OrientDB supports a number of constrains for each field. For more information look at [SQL Alter Property command](SQL-Alter-Property.md):
+## Constraints
 
-- **Minimum value**, accepts a string because works also for date ranges `setMin()`
-- **Maximum value**, accepts a string because works also for date ranges `setMax()`
-- **Mandatory**, it must be specified `setMandatory()`
-- **Readonly**, it may not be updated after record is created `setReadonly()`
-- **Not Null**, can't be NULL `setNotNull()`
-- **Unique**, doesn't allow duplicates and speedup searches.
-- **Regexp**, it must satisfy the [Regular expression](http://en.wikipedia.org/wiki/Regular_expression).
+OrientDB supports a number of constraints for each field.  For more information on setting constraints, see the [`ALTER PROPERTY`](SQL-Alter-Property.md) command.
+
+- **Minimum Value**: `setMin()` The field accepts a string, because it works also for date ranges.
+- **Maximum Value**: `setMax()` The field accepts a string, because it works also for date rangers.
+- **Mandatory**: `setMandatory()` This field is required.
+- **Read Only**: `setReadonly()` This field cannot update after being created.
+- **Not Null**: `setNotNull()` This field cannot be null.
+- **Unique**: This field doesn't allow duplicates or speedup searches.
+- **Regex**: This field must satisfy [Regular Expressions](http://en.wikipedia.org/wiki/Regular_expression)
+
+For example, 
 
 ```java
 profile.createProperty("nick", OType.STRING).setMin("3").setMax("30").setMandatory(true).setNotNull(true);
@@ -223,17 +250,16 @@ profile.createProperty("registeredOn", OType.DATE).setMin("2010-01-01 00:00:00")
 profile.createProperty("lastAccessOn", OType.DATE).setMin("2010-01-01 00:00:00");
 ```
 
-#### Indexes as constraints
+### Indices as Constraints
 
-To let a property value to be `UNIQUE` use the `UNIQUE` index as constraint:
+To define a property value as unique, use the `UNIQUE` index constraint.  For example,
+
 
 ```java
 profile.createIndex("EmployeeId", OClass.INDEX_TYPE.UNIQUE, "id");
 ```
 
-To let to a group of properties to be `UNIQUE` create a composite index made of multiple fields:
-
-Creation of composite index:
+You can also constrain a group of properties as unique by creating a composite index made from multiple fields.  For instance,
 
 ```java
 profile.createIndex("compositeIdx", OClass.INDEX_TYPE.NOTUNIQUE, "name", "surname");
