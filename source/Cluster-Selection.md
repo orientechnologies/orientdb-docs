@@ -1,61 +1,67 @@
 # Cluster Selection
 
-When you create a new record specifying its [Class](Concepts.md#Class), OrientDB automatically selects the [Cluster](Concepts.md#Cluster) where to store the physical record, by using configurable strategies.
+When you create a new record and specify the [class](Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](Concepts.md#cluster) where it stores the physical data of the record.  There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
 
-The available strategies are:
+- `default`  It selects the cluster using the `defaultClusterId` property from the class.  Prior to version 1.7, this was the default method.
 
-- `default`, uses always the Class's ```defaultClusterId``` property. This was the default before 1.7
-- `round-robin`, put the Class's configured clusters in a ring and returns a different cluster every time restarting from the first when the ring is completed
-- `balanced`, checks the records in all the clusters and returns the smaller cluster. This allows the cluster to have all the underlying clusters balanced on size. On adding a new cluster to an existent class, the new empty cluster will be filled before the others because more empty then the others. Calculation of cluster size is made every 5 or more seconds to avoid to slow down insertion
-- `local`. This is injected when OrientDB is running in distributed mode. With this strategy the cluster that is the master on current node is always preferred. This avoids conflicts and reduces network latency with remote calls between nodes.
+- `round-robin` It arranges the configured clusters for the class into sequence and assigns each new record to the next cluster in order.
 
-## Create custom strategy
+- `balanced` It checks the number of records in the configured clusters for the class and assigns the new record to whichever is the smallest at the time.  To avoid latency issues on data insertions, OrientDB calculates cluster size every five seconds or longer.
 
-To create your custom strategy follow the following steps:
+- `local` When the database is run in distributed mode, it selects the master cluster on the current node.  This helps to avoid conflicts and reduce network latency with remote calls between nodes.
 
-### 1) Create the implementation in Java
+Whichever cluster selection strategy works best for your application, you can assign it through the [`ALTER CLASS...CLUSTERSELECTION`](SQL-Alter-Class.md) command.  For example,
 
-The class must implements interface OClusterSelectionStrategy. Example:
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER CLASS Account CLUSTERSELECTION round-robin</code>
+</pre>
 
-```java
-package mypackage;
-public class RandomSelectionStrategy implements OClusterSelectionStrategy {
-  public int getCluster(final OClass iClass, final ODocument doc) {
-    final int[] clusters = iClass.getClusterIds();
+When you run this command, it updates the `Account` class to use the `round-robin` selection strategy.  It cycles through available clusters, adding new records to each in sequence.
 
-    // RETURN A RANDOM CLUSTER ID IN THE LIST
-    return new Random().nextInt(clusters.length);
-  }
 
-  public String getName(){ return "random"; }
-}
-``` 
 
-Note that the method `getCluster()` receives also the `ODocument` to insert. This is useful if you want to assign the `clusterId` based on the Document content.
+## Custom Cluster Selection Strategies
 
-### 2) Register the implementation as service
+In addition to the cluster selection strategies listed above, you can also develop your own select strategies through the Java API.  This ensures that it the strategies that are available by default do not meet your particular needs, you can develop one that does.
 
-Create a new file under `META-INF/services` called `com.orientechnologies.orient.core.metadata.schema.clusterselection.OClusterSelectionStrategy` and write your class with full package.
+1. Using your preferred text editor, create the implementation in Java.  In order to use a custom strategy, the class must implement the `OClusterSelectionStrategy` interface.
 
-Example of the content:
+   ```java
+   package mypackage;
+   public class RandomSelectionStrategy implements OClusterSelectionStrategy {
+      public int getCluster(final OClass iClass, final ODocument doc) {
+         final int[] clusters = iClass.getClusterIds();
 
-``` java
-mypackage.RandomSelectionStrategy
-```
+         // RETURN A RANDOM CLUSTER ID IN THE LIST
+         return new Random().nextInt(clusters.length);
+      }
 
-This is the default content in OrientDB core is:
+      public String getName(){ return "random"; }
+   }
+   ``` 
 
-``` java
-com.orientechnologies.orient.core.metadata.schema.clusterselection.ORoundRobinClusterSelectionStrategy
-com.orientechnologies.orient.core.metadata.schema.clusterselection.ODefaultClusterSelectionStrategy
-com.orientechnologies.orient.core.metadata.schema.clusterselection.OBalancedClusterSelectionStrategy
-```
+   Bear in mind that the method `getCluster()` also receives the `ODocument` cluster to insert.  You may find this useful if you want ot assign the `clusterId` variable, based on the Document content.
 
-### 3) Assign it
+1. Register the implementation as a service.  You can do this by creating a new file under `META-INF/service`.  Use the filename `com.orientechnologies.orient.core.metadata.schema.clusterselection.OClusterSelectionStrategy`.  For its contents, code your class with the full package.  For instance,
 
-To assign your new strategy to a class, use the [ALTER CLASS](SQL-Alter-Class.md) command. Example:
+   ``` java
+   mypackage.RandomSelectionStrategy
+   ```
 
-``` sql
-ALTER CLASS Employee CLUSTERSELECTION random
-```
+   This adds to the default content in the OrientDB core:
+
+   ``` java
+   com.orientechnologies.orient.core.metadata.schema.clusterselection.ORoundRobinClusterSelectionStrategy
+   com.orientechnologies.orient.core.metadata.schema.clusterselection.ODefaultClusterSelectionStrategy
+   com.orientechnologies.orient.core.metadata.schema.clusterselection.OBalancedClusterSelectionStrategy
+   ```
+
+1. From the database console, assign the new selection strategy to your class with the [`ALTER CLASS...CLUSTERSELECTION`](SQL-Alter-Class.md) command.
+
+   <pre>
+   orientdb> <code class="lang-sql userinput">ALTER CLASS Employee CLUSTERSELECTION random</code>
+   </pre>
+
+The class `Employee` now selects clusters using `random`, your custom strategy.
+
 

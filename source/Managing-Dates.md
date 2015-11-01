@@ -1,108 +1,130 @@
 # Managing Dates
 
-In OrientDB dates are first class citizen. OrientDB internally saves dates in [unixtime format](https://en.wikipedia.org/wiki/Unix_time) as a `long` containing the milliseconds since **Jan 1st 1970**.
+OrientDB treats dates as first class citizens.  Internally, it saves dates in the [Unix time](https://en.wikipedia.org/wiki/Unix_time) format.  Meaning, it stores dates as a `long` variable, which contains the count in miliseconds since the Unix Epoch, (that is, 1 January 1970).
 
-## Date and Datetime formats
+## Date and Datetime Formats
 
-By default the following formats are used on a new database:
-- Date format: `yyyy-MM-dd`
-- Datetime format: `yyyy-MM-dd HH:mm:ss`
+In order to make the internal count from the Unix Epoch into something human readable, OrientDB formats the count into date and datetime formats.  By default, these formats are:
 
-To change this global setting, use the [ALTER DATABASE](SQL-Alter-Database) SQL comamnd. Example on setting dates with English format:
+- Date Format: `yyyy-MM-dd`
+- Datetime Format: `yyyy-MM-dd HH:mm:ss`
 
-```sql
-alter database dateformat "dd MMMM yyyy"
-```
+In the event that these default formats are not sufficient for the needs of your application, you can customize them through [`ALTER DATABASE...DATEFORMAT`](SQL-Alter-Database.md) and [`DATETIMEFORMAT`](SQL-Alter-Database.md) commands.  For instance,
 
-## SQL
-In order to simplify management of dates, OrientDB SQL parses automatically dates from/to strings and longs. The following functions come in rescue to have more control on how dates are managed:
-- [date()](SQL-Functions.md#date) to convert dates from/to string/date, also with custom format
-- [sysdate()](SQL-Functions.md#sysdate) to represent current date
-- [.format()](SQL-Methods.md#format) to format the date using different formats
-- [.asDate()](SQL-Methods.md#asdate) to convert any type into a date
-- [.asDatetime()](SQL-Methods.md#asdatetime) to convert any type into a datetime
-- [.asLong()](SQL-Methods.md#aslong) to convert any date in long format (unixtime)
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER DATABASE DATEFORMAT "dd MMMM yyyy"</code>
+</pre>
 
-## Extract pieces of date
+This command updates the current database to use the English format for dates.  That is, 14 Febr 2015.
 
-By using the [.format()](SQL-Methods.md#format) SQL method, you can extract dates in different formats. Example to extract only the year of orders:
+## SQL Functions and Methods
 
-```sql
-select @rid, id, date.format('yyyy') as year from order
+To simplify the management of date, OrientDB SQL automatically parses dates to and from strings and longs.  These functions and methods provide you with more control in how dates are managed:
 
-+--------+----+------+
-| @RID   | id | year |
-+--------+----+------+
-| #31:10 | 92 | 2015 |
-| #31:10 | 44 | 2014 |
-| #31:10 | 32 | 2014 |
-| #31:10 | 21 | 2013 |
-+--------+----+------+
-```
+| SQL | Description |
+|----|----|
+| [`DATE()`](SQL-Functions.md#date) | Function converts dates to and from strings and dates, also uses custom formats.|
+| [`SYSDATE()`](SQL-Functions.md#sysdate) | Function returns the current date.|
+| [`.format()`](SQL-Methods.md#format) | Method returns the date in different formats.|
+| [`.asDate()`](SQL-Methods.md#asdate) | Method converts any type into a date.|
+| [`.asDatetime()`](SQL-Methods.md#asdatetime) | Method converts any type into datetime.|
+| [`.asLong()`](SQL-Methods.md#aslong)| Method converts any date into long format, (that is, Unix time).|
 
-You can also group them by year. This example extracts the number of orders grouped by year:
+For example, consider a case where you need to extract only the years for date entries and to arrange them in order.  You can use the [`.format()`](SQL-Methods.md#format) method to extract dates into different formats.
 
-```sql
-select date.format('yyyy') as year, count(*) as total from order oder by year
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT @RID, id, date.format('yyyy') AS year FROM Order</code>
 
-+------+--------+
-| year |  total |
-+------+--------+
-| 2015 |      1 |
-| 2014 |      2 |
-| 2013 |      1 |
-+------+--------+
-```
+--------+----+------+
+ @RID   | id | year |
+--------+----+------+
+ #31:10 | 92 | 2015 |
+ #31:10 | 44 | 2014 |
+ #31:10 | 32 | 2014 |
+ #31:10 | 21 | 2013 |
+--------+----+------+
+</pre>
+
+In addition to this, you can also group the results.  For instance, extracting the number of orders grouped by year.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT date.format('yyyy') AS Year, COUNT(*) AS Total 
+          FROM Order ORDER BY Year</code>
+
+------+--------+
+ Year |  Total |
+------+--------+
+ 2015 |      1 |
+ 2014 |      2 |
+ 2013 |      1 |
+------+--------+
+</pre>
 
 ## Dates before 1970
 
-To save dates before Jan 1st 1970, use negative numbers.
+While you may find the default system for managing dates in OrientDB sufficient for your needs, there are some cases where it may not prove so.  For instance, consider a database of archaeological finds, a number of which date to periods not only before 1970 but possibly even before the Common Era.  You can manage this by defining an era or epoch variable in your dates.
 
-Example on setting the date about the fundation of [Rome, Italy](https://en.wikipedia.org/wiki/Unix_time) (April 21st 753 BC). To insert dates Before Christ, let's add the "era/epoch" as "GG" in database date and datetimes formats:
+For example, consider an instance where you want to add a record noting the date for the foundation of the city Rome, which is traditionally referred to as April 21, 753 BC.  To enter dates before the Common Era, first run the [`ALTER DATABASE DATETIMEFORMAT`] command to add the `GG` variable to use in referencing the epoch.
 
-```sql
-alter database datetimeformat "yyyy-MM-dd HH:mm:ss GG"
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER DATABASE DATETIMEFORMAT "yyyy-MM-dd HH:mm:ss GG"</code>
+</pre>
 
-create vertex v set city = "Rome", date = date("0753-04-21 00:00:00 BC")
-```
+Once you've run this command, you can create a record that references date and datetime by epoch.
 
-This is the result:
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET city = "Rome", date = DATE("0753-04-21 00:00:00 BC")</code>
+orientdb> <code class="lang-sql userinput">SELECT @RID, city, date FROM V</code>
 
-```
-+-------+------+------------------------+
-| #9:10 | Rome | 0753-04-21 00:00:00 BC |
-+-------+------+------------------------+
-```
+-------+------+------------------------+
+ @RID  | city | date                   |
+-------+------+------------------------+
+ #9:10 | Rome | 0753-04-21 00:00:00 BC |
+-------+------+------------------------+
+</pre>
 
-You could also not change the database date/time format, and use the format onat insertion time:
+### Using `.format()` on Insertion
 
-```sql
-create vertex v set city = "Rome", date = date("0753-04-21 00:00:00 BC", "yyyy-MM-dd HH:mm:ss GG")
-```
+In addition to the above method, instead of changing the date and datetime formats for the database, you can format the results as you insert date.
 
-To see the underlying long (unixtime) stored, let's convert it to long with `asLong()` for the record just inserted:
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET city = "Rome", date = DATE("yyyy-MM-dd HH:mm:ss GG")</code>
+orientdb> <code class="lang-sql userinput">SELECT @RID, city, date FROM V</code>
 
-```sql
-select date.asLong() from #9:4
-```
+------+------+------------------------+
+ @RID | city | date                   |
+------+------+------------------------+
+ #9:4 | Rome | 0753-04-21 00:00:00 BC |
+------+------+------------------------+
+</pre>
 
-This is the result:
+Here, you again create a vertex for the traditional date of the foundation of Rome.  However, instead of altering the database, you format the date field in [`CREATE VERTEX`](SQL-Create-Vertex.md) command.
 
-```
--85889120400000
-```
+### Viewing Unix Time
 
-So Apr 21st 753 BC is represented as `-85889120400000` in unixtime. We can also work with dates directly with longs:
+In addition to the formatted date and datetime, you can also view the underlying count from the Unix Epoch, using the [`asLong()`](SQL-Methods.md#aslong) method for records.  For example,
 
-```sql
-create vertex v set city = "Rome", date = date(-85889120400000)
-```
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT @RID, city, date.asLong() FROM #9:4</code>
 
-The result is identical to the previous one:
+------+------+------------------------+
+ @RID | city | date                   |
+------+------+------------------------+
+ #9:4 | Rome | -85889120400000        |
+------+------+------------------------+
+</pre>
 
-```
-+-------+------+------------------------+
-| #9:11 | Rome | 0753-04-21 00:00:00 BC |
-+-------+------+------------------------+
-```
+Meaning that, OrientDB represents the date of April 21, 753 BC, as -85889120400000 in Unix time.  You can also work with dates directly as longs.
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET city = "Rome", date = DATE(-85889120400000)</code>
+orientdb> <code class="lang-sql userinput">SELECT @RID, city, date FROM V</code>
+
+-------+------+------------------------+
+ @RID  | city | date                   |
+-------+------+------------------------+
+ #9:11 | Rome | 0753-04-21 00:00:00 BC |
+-------+------+------------------------+
+</pre>
+
 
