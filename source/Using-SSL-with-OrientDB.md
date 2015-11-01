@@ -5,12 +5,12 @@ See also:
 - [Server security](Server-Security.md)
 - [Database Encryption](Database-Encryption.md)
 
-Starting from v1.7, OrientDB provides the ability to secure is HTTP and BINARY protocols using SSL (For Distributed SSL see the HazelCast Documentation).
+Starting from v1.7, OrientDB provides the ability to secure its HTTP and BINARY protocols using SSL (for Distributed SSL see the HazelCast documentation).
 
 
 ## Setting up the Key and Trust Stores
 
-OrientDB uses the JAVA Keytool to setup and manage certificates. This tutorial shows how to create key and trust stores that reference a self signed cert. Use of CA signed certs is outside the scope of this document. For more details on using the Java Keytool please visit <http://docs.oracle.com/javase/7/docs/technotes/tools/index.html#security> and for more information.
+OrientDB uses the JAVA Keytool to setup and manage certificates. This tutorial shows how to create key and trust stores that reference a self-signed cert. Use of CA-signed certs is outside the scope of this document. For more details on using the Java Keytool please visit <http://docs.oracle.com/javase/7/docs/technotes/tools/index.html#security>.
 
 
 1. Using Keytool, create a certificate for the server:
@@ -42,7 +42,7 @@ OrientDB uses the JAVA Keytool to setup and manage certificates. This tutorial s
 	```
 
 
->**NOTE**: You will need to repeat steps 3 and 4 for each remote client vm you wish to connect to the server. Remember to change the alias and keystore and trust-store filenames accordingly.
+>**NOTE**: You will need to repeat steps 3 and 4 for each remote client VM you wish to connect to the server. Remember to change the alias, keystore and trust-store filenames accordingly.
 
 
 ## Configuring the Server
@@ -91,7 +91,7 @@ To enable SSL for remote connections using the console, a few changes to the con
 
 ## Configuring Client
 
-Configuring remote clients can be done using standard java system property patterns.
+Configuring remote clients can be done using standard Java system property patterns.
 
 Properties:
 
