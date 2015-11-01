@@ -19,14 +19,14 @@ Dynamic Hooks can call:
 
 
 ## Class level hooks
-Class level hooks are defined for all the documents that rely to a class. Below an example to setup a hook that acts at class level against Invoice documents.
+Class level hooks are defined for all the documents that relate to a class. Below is an example to setup a hook that acts at class level against Invoice documents.
 
 ```sql
 CREATE CLASS Invoice EXTENDS OTriggered
 ALTER CLASS Invoice CUSTOM onAfterCreate=invoiceCreated
 ```
 
-Now let's create the function `invoiceCreated` in Javascript that print to server console the invoice number created.
+Now let's create the function `invoiceCreated` in Javascript that prints in the server console the invoice number created.
 
 ```sql
 CREATE FUNCTION invoiceCreated "print('\\nInvoice created: ' + doc.field('number'));" LANGUAGE Javascript
