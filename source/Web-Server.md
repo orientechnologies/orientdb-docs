@@ -4,7 +4,7 @@
 |---|---|
 |![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
 
-Global settings can be set at JVM startup (`java ... -D<setting>=<value>"`) or in `orientdb-server-config.xml` file under "properties" XML tag.
+Global settings can be set at JVM startup (`java ... -D<setting>="<value>"`) or in `orientdb-server-config.xml` file under "properties" XML tag.
 
 
 ## Maximum content length
@@ -17,7 +17,7 @@ OrientDB uses UTF-8 as default charset. To change it set the global configuratio
 
 ## JSONP
 
-JSONP is supported by OrientDB Web Server, but disable by default. To enable it set the coniguration `network.http.jsonp=true`
+JSONP is supported by OrientDB Web Server, but disabled by default. To enable it set the coniguration `network.http.jsonp=true`
 
 This is a global setting, so you can set it at JVM startup (`java ... -Dnetwork.http.jsonp=true`) or by setting it as property in `orientdb-server-config.xml` file under "properties" XML tag.
 
