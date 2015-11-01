@@ -1,8 +1,8 @@
 # Javascript
 
-Starting from version 1.0, OrientDB supports server side scripting. All the [JVM languages](http://en.wikipedia.org/wiki/List_of_JVM_languages) are supported. By default [JavaScript](http://en.wikipedia.org/wiki/JavaScript) is installed.
+Starting from version 1.0, OrientDB supports server-side scripting. All the [JVM languages](http://en.wikipedia.org/wiki/List_of_JVM_languages) are supported. By default [JavaScript](http://en.wikipedia.org/wiki/JavaScript) is installed.
 
-Scripts can be executed client and server side. For the client side the user must have the privilege of READ against <code>database.command</code> resource. For the server side the server must [enable the scripting interpreter](#Enable_Server_side_scripting) that are disabled by default for security reason.
+Scripts can be executed on the client and on the server-side.  On the client-side, the user must have READ privilege against the <code>database.command</code> resource.  On the server-side, [the scripting interpreter](#Enable_Server_side_scripting) must be enabled.  It is disabled by default for security reasons.
 
 ## See also
 - [SQL-batch](SQL-batch.md)
@@ -10,19 +10,19 @@ Scripts can be executed client and server side. For the client side the user mus
 ## Usage
 ### Via Java API
 
-Execute a command like SQL but using the class <code>OCommandScript</code> passing the language to use. JavaScript is installed by default. Example:
+Executes a command like SQL but uses the class <code>OCommandScript</code> passing in the language to use. JavaScript is installed by default. Example:
 ```java
 db.command( new OCommandScript("Javascript", "print('hello world')") ).execute();
 ```
 ## Via console
 
-JavaScript code can be executed at client-side, the console, or server-side:
-- Use <code>js</code> to execute the script at the **client-side** running it in the console
-- use <code>jss</code> to execute the script at the **server-side**. This feature is disabled by default. To enable it look at [Enable Server side scripting](#Enable_Server_side_scripting).
+JavaScript code can be executed on the client-side, the console, or server-side:
+- Use <code>js</code> to execute the script on the **client-side** running it in the console
+- use <code>jss</code> to execute the script on the **server-side**. This feature is disabled by default. To enable it look at [Enable Server side scripting](#Enable_Server_side_scripting).
 
-Since the semicolon <code>;</code> character is used in both console and JavaScript language to separate statements, how can we execute multiple commands in the console and JavaScript?
+Since the semi-colon <code>;</code> character is used in both console and JavaScript languages to separate statements, how can we execute multiple commands on the console and with JavaScript?
 
-OrientDB console uses a reserved keyword <code>end</code> to switch from the JavaScript mode to the console mode.
+The OrientDB console uses a reserved keyword <code>end</code> to switch from JavaScript mode to console mode.
 
 Example:
 ```
@@ -31,11 +31,11 @@ orientdb> connect remote:localhost/demo admin admin; js for( i = 0; i < 10; i++ 
 
 This line connects to the remote server and executes 10 queries on the console. The <code>end</code> command switches the mode back to the OrientDB console and then executes the console <code>exit</code> command.
 
-Below an example to display the result of a query server and client side.
+Below is an example to display the results of a query on the server and on the client.
 <ol>
   <li>connects to the remote server as <code>admin</code></li>
-  <li>Execute a query and assign the result to the variable <code>r</code>, then display it server side and return it to be displayed client side too</li>
-  <li>Exit the console</li>
+  <li>executes a query and assigns the result to the variable <code>r</code>, then displays it server-side and returns it to be displayed on the client side too</li>
+  <li>exits the console</li>
 </ol>
 
 ### Interactive mode
@@ -64,7 +64,7 @@ orientdb> exit
 
 ### Batch mode
 
-The same example above is execute in batch mode:
+The same example above is executed in batch mode:
 ```java
 $ ./console.sh "connect remote:localhost/demo admin admin;jss var r = db.query('select from ouser');print(r);r;exit"
 OrientDB console v.1.0-SNAPSHOT (build 11761) www.orientechnologies.com
@@ -97,9 +97,9 @@ orientdb> js new com.orientechnologies.orient.core.record.impl.ODocument('Profil
 Client side script executed in 0,426000 sec(s). Value returned is: Profile#11:52{name:Luca} v3
 ```
 
-## Enable Server side scripting
+## Enable Server-side scripting
 
-For security reason server-side scripting is disabled by default on server. To enable it change the enable field to <code>true</code> in **orientdb-server-config.xml** file:
+For security reasons server-side scripting is disabled by default on the server. To enable it change the enable field to <code>true</code> in the **orientdb-server-config.xml** file:
 ```xml
 <!-- SERVER SIDE SCRIPT INTERPRETER. WARNING! THIS CAN BE A SECURITY HOLE: ENABLE IT ONLY IF CLIENTS ARE TRUSTED, TO TURN ON SET THE 'ENABLED' PARAMETER TO 'true' -->
   <handler class="com.orientechnologies.orient.server.handler.OServerSideScriptInterpreter">
@@ -109,4 +109,4 @@ For security reason server-side scripting is disabled by default on server. To e
   </handler>
 ```
 
-*NOTE: this will allow to clients to execute any code inside the server. Enable it only if clients are trusted.*
+*NOTE: this will allow clients to execute any code inside the server. Enable it only if clients are trusted.*
