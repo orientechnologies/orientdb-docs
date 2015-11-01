@@ -1,5 +1,5 @@
 # Dynamic Hooks
-Dynamic [Hooks](Hook.md) are more flexible than [Java Hooks](Java-Hooks.md), because can be changed at run-time and can run per document if needed, but are slower than [Java Hooks](Java-Hooks.md). Look at [Hooks](Hook.md) for more information.
+Dynamic [Hooks](Hook.md) are more flexible than [Java Hooks](Java-Hooks.md), because they can be changed at run-time and can run per document if needed, but are slower than [Java Hooks](Java-Hooks.md). Look at [Hooks](Hook.md) for more information.
 
 To execute hooks against your documents, let your classes to extend `OTriggered` base class. Then define a custom property for the event you're interested on. The available events are:
 
