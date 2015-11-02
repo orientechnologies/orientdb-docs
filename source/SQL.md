@@ -173,6 +173,41 @@ select expand(properties) from (
 2   |password|7   |true     |false   |true   |null|null|null  |null        |null
 3   |name    |7   |true     |false   |true   |null|null|null  |null        |null
 ----+--------+----+---------+--------+-------+----+----+------+------------+-----------
+
+```
+
+Get only the configured `customFields` properties for OUser (assuming you added CUSTOM metadata like foo=bar):
+
+```
+select customFields from (
+    select expand(classes) from metadata:schema 
+) where name="OUser"
+
+
+----+------+------------
+#   |@CLASS|customFields
+----+------+------------
+0   |null  |{foo=bar}
+----+------+------------
+
+```
+
+Or, if you wish to get only the configured `customFields`  of an attribute, like if you had a comment for the password attribute for the OUser class. 
+
+```
+select customFields from (
+  select expand(properties) from (
+     select expand(classes) from metadata:schema 
+  ) where name="OUser"
+) where name="password"
+
+
+----+------+----------------------------------------------------
+#   |@CLASS|customFields
+----+------+----------------------------------------------------
+0   |null  |{comment=Foo Bar your password to keep it secure!}
+----+------+----------------------------------------------------
+
 ```
 
 ### Query the available indexes
