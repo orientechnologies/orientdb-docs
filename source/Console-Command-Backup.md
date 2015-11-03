@@ -11,7 +11,7 @@ backup database <output-file> [-incremental] [-compressionLevel=<compressionLeve
 ```
 
 Where:
-- **-incremental** execute an incremental backup. The incremental data to backup is computed as all new changes since the last backup. Since v2.2
+- Option **-incremental** executes an incremental backup. The incremental data to backup is computed as all new changes since the last backup. Since v2.2
 - **output-file** is the output file path
 - **compressionLevel** the compression level between 0 and 9. Default is 9. Since v1.7
 - **bufferSize** the compression buffer size. Default is 1MB. Since v1.7
