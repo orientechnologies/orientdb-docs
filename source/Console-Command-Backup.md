@@ -1,4 +1,4 @@
-ls # Console - BACKUP
+# Console - BACKUP
 
 Executes a complete backup against the currently opened database. The backup file is compressed using the ZIP algorithm. To restore the database use the [Restore Database command](Console-Command-Restore.md). Backup is much faster than [Export Database](Console-Command-Export.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands. Backup can be done automatically by enabling the [Automatic-Backup](Automatic-Backup.md) Server plugin.
 
@@ -7,13 +7,14 @@ NOTE: _Backup of remote databases is not supported in Community Edition, but onl
 ## Syntax
 
 ```
-backup database <output-file> [-compressionLevel=<compressionLevel>] [-bufferSize=<bufferSize>]
+backup database <output-file> [-incremental] [-compressionLevel=<compressionLevel>] [-bufferSize=<bufferSize>]
 ```
 
 Where:
+- **-incremental** execute an incremental backup. The incremental data to backup is computed as all new changes since the last backup. Since v2.2
 - **output-file** is the output file path
-- **compressionLevel** the compression level between 0 and 9. Default is 9. Since v1.7.
-- **bufferSize** the compression buffer size. Default is 1MB. Since v1.7.
+- **compressionLevel** the compression level between 0 and 9. Default is 9. Since v1.7
+- **bufferSize** the compression buffer size. Default is 1MB. Since v1.7
 
 
 ## Example ##
@@ -28,7 +29,8 @@ Backup executed in 0,52 seconds
 ```
 
 ## Backup API
-Backup can be executed in Java and any language on top of the JVM by using the method backup() against the database instance:
+### Full Backup
+Backup can be executed in Java and any language on top of the JVM by using the method `backup()` against the database instance:
 
 ```java
 db.backup(out, options, callable, listener, compressionLevel, bufferSize);
@@ -60,6 +62,13 @@ try{
 } finally {
    db.close();
 }
+```
+
+### Incremental backup
+(Since v2.2.)
+
+```java
+db.incrementalBackup(backupDirectory);
 ```
 
 ## See also
