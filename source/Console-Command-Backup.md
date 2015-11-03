@@ -66,10 +66,28 @@ try{
 
 ### Incremental backup
 (Since v2.2.)
+Incremental backup can be executed in Java and any language on top of the JVM by using the method `incrementalBackup()` against the database instance:
 
 ```java
 db.incrementalBackup(backupDirectory);
 ```
+
+Where:
+- **backupDirectory**: is the directory where to generate the incremental backup files. It's important that previous incremental backup files are present in the same directory in order to compute the database portion to backup based on last incremental backup done.
+
+
+Example:
+
+```java
+ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/temp/mydb");
+db.open("admin", "admin");
+try{
+  db.backup("/var/backup/orientdb/mydb");
+} finally {
+   db.close();
+}
+```
+
 
 ## See also
 - [Restore Database](Console-Command-Restore.md)
