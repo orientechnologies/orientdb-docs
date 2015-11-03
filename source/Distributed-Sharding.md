@@ -1,6 +1,6 @@
 # Sharding
 
-_NOTE: Sharding is a new feature with some [limitations](Distributed-Sharding.md#Limitation). Please read them before using it._
+_NOTE: Sharding is a new feature with some [limitations](Distributed-Sharding.md#limitation). Please read them before using it._
 
 OrientDB supports sharding of data at class level, by using multiple [clusters](Concepts.md#cluster) per [class](Concepts.md#class), where each cluster has own list of server where data is replicated. From a logical point of view all the records stored in clusters that are part of the same class, are records of that class.
 
