@@ -7,7 +7,7 @@ com.orientechnologies.orient.server.handler.OAutomaticBackup
 
 # Introduction
 
-Configure an automatic backup of databases. This task is configured as a [Server handler](DB-Server.md#handlers). The task can be configured in easy way by changing parameters:
+Configures an automatic backup/export of databases. This task is configured as a [Server handler](DB-Server.md#handlers). The task can be configured in easy way by changing parameters:
 * **enabled**: true to turn on, false (default) is turned off
 * **mode**: one of the following values (Since v2.2):
  * **FULL_BACKUP** (default), executes a full backup. Before v2.2 this was the only available option. This operation is blocking
