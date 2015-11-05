@@ -96,8 +96,8 @@ This works in a SQL batch in this way:
 
 ```sql
 BEGIN
-let $counter = UPDATE counter INCREMENT value = 1 WHERE name = 'mycounter' return after
-INSERT INTO items SET id = $counter.value, qty = 10, price = 1000
+let $counter = UPDATE counter INCREMENT value = 1 return after $current WHERE name = 'mycounter'
+INSERT INTO items SET id = $counter.value[0], qty = 10, price = 1000
 COMMIT
 ```
 
