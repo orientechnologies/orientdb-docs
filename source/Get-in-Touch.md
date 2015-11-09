@@ -7,6 +7,11 @@ We want to make it super-easy for OrientDB users and contributors to talk to us 
 
 The [OrientDB Google Group](https://groups.google.com/forum/#!forum/orient-database) (aka Community Group) is a good first stop for a general inquiry about OrientDB or a specific support issue (e.g. trouble setting OrientDB up). It's also a good forum for discussions about the roadmap or potential new functionality.
 
+## StackOverflow
+[StackOverflow OrientDB tag](http://stackoverflow.com/questions/tagged/orientdb)
+
+Feel free to ask your questions on StackOverflow under "orientdb" and "orient-db" tags.
+
 ## Gitter.io
 [![Gitter chat](https://badges.gitter.im/orientechnologies/orientdb.png)](https://gitter.im/orientechnologies/orientdb)
 
