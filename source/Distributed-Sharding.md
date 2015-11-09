@@ -1,5 +1,7 @@
 # Sharding
 
+_NOTE: Sharding is a new feature with some [limitations](Distributed-Sharding.md#limitation). Please read them before using it._
+
 OrientDB supports sharding of data at class level, by using multiple [clusters](Concepts.md#cluster) per [class](Concepts.md#class), where each cluster has own list of server where data is replicated. From a logical point of view all the records stored in clusters that are part of the same class, are records of that class.
 
 Follows an example that split the [class](Concepts.md#class) “Client” in 3 [clusters](Concepts.md#cluster):
@@ -143,6 +145,7 @@ OrientDB guarantees strong consistency if it's configured to have a `writeQuorum
 1. If `hotAlignment=false` is set, when a node re-joins the cluster (after a failure or simply unreachability) the full copy of database from a node could have no all information about the shards.
 1. Hot change of distributed configuration not available. This will be introduced at release 2.0 via command line and in visual way in the Workbench of the Enterprise Edition (commercial licensed)
 1. Not complete merging of results for all the projections. Some functions like AVG() doesn’t work on map/reduce
+1. Backup doesn't work on distributed nodes yet, so doing a backup of all the nodes to get all the shards is a manual operation in charge to the user
 
 ## Indexes
 All the indexes are managed locally to a server. This means that if a class is spanned across 3 clusters on 3 different servers, each server will have own local indexes. By executing a [distributed query (Map/Reduce like)](Distributed-Sharding.md#mapreduce) each server will use own indexes.

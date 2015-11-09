@@ -83,26 +83,39 @@ where:
 Use a regular `File`:
 ```java
 public class OrientDBEmbeddable {
-
   public static void main(String[] args) throws Exception {
       OServer server = OServerMain.create();
       server.startup(new File("/usr/local/temp/db.config"));
       server.activate();
   }
-
 }
 ```
 
-Or an `InputStream` from the class loader:
+## Use a stream for configuration
+
+Use an `InputStream` from the class loader:
 ```java
 public class OrientDBEmbeddable {
-
   public static void main(String[] args) throws Exception {
       OServer server = OServerMain.create();
       server.startup(getClass().getResourceAsStream("db.config"));
       server.activate();
   }
+}
+```
 
+## Use a OServerConfiguration object for configuration
+
+Or an `InputStream` from the class loader:
+```java
+public class OrientDBEmbeddable {
+  public static void main(String[] args) throws Exception {
+      OServer server = OServerMain.create();
+      OServerConfiguration cfg = new OServerConfiguration();
+      // FILL THE OServerConfiguration OBJECT
+      server.startup(cfg);
+      server.activate();
+  }
 }
 ```
 

@@ -2,6 +2,13 @@
 
 OrientDB is a NoSQL database writen in Java, we can use it in scala easily. Look also at [Scala utilities and tests](https://github.com/eptx/OrientDBScala) project for Scala high level classes built on top of OrientDB.
 
+### using SBT
+
+Use the following configuration:
+```
+fork := true
+```
+
 ## Java method invocation problems
 
 Usually the main problems are related to calling conventions between Scala and Java.
