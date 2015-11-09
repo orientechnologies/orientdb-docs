@@ -178,7 +178,7 @@ When Multicast is disabled or you prefer to assign Hostnames/IP-addresses manual
 </hazelcast>
 ```
 
-For more information look at: [Hazelcast Config TCP/IP](http://www.hazelcast.com/docs/3.1/manual/multi_html/ch14s02.html#ConfigTcpIp).
+For more information look at: [Hazelcast Config TCP/IP](http://docs.hazelcast.org/docs/3.5/manual/html/tcp.html).
 
 #### Cloud support
 
@@ -210,7 +210,7 @@ OrientDB supports natively [Amazon EC2](http://aws.amazon.com/ec2/) through the 
 </hazelcast>
 ```
 
-For more information look at [Hazelcast Config Amazon EC2 Auto Discovery](http://www.hazelcast.com/docs/3.1/manual/multi_html/ch14s02.html#EC2AutoDiscovery).
+For more information look at [Hazelcast Config Amazon EC2 Auto Discovery](http://docs.hazelcast.org/docs/3.5/manual/html/ec2.html).
 
 ##### Other Cloud providers
 Uses manual IP like explained in [Manual IP](Distributed-Configuration.md#manual-ip).
