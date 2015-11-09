@@ -1,8 +1,7 @@
 # Fetching Strategies
 
-OrientDB supports fetching strategies by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records.
+By default, OrientDB loads linked records in a lazy manner.  That is to say, it does not load linked fields until it traverses these fields.  In situations where you need the entire tree of a record, this can prove costly to performance.  For instance,
 
-Example:
 ```
 Invoice
  3:100
@@ -19,57 +18,49 @@ Invoice
                 [  8:12      8:19      8:23   ]
 ```
 
-By default OrientDB loads all the linked records in lazy way. So in this example the linked `customer`, `city` and `orders` fields are not loaded until they are traversed. If you need the entire tree it could be slow the lazy loading of every single linked record. In this case it would need 7 different loads. If the database is open on a remote server they are 7 different network calls.
+Here, you have a class `Invoice`, with linked fields `customer`, `city` and `orders`.  If you were to run a [`SELECT`](SQL-Query.md) query on `Invoice`, it would not load the linked class, it would require seven different loads to build the return value.  In the event that you have a remote connection that means seven network calls, as well.
 
-This is the reason why OrientDB supports custom fetching strategies using the **Fetch Plans**.  The aim of fetch plans is to pre-load connected records in one shot.
+In order to avoid performance issues that may arise from this behavior, OrientDB supports fetching strategies, called Fetch Plans, that allow you to customize how it loads linked records.  The aim of a Fetch Plan is to pre-load connected records in a single call, rather than several.  The best use of Fetch Plans is on records loaded through remote connections and when using JSON serializers to produce JSON with nested records.
 
-Where use fetch-plans?
+>**NOTE** OrientDB handles circular dependencies to avoid any loops while it fetches linking records.
 
-- On record loading through the remote connection
-- On JSON serializer to produce JSON with nested records
 
-## Remote connection
+## Format for Fetch Plans
 
-When a client executes a query (or directly loads one single record) setting a fetch plan with a level different to `0`, then the server traverses all the records of the returning result set and sends them to the client in the same call.
+In terms of their use, Fetch Plans are strings that you can use at run-time on queries and record loads.  The syntax for these strings is,
 
-The client avoids to connect them directly to the record by always using the lazy collections (i.e.: `OLazyRecordList`). Instead, all the connected records are loaded into the local client. In this ways the collections remain lazy but when you're accessing the content, the record is early loaded from the local cache avoiding other connections.
+<pre>
+[[<code class="replaceable">levels</code>]]<code class="replaceable">fieldPath</code>:<code class="replaceable">depthLevel</code>
+</pre>
 
-## Format
+- **Levels** Is an optional value that tells which levels to use with the Fetch Plans.  Levels start from `0`.  As of version 2.1, levels use the following syntax:
+   - *Level* The specific level on which to use the Fetch Plan.  For example, using the level `[0]` would apply only to the first level.
+   - *Range* The range of levels on which to use the Fetch Plan.  For example, `[0-2]` means to use it on the first to third level.  You can also use the partial range syntax: `[-3]` means from the first to fourth level while `[4-]` means from the fifth level to infinity.
+   - *Any* The wildcard variable indicates that you want to use the Fetch Plan on all levels.  For example, `[*]`.
+- **Field Path** Is the field name path, which OrientDB expects in dot notation.  The path begins from either the root record or the wildcard variable `*` to indicate any field.  You can also use the wildcard at the end of the path to specify all paths taht start for a name.
+- **Depth Level** Is the depth of the level requested.  The depth level variable uses the following syntax:
+   - `0` Indicates to load the current record.
+   - `1-N` Indicates to load the current record to the *n*th record.
+   - `-1` Indicates an unlimited level.
+   - `-2` Indicates an excluded level.
 
-The fetch plan comes in the form of a String and can be used at run-time on:
+In the event that you want to express multiple rules for your Fetch Plans, separate them by spaces.  
 
-- query
-- record loading
+Consider the following Fetch Plans for use with the example above:
 
-The syntax is:
+| Fetch Plan | Description |
+|:---------|:---|
+|`*:-1` | Fetches recursively the entire tree. |
+|`*:-1 orders:0` | Fetches recursively all records, but uses the field `orders` in the root class.  Note that the field `orders` only loads its direct content, (that is, the records `8:12`, `8:19`, and `8:23`).  No other records inside of them load. |
+|`*:0 address.city.country:0` | Fetches only non-document fields in the root class and the field `address.city.country`, (that is, records `10:1`,`11:2` and `12:3`).|
+|`[*]in_*:-2 out_*:-2`| Fetches all properties, except for edges at any level.|
 
-```
-[[levels]]<fieldPath>:<depth-level>*
-```
+### Remote Connections
 
-Where:
-- `[[levels]]`, optional, tells at which levels the rules must apply. Levels starts from `0`. Since 2.1. Supported syntax is:
- - `level`, example `[0]` to apply only at first level
- - Ranges, example `[0-3]` from 0 to 3rd level. Ranges can be also partial, like `[-3]` means `0` to `3` and `[3-]` means form 3rd to infinite
- - Any, by using `*`. Example `[*]` to apply at any level
-- `<fieldPath>`, is the field name path, expected in dot notation, starting from the root record or the wildcard `*` for "any" field. The wildcard `*` can be also at the end of the path to specify all the paths that starts for a name
-- `<depth-level>`, is the deep level requested:
- - `0` = Load only current record,
- - `1-N` = load only the first-Nth connected record,
- - `-1` = unlimited,
- - `-2` = exclude it
+Under the default configuration, when a client executes a query or loads directly a single record to a remote database, it continues to send network calls for each linked record involved in the query, (that is, through `OLazyRecordList`).  You can mitigate this with a Fetch Plan.
 
-To express multiple rules separate them by spaces.
+When the client executes a query, set a Fetch Plan with a level different from `0`.  This causes the server to traverse all the records of the return result-set, sending them in response to a single call.  OrientDB loads all connected records into the local client, meaning that the collections remain lazy, but when accessing content, the record is loaded from the local cache to mitigate the need for additional connections.
 
-Examples with the record tree above:
-- `"*:-1"`: fetches the entire tree recursively
-- `"*:-1 orders:0"`: fetches all the records recursively but the "orders" field in root class. Note that in `orders` field will be loaded only its direct content (only records `8:12`,`8:19`,`8:23`, none of other records inside them will be loaded).
-- `"*:0 address.city.country:0"`: fetches only not-document fields in the root class and address.city.country field  (records `10:1`,`11:2`,`12:3`).
-- `"[*]in_*:-2 out_*:-2"`: returns all the properties, but edges (at any level)
-
-## Circular dependencies
-
-OrientDB handles circular dependencies to avoid any loop while fetches linking records.
 
 ## Example using the Java APIs
 
