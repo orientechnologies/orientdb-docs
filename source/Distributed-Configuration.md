@@ -102,7 +102,7 @@ By default writeQuorum is 2. This means that it waits and checks the answer from
 
 ## hazelcast.xml
 
-A OrientDB cluster is composed by two or more servers that are the **nodes** of the cluster. All the server nodes that want to be part of the same cluster must to define the same [Cluster Group](http://www.hazelcast.com/docs/3.1/manual/multi_html/ch14.html). By default "orientdb" is the group name. Look at the default **config/hazelcast.xml** configuration file reported below:
+A OrientDB cluster is composed by two or more servers that are the **nodes** of the cluster. All the server nodes that want to be part of the same cluster must to define the same [Cluster Group](http://docs.hazelcast.org/docs/3.5/manual/html/createclustergroups.html). By default "orientdb" is the group name. Look at the default **config/hazelcast.xml** configuration file reported below:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
