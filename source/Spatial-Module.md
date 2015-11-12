@@ -230,7 +230,52 @@ ST_AsText
 POLYGON ((0 0, 0 3, 1 3, 1 0, 0 0))
 ```
 ### ST_Buffer
-TODO
+Returns a geometry that represents all points whose distance from this Geometry is less than or equal to distance.
+
+Syntax:  ST_Buffer(geometry,distance [,<config>])
+
+where config is an additional parameter (JSON) that can be use to set:
+
+'quadSegs=#' : number of segments used to approximate a quarter circle (defaults to 8).
+
+```JSON
+{ 
+  quadSegs : 1
+}
+```
+
+'endCap=round|flat|square' : endcap style (defaults to "round").
+
+```JSON
+{
+  endCap : 'square'
+}
+```
+
+'join=round|mitre|bevel' : join style (defaults to "round")
+
+``` JSON
+{ 
+  join : 'bevel'
+}
+```
+
+'mitre=#.#' : mitre ratio limit (only affects mitered join style).
+
+
+```JSON
+{ 
+  join : 'mitre', 
+  mitre : 5.0
+}
+```
+
+
+Example
+
+```SQL
+SELECT ST_AsText(ST_Buffer(ST_GeomFromText('POINT(100 90)'),50))
+```
 ## Operators
 
 ### A && B
