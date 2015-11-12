@@ -55,6 +55,7 @@ Last update: September 28 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
+| Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 0%|
 | Core | Override of properties | 0% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
