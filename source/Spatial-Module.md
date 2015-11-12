@@ -236,7 +236,7 @@ Syntax:  ST_Buffer(geometry,distance [,<config>])
 
 where config is an additional parameter (JSON) that can be use to set:
 
-'quadSegs=#' : number of segments used to approximate a quarter circle (defaults to 8).
+quadSegs: int  ->  number of segments used to approximate a quarter circle (defaults to 8).
 
 ```JSON
 { 
@@ -244,7 +244,7 @@ where config is an additional parameter (JSON) that can be use to set:
 }
 ```
 
-'endCap=round|flat|square' : endcap style (defaults to "round").
+endCap : round|flat|square ->  endcap style (defaults to "round").
 
 ```JSON
 {
@@ -252,7 +252,7 @@ where config is an additional parameter (JSON) that can be use to set:
 }
 ```
 
-'join=round|mitre|bevel' : join style (defaults to "round")
+join : round|mitre|bevel  -> join style (defaults to "round")
 
 ``` JSON
 { 
@@ -260,7 +260,7 @@ where config is an additional parameter (JSON) that can be use to set:
 }
 ```
 
-'mitre=#.#' : mitre ratio limit (only affects mitered join style).
+mitre : double  -> mitre ratio limit (only affects mitered join style).
 
 
 ```JSON
@@ -275,6 +275,11 @@ Example
 
 ```SQL
 SELECT ST_AsText(ST_Buffer(ST_GeomFromText('POINT(100 90)'),50))
+```
+
+
+```SQL
+SELECT ST_AsText(ST_Buffer(ST_GeomFromText('POINT(100 90)'), 50, { quadSegs : 2 }));
 ```
 ## Operators
 
