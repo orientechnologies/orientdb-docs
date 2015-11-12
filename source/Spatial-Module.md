@@ -314,11 +314,12 @@ CREATE INDEX <name> ON <class-name> (geometry-field) SPATIAL ENGINE LUCENE
 
 ### 2.2.0-SNAPSHOT
 
+The module has been merged into the main repository branch [develop](https://github.com/orientechnologies/orientdb/tree/develop)
 * Take the latest OrientDB 2.2.0-Snapshot [here](https://oss.sonatype.org/content/repositories/snapshots/com/orientechnologies/orientdb-community/2.2.0-SNAPSHOT/)
-* `git clone git@github.com:orientechnologies/orientdb-lucene.git`
-* enter orientdb-lucene directory
-* ` mvn assembly:assembly` add -DskipTests if you want to skip tests
-* grab the jar orientdb-lucene-2.x.x-snaphost-dist.jar in target directory and copy it into plugins folder of OrientDB distribution
+
+Or
+
+build the develop branch from scratch
 
 
 ### 2.2 GA
