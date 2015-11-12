@@ -1,6 +1,6 @@
 # Makefile for OrientDB Documentation Builds
 OUT = deploy
-WEB = $(OUT)/latest
+WEB = $(OUT)/last
 PDF = $(OUT)/pdf
 SRC = source
 
