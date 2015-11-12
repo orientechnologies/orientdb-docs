@@ -232,7 +232,7 @@ POLYGON ((0 0, 0 3, 1 3, 1 0, 0 0))
 ### ST_Buffer
 Returns a geometry that represents all points whose distance from this Geometry is less than or equal to distance.
 
-Syntax:  ST_Buffer(geometry,distance [,<config>])
+Syntax:  ST_Buffer(geometry,distance [,config])
 
 where config is an additional parameter (JSON) that can be use to set:
 
