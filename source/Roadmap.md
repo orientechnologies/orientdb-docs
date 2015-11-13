@@ -40,7 +40,7 @@ Last update: October 30, 2015
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
 | Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 100% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
-| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 20% |
+| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% |
 | Lucene | New module for indexing of shapes, not only points | 90% |
 
 
