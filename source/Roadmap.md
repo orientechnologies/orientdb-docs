@@ -25,6 +25,9 @@ Last update: October 30, 2015
 | Core | AES and DES enchryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
 | Distributed | Fast synchronization by using Incremental Backup | This is in discussion because technical problems. It could be postponed. |
+| Distributed / Remote protocol | [Load balancing on client](https://github.com/orientechnologies/orientdb/issues/3165) | 100% |
+| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | SQL | Pattern matching | 100% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
@@ -38,8 +41,6 @@ Last update: October 30, 2015
 | Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 100% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
 | Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 20% |
-| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
-| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | Lucene | New module for indexing of shapes, not only points | 90% |
 
 
@@ -63,7 +64,6 @@ Last update: September 28 2015
 | Core | Indexing of embedded properties | 0% |
 | Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 0% |
 | Transactions | Enhance isolation level also for remote commands| 0% |
-| Distributed | Load balancing on client | 0% |
 | Distributed | Replication of in-memory databases | 0% |
 | Distributed | Auto-Sharding | 0% |
 | Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
