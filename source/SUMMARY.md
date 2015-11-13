@@ -161,6 +161,7 @@
    * [List Classes](Console-Command-Classes.md)
    * [Cluster Status](Console-Command-Cluster-Status.md)
    * [List Clusters](Console-Command-Clusters.md)
+   * [List Servers](Console-Command-List-Servers.md)
    * [List Server Users](Console-Command-List-Server-Users.md)
    * [Commit](Console-Command-Commit.md)
    * [Config](Console-Command-Config.md)
