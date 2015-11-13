@@ -14,7 +14,7 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ```
 
 ### Status
-Last update: October 30, 2015
+Last update: November 13, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
