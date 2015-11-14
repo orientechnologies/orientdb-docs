@@ -10,6 +10,7 @@ Main topics:
 - [Replication](Replication.md)
 - [Asynchronous replication mode](Distributed-Configuration.md#asynchronous-replication-mode)
 - [Return distributed configuration at run-time](Distributed-Runtime.md)
+- [Load Balancing](Distributed-Configuration.md#load_balancing)
 
 ## orientdb-server-config.xml
 
@@ -242,16 +243,21 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
 }
 ```
 
-## Load balancing
+## Load Balancing
+(Since v2.2)
+OrientDB allows to do load balancing when you have multiple servers connected in cluster. Below are the available connection strategies:
+- `STICKY`, the default, where the client remains connected to a server until the close of database
+- `ROUND_ROBIN_CONNECT`, at each connect, the client connects to a different server between the available ones
+- `ROUND_ROBIN_REQUEST`, at each request, the client connects to a different server between the available ones 
+
+In case the connected server becomes unreachable, the client automatically connects to the next available one.
+
 ### Use multiple addresses
-OrientDB automatically switches to an available node in case of failure, the first connect must be done to an active server. For this reason when running distributed, it's good practice to always connect the clients to a set of URL, instead of just one. You can separate hosts/addresses toby using semicolon (;). Example: `remote:server1:2424;server2:8888;server3`.
-
-By using multiple hosts/addresses, the client will try to connect to server in order.
-
+If the server addresses are known, it's good practice to connect the clients to a set of URLs, instead of just one. You can separate hosts/addresses by using a semicolon (;). OrientDB client will try to connect to the addresses in order. Example: `remote:server1:2424;server2:8888;server3`. 
 
 ### Use the DNS
 
-The simplest and most powerful way to achieve load balancing seems to use some hidden (to some) properties of DNS. The trick is to create a TXT record listing the servers.
+Before v2.2, the simplest and most powerful way to achieve load balancing seems to use some hidden (to some) properties of DNS. The trick is to create a TXT record listing the servers.
 
 The format is:
 ```
