@@ -14,7 +14,7 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ```
 
 ### Status
-Last update: November 13, 2015
+Last update: November 14, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
@@ -34,12 +34,9 @@ Last update: November 13, 2015
 | SQL | Live Query -> Stable | 90% |
 | SQL | New functions (strings, maths) | 40% |
 | SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 100% |
-| SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
-| Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 100% |
-| Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
 | Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% |
 | Lucene | New module for indexing of shapes, not only points | 90% |
 
@@ -60,8 +57,11 @@ Last update: September 28 2015
 | Core | Override of properties | 0% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
-| SQL | New SQL Executor | 5% |
+| SQL | New SQL Executor | 10% |
+| SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | Core | Indexing of embedded properties | 0% |
+| Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 0% |
+| Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
 | Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 0% |
 | Transactions | Enhance isolation level also for remote commands| 0% |
 | Distributed | Replication of in-memory databases | 0% |
