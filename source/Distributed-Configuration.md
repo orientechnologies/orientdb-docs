@@ -255,7 +255,7 @@ Once a client is connected to any server node, it retrieves the list of availabl
 To setup the strategy using the Java Document API:
 ```java
 final ODatabaseDocumentTx db = new ODatabaseDocumentTx("remote:localhost/demo");
-db.setProperty(OStorageRemote.PARAM_CONNECTION_MODE, OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT);
+db.setProperty(OStorageRemote.PARAM_CONNECTION_STRATEGY, OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT);
 db.open(user, password);
 ```
 
