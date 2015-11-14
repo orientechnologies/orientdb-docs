@@ -250,6 +250,21 @@ OrientDB allows to do load balancing when you have multiple servers connected in
 - `ROUND_ROBIN_CONNECT`, at each connect, the client connects to a different server between the available ones
 - `ROUND_ROBIN_REQUEST`, at each request, the client connects to a different server between the available ones 
 
+To setup the strategy using the Java Document API:
+```java
+final ODatabaseDocumentTx db = new ODatabaseDocumentTx("remote:localhost/demo");
+db.setProperty(OStorageRemote.PARAM_CONNECTION_MODE, OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT);
+db.open(user, password);
+```
+
+To setup the strategy using the Java Graph API:
+
+```java
+final OrientGraphFactory factory = new OrientGraphFactory("remote:localhost/demo");
+factory.setConnectionStrategy(OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT);
+OrientGraphNoTx graph = factory.getNoTx();
+```
+
 In case the connected server becomes unreachable, the client automatically connects to the next available one.
 
 ### Use multiple addresses
