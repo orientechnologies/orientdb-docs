@@ -248,7 +248,7 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
 OrientDB allows to do load balancing when you have multiple servers connected in cluster. Below are the available connection strategies:
 - `STICKY`, the default, where the client remains connected to a server until the close of database
 - `ROUND_ROBIN_CONNECT`, at each connect, the client connects to a different server between the available ones
-- `ROUND_ROBIN_REQUEST`, at each request, the client connects to a different server between the available ones 
+- `ROUND_ROBIN_REQUEST`, at each request, the client connects to a different server between the available ones. Pay attention on using this strategy if you're looking for strong consistency. In facts, in case the writeQuorum is minor of the total nodes available, a client could have executed an operation against another server and current operation cannot see updates because wasn't propagated yet.
 
 Once a client is connected to any server node, it retrieves the list of available server nodes. In case the connected server becomes unreachable (crash, network problem, etc.), the client automatically connects to the next available one.
 
