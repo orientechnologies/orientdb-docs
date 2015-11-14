@@ -10,7 +10,7 @@ Main topics:
 - [Replication](Replication.md)
 - [Asynchronous replication mode](Distributed-Configuration.md#asynchronous-replication-mode)
 - [Return distributed configuration at run-time](Distributed-Runtime.md)
-- [Load Balancing](Distributed-Configuration.md#load_balancing)
+- [Load Balancing](Distributed-Configuration.md#load-balancing)
 
 ## orientdb-server-config.xml
 
@@ -289,4 +289,4 @@ Simplified configuration by moving. Removed some flags (replication:boolean, now
 For more information look at [News in 1.7](http://www.orientechnologies.com/distributed-architecture-sharding/).
 
 ### v2.2
-Introduced Load balancing at client level. For more information look at [load balancing](Distributed-Configuration.md#load_balancing).
+Introduced Load balancing at client level. For more information look at [load balancing](Distributed-Configuration.md#load-balancing).
