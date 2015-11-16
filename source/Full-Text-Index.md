@@ -1,37 +1,36 @@
-# Lucene Full Text Index
+# Lucene FullText Index
 
-Full text index can be created using the OrientDB SQL syntax as written [here](https://github.com/orientechnologies/orientdb-docs/blob/master/Indexes.md). Specify the index engine to use the lucene full text capabilities.
+In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the Lucene Engine.  Beginning in version 2.0, this plugin in packaged with OrietnDB.
 
-**Starting from OrientDB 2.0, Lucene plugin is part of the OrientDB distribution.**
-
-Syntax:
+**Syntax**:
 
 ```sql
 CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE
 ```
 
-Example
+Create an FullText index on the property `name` for the class `City`, using the Lucene Engine.
 
-```sql
-CREATE INDEX City.name ON City (name) FULLTEXT ENGINE LUCENE
-```
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE</code>
+</pre>
 
-Index can also be created on n-properties:
+Indexes can also be created on *n*-properties.  For example, create an index on the properties `name` and `description` on the class `City`.
 
-Example:
-```sql
-CREATE INDEX City.name_description ON City (name,description) FULLTEXT ENGINE LUCENE
-```
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, description)
+          FULLTEXT ENGINE LUCENE</code>
+</pre>
 
-This will create a basic lucene index on  the properties specified. If the analyzer is not specified, the default will be the [StandardAnalyzer](http://lucene.apache.org/core/4_7_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html). To use a different analyzer use the field analyzer in the metadata JSON object in the CREATE INDEX syntax.
+This creates a basic FullText Index with the Lucene Engine on the specified properties.  In the even that you do not specify the analyzer, OrientDB defaults to [StandardAnalyzer](http://lucene.apache.org/core/4_7_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
 
-Example:
+In addition to the StandardAnalyzer, you can also create indexes that use different analyzer, using the `METADATA` operator through [`CREATE INDEX`](SQL-Create-Index.md).
 
-```sql
-CREATE INDEX City.name ON City (name) FULLTEXT ENGINE LUCENE METADATA {"analyzer":"org.apache.lucene.analysis.en.EnglishAnalyzer"}
-```
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
+          {"analyzier": "org.apache.lucene.analysis.en.EnglishAnalyzer"}</code>
+</pre>
 
-The Index can also be created with the Java API. Example:
+You can also use the FullText Index with the Lucene Engine through the Java API.
 
 ```java
 OSchema schema = databaseDocumentTx.getMetadata().getSchema();
@@ -40,59 +39,59 @@ oClass.createProperty("name", OType.STRING);
 oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
 ```
 
-### How to query a Full Text Index
+## Querying Lucene FullText Indexes
 
-The full text index can be queried using the custom operator `LUCENE` using the [Query Parser Syntax](http://lucene.apache.org/core/2_9_4/queryparsersyntax.html) of Lucene. Example:
+You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Synta]x(http://lucene.apache.org/core/2_9_4/queryparsersyntax.html) from the Lucene Engine.
+
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
+</pre>
+
+This query searches for `test`, `tests`, `tester`, and so on from the property `name` of the class `V`.
+
+### Working with Multiple Fields
+
+In addition to the standard Lucene query above, you can also query multiple fields.  For example,
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
+</pre>
+
+In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
+
+To execute a more complex query on each field, surround your query with parentheses, which causes the query to address specific fields.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM CLass WHERE [prop1, prop2] LUCENE "(prop1:foo AND prop2:bar)"</code>
+</pre>
+
+Here, hte engine parses the query using the [QueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+
+## Creating a Manual Lucene Index
+
+Beginning with version 2.1, the Lucene Engine supports index creation without the need for a class.
+
+**Syntax**:
 
 ```sql
-SELECT * FROM V WHERE name LUCENE "test*"
-```
-
-will look for `test`, `tests`, `tester`, etc..
-
-#### Working with multiple field
-
-To query multiple fields use this special syntax:
-
-```sql
-SELECT * FROM Class WHERE [prop1,prop2] LUCENE "query"
-```
-
-If `query` is a plain string the engine will parse the query using [MultiFieldQueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
-
-To execute a more complex query on each fields surround your query with `()` parenthesis, to address specific field.
-
-Example:
-```sql
-SELECT * FROM Class WHERE [prop1,prop2] LUCENE "(prop1:foo AND props2:bar)"
-```
-
-With this syntax the engine parse the query using the [QueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html).
-
-### Create a manual Lucene Index
-
-Starting from 2.1 the plugin support index creation without the need of a class
-
-To create a manual index use this syntax
-
-```
 CREATE INDEX <name> FULLTEXT ENGINE LUCENE  [<key-type>] [METADATA {<metadata>}]
 ```
 
-Example 
+For example, create a manual index using the [`CREATE INDEX`](SQL-Create-Index.md) command:
 
-```
-create index Manual FULLTEXT ENGINE LUCENE STRING,STRING
-```
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX Manual FULLTEXT ENGINE LUCENE STRING, STRING</code>
+</pre>
 
-You can then insert values in index with insert into the index:
+Once you have created the index `Manual`, you can insert values in index using the [`INSERT INTO INDEX:...`](SQL-Insert.md) command.
 
-```
-insert into index:manual (key,rid) values(['Enrico','Rome'],#5:0)
-```
+<pre>
+orientdb> <code class="lang-sql userinput">INSERT INTO INDEX:Manual (key, rid) VALUES(['Enrico', 'Rome'], #5:0)</code>
+</pre>
 
-and query the index
+You can then query the index through [`SELECT...FROM INDEX:`](SQL-Query.md):
 
-```
-select from index:manual where key LUCENE 'Enrico'
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:Manual WHERE key LUCENE "Enrico"</code>
+</pre>
+

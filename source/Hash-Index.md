@@ -1,5 +1,14 @@
-# Hash Index
+# Hash Index Algorithm
 
-Hash index allows to perform index read operations for 1 (one) I/O operation, and index write for 3 (three) I/O operations as maximum. Hash index algorithm is based on extendible hashing [Extendible Hashing](http://en.wikipedia.org/wiki/Extendible_hashing) algorithm. Hash index does not support range queries, but it's noticeable faster (about 2 times on 10M records) than [SB-Tree index](SB-Tree-index.md).
+This indexing algorithm provides fast lookup and is very light on disk usage.  It is durable and transactional, but does not support range queries.  It is similar to a HashMap, which makes it faster on punctual lookups and it consumes less resources than other index types.  The Hash index algorithm supports four index types, which have been available since version 1.5.x:
 
->**NOTE**: There is an issue about enhancement of hash index to avoid slowdown introduced by random I/O operations using LSM Tree approaches: [Issue #1757](https://github.com/orientechnologies/orientdb/issues/1757)._
+- `UNIQUE_HASH_INDEX` Does not allow duplicate keys, it fails when it encounters duplicates.
+- `NOTUNIQUE_HASH_INDEX` Does allow duplicate keys.
+- `FULLTEXT_HASH_INDEX` Indexes to any single word.
+- `DICTIONARY` Does not allow duplicate keys, it overwrites when it encounters duplicates.
+
+> For more information on `FULLTEXT_HASH_INDEX`, see [FullText Index](FullTextIndex.md).
+
+Hash indexes are able to perform index read operations as one I/O operation and index writes for three I/O operations as a maximum. The Hash Index algorithm is based on [Extendible Hashing](http://en.wikipedia.org/wiki/Extendible_hashing) algorithm.  Despite not providing support for range queries, it is noticeably faster than [SB-Tree Index Algorithms](SB-Tree-index.md), (about twice as fast when querying through ten million records).
+
+>**NOTE**:  There is an issue relating to the enhancement of Hash indexes to avoid slowdowns introduced by random I/O operations using LSM Tree approaches.  For more information, see [Issue #1757](https://github.com/orientechnologies/orientdb/issues/1757).
