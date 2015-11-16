@@ -176,7 +176,7 @@ for (Edge e : graph.getEdges()) {
 }
 ```
 
-NOTE: Starting from OrientDB v1.4.x (until 2.0, where the opposite is true) edges by default are stored as links not as records (i.e. useLightweightEdges=true by default). This is to improve performance. As a consequence, getEdges will only retrieve records of class E.  With useLightweightEdges=true, records of class E are only created under certain circumstances (e.g. if the Edge has properties) otherwise they will be links on the in and out vertices.  If you really want `getEdges()` to return all edges, disable the Lightweight-Edge feature by executing this command once: `alter database custom useLightweightEdges=false`.  This will only take effect for new edges so you'll have to convert the links to actual edges before getEdges will return all edges. For more information look at: [Troubleshooting: Why can't I see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges).
+NOTE: When [Lightweight Edges](Lightweight-Edges.md) are enabled (starting from v2.0 are disabled by default), edges are stored as links not as records. This is to improve performance. As a consequence, `getEdges()` will only retrieve records of class E.  With useLightweightEdges=true, records of class E are only created under certain circumstances (e.g. if the Edge has properties) otherwise they will be links on the in and out vertices.  If you really want `getEdges()` to return all edges, disable the [Lightweight Edges](Lightweight-Edges.md) feature by executing this command once: `alter database custom useLightweightEdges=false`. This will only take effect for new edges so you'll have to convert the links to actual edges before getEdges will return all edges. For more information look at: [Troubleshooting: Why can't I see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges).
 
 ## Removing a Vertex
 
@@ -313,7 +313,7 @@ Starting from v1.6 OrientDB supports configuration of the graph by setting all t
 |blueprints.orientdb.useCustomClassesForEdges	|Uses the Edge's label as OrientDB class. If it doesn't exist create it under the hood.	|true|
 |blueprints.orientdb.useCustomClassesForVertex	|Uses Vertex's label as OrientDB class. If it doesn't exist create it under the hood. |true|
 |blueprints.orientdb.useVertexFieldsForEdgeLabels	|Stores the Edge's relationships in the Vertex by using the Edge's class. This allows using multiple fields and makes faster traversal by edge's label (class). |true|
-|blueprints.orientdb.lightweightEdges	|Uses lightweight edges. This avoids creating a physical document per edge. Documents are created only when the Edges have properties.	|true|
+|blueprints.orientdb.lightweightEdges	|Uses [Lightweight Edges](Lightweight-Edges.md). This avoids creating a physical document per edge. Documents are created only when the Edges have properties.	|false|
 |blueprints.orientdb.autoStartTx	|Auto starts a transaction as soon as the graph is changed by adding/remote vertices and edges and properties. |true|
 
 # Gremlin usage

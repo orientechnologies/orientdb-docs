@@ -9,7 +9,7 @@ ALTER CLUSTER <cluster-name>|<cluster-id> <attribute-name> <attribute-value>
 ```
 
 Where:
-- **cluster-name** name of the cluster to modify
+- **cluster-name** name of the cluster to modify. Starting form v2.2, wildcard `*` is accepted at the end of the name to change multiple clusters all together. Example: `alter cluster employee* status offline` to put offline all the cluster with name start starts with employee
 - **cluster-id** id of the cluster to modify
 - **attribute-name** between those supported:
  - **NAME** cluster's name
