@@ -131,18 +131,8 @@ Live Query is currently supported from the following interfaces
 
 ## Enabling LiveQuery
 
-LiveQuery is an experimental feature, so it's disabled by default. On a stand-alone server you just have to enable the 
-```OLiveQueryPlugin``` in config/orientdb-server-config.xml
+Since version 2.2 the live query are enabled by default, from disable it set the property `query.live.support` to false.
 
-On an embedded (plocal) or in-memory instance, you have to manually register the LiveQuery hook:
-
-```java
-    OLiveCommandExecutorSQLFactory.init();
-    ODatabaseDocumentTx db = new ODatabaseDocumentTx("memory:YourDb");
-    db.activateOnCurrentThread();
-    db.registerHook(new OLiveQueryHook(db));
-```    
-    
 ## LiveQuery in Java
 
 To implement LiveQuery in Java you need two elements:
@@ -162,6 +152,15 @@ class MyLiveQueryListener implements OLiveResultListener {
         System.out.println("operation: "+iOp.type);
         System.out.println("content: "+iOp.record);
     }
+    
+    public void onError(int iLiveToken) {
+        System.out.println("Live query terminate due to error");
+    }
+    
+    public void onUnsubscribe(int iLiveToken) {
+        System.out.println("Live query terminate with unsubscribe");
+    }
+    
 }
 ```
 
@@ -233,20 +232,12 @@ db.liveQuery("live select from V")
 
 ## What's next
 
-LiveQuery implementation is an *experimental* feature in 2.1, why?
-
 OrientDB team is working hard to make it stable and to support it on all the clients. To make live query stable in OrientDB 2.2, the following steps are needed:
-- finalize the connection loss management (what's happen when a connection is lost?)
+- add tests for connection failure 
 - check for memory leaks
-- ensure that ODatabaseDocumentTX.copy() works in all the scenarios (it seems it acts differently from remote to plocal, and we should also test it in distributed mode)
-- write some additional test cases
+- add tests it in distributed mode
 - give an additional check to the OrientJs implementation 
  
-Maybe all this work will drive to some API changes, this is why it's marked as experimental.
-
 We are also considering integrations with existing frameworks like [(Meteor)](https://www.meteor.com/)
 
-You will find updates on this page in next months.
-
-|![](images/warning.png)|This feature is experimental in OrientDB 2.1 and not covered by commercial support, use it at your own risk. Starting from 2.2 Live Query will be released as Stable and will be covered by commercial support too.|
-|----|-----|
+Starting from 2.2 Live Query will be released as Stable and will be covered by commercial support too.
