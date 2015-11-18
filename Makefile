@@ -2,7 +2,7 @@
 OUT = deploy
 WEB = $(OUT)/last
 PDF = $(OUT)/pdf
-SRC = source
+SRC = .e
 
 NODEMOD = node_modules
 GITPLUG = gitbook-plugin
