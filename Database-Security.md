@@ -1,106 +1,132 @@
 # Database Security
 
-See also:
-- [Server security](Server-Security.md)
-- [Database Encryption](Database-Encryption.md)
-- [Secure SSL connections](Using-SSL-with-OrientDB.md)
-- [Record Level Security](Database-Security.md#record-level-security)
-
-The security model of OrientDB is based on well known concepts built on users and roles. A database has **users**. Each [User](#User) has one or more **roles**. A [Role](#Role) is a combination of the working mode (more later) and a set of permissions.
+OrientDB uses a security model based on well-known concepts of users and roles.  That is, a database has its own users.  Each [User](#user) has on ore more roles.  [Roles](#roles) are a combination of the working mode and a set of permissions.
 
 ![Security overview](http://www.orientdb.org/images/orientdb-dbsecurity.png)
 
+
+>For more information on security, see:
+>- [Server security](Server-Security.md)
+>- [Database Encryption](Database-Encryption.md)
+>- [Secure SSL connections](Using-SSL-with-OrientDB.md)
+>- [Record Level Security](Database-Security.md#record-level-security)
+
+
+
 ## Users
 
-A User is an actor of the database. When you open a database you need to specify the user name and password used. Each user has his own credentials and permissions.
+A user is an actor on the database.  When you open a database, you need to specify the user name and the password to use.  Each user has its own credentials and permissions.
 
-By convention three users are always created by default each time you create a new database. Passwords are the same as the user name. Default users are:
-- `admin`, with default password "`admin`", has access to all functions without limitation.
-- `reader`, with default password "`reader`", is the classic read-only user. The `reader` can read any records but can't modify or delete them and has no access to internal information such as users and roles, themselves.
-- `writer`, with the default password "`writer`", is like the user `reader` but can also create, update, and delete records.
+By convention, each time you create a new database OrientDB creates three default users.  The passwords for these users are the same as the usernames.  That is, by default the `admin` user has a password of `admin`.
+- `admin` This user has access to all functions on the database without limitation.
+- `reader` This user is a read-only user.  The `reader` can query any records in the database, but can't modify or delete them.  It has no access to internal information, such as the users and roles themselves.
+- `writer` This user is the same as the user `reader`, but it can also create, update and delete records.
 
-Users are themselves records stored inside the cluster "OUser". The passwords are stored in hash. Starting from OrientDB v2.2 the algorithm is [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2). Before v2.2 a [SHA-256](https://en.wikipedia.org/wiki/SHA-2) was used. Look at [Password management](Database-Security.md#password-management) for more information. 
+The users themselves are records stored inside the cluster `ouser`.  OrientDB stores passwords in hash.  From version 2.2 on, OrientDB uses the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) algorithm.  Prior releases relied on [SHA-256](https://en.wikipedia.org/wiki/SHA-2).  For more information on passwords, see [Password Management](Database-Security.md#password-management).
 
-The user status is stored in the field `status` and can be: `SUSPENDED` or `ACTIVE`. Only `ACTIVE` users can log in.
+OrientDB stores the user status in the field `status`.  It can either be `SUSPENDED` or `ACTIVE`.  Only `ACTIVE` users can log in.
 
-### Working with users
+### Working with Users
 
-To browse all the database's users use:
-```sql
-SELECT FROM ouser
-```
+When you are connected to a database, you can query the current users on the database by using [`SELECT`](SQL-Query.md) queries on the `OUser` class.
 
-To create a new user use the SQL `INSERT` remembering to assign the status `ACTIVE` and a valid role as in this example:
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT RID, name, status FROM OUser</code>
 
-```sql
-INSERT INTO ouser SET name = 'jay', password = 'JaY', status = 'ACTIVE', roles = (SELECT FROM ORole WHERE name = 'reader')
-```
+---+--------+--------+--------
+#  | @CLASS | name   | status
+---+--------+--------+--------
+0  | null   | admin  | ACTIVE
+1  | null   | reader | ACTIVE
+2  | null   | writer | ACTIVE
+---+--------+--------+--------
+3 item(s) found. Query executed in 0.005 sec(s).
+</pre>
 
-To change the user name use:
+#### Creating a New User
 
-```sql
-UPDATE ouser SET name = 'jay' WHERE name = 'reader'
-```
+To create a new user, use the [`INSERT`](SQL-Insert.md) command.  Remember in doing so, that you must set the status to `ACTIVE` and give it a valid role.
 
-In the same way, to change the user password use:
+<pre>
+orientdb> <code class="lang-sql userinput">INSERT INTO OUser SET name = 'jay', password = 'JaY', status = 'ACTIVE',
+          roles = (SELECT FROM ORole WHERE name = 'reader')</code>
+</pre>
 
-```sql
-UPDATE ouser SET password = 'hello' WHERE name = 'reader'
-```
+#### Updating Users
 
-The password will be saved in hash format using the algorithm SHA-256. The trigger `OUserTrigger` will encrypt the password transparently before the record is saved.
+You can change the name for the user with the [`UPDATE`](SQL-Update.md) statement:
 
-To disable a user change the status from `ACTIVE` to `SUSPENDED`. In this example we disable all the users but `admin`:
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE OUser SET name = 'jay' WHERE name = 'reader'</code>
+</pre>
 
-```sql
-UPDATE ouser SET status= 'SUSPENDED' WHERE name <> 'admin'
-```
+In the same way, you can also change the password for the user:
+
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE OUser SET password = 'hello' WHERE name = 'reader'</code>
+</pre>
+
+OrientDB saves the password in a hash format.  The trigger `OUserTrigger` encrypts the password transparently before it saves the record.
+
+#### Disabling Users
+
+To disable a user, use [`UPDATE`](SQL-Update.md) to switch its status from `ACTIVE` to `SUSPENDED`.  For instance, if you wanted to disable all users except for `admin`:
+
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED' WHERE name <> 'admin'</code>
+</pre>
+
 
 ## Roles
 
-A role determines if an operation is permitted against a resource. Mainly this decision depends on the "working mode" and by "rules". Rules work differently based on the "working mode".
+A role determines what operations a user can perform against a resource.  Mainly, this decision depends on the working mode and the rules.  The rules themselves work differently, depending on the working mode.
 
-### Working with roles
+### Working with Roles
 
-#### Create a new role
 
-To create a new role use the SQL `INSERT` remembering to assign the status `ACTIVE` and a valid role as in this example:
+When you are connected to a database, you can query the current roles on the database using [`SELECT`](SQL-Query.md) queries on the `ORole` class.
 
-```sql
-INSERT INTO orole SET name = 'developer', mode = 0
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT RID, mode, name, rules FROM ORole</code>
 
-#### Inherited roles
+--+------+----+--------+----------------------------------------------------------
+# |@CLASS|mode| name   | rules
+--+------+----+--------+----------------------------------------------------------
+0 | null | 1  | admin  | {database.bypassRestricted=15}
+1 | null | 0  | reader | {database.cluster.internal=2, database.cluster.orole=0...
+2 | null | 0  | writer | {database.cluster.internal=2, database.cluster.orole=0...
+--+------+----+--------+----------------------------------------------------------
+3 item(s) found.  Query executed in 0.002 sec(s).
+</pre>
 
-Roles can inherit permissions from other roles in an object oriented fashion. To let a role extend another add the parent role in the `inheritedRole` attribute. Example, to let the `appuser` role inherit the `writer` role settings:
+#### Creating New Roles
 
-```sql
-UPDATE orole SET inheritedRole = (SELECT FROM orole WHERE name = 'writer') WHERE name = 'appuser'
-```
+To create a new role, use the [`INSERT`](SQL-Insert.md) statement.
 
-#### Working modes
+<pre>
+orientdb> <code class="lang-sql userinput">INSERT INTO ORole SET name = 'developer', mode = 0</code>
+</pre>
 
-The supported "working modes" are:
+#### Role Inheritance
 
-##### 1: allow all but (the rules)
+Roles can inherit permissions from other roles in an object-oriented fashion.  To let a role extend another, add the parent role in the `inheritedRole` attribute.  For instance, say you want users with the role `appuser` to inherit settings from the role `writer`.
 
-By default this is the super user mode and exceptions are specified in the rules. If no rule is found for the requested resource, then it's allowed to execute the operation. You want to use this mode mainly for power users. The `admin` default role uses this mode and has no exception rules. This mode is written as `1` in the database.
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE ORole SET inheritedRole = (SELECT FROM ORole WHERE name = 'writer')
+          WHERE name = 'appuser'</code>
+</pre>
 
-##### 0: deny all but (the rules)
+### Working with Modes
 
-By default this mode can do nothing except for what rules are specified in the exceptions. This should be the default mode for all classic users. `reader` and `writer` default roles use this mode. This mode is written as `0` in the database.
+Where rules determine what users belonging to certain roles can do on the databases, working modes determine how OrientDB interprets these rules.  There are two types of working modes, designating by `1` and `0`.
+
+- **Allow All But (Rules)** By default is the super user mode.  Specify exceptions to this using the rules.  If OrientDB finds no rules for a requested resource, then it allows the user to execute the operation.  Use this mode mainly for power users and administrators.  The default role `admin` uses this mode by default and has no exception rules.  It is written as `1` in the database.
+
+- **Deny All But (Rules)** By default this mode allows nothing.  Specify exceptions to this using the rules.  If OrientDB finds rules for a requested resource, then it allows the user to execute the operation.  Use this mode as the default for all classic users.  The default roles `reader` and `writer` use this mode.  It is written as `0` in the database.
 
 #### Operations
 
-The supported operations are the classic CRUD operations:
-- ( **C** )reate
-- ( **R** )ead
-- ( **U** )pdate
-- ( **D** )elete
-
-A role can have none or all of the permissions above.
-Each permission is internally represented by a flag of a 4 digit bitmask.
-So the above permissions are:
+The supported operations are the classic CRUD operations.  That is, **C**reate, **R**ead, **U**pdate, **D**elete.  Roles can have none of these permissions or all of them.  OrientDB represents each permission internally by a 4-digit bitmask flask.
 
 ```
 NONE:   #0000 - 0
@@ -111,8 +137,7 @@ DELETE: #1000 - 8
 ALL:    #1111 - 15
 ```
 
-Of course you could make a combination of them.
-For example, if you want to allow only the Read and Update permissions, you could use:
+In addition to these base permissions, you can also combine them to create new permissions.  For instance, say you want to allow only the Read and Update permissions:
 
 ```
 READ:               #0010 - 1
@@ -124,7 +149,7 @@ Permission to use:  #0110 - 5
 
 Resources are strings bound to OrientDB concepts.
 
->**NOTE**: resources are case-sensitive
+>**NOTE**: Resource entries are case-sensitive.
 
 - `database`, checked on accessing to the database
 - `database.class.<class-name>`, checked on accessing on specific class
@@ -137,96 +162,113 @@ Resources are strings bound to OrientDB concepts.
 - `database.hook.record`
 - `server.admin`, checked on accessing to remote server administration
 
-Example:
+For instance, say you have a role `motorcyclist` that you want to have access to all classes except for the class `Car`.
 
-To enable the `motorcyclist`role to have access to all classes but the `Car` class do this:
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE ORole PUT rules = "database.class.*", 15 WHERE name = "motorcyclist"</code>
 
-```sql
-UPDATE orole PUT rules = "database.class.*", 15 WHERE name = "motorcyclist"
-UPDATE orole PUT rules = "database.class.Car", 0 WHERE name = "motorcyclist"
-```
->**NOTE**: resources are case-sensitive
+orientdb> <code class="lang-sql userinput">UPDATE ORole PUT rules = "database.class.Car", 0 WHERE name = "motorcyclist"</code>
+</pre>
 
-## Grant and revoke permissions
+### Granting and Revoking Permissions
 
-To grant and revoke permissions use the [GRANT](SQL-Grant.md) and [REVOKE](SQL-Revoke.md) commands.
+To grant and revoke permissions from a role, use the [GRANT](SQL-Grant.md) and [REVOKE](SQL-Revoke.md) commands.
 
-## Record-level security
+<pre>
+orientdb> <code class="lang-sql userinput">GRANT UPDATE ON database.cluster.Car TO motorcyclist</code>
+</pre>
 
-This is also called "horizontal security" because it doesn't act at the schema level (vertically), but per each record. Due to this, we can totally separate database records as sand-boxes where each "Restricted" record can only be accessed by authorized users.
 
-To activate this kind of advanced security, let the [classes](Concepts.md#class) you want extend the `ORestricted` super class. If you're working with a Graph Database you should let V (Vertex) and E (Edge) classes extend ORestricted class:
 
-``` sql
-ALTER CLASS V superclass ORestricted
-ALTER CLASS E superclass ORestricted
-```
-In this way, all the vertices and edges will inherit the record level security. Starting from OrientDB v2.1, you can use the multiple inheritance to let only certain vertices or edges classes to be "restricted". Example:
+## Record-level Security
 
-``` sql
-CREATE CLASS Order EXTENDS V, ORestricted
-```
+The sections above manage security in a vertical fashion at the schema-level, but in OrientDB you can also manage security in a horizontal fashion, that is: per record.  This allows you to completely separate database records as sandboxes, where only authorized users can access restricted records.
 
-Every time a class extends the `ORestricted` class, OrientDB, uses special fields of type Set<OIdentifiable> to store authorization on each record:
-- `_allow` contains who can entirely access to the record (all CRUD operations)
-- `_allowRead` contains who can read the record
-- `_allowUpdate` contains who can update the record
-- `_allowDelete` contains who can delete the record
+To active record-level security, create classes that extend the `ORestricted` super class.  In the event that you are working with a Graph Database, set the `V` and `E` classes (that is, the vertex and edge classes) themselves to extend `ORestricted`.  
 
-If you want to allow full control of a record to a user, add the user's RID in `_allow` set. If you want to provide only READ permission, use `_allowRead`. In this example we allow the user with RID #5:10 to read record #43:22 by using SQL:
+<pre>
+orientdb> <code class='lang-sql userinput'>ALTER CLASS V SUPERCLASS ORestricted</code>
 
-```sql
-UPDATE #43:22 ADD _allowRead #5:10
-```
+orientdb> <code class="lang-sql userinput">ALTER CLASS E SUPERCLASS ORestricted</code>
+</pre>
 
-In this example we remove the right previously granted:
+This causes all vertices and edges to inherit the record-level security.  Beginning with version 2.1, OrientDB allows you to use multiple inheritances, to cause only certain vertex or edge calsses to be restricted.  
 
-```sql
-UPDATE #43:22 REMOVE _allowRead #5:10
-```
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE CLASS Order EXTENDS V, ORestricted</code>
+</pre>
 
-### Run-time check
-OrientDB checks the record level security by using a hook that injects a check before each CRUD operation:
-- `CREATE` new document: set the current database's user in the `_allow` field. To change this behavior look at [customize on creation](#customize-on-creation)
-- `READ` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowRead` fields. If not, the record is skipped. This lets each query work per user.
-- `UPDATE` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowUpdate` field. If not, an `OSecurityException` is thrown.
-- `DELETE` a document: check if the current user or its roles are enlisted in the `_allow` or `_allowDelete` field. If not, an `OSecurityException` is thrown
+Whenever a class extends the class `ORestricted`, OrientDB uses special fields to type-set `_<OIdentifiable>` to store authorization on each record.
+- `_allow` Contains the users that have full access to the record, (that is, all CRUD operations).
+- `_allowRead` Contains the users that can read the record.
+- `_allowUpdate` Contains the users that can update the record.
+- `_allowDelete` Contains the users that can delete the record.
 
-The "allow" fields (`_allow`, `_allowRead`, `_allowUpdate`, `_allowDelete`) can contain instances of `OUser` and `ORole` records (both classes extend OIdentity). Use `OUser` to allow a single [user](#User) and use `ORole` to allow all the users that are part of a [role](#Role).
+To allow full control over a record to a user, add the user's RID to the `_allow` set.  To provide only read permissions, use `_allowRead`.  In the example below, you allow the user with the RID `#5:10` to read record `#43:22`:
 
-### Usage via API
-#### Graph API
-```java
-OrientVertex v = graph.addVertex("class:Invoice");
-v.setProperty("amount", 1234567);
-graph.getRawGraph().getMetadata().getSecurity().allowUser(v.getRecord(), ORestrictedOperation.ALLOW_READ, "report");
-v.save();
-```
+<pre>
+orientdb> <code class='lang-sql userinput'>UPDATE #43:22 ADD _allowRead #5:10</code>
+</pre>
 
-#### Document API
-```java
-ODocument invoice = new ODocument("Invoice").field("amount", 1234567);
-database.getMetadata().getSecurity().allowUser(invoice, ORestrictedOperation.ALLOW_READ, "report");
-invoice.save();
-```
+If you want to remove read permissions, use the following command:
 
-### Customize on creation
 
-By default every time someone creates a Restricted record (when its class extends the `ORestricted` class) the current user is inserted in the `_allow` field. This can be changed by setting custom properties in the class schema supporting these properties:
-- `onCreate.fields`, to specify the names of the fields to set. By default it is `_allow` but you can specify `_allowRead`, `_allowUpdate`, or `_allowDelete` or a combination of them. Use a comma to separate multiple fields.
-- `onCreate.identityType`, to specify if the user's object will be inserted or its role (the first one). By default is set to `user`, but you can also use `role`.
+<pre>
+orientdb> <code class='lang-sql userinput'>UPDATE #43:22 REMOVE _allowRead #5:10</code>
+</pre>
 
-Example, to prevent a user from deleting a new post:
 
-```sql
-ALTER CLASS Post custom onCreate.fields=_allowRead,_allowUpdate
-```
 
-Example, to assign a role instead of a user to the new Post instances create:
+### Run-time Checks
 
-```sql
-ALTER CLASS Post custom onCreate.identityType=role
-```
+OrientDB checks record-level security using a hook that injects the check before each CRUD operation:
+- **Create Documents**: Sets the current database's user in the `_allow` field.  To change this behavior, see [Customize on Creation](#customize-on-creation).
+- **Read Documents**: Checks if the current user, or its roles, are listed in the `_allow` or `_allowRead` fields.  If not, OrientDB skips the record.  This allows each query to work per user.
+- **Update Documents**: Checks if the current user, or its roles, are listed in the `_allow` or `_allowUpdate` field.  If not, OrientDB raises an `OSecurityException` exception.
+- **Delete Documents**: Checks if the current user, or its roles, are listed in the `_allow` or `_allowDelete` field.  If not, OrientDB raises an `OSecurityException` exception.
+
+The allow fields, (that is, `_allow`, `_allowRead`, `_allowUpdate`, and `_allowDelete`) can contain instances of `OUser` and `ORole` records, as both classes extend `OIdentity`.  Use the class `OUser` to allow single [users](#user) and use the class `ORole` to allow all users that are a part of that [role](#role).
+
+### Using the API
+
+In addition to managing record-level security features through the OrientDB console, you can also configure it through the Graph and Document API's.
+
+- **Graph API**
+  ```java
+  OrientVertex v = graph.addVertex("class:Invoice");
+  v.setProperty("amount", 1234567);
+  graph.getRawGraph().getMetadata().getSecurity().allowUser(
+        v.getRecord(), ORestrictedOperation.ALLOW_READ, "report");
+  v.save();
+  ```
+
+- **Document API**
+  ```java
+  ODocument invoice = new ODocument("Invoice").field("amount", 1234567);
+  database.getMetadata().getSecurity().allowUser(
+        invoice, ORestrictedOperation.ALLOW_READ, "report");
+  invoice.save();
+  ```
+
+
+### Customize on Creation
+
+By default, whenever you create a restricted record, (that is, create a class that extends the class `ORestricted`), OrientDB inserts the current suer into the `_allow` field.  You can change this using custom properties in the class schema:
+- `onCreate.fields` Specifies the names of the fields it sets.  By default, these are `_allow`, but you can also specify `_allowRead`, `_allowUpdate`, `_allowDelete` or a combination of them as an alternative.  Use commas to separate multiple fields.
+- `onCreate.identityType` Specifies whether to insert the user's object or its role (the first one).  By default, it is set to `user`, but you can also set it to use its `role`.
+
+For instance, say you wanted to prevent a user from deleting new posts:
+
+<pre>
+orientdb> <code class='lang-sql userinput'>ALTER CLASS Post CUSTOM onCreate.fields=_allowRead,_allowUpdate</code>
+</pre>
+
+Consider another example, where you want to assign a role instead of a user to new instances of `Post`.
+
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER CLASS Post CUSTOM onCreate.identityType=role</code>
+</pre>
+
 
 ### Bypass security constraints
 Sometimes you need to create a role that can bypass such restrictions, such as for backup or administrative operations. For this reason we've created the special permission `database.bypassRestricted` to `READ`. By default, the `admin` role has this permission.
