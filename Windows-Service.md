@@ -1,17 +1,18 @@
-# Install as Service on Windows
+# Install as a Service on Windows
+____
 
-OrientDB is a Java server application. As most server applications, they have to perform several tasks before being able to shut down the Virtual Machine process hence they need a portable way to be notified of the imminent Virtual Machine shutdown.
-At the moment, the only way to properly shut down an OrientDB server instance (not embedded) is to execute the *shutdown.bat* (or *shutdown.sh*) script shipped with the OrientDB distribution but it's up to the user to take care of this. This implies that the server instance isn't  stopped correctly when the computer on which it is deployed is shutted down without executing the above script.
+OrientDB is a Java server application. As most server applications, they have to perform several tasks, before being able to shut down the Virtual Machine process, hence they need a portable way to be notified of the imminent Virtual Machine shutdown.
+At the moment, the only way to properly shut down an OrientDB server instance (not embedded) is to execute the *shutdown.bat* (or *shutdown.sh*) script shipped with the OrientDB distribution, but it's up to the user to take care of this. This implies that the server instance isn't  stopped correctly, when the computer on which it is deployed, is shut down without executing the above script.
 
 
 ## Apache Commons Daemon
 
-[Apache Commons Daemon](http://commons.apache.org/daemon/) is a set of applications and API enabling Java server application to run as native non interactive server applications under Unix and Windows. In Unix, server applications running in background are called *daemons* and are controlled by the operating system with a set of specified *signals*. Under Windows such programs are called services and are controlled by appropriate calls to specific functions defined in the application binary. Although the ways of dealing with the problem are different, in both cases the operating system can notify a server application of its imminent shutdown, and the underlying application has the ability to perform certain tasks before its process of execution is destroyed. Wrapping OrientDB as a *Unix daemon* or as a *Windows service* enables the management of this server application lifecycle through the mechanisms provided natively by both Unix and Windows operating systems.
+[Apache Commons Daemon](http://commons.apache.org/daemon/) is a set of applications and API enabling Java server application to run as native non interactive server applications under Unix and Windows. In Unix, server applications running in the background are called *daemons* and are controlled by the operating system with a set of specified *signals*. Under Windows, such programs are called services and are controlled by appropriate calls to specific functions defined in the application binary. Although the ways of dealing with running daemons or services are different, in both cases the operating system can notify a server application of its imminent shutdown, and the underlying application has the ability to perform certain tasks, before its process of execution is destroyed. Wrapping OrientDB as a *Unix daemon* or as a *Windows service* enables the management of this server application lifecycle through the mechanisms provided natively by both Unix and Windows operating systems.
 
 
 ## Installation
 
-This tutorial is focused on Windows so you have to download *procrun*. [Procrun](http://commons.apache.org/daemon/procrun.html) is a set of applications that allow Windows users to wrap (mostly) Java applications (e.g. Tomcat) as a Windows service. The service can be set to automatically start when the machine boots and will continue to run with no user logged onto the machine.
+This tutorial is focused on Windows, so you have to download *procrun*. [Procrun](http://commons.apache.org/daemon/procrun.html) is a set of applications, which allow Windows users to wrap (mostly) Java applications (e.g. Tomcat) as a Windows service. The service can be set to automatically start, when the machine boots and will continue to run with no user logged onto the machine.
 
 1. Point you browser to the [Apache Commons Daemon download page](http://commons.apache.org/daemon/download_daemon.cgi).
 1. Click on **Browse native binaries download area...**: you will see the index **commons/daemon/binaries/** (even if the title in the page reports **Index of dist/commons**).
@@ -53,7 +54,7 @@ Once you downloaded the applications, you have to put them in a folder under the
 
 ## Configuration
 
-In this section, we will show how to wrap OrientDB GraphEd 1.0rc5 as a Windows Service.
+In this section, we will show how to wrap OrientDB as a Windows Service.
 In order to wrap OrientDB as a service, you have to execute a short script that uses the prunsrv application to configure a Windows Service.
 
 Before defining the Windows Service, you have to rename **prunsrv** and **prunmgr** according to the name of the service. Both applications require the name of the service to manage and monitor as parameter but you can avoid it by naming them with the name of the service. In this case, rename them respectively **OrientDBGraph** and **OrientDBGraphw** as *OrientDBGraph* is the name of the service that you are going to configure with the script below. If you want to use a difference service name, you have to rename both application respectively **myservicename** and **myservicenamew** (for example, if you are wrapping OrientDB and the name of the service is *OrientDB*, you could rename *prunsrv* as *OrientDB* and *prunmgr* as *OrientDBw*).

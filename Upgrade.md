@@ -1,13 +1,14 @@
-# Upgrade
+# Upgrading
+_____
 
-OrientDB uses the Semantic Versioning System (http://semver.org) where given a version number MAJOR.MINOR.PATCH,
-increment the:
+OrientDB uses the Semantic Versioning System (http://semver.org), where the version numbers follow this format MAJOR.MINOR.PATCH,
+Here are the meanings of the increments:
 
-- MAJOR version when you make incompatible API changes,
-- MINOR version when you add functionality in a backwards-compatible manner
-- PATCH version when you make backwards-compatible bug fixes.
+- MAJOR version entails incompatible API changes,
+- MINOR version entails functionality in a backward-compatible manner
+- PATCH version entails backward-compatible bug fixes.
 
-So between PATCH versions the compatibility is assured (example 1.7.0 -> 1.7.8). Between MINOR and MAJOR versions you could export and re-import the database. See below in the column "Database":
+So between PATCH versions, the compatibility is assured (example 1.7.0 -> 1.7.8). Between MINOR and MAJOR versions, you may need to export and re-import the database. To find out if your upgrade must be done over exporting and importing the database, see below in the column "Database":
 
 
 ## Compatibility Matrix
@@ -28,13 +29,13 @@ References:
 - HTTP Network Protocol: [OrientDB REST](OrientDB-REST.md)
 
 ## Migrate from LOCAL storage engine to PLOCAL
-Starting from version 1.5.x OrientDB comes with a brand new storage engine: PLOCAL (Paginated LOCAL). It's persistent like the LOCAL, but stores information in different way. Below the main differences with LOCAL:
+Starting from version 1.5.x OrientDB comes with a brand new storage engine: PLOCAL (Paginated LOCAL). It's persistent like the LOCAL, but stores information in a different way. Below are the main differences with LOCAL:
  - records are stored in cluster files, while with LOCAL was split between cluster and data-segments
  - more durable than LOCAL because the append-on-write mode
  - minor contention locks on writes: this means more concurrency
  - it doesn't use Memory Mapping techniques (MMap) so the behavior is more "predictable"
 
-To migrate your LOCAL storage to the new PLOCAL you've to export and reimport the database using PLOCAL as storage engine. Follow the steps below:
+To migrate your LOCAL storage to the new PLOCAL, you need to export and reimport the database using PLOCAL as storage engine. Follow the steps below:
 
 1) open a new shell (Linux/Mac) or a Command Prompt (Windows)
 
@@ -65,7 +66,7 @@ orientdb> DISCONNECT
 5) If you access to the database in the same JVM remember to change the URL from "local:" to "plocal:"
 
 ## Migrate graph to RidBag
-Since OrientDB 1.7 RidBag is default collection that manage adjacency relations in graphs. While the older database managed by MVRB-Tree are fully compatible, you can update your database to more recent format.
+As of OrientDB 1.7 the RidBag is default collection that manages adjacency relations in graphs. While the older database managed by an MVRB-Tree are fully compatible, you can update your database to the more recent format.
 
 You can upgrade your graph via console or using the ORidBagMigration class
 
