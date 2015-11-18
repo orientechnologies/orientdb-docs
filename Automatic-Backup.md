@@ -7,6 +7,19 @@ com.orientechnologies.orient.server.handler.OAutomaticBackup
 
 ## Introduction
 
+This plugin executed regular backup of databases. This is the plugin main configuration in `orientdb-server-config.xml` file:
+
+```xml
+<!-- AUTOMATIC BACKUP, TO TURN ON SET THE 'ENABLED' PARAMETER TO 'true' -->
+<handler class="com.orientechnologies.orient.server.handler.OAutomaticBackup">
+    <parameters>
+        <parameter name="enabled" value="false"/>
+        <!-- LOCATION OF JSON CONFIGURATION FILE -->
+        <parameter name="config" value="${ORIENTDB_HOME}/config/automatic-backup.json"/>
+    </parameters>
+</handler>
+```
+
 Starting from v2.2 the configuration of the plugin resides in a separate file `config/automatic-backup.json` and can be changed by Studio application. This is the default content:
 ```json
 {
