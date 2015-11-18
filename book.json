@@ -17,7 +17,6 @@
     "search": {
         "maxIndexSize": 1000000000
     },
-    "output": "deploy/latest",
     "pdf": {
         "toc": true,
         "pageNumbers": true,
