@@ -64,7 +64,7 @@
   * [Import from RDBMS](Import-from-DBMS.md)
   * [Import from DB-Pedia](Import-from-DBPedia.md)
   * [Import from Parse (Facebook)](Import-from-PARSE.md)
-* [Administration]
+* [Administration](Administration.md)
   * [Run the console](Tutorial-Run-the-console.md)
   * [Command Reference](Console-Commands.md)
       * [Backup](Console-Command-Backup.md)
