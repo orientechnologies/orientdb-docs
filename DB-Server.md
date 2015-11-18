@@ -16,7 +16,7 @@ OrientDB Server is part of Community and Enterprise distributions. To install Or
 
 ## Start the server
 
-To start the server, execute bin/orientdb.sh (or bin/orientdb.bat on Microsoft Windows systems). By default both the binary and http interfaces are active. If you want to disable one of these change the [Server configuration](#Configuration).
+To start the server, execute bin/server.sh (or bin/server.bat on Microsoft Windows systems). By default both the binary and http interfaces are active. If you want to disable one of these change the [Server configuration](#Configuration).
 
 Upon startup, the server runs on port 2424 for the binary protocol and 2480 for the http one. If a port is busy the next free one will be used. The default range is 2424-2430 (binary) and 2480-2490 (http). These default ranges can be changed in in [Server configuration](#Configuration).
 
