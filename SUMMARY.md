@@ -232,7 +232,7 @@
     * [Traverse](SQL-Traverse.md)
     * [Truncate Class](SQL-Truncate-Class.md)
     * [Truncate Cluster](SQL-Truncate-Cluster.md)
-    * [Trucate Record](SQL-Truncate-Record.md)
+    * [Truncate Record](SQL-Truncate-Record.md)
   * [Filtering](SQL-Where.md)
   * [Functions](SQL-Functions.md)
   * [Methods](SQL-Methods.md)
