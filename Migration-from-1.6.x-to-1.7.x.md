@@ -1,4 +1,5 @@
 # Migration from 1.6.x to 1.7.x
+____
 
 Databases created with release 1.6.x are compatible with 1.7, so you don't have to export/import the database like in the previous releases.
 

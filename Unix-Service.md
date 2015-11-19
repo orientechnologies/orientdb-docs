@@ -1,6 +1,7 @@
 # Install as Service on Unix/Linux
+____
 
-OrientDB ships with a script that you can use to run the database server as a daemon.  You can find it in the `bin/` directory of your installation, (that is, at `$ORIENTDB_HOME/bin/orientdb.sh`.
+OrientDB ships with a script, which will allow you to run the database server as a daemon.  You can find it in the `bin/` directory of your installation, (that is, at `$ORIENTDB_HOME/bin/orientdb.sh`.
 
 The script supports three parameters:
 
@@ -11,7 +12,7 @@ The script supports three parameters:
 
 ## Configuring the Script
 
-Before you install the script on your system, you need to edit the file to define two variables: the path to the OrientDB installation directory and the user you want to run the database the database server.
+Before you install the script on your system, you need to edit the file to define two variables: the path to the OrientDB installation directory and the user you want to run the the database server with.
 
 ```sh
 $ vi $ORIENTDB_HOME/bin/orientdb.sh
@@ -35,7 +36,7 @@ The path to the installation directory, `ORIENTDB_DIR`, tells OrientDB where to 
 
 ## Installing the Script
 
-Different operating systems have different procedures to managing system daemons as well as configuring them to start and stop during boot and shutdown.  For more information check with the documentation for your system.
+Different operating systems have different procedures to managing system daemons, as well as configuring them to start and stop during boot and shutdown.  For more information check with the documentation for your system.
 
 
 ### Linux Setup
@@ -47,7 +48,7 @@ $ cp $ORIENTDB_HOME/bin/orientdb.sh /etc/init.d/orientdb
 $ cp $ORIENTDB_HOME/bin/console.sh /usr/bin/orientdb
 ```
 
-Doing this makes the script accessible to `service` command.  You can now start the database server using the following command:
+Doing this makes the script accessible to the `service` command.  You can now start the database server using the following command:
 
 ```sh
 $ service orientdb start
@@ -67,7 +68,7 @@ orientdb>
 
 ### Mac OS X Setup
 
-For Mac OS X create an alias to OrientDB system daemon script and the console.
+For Mac OS X, create an alias to OrientDB system daemon script and the console.
 
 ```sh
 $ alias orientdb-server=/path/to/$ORIENTDB_HOME/bin/orientdb.sh

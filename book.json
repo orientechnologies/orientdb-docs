@@ -28,7 +28,7 @@
             "top": 36,
             "bottom": 36
         },
-        "footerTemplate": "Copyright (c) Orient Technologies LTD"
+        "footerTemplate": "Copyright (c) OrientDB LTD"
     },
     "plugins": [
         "ga", "anchors", "collapsible-menu", "versions", "edit-link", "addcssjs"
@@ -53,8 +53,8 @@
                 "base": "https://github.com/orientechnologies/orientdb-docs/edit/master",
                 "label": "Edit This Page"
         },
-    	"github": {
-      		"url": "https://github.com/orientechnologies/orientdb"
-  	}
+        "github": {
+            "url": "https://github.com/orientechnologies/orientdb"
+        }
     }
 }

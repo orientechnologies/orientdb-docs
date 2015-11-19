@@ -1,4 +1,5 @@
 # Installation
+____
 
 OrientDB is available in two editions:
 
@@ -38,7 +39,7 @@ OrientDB requires [Java](http://www.java.com/en/download), version 1.6 or higher
 
 ## Installing OrientDB
 
-There are two methods available in installing OrientDB, with some variations on each depending on your operating system: you can download a binary package from OrientDB or you can compile the package from source code.
+There are two methods available to install OrientDB, with some variations on each depending on your operating system. The first method is to download a binary package from OrientDB. The other method is to compile the package from the source code.
 
 
 ### Binary Installation
@@ -51,9 +52,9 @@ On server installations, you can use the `wget` utility:
 $ wget https://orientdb.com/download.php?file=orientdb-community-2.1.2.tar.gz
 ```
 
-Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.1.2` with relevant files and scripts you need to run OrientDB on your system.
+Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.1.2` with relevant files and scripts, which you will need to run OrientDB on your system.
 
-### Source Installation
+### Source Code Installation
 
 In addition to downloading the binary packages, you also have the option of compiling OrientDB from the Community Edition source code, available on GitHub.  This process requires that you install [Git](http://www.git-scm.com/) and [Apache Ant](http://ant.apache.org/bindownload.cgi) on your system.
 
@@ -71,7 +72,7 @@ The build process creates a `releases` directory one level up from the source fi
 
 #### Update Permissions
 
-For Linux, Mac OS X and UNIX-based operating system, you need to change the permissions on after compiling from source.
+For Linux, Mac OS X and UNIX-based operating system, you need to change the permissions on  some of the files after compiling from source.
 
 ```sh
 $ chmod 755 bin/*.sh
@@ -82,7 +83,7 @@ These commands update the execute permissions on files in the `config/` director
 
 ## Post-installation Tasks
 
-For desktop users, OrientDB is now installed and can be run through shell scripts found in the package `bin` directory of the installation.  For servers, there are some additional steps that you need to take in order to manage the database server for OrientDB as a service.  The procedure for this varies, depending on your operating system.
+For desktop users installing the binary, OrientDB is now installed and can be run through shell scripts found in the package `bin` directory of the installation.  For servers, there are some additional steps that you need to take in order to manage the database server for OrientDB as a service.  The procedure for this varies, depending on your operating system.
 
 - [Install as Service on Unix, Linux and Mac OS X](Unix-Service.md)
 - [Install as Service on Microsoft Windows](Windows-Service.md)
