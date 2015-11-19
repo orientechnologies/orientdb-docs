@@ -1,10 +1,11 @@
 # Inheritance
+____
 
-Unlike many Object-relational mapping tools, OrientDB does not split documents between different classes.  Each document resides in one or a number of clusters associated with its specific class.  When you eecute a query against a class that has subclasses, OrientDB searches the clusters of the target class and all subclasses.
+Unlike many Object-relational mapping tools, OrientDB does not split documents between different classes.  Each document resides in one or a number of clusters associated with its specific class.  When you execute a query against a class that has subclasses, OrientDB searches the clusters of the target class and all subclasses.
 
 ## Declaring Inheritance in Schema
 
-In developing your application, bear in mind that OrientDB needs to know the class inheritance relationship.  This is an abstract concept that applies to both  [POJO](Object-Database.md#inheritance)'s and  [Documents](Document-Database.md#inheritance).
+In developing your application, bear in mind that OrientDB needs to know the class inheritance relationship.  This is an abstract concept that applies to both  [POJO's](Object-Database.md#inheritance) and  [Documents](Document-Database.md#inheritance).
 
 For example,
 
@@ -15,7 +16,7 @@ OClass company = database.getMetadata().getSchema().createClass("Company").setSu
 
 ## Using Polymorphic Queries
 
-By default, OrientDB treats all queries as polymorphic.  Using the example above, you can run the following query from the console:
+By default, OrientDB treats all queries as polymorphic. Using the example above, you can run the following query from the console:
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name.toUpperCase() = 'Google'</code>

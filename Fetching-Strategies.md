@@ -1,4 +1,5 @@
 # Fetching Strategies
+____
 
 By default, OrientDB loads linked records in a lazy manner.  That is to say, it does not load linked fields until it traverses these fields.  In situations where you need the entire tree of a record, this can prove costly to performance.  For instance,
 

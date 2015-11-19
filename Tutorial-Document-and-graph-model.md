@@ -1,11 +1,14 @@
 # Multi-Model
+____
 
-The OrientDB engine supports **Graph**, **Document**, **Key/Value**, and **Object** models, so you can use OrientDB as a replacement for a product in any of these categories. However, the main reason why users choose OrientDB is because of its true **Multi-Model** DBMS abilities, which combine all the features of the four models into the core. These abiliteis are not just interfaces to the database engine, but rather the engine itself was built to support all four models. This is also the main difference to other multi-model DBMSs, as they implement an additional layer with an API, which mimics additional models. However, under the hood, they're truly only one model, therefore they are limited in speed and scalability.
+The OrientDB engine supports **Graph**, **Document**, **Key/Value**, and **Object** models, so you can use OrientDB as a replacement for a product in any of these categories. However, the main reason why users choose OrientDB is because of its true **Multi-Model** DBMS abilities, which combine all the features of the four models into the core. These abilities are not just interfaces to the database engine, but rather the engine itself was built to support all four models. This is also the main difference to other multi-model DBMSs, as they implement an additional layer with an API, which mimics additional models. However, under the hood, they're truly only one model, therefore they are limited in speed and scalability.
 
 
-## Document Model
+## The Document Model
 
-The data in this model is stored inside documents. A document is a set of key/value pairs (also referred to as fields or properties), where a key allows access to its value. Values can hold primitive data types, embedded documents, or arrays of other values. Documents are not typically forced to have a schema, which can be advantageous, because they remain flexible and easy to modify. Documents are stored in collections, enabling developers to group data as they decide. OrientDB uses the concepts of "[classes](Concepts.md#class)" and "[clusters](Clusters.md)" instead of "collections" for grouping documents. This provides several benefits, which we will discuss in further sections of the documentation. OrientDB's Document model adds the concept of a "[LINK](Concepts.md#relationships)" as a relationship between documents. With OrientDB, you can decide whether to embed documents or link to them directly. When you fetch a document, all the links are automatically resolved by OrientDB. This is a major difference to other Document Databases, like MongoDB or CouchDB, where the developer must handle any and all relationships between documents herself.
+The data in this model is stored inside documents. A document is a set of key/value pairs (also referred to as fields or properties), where the key allows access to its value. Values can hold primitive data types, embedded documents, or arrays of other values. Documents are not typically forced to have a schema, which can be advantageous, because they remain flexible and easy to modify. Documents are stored in collections, enabling developers to group data as they decide. OrientDB uses the concepts of "[classes](Concepts.md#class)" and "[clusters](Clusters.md)" as its form of "collections" for grouping documents. This provides several benefits, which we will discuss in further sections of the documentation. 
+
+OrientDB's Document model also adds the concept of a "[LINK](Concepts.md#relationships)" as a relationship between documents. With OrientDB, you can decide whether to embed documents or link to them directly. When you fetch a document, all the links are automatically resolved by OrientDB. This is a major difference to other Document Databases, like MongoDB or CouchDB, where the developer must handle any and all relationships between the documents herself.
 
 The table below illustrates the comparison between the relational model, the document model, and the OrientDB document model:
 
@@ -17,7 +20,7 @@ The table below illustrates the comparison between the relational model, the doc
 | Relationship     | not available    | [Link](Concepts.md#relationships)                    |
 
 
-## Graph Model
+## The Graph Model
 
 A graph represents a network-like structure consisting of Vertices (also known as Nodes) interconnected by Edges (also known as Arcs). OrientDB's graph model is represented by the concept of a property graph, which defines the following:
 
@@ -30,8 +33,8 @@ A graph represents a network-like structure consisting of Vertices (also known a
  - **Edge** - an entity that links two Vertices and has the following mandatory properties:
    
    - unique identifier
-   - link to incoming Vertex (also known as head)
-   - link to outgoing Vertex (also known as tail)
+   - link to an incoming Vertex (also known as head)
+   - link to an outgoing Vertex (also known as tail)
    - label that defines the type of connection/relationship between head and tail vertex
 
 In addition to mandatory properties, each vertex or edge can also hold a set of custom properties. These properties can be defined by users, which can make vertices and edges appear similar to documents. In the table below, you can find a comparison between the graph model, the relational data model, and the OrientDB graph model:
@@ -44,7 +47,7 @@ In addition to mandatory properties, each vertex or edge can also hold a set of 
 | Relationship     | Edge                   | Edge                                     |
 
 
-## Key/Value Model
+## The Key/Value Model
 
 This is the simplest model of the three. Everything in the database can be reached by a key, where the values can be simple and complex types. OrientDB supports Documents and Graph Elements as values allowing for a richer model, than what you would normally find in the classic Key/Value model. The classic Key/Value model provides "buckets" to group key/value pairs in different containers. The most classic use cases of the Key/Value Model are:
 
@@ -62,9 +65,9 @@ The table below illustrates the comparison between the relational model, the Key
 | Relationship     | not available    | [Link](Concepts.md#relationships)                    |
 
 
-## Object Model
+## The Object Model
 
-This model has been inherited by [Object Oriented programming](http://en.wikipedia.org/wiki/Object-oriented_programming) and supports **Inheritance** between types (sub-types extends the super-types), **Polymorphism** when you refer to a base class, and **Direct binding** from/to Objects used in programming languages.
+This model has been inherited by [Object Oriented programming](http://en.wikipedia.org/wiki/Object-oriented_programming) and supports **Inheritance** between types (sub-types extends the super-types), **Polymorphism** when you refer to a base class and **Direct binding** from/to Objects used in programming languages.
 
 The table below illustrates the comparison between the relational model, the Object model, and the OrientDB Object model:
 
