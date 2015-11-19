@@ -28,7 +28,7 @@
             "top": 36,
             "bottom": 36
         },
-        "footerTemplate": "Copyright (c) Orient Technologies LTD"
+        "footerTemplate": "Copyright (c) OrientDB LTD"
     },
     "plugins": [
         "ga", "anchors", "collapsible-menu", "versions", "edit-link", "addcssjs"
@@ -37,21 +37,21 @@
         "ga": {
             "token": "UA-28543690-2"
         },
-        "addcssjs":{
-            "css": ["css/custom.css"]
-        },
-        "versions": {
-            "gitbookConfigURL": "http://orientdb.com/docs/book.json",
-            "options": [
-                { "value": "http://orientdb.com/docs/1.7.8/", "text": "Version 1.7.x" },
-                { "value": "http://orientdb.com/docs/2.0/", "text": "Version 2.0.x" },
-                { "value": "http://orientdb.com/docs/2.1", "text": "Version 2.1.x" },
-                { "value": "http://orientdb.com/docs/last", "text": "Version last", "selected": true }
-            ]
-        },
-        "edit-link": {
-            "base": "https://github.com/orientechnologies/orientdb-docs/edit/master/source",
-            "label": "Edit This Page"
+	"addcssjs":{
+		"css": ["css/custom.css"]
+	},
+	"versions": {
+		"gitbookConfigURL": "http://orientdb.com/docs/book.json",
+		"options": [
+			{ "value": "http://orientdb.com/docs/1.7.8/", "text": "Version 1.7.x" },
+			{ "value": "http://orientdb.com/docs/2.0/", "text": "Version 2.0.x" },
+			{ "value": "http://orientdb.com/docs/2.1", "text": "Version 2.1.x" },
+			{ "value": "http://orientdb.com/docs/last", "text": "Version last", "selected": true }
+		] 
+    	},
+	"edit-link": {
+                "base": "https://github.com/orientechnologies/orientdb-docs/edit/master",
+                "label": "Edit This Page"
         },
         "github": {
             "url": "https://github.com/orientechnologies/orientdb"
