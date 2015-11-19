@@ -1,17 +1,13 @@
 # Server Security
 
-See also:
-- [Database security](Database-Security.md)
-- [Database Encryption](Database-Encryption.md)
-- [Secure SSL connections](Using-SSL-with-OrientDB.md)
+Individual OrientDB servers can manage multiple databases at a time and each database can have its own set of users.  When using OrientDB through the HTTP protocol, the OrientDB server uses one realm per database.
 
 |   |   |
 |---|---|
-|![](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
+|![](images/warning.png)| While OrientDB can function as a regular Web Server, it is not recommended that you expose it directly to the internet or to public networks.  Instead, always hide the OrientDB server within a private network.|
 
-A single OrientDB server can manage multiple databases at a time, each one with its own users. When used through the HTTP protocol, OrientDB server uses one realm per database.
+Server users are stored in the `config/orientdb-server-config.xml` configuration file, in the `<users>` element.
 
-Server users are stored in `config/orientdb-server-config.xml` file under the tag `<users>`. Example:
 ```xml
     <users>
         <user name="root" password="{SHA-256}55F95B91628EF3E679628ACB23AE" resources="*" />
@@ -19,16 +15,27 @@ Server users are stored in `config/orientdb-server-config.xml` file under the ta
     </users>
 ```
 
-When the OrientDB Server starts for the first time, it creates the `root` user automatically by asking the password in console. If no password is specified, a random passwod is generated. Starting from OrientDB 2.2, passwords are hashed using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm.
+When the OrientDB server starts for the first time, it creates the user `root` automatically, by asking you to give the password in the terminal.  In the event that you do not specify a password, OrientDB generates a random password.  Beginning with version 2.2, OrientDB hashes the passwords using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm.
+
+For more information on security in Orientdb, see:
+- [Database security](Database-Security.md)
+- [Database Encryption](Database-Encryption.md)
+- [Secure SSL connections](Using-SSL-with-OrientDB.md)
 
 ## Configuration
-To avoid untrusted users add a new user or change the password on server configuration, protect the file `config/orientdb-server-config.xml` by disabling `write` access. It's good rule also disabling `read` access to avoid any user to read the hashed password. In fact, even if the password is hashed, there are many techniques to guess the real password. These techniques could be more or less complicated and time consuming.
+
+To restrict untrusted users from gaining access to the OrientDB server, add a new user or change the password in the server configuration file.  Protect the file `config/orientdb-server-config.xml` by disabling write access.  
+
+Additionally, it is advisable that you also disable read access on the configuration file, to prevent users from viewing the passwords.  Even if passwords are hashed, there are many techniques available to crack the hash or otherwise guess the real password.  
+
 
 |   |   |
 |---|---|
-|![](images/warning.png)|It's strongly suggested to allow the read/write access to the entire OrientDB `config` directory only to the user that will start OrientDB server.|
+|![](images/warning.png)|It is strongly recommended that you allow read/write access to the entire `config` directory only to the user that starts the OrientDB server.|
 
-## Manage users
+
+## Managing Users
+
 Starting from OrientDB 2.2, the console is able to manage server users thanks to the following commands:
 - [`list server users`](Console-Command-List-Server-Users.md), to display all the users
 - [`set server user`](Console-Command-Set-Server-User.md), to create or modify a user

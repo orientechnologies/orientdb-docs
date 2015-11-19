@@ -76,6 +76,8 @@ To disable a user, use [`UPDATE`](SQL-Update.md) to switch its status from `ACTI
 orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED' WHERE name <> 'admin'</code>
 </pre>
 
+>**NOTE**: In the event that, due to accident or database corruption, you lose the user `admin` and need to restore it on the database, see [Restoring the admin User`](Server-Security.md#restoring-the-admin-user).
+
 
 ## Roles
 
@@ -270,116 +272,110 @@ orientdb> <code class="lang-sql userinput">ALTER CLASS Post CUSTOM onCreate.iden
 </pre>
 
 
-### Bypass security constraints
-Sometimes you need to create a role that can bypass such restrictions, such as for backup or administrative operations. For this reason we've created the special permission `database.bypassRestricted` to `READ`. By default, the `admin` role has this permission.
+### Bypassing Security Constraints
 
-This permission is not inheritable, so if you need to give such high privilege to other roles set it on each role.
+On occasion, you may need a role that can bypass restrictions, such as for backup or administrative operations.  You can manage this through the special permission `database.bypassRestricted`, by changing its value to `READ`.  By default, the role `admin` has this permission. 
 
-### Use case
+For security reasons, this permission is not inheritable.  In the event that you need to assign it to other roles in your database, you need to set it on each role.
 
-If you want to enable this security in a blog-like application, first create the document class, like `Post` that extends `ORestricted`, then if the user Luke creates a new post and the user Steve does the same, each user can't access the other's `Post`.
 
-```sql
-CONNECT remote:localhost/blog admin admin
-CREATE CLASS Post EXTENDS ORestricted
+## Using Security
 
-Class 'Post' created successfully
-```
+Now that you have some familiarity with how security works in OrientDB, consider the use case of OrientDB serving as the database for a blog-like application.  The blog is accessible through the web and you need to implement various security features to ensure that it works properly and does not grant its users access to restricted content.
 
-The user `Luke`, registered as `OUser` `luke` having `RID` of `#5:5`, logs in and creates a new `Post`:
-```sql
-CONNECT remote:localhost/blog luke luke
-INSERT INTO Post SET title = "Yesterday in Italy"
+To begin, the administrator connects to the database and creates the document class `Post`, which extends `ORestricted`.  This ensures that users can only see their own entries in the blog and entries that are shared with them.
+
+<pre>
+orientdb> <code class="lang-sql userinput">CONNECT REMOTE:localhost/blog admin admin</code>
+orientdb> <code class="lang-sql userinput">CREATE CLASS Post EXTENDS ORestricted</code>
+
+Class 'Post' created successfully.
+</pre>
+
+The user Luke is registered in `OUser` as `luke`, with an `RID` of `#5:5`.  He logs into the database and creates a new blog, which is an instance of the class `Post`.
+
+<pre>
+orientdb> <code class="lang-sql userinput">CONNECT REMOTE:localhost/blog luke lukepassword</code>
+orientdb> <code class="lang-sql userinput">INSERT INTO Post SET title = "Yesterday in Italy"</code>
 
 Created document #18:0
-```
 
-``` sql
-SELECT FROM Post
+orientdb> <code class="lang-sql userinput">SELECT FROM Post</code>
 
- +-----+--------------+-----------------------+
- | RID | _allow       | title                 |
- +-----+--------------+-----------------------+
- |#18:0| [#5:5]       | Yesterday in Italy    |
- +-----+--------------+-----------------------+
-```
+-------+--------+--------------------
+ RID   | _allow | title 
+-------+--------+--------------------
+ #18:0 | [#5:5] | Yesterday in Italy
+-------+--------+--------------------
+</pre>
 
-Then the user Steve, registered as `OUser` `steve` having `RID` of `#5:6`, logs in too and creates a new `Post`:
+Independent of the users `admin` and `luke`, there is the user Steve.  Steve is registers with `OUser` as `steve`, he has an RID of `#5:6`.  Steve logs into OrientDB and also creates a new entry on the class `Post`:
 
-```sql
-CONNECT remote:localhost/blog steve steve
-INSERT INTO Post SET title = "My Nutella cake"
+<pre>
+orientdb> <code class="lang-sql userinput">CONNECT REMOTE:localhost/blog steve steve</code>
+orientdb> <code class="lang-sql userinput">INSERT INTO Post SET title = "My Nutella Cake!"</code>
 
 Created document #18:1
-```
-```sql
-SELECT FROM Post
- +-----+--------------+-----------------------+
- | RID | _allow       | title                 |
- +-----+--------------+-----------------------+
- |#18:1| [#5:6]       | My Nutella cake       |
- +-----+--------------+-----------------------+
-```
 
-Each user can only see the record that he has access to. Now, to allow the user Steve (RID `#5:6`) to have access to the first Luke's post, add Steve's RID in the `_allow` field:
+orientdb> <code class="lang-sql userinput">SELECT FROM Post</code>
 
-```sql
-CONNECT remote:localhost/blog luke luke
-UPDATE #18:0 ADD _allow = #5:6
-```
+-------+--------+------------------
+ RID   | _allow | title
+-------+--------+------------------
+ #18:1 | [#5:6] | My Nutella Cake!
+-------+--------+------------------
+</pre>
 
-Now if Steve executes the same query as before, the result changes:
+As you can see, the users Steve and Luke can only see the records that they have access to.  Now, after some editorial work, Luke is satisfied with the state of his blog entry `Yesterday in Italy`.  He is now ready to share it with others.  From the database console, he can do so by adding the user Steve's RID to the `_allow` field.
 
-```sql
-CONNECT remote:localhost/blog steve steve
-SELECT FROM Post
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE #18:0 ADD _allow = #5:6</code>
+</pre>
 
- +-----+--------------+-----------------------+
- | RID | _allow       | title                 |
- +-----+--------------+-----------------------+
- |#18:0| [#5:5]       | Yesterday in Italy    |
- |#18:1| [#5:6]       | My Nutella cake       |
- +-----+--------------+-----------------------+
-```
+Now, when Steve logs in, the same query from before gives him different results, since he can now see the content Luke shared with him.
 
-Now we would like to let Steve only read posts by Luke, without the rights to modify them. So we're going to remove Steve from the generic "_allow" field and insert his RID into the "_allowRead" field.:
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Post</code>
 
-```sql
-CONNECT remote:localhost/blog luke luke
-UPDATE #18:0 REMOVE _allow = #5:6
-UPDATE #18:0 ADD _allowRead = #5:6
-```
+-------+--------+---------------------
+ RID   | _allow | title  
+-------+--------+---------------------
+ #18:0 | [#5:5] | Yesterday in Italy
+ #18:1 | [#5:6] | My Nutella Cake!
+-------+--------+---------------------
+</pre>
 
-Now if Steve connects and displays all the Post instances, he will continue to display Luke's posts but he can't update or delete them.
+While this is an effective solution, it does have one minor flaw for Luke.  By adding Steve to the `_allow` list, Steve can not only read posts Luke makes, but he can also modify them.  While Luke may find Steve a reasonable person, he begins to have second thoughts about this blanket permission and decides to remove Steve from the `_allow` field and instead add him to the `_allowRead` field:
 
-```sql
-CONNECT remote:localhost/blog steve steve
-SELECT FROM Post
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE #18:0 REMOVE _allow = 5:6</code>
+orientdb> <code class="lang-sql userinput">UPDATE #18:0 ADD _allowRead = #5:6</code>
+</pre>
 
- +-----+--------------+-----------------------+
- | RID | _allow       | title                 |
- +-----+--------------+-----------------------+
- |#18:0| [#5:5]       | Yesterday in Italy    |
- |#18:1| [#5:6]       | My Nutella cake       |
- +-----+--------------+-----------------------+
+For the sake of argument, assume that Luke's misgivings about Steve have some foundation.  Steve decides that he does not like Luke's entry `Yesterday in Italy` and would like to remove it from the database.  He logs into OrientDB, runs [`SELECT`](SQL-Query.md) to find its RID, and attempts to [`DELETE`](SQL-Delete.md) the record:
 
-DELETE FROM #18:0
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Post</code>
 
- !Error: Cannot delete record #18:0 because the access to the resource is restricted
-```
+-------+--------+---------------------
+ RID   | _allow | title
+-------+--------+---------------------
+ #18:0 | [#5:5] | Yesterday in Italy
+ #18:1 | [#5:6] | My Nutella Cake!
+-------+--------+---------------------
 
-You can enable this feature even on graphs. Follow this tutorial to look how to create a [partitioned graph](Partitioned-Graphs.md).
+orientdb> <code class="lang-sql userinput">DELETE FROM #18:0</code>
 
-## Restore the admin user
+!Error: Cannot delete record #18:0 because the access to the resource is restricted.
+</pre>
 
-In case your database is corrupted or you need to re-install the "admin" user, look at [Restore the admin user](Server-Security.md#restore-the-admin-user).
+As you can see, OrientDB blocks the [`DELETE`](SQL-Delete.md) operation, given that the current user, Steve, does not have permission to do so on this resource.
 
-## Password management
 
-User passwords are stored in OUser records by using the [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) HASH algorithm using a random 24 bit length Salt per user for a configurable number of iterations (by default is 65,536). Using a higher iteration count makes any attack slower, but it slows down also the OrientDB authentication. To change the SALT iteration count, change the global configuration `security.userPasswordSaltIterations`.
+## Password Management
 
->**NOTE**: Before OrientDB v2.2 a simple [SHA-256](https://en.wikipedia.org/wiki/SHA-2) was used.
+OrientDB stores user passwords in the `OUser` records using the  [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) HASH algorithm with a 24-bit length Salt per user for a configurable number of iterations.  By default, this number is 65,536 iterations.  You can change this account through the `security.userPasswordSaltIterations` global configuration.  Note that while a higher iteration count can slow down attacks, it also slows down the authentication process on legitimate OrientDB use.
 
-In order to speedup the hashing of password, OrientDB uses a password cache implemented as a LRU with maximum 500 entries. To change this setting, set the global configuration `security.userPasswordSaltCacheSize` to the entries to cache. Use `0` to completely disable the cache.
+In order to speed up password hashing, OrientDB uses a password cache, which it implements as an LRU with a maximum of five hundred entries.  You can change this setting through the `security.userPasswordSaltCacheSize` global configuration.  Giving this global configuration the value of `0` disables the cache.
 
->**NOTE**: If an attacker have access to the JVM memory dump, he could access to this map containing all the passwords. If you want to protect against this attack, disable the in memory password cache.
+>**NOTE**: In the event that attackers gain access to the Java virtual machine memory dump, he could access this map, which would give them access to all passwords.  You can protect your database from this attack by disabling the in memory password cache.
