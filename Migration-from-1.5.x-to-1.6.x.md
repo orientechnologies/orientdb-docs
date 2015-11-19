@@ -1,4 +1,5 @@
 # Migration from 1.5.x to 1.6.x
+____
 
 Databases created with release 1.5.x need to be exported and reimported in OrientDB 1.6.x.
 
