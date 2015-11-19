@@ -1,4 +1,5 @@
 # Supported Types
+____
 
 OrientDB supports several types natively. Below is the complete table.
 

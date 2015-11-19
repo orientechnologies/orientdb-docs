@@ -122,6 +122,7 @@
       * [From 1.4.x to 1.5.x](Migration-from-1.4.x-to-1.5.x.md)
       * [From 1.3.x to 1.4.x](Migration-from-1.3.x-to-1.4.x.md) 
   * [Backup and Restore](Backup-and-Restore.md)
+      * [Automatic Backup Plugin](Automatic-Backup.md)
   * [Export and Import](Export-and-Import.md)
       * [Export format](Export-Format.md)
     * [Import From RDBMS](Import-From-RDBMS.md)
