@@ -1,6 +1,7 @@
 # Key Value Use Case
+____
 
-OrientDB can be used like a Key Value DBMS by using the super fast [Indexes](Indexes.md). You can have as many [Indexes](Indexes.md) as you need.
+OrientDB can also be used as a Key Value DBMS by using the super fast [Indexes](Indexes.md). You can have as many [Indexes](Indexes.md) as you need.
 
 # HTTP
 OrientDB RESTful HTTP protocol allows to talk with a OrientDB Server instance using the [HTTP protocol](OrientDB-REST.md) and JSON. OrientDB supports also a highly optimized Binary protocol for superior performances.

@@ -1,6 +1,7 @@
 # Managing Dates
+____
 
-OrientDB treats dates as first class citizens.  Internally, it saves dates in the [Unix time](https://en.wikipedia.org/wiki/Unix_time) format.  Meaning, it stores dates as a `long` variable, which contains the count in miliseconds since the Unix Epoch, (that is, 1 January 1970).
+OrientDB treats dates as first class citizens. Internally, it saves dates in the [Unix time](https://en.wikipedia.org/wiki/Unix_time) format.  Meaning, it stores dates as a `long` variable, which contains the count in milliseconds since the Unix Epoch, (that is, 1 January 1970).
 
 ## Date and Datetime Formats
 
@@ -19,7 +20,7 @@ This command updates the current database to use the English format for dates.  
 
 ## SQL Functions and Methods
 
-To simplify the management of date, OrientDB SQL automatically parses dates to and from strings and longs.  These functions and methods provide you with more control in how dates are managed:
+To simplify the management of dates, OrientDB SQL automatically parses dates to and from strings and longs.  These functions and methods provide you with more control to manage dates:
 
 | SQL | Description |
 |----|----|
@@ -45,7 +46,7 @@ orientdb> <code class="lang-sql userinput">SELECT @RID, id, date.format('yyyy') 
 --------+----+------+
 </pre>
 
-In addition to this, you can also group the results.  For instance, extracting the number of orders grouped by year.
+In addition to this, you can also group the results. For instance, extracting the number of orders grouped by year.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT date.format('yyyy') AS Year, COUNT(*) AS Total 
@@ -64,7 +65,7 @@ orientdb> <code class="lang-sql userinput">SELECT date.format('yyyy') AS Year, C
 
 While you may find the default system for managing dates in OrientDB sufficient for your needs, there are some cases where it may not prove so.  For instance, consider a database of archaeological finds, a number of which date to periods not only before 1970 but possibly even before the Common Era.  You can manage this by defining an era or epoch variable in your dates.
 
-For example, consider an instance where you want to add a record noting the date for the foundation of the city Rome, which is traditionally referred to as April 21, 753 BC.  To enter dates before the Common Era, first run the [`ALTER DATABASE DATETIMEFORMAT`] command to add the `GG` variable to use in referencing the epoch.
+For example, consider an instance where you want to add a record noting the date for the foundation of Rome, which is traditionally referred to as April 21, 753 BC.  To enter dates before the Common Era, first run the [`ALTER DATABASE DATETIMEFORMAT`] command to add the `GG` variable to use in referencing the epoch.
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER DATABASE DATETIMEFORMAT "yyyy-MM-dd HH:mm:ss GG"</code>
@@ -85,7 +86,7 @@ orientdb> <code class="lang-sql userinput">SELECT @RID, city, date FROM V</code>
 
 ### Using `.format()` on Insertion
 
-In addition to the above method, instead of changing the date and datetime formats for the database, you can format the results as you insert date.
+In addition to the above method, instead of changing the date and datetime formats for the database, you can format the results as you insert the date.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET city = "Rome", date = DATE("yyyy-MM-dd HH:mm:ss GG")</code>

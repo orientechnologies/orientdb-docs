@@ -1,6 +1,7 @@
 # Using Schema with Graphs
+____
 
-OrientDB through the Graph API offers a number of features over and beyond the traditional Graph Database, given that it supports concepts drawn from both the Document Database and the Object Oriented worlds.  For instance, consider the power of graphs when used in conjunction with schemas and constraints.
+OrientDB, through the Graph API, offers a number of features above and beyond the traditional Graph Databases given that it supports concepts drawn from both the Document Database and the Object Oriented worlds. For instance, consider the power of graphs, when used in conjunction with schemas and constraints.
 
 ## Use Case: Car Database
 
@@ -14,7 +15,7 @@ orientdb> <code class="lang-sql userinput">CREATE CLASS Car EXTENDS V</code>
 orientdb> <code class="lang-sql userinput">CREATE CLASS Owns EXTENDS E</code>
 </pre>
 
-These commands lay out the schema for your graph database.  That is, they define two vertex calsses and an edge class to indicate the relationship between the two.  With that ready, you can begin to populate the database with vertices and edges.
+These commands lay out the schema for your graph database.  That is, they define two vertex classes and an edge class to indicate the relationship between the two.  With that, you can begin to populate the database with vertices and edges.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE VERTEX Person SET name = 'Luca'</code>
@@ -51,9 +52,9 @@ As you can see, the query returns that Luca owns a Ferrari Modena.  Now consider
 
 ### Adding a Location Vertex
 
-Consider a situation in which you might want to keep track of the countries in which each person lives.  In practice, there are a number of reasons why you might want to do this, such as for the purposes of promotional material or in a larger database to analyze the connections to see how residence affects car ownership.
+Consider a situation, in which you might want to keep track of the countries in which each person lives. In practice, there are a number of reasons why you might want to do this, for instance, for the purposes of promotional material or in a larger database to analyze the connections to see how residence affects car ownership.
 
-To begin, create a vertex class for the country in which the person lives and an edge class that connects the individual to the place.
+To begin, create a vertex class for the country, in which the person lives and an edge class that connects the individual to the place.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE CLASS Country EXTENDS V</code>

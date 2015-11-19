@@ -1,8 +1,9 @@
 # Working with Graphs
+____
 
-In the Graph databases, the database system graphs data into network-like structures consisting of verticies and edges. In the OrientDB [Graph model](Tutorial-Document-and-graph-model.md#graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge as an entity that links two vertices.
+In graph databases, the database system graphs data into network-like structures consisting of vertices and edges. In the OrientDB [Graph model](Tutorial-Document-and-graph-model.md#graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge, as an entity that links two vertices.
 
-OrientDB ships with a generic Vertex persistent class, called `V`, as well as a class for edges, called `E`. As an example, you can create a new Vertex using the [`INSERT`](SQL-Insert.md) command with `V`.
+OrientDB ships with a generic vertex persistent class, called `V`, as well as a class for edges, called `E`. As an example, you can create a new vertex using the [`INSERT`](SQL-Insert.md) command with `V`.
 
 <pre>
 orientdb> <code class="lang-sql userinput">INSERT INTO V SET name='Jay'</code>
@@ -10,7 +11,7 @@ orientdb> <code class="lang-sql userinput">INSERT INTO V SET name='Jay'</code>
 Created record with RID #9:0
 </pre>
 
-In effect, the Graph model database works on top of the underlying Document model. But, in order to simplify this process, OrientDB introduces a new set of commands for managing graphs from the console. Instead of [`INSERT`](SQL-Insert.md), use [`CREATE VERTEX`](SQL-Create-Vertex.md)
+In effect, the Graph model database works on top of the underlying document model. But, in order to simplify this process, OrientDB introduces a new set of commands for managing graphs from the console. Instead of [`INSERT`](SQL-Insert.md), use [`CREATE VERTEX`](SQL-Create-Vertex.md)
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET name='Jay'</code>
@@ -27,7 +28,7 @@ By using the graph commands over the standard SQL syntax, OrientDB ensures that 
 
 ## Use Case: Social Network for Restaurant Patrons
 
-While you have the option of working with Verticies and Edges in your database as they are, you can also extend the `V` and `E` classes to suit the particular needs of your application. The advantages of this approach are,
+While you have the option of working with vertexes and edges in your database as they are, you can also extend the standard `V` and `E` classes to suit the particular needs of your application. The advantages of this approach are,
 
 - It grants better understanding about the meaning of these entities.
 - It allows for optional constraints at the class level.
