@@ -1,5 +1,5 @@
-orientdb-docker
-===============
+#Installing in a Docker Container
+_____
 
 [OrientDB](http://www.orientdb.org) is the first Multi-Model Open Source NoSQL DBMS that combines the power of graphs and the flexibility of documents into one scalable, high-performance operational database.
 
@@ -28,10 +28,10 @@ Building the image on your own
    docker push <YOUR_DOCKER_HUB_USER>/orientdb-2.0
    ```
 
-All examples below are using my own image nesrait/orientdb-2.0. If you build your own image please find/replace "nesrait" with your Docker Hub user.
+All examples below are using an image from nesrait/orientdb-2.0. If you build your own image please find/replace "nesrait" with your Docker Hub user.
 
 
-Running orientdb
+Running Orientdb
 ----------------
 
 To run the image, run:
@@ -40,7 +40,7 @@ To run the image, run:
 docker run --name orientdb -d -v <config_path>:/opt/orientdb/config -v <databases_path>:/opt/orientdb/databases -v <backup_path>:/opt/orientdb/backup -p 2424 -p 2480 nesrait/orientdb-2.0
 ```
 
-The docker image contains a unconfigured orientdb installation and for running it you need to provide your own config folder from which [OrientDB](http://www.orientdb.org) will read its startup settings.
+The docker image contains a unconfigured Orientdb installation and for running it, you need to provide your own config folder from which [OrientDB](http://www.orientdb.org) will read its startup settings.
 
 The same applies for the databases folder which if local to the running container would go away as soon as it died/you killed it.
 
@@ -75,6 +75,7 @@ docker run -d --name orientdb_backup -v /opt/orientdb/backup nesrait/btsync /opt
 4. Wait until all files have magically appeared inside your BTSync data volumes:
   ```bash
 docker run --rm -i -t --volumes-from orientdb_config --volumes-from orientdb_databases --volumes-from orientdb_backup ubuntu du -h /opt/orientdb/config /opt/orientdb/databases /opt/orientdb/backup
+
 ```
 
 5. Finally you're ready to start your OrientDB server
@@ -115,7 +116,7 @@ Either way, when the backup completes you will have the backup file located outs
 Note: I haven't tried the non-blocking backup (type=lvm) yet but found [this discussion about a docker LVM dependency issue](https://groups.google.com/forum/#!topic/docker-user/n4Xtvsb4RAw).
 
 
-Running the orientdb console
+Running the Orientdb console
 ----------------------------
 
 ```bash

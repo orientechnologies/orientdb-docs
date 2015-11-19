@@ -1,4 +1,5 @@
 # Running the OrientDB Server
+____
 
 When you finish installing OrientDB, whether you build it from source or download the binary package, you are ready to launch the database server.  You can either start it through the system daemon or through the provided server script.  This article only covers the latter.
 
@@ -56,7 +57,7 @@ The database server is now running.  It is accessible on your system through por
 
 ### Server Log Messages
 
-Following the masthead, the database server begins to print log messages to standard output.  This provides you with a guide to what OrientDB does as it starts up on yoru system.
+Following the masthead, the database server begins to print log messages to standard output.  This provides you with a guide to what OrientDB does as it starts up on your system.
 
 1. The database server loads its configuration file from the file `$ORIENTDB_HOME/config/orientdb-server-config.xml`.
 
@@ -77,6 +78,5 @@ By default, OrientDB listens on two different ports for external connections.
 - **HTTP**: OrientDB listens on port `2480` for HTTP connections from [OrientDB Studio Web Tool](http://www.orientechnologies.com/docs/last/orientdb-studio.wiki/Home-page.html) and clients and drivers that support the [HTTP/REST protocol](OrientDB-REST.md), or similar tools, such as [cURL](http://en.wikipedia.org/wiki/cURL).
 
 If you would like the database server to listen at different ports or IP address, you can define these values in the configuration file `config/orientdb-server-config.xml`.
-
 
 
