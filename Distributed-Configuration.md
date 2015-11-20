@@ -243,9 +243,9 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
 }
 ```
 
-Starting from v2.1.6 is possible to catch event of command during asynchronous replication, thanks to the following method of OCommandSQL:
+Starting from v2.1.6 is possible to catch events of command during asynchronous replication, thanks to the following method of OCommandSQL:
 - `onAsyncReplicationOk()`, to catch the event when the asynchronous replication succeed
-- `onAsyncReplicationError()`, to catch the event when the asynchronous replication errored
+- `onAsyncReplicationError()`, to catch the event when the asynchronous replication returns error
 
 Example retrying up to 3 times in case of concurrent modification exception on creation of edges:
 ```java
