@@ -4,9 +4,9 @@
 
 ## Available Extractors
 
-|  |  |  |  |
-|-----|-----|-----|-----|
-|[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|
+|  |  |  |  |   |
+|-----|-----|-----|-----|----|
+|[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|[xml](Extractor.md#xml)|
 
 ### row
 Extracts content row by row.
@@ -138,4 +138,127 @@ Extracts content by parsing json objects. If the content has more json items mus
 ```json
 { "json": {} }
 ```
+
+
+-----
+
+### xml
+(Since v2.2) Extracts content by parsing XML.
+
+- Component name: **xml**
+- Output class: [**ODocument**]
+
+#### Syntax
+| Parameter | Description | Type | Mandatory | Default value |
+|-----------|-------------|------|-----------|-----------|
+|rootNode|Root node to consider. By default it build a document starting from the root tag|string|false|empty|
+|tagsAsAttribute|array of tags where children tags are considered as attributes of document and the attribute value is the text inside the tag|string[]|false|empty|
+
+#### Example
+
+##### Example 1: extract from a XML file the content.
+
+`simple.xml` XML file content:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<a>
+	<b>
+		<c name='Ferrari' color='red'>ignore</c>
+		<c name='Maserati' color='black'/>
+	</b>
+</a>
+```
+
+OrientDB ETL configuration file:
+```json
+{"source": { "file": { "path": "src/test/resources/simple.xml" } }, "extractor" : { "xml": {} }, "loader": { "test": {} } }
+```
+
+Result:
+```json
+{
+  "a": {
+    "b": {
+      "c": [
+        {
+          "color": "red",
+          "name": "Ferrari"
+        },
+        {
+          "color": "black",
+          "name": "Maserati"
+        }
+      ]
+    }
+  }
+}
+```
+
+
+##### Example 2: extract a collection from a XML.
+
+`simple.xml` XML file content:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+    <CD>
+        <TITLE>Empire Burlesque</TITLE>
+        <ARTIST>Bob Dylan</ARTIST>
+        <COUNTRY>USA</COUNTRY>
+        <COMPANY>Columbia</COMPANY>
+        <PRICE>10.90</PRICE>
+        <YEAR>1985</YEAR>
+    </CD>
+    <CD>
+        <TITLE>Hide your heart</TITLE>
+        <ARTIST>Bonnie Tyler</ARTIST>
+        <COUNTRY>UK</COUNTRY>
+        <COMPANY>CBS Records</COMPANY>
+        <PRICE>9.90</PRICE>
+        <YEAR>1988</YEAR>
+    </CD>
+    <CD>
+        <TITLE>Greatest Hits</TITLE>
+        <ARTIST>Dolly Parton</ARTIST>
+        <COUNTRY>USA</COUNTRY>
+        <COMPANY>RCA</COMPANY>
+        <PRICE>9.90</PRICE>
+        <YEAR>1982</YEAR>
+    </CD>
+</CATALOG>
+```
+
+OrientDB ETL configuration file:
+```json
+{"source": { "file": { "path": "src/test/resources/music.xml" } }, "extractor" : { "xml": { "rootNode": "CATALOG.CD", "tagsAsAttribute": ["CATALOG.CD"] } }, "loader": { "test": {} } }
+```
+
+Result:
+```json
+{
+  "TITLE": "Empire Burlesque",
+  "ARTIST": "Bob Dylan",
+  "COUNTRY": "USA",
+  "COMPANY": "Columbia",
+  "PRICE": "10.90",
+  "YEAR": "1985"
+}
+{
+  "TITLE": "Hide your heart",
+  "ARTIST": "Bonnie Tyler",
+  "COUNTRY": "UK",
+  "COMPANY": "CBS Records",
+  "PRICE": "9.90",
+  "YEAR": "1988"
+}
+{
+  "TITLE": "Greatest Hits",
+  "ARTIST": "Dolly Parton",
+  "COUNTRY": "USA",
+  "COMPANY": "RCA",
+  "PRICE": "9.90",
+  "YEAR": "1982"
+}
+```
+
 -----
