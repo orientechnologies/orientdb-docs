@@ -6,7 +6,7 @@
 
 |  |  |  |  |
 |-----|-----|-----|-----|
-|[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|
+|[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|[xml](Extractor.md#xml)|
 
 ### row
 Extracts content row by row.
@@ -138,4 +138,61 @@ Extracts content by parsing json objects. If the content has more json items mus
 ```json
 { "json": {} }
 ```
+
+
+-----
+
+### json
+Extracts content by parsing XML.
+
+- Component name: **xml**
+- Output class: [**ODocument**]
+
+#### Syntax
+| Parameter | Description | Type | Mandatory | Default value |
+|-----------|-------------|------|-----------|-----------|
+|rootNode|Root node to consider. By default it build a document starting from the root tag|string|false|empty|
+|tagsAsAttribute|array of tags where children tags are considered as attributes of document and the attribute value is the text inside the tag|string[]|false|empty|
+
+#### Example
+
+##### Example 1: extract from a XML file the content.
+
+`simple.xml` XML file content:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<a>
+	<b>
+		<c name='Ferrari' color='red'>ignore</c>
+		<c name='Maserati' color='black'/>
+	</b>
+</a>
+```
+
+OrientDB ETL configuration file:
+```json
+{source: { file: { path: 'src/test/resources/simple.xml' } }, extractor : { xml: {} }, loader: { test: {} } }
+```
+
+Result:
+```json
+{
+  "a": {
+    "b": {
+      "c": [
+        {
+          "color": "red",
+          "name": "Ferrari"
+        },
+        {
+          "color": "black",
+          "name": "Maserati"
+        }
+      ]
+    }
+  }
+}
+```
+
+
 -----
