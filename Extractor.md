@@ -143,7 +143,7 @@ Extracts content by parsing json objects. If the content has more json items mus
 -----
 
 ### xml
-Extracts content by parsing XML.
+(Since v2.2) Extracts content by parsing XML.
 
 - Component name: **xml**
 - Output class: [**ODocument**]
