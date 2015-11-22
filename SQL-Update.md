@@ -1,4 +1,5 @@
 # SQL - UPDATE
+____
 
 Update one or more records in the current database. Remember that OrientDB can work also in schema-less mode, so you can create any field on-the-fly. Furthermore, OrientDB works on collections. This is the reason why OrientDB SQL has some extensions to handle collections.
 
@@ -25,7 +26,7 @@ Where:
 - **LOCK** specifies how the record is locked between the load and the update. It can be a value between:
  - *DEFAULT*, no lock. In case of concurrent update, the MVCC throws an exception
  - *RECORD*, locks the record during the update
-- **UPSERT** updates a record if it already exists, or inserts a new record if it does not, all in a single statement. This avoids the need to execute 2 commands, one for the query and a conditional insert/update. UPSERT requires a WHERE clause and a class target. There are limitation on usage of UPSERT. See below.
+- **UPSERT** updates a record, if it already exists, or inserts a new record if it does not, all in a single statement. This avoids the need to execute 2 commands, one for the query and a conditional insert/update. UPSERT requires a WHERE clause and a class target. There are limitations on usage of UPSERT. See below.
 - **RETURN** specifies what to return as ```<returning>```. If ```<returning-expression>``` is specified (optional) and returning is BEFORE or AFTER, then the expression value is returned instead of record. ```<returning>``` can be a value between:
  - **COUNT**, the default, returns the number of updated records
  - **BEFORE**, returns the records before the update
@@ -39,7 +40,7 @@ Note that [RecordID](Concepts.md#recordid) must be prefixed with '#'. Example: #
 To know more about conditions, take a look at [WHERE conditions](SQL-Where.md).
 
 ## Limitation on usage of UPSERT clause
-UPSERT guarantee the atomicity only if a UNIQUE index is created and the lookup on index is done by where condition. 
+UPSERT can only guarantee atomicity when a UNIQUE index is created and the lookup on index is done by the where condition. 
 
 In this example a unique index on Client.id must be present to guarantee uniqueness on concurrent operations:
 ```sql
@@ -63,7 +64,7 @@ UPDATE Profile REMOVE nick
 ```sql
 UPDATE Account ADD addresses=#12:0
 ```
->Note: in OrientDB server version 2.0.5 you will generate a server error if there is no space between the # and =. The command needs to be
+>Note: in OrientDB server version 2.0.5 you will generate a server error, if there is no space between the # and =. The command needs to be
 
 ```sql
 UPDATE Account ADD addresses = #12:0
@@ -141,6 +142,6 @@ UPDATE ♯7:0 SET gender='male' RETURN AFTER $current.exclude("really_big_field"
 UPDATE ♯7:0 ADD out_Edge = ♯12:1 RETURN AFTER $current.outE("Edge")
 ```
 
-In case a single field is returned, the result is wrapped in a record storing value in "result" field (Just to avoid introducing new serialization – there is no primitive-values collection serialization in binary protocol). Additionally to that, useful fields like version and rid of original record is provided in corresponding fields. New syntax will allow optimizing client-server network traffic.
+In case a single field is returned, the result is wrapped in a record storing value in the "result" field (Just to avoid introducing new serialization – there is no primitive-values collection serialization in binary protocol). Additionally to that, useful fields like version and rid of the original record are provided in corresponding fields. New syntax will allow optimizing client-server network traffic.
 
 To know more about the SQL syntax used in Orient, take a look at: [SQL-Query](SQL-Query.md).
