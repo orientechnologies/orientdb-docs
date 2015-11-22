@@ -44,7 +44,7 @@ During the distributed transaction, in case of rollback, there could be an amoun
 OrientDB guarantees strong consistency if it's configured to have a `writeQuorum` set to a value as the majority of the number of nodes. I you have 5 nodes, it's 3, but if you have 4 nodes, it's still 3 to have a majority. While `writeQuorum` setting can be configured at database and cluster level too, it's not suggested to set a value minor than the majority of nodes, because in case of re-merge of the 2 split networks, you'd have both network partitions with updated data and OrientDB doesn't support (yet) the merging of 2 non read-only networks. So the suggestion is to always provide a `writeQuorum` with a value to, at least, the majority of the nodes.
 
 ## Limitations
-OrientDB v 2.0.x has some limitations you should notice when you work in Distributed Mode:
+OrientDB v2.1.x has some limitations you should notice when you work in Distributed Mode:
 - `hotAlignment:true` could bring the database status as inconsistent. Please set it always to 'false', the default
 - Creation of a database on multiple nodes could cause synchronization problems when clusters are automatically created. Please create the databases before to run in distributed mode
 - If an error happen during CREATE RECORD, the operation is fixed across the entire cluster, but some node could have a wrong RID upper bound (the created record, then deleted as fix operation). In this case a new database deploy operation must be executed
