@@ -142,7 +142,7 @@ Extracts content by parsing json objects. If the content has more json items mus
 
 -----
 
-### json
+### xml
 Extracts content by parsing XML.
 
 - Component name: **xml**
@@ -171,7 +171,7 @@ Extracts content by parsing XML.
 
 OrientDB ETL configuration file:
 ```json
-{source: { file: { path: 'src/test/resources/simple.xml' } }, extractor : { xml: {} }, loader: { test: {} } }
+{"source": { "file": { "path": "src/test/resources/simple.xml" } }, "extractor" : { "xml": {} }, "loader": { "test": {} } }
 ```
 
 Result:
@@ -194,5 +194,71 @@ Result:
 }
 ```
 
+
+##### Example 2: extract a collection from a XML.
+
+`simple.xml` XML file content:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+    <CD>
+        <TITLE>Empire Burlesque</TITLE>
+        <ARTIST>Bob Dylan</ARTIST>
+        <COUNTRY>USA</COUNTRY>
+        <COMPANY>Columbia</COMPANY>
+        <PRICE>10.90</PRICE>
+        <YEAR>1985</YEAR>
+    </CD>
+    <CD>
+        <TITLE>Hide your heart</TITLE>
+        <ARTIST>Bonnie Tyler</ARTIST>
+        <COUNTRY>UK</COUNTRY>
+        <COMPANY>CBS Records</COMPANY>
+        <PRICE>9.90</PRICE>
+        <YEAR>1988</YEAR>
+    </CD>
+    <CD>
+        <TITLE>Greatest Hits</TITLE>
+        <ARTIST>Dolly Parton</ARTIST>
+        <COUNTRY>USA</COUNTRY>
+        <COMPANY>RCA</COMPANY>
+        <PRICE>9.90</PRICE>
+        <YEAR>1982</YEAR>
+    </CD>
+</CATALOG>
+```
+
+OrientDB ETL configuration file:
+```json
+{"source": { "file": { "path": "src/test/resources/music.xml" } }, "extractor" : { "xml": { "rootNode": "CATALOG.CD", "tagsAsAttribute": ["CATALOG.CD"] } }, "loader": { "test": {} } }
+```
+
+Result:
+```json
+{
+  "TITLE": "Empire Burlesque",
+  "ARTIST": "Bob Dylan",
+  "COUNTRY": "USA",
+  "COMPANY": "Columbia",
+  "PRICE": "10.90",
+  "YEAR": "1985"
+}
+{
+  "TITLE": "Hide your heart",
+  "ARTIST": "Bonnie Tyler",
+  "COUNTRY": "UK",
+  "COMPANY": "CBS Records",
+  "PRICE": "9.90",
+  "YEAR": "1988"
+}
+{
+  "TITLE": "Greatest Hits",
+  "ARTIST": "Dolly Parton",
+  "COUNTRY": "USA",
+  "COMPANY": "RCA",
+  "PRICE": "9.90",
+  "YEAR": "1982"
+}
+```
 
 -----
