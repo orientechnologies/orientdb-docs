@@ -1,4 +1,5 @@
 # SQL - SELECT
+____
 
 Orient supports the SQL language to execute queries against the database engine. Take a look at the [operators](SQL-Where.md#operators) and [Functions](SQL-Where.md#functions). To learn the main differences in comparison to the SQL-92 standard, take a look at: [OrientDB SQL](SQL.md).
 
@@ -19,19 +20,19 @@ SELECT [<Projections>] [FROM <Target> [LET <Assignment>*]]
 ```
 
 - **[Projections](SQL-Query.md#projections)**, optionally, is the data you want to extract from the query as the result set. Look at [Projections](SQL-Query.md#projections).
-- **Target** can be a class, cluster, single [RID](Concepts.md#recordid), set of [RID](Concepts.md#recordid)s or index values sorted by ascending or descending key order (index values were added in 1.7.7). **Class** is the class name on which to execute the query. Similarly, specifying **cluster** with the `cluster:` prefix executes the query within that cluster only. You can fetch records not from a cluster but instead from an index using the following prefixes: `indexvalues:`, `indexvaluesasc:` or `indexvaluesdesc:`. If you are using `indexvalues:` or `indexvaluesasc:` prefix records will be sorted in ascending order of index keys. If you are using  `indexvaluesdesc:` prefix records will be sorted in descending order of index keys. Use one or more [RID](Concepts.md#recordid)s to specify one or a small set of records. This is useful in order to specify a starting point when navigating graphs.
+- **Target** can be a class, cluster, single [RID](Concepts.md#recordid), set of [RID](Concepts.md#recordid)s or index values sorted by ascending or descending key order (index values were added in 1.7.7). **Class** is the class name on which to execute the query. Similarly, specifying **cluster** with the `cluster:` prefix executes the query within that cluster only. You can fetch records not from a cluster, but instead from an index using the following prefixes: `indexvalues:`, `indexvaluesasc:` or `indexvaluesdesc:`. If you are using `indexvalues:` or `indexvaluesasc:` prefix records will be sorted in ascending order of index keys. If you are using  `indexvaluesdesc:` prefix records will be sorted in descending order of index keys. Use one or more [RID](Concepts.md#recordid)s to specify one or a small set of records. This is useful in order to specify a starting point when navigating graphs.
 - **[WHERE](SQL-Where.md)** condition is common to the other SQL commands and is described in a dedicated section of the documentation.
 - **[LET](SQL-Query.md#let-block)** is the part that binds context variables to be used in projections, conditions or sub-queries
 - **GROUP BY** is in accordance to the standard SQL syntax specifying the field to perform the grouping. The current release supports only 1 field.
 - **ORDER BY** is in accordance to the standard SQL syntax specifying fields with an optional ASC or DESC (default is ASCending). If you are using a projection in your query, ensure the ORDER BY field is included in this projection.
 - **[UNWIND](SQL-Query.md#unwind)** (since 2.1) allows to unwind collection fields
-- **SKIP** skips `<SkipRecords>` the specified number of records starting at the beginning of the result set. This is useful for [Pagination](Pagination.md) when used in conjunction with `LIMIT`.
-- **LIMIT** sets the maximum number of records returned by the query to `<MaxRecords>`. This is useful for [Pagination](Pagination.md) when used in conjunction with SKIP.
+- **SKIP** skips `<SkipRecords>` the specified number of records starting at the beginning of the result set. This is useful for [Pagination](Pagination.md), when used in conjunction with `LIMIT`.
+- **LIMIT** sets the maximum number of records returned by the query to `<MaxRecords>`. This is useful for [Pagination](Pagination.md), when used in conjunction with SKIP.
 - **FETCHPLAN** sets the [fetchplan](Fetching-Strategies.md). Example: `FETCHPLAN out:3` to pre-fetch up to 3rd level under `out` field.
 - **TIMEOUT** sets the maximum timeout in milliseconds for the query. By default the query has no timeout. If you don't specify the strategy, the default strategy `EXCEPTION` is used. Strategies are:
  - `RETURN`, truncate the result set returning the data collected up until the timeout
  - `EXCEPTION`, default one, throws an exception if the timeout has been reached
-- **LOCK** manage the locking strategy. By default is "default", that means release the lock once the record is read, while "record" means to keep the record locked in exclusive mode in current transaction till the transaction has been finished by a commit or rollback operation.
+- **LOCK** manage the locking strategy. By default is "default", that means release the lock once the record is read, while "record" means to keep the record locked in exclusive mode in current transaction, until the transaction has been finished by a commit or rollback operation.
 - **PARALLEL** execute the query against X concurrent threads, where X is the number of processors/cores found on the host OS of the query. PARALLEL execution is useful on long running queries or queries that involve multiple clusters. On simple queries using PARALLEL could cause a slow down due to the overhead inherent with using multiple threads
 - **NOCACHE** avoids using the cache
 
@@ -67,7 +68,7 @@ To override the field name, use `AS`. Example:
 SELECT max(incoming) AS max_incoming, max(cost) AS max_cost FROM Balance
 ```
 
-By using the dollar (`$`) as a prefix, you can access context variables. Each time you run a command, OrientDB accesses the context to read and write variables. Here's an example to display the path and depth level of the [traversal ](SQL-Traverse.md) on all the movies, up to the 5th level of depth:
+By using the dollar (`$`) as a prefix, you can access context variables. Each time you run a command, OrientDB accesses the context to read and write variables. Here's an example to display the path and depth level of the [traversal](SQL-Traverse.md) on all the movies, up to the 5th level of depth:
 ```sql
 SELECT $path, $depth FROM ( TRAVERSE * FROM Movie WHERE $depth <= 5 )
 ```

@@ -1,21 +1,22 @@
 # SQL
+____
 
-Most NoSQL products employ a custom query language.  In this, OrientDB differs by focusing on standards in query languages.  That is, instead of inventing "Yet Another Query Language," it begins with the widely used and well-understand language of SQL.  It then extends SQL to support more complex graphing concepts, such as Trees and Graphs/
+Most NoSQL products employ a custom query language.  In this, OrientDB differs by focusing on standards in query languages.  That is, instead of inventing "Yet Another Query Language," it begins with the widely used and well-understood language of SQL.  It then extends SQL to support more complex graphing concepts, such as Trees and Graphs.
 
-Why SQL?  Because SQL is ubiquitous in the database development world.  It is familiar and more readable and concise than its competitors, such as Map Reduce scripts.
+Why SQL?  Because SQL is ubiquitous in the database development world. It is familiar and more readable and concise than its competitors, such as Map Reduce scripts or JSON based querying.
 
 
 ## `SELECT`
 
-The [`SELECT`](SQL-Query.md) statement queries the database and returns results that match the given parameters.  For instance, earlier in [Getting Started](Tutorial-Introduction-to-the-NoSQL-world.md), two queries were presented that give the same results: `BROWSE CLUSTER ouser` and `BROWSE CLASS OUser`.  Here is a third option, gotten through a [`SELECT`](SQL-Query.md) statement.
+The [`SELECT`](SQL-Query.md) statement queries the database and returns results that match the given parameters.  For instance, earlier in [Getting Started](Tutorial-Introduction-to-the-NoSQL-world.md), two queries were presented that gave the same results: `BROWSE CLUSTER ouser` and `BROWSE CLASS OUser`. Here is a third option, available through a [`SELECT`](SQL-Query.md) statement.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM OUser</code>
 </pre>
 
-Notice that the query has no projections.  What this means is that you do not need to enter a character to indicate that the query should return the entire record, such as the asterisk in the Relational model, (that is, `SELECT * FROM OUser`).
+Notice that the query has no projections. This means that you do not need to enter a character to indicate that the query should return the entire record, such as the asterisk in the Relational model, (that is, `SELECT * FROM OUser`).
 
-Additionally, OUser is a class.  By default, OrientDB executes queries against classes.  Targets can also be:
+Additionally, OUser is a class. By default, OrientDB executes queries against classes. Targets can also be:
 
 - **Clusters**  To execute against a cluster, rather than a class, prefix `CLUSTER` to the target name.
 
@@ -38,7 +39,7 @@ Additionally, OUser is a class.  By default, OrientDB executes queries against c
 
 ### `WHERE`
 
-Much as the standard implementation of SQL, OrientDB supports [`WHERE`](SQL-Where.md) conditions to filter the returning records.  For example,
+Much like the standard implementation of SQL, OrientDB supports [`WHERE`](SQL-Where.md) conditions to filter the returning records too.  For example,
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM OUser WHERE name LIKE 'l%'</code>
@@ -48,14 +49,13 @@ This returns all `OUser` records where the name begins with `l`.  For more infor
 
 ### `ORDER BY`
 
-In addition to [`WHERE`](SQL-Where.md), OrientDB also supports `ORDER BY` clauses.  This allows you to order the results returned by the query according to one or more fields, in either ascending or descending order.
+In addition to [`WHERE`](SQL-Where.md), OrientDB also supports `ORDER BY` clauses. This allows you to order the results returned by the query according to one or more fields, in either ascending or descending order.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE city='Rome' ORDER BY surname ASC, name ASC</code>
 </pre>
 
 The example queries the `Employee` class, it returns a listing of all employees in that class who live in Rome and it orders the results by surname and name, in ascending order.
-
 
 ### `GROUP BY`
 
@@ -81,7 +81,7 @@ In the example, you query the `Employee` class for a list of male employees.  Gi
 
 ### `SKIP`
 
-When using the `LIMIT` clause with queries, you can only view the topmost of the return results.  In the event that you would like to view certain results further down the list, for instance the values from twenty to forty, you can paginate your results using the `SKIP` keyword in the `LIMIT` clause.
+When using the `LIMIT` clause with queries, you can only view the topmost of the return results. In the event that you would like to view certain results further down the list, for instance the values from twenty to forty, you can paginate your results using the `SKIP` keyword in the `LIMIT` clause.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE gender='male' LIMIT 20</code>
@@ -115,7 +115,7 @@ The [`INSERT`](SQL-Insert.md) statement adds new data to a class and cluster.  O
           gender : 'M'}</code>
   </pre>
 
-Each of these queries adds Jay Miner to the `Employee` class.  You can choose whichever syntax that works best with your application. 
+Each of these queries adds Jay Miner to the `Employee` class. You can choose whichever syntax that works best with your application. 
 
 
 ## `UPDATE`
@@ -146,3 +146,8 @@ orientdb> <code class="lang-sql userinput">DELETE FROM Employee WHERE city <> 'L
 </pre>
 
 Here, entries are removed from the `Employee` class where the employee in question is not based in London.
+
+**See also:**
+
+  - [The SQL Reference](SQL.md)
+  - [The Console Command Reference](Console-Commands.md)

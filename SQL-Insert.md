@@ -1,5 +1,5 @@
 # SQL - INSERT
-
+____
 
 The **Insert** command creates a new record in the database. Records can be schema-less or conform to rules you specify in your model.
 
@@ -96,7 +96,7 @@ This inserts a new document in the cluster 'asiaemployee':
 INSERT INTO CLUSTER:asiaemployee (name) VALUES ('Mattew')
 ```
 
-But note that the document will have no class assigned. To create a document of a certain class but in a different cluster than the default one use:
+However, please note that the document will have no class assigned. To create a document of a certain class, but in a different cluster than the default one, use:
 
 ```sql
 INSERT INTO CLUSTER:asiaemployee (@class, content) VALUES ('employee', 'Mattew')
@@ -117,14 +117,14 @@ INSERT INTO Profile (name, address) VALUES ('Luca', { "@type" : "d", "street" : 
 INSERT INTO GermanyClient FROM SELECT FROM Client WHERE country = 'Germany'
 ```
 
-Will insert all the records from Client where the country is "Germany".
+Will insert all the records from Client, where the country is "Germany".
 
 #### Copy records in another class adding a field
 ```sql
 INSERT INTO GermanyClient FROM SELECT *, true AS copied FROM Client WHERE country = 'Germany'
 ```
 
-Will insert all the records from Client where the country is "Germany" and will add an additional field called "copied" with value true.
+Will insert all the records from Client, where the country is "Germany" and will add an additional field called "copied" with value true.
 
 
 To know more about other SQL commands look at [SQL commands](SQL.md).
