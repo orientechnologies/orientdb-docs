@@ -1,6 +1,6 @@
 # Lucene FullText Index
 
-In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the Lucene Engine.  Beginning in version 2.0, this plugin in packaged with OrietnDB.
+In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the Lucene Engine. Beginning from version 2.0, this plugin is packaged with OrientDB distribution.
 
 **Syntax**:
 
