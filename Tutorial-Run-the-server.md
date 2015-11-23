@@ -53,7 +53,42 @@ $ <code class="lang-sh userinput">./server.sh</code>
 </pre>
 
 The database server is now running.  It is accessible on your system through ports `2424` and `2480`.
+At the first startup the server will ask for the root user password. The password is stored in the config file.
+ 
+### Stop the Server
 
+On the console where the server is running a simple CTRL+c will shutdown the server.
+
+The shutdown.sh (shutdown.bat) script could be used to stop the server:
+
+<pre>
+$ <code class="lang-sh userinput">cd $ORIENTDB_HOME/bin</code>
+$ <code class="lang-sh userinput">./shutdown.sh -p ROOT_PASSWORD</code>
+</pre>
+
+On ***nix** systems a simple call to shutdown.sh will stop the server running on localhost:
+
+<pre>
+$ <code class="lang-sh userinput">cd $ORIENTDB_HOME/bin</code>
+$ <code class="lang-sh userinput">./shutdown.sh</code>
+</pre>
+
+It is possible to stop servers running on remote hosts or even on different ports on localhost:
+
+<pre>
+$ <code class="lang-sh userinput">cd $ORIENTDB_HOME/bin</code>
+$ <code class="lang-sh userinput">./shutdown.sh -h odb1.mydomain.com -P 2424-2430 -u root -p ROOT_PASSWORD</code>
+</pre>
+
+List of params
+
+- -h | --host **HOSTNAME or IP ADDRESS** : the host or ip where OrientDB is running, default to **localhost**
+- -P | --potrs **PORT or PORT RANGE** : single port value or range of ports; default to **2424-2430**
+- -u | --user **ROOT USERNAME** : root's username; deafult to  **root**
+- -p | --password **ROOT PASSWORD** : root's user password; **mandatory**
+
+**NOTE**
+On Windows systems password is always **mandatory** because the script isn't able to discover the pid of the OrientDB's process.
 
 ### Server Log Messages
 
