@@ -36,12 +36,16 @@ In this way, OrientDB will start to scan the cluster from the given position **l
 ```java
 database.open("admin", "admin");
 final OSQLSynchQuery<ODocument> query = new OSQLSynchQuery<ODocument>("select from Customer where @rid > ? LIMIT 20");
-ORID last = new ORecordId();
-    
-List<ODocument> resultset = database.query(query, last);
+
+List<ODocument> resultset = database.query(query, new ORecordId());
     
 while (!resultset.isEmpty()) {
-    last = resultset.get(resultset.size() - 1).getIdentity();
+    ORID last = resultset.get(resultset.size() - 1).getIdentity();
+    
+    for (ODocument record : resultset) {
+        // ITERATE THE PAGINATED RESULT SET
+    }
+
     resultset = database.query(query, last);
 }
 database.close();
