@@ -65,6 +65,7 @@ Last update: September 28 2015
 | Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 0% |
 | Transactions | Enhance isolation level also for remote commands| 0% |
 | Distributed | Replication of in-memory databases | 0% |
+| Distributed | Optimized replication for cross Data Center | 0% |
 | Distributed | Auto-Sharding | 0% |
 | Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
 | Lucene | Faceted search | 20% |
