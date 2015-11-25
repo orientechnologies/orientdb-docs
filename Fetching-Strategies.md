@@ -8,7 +8,7 @@ ____
 
 ## Format for Fetch Plans
 
-In terms of their use, Fetch Plans are strings that you can use at run-time on queries and record loads.  The syntax for these strings is,
+In boths scopes, the fetchplan syntax is the same.  In terms of their use, Fetch Plans are strings that you can use at run-time on queries and record loads.  The syntax for these strings is,
 
 <pre>
 [[<code class="replaceable">levels</code>]]<code class="replaceable">fieldPath</code>:<code class="replaceable">depthLevel</code>
