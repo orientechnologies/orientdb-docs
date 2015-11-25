@@ -1,8 +1,9 @@
 # Schema
+____
 
-While OrientDb works in a schema-less mode, you may find at times the need to enforce a schema on your data model.  OrientDB supports both schema-full and schema-hybrid solutions.
+While OrientDb can work in a schema-less mode, you may find it necessary at times to enforce a schema on your data model.  OrientDB supports both schema-full and schema-hybrid solutions.
 
-In the case of schema-hybrid mode, you only set constraints for certain fields and leave the user to add custom fields to the record.  This mode occurs at a class level, meaning that you can have an `Employee` class as schema-full and an `EmployeeInformation` calss as schema-less.
+In the case of schema-hybrid mode, you only set constraints for certain fields and leave the user to add custom fields to the record.  This mode occurs at a class level, meaning that you can have an `Employee` class as schema-full and an `EmployeeInformation` class as schema-less.
 
 - **Schema-full** Enables strict-mode at a class-level and sets all fields as mandatory.
 - **Schema-less** Enables classes with no properties.  Default is non-strict-mode, meaning that records can have arbitrary fields.

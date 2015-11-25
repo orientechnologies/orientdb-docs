@@ -1,6 +1,7 @@
 # Cluster Selection
+____
 
-When you create a new record and specify the [class](Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](Concepts.md#cluster) where it stores the physical data of the record.  There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
+When you create a new record and specify the [class](Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](Concepts.md#cluster), where it stores the physical data of the record. There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
 
 - `default`  It selects the cluster using the `defaultClusterId` property from the class.  Prior to version 1.7, this was the default method.
 
@@ -8,7 +9,7 @@ When you create a new record and specify the [class](Concepts.md#class) to which
 
 - `balanced` It checks the number of records in the configured clusters for the class and assigns the new record to whichever is the smallest at the time.  To avoid latency issues on data insertions, OrientDB calculates cluster size every five seconds or longer.
 
-- `local` When the database is run in distributed mode, it selects the master cluster on the current node.  This helps to avoid conflicts and reduce network latency with remote calls between nodes.
+- `local` When the database is run in distributed mode, it selects the master cluster on the current node. This helps to avoid conflicts and reduce network latency with remote calls between nodes.
 
 Whichever cluster selection strategy works best for your application, you can assign it through the [`ALTER CLASS...CLUSTERSELECTION`](SQL-Alter-Class.md) command.  For example,
 
@@ -40,7 +41,7 @@ In addition to the cluster selection strategies listed above, you can also devel
    }
    ``` 
 
-   Bear in mind that the method `getCluster()` also receives the `ODocument` cluster to insert.  You may find this useful if you want ot assign the `clusterId` variable, based on the Document content.
+   Bear in mind that the method `getCluster()` also receives the `ODocument` cluster to insert. You may find this useful, if you want to assign the `clusterId` variable, based on the Document content.
 
 1. Register the implementation as a service.  You can do this by creating a new file under `META-INF/service`.  Use the filename `com.orientechnologies.orient.core.metadata.schema.clusterselection.OClusterSelectionStrategy`.  For its contents, code your class with the full package.  For instance,
 

@@ -1,7 +1,8 @@
 # Basic Concepts
+____
 
 
-## Record
+### The Record
 
 The smallest unit that you can load from and store in the database.  Records come in four types:
 
@@ -14,9 +15,9 @@ The smallest unit that you can load from and store in the database.  Records com
 
 A **Record** is the smallest unit that can be loaded from and stored into the database. A record can be a Document, a RecordBytes record (BLOB) a Vertex or even an Edge.
 
-### Document
+### Documents
 
-The most flexible record type available in OrientDB.  Documents are softly typed and are defined by schema classes with defined constraints, but you can also use them in schema-less mode.
+The Document is the most flexible record type available in OrientDB.  Documents are softly typed and are defined by schema classes with defined constraints, but you can also use them in a schema-less mode too.
 
 Documents handle fields in a flexible manner.  You can easily import and export them in JSON format.  For example,
 
@@ -53,18 +54,20 @@ Vertices are also documents.  This means they can contain embedded records and a
 
 ### Edge
 
-In Graph databases, an arc is the connections between nodes, which in OrientDB is called an edge.  Edges are bidirectional and can only connect two vertices.
+In Graph databases, an arc is the connection between two nodes, which in OrientDB is called an edge.  Edges are bidirectional and can only connect two vertices.
 
-Edges can be regular or lightweight.  The Regular Edge saves as a Document, while the Lightweight Edge does not.  For an understanding of the differences between these, see [Lightweight Edges](Lightweight-Edges.md).
+Edges can be regular or lightweight. The Regular Edge saves as a Document, while the Lightweight Edge does not. For an understanding of the differences between these, see [Lightweight Edges](Lightweight-Edges.md).
 
 For more information on connecting vertices in general, see [Relationships](Concepts.md#relationships), below.
 
  
 ## Record ID
 
-When OrientDB generates a record, it auto-assigns a unique unit identifier, called a Record ID, or RID.  The syntax for the Record ID is the pound sign with the cluster identifier and the position.  That is, `#<cluster>:<position>`.
+When OrientDB generates a record, it auto-assigns a unique unit identifier, called a Record ID, or RID.  The syntax for the Record ID is the pound sign with the cluster identifier and the position. The format is like this:
 
-- **Cluster Identifier**: This number indicates the cluster to which the record belongs.  Positive numbers in the cluster identifier indicate persistent records.  Negative numbers indicate temporary records, such as those that appear in result-sets for queries that use projections.
+ `#<cluster>:<position>`.
+
+- **Cluster Identifier**: This number indicates the cluster to which the record belongs. Positive numbers in the cluster identifier indicate persistent records. Negative numbers indicate temporary records, such as those that appear in result-sets for queries that use projections.
 
 - **Position**: This number defines the absolute position of the record in the cluster.
 
@@ -72,10 +75,9 @@ When OrientDB generates a record, it auto-assigns a unique unit identifier, call
 
 Records never lose their identifiers unless they are deleted.  When deleted, OrientDB never recycles identifiers, except with `local` storage.  Additionally, you can access records directly through their Record ID's.  For this reason, you don't need to create a field to serve as the primary key, as you do in Relational databases.
 
-
 ## Record Version
 
-Records maintain their own version number, that increments on each update.  In optimistic transactions, OrientDB checks the version in order to avoid conflicts at commit time.
+Records maintain their own version number, which increments on each update.  In optimistic transactions, OrientDB checks the version in order to avoid conflicts at commit time.
 
 
 ## Class
@@ -86,11 +88,11 @@ Classes can be schema-less, schema-full or a mix.  They can inherit from other c
 
 Each class has its own [cluster](Concepts.md#cluster).  A class must have at least one cluster defined, which functions as its default cluster.  But, a class can support multiple clusters.  When you execute a query against a class, it automatically propagates to all clusters that are part of the class.  When you create a new record, OrientDB selects the cluster to store it in using a [configurable strategy](Cluster-Selection.md).
 
-When you create a new class, by default OrientDB creates a new [persistent cluster](Concepts.md#physical_cluster) with the same name as the class, in lowercase.
+When you create a new class, by default, OrientDB creates a new [persistent cluster](Concepts.md#physical_cluster) with the same name as the class, in lowercase.
 
 ### Abstract Class
 
-The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](SQL-Create-Class.md#abstract-class).
+The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](SQL-Create-Class.md#abstract-class).
 
 This concept is essential to Object Orientation, without the typical spamming of the database with always empty, auto-created clusters.
 
@@ -101,7 +103,7 @@ This concept is essential to Object Orientation, without the typical spamming of
 
 ### Class vs. Cluster in Queries
 
-The cominbation of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2011` and `invoice201`.  You can query all invoices using the class as a target with [`SELECT`](SQL-Query.md).
+The combination of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2015` and `invoice2016`.  You can query all invoices using the class as a target with [`SELECT`](SQL-Query.md).
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Invoice</code>
@@ -113,7 +115,7 @@ In addition to this, you can filter the result-set by year.  The class `Invoice`
 orientdb> <code class="lang-sql userinput">SELECT FROM Invoice WHERE year = 2012</code>
 </pre>
 
-You can also query specific objects from a single cluster.  By splitting the class `Invocie` across multiple clusters, (that is, one per year), you can optimize the query by narrowing the potential result-set.
+You can also query specific objects from a single cluster.  By splitting the class `Invoice` across multiple clusters, (that is, one per year), you can optimize the query by narrowing the potential result-set.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:invoice2012</code>
@@ -127,7 +129,7 @@ OrientDB supports two kinds of relationships: **referenced** and **embedded**.  
 
 ### Referenced Relationships
 
-In Relational databases, tables are linked through `JOIN` commands, which can prove costly on resource demands.  OrientDB manges relationships natively without computing `JOIN`'s.  Instead, it stores direct links to the target objects of the relationship.  This boosts the load speed for the entire graph of connected objects, such as in Graph and Object database systems.
+In Relational databases, tables are linked through `JOIN` commands, which can prove costly on computing resources.  OrientDB manges relationships natively without computing `JOIN`'s.  Instead, it stores direct links to the target objects of the relationship.  This boosts the load speed for the entire graph of connected objects, such as in Graph and Object database systems.
 
 For example
 
@@ -151,7 +153,7 @@ OrientDB expresses relationships of these kinds using links of the `LINK` type.
 OrientDB expresses relationships of these kinds using a collection of links, such as:
 
 - `LINKLIST` An ordered list of links.
-- `LINKSET` An unordered set of links, that does not accept duplicates.
+- `LINKSET` An unordered set of links, which does not accept duplicates.
 - `LINKMAP` An ordered map of links, with `String` as the key type.  Duplicates keys are not accepted.
 
 With the Graph API, [Edges](Concepts.md#edge) connect only two vertices.  This means that 1:*n* relationships are not allowed.  To specify a 1:*n* relationship with graphs, create multiple edges.
@@ -162,7 +164,7 @@ When using Embedded relationships, OrientDB stores the relationship within the r
 
 Embedded records do not have thier own [Record ID](Concepts.md#recordid), given that you can't directly reference it through other records.  It is only accessible through the container record.
 
-In the event that you delete the container record, the ebedded record is also deleted.  For example,
+In the event that you delete the container record, the embedded record is also deleted.  For example,
 
 ```
                    address
@@ -196,9 +198,9 @@ In OrientDB, all Edges in the Graph model are bidirectional.  This differs from 
 
 ## Database
 
-The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides mutliple database types.  For more information on these types, see [Database Types](Java-API.md#database-types).
+The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](Java-API.md#database-types).
 
-Each server or Java VM can handle multiple database instances, but the database name must be unique.  You can't manage two databases at the same time, even if they are in different directories.  To handle this case, use the `$` dollar character as a separator instead of the `/` slash character.  OrientDB binds the entire name, so it becomes unqiue, but at the file system level it converts `$` with `/`, allowing multiple databases with the same name in different paths.  For example,
+Each server or Java VM can handle multiple database instances, but the database name must be unique. You can't manage two databases at the same time, even if they are in different directories.  To handle this case, use the `$` dollar character as a separator instead of the `/` slash character.  OrientDB binds the entire name, so it becomes unique, but at the file system level it converts `$` with `/`, allowing multiple databases with the same name in different paths.  For example,
 
 ```
 test$customers -> test/customers
@@ -228,5 +230,5 @@ OrientDB uses its own [URL](http://en.wikipedia.org/wiki/Uniform_Resource_Locato
 You must always close the database once you finish working on it.
 
 
-> **NOTE**: OrientDB automatically closes all opened databases when the process dies gracefully (not by killing it by force). This is assured if the Operating System allows a graceful shutdown.
+> **NOTE**: OrientDB automatically closes all opened databases, when the process dies gracefully (not by killing it by force). This is assured if the Operating System allows a graceful shutdown.
 

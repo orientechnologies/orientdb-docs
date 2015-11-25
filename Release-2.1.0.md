@@ -46,6 +46,9 @@ Before 2.1 entity class cache was static, so you could not manage multiple OObje
 
 IMPORTANT: in 2.1 if you close and re-open the storage, you have to re-register your POJO classes.
 
+### Distributed architecture
+Starting from release 2.1.6 it's not possible to hot upgrade a distributed architecture node by node, because the usage of the last recent version of Hazelcast that breaks such network compatibility. If you're upgrading a distributed architecture you should power off the entire cluster and restart it with the new release.
+
 ### API changes
 
 #### ODatabaseDocumentTx.activateOnCurrentThread()

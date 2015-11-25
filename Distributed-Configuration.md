@@ -243,6 +243,27 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
 }
 ```
 
+Starting from v2.1.6 is possible to catch events of command during asynchronous replication, thanks to the following method of OCommandSQL:
+- `onAsyncReplicationOk()`, to catch the event when the asynchronous replication succeed
+- `onAsyncReplicationError()`, to catch the event when the asynchronous replication returns error
+
+Example retrying up to 3 times in case of concurrent modification exception on creation of edges:
+```java
+g.command( new OCommandSQL("create edge Own from (select from User) to (select from Post)")
+ .onAsyncReplicationError(new OAsyncReplicationError() {
+  @Override
+  public ACTION onAsyncReplicationError(Throwable iException, int iRetry) {
+    System.err.println("Error, retrying...");
+    return iException instanceof ONeedRetryException && iRetry<=3 ? ACTION.RETRY : ACTION.IGNORE;
+  }
+})
+ .onAsyncReplicationError(new OAsyncReplicationOk() {
+   System.out.println("OK");
+ }
+).execute();
+```
+
+
 ## Load Balancing
 (Since v2.2)
 OrientDB allows to do load balancing when you have multiple servers connected in cluster. Below are the available connection strategies:

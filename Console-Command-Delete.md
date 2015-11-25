@@ -1,9 +1,8 @@
-# SQL - DELETE
-____
+# Console - DELETE
 
 The **Delete** command deletes one or more records from the database. The set of records involved are taken by the [WHERE](SQL-Where.md) clause.
 
->NOTE: Don't use SQL DELETE to remove Vertices or Edges. Instead, use the DELETE VERTEX and DELETE EDGE commands, which assure the integrity of the graph.
+>NOTE: Don't use SQL DELETE to remove Vertices or Edges but use the DELETE VERTEX and DELETE EDGE commands that assure the integrity of the graph.
 
 ## Syntax
 

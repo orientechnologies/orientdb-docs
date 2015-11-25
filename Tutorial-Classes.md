@@ -1,8 +1,9 @@
 # Classes
+____
 
-Multi-model support in the OrientDB engine provides a number of ways to approaching and understanding its basic concepts.  These concepts are clearest when viewed from the perspective of the Document Database API. Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API records always use the [Document](Concepts.md#document) type.  Documents are formed by a set of key/value pairs, referred to as fields and properties, and can belong to a class.
+Multi-model support in the OrientDB engine provides a number of ways in approaching and understanding its basic concepts.  These concepts are clearest when viewed from the perspective of the Document Database API. Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API, records always use the [Document](Concepts.md#document) type.  Documents are formed by a set of key/value pairs, referred to as fields and properties, and can belong to a class.
 
-The [Class](Concepts.md#class) is a concept drawn from the Object-oriented programming paradigm.  It is a type of data model that allows you to define certain rules for records that belong to it.  In the traditional Document database model, it is comparable to the collection, while in the Relational database model it is the table.
+The [Class](Concepts.md#class) is a concept drawn from the Object-oriented programming paradigm. It is a type of data model that allows you to define certain rules for records that belong to it. In the traditional Document database model, it is comparable to the collection, while in the Relational database model it is comparable to the table.
 
 >For more information on classes in general, see [Wikipedia](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming).
 
@@ -31,7 +32,7 @@ CLASSES:
 
 ## Working with Classes
 
-In order to start using classes with your own applications, you need to understand how to create and configure them for use.  As a concept, the class in OrientDB has the closest relationship with the table in Relational databases, but (unlike tables) classes can be schema-less, schema-full or mixed.  Classes can inherit from other classes, creating trees of classes.  Each class has its own cluster or clusters, (created by default, if none are defined).
+In order to start using classes with your own applications, you need to understand how to create and configure them for use.  As a concept, the class in OrientDB has the closest relationship with the table in relational databases, but (unlike tables) classes can be schema-less, schema-full or mixed. Classes can inherit from other classes, creating trees of classes.  Each class has its own cluster or clusters, (created by default, if none are defined).
 
 >For more information on classes in OrientDB, see [Class](Concepts.md#class).
 
@@ -43,13 +44,13 @@ orientdb> <code class="lang-sql userinput">CREATE CLASS Student</code>
 Class created successfully. Total classes in database now: 92
 </pre>
 
-This creates a class called `Student`.  Given that no cluster was defined in the [`CREATE CLASS`](SQL-Create-Class.md) command, OrientDB creates a default cluster called `student`, to contain records assigned to this class.  For the moment, the class has no records or properties tied to it.  It is now displayed in the [`CLASSES`](Console-Command-Classes.md) listings.
+This creates a class called `Student`.  Given that no cluster was defined in the [`CREATE CLASS`](SQL-Create-Class.md) command, OrientDB creates a default cluster called `student`, to contain records assigned to this class. For the moment, the class has no records or properties tied to it.  It is now displayed in the [`CLASSES`](Console-Command-Classes.md) listings.
 
 
 
 ### Adding Properties to a Class
 
-As mentioned above, OrientDB does allow you to work in a schema-less mode.  That is, to create classes without defining their properties.  However, in the event that you would like to define indexes or constraints for your class, properties are mandatory.  Following the comparison to Relational databases, if classes in OrientDB are similar to tables, properties are the rows on those tables.
+As mentioned above, OrientDB does allow you to work in a schema-less mode.  That is, it allows you to create classes without defining their properties. However, in the event that you would like to define indexes or constraints for your class, properties are mandatory. Following the comparison to relational databases, if classes in OrientDB are similar to tables, properties are the columns on those tables.
 
 To create new properties on `Student`, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command in the console:
 
@@ -75,7 +76,7 @@ These commands create three new properties on the `Student` class to provide you
 
 ### Displaying Class Information
 
-On occasion, you may need to reference a particular class to see what clusters it belongs to and any properties configured for its use.  Using the [`INFO CLASS`](Console-Command-Info-Class.md), you can display information on the current  configuration and properties of a class.
+On occasion, you may need to reference a particular class to see what clusters it belongs to and any properties configured for its use.  Using the [`INFO CLASS`](Console-Command-Info-Class.md) command, you can display information on the current  configuration and properties of a class.
 
 To display information on the class `Student`, use the [`INFO CLASS`](Console-Command-Info-Class.md) command:
 
@@ -169,7 +170,7 @@ orientdb> <code class="lang-sql userinput">BROWSE CLASS OUser</code>
 
 |||
 |---|-----|
-|![](images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure.  To further improve security in production environments, see [Security](Security.md).|
+|![](images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure. To further improve security in production environments, see [Security](Security.md).|
 
 When you run [`BROWSE CLASS`](Console-Command-Browse-Class.md), the first column in the output provides the identifier number, which you can use to display detailed information on that particular record.
 

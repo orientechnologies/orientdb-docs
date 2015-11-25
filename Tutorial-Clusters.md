@@ -1,8 +1,7 @@
 # Clusters
+____
 
-Multi-model support in the OrientDB engine provides a number of ways to approaching and understanding its basic concepts.  These concepts are clearest when viewed from the perspective of the Document Database API. Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API records always use the [Document](Concepts.md#document) type.  Documents are formed by a set of key/value pairs, referred to as fields and properties, and can belong to a class.  They are stored in a cluster.
-
-The [Cluster](Concepts.md#cluster) is a place where a group of records are stored.  Like the [Class](Concepts.md#class), it is comparable with the collection in traditional Document databases, and in Relational databases with the table.  However, this is a loose comparison given that unlike a table, clusters allows you to store the data of a class in different physical locations.
+The [Cluster](Concepts.md#cluster) is a place where a group of records are stored. Like the [Class](Concepts.md#class), it is comparable with the collection in traditional document databases, and in relational databases with the table.  However, this is a loose comparison given that unlike a table, clusters allow you to store the data of a class in different physical locations.
 
 To list all the configured clusters on your system, use the [`CLUSTERS`](Console-Command-Clusters.md) command in the console:
 
@@ -27,9 +26,9 @@ CLUSTERS:
 
 ## Understanding Clusters
 
-By default, OrientDB creates one cluster to each [Class](Concepts.md#class).  All records of a class are stored in the same cluster, which has the same name as the class.  You can create up to 32,767 (or, 2<sup>15</sup> - 1) clusters in a database.  Understanding the concepts of classes and clusters allows you to take advantage of the power of clusters in designing new databases.
+By default, OrientDB creates one cluster for each [Class](Concepts.md#class).  All records of a class are stored in the same cluster, which has the same name as the class. You can create up to 32,767 (or, 2<sup>15</sup> - 1) clusters in a database. Understanding the concepts of classes and clusters allows you to take advantage of the power of clusters in designing new databases.
 
-While the default strategy is that each class maps to one cluster, a class can rely on multiple clusters.  For instance, you can spawn records physically in multiple locations, thereby creating multiple clusters.
+While the default strategy is that each class maps to one cluster, a class can rely on multiple clusters. For instance, you can spawn records physically in multiple locations, thereby creating multiple clusters.
 
 ![Class-Custer](http://www.orientdb.org/images/class-clusters.png)
 
@@ -39,7 +38,7 @@ Here, you have a class `Customer` that relies on two clusters:
 
 - `China_customers`, which is a cluster that contains all customers in China.
 
-In this deployment, the default cluster is `USA_customers`.  Whenever commands are run on the `Customer` class, such as [`INSERT`](SQL-Insert.md) statements, OrientDB assigns this new data to the default cluster.
+In this deployment, the default cluster is `USA_customers`. Whenever commands are run on the `Customer` class, such as [`INSERT`](SQL-Insert.md) statements, OrientDB assigns this new data to the default cluster.
 
 ![Class-Cluster](http://www.orientdb.org/images/class-newrecord.png)
 
@@ -57,7 +56,7 @@ In the event that you know the cluster in which the data is stored, you can quer
 
 Here, OrientDB only scans the `China_customers` cluster of the `Customer` class in looking for matches
 
->**Note**: The method OrientDB uses to select the cluster where it inserts new records is configurable and extensible.  For more information, see [Cluster Selection](Cluster-Selection.md).
+>**Note**: The method OrientDB uses to select the cluster, where it inserts new records, is configurable and extensible.  For more information, see [Cluster Selection](Cluster-Selection.md).
 
 
 
@@ -74,7 +73,7 @@ You may also find it beneficial to locate different clusters on different server
 
 - **Optimization** Faster query execution against clusters, given that you need only search a subset of the clusters in a class.
 - **Indexes** With good partitioning, you can reduce or remove the use of indexes.
-- **Parallel Queries**: Queries can be run in parallel when made to data on multiple diskes.
+- **Parallel Queries**: Queries can be run in parallel when made to data on multiple disks.
 - **Sharding**: You can shard large data-sets across multiple instances.
 
 
@@ -98,11 +97,11 @@ You now have a third cluster for the `Customer` class, covering those customers 
 
 ## Viewing Records in a Cluster
 
-Clusters store the records contained by a class in OrientDB.  You can view all records that belong to a cluster using the [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md) command and the data belonging to a particular record with the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command.
+Clusters store the records contained by a class in OrientDB. You can view all records that belong to a cluster using the [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md) command and the data belonging to a particular record with the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command.
 
 In the above example, you added a cluster to a class for storing records customer information based on their locations around the world, but you did not create these records or add any data.  As a result, running these commands on the `Customer` class returns no results.  Instead, for the examples below, consider the `ouser` cluster.
 
-OrientDB ships with a number of default clusters to store data from its default classes.  You can see these using the [`CLUSTERS`](Console-Command-Clusters.md) command.  Among these, there is the `ouser` cluster, which stores data of the users on your database.
+OrientDB ships with a number of default clusters to store data from its default classes. You can see these using the [`CLUSTERS`](Console-Command-Clusters.md) command. Among these, there is the `ouser` cluster, which stores data of the users on your database.
 
 To see records stored in the `ouser` cluster, run the [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md) command:
 
@@ -123,7 +122,7 @@ The results are identical to executing [`BROWSE CLASS`](Console-Command-Browse-C
 
 |||
 |---|-----|
-|![](images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure.  To further improve security in production environments, see [Security](Security.md).|
+|![](images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure. To further improve security in production environments, see [Security](Security.md).|
 
 When you run [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md), the first column in the output provides the identifier number, which you can use to display detailed information on that particular record.
 
@@ -144,5 +143,5 @@ orientdb> <code class="lang-sql userinput">DISPLAY RECORD 0</code>
 ----------+-------------------------------------------------------------------+
 </pre>
 
-Bear in mind that this command references the last call of [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md).  You can continue to display other records, but you cannot display records from another cluster until you browse that particular cluster.
+Bear in mind that this command references the last call of [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md). You can continue to display other records, but you cannot display records from another cluster until you browse that particular cluster.
 

@@ -1,10 +1,11 @@
 # Time Series Use Case
+____
 
-Managing records related to historical information is pretty common. When you've millions of records indexes show their limitation because the cost to find the records is O(logN). This is also the main reason why Relational DBMS are so slow with huge database.
+Managing records related to historical information is pretty common. When you have millions of records, indexes start show their limitations, because the cost to find the records is O(logN). This is also the main reason why Relational DBMS are so slow with huge databases.
 
-So when you've millions of record the best way to scale up linearly is avoid using indexes at all or as much as you can. But how to retrieve records in short time without indexes? Should OrientDB scan the entire database at every query? No. You should use the Graph properties of OrientDB. Let's look at a simple example where the domain are logs.
+So when you have millions of record the best way to scale up linearly is avoid using indexes at all or as much as you can. But how can you retrieve records in a short time without indexes? Should OrientDB scan the entire database at every query? No. You should use the Graph properties of OrientDB. Let's look at a simple example, where the domain are logs.
 
-A typical log record has some information about the event and a date. Follows the Log record to use in our example. We're going to use the JSON format to simplify reading:
+A typical log record has some information about the event and a date. Below is the Log record to use in our example. We're going to use the JSON format to simplify reading:
 
 ```json
 {
@@ -98,7 +99,7 @@ Once you built up a Calendar in form of a Graph you can use it to store aggregat
 }
 ```
 
-You can link this records to the closest Time Unit like the example above, but you could sum all the records in the same Day and put link it to the Day vertex. Example:
+You can link this record to the closest Time Unit like in the example above, but you could sum all the records in the same Day and link it to the Day vertex. Example:
 
 Create a new class to store the aggregated daily records:
 ```sql
