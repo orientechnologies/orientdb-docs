@@ -31,6 +31,7 @@ Last update: November 24, 2015
 | SQL | Automatic parallel queries | 100% |
 | SQL | Prefetching of disk pages | 100% |
 | SQL | Live Query -> Stable | 95% |
+| SQL | [Update Edge](https://github.com/orientechnologies/orientdb/issues/1114)| 90% |
 | SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 100% |
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
