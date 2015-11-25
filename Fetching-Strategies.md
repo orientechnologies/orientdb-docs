@@ -1,34 +1,14 @@
 # Fetching Strategies
 ____
 
-By default, OrientDB loads linked records in a lazy manner.  That is to say, it does not load linked fields until it traverses these fields.  In situations where you need the entire tree of a record, this can prove costly to performance.  For instance,
+*Fetchplans* are used in two different scopes:
 
-```
-Invoice
- 3:100
-   |
-   | customer
-   +---------> Customer
-   |            5:233
-   | address            city            country
-   +---------> Address---------> City ---------> Country
-   |            10:1             11:2             12:3
-   |
-   | orders
-   +--------->* [OrderItem OrderItem OrderItem]
-                [  8:12      8:19      8:23   ]
-```
-
-Here, you have a class `Invoice`, with linked fields `customer`, `city` and `orders`.  If you were to run a [`SELECT`](SQL-Query.md) query on `Invoice`, it would not load the linked class, it would require seven different loads to build the return value.  In the event that you have a remote connection that means seven network calls, as well.
-
-In order to avoid performance issues that may arise from this behavior, OrientDB supports fetching strategies, called Fetch Plans, that allow you to customize how it loads linked records.  The aim of a Fetch Plan is to pre-load connected records in a single call, rather than several.  The best use of Fetch Plans is on records loaded through remote connections and when using JSON serializers to produce JSON with nested records.
-
->**NOTE** OrientDB handles circular dependencies to avoid any loops while it fetches linking records.
-
+1. Connections that use the [Binary Protocol](Binary-Protocol.md) can *early load* records on the client's. On traversing of connected records, the client hasn't to execute further remote calls to the server, because the requested records are already on the client's cache
+1. Connections that use the [HTTP/JSON Protocol](HTTP-Rest.md) can *expand the resulting JSON* to include connected records as embedded in the same JSON. This is useful on HTTP protocol to fetch all the connected records in just one call
 
 ## Format for Fetch Plans
 
-In terms of their use, Fetch Plans are strings that you can use at run-time on queries and record loads.  The syntax for these strings is,
+In boths scopes, the fetchplan syntax is the same.  In terms of their use, Fetch Plans are strings that you can use at run-time on queries and record loads.  The syntax for these strings is,
 
 <pre>
 [[<code class="replaceable">levels</code>]]<code class="replaceable">fieldPath</code>:<code class="replaceable">depthLevel</code>
@@ -56,14 +36,40 @@ Consider the following Fetch Plans for use with the example above:
 |`*:0 address.city.country:0` | Fetches only non-document fields in the root class and the field `address.city.country`, (that is, records `10:1`,`11:2` and `12:3`).|
 |`[*]in_*:-2 out_*:-2`| Fetches all properties, except for edges at any level.|
 
+
+## Early loading of records
+
+By default, OrientDB loads linked records in a lazy manner.  That is to say, it does not load linked fields until it traverses these fields.  In situations where you need the entire tree of a record, this can prove costly to performance.  For instance,
+
+```
+Invoice
+ 3:100
+   |
+   | customer
+   +---------> Customer
+   |            5:233
+   | address            city            country
+   +---------> Address---------> City ---------> Country
+   |            10:1             11:2             12:3
+   |
+   | orders
+   +--------->* [OrderItem OrderItem OrderItem]
+                [  8:12      8:19      8:23   ]
+```
+
+Here, you have a class `Invoice`, with linked fields `customer`, `city` and `orders`.  If you were to run a [`SELECT`](SQL-Query.md) query on `Invoice`, it would not load the linked class, it would require seven different loads to build the return value.  In the event that you have a remote connection that means seven network calls, as well.
+
+In order to avoid performance issues that may arise from this behavior, OrientDB supports fetching strategies, called Fetch Plans, that allow you to customize how it loads linked records.  The aim of a Fetch Plan is to pre-load connected records in a single call, rather than several.  The best use of Fetch Plans is on records loaded through remote connections and when using JSON serializers to produce JSON with nested records.
+
+>**NOTE** OrientDB handles circular dependencies to avoid any loops while it fetches linking records.
+
 ### Remote Connections
 
 Under the default configuration, when a client executes a query or loads directly a single record to a remote database, it continues to send network calls for each linked record involved in the query, (that is, through `OLazyRecordList`).  You can mitigate this with a Fetch Plan.
 
 When the client executes a query, set a Fetch Plan with a level different from `0`.  This causes the server to traverse all the records of the return result-set, sending them in response to a single call.  OrientDB loads all connected records into the local client, meaning that the collections remain lazy, but when accessing content, the record is loaded from the local cache to mitigate the need for additional connections.
 
-
-## Example using the Java APIs
+## Examples using the Java APIs
 
 ### Execute a query with a custom fetch plan
 
@@ -115,4 +121,4 @@ for (Account a : database.browseClass(Account.class).setFetchPlan("*:0 addresses
 }
 ```
 
->**NOTE:** Fetching Object will mean their presence inside your domain entities. So if you load an object using fetchplan `*:0` all LINK type references won't be loaded._
+>**NOTE:** Fetching Object will mean their presence inside your domain entities. So if you load an object using fetchplan `*:0` all LINK type references won't be loaded.

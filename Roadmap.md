@@ -14,25 +14,23 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ```
 
 ### Status
-Last update: November 14, 2015
+Last update: November 24, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| OrientJS| Native unmarshaling of requests by using C++ code| 95% |
+| OrientJS| Native unmarshaling of requests by using C++ code| 100% |
 | Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 100% |
 | Core | Incremental Backup | 100% |
-| Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 0% |
+| Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 100% |
 | Core | AES and DES enchryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
-| Distributed | Fast synchronization by using Incremental Backup | This is in discussion because technical problems. It could be postponed. |
+| Distributed | Fast synchronization by using Incremental Backup | 50% |
 | Distributed / Remote protocol | [Load balancing on client](https://github.com/orientechnologies/orientdb/issues/3165) | 100% |
-| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
-| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | SQL | Pattern matching | 100% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
-| SQL | Live Query -> Stable | 90% |
-| SQL | New functions (strings, maths) | 40% |
+| SQL | Prefetching of disk pages | 100% |
+| SQL | Live Query -> Stable | 95% |
 | SQL | [Sequences](https://github.com/orientechnologies/orientdb/issues/367), [PR](https://github.com/orientechnologies/orientdb/pull/3744) | 100% |
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
@@ -59,12 +57,16 @@ Last update: September 28 2015
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | SQL | New SQL Executor | 10% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
+| SQL | New functions (strings, maths) | 40% |
 | Core | Indexing of embedded properties | 0% |
 | Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 0% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
 | Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 0% |
 | Transactions | Enhance isolation level also for remote commands| 0% |
 | Distributed | Replication of in-memory databases | 0% |
+| Distributed | Optimized replication for cross Data Center | 0% |
 | Distributed | Auto-Sharding | 0% |
 | Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
 | Lucene | Faceted search | 20% |
+| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
