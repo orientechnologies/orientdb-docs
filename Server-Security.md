@@ -24,9 +24,9 @@ For more information on security in Orientdb, see:
 
 ## Configuration
 
-To restrict untrusted users from gaining access to the OrientDB server, add a new user or change the password in the server configuration file.  Protect the file `config/orientdb-server-config.xml` by disabling write access.  
+While the default users and passwords are fine while you are setting your system up, it would be inadvisable to leave them in production.  To help restrict untrusted  users from accessing the OrientDB server, add a new user and change the passwords in the `config/orientdb-server-config.xml` server configuration file.  
 
-Additionally, it is advisable that you also disable read access on the configuration file, to prevent users from viewing the passwords.  Even if passwords are hashed, there are many techniques available to crack the hash or otherwise guess the real password.  
+To restrict unauthorized users from giving themselves privileges on the OrientDB server, disable write-access to the configuration file.  To help prevent them from viewing passwords, disable read-access as well.  Note that even if the passwords are hashed, there are many techniques available to crack the hash or otherwise guess the real password.
 
 
 |   |   |
@@ -36,78 +36,105 @@ Additionally, it is advisable that you also disable read access on the configura
 
 ## Managing Users
 
-Starting from OrientDB 2.2, the console is able to manage server users thanks to the following commands:
-- [`list server users`](Console-Command-List-Server-Users.md), to display all the users
-- [`set server user`](Console-Command-Set-Server-User.md), to create or modify a user
-- [`drop server user`](Console-Command-Drop-Server-User.md), to drop a user
+Beginning with version 2.2, the OrientDB console provides a series of commands for managing users:
 
-## Server's resources
+- [`LIST SERVER USERS`](Console-Command-List-Server-Users.md): Displays all users.
+- [`SET SERVER USER`](Console-Command-Set-Server-User.md): Creates or modifies a user.
+- [`DROP SERVER USER`](Console-Command-Drop-Server-User.md): Drops a user.
 
-This section contains all the available server's resources. Each user can declare which resources have access. The wildcard `*` means any resources.  The `root`server user, by default, has all the privileges, so it can access all the managed databases.
+
+## Server Resources
+
+Each user can declare which resources have access.  The wildcard `*` grants access to any resource.  By default, the user `root` has all privileges, so it can access all the managed databases.
+
 
 | Resources | Description |
 |-----------|-------------|
-|`server.info`|Retrieves the server information and statistics|
-|`server.listDatabases`|Lists the available databases on the server|
+|`server.info`|Retrieves server information and statistics.|
+|`server.listDatabases`|Lists available databases on the server.|
 |`database.create`|Creates a new database in the server|
 |`database.drop`|Drops a database|
-|`database.passthrough`|Starting from 1.0rc7 the server's user can access all the managed databases if it has the resource `database.passthrough` defined. Example:`<user name="replicator" password="repl" resources="database.passthrough" />`|
+|`database.passthrough`|Allows access to all managed databases.|
+
+For example,
+
+```xml
+<user name="replicator" password="repl" resources="database.passthrough"/>
+```
 
 
-## SSL Secure connections
 
-Starting from v1.7, OrientDB supports [secure SSL connections](Using-SSL-with-OrientDB.md).
+## Securing Connections with SSL
 
-## Restore admin user
+Beginning with version 1.7, you can further improve security on your OrientDB server by securing connections with SSL.  For more information on implementing this, see [Using SSL](Using-SSL-with-OrientDB.md).
 
-If the class `OUser` has been dropped or the `admin` user has been deleted, you can follow this procedure to restore your database:
 
-1. Ensure the database is under the OrientDB Server's databases directory (`$ORIENTDB_HOME/databases/ folder`)
+## Restoring the User admin 
 
-1. Open the Console or Studio and login into the database using `root` and the password contained in the file `$ORIENTDB_HOME/config/orientdb-server-config.xml`
+In the event that something happens and you drop the class `OUser` or the user `admin`, you can use the following procedure to restore the user to your database.
 
-1. Execute this query:
+1. Ensure that the database is in the OrientDB server database directory, `$ORIENTDB_HOME/database/ folder`.
 
-  ```sql
-  SELECT FROM OUser WHERE name = 'admin'
-  ```
+1. Launch the console or studio and log into the database with the user `root`.
 
-1. If the class OUser doesn't exist, create it by executing:
+   <pre>
+   $ <code class="lang-sh userinput"> $ORIENTDB_HOME/bin/console.sh</code>
 
-  ```sql
-  CREATE CLASS OUser EXTENDS OIdentity
-  ```
+   OrientDB console v.X.X.X (build 0) www.orientdb.com
+   Type 'HELP' to display all the commands supported.
+   Installing extensions for GREMLIN language v.X.X.X
 
-1. If the class `OIdentity` doesn't exist, create it by executing:
+   orientdb> <code class="lang-sql userinput">CONNECT remote:localhost/my_database root rootpassword</code>
+   </pre>
 
-  ```sql
-  CREATE CLASS OIdentity
-  ```
-  And then retry to create the class `OUser` (5)
+1. Check that the class `OUser` exists:
 
-1. Now execute:
+   <pre>
+   orientdb> <code class="lang-sql userinput">SELECT FROM OUser WHERE name = 'admin'</code>
+   </pre>
 
-  ```sql
-  SELECT FROM ORole WHERE name = 'admin'
-  ```
+   - In the event that this command fails because the class `OUser` doesn't exist, create it:
 
-1. If the class `ORole` doesn't exist, create it by executing:
+     <pre>
+     orientdb> <code class="lang-sql userinput">CREATE CLASS OUser EXTENDS OIdentity</code>
+     </pre>
 
-  ```sql
-  CREATE CLASS ORole EXTENDS OIdentity
-  ```
+   - In the event that this command fails because the class `OIdentity doesn't exist, create it first:
 
-1. If the role `admin` doesn't exist, create it by executing the following command:
+     <pre>
+     orinetdb> <code class="lang-sql userinput">CREATE CLASS OIdentity</code>
+     </pre>
 
-  ```sql
-  INSERT INTO ORole SET name = 'admin', mode = 1, rules = {"database.bypassrestricted":15}
-  ```
+     Then repeat the above command, creating the class `OUser`
 
-1. If the user `admin` doesn't exist, create it by executing the following command:
+1. Check that the class `ORole` exists.
 
-  ```sql
-  INSERT INTO OUser SET name = 'admin', password = 'admin', status = 'ACTIVE',
-                      roles = (select from ORole where name = 'admin')
-  ```
+   <pre>
+   orientdb> <code class="lang-sql userinput">SELECT FROM ORole WHERE name = 'admin'</code>
+   </pre>
 
-Now your `admin` user is active again.
+   - In the event that the class `ORole` doesn't exist, create it:
+
+     <pre>
+     orientdb> <code class="lang-sql userinput">CREATE CLASS ORole EXTENDS OIdentity</code>
+     </pre>
+
+1. In the event that the user or role `admin` doesn't exist, run the following commands:
+
+   - In the event that the role `admin` doesn't exist, create it:
+
+     <pre>
+     orientdb> <code class="lang-sql userinput">INSERT INTO ORole SET name = 'admin', mode = 1, 
+               rules = { "database.bypassrestricted": 15 }</code>
+     </pre>
+
+   - In the event that the user `admin` doesn't exist, create it:
+
+     <pre>
+     orientdb> <code class="lang-sql userinput">INSERT INTO OUser SET name = 'admin', 
+               password = 'my-admin_password', status = 'ACTIVE', 
+               rules = ( SELECT FROM ORole WHERE name = 'admin' )</code>
+     </pre>
+
+The user `admin` is now active again on your database.
+

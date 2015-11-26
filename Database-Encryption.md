@@ -1,43 +1,49 @@
 # Database Encryption
 
-(Since 2.2 - Status: Beta, will be final with 2.2 GA)
+Beginning with version 2.2, OrientDB can encrypt records on disk.  This prevents unauthorized users from accessing database content or even from bypassing OrientDB security.  OrientDB does not save the encryption key to the database.  You must provide it at run-time.  In the event that you lose the encryption key, the database, (or at least the parts of the database you have encrypted), you lose access to its content.  
 
-See also:
-- [Database security](Database-Security.md)
-- [Server security](Server-Security.md)
-- [Secure SSL connections](Using-SSL-with-OrientDB.md)
+> **NOTE**: As of 2.2 this feature is in beta.  It will be final with 2.2 GA.
 
-Starting from v2.2, OrientDB can encrypt the records on disk. This denies anybody from accessing to the database content, even bypassing the OrientDB security system. The encryption key is not saved in database but must be provided at run-time. If the encryption key is lost, the database, or the encrypted portion, can't be read anymore.
+Encryption works through the encryption interface.  It acts at the cluster (collection) level.  OrientDB supports two algorithms for encryption:
 
-Encryption uses the "encryption" interface and act at cluster (collection) level. The supported algorithms are:
-- `aes` that uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
-- `des` that uses [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard)
+- `aes` algorithm, which uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+- `des` algorithm, which uses [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard)
 
-**AES** algorithm is preferable to DES because it's stronger.
+The AES algorithm is preferable to DES, given that it's stronger.
 
-OrientDB encryption works at database level. Having multiple databases with different encryptions under the same Server (or JVM OrientDB is running embedded) is allowed. For this reason encryption settings are per-database. However you can use the global configuration to use the same encryption rules to all the database open in the same JVM. Example of global configuration via Java API:
+Encryption in OrientDB operates at the database-level.  You can have multiple databases, each with different encryption interfaces, running under the same server, (or, JVM, in the event that you run OrientDB embedded).  That said, you can use global configurations to define the same encryption rules for all databases open in the same JVM.  For instance, you can define rules through the Java API:
 
 ```java
 OGlobalConfiguration.STORAGE_ENCRYPTION_METHOD.setValue("aes");
 OGlobalConfiguration.STORAGE_ENCRYPTION_KEY.setValue("T1JJRU5UREJfSVNfQ09PTA==");
 ```
-And at startup by passing these settings as JVM arguments:
 
-```
-java ... -Dstorage.encryptionMethod=aes -Dstorage.encryptionKey="T1JJRU5UREJfSVNfQ09PTA=="
-```
+You can enable this at startup by passing these settings as JVM arguments:
 
-## Create an encrypted database 
-### Create via Console
+<pre>
+$ <code class="lang-sh userinput">java ... -Dstorage.encryptionMethod=aes \
+      -Dstorage.encryptionKey="T1JJRU5UREJfSVNfQ09PTA=="</code>
+</pre>
 
-To create an encypted database, use the -encryption option on [create database command](Console-Command-Create-Database.md). before that set the encryption key by storing it as console's configuration value with name `storage.encryptionKey`. Example:
-```
-orientdb> config set storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==
-orientdb> create database plocal:/tmp/db/encrypted admin admin plocal document -encryption=aes
-```
 
-### Create via Java API
-To create a new database with AES algorithm, set the encryption algorithm and the encryption key as database properties:
+For more information on security in OrientDB, see the following pages:
+- [Database security](Database-Security.md)
+- [Server security](Server-Security.md)
+- [Secure SSL connections](Using-SSL-with-OrientDB.md)
+
+
+
+## Creating Encrypted Databases
+
+You can create an encrypted database using either the console or through the Java API.  To create an encrypted database, use the `-encryption` option through the [`CREATE DATABASE`](Console-Command-Create-Database.md) command.  However, before you do so, you must set the encryption key by defining the `storage.encryptionKey` value through the [`CONFIG`](Console-Command-Config.md) command.
+
+<pre>
+orientdb> <code class="lang-sql userinput">CONFIG SET storage.encryptionKe T1JJRU5UREJfSVNfQ09PTA==</code>
+orientdb> <code class="lang-sql userinput">CREATE DATABASE plocal:/tmp/db/encrypted-db admin my_admin_password 
+          plocal document -encryption=aes</code>
+</pre>
+
+To create an encrypted database through the Java API, define the encryption algorithm and then set the encryption key as database properties:
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/tmp/db/encrypted");
@@ -46,43 +52,45 @@ db.setProperty(OGlobalConfiguration.STORAGE_ENCRYPTION_KEY.getKey(), "T1JJRU5URE
 db.create();
 ```
 
-In this way the entire database will be encrypted on disk. The encryption key is never stored inside the database, but must be provided at run-time.
+Whether you use the console or the Java API, these commands encrypt the entire database on disk.  OrientDB does not store the encryption key within the database.  You must provide it at run-time.
 
-## Encrypt only certain clusters
+## Encrypting Clusters
 
-To encrypt only a few clusters, set the encryption to "nothing" (default) and configure the encryption per cluster through the [`alter cluster`](SQL-Alter-Cluster.md) command:
+In addition to the entire database, you can also only encrypt certain clusters on the database.  To do so, set the encryption to the default of `nothing` when you create the database, then configure the encryption per cluster through the [`ALTER CLUSTER`](SQL-Alter-Cluster.md) command. 
+
+To encrypt the cluster through the Java API, create the database, then alter the cluster to use encryption:
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/tmp/db/encrypted");
 db.setProperty(OGlobalConfiguration.STORAGE_ENCRYPTION_KEY.getKey(), "T1JJRU5UREJfSVNfQ09PTA==");
 db.create();
-db.command(new OCommandSQL("alter cluster Salary encryption aes")).execute();
+db.command(new OCommandSQL("ALTER CLUSTER Salary encryption aes")).execute();
 ```
 
-Note that the key is the same for the entire database. You cannot use different keys per cluster. If the encryption/encryption setting is applied on an non empty cluster, then an error is raised.
+Bear in mind that the key remains the same for the entire database.  You cannot use different keys per cluster.  If you attempt to apply encryption or an encryption setting on a cluster that is not empty, it raises an error.
 
-If you're using the console, remember to set the encryption key `storage.encryptionKey` before setting the encryption. Example:
-```
-orientdb> config set storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==
-orientdb> alter cluster Salary encryption aes
-```
+To accomplish the same through the console, set the encryption key through `storage.encryptionKey` then define the encryption algorithm for the cluster:
 
-## Open an encrypted database
+<pre>
+orientdb> <code class="lang-sql userinput">CONFIG SET storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==</code>
+orientdb> <code class="lang-sql userinput">ALTER CLUSTER Salary encryption aes</code>
+</pre>
 
-### Open via Console
+## Opening Encrypted Databases
 
-If you're using the console, remember to set the encryption key `storage.encryptionKey` before opening the database. Example:
-```
-orientdb> config set storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==
-orientdb> connect plocal:/tmp/db/encrypted admin admin
-```
+You can access an encrypted database through either the console or the Java API.  To do so through the console, set the encryption key with `storage.encryptionKey` then open the database.
 
-### Open via Java API
-Since the encryption setting are stored with the database, it's not necessary to specify the encryption algorithm at open time, but only the encryption key. Example:
+<pre>
+orientdb> <code class="lang-sql userinput">CONFIG SET storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==</code>
+orientdb> <code class="lang-sql userinput">CONNECT plocal:/tmp/db/encrypted-db admin my_admin_password</code>
+</pre>
+
+When opening through the Java API, given that the encryption settings are stored with the database, you do not need to define the encryption algorithm when you open the database, just the encryption key.
 
 ```java
 db.setProperty(OGlobalConfiguration.STORAGE_ENCRYPTION_KEY.getKey(), "T1JJRU5UREJfSVNfQ09PTA==");
-db.open("admin", "admin");
+db.open("admin", "my_admin_password");
 ```
 
-If on database open, a null or invalid key is passed, then a `OSecurityException` exception is thrown.
+In the event that you pass a null or invalid key when you open the database, OrientDB raises an `OSecurityException` exception.
+
