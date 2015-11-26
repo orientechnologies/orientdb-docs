@@ -1,9 +1,8 @@
-# SQL - UPDATE
-____
+# `UPDATE`
 
-Update one or more records in the current database. Remember that OrientDB can work also in schema-less mode, so you can create any field on-the-fly. Furthermore, OrientDB works on collections. This is the reason why OrientDB SQL has some extensions to handle collections.
+Update one or more records in the current database.  Remember: OrientDB can work in schema-less mode, so you can create any field on-the-fly.  Furthermore, the command also supports extensions to work on collections.
 
-## Syntax
+**Syntax**:
 
 ```sql
 UPDATE <class>|cluster:<cluster>|<recordID>
@@ -15,133 +14,151 @@ UPDATE <class>|cluster:<cluster>|<recordID>
   [LIMIT <max-records>] [TIMEOUT <timeout>]
 ```
 
-Where:
-- **SET** updates the field
-- **INCREMENT** increments the field by the value. If the record had 10 as a value and "INCREMENT value = 3" is executed, then the new value will be 13. This is useful for atomic updates of counters. Use negative numbers to decrement. INCREMENT can be used to implement [sequences](Sequences-and-auto-increment.md) (autoincrement) 
-- **ADD**, adds a new item in collection fields
-- **REMOVE**, removes an item in collection and maps fields
-- **PUT**, puts an entry into map fields
-- **CONTENT**, replaces the record content with a JSON
-- **MERGE**, merges the record content with a JSON
-- **LOCK** specifies how the record is locked between the load and the update. It can be a value between:
- - *DEFAULT*, no lock. In case of concurrent update, the MVCC throws an exception
- - *RECORD*, locks the record during the update
-- **UPSERT** updates a record, if it already exists, or inserts a new record if it does not, all in a single statement. This avoids the need to execute 2 commands, one for the query and a conditional insert/update. UPSERT requires a WHERE clause and a class target. There are limitations on usage of UPSERT. See below.
-- **RETURN** specifies what to return as ```<returning>```. If ```<returning-expression>``` is specified (optional) and returning is BEFORE or AFTER, then the expression value is returned instead of record. ```<returning>``` can be a value between:
- - **COUNT**, the default, returns the number of updated records
- - **BEFORE**, returns the records before the update
- - **AFTER**, returns the records after the update
-- WHERE, [SQL-Where](SQL-Where.md) condition to select records to update
-- LIMIT, sets the maximum number of records to update
-- TIMEOUT, if any limits the update operation to a timeout
+- **`SET`** Defines the fields to update.
+- **`INCREMENT`** Increments the field by the value.
 
-Note that [RecordID](Concepts.md#recordid) must be prefixed with '#'. Example: #12:3.
+  For instance, record at `10` with `INCREMENT value = 3` sets the new value to `13`.  You may find this useful in atomic updates of counters.  Use negative numbers to decrement.  Additionally, you can use `INCREMENT` to implement [sequences and auto-increment](Sequences-and-auto-increment.md).
+- **`ADD`** Adds a new item in collection fields.
+- **`REMOVE`** Removes an item in collection and map fields.
+- **`PUT`** Puts an entry into a map field.
+- **`CONTENT`** Replaces the record content with a JSON document.
+- **`MERGE`** Merges the record content with a JSON document.
+- **`LOCK`** Specifies how to lock the record between the load and update.  You can use one of the following lock strategies:
+  - `DEFAULT` No lock.  Use in the event of concurrent updates, the MVCC throws an exception.
+  - `RECORD` Locks the record during the update.
+- **`UPSERT`** Updates a record if it exists or inserts a new record if it doesn't.  This avoids the need to execute two commands, (one for each condition, inserting and updating).  
 
-To know more about conditions, take a look at [WHERE conditions](SQL-Where.md).
+  `UPSERT` requires a [`WHERE`](SQL-Where.md) clause and a class target.  There are further limitations on `UPSERT`, explained below.
+- **`RETURN`** Specifies an expression to return instead of the record and what to do with the result-set returned by the expression.  The available return operators are:
+  - `COUNT` Returns the number of updated records.  This is the default return operator.
+  - `BEFORE` Returns the records before the update.
+  - `AFTER` Return the records after the update.
+- [`WHERE`](SQL-Where.md)
+- `LIMIT` Defines the maximum number of records to update.
+- `TIMEOUT` Defines the time you want to allow the update run before it times out.
 
-## Limitation on usage of UPSERT clause
-UPSERT can only guarantee atomicity when a UNIQUE index is created and the lookup on index is done by the where condition. 
+>**NOTE**: The [Record ID](Concepts.md#recordid) must have a `#` prefix.  For instance, `#12:3`.
 
-In this example a unique index on Client.id must be present to guarantee uniqueness on concurrent operations:
-```sql
-UPDATE client SET id = 23 UPSERT WHERE id = 23
-```
-## Examples
+**Examples**:
 
-### Example 1: Change the value of a field
-```sql
-UPDATE Profile SET nick='Luca' WHERE nick IS NULL
+- Update to change the value of a field:
 
-Updated 2 record(s) in 0,008000 sec(s).
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Profile SET nick = 'Luca' WHERE nick IS NULL</code>
+  
+  Updated 2 record(s) in 0.008000 sec(s).
+  </pre>
 
-### Example 2: Remove a field from all the records
-```sql
-UPDATE Profile REMOVE nick
-```
+- Update to remove a field from all records:
 
-### Example 3: Add a value into a collection
-```sql
-UPDATE Account ADD addresses=#12:0
-```
->Note: in OrientDB server version 2.0.5 you will generate a server error, if there is no space between the # and =. The command needs to be
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Profile REMOVE nick</code>
+  </pre>
 
-```sql
-UPDATE Account ADD addresses = #12:0
-```
+- Update to add a value into a collection:
 
-### Example 4: Remove a value from a collection
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account ADD address=#12:0</code>
+  </pre>
 
-If you know the exact value you want to remove:
+  >**NOTE**: Beginning with version 2.0.5, the OrientDB server generates a server error if there is no space between `#` and the `=`.  You must write the command as:
+  >
+  ><pre>
+  >orientdb> <code class='lang-sql userinput'>UPDATE Account ADD address = #12:0</code>
+  ></pre>
 
-Remove an element from a link list/set
-```sql
-UPDATE Account REMOVE addresses = #12:0
-```
+- Update to remove a value from a collection, if you know the exact value that you want to remove:
 
-Remove an element from a list/set of strings
-```sql
-UPDATE Account REMOVE addresses = 'Foo'
-```
+  Remove an element from a link list or set:
 
-Filtering on value attributes:
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE address = #12:0</code>
+  </pre>
 
-Remove addresses based in the city of Rome
-```sql
-UPDATE Account REMOVE addresses = addresses[city = 'Rome']
-```
+  Remove an element from a list or set of strings:
 
-Filtering based on position in the collection:
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = 'Foo'</code>
+  </pre>
 
-Remove the second element from a list (position numbers start from 0, so addresses[1] is the second element)
-```sql
-UPDATE Account REMOVE addresses = addresses[1]
-```
+- Update to remove a value, filtering on value attributes.
 
+  Remove addresses based in the city of Rome:
 
-### Example 5: Put a map entry into a map
-```sql
-UPDATE Account PUT addresses='Luca', #12:0
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = addresses[city = 'Rome']</code>
+  </pre>
 
-### Example 6: Remove a value from a map
-```sql
-UPDATE Account REMOVE addresses='Luca'
-```
+- Update to remove a value, filtering based on position in the collection.
 
-### Example 7: Update an embedded document
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = addresses[1]</code>
+  </pre>
 
-Update command can take a JSON as value to update:
+  This remove the second element from a list, (position numbers start from `0`, so `addresses[1]` is the second elelment).
 
-```sql
-UPDATE Account SET address={"street":"Melrose Avenue", "city":{"name":"Beverly Hills"}}
-```
+- Update to put a map entry into the map:
 
-### Example 8: Update the first 20 records that satisfy a condition
-```sql
-UPDATE Profile SET nick='Luca' WHERE nick IS NULL LIMIT 20
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account PUT addresses = 'Luca', #12:0</code>
+  </pre>
 
-### Example 9: Update a record or insert if it does not already exist
-```sql
-UPDATE Profile SET nick='Luca' UPSERT WHERE nick='Luca'
-```
+- Update to remove a value from a map
 
-### Example 10: Update a web counter, avoiding concurrent accesses
-```sql
-UPDATE Counter INCREMENT viewes = 1 WHERE page='/downloads/' LOCK RECORD
-```
-### Example 11: Usage of RETURN keyword
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = 'Luca'</code>
+  </pre>
 
-```sql
-UPDATE ♯7:0 SET gender='male' RETURN AFTER @rid
-UPDATE ♯7:0 SET gender='male' RETURN AFTER @version
-UPDATE ♯7:0 SET gender='male' RETURN AFTER @this
-UPDATE ♯7:0 INCREMENT Counter = 123 RETURN BEFORE $current.Counter
-UPDATE ♯7:0 SET gender='male' RETURN AFTER $current.exclude("really_big_field")
-UPDATE ♯7:0 ADD out_Edge = ♯12:1 RETURN AFTER $current.outE("Edge")
-```
+- Update an embedded document.  The [`UPDATE`](SQL-Update.md) command can take JSON as a value to update.
 
-In case a single field is returned, the result is wrapped in a record storing value in the "result" field (Just to avoid introducing new serialization – there is no primitive-values collection serialization in binary protocol). Additionally to that, useful fields like version and rid of the original record are provided in corresponding fields. New syntax will allow optimizing client-server network traffic.
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET address={ "street": "Melrose Avenue", "city": { 
+            "name": "Beverly Hills" } }</code>
 
-To know more about the SQL syntax used in Orient, take a look at: [SQL-Query](SQL-Query.md).
+  </pre>
+
+- Update the first twenty records that satisfy a condition:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Profile SET nick = 'Luca' WHERE nick IS NULL LIMIT 20</code>
+  </pre>
+
+- Update a record or insert if it doesn't already exist:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Profile SET nick = 'Luca' UPSERT WHERE nick = 'Luca'</code>
+  </pre>
+
+- Update a web counter, avoiding concurrent accesses:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Counter INCREMENT views = 1 WHERE pages = '/downloads/' 
+            LOCK RECORD</code>
+  </pre>
+
+- Updates using the `RETURN` keyword:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @rid</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @version</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @this</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 INCREMENT Counter = 123 RETURN BEFORE $current.Counter</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER $current.exclude(
+            "really_big_field")</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 ADD out_Edge = ♯12:1 RETURN AFTER $current.outE("Edge")</code>
+  </pre>
+
+In the event that a single field is returned, OrientDB wraps the result-set in a record storing the value in the field `result`.  This avoids introducing a new serialization, as there is no primitive values collection serialization in the binary protocol.  Additionally, it provides useful fields like `version` and `rid` from the original record in corresponding fields.  The new syntax allows for optimization of client-server network traffic.
+
+For more information on SQL syntax, see [`SELECT`](SQL-Query.md).
+
+## Limitations of the `UPSERT` Clause
+
+The `UPSERT` clause only guarantees atomicity when you use a `UNIQUE` index and perform the look-up on the index through the [`WHERE`](SQL-Where.md) condition.
+
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE Client SET id = 23 UPSERT WHERE id = 23</code>
+</pre>
+
+Here, you must have a unique index on `Client.id` to guarantee uniqueness on concurrent operations.
+

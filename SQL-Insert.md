@@ -1,9 +1,8 @@
-# SQL - INSERT
-____
+# `INSERT`
 
-The **Insert** command creates a new record in the database. Records can be schema-less or conform to rules you specify in your model.
+The [`INSERT`](SQL-Insert.md) command creates a new record in the database.  Records can be schema-less or follow rules specified in your model.
 
-## Syntax
+**Syntax**:
 
 ```sql
 INSERT INTO [class:]<class>|cluster:<cluster>|index:<index>
@@ -14,118 +13,140 @@ INSERT INTO [class:]<class>|cluster:<cluster>|index:<index>
   [FROM <query>]
 ```
 
-Where:
-- `CONTENT`, JSON data as an option to set fields values
-- `RETURN`, returns an expression instead of the number of inserted records. You can use any valid SQL expression. The most common use cases include:
- - `@rid` to return the record id of the new record
- - `@this`to return the entire new record
-- `FROM`, inserts values from the resultset of a query. Since v1.7.
+- **`CONTENT`** Defines JSON data as an option to set field values.
+- **`RETURN`** Defines an expression to return instead of the number of inserted records.  You can use any valid SQL expression.  The most common use-cases,
+  - `@rid` Returns the Record ID of the new record.
+  - `@this` Returns the entire new record.
+- **`FROM`** Defines where you want to insert the result-set.  Introduced in version 1.7.
 
-## Examples
+**Examples**:
 
-### Insert a new record with name 'Jay' and surname 'Miner'
+- Inserts a new record with the name `Jay` and surname `Miner`.
 
-SQL-92 syntax:
-```sql
-INSERT INTO Profile (name, surname) VALUES ('Jay', 'Miner' )
-```
+  As an example, in the SQL-92 standard, such as with a Relational database, you might use:
 
-OrientDB abbreviated syntax:
-```sql
-INSERT INTO Profile SET name = 'Jay', surname = 'Miner'
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile (name, surname) 
+            VALUES ('Jay', 'Miner')</code>
+  </pre>
 
-JSON content syntax:
-```sql
-INSERT INTO Profile CONTENT {"name": "Jay", "surname": "Miner"}
-```
+  Alternatively, in the OrientDB abbreviated syntax, the query would be written as,
 
-### Insert a new record of type Profile, but in a different cluster than the default one
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile SET name = 'Jay', surname = 'Miner'</code>
+  </pre>
 
-```sql
-INSERT INTO Profile CLUSTER profile_recent (name, surname) VALUES ('Jay', 'Miner' )
-```
+  In JSON content syntax, it would be written as this,
 
-```sql
-INSERT INTO Profile CLUSTER profile_recent SET name = 'Jay', surname = 'Miner'
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile CONTENT {"name": "Jay", "surname": "Miner"}</code>
+  </pre>
 
-### Insert several records at the same time
+- Insert a new record of the class `Profile`, but in a different cluster from the default.  
 
-```sql
-INSERT INTO Profile(name,surname) VALUES ('Jay','Miner'),('Frank','Hermier'),('Emily','Saut')
-```
+  In SQL-92 syntax:
 
-### Insert a new record adding a relationship
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile CLUSTER profile_recent (name, surname) VALUES 
+            ('Jay', 'Miner')</code>
+  </pre>
 
-```sql
-INSERT INTO Employee (name, boss) VALUES ('jack', #11:99 )
-```
+  Alternative, in the OrientDB abbreviated syntax:
 
-```sql
-INSERT INTO Employee SET name = 'jack', boss = #11:99
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile CLUSTER profile_recent SET name = 'Jay', 
+            surname = 'Miner'</code>
+  </pre>
 
+- Insert several records at the same time:
 
-### Insert a new record adding a collection of relationship
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile(name, surname) VALUES ('Jay', 'Miner'), 
+            ('Frank', 'Hermier'), ('Emily', 'Sout')</code>
+  </pre>
 
-```sql
-INSERT INTO Profile (name, friends) VALUES ('Luca', [#10:3, #10:4] )
-```
+- Insert a new record, adding a relationship.
 
-```sql
-INSERT INTO Profile SET name = 'Luca', friends =  [#10:3, #10:4]
-```
+  In SQL-93 syntax:
 
-### Sub-selects
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Employee (name, boss) VALUES ('jack', #11:09)</code>
+  </pre>
 
-```sql
-INSERT INTO Diver SET name = 'Luca', buddy = (SELECT FROM Diver WHERE name = 'Marko')
-```
+  In the OrientDB abbreviated syntax:
 
-### Sub-inserts
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Employee SET name = 'jack', boss = #11:99</code>
+  </pre>
 
-```sql
-INSERT INTO Diver SET name = 'Luca', buddy = (INSERT INTO Diver SET name = 'Marko')
-```
+- Insert a new record, add a collection of relationships.
 
-### Insert in a different cluster
+  In SQL-93 syntax:
 
-This inserts a new document in the cluster 'asiaemployee':
-```sql
-INSERT INTO CLUSTER:asiaemployee (name) VALUES ('Mattew')
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile (name, friends) VALUES ('Luca', [#10:3, #10:4])</code>
+  </pre>
 
-However, please note that the document will have no class assigned. To create a document of a certain class, but in a different cluster than the default one, use:
+  In the OrientDB abbreviated syntax:
 
-```sql
-INSERT INTO CLUSTER:asiaemployee (@class, content) VALUES ('employee', 'Mattew')
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profiles SET name = 'Luca', friends = [#10:3, #10:4]</code>
+  </pre>
 
-That will insert the document of type 'employee' in the cluster 'asiaemployee'.
+- Inserts using [`SELECT`](SQL-Query.md) sub-queries
 
-### Insert a new record adding an embedded document
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Diver SET name = 'Luca', buddy = (SELECT FROM Diver 
+            WHERE name = 'Marko')</code>
+  </pre>
 
-```sql
-INSERT INTO Profile (name, address) VALUES ('Luca', { "@type" : "d", "street" : "Melrose Avenue", "@version" : 0 } )
-```
+- Inserts using [`INSERT`](SQL-Insert.md) sub-queries:
 
-### Insert from query
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Diver SET name = 'Luca', buddy = (INSERT INTO Diver 
+            SET name = 'Marko')</code>
+  </pre>
 
-#### Copy records in another class
-```sql
-INSERT INTO GermanyClient FROM SELECT FROM Client WHERE country = 'Germany'
-```
+- Inserting into a different cluster:
 
-Will insert all the records from Client, where the country is "Germany".
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO CLUSTER:asiaemployee (name) VALUES ('Matthew')</code>
+  </pre>
 
-#### Copy records in another class adding a field
-```sql
-INSERT INTO GermanyClient FROM SELECT *, true AS copied FROM Client WHERE country = 'Germany'
-```
+  However, note that the document has no assigned class.  To create a document of a certain class, but in a different cluster than the default, instead use:
 
-Will insert all the records from Client, where the country is "Germany" and will add an additional field called "copied" with value true.
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO CLUSTER:asiaemployee (@class, content) VALUES 
+            ('Employee', 'Matthew')</code>
+  </pre>
 
+  That inserts the document of the class `Employee` into the cluster `asiaemployee`.
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+- Insert a new record, adding it as an embedded document:
 
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Profile (name, address) VALUES ('Luca', { "@type": "d", 
+            "street": "Melrose Avenue", "@version": 0 })</code>
+  </pre>
+
+- Insert from a query.
+
+  To copy records from another class, use:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO GermanyClient FROM SELECT FROM Client WHERE 
+            country = 'Germany'</code>
+  </pre>
+
+  This inserts all the records from the class `Client` where the country is Germany, in the class `GermanyClient`.
+
+  To copy records from one class into another, while adding a field:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO GermanyClient FROM SELECT *, true AS copied FROM Client 
+            WHERE country = 'Germany'</code>
+  </pre>
+
+  This inserts all records from the class `Client` where the country is Germany into the class `GermanClient`, with the addition field `copied` to the value `true`.
+
+For more information on SQL, see [SQL commands](SQL.md).
