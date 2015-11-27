@@ -120,10 +120,10 @@ The search will find all the Account and Company documents that satisfy the quer
 Before to use a database you need to open or create it:
 ```java
 // CREATE AN IN MEMORY DATABASE
-OObjectDatabase db1 = new OObjectDatabaseTx("memory:petshop").create();
+OObjectDatabaseTx db1 = new OObjectDatabaseTx("memory:petshop").create();
 
 // OPEN A REMOTE DATABASE
-OObjectDatabase db2 = new OObjectDatabaseTx("remote:localhost/petshop").open("admin", "admin");
+OObjectDatabaseTx db2 = new OObjectDatabaseTx("remote:localhost/petshop").open("admin", "admin");
 ```
 
 The database instance will share the connection versus the storage. if it's a local storage, then all the database instances will be synchronized on it. If it's a remote storage then the network connection will be shared among all the database instances.
@@ -147,7 +147,7 @@ Please read the [POJO binding guide](Object-2-Record-Java-Binding.md) containing
 The Object Database can be used totally in schema-less mode as long as the [POJO binding guide](Object-2-Record-Java-Binding.md) requirements are followed. Schema less means that the class must be created but even without properties. Take a look to this example:
 
 ```java
-OObjectDatabase db = new OObjectDatabaseTx("remote:localhost/petshop").open("admin", "admin");
+OObjectDatabaseTx db = new OObjectDatabaseTx("remote:localhost/petshop").open("admin", "admin");
 db.getEntityManager().registerEntityClass(Person.class);
 
 Person p = db.newInstance(Person.class);
@@ -167,7 +167,7 @@ In the schema-full mode you need to declare the classes you're using. Each class
 
 ## Create a new object
 
-The best practice to create a Java object is to use the OObjectDatabase.newInstance() API:
+The best practice to create a Java object is to use the OObjectDatabaseTx.newInstance() API:
 
 ```java
 public class Person {
@@ -188,7 +188,7 @@ public class Person {
 // getters and setters
 }
 
-OObjectDatabase db = new OObjectDatabaseTx("remote:localhost/petshop").open("admin", "admin");
+OObjectDatabaseTx db = new OObjectDatabaseTx("remote:localhost/petshop").open("admin", "admin");
 db.getEntityManager().registerEntityClass(Person.class);
 
 // CREATES A NEW PERSON FROM THE EMPTY CONSTRUCTOR
@@ -455,7 +455,7 @@ See all the [SQL Commands](SQL.md).
 
 ## Get the ODocument from a POJO
 
-The OObjectDatabase implementation has APIs to get a document from its referencing object:
+The OObjectDatabaseTx implementation has APIs to get a document from its referencing object:
 
 ```java
 ODocument doc = db.getRecordByUserObject( animal );
