@@ -2,7 +2,7 @@
 
 This is a comparison page between OrientDB and other DocumentDB projects . To know more about the comparison of OrientDB against GraphDBs look at this [comparison](GraphDB-Comparison.md).
 
->NOTE: If any information about any product is not updated or wrong, please send an email to the committers with the link of the source of the right information. Thanks!
+>NOTE: If any information about any product is outdated or wrong, please send an email to the committers with the link of the source of the right information. Thanks!
 
 ## Features matrix
 
