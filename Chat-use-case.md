@@ -1,5 +1,4 @@
 # Chat Use Case
-____
 
 OrientDB allows modeling of rich and complex domains. If you want to develop a chat based application, you can use whatever you want to create the relationships between User and Room.
 

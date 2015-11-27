@@ -1,5 +1,4 @@
 # Cluster Selection
-____
 
 When you create a new record and specify the [class](Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](Concepts.md#cluster), where it stores the physical data of the record. There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
 
