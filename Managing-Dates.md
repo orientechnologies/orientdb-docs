@@ -1,3 +1,4 @@
+<!-- proofread 2015-11-26 SAM -->
 # Managing Dates
 
 OrientDB treats dates as first class citizens. Internally, it saves dates in the [Unix time](https://en.wikipedia.org/wiki/Unix_time) format.  Meaning, it stores dates as a `long` variable, which contains the count in milliseconds since the Unix Epoch, (that is, 1 January 1970).

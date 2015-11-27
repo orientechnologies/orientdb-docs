@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
 # Classes
-____
+
 
 Multi-model support in the OrientDB engine provides a number of ways in approaching and understanding its basic concepts.  These concepts are clearest when viewed from the perspective of the Document Database API. Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API, records always use the [Document](Concepts.md#document) type.  Documents are formed by a set of key/value pairs, referred to as fields and properties, and can belong to a class.
 

@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
 # Record ID
-____
+
 
 In OrientDB, each record has its own self-assigned unique ID within the database called [Record ID](Concepts.md#wiki-RecordID) or RID. It is composed of two parts:
 

@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Distributed queues use case
-____
 
 Implementing a persistent, distributed and transactional queue system using OrientDB is possible and easy. Besides the fact you don't need a specific API accomplish a queue, there are multiple approaches you can follow depending by your needs. The easiest way is using OrientDB SQL, so this works wit any driver.
 

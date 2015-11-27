@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # SQL - DELETE
-____
 
 The **Delete** command deletes one or more records from the database. The set of records involved are taken by the [WHERE](SQL-Where.md) clause.
 

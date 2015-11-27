@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # SQL - UPDATE
-____
 
 Update one or more records in the current database. Remember that OrientDB can work also in schema-less mode, so you can create any field on-the-fly. Furthermore, OrientDB works on collections. This is the reason why OrientDB SQL has some extensions to handle collections.
 

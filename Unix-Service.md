@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
+
 # Install as Service on Unix/Linux
-____
 
 OrientDB ships with a script, which will allow you to run the database server as a daemon.  You can find it in the `bin/` directory of your installation, (that is, at `$ORIENTDB_HOME/bin/orientdb.sh`.
 

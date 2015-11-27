@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Key Value Use Case
-____
 
 OrientDB can also be used as a Key Value DBMS by using the super fast [Indexes](Indexes.md). You can have as many [Indexes](Indexes.md) as you need.
 

@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Fetching Strategies
-____
 
 *Fetchplans* are used in two different scopes:
 

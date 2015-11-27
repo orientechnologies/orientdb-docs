@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 #Installing in a Docker Container
-_____
 
 [OrientDB](http://www.orientdb.org) is the first Multi-Model Open Source NoSQL DBMS that combines the power of graphs and the flexibility of documents into one scalable, high-performance operational database.
 
