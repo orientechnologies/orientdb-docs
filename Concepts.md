@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Basic Concepts
-____
 
 
 ### The Record

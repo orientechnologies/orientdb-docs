@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
+
 # Inheritance
-____
 
 Unlike many Object-relational mapping tools, OrientDB does not split documents between different classes.  Each document resides in one or a number of clusters associated with its specific class.  When you execute a query against a class that has subclasses, OrientDB searches the clusters of the target class and all subclasses.
 

@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
 # Working with Graphs
-____
+
 
 In graph databases, the database system graphs data into network-like structures consisting of vertices and edges. In the OrientDB [Graph model](Tutorial-Document-and-graph-model.md#graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge, as an entity that links two vertices.
 

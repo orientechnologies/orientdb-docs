@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # SQL - INSERT
-____
 
 The **Insert** command creates a new record in the database. Records can be schema-less or conform to rules you specify in your model.
 

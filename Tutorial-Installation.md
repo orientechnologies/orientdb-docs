@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Installation
-____
 
 OrientDB is available in two editions:
 
