@@ -1,3 +1,4 @@
+<!-- proofread 2015-11-26 SAM -->
 # Concurrency
 
 OrientDB uses an optimistic approach to concurrency.  Optimistic Concurrency Control, or [OCC](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) assumes that multiple transactions can compete frequently without interfering with each other.

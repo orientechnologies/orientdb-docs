@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
 # Graph or Document API?
-____
+
 In OrientDB, we created 2 different APIs: the Document API and the Graph API. The Graph API works on top of the Document API. The Document API contains the Document, Key/Value and Object Oriented models. The Graph API handles the Vertex and Edge relationships.
 
 ``` 

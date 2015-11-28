@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # SQL - SELECT
-____
 
 Orient supports the SQL language to execute queries against the database engine. Take a look at the [operators](SQL-Where.md#operators) and [Functions](SQL-Where.md#functions). To learn the main differences in comparison to the SQL-92 standard, take a look at: [OrientDB SQL](SQL.md).
 

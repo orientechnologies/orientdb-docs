@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
 # Using Schema with Graphs
-____
+
 
 OrientDB, through the Graph API, offers a number of features above and beyond the traditional Graph Databases given that it supports concepts drawn from both the Document Database and the Object Oriented worlds. For instance, consider the power of graphs, when used in conjunction with schemas and constraints.
 

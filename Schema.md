@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Schema
-____
 
 While OrientDb can work in a schema-less mode, you may find it necessary at times to enforce a schema on your data model.  OrientDB supports both schema-full and schema-hybrid solutions.
 

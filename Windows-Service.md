@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
+
 # Install as a Service on Windows
-____
 
 OrientDB is a Java server application. As most server applications, they have to perform several tasks, before being able to shut down the Virtual Machine process, hence they need a portable way to be notified of the imminent Virtual Machine shutdown.
 At the moment, the only way to properly shut down an OrientDB server instance (not embedded) is to execute the *shutdown.bat* (or *shutdown.sh*) script shipped with the OrientDB distribution, but it's up to the user to take care of this. This implies that the server instance isn't  stopped correctly, when the computer on which it is deployed, is shut down without executing the above script.

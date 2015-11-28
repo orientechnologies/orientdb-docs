@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
+
 # Getting Started
-____
 
 Over the past few years, there has been an explosion of many NoSQL database solutions and products. The meaning of the word "NoSQL" is not a campaign against the SQL language. In fact, OrientDB allows for SQL syntax! NoSQL is probably best described by the following:
 

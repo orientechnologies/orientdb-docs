@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Running the OrientDB Console
-____
 
 There are various methods you can use to connect to your database server and the individual databases, once the server is running, such as the [Network Binary](Network-Binary-Protocol.md) and [HTTP/REST](OrientDB-REST.d) protocols.  In addition to these, OrientDB provides a command-line interface for connecting to and working with the database server.
 
