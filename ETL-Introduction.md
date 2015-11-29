@@ -4,13 +4,13 @@ The OrientDB-ETL module is an amazing tool to move data from and to OrientDB by 
 - one [configuration file](Configuration-File.md) in [JSON](http://en.wikipedia.org/wiki/JSON) format
 - one [Extractor](Extractor.md) is allowed to extract data from a source
 - one [Loader](Loader.md) is allowed to load data to a destination
-- multiple [Transformers](Transformer.md) that transform data in pipeline. They receive something in input, do something, return something as output that will be processed as input by the next component
+- multiple [Transformers](Transformer.md) that transform data in a pipeline. They receive something as input, do something, then return something as output that will be processed as input by the next component
 
 ## How ETL works
 ```
 EXTRACTOR => TRANSFORMERS[] => LOADER
 ```
-Example of a process that extract from a CSV file, apply some change, lookup if the record has already been created and then store the record as document against OrientDB database:
+An example of a process that extracts from a CSV file, applies some change, does a lookup to see if the record has already been created, and then stores the record as a document against OrientDB database:
 
 ```
 +-----------+-----------------------+-----------+
@@ -22,10 +22,10 @@ Example of a process that extract from a CSV file, apply some change, lookup if 
 +-----------+-----------------------+-----------+
 ```
 
-The pipeline, made of transformation and loading phases, can run in parallel by setting the configuration ```{"parallel":true}```.
+The pipeline, composed of transformation and loading phases, can run in parallel by setting the configuration ```{"parallel":true}```.
 
 ## Installation
-Starting from OrientDB v2.0 the ETL module will be distributed in bundle with the official release. If you want to use it, then follow these steps:
+Starting from OrientDB v2.0 the ETL module is bundled with the official release.  Follow these steps to use the module:
 - Clone the repository on your computer, by executing:
  - ```git clone https://github.com/orientechnologies/orientdb-etl.git```
 - Compile the module, by executing:
@@ -46,7 +46,7 @@ $ ./oetl.sh config-dbpedia.json
 
 ### Run-time configuration
 
-In ETL JSON file you can define variable that will be resolved at run-time by passing them at startup. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+In an ETL JSON file you can define variables that will be resolved at run-time by passing them at startup. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
 ```
 $ ./oetl.sh config-dbpedia.json -databaseURL=plocal:/temp/mydb
 ```
