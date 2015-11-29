@@ -427,7 +427,7 @@ SELECT max(salary1, salary2, salary3) FROM Account
 ---
 ### abs()
 
-Returns the absolute value.
+Returns the absolute value. It works with Integer, Long, Short, Double, Float, BigInteger, BigDecimal, null.
 
 Syntax: ```abs(<field>)```
 
