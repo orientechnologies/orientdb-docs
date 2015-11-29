@@ -37,7 +37,7 @@ In this case `first()` function doesn't aggregate everything in only one record,
 |[in()](SQL-Functions.md#in)      | [min()](SQL-Functions.md#min) | [map()](SQL-Functions.md#map)               | [sysdate()](SQL-Functions.md#sysdate)
 |[both()](SQL-Functions.md#both)  | [max()](SQL-Functions.md#max) | [list()](SQL-Functions.md#list)             | [format()](SQL-Functions.md#format)
 |[outE()](SQL-Functions.md#outE)  | [sum()](SQL-Functions.md#sum) | [difference()](SQL-Functions.md#difference) | [distance()](SQL-Functions.md#distance)
-|[inE()](SQL-Functions.md#inE)    |                               | [first()](SQL-Functions.md#first)           | [ifnull()](SQL-Functions.md#ifnull)
+|[inE()](SQL-Functions.md#inE)    | [abs()](SQL-Functions.md#abs) | [first()](SQL-Functions.md#first)           | [ifnull()](SQL-Functions.md#ifnull)
 |[bothE()](SQL-Functions.md#bothE)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalesce()](SQL-Functions.md#coalesce)
 |[outV()](SQL-Functions.md#outV)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
 |[inV()](SQL-Functions.md#inV)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
@@ -49,9 +49,9 @@ In this case `first()` function doesn't aggregate everything in only one record,
 
 ### Functions by name
 
-|       |       |       |       |
-|-------|-------|-------|-------|
-|[avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) | [bothE()](SQL-Functions.md#bothE) | [coalesce()](SQL-Functions.md#coalesce) | 
+|       |       |       |       |       |
+|-------|-------|-------|-------|-------|
+|[abs()](SQL-Functions.md#abs)|[avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) | [bothE()](SQL-Functions.md#bothE) | [coalesce()](SQL-Functions.md#coalesce) | 
 |[count()](SQL-Functions.md#count)|[date()](SQL-Functions.md#date) | [difference()](SQL-Functions.md#difference) | [dijkstra()](SQL-Functions.md#dijkstra) |
 |[distance()](SQL-Functions.md#distance) | [distinct()](SQL-Functions.md#distinct) | [eval()](SQL-Functions.md#eval) | [expand()](SQL-Functions.md#expand) |
 |[format()](SQL-Functions.md#format) | [first()](SQL-Functions.md#first) | [flatten()](SQL-Functions.md#flatten) | [if()](SQL-Functions.md#if) | |
@@ -423,6 +423,24 @@ Returns the maximum value between 'salary1', 'salary2' and 'salary3' fields.
 ```sql
 SELECT max(salary1, salary2, salary3) FROM Account
 ```
+
+---
+### abs()
+
+Returns the absolute value.
+
+Syntax: ```abs(<field>)```
+
+Available since: 2.2
+
+#### Example
+
+```sql
+SELECT abs(score) FROM Account
+SELECT abs(-2332) FROM Account
+SELECT abs(999) FROM Account
+```
+
 ---
 ### avg()
 
