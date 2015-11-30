@@ -1,5 +1,7 @@
 # SQL - UPDATE EDGE
 
+(Since v. 2.2)
+
 Update one or more edge records in the current database. Remember that OrientDB can work also in schema-less mode, so you can create any field on-the-fly. Furthermore, OrientDB works on collections. This is the reason why OrientDB SQL has some extensions to handle collections.
 
 It is equivalent to [UPDATE](SQL-Update.md) command, but in addition it checks and maintains the graph consistency (vertex pointers) in case you update ```out``` and ```in``` properties.
