@@ -214,6 +214,7 @@
     * [Create User](SQL-Create-User.md)
     * [Create Vertex](SQL-Create-Vertex.md)
     * [Move Vertex](SQL-Move-Vertex.md)
+    * [Update edge](SQL-Update-Edge.md)
     * [Delete Edge](SQL-Delete-Edge.md)
     * [Delete Vertex](SQL-Delete-Vertex.md)
     * [Drop Class](SQL-Drop-Class.md)
