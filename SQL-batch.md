@@ -54,6 +54,32 @@ Note the "lock record" after the select. This means the returning records will b
 
 _NOTE: locks inside transactions works ONLY against MEMORY storage, we're working to provide such feature also against plocal. Stay tuned (Issue https://github.com/orientechnologies/orientdb/issues/1677)_
 
+
+## Conditional execution 
+(since 2.1.7)
+SQL Batch provides IF constructor to allow conditional execution.
+The syntax is
+
+```sql
+if(<sql-predicate>){
+   <statement>
+   <statement>
+   ...
+}
+```
+`<sql-predicate>` is any valid SQL predicate (any condition that can be used in a WHERE clause).
+In current release it's mandatory to have `IF(){`, `<statement>` and `}` on separate lines, eg. the following is not a valid script
+
+```sql
+if($a.size() > 0) { ROLLBACK }
+```
+The right syntax is following:
+```sql
+if($a.size() > 0) { 
+   ROLLBACK 
+}
+```
+
 ## Java API
 
 This can be used by Java API with:
