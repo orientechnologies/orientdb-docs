@@ -21,14 +21,46 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON
           FULLTEXT ENGINE LUCENE</code>
 </pre>
 
+
+### Analyzer 
+
 This creates a basic FullText Index with the Lucene Engine on the specified properties.  In the even that you do not specify the analyzer, OrientDB defaults to [StandardAnalyzer](http://lucene.apache.org/core/4_7_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
 
 In addition to the StandardAnalyzer, you can also create indexes that use different analyzer, using the `METADATA` operator through [`CREATE INDEX`](SQL-Create-Index.md).
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
-          {"analyzier": "org.apache.lucene.analysis.en.EnglishAnalyzer"}</code>
+          {"analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer"}</code>
 </pre>
+
+**(from 2.2)**
+
+Starting from 2.2 it is possible to configure different analyzers for indexing and querying.
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
+          {
+          "index_analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer",
+          "query_analyzer": "org.apache.lucene.analysis.standard.StandardAnalyzer"
+          }</code>
+</pre>
+
+EnglishAnalyzer will be used to analyze text while indexing and the StandardAnalyzer will be used to analyze query terms. 
+
+It is posssbile to configure analyzers at field level
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, description) FULLTEXT ENGINE LUCENE METADATA
+          {
+          "index_analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer",
+          "query_analyzer": "org.apache.lucene.analysis.standard.StandardAnalyzer",
+          "name_index_analyzer": "org.apache.lucene.analysis.standard.StandardAnalyzer",
+          "name_query_analyzer": "org.apache.lucene.analysis.core.KeywordAnalyzer"
+          }</code>
+</pre>
+
+With this configuration **name** will be indexed with StandardAnalyzer and query will be analyzed with the KeywordAnalyzer: **description** hasn't a custom configuration, so default analyzers for indexing an querying will be used.
+
 
 You can also use the FullText Index with the Lucene Engine through the Java API.
 
@@ -66,6 +98,7 @@ orientdb> <code class="lang-sql userinput">SELECT FROM CLass WHERE [prop1, prop2
 </pre>
 
 Here, hte engine parses the query using the [QueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+
 
 ## Creating a Manual Lucene Index
 
