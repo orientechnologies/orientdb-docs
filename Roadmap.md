@@ -38,7 +38,7 @@ Last update: December 4, 2015
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
 | Studio | New P2P architecture, new Enterprise modules (it replaces the Enterprise Workbench) | 80% |
-| Lucene | New module for indexing of shapes, not only points | 90% |
+| Lucene | New module for indexing of shapes, not only points | 100% |
 
 ## Release 3.0
 ```
