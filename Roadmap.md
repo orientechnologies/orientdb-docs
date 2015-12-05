@@ -59,6 +59,7 @@ Last update: December 4, 2015
 | SQL | New SQL Executor | 10% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | New functions (strings, maths) | 40% |
+| SQL | Multi-line queries in batch scripts | 0% |
 | Core | Indexing of embedded properties | 0% |
 | Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 0% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
