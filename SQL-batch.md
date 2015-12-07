@@ -9,6 +9,7 @@ SQL Batch supports all the OrientDB [SQL commands](SQL.md), plus the following:
 - ```commit [retry <retry>]```, where:
  - <retry> is the number of retries in case of concurrent modification exception
 - ```let <variable> = <SQL>```, to assign the result of a SQL command to a variable. To reuse the variable prefix it with the dollar sign $
+- ```if(<expression>){<statememt>}```. Look at [Conditional execution](SQL-batch.md#conditional-execution).
 - ```sleep <ms>```, put the batch in wait for `<ms>` milliseconds.
 - ```console.log <text>```, logs a message in the console. Context variables can be used with `${<variable>}`. Since 2.2.
 - ```console.error <text>```, writes a message in the console's standard output. Context variables can be used with `${<variable>}`. Since 2.2.
@@ -53,6 +54,32 @@ return $edge
 Note the "lock record" after the select. This means the returning records will be locked until commit (or rollback). In this way concurrent updates against London will wait for this [transaction](Transactions.md) to complete.
 
 _NOTE: locks inside transactions works ONLY against MEMORY storage, we're working to provide such feature also against plocal. Stay tuned (Issue https://github.com/orientechnologies/orientdb/issues/1677)_
+
+
+## Conditional execution 
+(since 2.1.7)
+SQL Batch provides IF constructor to allow conditional execution.
+The syntax is
+
+```sql
+if(<sql-predicate>){
+   <statement>
+   <statement>
+   ...
+}
+```
+`<sql-predicate>` is any valid SQL predicate (any condition that can be used in a WHERE clause).
+In current release it's mandatory to have `IF(){`, `<statement>` and `}` on separate lines, eg. the following is not a valid script
+
+```sql
+if($a.size() > 0) { ROLLBACK }
+```
+The right syntax is following:
+```sql
+if($a.size() > 0) { 
+   ROLLBACK 
+}
+```
 
 ## Java API
 

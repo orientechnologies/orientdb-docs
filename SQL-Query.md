@@ -4,7 +4,6 @@ OrientDB supports the SQL language to execute queries against the database engin
 
 **Syntax**:
 
-
 ```sql
 SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
     [ WHERE <Condition>* ]

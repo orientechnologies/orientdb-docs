@@ -1,8 +1,18 @@
 # Javascript
 
-Starting from version 1.0, OrientDB supports server-side scripting. All the [JVM languages](http://en.wikipedia.org/wiki/List_of_JVM_languages) are supported. By default [JavaScript](http://en.wikipedia.org/wiki/JavaScript) is installed.
+OrientDB supports server-side scripting. All the [JVM languages](http://en.wikipedia.org/wiki/List_of_JVM_languages) are supported. By default [JavaScript](http://en.wikipedia.org/wiki/JavaScript) is installed.
 
 Scripts can be executed on the client and on the server-side.  On the client-side, the user must have READ privilege against the <code>database.command</code> resource.  On the server-side, [the scripting interpreter](#Enable_Server_side_scripting) must be enabled.  It is disabled by default for security reasons.
+
+In order to return the result of a variable, put the variable name as last statement. Example:
+
+```js
+var r = db.query('select from ouser');
+print(r);
+r
+```
+
+Will return the resultset.
 
 ## See also
 - [SQL-batch](SQL-batch.md)

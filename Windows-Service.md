@@ -1,5 +1,6 @@
+<!-- proofread 2015-11-26 SAM -->
+
 # Install as a Service on Windows
-____
 
 OrientDB is a Java server application. As most server applications, they have to perform several tasks, before being able to shut down the Virtual Machine process, hence they need a portable way to be notified of the imminent Virtual Machine shutdown.
 At the moment, the only way to properly shut down an OrientDB server instance (not embedded) is to execute the *shutdown.bat* (or *shutdown.sh*) script shipped with the OrientDB distribution, but it's up to the user to take care of this. This implies that the server instance isn't  stopped correctly, when the computer on which it is deployed, is shut down without executing the above script.
@@ -79,14 +80,15 @@ set LOG_FILE=%ORIENTDB_HOME%/config/orientdb-server-log.properties
 set LOG_CONSOLE_LEVEL=info
 set LOG_FILE_LEVEL=fine
 set WWW_PATH=%ORIENTDB_HOME%/www
+set ORIENTDB_ENCODING=UTF8
 set ORIENTDB_SETTINGS=-Dprofiler.enabled=true -Dcache.level1.enabled=false -Dcache.level2.strategy=1
 set JAVA_OPTS_SCRIPT=-XX:+HeapDumpOnOutOfMemoryError
 
 rem Install service
-OrientDBGraphX.X.X.exe //IS --DisplayName="OrientDB GraphEd X.X.X" \
---Description="OrientDB Graph Edition, aka GraphEd, contains OrientDB server integrated with the latest release of the TinkerPop Open Source technology stack supporting property graph data model." \
---StartClass=com.orientechnologies.orient.server.OServerMain --StopClass=com.orientechnologies.orient.server.OServerShutdownMain \
---Classpath="%ORIENTDB_HOME%\lib\*" --JvmOptions "-Djava.util.logging.config.file="%LOG_FILE%";-Dorientdb.config.file="%CONFIG_FILE%";-Dorientdb.www.path="%WWW_PATH%";-Dlog.console.level=%LOG_CONSOLE_LEVEL%;-Dlog.file.level=%LOG_FILE_LEVEL%;-Dorientdb.build.number="@BUILD@";-DORIENTDB_HOME=%ORIENTDB_HOME%" \
+OrientDBGraphX.X.X.exe //IS --DisplayName="OrientDB GraphEd X.X.X" ^
+--Description="OrientDB Graph Edition, aka GraphEd, contains OrientDB server integrated with the latest release of the TinkerPop Open Source technology stack supporting property graph data model." ^
+--StartClass=com.orientechnologies.orient.server.OServerMain --StopClass=com.orientechnologies.orient.server.OServerShutdownMain ^
+--Classpath="%ORIENTDB_HOME%\lib\*" --JvmOptions "-Dfile.Encoding=%ORIENTDB_ENCODING%;-Djava.util.logging.config.file="%LOG_FILE%";-Dorientdb.config.file="%CONFIG_FILE%";-Dorientdb.www.path="%WWW_PATH%";-Dlog.console.level=%LOG_CONSOLE_LEVEL%;-Dlog.file.level=%LOG_FILE_LEVEL%;-Dorientdb.build.number="@BUILD@";-DORIENTDB_HOME=%ORIENTDB_HOME%" ^
 --StartMode=jvm --StartPath="%ORIENTDB_HOME%\bin" --StopMode=jvm --StopPath="%ORIENTDB_HOME%\bin" --Jvm="%JVM_DLL%" --LogPath="%ORIENTDB_HOME%\log" --Startup=auto
 
 EXIT /B

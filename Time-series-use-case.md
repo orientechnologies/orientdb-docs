@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # Time Series Use Case
-____
 
 Managing records related to historical information is pretty common. When you have millions of records, indexes start show their limitations, because the cost to find the records is O(logN). This is also the main reason why Relational DBMS are so slow with huge databases.
 

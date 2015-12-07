@@ -19,7 +19,7 @@ OrientDB can handle indexes in the same manner as classes, using the SQL languag
 
 OrientDB can use two methods to update indexes:
 
-- **Automatic** Where the index is bound to schema properties.  (For example, `User.id`.)  If you have a schema-less database and you want to create an automatic index, then you need to create the calss and the property before using the index.
+- **Automatic** Where the index is bound to schema properties.  (For example, `User.id`.)  If you have a schema-less database and you want to create an automatic index, then you need to create the class and the property before using the index.
 
 - **Manual** Where the index is handled by the application developer, using the Java API and SQL commands (see below).  You can use them as Persistent Maps, where the entry's value are the records pointed to by the index.
 

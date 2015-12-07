@@ -1,6 +1,6 @@
 # Command Cache
 
-Starting from release 2.2, OrientDB supports caching of commands results. Caching command results has been used by other DBMSs and proven to drammatically improve the following use cases:
+Starting from release 2.2, OrientDB supports caching of commands results. Caching command results has been used by other DBMSs and proven to dramatically improve the following use cases:
 - database is mostly read than write
 - there are a few heavy queries that result a small result set
 - you have available RAM to use or caching results

@@ -1,5 +1,5 @@
+<!-- proofread 2015-11-26 SAM -->
 # SQL
-____
 
 Most NoSQL products employ a custom query language.  In this, OrientDB differs by focusing on standards in query languages.  That is, instead of inventing "Yet Another Query Language," it begins with the widely used and well-understood language of SQL.  It then extends SQL to support more complex graphing concepts, such as Trees and Graphs.
 

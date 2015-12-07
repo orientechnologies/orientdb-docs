@@ -129,7 +129,7 @@ There are also special variables used by ETL process:
 
 ## Split configuration on multiple files
 
-Configuration can be splitted into several files allowing composition of common parts, such as paths, urls, database references.
+Configuration can be split into several files allowing composition of common parts such as paths, urls, and database references.
 The previous configuration could be splitted in two files:
 
 a configuration file with input path for Person csv: *personConfig.json*
