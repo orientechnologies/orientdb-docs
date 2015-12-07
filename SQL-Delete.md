@@ -1,34 +1,34 @@
 <!-- proofread 2015-11-26 SAM -->
-# SQL - DELETE
+# `DELETE`
 
-The **Delete** command deletes one or more records from the database. The set of records involved are taken by the [WHERE](SQL-Where.md) clause.
+Removes one or more records from the database.  You can refine the set of records that it removes using the [`WHERE`](SQL-Where.md) clause.
 
->NOTE: Don't use SQL DELETE to remove Vertices or Edges. Instead, use the DELETE VERTEX and DELETE EDGE commands, which assure the integrity of the graph.
+>**NOTE**: Don't use [`DELETE`](SQL-Delete.md) to remove Vertices or Edges. Instead use the [`DELETE VERTEX`](SQL-Delete-Vertex.md) or [`DELETE EDGE`](SQL-Delete-Edge.md) commands, which ensures the integrity of the graph.
 
-## Syntax
+**Syntax:**
 
 ```sql
 DELETE FROM <Class>|cluster:<cluster>|index:<index> [LOCK <default|record>] [RETURN <returning>]
   [WHERE <Condition>*] [LIMIT <MaxRecords>] [TIMEOUT <timeout>]
 ```
+- **`LOCK`** Determines how the database locks the record between load and delete.  It takes one of the following values:
+  - `DEFAULT` Defines no locks during the delete.  In the case of concurrent deletes, the MVCC throws an exception.
+  - `RECORD` Defines record locks during the delete.
+- **`RETURN`** Defines  what values the database returns.  It takes one of the following values:
+  - `COUNT` Returns the number of deleted records.  This is the default option.
+  - `BEFORE` Returns the number of records before the removal.
+- **[`WHERE`](SQL-Where.md)** Filters to the records you want to delete.
+- **`LIMIT`** Defines the maximum number of records to delete.
+- **`TIMEOUT`** Defines the time period to allow the operation to run, before it times out.
 
-Where:
-- **LOCK** specifies how the record is locked between the load and the delete. It can be a value between:
- - *DEFAULT*, no lock. In case of concurrent delete, the MVCC throws an exception
- - *RECORD*, locks the record during the delete
-- **RETURN** specifies what to return. It can be a value between:
- - **COUNT**, the default, returns the number of deleted records
- - **BEFORE**, returns the records before the delete
-- WHERE, [SQL-Where](SQL-Where.md) condition to select records to update
-- LIMIT, sets the maximum number of records to update
-- TIMEOUT, if any limits the update operation to a timeout
+**Examples:**
 
-## Examples
+- Delete all recods with the surname `unknown`, ignoring case:
 
-Delete all the records with surname equals to 'unknown' ignoring the case:
+  <pre>
+  orientdb> <code class="lang-sql userinput">DELETE FROM Profile WHERE surname.toLowerCase() = 'unknown'</code>
+  </pre>
 
-```sql
-DELETE FROM Profile WHERE surname.toLowerCase() = 'unknown'
-```
+For more information, see [SQL commands](SQL.md).
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+
