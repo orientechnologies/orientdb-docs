@@ -1,50 +1,54 @@
-# Console - BACKUP
+# Console - `BACKUP`
 
-Executes a complete backup against the currently opened database. The backup file is compressed using the ZIP algorithm. To restore the database use the [Restore Database command](Console-Command-Restore.md). Backup is much faster than [Export Database](Console-Command-Export.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands. Backup can be done automatically by enabling the [Automatic-Backup](Automatic-Backup.md) Server plugin.
+Executes a complete backup on the currently opened database.  It then compresses the backup file using the ZIP algorithm.  You can then restore a database from backups, using the [`RESTORE DATABASE`](Console-Command-Restore.md) command.  You can automate backups using the [Automatic-Backup](Automatic-Backup.md) server plugin.
 
-NOTE: _Backup of remote databases is not supported in Community Edition, but only in [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). If you're using the Enterprise Edition look at [Remote Backup](http://www.orientechnologies.com/enterprise/last/servermanagement.html)._
+Backups and restores are similar to the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md), but they offer better performance than these options.  
 
-## Syntax
+>**NOTE**: OrientDB Community Edition does not support backing up remote databases.  OrientDB [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/) does support this feature.  For more information on how to implement this with Enterprise Edition, see [Remote Backups](http://www.orientechnologies.com/enterprise/last/servermanagement.html).
+
+**Syntax:**
 
 ```
-backup database <output-file> [-incremental] [-compressionLevel=<compressionLevel>] [-bufferSize=<bufferSize>]
+BACKUP DATABASE <output-file> [-incremental] [-compressionLevel=<compressionLevel>] [-bufferSize=<bufferSize>]
 ```
 
-Where:
-- Option **-incremental** executes an incremental backup. The incremental data to backup is computed as all new changes since the last backup. Since v2.2
-- **output-file** is the output file path
-- **compressionLevel** the compression level between 0 and 9. Default is 9. Since v1.7
-- **bufferSize** the compression buffer size. Default is 1MB. Since v1.7
+- **`<output-file>`** Defines the path to the backup file.
+- **`-incremental`** Option to execute an incremental backup.  When enabled, it computes the data to backup as all new changes since the last backup.  Available since version 2.2.
+- **-`compressionLevel`** Defines the level of compression for the backup file.  Valid levels are `0` to `9`.  The default is `9`.  Available since version 1.7.
+- **`-bufferSize`** Defines the compression buffer size.  By default, this is set to 1MB.  Available since version 1.7.
 
+**Example:**
 
-## Example ##
+- Backing up a database:
 
-```sql
-orientdb> connect plocal:../databases/mydatabase admin admin
-orientdb> backup database /backups/mydb.zip
+<pre>
+orientdb> <code class="lang-sql userinput">CONNECT plocal:../databases/mydatabase admin admin</code>
+orientdb> <code class="lang-sql userinput">BACKUP DATABASE /backups/mydb.zip</code>
 
-Backuping current database to: database mydb.zip...
-
-Backup executed in 0,52 seconds
-```
+Backing current database to: database mydb.zip
+Backup executed in 0.52 seconds
+</pre>
 
 ## Backup API
+
+In addition to backups called through the Console, you can also manage backups through the Java API.  Using this you can perform either a full or incremental backup on your database.
+
 ### Full Backup
-Backup can be executed in Java and any language on top of the JVM by using the method `backup()` against the database instance:
+
+In Java or any other language that runs on top of the JVM, you can initiate a full backup by using the `backup()` method on a database instance.
 
 ```java
 db.backup(out, options, callable, listener, compressionLevel, bufferSize);
 ```
 
-Where:
-- **out**: OutputStream used to write the backup content. Use a FileOutputStream to make the backup persistent on disk
-- **options**: Backup options as Map<String, Object> object
-- **callable**: Callback to execute when the database is locked
-iListener: Listener called for backup messages
-- **compressionLevel**: ZIP Compression level between 0 (no compression) and 9 (maximum). The bigger is the compression, the smaller will be the final backup content, but will consume more CPU and time to execute
-- **bufferSize**: Buffer size in bytes, the bigger is the buffer, the more efficient will be the compression
+- **`out`** Refers to the `OutputStream` that it uses to write the backup content.  Use a `FileOutputStream` to make the backup persistent on disk.
+- **`options`** Defines backup options as a `Map<String, Object>` object.
+- **`callable`** Defines the callback to execute when the database is locked.
+- **`listener`** Defines the listened called for backup messages.
+- **`compressionLevel`** Defines the level of compression for the backup.  It supports levels between `0` and `9`, where `0` equals no compression and `9` the maximum.  Higher compression levels do mean smaller files, but they also mean the backup requires more from the CPU at execution time.
+- **`bufferSize`** Defines the buffer size in bytes.  The larger the buffer, the more efficient the comrpession.
 
-Example:
+**Example:**
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/temp/mydb");
@@ -64,19 +68,19 @@ try{
 }
 ```
 
-### Incremental backup
-(Since v2.2.)
-Incremental backup can be executed in Java and any language on top of the JVM by using the method `incrementalBackup()` against the database instance:
+### Incremental Backup
+
+Beginning in version 2.2, OrientDB supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
 
 ```java
 db.incrementalBackup(backupDirectory);
 ```
 
-Where:
-- **backupDirectory**: is the directory where to generate the incremental backup files. It's important that previous incremental backup files are present in the same directory in order to compute the database portion to backup based on last incremental backup done.
+- **`backupDirectory`** Defines the directory where it generates the incremental backup files.  
 
+It is important that previous incremental backup files are present in the same directory, in order to compuete the database portion to back up, based on the last incremental backup.
 
-Example:
+**Example:**
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/temp/mydb");
@@ -88,10 +92,9 @@ try{
 }
 ```
 
-
-## See also
-- [Restore Database](Console-Command-Restore.md)
-- [Export Database](Console-Command-Export.md)
-- [Import Database](Console-Command-Import.md)
-- [Console-Commands](Console-Commands.md)
-- [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)
+>For more information, see:
+>- [Restore Database](Console-Command-Restore.md)
+>- [Export Database](Console-Command-Export.md)
+>- [Import Database](Console-Command-Import.md)
+>- [Console-Commands](Console-Commands.md)
+>- [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)
