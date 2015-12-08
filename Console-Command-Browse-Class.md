@@ -1,29 +1,30 @@
-# Console - BROWSE CLASS
+# Console - `BROWSE CLASS`
 
-This command displays all the records of a class.
+Displays all records associated with the given class.
 
-## Syntax
+**Syntax:**
 
 ```
 BROWSE CLASS <class-name>
 ```
 
-Where:
+- **`<class-name>`** Defines the class for the records you want to display.
 
-- class-name     The name of the class
+**Example:**
 
-## Example
+- Browse records associated with the class `City`:
 
-```sql
-BROWSE CLASS City
+  <pre>
+  orientdb> <code class="lang-sql userinput">BROWSE CLASS City</code>
 
----+--------+-------------------
-  #| REC ID |NAME
----+--------+-------------------
-  0|    -6:0|Rome
-  1|    -6:1|London
-  2|    -6:2|Honolulu
----+--------+-------------------
-```
+  ----+------+-------------------
+    # | RID  | NAME
+  ----+------+-------------------
+    0 | -6:0 | Rome
+    1 | -6:1 | London
+    2 | -6:2 | Honolulu
+  ----+------+-------------------
+  </pre>
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).
+

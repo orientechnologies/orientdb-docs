@@ -1,29 +1,30 @@
-# Console - BROWSE CLUSTER
+# Console - `BROWSE CLUSTER`
 
-This command displays all the records of a cluster.
+Displays all records associated with the given cluster.
 
-## Syntax
+**Syntax:**
 
 ```
 BROWSE CLUSTER <cluster-name>
 ```
 
-Where:
+- **`<cluster-name>`** Defines the cluster for the records you want to display.
 
-- cluster-name   The name of the cluster
+**Example:**
 
-## Example
+- Browse records associated with the cluster `City`:
 
-```sql
-BROWSE CLUSTER City
+  <pre>
+  orientdb> <code class="lang-sql userinput">BROWSE CLUSTER City</code>
 
----+--------+-------------------
-  #| REC ID |NAME
----+--------+-------------------
-  0|    -6:0|Rome
-  1|    -6:1|London
-  2|    -6:2|Honolulu
----+--------+-------------------
-```
+  ----+------+-------------------
+    # | RID  | NAME
+  ----+------+-------------------
+    0 | -6:0 | Rome
+    1 | -6:1 | London
+    2 | -6:2 | Honolulu
+  ----+------+-------------------
+  </pre>
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).
+
