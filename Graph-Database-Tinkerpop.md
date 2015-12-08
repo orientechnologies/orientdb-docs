@@ -82,7 +82,9 @@ try {
 
 # Transactions
 
-Every time the graph is modified an implicit transaction is started automatically if no previous transaction was running. Transactions are committed automatically when the graph is closed by calling the `shutdown()` method or by explicit `commit()`. To rollback changes call the `rollback()` method.
+Before v2.1.7, every time the graph is modified an implicit transaction is started automatically if no previous transaction was running. Transactions are committed automatically when the graph is closed by calling the `shutdown()` method or by explicit `commit()`. To rollback changes call the `rollback()` method.
+
+After v2.1.7, you can setup the [consistency level](Graph-Consistency.md).
 
 Changes inside a transaction will be temporary until the commit or the close of the graph instance. Concurrent threads or external clients can see the changes only when the transaction has been fully committed.
 
@@ -103,7 +105,7 @@ try{
 
 Surrounding the transaction between a try/catch assures that any errors will rollback the transaction to the previous status for all the involved elements. For more information, look at [Concurrency](Concurrency.md).
 
-_NOTE_: To work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes. A non-transactional graph instance created with <code>OrientGraphNoTx graph = factory.getNoTx();</code> is only useful if you don't work with data but want to define the [database schema](Graph-Schema.md) or for [bulk inserts](#using-non-transactional-graphs).
+_NOTE_: Before v2.1.7, to work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes. A non-transactional graph instance created with <code>OrientGraphNoTx graph = factory.getNoTx();</code> is only useful if you don't work with data but want to define the [database schema](Graph-Schema.md) or for [bulk inserts](#using-non-transactional-graphs).
 
 ## Optimistic approach
 OrientDB supports optimistic transactions, so no lock is kept when a transaction is running, but at commit time each graph element version is checked to see if there has been an update by another client. This is the reason why you should write your code to be concurrency-proof by handling the concurrent updating case:
