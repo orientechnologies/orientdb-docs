@@ -1,8 +1,9 @@
 # Graph Consistency
 
-Before OrientDB v2.1.7 the graph consistency could be assured only by using transactions. The problems with transactions are:
-- *speed*
-- *concurrency* (this will be resolved in OrientDB v3.0 where commit will not lock the database anymore)
+Before OrientDB v2.1.7 the graph consistency could be assured only by using transactions. The problems on using transactions for simple operations like creation of edges are:
+- *speed*, the transaction has a cost in comparison to non transactional operations
+- management of *optimistic retry* at application level
+- *low scalability on high concurrency* (this will be resolved in OrientDB v3.0 where commit will not lock the database anymore)
 
 Starting from v2.1.7, OrientDB provides a new mode to manage graphs without using transactions by using the Java class `OrientGraphNoTx` or via SQL by changing the setting `sql.graphConsistencyMode` to one of the following values:
 - `tx`, the default, uses transactions to maintain consistency. This was the only available setting before v2.1.7
