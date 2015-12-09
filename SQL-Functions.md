@@ -1,29 +1,5 @@
+<!-- proofread 2015-12-09 SAM -->
 # SQL - Functions
-
-SQL Functions are all the functions bundled with OrientDB [SQL engine](SQL.md). You can create your own [Database Functions](Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
-
-SQL Functions can work in 2 ways based on the fact that receive 1 or more parameters:
-
-## Aggregated mode
-
-When only one parameter is passed. They aggregate the result in only one record. The classic example is the sum():
-```sql
-SELECT SUM(salary) FROM employee
-```
-This will always return 1 record with the sum of salary field.
-
-## Inline mode
-
-When two or more parameters are passed:
-```sql
-SELECT SUM(salary, extra, benefits) AS total FROM employee
-```
-This will return the sum of the field "salary", "extra" and "benefits" as "total". In case you need to use a function as inline when you've only one parameter, then add a second one like "null":
-
-```sql
-SELECT first( out('friends').name, null ) as firstFriend FROM Profiles
-```
-In this case `first()` function doesn't aggregate everything in only one record, but returns one record per `Profile` where the `firstFriend` is the first item of the collection received as parameter.
 
 ## Bundled functions
 
@@ -62,6 +38,35 @@ In this case `first()` function doesn't aggregate everything in only one record,
 | [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|[sum()](SQL-Functions.md#sum)| [symmetricDifference()](SQL-Functions.md#symmetricDifference) |
 |[sysdate()](SQL-Functions.md#sysdate)|  [traversedElement()](SQL-Functions.md#traversedelement) | [traversedEdge()](SQL-Functions.md#traversededge) | [traversedVertex()](SQL-Functions.md#traversedvertex) | 
 | [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid)| [variance()](SQL-Functions.md#variance) |
+
+SQL Functions are all the functions bundled with OrientDB [SQL engine](SQL.md). You can create your own [Database Functions](Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
+
+SQL Functions can work in 2 ways based on the fact that they can receive 1 or more parameters:
+
+## Aggregated mode
+
+When only one parameter is passed, the function aggregates the result in only one record. The classic example is the `sum()` function:
+```sql
+SELECT SUM(salary) FROM employee
+```
+This will always return 1 record with the sum of salary field.
+
+## Inline mode
+
+When two or more parameters are passed:
+```sql
+SELECT SUM(salary, extra, benefits) AS total FROM employee
+```
+This will return the sum of the field "salary", "extra" and "benefits" as "total". 
+
+In case you need to use a function inline, when you only have one parameter, then add "null" as the second parameter:
+
+```sql
+SELECT first( out('friends').name, null ) as firstFriend FROM Profiles
+```
+In the above example, the `first()` function doesn't aggregate everything in only one record, but rather returns one record per `Profile`, where the `firstFriend` is the first item of the collection received as the parameter.
+
+##Function Reference
 
 ### out()
 
