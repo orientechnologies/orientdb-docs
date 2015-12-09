@@ -26,7 +26,7 @@ See [Generic improvement on massive insertion](Performance-Tuning.md#massive_ins
 
 ## Avoid transactions if you can
 
-Use the OrientGraphNoTx implementation that doesn't use transaction at all. OrientGraphNoTx is not compatible with OrientBatchGraph so use it plain:
+Use the OrientGraphNoTx implementation that doesn't use transaction for basic operations like creation and deletion of vertices and edges. If you plan to son't use transactions change the [consistency level](Graph-Consistency.md). OrientGraphNoTx is not compatible with OrientBatchGraph so use it plain:
 
     OrientGraphNoTx graph = new OrientGraphNoTx("local:/tmp/mydb");
 

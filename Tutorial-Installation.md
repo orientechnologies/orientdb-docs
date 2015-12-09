@@ -56,17 +56,17 @@ Whether you use your web browser or `wget`, unzip or extract the downloaded file
 
 ### Source Code Installation
 
-In addition to downloading the binary packages, you also have the option of compiling OrientDB from the Community Edition source code, available on GitHub.  This process requires that you install [Git](http://www.git-scm.com/) and [Apache Ant](http://ant.apache.org/bindownload.cgi) on your system.
+In addition to downloading the binary packages, you also have the option of compiling OrientDB from the Community Edition source code, available on GitHub.  This process requires that you install [Git](http://www.git-scm.com/) and [Apache Maven](https://maven.apache.org/) on your system.
 
-To compile OrientDB from source code, clone the Community Edition repository, then run Ant in the newly created directory:
+To compile OrientDB from source code, clone the Community Edition repository, then run Maven (`mvn`) in the newly created directory:
 
 ```sh
 $ git clone https://github.com/orientechnologies/orientdb
 $ cd orientdb
-$ ant clean install
+$ mvn clean install
 ```
 
-The build process creates a `releases` directory one level up from the source files and installs OrientDB in a directory with a version number there.  For example, running Ant in the `/opt/orientdb/orientdb` source code directory builds OrientDB version 2.1.2 at `/opt/orientdb/releases/orientdb-community-2.1.2` installation directory.
+The build process creates a `releases` directory one level up from the source files and installs OrientDB in a directory with a version number there.  For example, running Maven in the `/opt/orientdb/orientdb` source code directory builds OrientDB version 2.1.2 at `/opt/orientdb/releases/orientdb-community-2.1.2` installation directory.
 
 
 
@@ -96,14 +96,14 @@ For systems where OrientDB was built from source, pull down the latest source co
 
 ```sh
 $ git pull origin master
-$ ant clean install
+$ mvn clean install
 ```
 
 Bear in mind that when you build from source, you can switch branches to build different versions of OrientDB using Git.  For example,
 
 ```sh
 $ git checkout 2.1.x
-$ ant clean install
+$ mvn clean install
 ```
 
 builds the `2.1.x` branch, instead of `master`.

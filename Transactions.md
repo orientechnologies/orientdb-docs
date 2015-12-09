@@ -81,7 +81,8 @@ At operation 7 the client 1 reads the version of y which was written at operatio
 
 #### Breaking of ACID properties when using remote protocol and Commands (SQL, Gremlin, JS, etc)
 
-Transactions are client-side only until the commit. This means that if you're using the "remote" protocol the server can't see local changes
+Transactions are client-side only until the commit. This means that if you're using the "remote" protocol the server can't see local changes.
+
 ![Transaction in Remote context](http://www.orientdb.org/images/transaction-remote.png)
 
 In this scenario you can have different isolation levels with commands.
@@ -118,7 +119,9 @@ This mode uses the well known [Multi Version Control System (MVCC)](http://en.wi
 
 >**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap) memory on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
-With [Graph API](Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. Example with Document API:
+With [Graph API](Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. With Graphs you can change the [consistency level](Graph-Consistency.md).
+
+Example with Document API:
 
 ```java
 db.open("remote:localhost:7777/petshop");
@@ -164,5 +167,3 @@ For further information look at [Transaction tuning](Performance-Tuning.md#wise_
 
 Transactions can be committed across a distributed architecture. Look at [Distributed Transactions](Distributed-Architecture.md#distributed-transactions) for more information.
 
-
-Transaction-propagation

@@ -55,21 +55,6 @@ A -> B -> C -> A
 
 When OrientDB starts to serialize records goes recursively from the root A. When A is encountered again to avoid loops it saves the record as empty just to get the RecordID to store into the record C. When the serialization stack ends the record A (that was the first of the stack) is updated because has been created as first but empty.
 
-#### Why is it so slow with index and massive insertions?
-
-Try to enable automatic flush of index nodes. Via API:
-```java
-    OGlobalConfiguration.MVRBTREE_LAZY_UPDATES.setValue(-1);
-```
-or via configuration:
-```java
-java ... -Dmvrbtree.optimizeThreshold=-1 ...
-```
-
-#### Error: com.orientechnologies.orient.core.db.record.ORecordLazySet cannot be cast to com.orientechnologies.orient.core.db.record.OIdentifiable
-
-This happens if you've migrated a database created with an old version of OrientDB where indexes were managed in different way. Just drop and recreate the indexes.
-
 
 #### Error: com.orientechnologies.orient.core.exception.OStorageException: Cannot open local storage '/tmp/databases/demo' with mode=rw
 #### com.orientechnologies.common.concur.lock.OLockException: File '/tmp/databases/demo/default.0.oda' is locked by another process, maybe the database is in use by another process. Use the remote mode with a OrientDB server to allow multiple access to the same database
@@ -78,10 +63,6 @@ Both errors have the same meaning: a "plocal" database can't be opened by multip
 - check if there's no process using OrientDB (most of the times a OrientDB Server is running i the background). Just shutdown that server and retry
 - if you need multiple access to the same database, don't use "plocal" directly, but rather start a server and access to the database by using "remote" protocol. In this way the server is able to share the same database with multiple clients.
 
-
-#### 012-04-20 11:29:56:132 SEVE Received unread response from /10.0.0.2:2434 for session=0, probably corrupted data from the network connection. Cleared dirty data in the buffer (330 bytes): [----7-c-o-m-.-o-r-i-e-n-t-e-c-h-n-o-l-o-g-i-e-s-.-c-o-m-m-o-n-.-c-o-n-c-u-r-.-l-o-c-k-.-O-L-o-c-k...] [OChannelBinaryClient
-
-This is a message of an old version of OrientDB: upgrade it.
 
 #### Caused by: java.lang.NumberFormatException: For input string: "500Mb"
 You're using different version of libraries. For example the client is using 1.3 and the server 1.4. Align the libraries to the same version (last is suggested). Or probably you've different versions of the same jars in the classpath.

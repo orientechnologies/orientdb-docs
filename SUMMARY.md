@@ -22,6 +22,7 @@
   * [Relationships](Tutorial-Relationships.md)
   * [Working with Graphs](Tutorial-Working-with-graphs.md)
   * [Using Schema with Graphs](Tutorial-Using-schema-with-graphs.md)
+  * [Graph Consistency](Graph-Consistency.md)
   * [Fetching Strategies](Fetching-Strategies.md)
   * [Use Cases](Use-Cases.md)
     * [Time Series](Time-series-use-case.md)
