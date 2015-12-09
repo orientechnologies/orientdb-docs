@@ -1,46 +1,68 @@
 # Console - COMMIT
 
-OrientDB supports [Transactions](Transactions.md). To begin a new transaction use the **begin** command. Once a transaction is begun to make persistent the changes you have to call the [commit](Console-Command-Commit.md) command. To abort the changes call [rollback](Console-Command-Rollback.md) command instead.
+Closes a transaction, committing the changes you have made to the database.  Use the [`BEGIN`](Console-Command-Begin.md) command to open a transaction.  If you don't want to save the changes you've made, use the [`ROLLBACK`](Console-Command-Rollback.md) command to revert the database state back to the point where you opened the transaction.
 
-## Syntax
+>For more information, see [Transactions](Transactions.md).
+
+**Syntax**
 
 ```sql
 COMMIT
 ```
 
-## See also
+**Example**
 
-- [Transactions](Transactions.md)
-- [Console Command BEGIN](Console-Command-Begin.md)
-- [Console Command ROLLBACK](Console-Command-Rollback.md)
-- [Console Commands](Console-Commands.md)
+- Initiate a transaction, using the [`BEGIN`](Console-Command-Begin.md) command:
 
-## Example
+  <pre>
+  orientdb> <code class="lang-sql userinput">BEGIN</code>
 
-```
-orientdb> BEGIN
-Transaction 2 is running
+  Transaction 2 is running
+  </pre>
 
-orientdb> BEGIN
-Error: an active transaction is currently open (id=2). Commit or rollback before starting a new one.
+- For the sake of example, attempt to open another transaction:
 
-orientdb> INSERT INTO account (name) VALUES ('tx test')
+  <pre>
+  orientdb> <code class="lang-sql userinput">BEGIN</code>
 
-Inserted record 'Account#9:-2{name:tx test} v0' in 0,000000 sec(s).
+  Error: an active transaction is currently open (id=2). Commit or rollback 
+  before starting a new one.
+  </pre>
 
-orientdb> COMMIT
-Transaction 2 has been committed in 4ms
+- Insert data into the class `Account`, using an [`INSERT`](SQL-Insert.md) statement:
 
-orientdb> SELECT FROM account WHERE name LIKE 'tx%'
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Account (name) VALUES ('tx test')</code>
 
----+---------+--------------------
-  #| RID     |name
----+---------+--------------------
-  0|  #9:1107|tx test
----+---------+--------------------
+  Inserted record 'Account#9:-2{name:tx test} v0' in 0,000000 sec(s).
+  </pre>
 
-1 item(s) found. Query executed in 0.041 sec(s).
-```
+- Commit the transaction to the database:
 
-Until the commit all the new records will have a temporary RID with negative numbers.
+  <pre>
+  orientdb> <code class="lang-sql userinput">COMMIT</code>
 
+  Transaction 2 has been committed in 4ms
+  </pre>
+
+- Display the new content, using a [`SELECT`](SQL-Query.md) query:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name LIKE 'tx%'</code>
+
+  ---+---------+----------
+   # | RID     | name
+  ---+---------+----------
+   0 | #9:1107 | tx test
+  ---+---------+----------
+
+  1 item(s) found. Query executed in 0.041 sec(s).
+  </pre>
+
+When a transaction is open, all new records use a temporary Record ID that features negative numbers.  After the commit, they have a permanent Record ID that uses with positive numbers.
+
+>For more information, see
+>- [Transactions](Transactions.md)
+>- [`BEGIN`](Console-Command-Begin.md)
+>- [`ROLLBACK`](Console-Command-Rollback.md)
+>- [Console Commands](Console-Commands.md)
