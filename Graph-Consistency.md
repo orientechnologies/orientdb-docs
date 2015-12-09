@@ -17,7 +17,7 @@ Both the new modes `notx_sync_repair` and `notx_async_repair` manage conflicts a
 
 ## Usage
 
-To use consistencies mode that don't use transactions, set the `sql.graphConsistencyMode` setting to `notx_sync_repair` or `notx_async_repair` in OrientDB `bin/server.sh` script or in the `config/orientdb-server-config.xml` file under properties section. Example: 
+To use consistencies mode that don't use transactions, set the `sql.graphConsistencyMode` global setting to `notx_sync_repair` or `notx_async_repair` in OrientDB `bin/server.sh` script or in the `config/orientdb-server-config.xml` file under properties section. Example: 
 
 ```xml
 ...
@@ -33,6 +33,13 @@ The same could be set by code before to open any Graph. Example:
 ```java
 OGlobalConfiguration.SQL_GRAPH_CONSISTENCY_MODE.setValue("notx_sync_repair");
 ```
+
+To make this setting persistent, set the `txRequiredForSQLGraphOperations` property in the storage configuration, so at the next open you don't need to set the global setting again:
+
+```java
+g.getRawGraph().getStorage().getConfiguration().setProperty("txRequiredForSQLGraphOperations", "false");
+```
+
 
 ### Usage via Java API
 In order to use non transactional graphs, after having configured the consistency mode (look above), work with the `OrientGraphNoTx` class. Example:
