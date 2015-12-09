@@ -14,6 +14,12 @@ OrientDB, by default, manages edges as "lightweight" edges if they have no prope
 ``` sql
 ALTER DATABASE custom useLightweightEdges=false
 ```
+#### Use ISO 8601 Dates
+According to ISO 8601, Combined date and time in UTC: 2014-12-20T00:00:00. To use this standard change the datetimeformat in the database:
+
+```sql
+ALTER DATABASE DATETIMEFORMAT yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+```
 
 #### JVM crash on Solaris and other *NIX platforms.
 The reason of this issue is massive usage of sun.misc.Unsafe which may have different contract than it is
