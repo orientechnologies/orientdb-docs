@@ -1,6 +1,7 @@
+<!-- proofread 2015-12-10 SAM -->
 # Spatial Module
 
-(since 2.2) Replacement for [Spatial-Index](Spatial-Index.md)
+(Versions 2.2 and after only)Replacement for [Spatial-Index](Spatial-Index.md)
 
 
 OrientDB offers a brand new module to handle geospatial information. 
@@ -23,31 +24,30 @@ OrientDB stores those objects like embedded documents with special classes.
 The module creates abstract classes that represent each Geometry object type, and those classes
 can be embedded in user defined classes to provide geospatial information.
 
-Each spatial classes (Geometry Collection excluded) comes with a field coordinates that will be used to store the geometry structure.
-The "coordinates" field of a geometry object is composed of one position ( Point), an array of positions (LineString or MultiPoint ), an array of arrays of positions (Polygons, MultiLineStrings), or a multidimensional array of positions (MultiPolygon).
+Each spatial classes (Geometry Collection excluded) comes with field coordinates that will be used to store the geometry structure.
+The "coordinates" field of a geometry object is composed of one position (Point), an array of positions (LineString or MultiPoint), an array of arrays of positions (Polygons, MultiLineStrings) or a multidimensional array of positions (MultiPolygon).
 
 ### Geometry data Example 
 
 Restaurants Domain
 
 ```SQL
-create class Restaurant
-create property Restaurant.name STRING
-create property Restaurant.location EMBEDDED OPoint
+CREATE class Restaurant
+CREATE PROPERTY Restaurant.name STRING
+CREATE PROPERTY Restaurant.location EMBEDDED OPoint
 ```
 
 To insert restaurants with location
 
 From SQL
 ```SQL
-insert into  Restaurant set name = 'Dar Poeta', location = {"@class": "OPoint","coordinates" : [12.4684635,41.8914114]}
+INSERT INTO  Restaurant SET name = 'Dar Poeta', location = {"@class": "OPoint","coordinates" : [12.4684635,41.8914114]}
 ```
 
-or in alternative if you use [WKT](https://it.wikipedia.org/wiki/Well-Known_Text) format you can use the function
-ST_GeomFromText to create the OrientDB geometry object.
+or as an alternative, if you use [WKT](https://it.wikipedia.org/wiki/Well-Known_Text) format you can use the function `ST_GeomFromText` to create the OrientDB geometry object.
 
 ```SQL
-insert into  Restaurant set name = 'Dar Poeta', location = St_GeomFromText("POINT (12.4684635 41.8914114)")
+INSERT INTO  Restaurant SET name = 'Dar Poeta', location = St_GeomFromText("POINT (12.4684635 41.8914114)")
 ```
 
 From JAVA
@@ -76,9 +76,9 @@ Syntax : ST_AsText(geom)
 Example
 
 ```SQL
-select ST_AsText({"@class": "OPoint","coordinates" : [12.4684635,41.8914114]})
+SELECT ST_AsText({"@class": "OPoint","coordinates" : [12.4684635,41.8914114]})
 
-ST_AsText
+Result
 ----------
 POINT (12.4684635 41.8914114)
 ```
@@ -92,7 +92,7 @@ Example
 ```SQL
 select ST_GeomFromText("POINT (12.4684635 41.8914114)")
 
-ST_GeomFromText
+Result
 ----------------------------------------------------------------------------------
 {"@type":"d","@version":0,"@class":"OPoint","coordinates":[12.4684635,41.8914114]}
 
@@ -109,7 +109,7 @@ Example
 
 SELECT ST_Equals(ST_GeomFromText('LINESTRING(0 0, 10 10)'), ST_GeomFromText('LINESTRING(0 0, 5 5, 10 10)'))
 
-ST_Equals
+Result
 -----------
 true
 ```
@@ -134,17 +134,17 @@ This function will use an index if available.
 
 Example
 ```SQL
-select ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_GeomFromText('POINT(0 0)'))
+SELECT ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_GeomFromText('POINT(0 0)'))
 
-ST_Contains
+Result
 ----------
 true
 ```
 
 ```SQL
-select ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_Buffer(ST_GeomFromText('POINT(0 0)'),20))
+SELECT ST_Contains(ST_Buffer(ST_GeomFromText('POINT(0 0)'),10),ST_Buffer(ST_GeomFromText('POINT(0 0)'),20))
 
-ST_Contains
+Result
 ----------
 false
 ```
@@ -161,7 +161,7 @@ Example
 ```SQL
 SELECT ST_Disjoint(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 2 0, 0 2 )'));
 
-ST_Disjoint
+Result
 -----------------
 true
 ```
@@ -169,7 +169,7 @@ true
 ```SQL
 SELECT ST_Disjoint(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 0 0, 0 2 )'));
 
-ST_Disjoint
+Result
 -----------------
 false
 ```
@@ -184,7 +184,7 @@ Example
 ```SQL
 SELECT ST_Intersects(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 2 0, 0 2 )'));
 
-ST_Intersects
+Result
 -------------
 false
 ```
@@ -192,7 +192,7 @@ false
 ```SQL
 SELECT ST_Intersects(ST_GeomFromText('POINT(0 0)'), ST_GeomFromText('LINESTRING ( 0 0, 0 2 )'));
 
-ST_Intersects
+Result
 -------------
 true
 ```
@@ -217,7 +217,7 @@ Example
 ```SQL
 SELECT ST_AsText(ST_Envelope(ST_GeomFromText('POINT(1 3)')));
 
-ST_AsText
+Result
 ----------
 POINT (1 3)
 ```
@@ -225,7 +225,7 @@ POINT (1 3)
 ```SQL
 SELECT ST_AsText(ST_Envelope(ST_GeomFromText('LINESTRING(0 0, 1 3)')))
 
-ST_AsText
+Result
 -----------------------------------
 POLYGON ((0 0, 0 3, 1 3, 1 0, 0 0))
 ```
@@ -291,11 +291,11 @@ This operator will use an index if available.
 Example
 
 ```SQL
-create class TestLineString
-create property TestLineString.location EMBEDDED OLineString
-insert into TestLineSTring set name = 'Test1' , location = St_GeomFromText("LINESTRING(0 0, 3 3)")
-insert into TestLineSTring set name = 'Test2' , location = St_GeomFromText("LINESTRING(0 1, 0 5)")
-select from TestLineString where location && "LINESTRING(1 2, 4 6)"
+CREATE CLASS TestLineString
+CREATE PROPERTY TestLineString.location EMBEDDED OLineString
+INSERT INTO TestLineSTring SET name = 'Test1' , location = St_GeomFromText("LINESTRING(0 0, 3 3)")
+INSERT INTO TestLineSTring SET name = 'Test2' , location = St_GeomFromText("LINESTRING(0 1, 0 5)")
+SELECT FROM TestLineString WHERE location && "LINESTRING(1 2, 4 6)"
 ```
 
 ## Spatial Indexes

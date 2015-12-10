@@ -1,3 +1,5 @@
+<!-- proofread 2015-12-10 SAM -->
+
 # Lucene FullText Index
 
 In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the Lucene Engine. Beginning from version 2.0, this plugin is packaged with OrientDB distribution.
@@ -8,7 +10,7 @@ In addition to the standard FullText Index, which uses the SB-Tree index algorit
 CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE
 ```
 
-Create an FullText index on the property `name` for the class `City`, using the Lucene Engine.
+The following SQL statement will create a FullText index on the property `name` for the class `City`, using the Lucene Engine.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE</code>
