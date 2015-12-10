@@ -1,3 +1,5 @@
+<!-- proofread 2015-12-10 SAM -->
+
 # Lucene Spatial
 
 For now the Index Engine can only index Points. Other Shapes like rectangles and polygons will be added in the future.
@@ -6,7 +8,7 @@ For now the Index Engine can only index Points. Other Shapes like rectangles and
 
 The index can be created on a class that has two fields declared as `DOUBLE` (`latitude`,`longitude`) that are the coordinates of the Point.
 
-For example we have a class `Place` with 2 double fields `latitude` and `longitude`.  To create the spatial index on `City` use this syntax.
+For example we have a class `Place` with 2 double fields `latitude` and `longitude`.  To create the spatial index on `Place` use this syntax.
 
 ```sql
 CREATE INDEX Place.l_lon ON Place(latitude,longitude) SPATIAL ENGINE LUCENE
@@ -92,6 +94,6 @@ This query will return all Places within the given Bounding Box.
 In OrientDB 2.2 a new [Spatial-Module](Spatial-Module.md) will replace this implementation
 with:
 
-- GeoSpatial standard (ST_*) fuctions 
+- GeoSpatial standard (ST_*) functions 
 - Index All types of shape
 
