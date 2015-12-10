@@ -1,4 +1,4 @@
-<!-- proofread 2015-11-26 SAM -->
+<!-- proofread 2015-12-10 SAM -->
 # Installation
 
 OrientDB is available in two editions:
@@ -26,7 +26,7 @@ Both editions of OrientDB run on any operating system that implements the Java V
 - HP-UX
 - IBM AIX
 
-OrientDB requires [Java](http://www.java.com/en/download), version 1.6 or higher.
+OrientDB requires [Java](http://www.java.com/en/download), version 1.8 or higher.
 
 
 >**Note**: In OSGi containers, OrientDB uses a `ConcurrentLinkedHashMap` implementation provided by [concurrentlinkedhashmap](https://code.google.com/p/concurrentlinkedhashmap/) to create the LRU based cache. This library actively uses the sun.misc package which is usually not exposed as a system package. To overcome this limitation you should add property `org.osgi.framework.system.packages.extra` with value `sun.misc` to your list of framework properties.
