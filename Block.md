@@ -5,11 +5,12 @@
 
 ## Available Blocks
 
-[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console)
----|---|---
+|[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console)|
+|---|---|---|
+|<!-- PH -->|<!-- PH -->||<!-- PH -->.|
 
 ### let
-Assigns variable in the ETL process context.
+Assigns a variable in the ETL process context.
 
 - Component name: **let**
 
