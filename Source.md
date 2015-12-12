@@ -7,6 +7,7 @@
 
 |-----|-----|-----|-----|
 |[file](Source.md#file)|[input](Source.md#input)|[http](Source.md#http)|
+|<!-- PH -->|<!-- PH -->|<!-- PH -->|<!-- PH -->| 
 
 ### File
 Represents a source file, from which data is read. Files can be text files or compressed with tar.gz.
