@@ -256,7 +256,7 @@ Component description.
 - Output: **Object**
 
 #### Syntax
-| Parameter | Description | Mandatory | Default value |
+| Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|-----------|-----------|
 |language|Programming language used|string|false|Javascript|
 |code|Code to execute|string|true|<!-- PH -->|
