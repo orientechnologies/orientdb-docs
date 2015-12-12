@@ -3,9 +3,24 @@
 
 (Versions 2.2 and after only)Replacement for [Spatial-Index](Spatial-Index.md)
 
+OrientDB offers a brand new module to handle geospatial information provided as external plugin.  
 
-OrientDB offers a brand new module to handle geospatial information. 
+##Install
 
+Download the plugin jar from maven central
+
+    http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/VERSION/orientdb-spatial-VERSION-dist.jar
+
+where **VERSION** must be the same of the OrientDB installation.
+After download, copy the jar to orient plugins directory.
+On *nix system it could be done this way:
+
+```console
+wget  http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/VERSION/orientdb-spatial-VERSION-dist.jar
+cp orientdb-spatial-VERSION-dist.jar /PATH/orientdb-community-VERSION/plugins/
+```
+
+Orient db will load the spatial plugin on startup.
 
 ##Geometry Data
 
