@@ -1,8 +1,9 @@
+<!-- proofread 2015-12-11 SAM -->
 # Import from RDBMS
 
-*NOTE: Starting from OrientDB 2.0 you can use the [OrientDB-ETL module](https://github.com/orientechnologies/orientdb-etl/wiki/Import-from-DBMS) to import data from RDBMS. You can use ETL also with 1.7.x by installing it as separate module.*
+*NOTE: As of OrientDB 2.0, you can use the [OrientDB-ETL module](https://github.com/orientechnologies/orientdb-etl/wiki/Import-from-DBMS) to import data from an RDBMS. You can use ETL also with 1.7.x by installing it as a separate module.*
 
-OrientDB supports a subset of SQL, so importing a database created as "Relational" is straightforward. For the sake of simplicity consider your Relational database having just these two tables:
+OrientDB supports a subset of SQL, so importing a database created as "Relational" is straightforward. For the sake of simplicity, consider your Relational database having just these two tables:
 - POST
 - COMMENT
 

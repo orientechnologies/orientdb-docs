@@ -1,6 +1,7 @@
+<!-- proofread 2015-12-11 SAM -->
 # Import from Parse
 
-[Parse](https://parse.com/) is a very popular BaaS (Backend as a Service), acquired by Facebook. Parse uses MongoDB as database and allows to export the database in JSON format. The format is an array of JSON object. Example:
+[Parse](https://parse.com/) is a very popular BaaS (Backend as a Service), acquired by Facebook. Parse uses MongoDB as a database and allows to export the database in JSON format. The format is an array of JSON objects. Example:
 
 ```json
 [
@@ -53,17 +54,17 @@
 ```
 
 Notes:
-- Each object has own `objectId` that identifies the object in the entire database.
-- Parse has the concept of `class`, like OrientDB
-- Links are similar to OrientDB RID (but it requires a costly JOIN to be traversed), but made if an embedded object containing:
+- Each object has its own `objectId` that identifies the object in the entire database.
+- Parse has the concept of `class`, like OrientDB.
+- Links are similar to OrientDB RID (but it requires a costly JOIN to be traversed), but made as an embedded object containing:
  - `className` as target class name
- - `objectIf` as target objectId
+ - `objectId` as target objectId
 - Parse has ACL at record level, like [OrientDB](http://www.orientechnologies.com/docs/last/orientdb.wiki/Security.html#record-level-security).
 
 In order to import a PARSE file, you need to create the ETL configuration using JSON as Extractor.
 
 ## Example
-In this example we're going to import the file extracted from Parse containing all the records of `user` class. Note the creation of class `User` in OrientDB that extends `V` (Base Vertex class). We created an index against property `User.objectId` to use the same ID as for Parse. If you execute this ETL importing multiple time, the record in OrientDB will be updated thanks to the `merge`.
+In this example, we're going to import the file extracted from Parse containing all the records of the `user` class. Note the creation of the class `User` in OrientDB, which extends `V` (Base Vertex class). We created an index against property `User.objectId` to use the same ID, similar to Parse. If you execute this ETL import multiple times, the records in OrientDB will be updated thanks to the `merge` feature.
 
 ```json
 {
@@ -101,4 +102,6 @@ In this example we're going to import the file extracted from Parse containing a
 
 ```
 
-Look also at - [Import from JSON](Import-from-JSON.md).
+###See also:
+
+[Import from JSON](Import-from-JSON.md).
