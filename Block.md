@@ -6,7 +6,7 @@
 ## Available Blocks
 
 |[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console) |
-|-----|-----|-----|
+|-----|-----|
 
 
 ### let
