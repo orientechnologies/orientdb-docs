@@ -1,11 +1,12 @@
+<!-- proofread 2015-12-11 SAM -->
 # ETL - Blocks
 
 **Block** components execute operations.
 
 ## Available Blocks
 
-|[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console) | |
-|-----|-----|-----|-----|
+|[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console) |
+|-----|-----|-----|
 
 ### let
 Assigns variable in the ETL process context.
@@ -64,7 +65,7 @@ Execute commands invoking the [OrientDB Console](Console-Commands.md).
 
 #### Example
 
-Invoice the console with a file containing the commands to execute
+Invoke the console with a file containing the commands to execute
 ```json
 { "console": { "file": "/temp/commands.sql"}  }
 ```

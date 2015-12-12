@@ -1,10 +1,10 @@
+<!-- proofread 2015-12-11 SAM -->
 # ETL - Extractors
 
-**Extractor** components are the first part of the ETL process responsible of extracting data.
+**Extractor** components are the first part of the ETL process and are responsible for the extracting of data.
 
 ## Available Extractors
 
-|  |  |  |  |   |
 |-----|-----|-----|-----|----|
 |[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|[xml](Extractor.md#xml)|
 
@@ -17,7 +17,7 @@ Extracts content row by row.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|multiLine|Supports multi line. This is useful with CSV supporting linefeed inside strings. Since 2.0.9|boolean|false|true|
+|multiLine|Supports multi line. This is useful with CSV supporting linefeed inside strings. As of 2.0.9|boolean|false|true|
 |lineFeed|Linefeed to use in case of multiline (see above). Since 2.0.9|string|false|`\r\n`|
 
 #### Example with default configuration
@@ -29,10 +29,10 @@ Extracts content row by row.
 -----
 
 ### csv
-(Since v2.1.4)
+(As of v2.1.4)
 
 Extract content from csv files. [Apache Commons-csv](https://commons.apache.org/proper/commons-csv/) is used to parse csv files. 
-This component is avaliable since version **2.1.4**
+This component is avaliable as of version **2.1.4**
 
 - Component name. **csv**
 - Output class: [**ODocument**]
@@ -107,7 +107,7 @@ Extracts data from any **DBMS** that support [JDBC](http://en.wikipedia.org/wiki
 |queryCount|Query that return the count of the fetched records. This is used to provide a correct progress indicator|string|false|-|
 
 #### Example
-Extracts all the Client from the MySQL database "test" hosted on localhost:
+Extracts all the "Client" table from a MySQL database "test" hosted on localhost:
 
 ```json
 { "jdbc": {
@@ -123,7 +123,7 @@ Extracts all the Client from the MySQL database "test" hosted on localhost:
 -----
 
 ### json
-Extracts content by parsing json objects. If the content has more json items must be enclosed between [].
+Extracts data by parsing json objects. If the data has more json items, they must be enclosed between [].
 
 - Component name: **json**
 - Output class: [**ODocument**]
@@ -143,7 +143,7 @@ Extracts content by parsing json objects. If the content has more json items mus
 -----
 
 ### xml
-(Since v2.2) Extracts content by parsing XML.
+(As of v2.2) Extracts the data by parsing XML.
 
 - Component name: **xml**
 - Output class: [**ODocument**]
@@ -154,9 +154,9 @@ Extracts content by parsing json objects. If the content has more json items mus
 |rootNode|Root node to consider. By default it build a document starting from the root tag|string|false|empty|
 |tagsAsAttribute|array of tags where children tags are considered as attributes of document and the attribute value is the text inside the tag|string[]|false|empty|
 
-#### Example
+#### Examples
 
-##### Example 1: extract from a XML file the content.
+##### Example 1: extract data from an XML file.
 
 `simple.xml` XML file content:
 ```xml
@@ -195,7 +195,7 @@ Result:
 ```
 
 
-##### Example 2: extract a collection from a XML.
+##### Example 2: extract a collection from XML.
 
 `simple.xml` XML file content:
 ```xml
