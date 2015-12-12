@@ -7,7 +7,7 @@
 
 |[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console)|
 |---|---|---|
-|<!-- PH -->|<!-- PH -->||<!-- PH -->.|
+|<!-- PH -->|<!-- PH -->|<!-- PH -->|
 
 ### let
 Assigns a variable in the ETL process context.
