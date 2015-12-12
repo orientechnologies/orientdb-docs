@@ -7,7 +7,7 @@
 
 |[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|[xml](Extractor.md#xml)|
 |-----|-----|-----|-----|----|
-| 
+ 
 
 ### row
 Extracts content row by row.
