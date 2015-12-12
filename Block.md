@@ -10,6 +10,7 @@
 |<!-- PH -->|<!-- PH -->|<!-- PH -->|
 
 ### let
+____
 Assigns a variable in the ETL process context.
 
 - Component name: **let**
@@ -35,6 +36,7 @@ Concats the $fileName variable to $fileDirectory to create the new variable $fil
 ```
 
 ### code
+____
 Execute a snippet of code in any of the JVM supported languages. Default is Javascript.
 
 - Component name: **code**
@@ -53,7 +55,8 @@ Execute a snippet of code in any of the JVM supported languages. Default is Java
 }
 ```
 
-### Console
+### console
+____
 Execute commands invoking the [OrientDB Console](Console-Commands.md).
 
 - Component name: **console**
