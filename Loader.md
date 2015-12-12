@@ -15,8 +15,6 @@ It's the default Loader. It prints the transformation result to the console outp
 - Component name: **output**
 - Accepted input classes: [**Object**]
 
------
-
 ### OrientDB
 Loads record and vertices into an OrientDB database.
 
@@ -87,5 +85,3 @@ Below is an example of configuration to load data in an OrientDB database called
       ]
     }
 ```
-
------
