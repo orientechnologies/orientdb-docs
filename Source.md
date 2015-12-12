@@ -11,7 +11,7 @@
 |<!-- PH -->|<!-- PH -->|<!-- PH -->|
 
 ### file
-____
+
 Represents a source file, from which data is read. Files can be text files or compressed with tar.gz.
 
 - Component name: **file**
@@ -34,7 +34,7 @@ Extracts from the file "/temp/actor.tar.gz":
 -----
 
 ### input
-____
+
 Extracts data from console input. This is useful when the ETL works in a PIPE with other tools
 
 - Component name: **input**
@@ -52,7 +52,7 @@ cat /etc/csv|oetl.sh "{transformers:[{csv:{}}]}"
 -----
 
 ### http
-____
+
 Uses an HTTP endpoint as a data source.
 
 - Component name: **http**

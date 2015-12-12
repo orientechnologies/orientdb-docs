@@ -10,7 +10,6 @@
 |<!-- PH -->|<!-- PH -->|<!-- PH -->|<!-- PH -->|<!-- PH -->|  
 
 ### row
-____
 Extracts content row by row.
 
 - Component name: **row**
@@ -31,7 +30,6 @@ Extracts content row by row.
 -----
 
 ### csv  (as of v2.1.4)
-_____
 
 Extract content from csv files. [Apache Commons-csv](https://commons.apache.org/proper/commons-csv/) is used to parse csv files. 
 This component is avaliable as of version **2.1.4**
@@ -93,7 +91,6 @@ Extract lines from a CSV with default format using 'N/A' as null value placehold
 
 
 ### jdbc
-____
 
 Extracts data from any **DBMS** that support [JDBC](http://en.wikipedia.org/wiki/JDBC_driver) driver. In order to get the ETL component to connect to the source database, put the DBMS's JDBC driver in the **classpath** or **$ORIENTDB_HOME/lib** directory.
 
