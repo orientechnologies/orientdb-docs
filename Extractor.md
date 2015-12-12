@@ -7,6 +7,7 @@
 
 |-----|-----|-----|-----|----|
 |[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|[xml](Extractor.md#xml)|
+| | | |
 
 ### row
 Extracts content row by row.
@@ -128,9 +129,9 @@ Extracts data by parsing json objects. If the data has more json items, they mus
 - Component name: **json**
 - Output class: [**ODocument**]
 
-#### Syntax
+<!-- #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
+|-----------|-------------|------|-----------|-----------| -->
 
 
 #### Example
