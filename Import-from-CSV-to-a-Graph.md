@@ -1,12 +1,13 @@
+<!-- proofread 2015-12-11 SAM -->
 # Import from a CSV file to a Graph
 
 This example describes the process for importing from a CSV file into OrientDB as a Graph. For the sake of simplicity, consider only these 2 entities:
 - POST
 - COMMENT
 
-Where the relationship is between Post and Comment as One-2-Many. One Post can have multiple Comments. We're representing them as they would appear in a RDBMS, but the source could be anything.
+Also consider the relationship between Post and Comment as One-2-Many. One Post can have multiple Comments. We're representing them as they would appear in an RDBMS, but the source could be anything.
 
-With a RDBMS Post and Comment would be stored in 2 separate tables:
+With an RDBMS Post and Comment would be stored in 2 separate tables:
 
 ```
 TABLE POST:
@@ -31,7 +32,7 @@ TABLE COMMENT:
 
 With an RDBMS, one-2-many references are inverted from the target table (Comment) to the source one (Post). This is due to the inability of an RDBMS to handle a collection of values.
 
-In comparison, using the OrientDB Graph model, relationships are modeled as you think when you design an application: POSTs have edges to COMMENTs.
+In comparison, using the OrientDB Graph model, relationships are modeled as you would think, when you design an application: POSTs have edges to COMMENTs.
 
 So, with an RDBMS you have:
 ```
@@ -94,7 +95,7 @@ Below are 2 files containing the ETL to import Posts and Comments separately.
 }
 ```
 
-The Loader contains all the information to connect to an OrientDB database. We have used plocal because it's faster, but if you have an OrientDB server up & running, use "remote:" instead. Note the classes and indexes declared in Loader. As soon as the Loader is configured, the classes and indexes are created if they do not already exist. We have created the index on the Post.id field to assure that there are no duplicates and that the lookup on the created edges (see below) will be fast enough.
+The Loader contains all the information to connect to an OrientDB database. We have used a plocal database, because it's faster. However, if you have an OrientDB server up & running, use "remote:" instead. Note the classes and indexes declared in the Loader. As soon as the Loader is configured, the classes and indexes are created, if they do not already exist. We have created the index on the Post.id field to assure that there are no duplicates and that the lookup on the created edges (see below) will be fast enough.
 
 ### comments.json ETL file
 ```json
