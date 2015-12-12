@@ -8,7 +8,6 @@
 |[Output](Loader.md#output)|[OrientDB](Loader.md#orientdb)|
 |-----|-----|
 |<!-- PH -->|<!-- PH -->|
------
 
 ### Output
 It's the default Loader. It prints the transformation result to the console output.
