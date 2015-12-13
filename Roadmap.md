@@ -9,12 +9,13 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ## Release 2.2
 ```
 - Development started on.: June 25th 2015
-- Expected first RC......: December 11th 2015
+- Expected BETA..........: December 14th 2015
+- Expected first RC......: December 21st 2015
 - Expected final GA......: January 2016
 ```
 
 ### Status
-Last update: December 9, 2015
+Last update: December 14, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
@@ -24,7 +25,7 @@ Last update: December 9, 2015
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 100% |
 | Core | AES and DES enchryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
-| Distributed | Fast synchronization by using Incremental Backup | 70% |
+| Distributed | Fast synchronization by using Incremental Backup | 100% |
 | Distributed / Remote protocol | [Load balancing on client](https://github.com/orientechnologies/orientdb/issues/3165) | 100% |
 | SQL | Pattern matching | 100% |
 | SQL | Command Cache | 100% |
@@ -36,7 +37,7 @@ Last update: December 9, 2015
 | SQL | ['Move cluster' command](https://github.com/orientechnologies/orientdb/issues/4248) | 100% |
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
-| Studio | New P2P architecture, new Enterprise modules (it replaces the Enterprise Workbench) | 90% |
+| Studio | New P2P architecture, new Enterprise modules (it replaces the Enterprise Workbench) | 100% |
 | Lucene | New module for indexing of shapes, not only points | 100% |
 
 ## Release 3.0
