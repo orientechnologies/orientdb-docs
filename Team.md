@@ -34,6 +34,14 @@ He is:
 **Links** [Twitter](https://twitter.com/#!/Andrey_Lomakin) [LinkedIn](http://ua.linkedin.com/in/andreylomakin)<br/>
 **Since** 2012
 
+## Luigi Dell'Aquila
+<img src="http://orientdb.com/wp-content/uploads/2015/07/LuigiDellAquila.png" width="150" align="right" style="padding: 0 0 20px 20px;" />
+**Description** 10 years experience as an ICT consultant, passionate software developer and Open Source enthusiast. Luigi managed OrientDB Academy since 2013, and since 2014 he manages Orient Technologies consulting services. He is also one of the main OrientDB core committers, mainly focused on OrientSQL, query execution and optimization.<br/>
+**Company** [Orient Technologies Ltd](http://orientechnologies.com)<br/>
+**Links** [Twitter](http://twitter.com/ldellaquila) - [LinkedIn](https://it.linkedin.com/in/luigidellaquila) <br/>
+**Since** 2013
+
+
 ## Luca Molino</h1>
 <img src="http://www.orientdb.org/team/LucaMolino.jpg" width="150" align="right" style="padding: 0 0 10px 10px;" />
 **Description** Contributor since 2010 and committer since 2012 Luca is author of various Http commands and the network protocol multipart management; author of the v1.0 ObjectDatabase implementation; author of the centralized Fetching strategy; author of the FIND REFERENCES SQL command; author of the ttl bash orient console; worked on SQL commands, Storage creation\deleting and more.<br/>
