@@ -9,14 +9,13 @@ Committers have reached the <a href="http://orientechnologies.com/certification.
 ## Luca Garulli
 <img src="http://www.orientechnologies.com/wp-content/uploads/2014/06/LucaGarulli-small.jpg" width="150" align="right" style="padding: 0 0 20px 20px;" />
 **Description** Luca is the original author of OrientDB product and the main committer. In order to handle indexes in efficient way Luca has created the new MVRB-Tree algorithm (it was called RB+Tree but another different algorithm already exists with this name) as mix of Red-Black Tree and B+Tree. MVRB stands for Multi Value Red Black because stores multiple values in each tree node instead of just one as RB-Tree does. MVRB-Tree consumes less than half memory of the RB-Tree implementation mantaining the original speed while it balances the tree on insertion/update. Furthermore the MVRB-Tree allows fast retrieving and storing of nodes in persistent way. He is member of the Sun Microsystems [JDO 1.0 Expert Group (JSR#12)](http://www.jcp.org/en/jsr/detail?id=12) and JDO 2.0 Expert Group (JSR#243) for the writing of JDO standard.<br/>
-**Company** [Orient Technologies Ltd](http://orientechnologies.com)<br/>
+**Company** [OrientDB Ltd](http://orientdb.com)<br/>
 **Links** [Twitter](http://twitter.com/lgarulli) - [Google+](https://plus.google.com/u/0/111607061083712272202/posts) - [VisualizeMe](http://vizualize.me/luca.garulli) - [LinkedIn](http://www.linkedin.com/in/garulli) - [Blog](http://zion-city.blogspot.it) - [Ohloh](http://www.ohloh.net/accounts/lvca)<br/>
 **Since** 2009
 
 ## Artem Orobets
 <img src="http://www.orientdb.org/team/ArtemOrobets.png" width="150" align="right" style="padding: 0 0 10px 10px;" />
 **Description** Committer since 2012 and contributor since 2011. He started diving into indexes, composite indexes and many other was introduced.<br/> He have deep knowledge about the MVRB-Tree algorithm, the optimization of the indexes on queries, Transactions and Binary storage.<br/>
-**Company** [Orient Technologies Ltd](http://orientechnologies.com)<br/>
 **Links** [Twitter](https://twitter.com/#!/Dr_EniSh) [LinkedIn](http://ua.linkedin.com/in/artemorobets)<br/>
 **Since** 2012
 
@@ -30,14 +29,14 @@ He is:
 3. Author of index system. Both hash and sbtree indexes.
 4. Co-author (together with Artem Orobets) modern implementation of graph relationships.
 <br/>
-**Company** [Orient Technologies Ltd](http://orientechnologies.com)<br/>
+**Company** [OrientDB Ltd](http://orientdb.com)<br/>
 **Links** [Twitter](https://twitter.com/#!/Andrey_Lomakin) [LinkedIn](http://ua.linkedin.com/in/andreylomakin)<br/>
 **Since** 2012
 
 ## Luigi Dell'Aquila
 <img src="http://orientdb.com/wp-content/uploads/2015/07/LuigiDellAquila.png" width="150" align="right" style="padding: 0 0 20px 20px;" />
 **Description** 10 years experience as an ICT consultant, passionate software developer and Open Source enthusiast. Luigi managed OrientDB Academy since 2013, and since 2014 he manages Orient Technologies consulting services. He is also one of the main OrientDB core committers, mainly focused on OrientSQL, query execution and optimization.<br/>
-**Company** [Orient Technologies Ltd](http://orientechnologies.com)<br/>
+**Company** [OrientDB Ltd](http://orientdb.com)<br/>
 **Links** [Twitter](http://twitter.com/ldellaquila) - [LinkedIn](https://it.linkedin.com/in/luigidellaquila) <br/>
 **Since** 2013
 
