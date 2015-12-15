@@ -1,15 +1,16 @@
+<!-- proofread 2015-12-11 SAM -->
 # ETL - Configuration
 
-One of the most important OrientDB-ETL module features is the simplicity to configure complex ETL processed, just by working to a single [JSON](http://en.wikipedia.org/wiki/JSON) file.
+One of the most important OrientDB-ETL module features is the simplicity to configure complex ETL processes, just by working with a single [JSON](http://en.wikipedia.org/wiki/JSON) file.
 
-The Configuration file is divided in the following sections:
+The Configuration file is divided into the following sections:
 - **config**, to manage all the settings and context's variables used by any component of the process
 - **source**, to manage the source to process
-- **begin**, as a list of [Blocks](Block.md) to execute in order. This section is executed when the process begins
+- **begin**, as a list of [Blocks](Block.md) to execute in order. This section is executed, when the process begins
 - **extractor**, contains the [Extractor](Extractor.md) configuration
-- **transformers**, contains the list of [Transformers](Transformer.md) configuration to execute in pipeline
+- **transformers**, contains the list of [Transformers](Transformer.md) to execute in the pipeline
 - **loader**, contains the [Loader](Loader.md) configuration
-- **end**, as a list of [Blocks](Block.md) to execute in order. This section is executed when the process is finished
+- **end**, as a list of [Blocks](Block.md) to execute in order. This section is executed, when the process is finished
 
 ## Syntax
 ```
@@ -77,7 +78,7 @@ Example:
 
 ## Generic rules
 - context variables can be used by prefixing them with $
-- `$input` is the context variable assigned before each transformation
+- `$input` is the context variable assigned, before each transformation
 - to execute an expression using OrientDB SQL, use `={<expression>}`, example: `={eval('3 * 5')}`
 
 ## Conditional execution
@@ -99,9 +100,9 @@ All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md
 ```
 
 ## Log setting
-Most of the blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), supports the `log` setting. Log can be one of the following values (case insensitive): `[NONE, ERROR, INFO, DEBUG]`. By default is `INFO`.
+Most of the blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), supports the `log` setting. Log can be one of the following values (case insensitive): `[NONE, ERROR, INFO, DEBUG]`. The default is `INFO`.
 
-Set the log level to `DEBUG` to display more information on execution. Remember that logging slows down execution, so use it only for development and debug purpose. Example:
+Set the log level to `DEBUG` to display more information on execution. Remember that logging slows down execution, so use it only for development and debugging purposed. Example:
 
 ```json
 { "http": {
@@ -116,9 +117,9 @@ Set the log level to `DEBUG` to display more information on execution. Remember 
 ```
 
 ## Configuration variables
-All the variables declared in "config" block are bound in the execution context and can be used by ETL processing.
+All of the variables declared in a "config" block are bound in the execution context and can be used by ETL processing.
 
-There are also special variables used by ETL process:
+There are also special variables used by the ETL process:
 
 | Variable | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
@@ -130,7 +131,7 @@ There are also special variables used by ETL process:
 ## Split configuration on multiple files
 
 Configuration can be split into several files allowing composition of common parts such as paths, urls, and database references.
-The previous configuration could be splitted in two files:
+The previous configuration could be split in two files:
 
 a configuration file with input path for Person csv: *personConfig.json*
 ```json
@@ -143,7 +144,7 @@ a configuration file with input path for Person csv: *personConfig.json*
 }
 ```
 
-a common configuration files where other parts are configured: *commonConfig.json*
+a common configuration file, where other parts are configured: *commonConfig.json*
 ```json
 {
   "begin": [
@@ -176,7 +177,7 @@ a common configuration files where other parts are configured: *commonConfig.jso
 }
 ```
 
-Then pass the splittef files to otel.sh:
+Then pass the split files to otel.sh:
 ```
 $ ./oetl.sh commonConfig.json personConfig.json
 ```
@@ -185,14 +186,14 @@ $ ./oetl.sh commonConfig.json personConfig.json
 
 ### Run-time configuration
 
-In ETL JSON file you can define variables that will be resolved at run-time by passing them at startup.
-Values passed by command line *override* values defined in the config section, even in case multiple configuration files are used.
-You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+In the ETL JSON file you can define variables, which will be resolved at run-time by passing them at startup.
+Values passed by command line *override* values defined in the config section, even in case multiple configuration files, are used.
+You could, for example, assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
 
 ```
 $ ./oetl.sh config-dbpedia.json -databaseURL=plocal:/temp/mydb
 ```
-In case *databaseUrl* was assigned in the *config* section, its value wil be overridden by command line value:
+In case the *databaseUrl* was assigned in the *config* section, its value will be overridden by any command line value:
 
 ```json
 {

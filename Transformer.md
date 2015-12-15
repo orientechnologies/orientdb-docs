@@ -1,5 +1,6 @@
+<!-- proofread 2015-12-11 SAM -->
 # ETL Transformers
-Transformer components are executed in pipeline. They work against the received input returning an output.
+Transformer components are executed in a pipeline. They work with the received input and return output.
 
 Before the execution, the `$input` variable is always assigned, so you can get at run-time and use if needed.
 
@@ -8,7 +9,7 @@ Before the execution, the `$input` variable is always assigned, so you can get a
 |[CSV](Transformer.md#csv)|[FIELD](Transformer.md#field)|[MERGE](Transformer.md#merge)|[VERTEX](Transformer.md#vertex)|
 |-----|-----|-----|-----|
 |[CODE](Transformer.md#code) |[LINK](Transformer.md#link)|[EDGE](Transformer.md#edge)|[FLOW](Transformer.md#flow) |
-|[LOG](Transformer.md#log)|[BLOCK](Transformer.md#block) | [COMMAND](Transformer.md#command)|
+|[LOG](Transformer.md#log)|[BLOCK](Transformer.md#block) | [COMMAND](Transformer.md#command)|<!-- PH -->|
 
 
 ### CSV *Deprecated*
@@ -25,11 +26,11 @@ Component description.
 |-----------|-------------|------|-----------|-----------|
 |separator|Column separator|char|false|,|
 |columnsOnFirstLine|Columns are described in the first line|boolean|false|true|
-|columns|Columns array containing names, and optionally types by postfixing names with :<type>. Specifying type guarantee better performance|string[]|false|-|
-|nullValue|value to consider as NULL. Default is not declared|string|false|-|
+|columns|Columns array containing names, and optionally types by postfixing names with :<type>. Specifying type guarantee better performance|string[]|false|<!-- PH -->|
+|nullValue|value to consider as NULL. Default is not declared|string|false|<!-- PH -->|
 |stringCharacter|String character delimiter|char|false|"|
-|skipFrom|Line number where start to skip|integer|true|-|
-|skipTo|Line number where skip ends|integer|true|-|
+|skipFrom|Line number where start to skip|integer|true|<!-- PH -->|
+|skipTo|Line number where skip ends|integer|true|<!-- PH -->|
 
 #### Example
 Transforms a row in CSV (as ODocument), using comma as separator, considering "NULL" as null value and skipping the rows 2-4:
@@ -51,26 +52,27 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|fieldName|Document's field name to assign|string|false|-|
-|fieldNames|Document's field names to assign (Since 2.1)|string|false|-|
-|expression|Expression to evaluate. You can use [OrientDB SQL syntax](https://github.com/orientechnologies/orientdb/wiki/SQL-Where#syntax)|string|true|-|
-|value|Value to set. If the value is taken or computed at run-time, use `expression` instead|any|false|-|
+|fieldName|Document's field name to assign|string|false|<!-- PH -->|
+|fieldNames|Document's field names to assign (Since 2.1)|string|false|<!-- PH -->|
+|expression|Expression to evaluate. You can use [OrientDB SQL syntax](https://github.com/orientechnologies/orientdb/wiki/SQL-Where#syntax)|string|true|<!-- PH -->|
+|value|Value to set. If the value is taken or computed at run-time, use `expression` instead|any|false|<!-- PH -->|
 |operation|Operation to execute against the field(s): set, remove. Default is set|string|false|set|
 |save|Save the vertex/edge/document right after the setting of the field|boolean|false|false|
+
 #### Examples
-Transforms the field 'class' into the ODocument's class by prefixing it with '_':
+Transform the field 'class' into the ODocument's class by prefixing it with '_':
 
 ```json
 { "field": { "fieldName": "@class", "expression": "class.prefix('_')"} }
 ```
 
-Applies the class name based on the value of another field:
+Apply the class name based on the value of another field:
 
 ```json
 { "field": { "fieldName": "@class", "expression": "if( ( fileCount >= 0 ), 'D', 'F')"} }
 ```
 
-Assigns to the "name" field the last part of a path:
+Assign the last part of a path to the "name" field:
 
 ```json
 { "field": { "fieldName": "name",
@@ -88,7 +90,7 @@ Rename a field from 'salary' to 'remuneration':
 { "field": { "fieldName": "salary", "operation": "remove"} }
 ```
 
-Rename multiple fields in one call (Since 2.1):
+Rename multiple fields in one call (As of v2.1):
 ```json
 { "field": { "fieldNames": ["remuneration","salary"], "operation": "remove"} }
 ```
@@ -105,19 +107,19 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|joinFieldName|Field name where the join value is saved|string|true|-|
-|lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|-|
+|joinFieldName|Field name where the join value is saved|string|true|<!-- PH -->|
+|lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|<!-- PH -->|
 |unresolvedLinkAction|Action to execute in case the JOIN hasn't been resolved. Actions can be: 'NOTHING' (do nothing), WARNING (increment warnings), ERROR (increment errors), HALT (interrupt the process), SKIP (skip current row).|string|false|NOTHING|
 
 #### Example
-Merges current record against the record returned by the lookup on index "V.URI" with the value contained in the  field "URI" of the input's document:
+Merge current record against the record returned by the lookup on index "V.URI" with the value contained in the  field "URI" of the input's document:
 ```json
 { "merge": { "joinFieldName":"URI", "lookup":"V.URI" } }
 ```
 -----
 
 ### VERTEX
-Transforms a ODocument in a OrientVertex.
+Transform a ODocument in a OrientVertex.
 
 Component description.
 - Component name: **vertex**
@@ -148,17 +150,17 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|joinFieldName|Field name where the join value is saved|string|true|-|
+|joinFieldName|Field name where the join value is saved|string|true|<!-- PH -->|
 |direction|Edge direction|string|false|'out'|
 |class|Edge's class name|string|false|'E'|
-|lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|-|
-|targetVertexFields|Fields to set in the target vertex (since v2.1)|object|false|-|
-|edgeFields|Fields to set in the edge (since v2.1)|object|false|-|
+|lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|<!-- PH -->|
+|targetVertexFields|Fields to set in the target vertex (since v2.1)|object|false|<!-- PH -->|
+|edgeFields|Fields to set in the edge (since v2.1)|object|false|<!-- PH -->|
 |skipDuplicates|Duplicated edges are skipped. If `skipDuplicates:true` and a UNIQUE constraint is defined on both "out" and "in" properties in the edge's class, the ETL will ignore the duplicate with no exceptions. Available v 2.2|boolean|false|false|
 |unresolvedLinkAction|Action to execute in case the JOIN hasn't been resolved. Actions can be: 'NOTHING' (do nothing), CREATE (create a OrientVertex setting as primary key the join value), WARNING (increment warnings), ERROR (increment errors), HALT (interrupt the process), SKIP (skip current row).|string|false|NOTHING|
 
 #### Example 1
-Creates an EDGE from the current vertex, with class "Parent", to all the vertices returned by the lookup on "D.inode" index with the value contained in the field "inode_parent" of the input's vertex:
+Create an EDGE from the current vertex, with class "Parent", to all the vertices returned by the lookup on "D.inode" index with the value contained in the field "inode_parent" of the input's vertex:
 ```json
 { "edge": { "class": "Parent", "joinFieldName": "inode_parent",
             "lookup":"D.inode", "unresolvedLinkAction":"CREATE"} }
@@ -223,7 +225,7 @@ Creates an EDGE from the current vertex, with class "Parent", to all the vertice
 -----
 
 ### FLOW
-Control the pipeline flow. Supported operations are "skip" and "halt". This transformer usually plays with "if" attribute.
+Control the pipeline flow. Supported operations are "skip" and "halt". This transformer usually operates with the "if" attribute.
 
 Component description.
 - Component name: **flow**
@@ -233,7 +235,7 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|operation|Flow operation between: skip and halt|string|true|-|
+|operation|Flow operation between: skip and halt|string|true|<!-- PH -->|
 
 #### Example
 Skip the current record if name is null:
@@ -244,9 +246,9 @@ Skip the current record if name is null:
 
 
 ### CODE
-Executes a snippet of code in any of the JVM supported languages. Default is Javascript. Last object in the code is returned as output. In the execution context are bound the following variables:
+Executes a snippet of code in any of the JVM supported languages. Default is Javascript. Last object in the code is returned as output. In the execution context, the following variables are bound:
 - `input` with the input object received
-- `record` with the record extracted from input object when is possible. In case the input object is a Vertex/Edge, the underlying ODocument is assigned to the variable
+- `record` with the record extracted from input object, when is possible. In case the input object is a Vertex/Edge, the underlying ODocument is assigned to the variable
 
 Component description.
 - Component name: **code**
@@ -254,10 +256,10 @@ Component description.
 - Output: **Object**
 
 #### Syntax
-| Parameter | Description | Mandatory | Default value |
+| Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|-----------|-----------|
 |language|Programming language used|string|false|Javascript|
-|code|Code to execute|string|true|-|
+|code|Code to execute|string|true|<!-- PH -->|
 
 #### Example
 Displays current record and returns the parent.
@@ -270,7 +272,7 @@ Displays current record and returns the parent.
 -----
 
 ### LINK
-Transform a JOIN value in LINK in current record with the result of the lookup. Lookup can be a lookup against an index or a SELECT query.
+Transform a JOIN value into a LINK in the current record, with the result of the lookup. Lookup can be a lookup against an index or a SELECT query.
 
 Component description.
 - Component name: **link**
@@ -280,7 +282,7 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|joinFieldName|Field name where the join value is saved|string|false|-|
+|joinFieldName|Field name where the join value is saved|string|false|<!-- PH -->|
 |joinValue|Value to lookup|string|false|-|
 |linkFieldName|Field name containing the link to set|string|true|-|
 |linkFieldType|Type of link between: LINK, LINKSET and LINKLIST|string|true|-|
@@ -288,7 +290,7 @@ Component description.
 |unresolvedLinkAction|Action to execute in case the JOIN hasn't been resolved. Actions can be: 'NOTHING' (do nothing), CREATE (create a ODocument setting as primary key the join value), WARNING (increment warnings), ERROR (increment errors), HALT (interrupt the process), SKIP (skip current row).|string|false|NOTHING|
 
 #### Example
-Transform a JOIN value in LINK in current record (set as "parent" of type LINK) with the result of the lookup on index "D.inode" with the value contained in the field "inode_parent" of the input's document:
+Transform a JOIN value into a LINK in the current record (set as "parent" of type LINK) with the result of the lookup on index "D.inode" with the value contained in the field "inode_parent" of the input's document:
 ```json
 { "link": { "linkFieldName": "parent", "linkFieldType": "LINK",
             "joinFieldName": "inode_parent", "lookup":"D.inode", "unresolvedLinkAction":"CREATE"} }
@@ -307,8 +309,8 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|prefix|Prefix to write before the content|string|false|-|
-|postfix|Postfix to write after the content|string|false|-|
+|prefix|Prefix to write before the content|string|false|<!-- PH -->|
+|postfix|Postfix to write after the content|string|false|<!-- PH -->|
 
 #### Example
 Simply log current value:
@@ -324,7 +326,7 @@ Log current value with "-> " as prefix:
 -----
 
 ### Block
-Executes a [Block](Block.md) as transformation step.
+Executes a [Block](Block.md) as a transformation step.
 
 Component description.
 - Component name: **block**
@@ -334,7 +336,7 @@ Component description.
 #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|block|[Block](Block.md) to execute|document|true|-|
+|block|[Block](Block.md) to execute|document|true|<!-- PH -->|
 
 
 #### Example
@@ -361,7 +363,7 @@ Component description.
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
 |language|Command language. Available are: sql (default) and gremlin|string|false|sql|
-|command|Command to execute|string|true|-|
+|command|Command to execute|string|true|<!-- PH -->|
 
 
 #### Example

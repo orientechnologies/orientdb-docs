@@ -1,15 +1,18 @@
+<!-- proofread 2015-12-11 SAM -->
 # ETL - Sources
 
-**Source** components represent the source where to extract the content. Source is optional, some [Extractor](Extractor.md) like JDBCExtractor works without a source.
+**Source** components represent the source of the data to be extracted. Some [Extractors](Extractor.md) like JDBCExtractor work without a source, and thus can be optional.
 
 ## Available Sources
 
-|  |  |  |  |
-|-----|-----|-----|-----|
-|[file](Source.md#file)|[input](Source.md#input)|[http](Source.md#http)| |
 
-### File
-Represents a source file where to start reading. Files can be text files or compressed with tar.gz.
+|[file](Source.md#file)|[input](Source.md#input)|[http](Source.md#http)|
+|-----|-----|-----|
+|<!-- PH -->|<!-- PH -->|<!-- PH -->|
+
+### file
+
+Represents a source file, from which data is read. Files can be text files or compressed with tar.gz.
 
 - Component name: **file**
 
@@ -30,8 +33,9 @@ Extracts from the file "/temp/actor.tar.gz":
 
 -----
 
-### Input
-Extracts data from console input. This is useful when the ETL works in PIPE with other tools
+### input
+
+Extracts data from console input. This is useful when the ETL works in a PIPE with other tools
 
 - Component name: **input**
 
@@ -47,8 +51,9 @@ cat /etc/csv|oetl.sh "{transformers:[{csv:{}}]}"
 ```
 -----
 
-### HTTP
-Use a HTTP endpoint as content source.
+### http
+
+Uses an HTTP endpoint as a data source.
 
 - Component name: **http**
 
@@ -60,7 +65,7 @@ Use a HTTP endpoint as content source.
 |headers|Request headers as inner document key/value|Document|false| |
 
 #### Example
-Execute a HTTP request against the URL "http://ip.jsontest.com/" in GET setting the User-Agent in headers:
+Execute an HTTP request against the URL "http://ip.jsontest.com/" in a GET, setting the User-Agent in the headers:
 
 ```json
 { "http": {

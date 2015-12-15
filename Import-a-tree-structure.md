@@ -1,6 +1,7 @@
+<!-- proofread 2015-12-11 SAM -->
 # Import a tree structure
 
-If you have a tree structure on RDBMS or CSV file and you want to import it in OrientDB, the ETL comes in the rescue. In this example we used CSV for the sake of simplicity, but it's the same with JDBC input and a SQL query against a RDBMS.
+If you have a tree structure in an RDBMS or CSV file and you want to import it in OrientDB, the ETL can come to your rescue. In this example, we use CSV for the sake of simplicity, but it's the same with JDBC input and a SQL query against an RDBMS.
 
 ## source.csv
 ```

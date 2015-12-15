@@ -1,8 +1,9 @@
+<!-- proofread 2015-12-11 SAM -->
 # Import Database of Beers in OrientDB
 
 ![](images/beers.jpg)
 
-First, create a new folder somewhere in your hard drive. For this test I've used /temp/openbeer.
+First, create a new folder somewhere on your hard drive. For this test we'll assume `/temp/openbeer`.
 
 ```
 $ mkdir /temp/openbeer
@@ -55,7 +56,7 @@ In order to import this file in OrientDB, we have to create the following file a
 }
 ```
 
-Now to import it OrientDB, move into the "bin" directory of OrientDB distribution.
+Now to import it into OrientDB, move into the "bin" directory of OrientDB distribution.
 
 ```
 $ cd orientdb-community-2.0.9/bin
@@ -74,14 +75,14 @@ END ETL PROCESSOR
 
 
 ## Import Beer Styles
-Now it's the turn of Beer Styles. These are the first 2 lines of the `styles.csv` file.
+Now let's import the Beer Styles. These are the first 2 lines of the `styles.csv` file.
 
 ```
 "id","cat_id","style_name","last_mod"
 "1","1","Classic English-Style Pale Ale","2010-10-24 13:53:31"
 ```
 
-In this case we'll correlate the Style with the Category created earlier. This is the `styles.json` to use with OrientDB ETL for the next step.
+In this case, we'll correlate the Style with the Category created earlier. This is the `styles.json` to use with OrientDB ETL for the next step.
 
 ```json
 {
@@ -119,7 +120,7 @@ END ETL PROCESSOR
 
 
 ## Import Breweries
-Now it's the turn of Breweries. These are the first 2 lines of the `breweries.csv` file.
+Now it's time for the Breweries. These are the first 2 lines of the `breweries.csv` file.
 
 ```
 "id","name","address1","address2","city","state","code","country","phone","website","filepath","descript","last_mod"

@@ -1,3 +1,4 @@
+<!-- proofread 2015-12-11 SAM -->
 # Import form JSON
 
 If you are migrating from MongoDB or any other DBMS that exports data in JSON format, the [JSON extractor](Extractor.md#json) is what you need. For more information look also at: [Import-from-PARSE](Import-from-PARSE.md).
@@ -21,12 +22,12 @@ This is the input file stored in `/tmp/database.json` file:
 ]
 ```
 
-Note that `friends` and `enemies` represents a relationship with nodes of the same type. They are under form of array if IDs. This is what we need:
+Note that `friends` and `enemies` represent relationships with nodes of the same type. They are in the form of an array of IDs. This is what we need:
 - Use the Vertex class "Account" to store nodes
 - Use the Edge classes "Friend" and "Enemy" to connect vertices
 - Merge and Lookups will be on `id` property of Account class that will be unique
 - In case the connected friend hasn't been inserted yet, create it ("unresolvedLinkAction": "CREATE")
-- To speed up lookups, an unique has index will be created on `Account.it`
+- To speed up lookups, a unique index will be created on `Account.it`
 
 And this pipeline (log is at `debug` level to show all the messages):
 
@@ -82,9 +83,9 @@ Note also the setting
       "standardElementConstraints": false,
 ```
 
-In OrientDB Loader to allow importing the property "id". Without this option the Blueprints standard would reject it because "id" is a reserved name.
+This is needed, in order to allow importing the property "id" in the OrientDB Loader. Without this option, the Blueprints standard would reject it, because "id" is a reserved name.
 
-By executing the ETL process this is the output:
+By executing the ETL process, this is the output:
 
 ```
 OrientDB etl v.2.1-SNAPSHOT www.orientechnologies.com

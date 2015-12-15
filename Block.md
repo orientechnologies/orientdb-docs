@@ -1,14 +1,17 @@
+<!-- proofread 2015-12-11 SAM -->
 # ETL - Blocks
 
 **Block** components execute operations.
 
 ## Available Blocks
 
-|[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console) | |
-|-----|-----|-----|-----|
+|[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console)|
+|---|---|---|
+|<!-- PH -->|<!-- PH -->|<!-- PH -->|
 
 ### let
-Assigns variable in the ETL process context.
+
+Assigns a variable in the ETL process context.
 
 - Component name: **let**
 
@@ -33,6 +36,7 @@ Concats the $fileName variable to $fileDirectory to create the new variable $fil
 ```
 
 ### code
+
 Execute a snippet of code in any of the JVM supported languages. Default is Javascript.
 
 - Component name: **code**
@@ -51,7 +55,8 @@ Execute a snippet of code in any of the JVM supported languages. Default is Java
 }
 ```
 
-### Console
+### console
+
 Execute commands invoking the [OrientDB Console](Console-Commands.md).
 
 - Component name: **console**
@@ -64,7 +69,7 @@ Execute commands invoking the [OrientDB Console](Console-Commands.md).
 
 #### Example
 
-Invoice the console with a file containing the commands to execute
+Invoke the console with a file containing the commands to execute
 ```json
 { "console": { "file": "/temp/commands.sql"}  }
 ```

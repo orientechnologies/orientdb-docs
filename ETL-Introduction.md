@@ -1,3 +1,4 @@
+<!-- proofread 2015-12-11 SAM -->
 # ETL
 
 The OrientDB-ETL module is an amazing tool to move data from and to OrientDB by executing an [ETL process](http://en.wikipedia.org/wiki/Extract,_transform,_load). It's super easy to use. OrientDB ETL is based on the following principles:
@@ -10,7 +11,7 @@ The OrientDB-ETL module is an amazing tool to move data from and to OrientDB by 
 ```
 EXTRACTOR => TRANSFORMERS[] => LOADER
 ```
-An example of a process that extracts from a CSV file, applies some change, does a lookup to see if the record has already been created, and then stores the record as a document against OrientDB database:
+An example of a process that extracts from a CSV file, applies some change, does a lookup to see if the record has already been created and then stores the record as a document against OrientDB database:
 
 ```
 +-----------+-----------------------+-----------+
@@ -42,11 +43,11 @@ $ ./oetl.sh config-dbpedia.json
 
 |    |    |
 |----|----|
-| ![NOTE](images/warning.png) | _NOTE: If importing data for use in a distributed database then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` for the ETL process to avoid replication errors when the database is updated online._ |
+| ![NOTE](images/warning.png) | _NOTE: If you are importing data for use in a distributed database, then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` for the ETL process to avoid replication errors, when the database is updated online._ |
 
 ### Run-time configuration
 
-In an ETL JSON file you can define variables that will be resolved at run-time by passing them at startup. You could for example assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+In an ETL JSON file you can define variables, which will be resolved at run-time by passing them at startup. You could, for example, assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
 ```
 $ ./oetl.sh config-dbpedia.json -databaseURL=plocal:/temp/mydb
 ```
