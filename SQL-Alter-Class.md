@@ -30,25 +30,6 @@ Where:
 - [SQL commands](SQL.md)
 - [Console commands](Console-Commands.md)
 
-## Java API
-
-Below you can find the Java API equivalent for this command.
-
-**Graph API**
-
-```java
-// ADD A CLUSTER TO A VERTEX CLASS
-graph.getVertexType("Customer").addCluster("customer_usa");
-
-// ADD A CLUSTER TO AN EDGE CLASS
-graph.getEdgeType("WorksAt").addCluster("WorksAt_2015");
-```
-
-**Document API**
-```java
-db.getMetadata().getSchema().getClass("Customer").addCluster("customer_usa");
-```
-
 ## Examples
 
 ### Set the super class
@@ -127,6 +108,28 @@ ALTER CLASS CLUSTERSELECTION balanced
 ```sql
 ALTER CLASS TheClass ABSTRACT true
 ```
+
+
+## Java API
+
+Below you can find the Java API equivalent for this command.
+
+**Graph API**
+
+```java
+// ADD A CLUSTER TO A VERTEX CLASS
+graph.getVertexType("Customer").addCluster("customer_usa");
+
+// ADD A CLUSTER TO AN EDGE CLASS
+graph.getEdgeType("WorksAt").addCluster("WorksAt_2015");
+```
+
+**Document API**
+```java
+db.getMetadata().getSchema().getClass("Customer").addCluster("customer_usa");
+```
+
+
 
 ## History
 ### 1.7
