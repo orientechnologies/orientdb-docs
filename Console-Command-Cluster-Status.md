@@ -1,11 +1,11 @@
-# Console - `CLUSTERS STATUS`
+# Console - `CLUSTER STATUS`
 
 Displays the status of the cluster in distributed configuration.
 
 **Syntax:**
 
 ```
-CLUSTERS STATUS
+CLUSTER STATUS
 ```
 
 **Example:**
