@@ -133,7 +133,9 @@ db.getMetadata().getSchema().getClass("Customer").addCluster("customer_usa");
 
 ## History
 ### 1.7
+
 - Added support for CLUSTERSELECTION that sets the strategy used on selecting the cluster to use when creating new records.
-- 
+ 
 ### 2.1
+
 - Added support for multiple inheritance.
