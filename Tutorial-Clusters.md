@@ -27,7 +27,7 @@ CLUSTERS:
 
 ## Understanding Clusters
 
-By default, OrientDB creates one cluster for each [Class](Concepts.md#class).  All records of a class are stored in the same cluster, which has the same name as the class. You can create up to 32,767 (or, 2<sup>15</sup> - 1) clusters in a database. Understanding the concepts of classes and clusters allows you to take advantage of the power of clusters in designing new databases.
+By default, OrientDB creates one cluster for each [Class](Concepts.md#class).  Starting from v2.2, OrientDB automatically creates multiple clusters per each class (the number of clusters created is equals to the number of CPU's cores available on the server) to improve using of parallelism.  All records of a class are stored in the same cluster, which has the same name as the class. You can create up to 32,767 (or, 2<sup>15</sup> - 1) clusters in a database. Understanding the concepts of classes and clusters allows you to take advantage of the power of clusters in designing new databases.
 
 While the default strategy is that each class maps to one cluster, a class can rely on multiple clusters. For instance, you can spawn records physically in multiple locations, thereby creating multiple clusters.
 
