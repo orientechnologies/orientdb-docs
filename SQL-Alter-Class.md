@@ -30,6 +30,25 @@ Where:
 - [SQL commands](SQL.md)
 - [Console commands](Console-Commands.md)
 
+## Java API
+
+Below you can find the Java API equivalent for this command.
+
+**Graph API**
+
+```java
+// ADD A CLUSTER TO A VERTEX CLASS
+graph.getVertexType("Customer").addCluster("customer_usa");
+
+// ADD A CLUSTER TO AN EDGE CLASS
+graph.getEdgeType("WorksAt").addCluster("WorksAt_2015");
+```
+
+**Document API**
+```java
+db.getMetadata().getSchema().getClass("Customer").addCluster("customer_usa");
+```
+
 ## Examples
 
 ### Set the super class
@@ -112,5 +131,6 @@ ALTER CLASS TheClass ABSTRACT true
 ## History
 ### 1.7
 - Added support for CLUSTERSELECTION that sets the strategy used on selecting the cluster to use when creating new records.
+- 
 ### 2.1
-- Added support for multiple inheritance
+- Added support for multiple inheritance.
