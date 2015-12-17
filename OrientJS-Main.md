@@ -67,9 +67,11 @@ npm test
   * [Query](#query)
   * [Query Builder](#query-builder)   
   * [Function API](#function-api)
+  * [Events](#events)
 * [CLI](#cli)
   * [Database CLI Commands](#database-cli-commands)
   * [Migrations](#migrations)
+* [History](#history)
 
 
 
@@ -617,6 +619,42 @@ db.createFn(function nameOfFunction(arg1, arg2) {
 });
 ```
 
+### Events
+
+You can also bind to the following events
+
+#### `beginQuery`
+Given the query
+
+    db.select('name, status').from('OUser').where({"status": "active"}).limit(1).fetch({"role": 1}).one();
+
+The following event will be triggered
+
+    db.on("beginQuery", function(obj) {
+      // => {
+      //  query: 'SELECT name, status FROM OUser WHERE status = :paramstatus0 LIMIT 1',
+      //  mode: 'a',
+      //  fetchPlan: 'role:1',
+      //  limit: -1,
+      //  params: { params: { paramstatus0: 'active' } }
+      // }
+    });
+
+
+#### `endQuery`
+After a query has been run, you'll get the the following event emitted
+
+    db.on("endQuery", function(obj) {
+      // => {
+      //   "err": errObj,
+      //   "result": resultObj,
+      //   "perf": {
+      //     "query": timeInMs
+      //   }
+      // }
+    });
+
+
 
 ##CLI
 
@@ -742,4 +780,29 @@ orientjs migrate down
 ```sh
 orientjs migrate down 1
 ```
+
+
+## History
+
+In 2012, [Gabriel Petrovay](https://github.com/gabipetrovay) created the original [node-orientdb](https://github.com/gabipetrovay/node-orientdb) library, with a straightforward callback based API.
+
+In early 2014, [Giraldo Rosales](https://github.com/nitrog7) made a [whole host of improvements](https://github.com/nitrog7/node-orientdb), including support for orientdb 1.7 and switched to a promise based API.
+
+Later in 2014, codemix refactored the library to make it easier to extend and maintain, and introduced an API similar to [nano](https://github.com/dscape/nano). The result is so different from the original codebase that it warranted its own name and npm package. This also gave us the opportunity to switch to semantic versioning.
+
+In June 2015, Orient Technologies company officially adopted the Oriento driver and renamed it as OrientJS.
+
+### Notes for contributors
+
+Please see [CONTRIBUTING](./CONTRIBUTING.md).
+
+### Changes
+
+See [CHANGELOG](./CHANGELOG.md)
+
+
+
+### License
+
+Apache 2.0 License, see [LICENSE](./LICENSE.md)
 
