@@ -63,6 +63,7 @@ npm test
 * [Database API](#database-api)
   * [Record API](#record-api)
   * [Class API](#class-api)
+  * [Index API](#index-api)
   * [Query](#query)
   * [Query Builder](#query-builder)   
 
@@ -280,6 +281,29 @@ MyClass.list()
   console.log('Found ' + records.length + ' records:', records);
 });
 ```
+### Index API
+
+#### Create a new index for a class property
+
+```js
+db.index.create({
+  name: 'MyClass.myProp',
+  type: 'unique'
+})
+.then(function(index){
+  console.log('Created index: ', index);
+});
+```
+
+#### Get entry from class property index
+
+```js
+db.index.get('MyClass.myProp')
+.then(function (index) {
+  index.get('foo').then(console.log.bind(console));
+});
+```
+
 
 ### Query
 
@@ -329,6 +353,80 @@ db.exec('select from OUser where name=:name', {
 ```
 
 ### Query Builder
+
+#### Creating a new, empty vertex
+
+```js
+db.create('VERTEX', 'V').one()
+.then(function (vertex) {
+  console.log('created vertex', vertex);
+});
+```
+
+#### Creating a new vertex with some properties
+
+```js
+db.create('VERTEX', 'V')
+.set({
+  key: 'value',
+  foo: 'bar'
+})
+.one()
+.then(function (vertex) {
+  console.log('created vertex', vertex);
+});
+```
+#### Deleting a vertex
+
+```js
+db.delete('VERTEX')
+.where('@rid = #12:12')
+.one()
+.then(function (count) {
+  console.log('deleted ' + count + ' vertices');
+});
+```
+
+#### Creating a simple edge between vertices
+
+```js
+db.create('EDGE', 'E')
+.from('#12:12')
+.to('#12:13')
+.one()
+.then(function (edge) {
+  console.log('created edge:', edge);
+});
+```
+
+
+#### Creating an edge with properties
+
+```js
+db.create('EDGE', 'E')
+.from('#12:12')
+.to('#12:13')
+.set({
+  key: 'value',
+  foo: 'bar'
+})
+.one()
+.then(function (edge) {
+  console.log('created edge:', edge);
+});
+```
+
+#### Deleting an edge between vertices
+
+```js
+db.delete('EDGE', 'E')
+.from('#12:12')
+.to('#12:13')
+.scalar()
+.then(function (count) {
+  console.log('deleted ' + count + ' edges');
+});
+```
 
 #### Query Builder: Insert Record
 
