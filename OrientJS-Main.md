@@ -59,8 +59,9 @@ npm test
 # Table of Contents
 
 * [Configuring the Client](#configuring-the-client)
-* [Server Api](#server-api)
-* [Database Api](#database-api)
+* [Server API](#server-api)
+* [Database API](#database-api)
+  * [Record API](#record-api)
   * [Query](#query)
   * [Query Builder](#query-builder)   
 
@@ -85,7 +86,7 @@ server.close();
 ```
 
 
-## Server Api
+## Server API
 
 ### Listing the databases on the server
 
@@ -133,7 +134,9 @@ db.close();
 ```
 
 
-## Database Api
+## Database API
+
+### Record API
 
 ### Query
 
