@@ -14,3 +14,48 @@ OrientJS aims to work with version 2.0.0 of OrientDB and later. While it may wor
 > This can lead to very nasty surprises which may not manifest themselves during development but could appear at any time in production.
 > There is an [open issue](https://github.com/orientechnologies/orientdb/issues/2315) for this in OrientDB, until that gets fixed, it is **strongly recommended** that you set `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to a very large value, e.g. 2147483647.
 > Please see the [relevant section in the OrientDB manual](http://www.orientechnologies.com/docs/2.0/orientdb.wiki/RidBag.html#configuration) for more information.
+
+# Installation
+
+Install via npm.
+
+```sh
+npm install orientjs
+```
+
+To install OrientJS globally use the `-g` option:
+
+```sh
+npm install orientjs -g
+```
+
+# Running Tests
+
+To run the test suite, first invoke the following command within the repo, installing the development dependencies:
+
+```sh
+npm install
+```
+
+Then run the tests:
+
+```sh
+npm test
+```
+
+
+# Features
+
+- Tested with latest OrientDB (2.0.x and 2.1).
+- Intuitive API, based on [bluebird](https://github.com/petkaantonov/bluebird) promises.
+- Fast binary protocol parser.
+- Access multiple databases via the same socket.
+- Migration support.
+- Simple CLI.
+- Connection Pooling
+- 
+
+
+
+## Table of Contents
+
