@@ -53,9 +53,20 @@ npm test
 - Migration support.
 - Simple CLI.
 - Connection Pooling
-- 
 
 
 
 ## Table of Contents
+
+
+* [USAGE](#usage)
+  *[Server Api](#server-api)
+
+
+
+# Usage
+
+## Server-Api
+
+
 
