@@ -58,15 +58,13 @@ npm test
 
 # Table of Contents
 
-
-* [USAGE](#usage)
-  * [Server Api](#server-api)
-
+* [Configuring the Client](#configuring-the-client)
+* [Server Api](#server-api)
 
 
-## Usage
 
-### Configuring the Client
+
+## Configuring the Client
 ```js
 var OrientDB = require('orientjs');
 
@@ -84,15 +82,51 @@ server.close();
 ```
 
 
-### Server Api
+## Server Api
 
-#### Listing the databases on the server
+### Listing the databases on the server
 
 ```js
 server.list()
 .then(function (dbs) {
   console.log('There are ' + dbs.length + ' databases on the server.');
 });
+```
+
+### Creating a new database
+
+```js
+server.create({
+  name: 'mydb',
+  type: 'graph',
+  storage: 'plocal'
+})
+.then(function (db) {
+  console.log('Created a database called ' + db.name);
+});
+```
+
+### Using an existing database
+
+```js
+var db = server.use('mydb');
+console.log('Using database: ' + db.name);
+
+// CLOSE THE CONNECTION AT THE END
+db.close();
+```
+
+### Using an existing database with credentials
+
+```js
+var db = server.use({
+  name: 'mydb',
+  username: 'admin',
+  password: 'admin'
+});
+console.log('Using database: ' + db.name);
+// CLOSE THE CONNECTION AT THE END
+db.close();
 ```
 
 
