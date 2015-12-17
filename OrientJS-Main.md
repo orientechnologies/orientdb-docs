@@ -56,17 +56,46 @@ npm test
 
 
 
-## Table of Contents
+# Table of Contents
 
 
 * [USAGE](#usage)
-  *[Server Api](#server-api)
+  * [Server Api](#server-api)
 
 
 
-# Usage
+## Usage
 
-## Server-Api
+### Configuring the Client
+```js
+var OrientDB = require('orientjs');
+
+var server = OrientDB({
+  host: 'localhost',
+  port: 2424,
+  username: 'root',
+  password: 'yourpassword'
+});
+```
+
+```js
+// CLOSE THE CONNECTION AT THE END
+server.close();
+```
+
+
+### Server Api
+
+#### Listing the databases on the server
+
+```js
+server.list()
+.then(function (dbs) {
+  console.log('There are ' + dbs.length + ' databases on the server.');
+});
+```
+
+
 
 
 
