@@ -62,6 +62,7 @@ npm test
 * [Server API](#server-api)
 * [Database API](#database-api)
   * [Record API](#record-api)
+  * [Class API](#class-api)
   * [Query](#query)
   * [Query Builder](#query-builder)   
 
@@ -138,9 +139,151 @@ db.close();
 
 ### Record API
 
+#### Loading a record by RID.
+
+```js
+db.record.get('#1:1')
+.then(function (record) {
+  console.log('Loaded record:', record);
+});
+```
+
+#### Deleting a record
+
+```js
+db.record.delete('#1:1')
+.then(function () {
+  console.log('Record deleted');
+});
+```
+### Class API
+
+#### Listing all the classes in the database
+
+```js
+db.class.list()
+.then(function (classes) {
+  console.log('There are ' + classes.length + ' classes in the db:', classes);
+});
+```
+
+#### Creating a new class
+
+```js
+db.class.create('MyClass')
+.then(function (MyClass) {
+  console.log('Created class: ' + MyClass.name);
+});
+```
+
+#### Creating a new class that extends another
+
+```js
+db.class.create('MyOtherClass', 'MyClass')
+.then(function (MyOtherClass) {
+  console.log('Created class: ' + MyOtherClass.name);
+});
+```
+
+#### Getting an existing class
+
+```js
+db.class.get('MyClass')
+.then(function (MyClass) {
+  console.log('Got class: ' + MyClass.name);
+});
+```
+
+#### Updating an existing class
+
+```js
+db.class.update({
+  name: 'MyClass',
+  superClass: 'V'
+})
+.then(function (MyClass) {
+  console.log('Updated class: ' + MyClass.name + ' that extends ' + MyClass.superClass);
+});
+```
+
+#### Listing properties in a class
+
+```js
+MyClass.property.list()
+.then(function (properties) {
+  console.log('The class has the following properties:', properties);
+});
+```
+
+#### Adding a property to a class
+
+```js
+MyClass.property.create({
+  name: 'name',
+  type: 'String'
+})
+.then(function () {
+  console.log('Property created.')
+});
+```
+
+To add multiple properties, pass an array of objects. Example:
+
+```js
+MyClass.property.create([{
+  name: 'name',
+  type: 'String'
+}, {
+  name: 'surname',
+  type: 'String'
+}])
+.then(function () {
+  console.log('Property created.')
+});
+```
+
+#### Deleting a property from a class
+
+```js
+MyClass.property.drop('myprop')
+.then(function () {
+  console.log('Property deleted.');
+});
+```
+
+#### Renaming a property on a class
+
+```js
+MyClass.property.rename('myprop', 'mypropchanged');
+.then(function () {
+  console.log('Property renamed.');
+});
+```
+
+#### Creating a record for a class
+
+```js
+MyClass.create({
+  name: 'John McFakerton',
+  email: 'fake@example.com'
+})
+.then(function (record) {
+  console.log('Created record: ', record);
+});
+```
+
+#### Listing records in a class
+
+```js
+MyClass.list()
+.then(function (records) {
+  console.log('Found ' + records.length + ' records:', records);
+});
+```
+
 ### Query
 
-### Execute an Insert Query
+#### Execute an Insert Query
 
 ```js
 db.query('insert into OUser (name, password, status) values (:name, :password, :status)',
@@ -184,7 +327,6 @@ db.exec('select from OUser where name=:name', {
 });
 
 ```
-
 
 ### Query Builder
 
