@@ -7,7 +7,7 @@
     * [Install with Docker](Docker-Home.md)
   * [Run the server](Tutorial-Run-the-server.md)
   * [Run the console](Tutorial-Run-the-console.md)
-  * [Run Studio](Home-page.md)    
+  <!-- * [Run Studio]--> 
 * [Data Modeling](Tutorial-Document-and-graph-model.md)
   * [Graph or Document API?](Choosing-between-Graph-or-Document-API.md)
   * [Basic Concepts](Concepts.md)
