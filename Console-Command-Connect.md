@@ -1,41 +1,36 @@
-# Console - CONNECT
+# Console - `CONNECT`
 
-Opens a database using a URL.
+Opens a database.
 
-## Syntax
+**Syntax**
 
 ```
-CONNECT <database-url> <user-name> <user-password>
+CONNECT <database-url> <user> <password>
 ```
 
-Where:
+- **`<database-url>`** Defines the URL of the database you want to connect to.  It uses the format `<mode>:<path>`
+  - *`<mode>`* Defines the mode you want to use in connecting to the database.  It can be `PLOCAL` or `REMOTE`.
+  - *`<path>`* Defines the path to the database.  
+- **`<user>`** Defines the user you want to connect as on the database.
+- **`<password>`** Defines the password you want to use to connect to the database.
 
-- **database-url**   The url of the database to connect in the format <code>&lt;mode&gt;:&lt;path&gt;</code>
-- **user**           The user name
-- **user-password**  The user password
 
-## Example: connect to a local database
+**Examples:**
 
-To connect to a local database loading it directly into the console.
+- Connect to a local database as the user `admin`, loading it directly into the console:
 
-Example:
-```
-CONNECT plocal:../databases/GratefulDeadConcerts admin admin
-```
+  <pre>
+  orientdb> <code class="userinput lang-sql">CONNECT PLOCAL:../databases/GratefulDeadConcerts admin my_admin_password</code>
 
-## Example: Connect to a remote database
+  Connecting to database [plocal:../databases/GratefulDeadConcerts]...OK
+  </pre>
 
-To connect to a local or remote database by using a Orient Server.
+- Connect to a remote database:
 
-Example:
-```
-CONNECT remote:127.0.0.1/GratefulDeadConcerts admin admin
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">CONNECT REMOTE:192.168.1.1/GratefulDeadConcerts admin my_admin_password</code>
 
-```java
-CONNECT plocal:../databases/GratefulDeadConcerts admin
+  Connecting to database [remote:192.168.1.1/GratefulDeadConcerts]...OK
+  </pre>
 
-Connecting to database [plocal:../databases/GratefulDeadConcerts]...OK
-```
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).

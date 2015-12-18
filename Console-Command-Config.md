@@ -1,4 +1,4 @@
-# Console - CONFIG
+# Console - `CONFIG`
 
 Displays the configuration information on the current database, as well as whether it is local or remote.
 

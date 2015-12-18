@@ -1,4 +1,4 @@
-# Console - CONFIG SET
+# Console - `CONFIG SET`
 
 Updates a configuration variable to the given value.
 
@@ -7,8 +7,8 @@ Updates a configuration variable to the given value.
 ```sql
 CONFIG SET <config-variable> <config-value>
 ```
-- `<config-variable>` Defines the configuration variable you want to change.
-- `<config-value>` Defines the value you want to set.
+- **`<config-variable>`** Defines the configuration variable you want to change.
+- **`<config-value>`** Defines the value you want to set.
 
 **Example**
 

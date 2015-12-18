@@ -1,4 +1,4 @@
-# Console - CONFIG GET
+# Console - `CONFIG GET`
 
 Displays the value of the requested configuration variable.
 
@@ -8,7 +8,7 @@ Displays the value of the requested configuration variable.
 CONFIG GET <config-variable>
 ```
 
-- `<config-variable>`  Defines the configuration variable you want to query.
+- **`<config-variable>`**  Defines the configuration variable you want to query.
 
 
 **Examples**
