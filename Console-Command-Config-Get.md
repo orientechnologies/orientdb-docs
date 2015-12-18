@@ -1,27 +1,26 @@
 # Console - CONFIG GET
 
-Returns the value of the requested configuration value.
+Displays the value of the requested configuration variable.
 
-## Syntax
+**Syntax**
 
 ```
-CONFIG GET <config-name>
+CONFIG GET <config-variable>
 ```
 
-Where:
+- `<config-variable>`  Defines the configuration variable you want to query.
 
-- config-name  Name of the configuration
 
-## Example
+**Examples**
 
-```sql
-CONFIG GET db.cache.enabled
+- Display the value to the `tx.log.fileType` configuration variable:
 
-Remote configuration: db.cache.enabled = false
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">CONFIG GET tx.log.fileType</code>
 
-## See also
+  Remote configuration: tx.log.fileType = classic
+  </pre>
 
-To display the entire configuration use the [CONFIG](Console-Command-Config.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>You can display all configuration variables using the [`CONFIG`](Console-Command-Config.md) command.  To change the values, use the [`CONFIG SET`](Console-COmmand-Config-Set.md) command.
+>
+>For more information on other commands, see [Config Commands](Console-Commands.md).

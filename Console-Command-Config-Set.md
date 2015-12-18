@@ -1,28 +1,41 @@
 # Console - CONFIG SET
 
-Changes the value of a property.
+Updates a configuration variable to the given value.
 
-## Syntax
-
-```
-CONFIG SET <config-name> <config-value>
-```
-
-Where:
-
-- config-name  Name of the configuration to change
-- config-value Value to set
-
-## Example
+**Syntax**
 
 ```sql
-CONFIG SET db.cache.enabled false
-
-Remote configuration value changed correctly
+CONFIG SET <config-variable> <config-value>
 ```
+- `<config-variable>` Defines the configuration variable you want to change.
+- `<config-value>` Defines the value you want to set.
 
-## See also
+**Example**
 
-To know all the configuration values use the [CONFIG](Console-Command-Config.md). To read a configuration value use the [CONFIG GET](Console-Command-Config-Get.md).
+- Display the current value for `tx.autoRetry`:
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+  <pre>
+  orientdb> <code class="lang-sql userinput">CONFIG GET tx.autoRetry</code>
+
+  Remote configuration: tx.autoRetry = 1
+  </pre>
+
+  Change the `tx.autoRetry` value to `5`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CONFIG SET tx.autoRetry 5</code>
+
+  Remote configuration value changed correctly.
+  </pre>
+
+  Display new value:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CONFIG GET tx.autoRetry</code>
+
+  Remote configuration: tx.autoRetry = 5
+  </pre>
+
+>You can display all configuration variables with the [`CONFIG`](Console-Command-Config.md) command.  You can view the current value on a configuration variable using the [`CONFIG GET`](Console-Command-Config-Get.md) command.
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md)
