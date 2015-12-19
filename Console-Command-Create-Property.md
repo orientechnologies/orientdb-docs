@@ -1,73 +1,73 @@
-# Console - CREATE PROPERTY
+# Console - `CREATE PROPERTY`
 
-The **SQL CREATE PROPERTY** command creates a new property in the schema. You need to create the class before.
+Creates a new property on the given class.  The class must already exist.
 
-## Syntax
+**Syntax**
 
-```
-CREATE PROPERTY <class>.<property> <type>
-```
-
-Where:
-- *class* is the class of the schema
-- *property*, is the property created into the *class*
-- *type*, the type of the property. It can be:
- - *boolean*
- - *integer*
- - *short*
- - *long*
- - *float*
- - *double*
- - *date*
- - *string*
- - *binary*
- - *embedded*
- - *embeddedlist*, this is a container and needs the parameter *linked-type* or *linked-class*
- - *embeddedset*, this is a container and needs the parameter *linked-type* or *linked-class*
- - *embeddedmap*, this is a container and needs the parameter *linked-type* or *linked-class*
- - *link*
- - *linklist*, this is a container and needs the parameter *linked-type* or *linked-class*
- - *linkset*, this is a container and needs the parameter *linked-type* or *linked-class*
- - *linkmap*, this is a container and needs the parameter *linked-type* or *linked-class*
- - *byte*
-- *linked-type*, the contained type in containers (see above). It can be:
- - *boolean*
- - *integer*
- - *short*
- - *long*
- - *float*
- - *double*
- - *date*
- - *string*
- - *binary*
- - *embedded*
- - *link*
- - *byte*
-- *linked-class*, the contained class in containers (see above).
-
-## Examples
-
-Create the property 'name' of type 'STRING' in class 'User':
-
-```
-CREATE PROPERTY user.name STRING
+```sql
+CREATE PROPERTY <class-name>.<property-name> <property-type> [<linked-type>][ <linked-class>]
 ```
 
-Create a list of Strings as property 'tags' of type 'EMBEDDEDLIST' in class 'Profile'. The linked type is 'STRING':
+- **`<class-name>`** Defines the class you want to create the property in.
+- **`<property-name>`** Defines the logical name of the property.
+- **`<property-type>`** Defines the type of property you want to create.  Several options are available:
+- **`<linked-type>`** Defines the containter type, used in container property types.
+- **`<linked-class>`** Defines the container class, used in container property types.
 
-```
-CREATE PROPERTY profile.tags EMBEDDEDLIST STRING
-```
+>**NOTE**: There are several property and link types available.  For more information, see [Property Types](#property-types).
 
-Create the property 'friends' of type 'EMBEDDEDMAP' in class 'Profile'. The linked class is profile itself (circular references):
+**Examples**
 
-```
-CREATE PROPERTY profile.friends EMBEDDEDMAP Profile
-```
+- Create the property `name` on the class `User`, of the string type:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE PROPERTY User.name STRING</code>
+  </pre>
+
+- Create a list of strings as the property `tags` in the class `Profile`, using an embedded list of the string type.
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE PROPERTY Profile.tags EMBEDDEDLIST STRING</code>
+  </pre>
+
+- Create the embedded map property `friends` in the class `Profile`, link it to the class `Profile`.
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE PROPERTY Profile.friends EMBEDDEDMAP Profile</code>
+  </pre>
+
+  This forms a circular reference.
 
 
-To remove a property use the [DROP PROPERTY](SQL-Drop-Property.md) command.
+>To remove a property, use the [`DROP PROPERTY`](SQL-Drop-Property.md) command.  For more information, see [SQL Commands](Commands.md) and [Console Commands](Console-Commands.md).
 
-To know more about other SQL commands look at [SQL commands](Commands.md).
+## Property Types
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+When creating properties, you need to define the property type, so that OrientDB knows the kind of data to expect in the field.  There are several standard property types available:
+
+| | | |
+|---|---|---|---|
+|`BOOLEAN`|`INTEGER`|`SHORT`|`LONG`|
+|`FLOAT`|`DATE`|`STRING`|`EMBEDDED`|
+|`LINK`|`BYTE`|`BINARY`|`DOUBLE`|
+
+In addition to these, there are several more property types that function as containers.  These form lists, sets and maps.  Using container property types requires that you also define a link type or class.
+
+|||
+|---|---|---|
+|`EMBEDDEDLIST`|`EMBEDDEDSET`|`EMBEDDEDMAP`|
+|`LINKLIST`|`LINKSET`|`LINKMAP`| 
+
+### Link Types
+
+The link types available are the same as those available as the standard property types:
+
+||||
+|---|---|---|---|
+|`BOOLEAN`|`INTEGER`|`SHORT`|`LONG`|
+|`FLOAT`|`DOUBLE`|`DATE`|`STRING`|
+|`BINARY`|`EMBEDDED`|`LINK`|`BYTE`|
+
+
+
+
