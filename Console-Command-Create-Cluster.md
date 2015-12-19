@@ -1,34 +1,32 @@
-# Console - CREATE CLUSTER
+# Console - `CREATE CLUSTER`
 
-Creates a new cluster in the current database. The cluster can be "physical" or "memory".
+Creates a new cluster in the current database.  The cluster you create can either be physical or memory.  OrientDB saves physical clusters to disk.  Memory clusters are volatile, any records you save to them are lost when the server stops.
 
-## Syntax
-
-```
-CREATE CLUSTER <cluster-name> <cluster-type> <data-segment> <location> <position>
-```
-
-Where:
-
-- **cluster-name**   The name of the cluster to create
-- **cluster-type**   Cluster type: 'PHYSICAL' or 'LOGICAL'
-- **data-segment**   Data segment to use. 'DEFAULT' will use the default one
-- **location**       Location where to place the new cluster files, if applicable. use 'DEFAULT' to leave into the database directory
-- **position**       'APPEND' to add as last cluster, otherwise the empty position to replace
-
-## Example
+**Syntax**
 
 ```sql
-orientdb> CREATE CLUSTER documents PHYSICAL DEFAULT DEFAULT APPEND
-
-Creating cluster [documents] of type 'PHYSICAL' in database demo as last one...
-PHYSICAL cluster created correctly with id #68
+CREATE CLUSTER <cluster-name> <cluster-type> <data-segment> <location> [<position>]
 ```
 
-## See also
+- **`<cluster-name>`** Defines the name of the cluster.
+- **`<cluster-type>`** Defines whether the cluster is `PHYSICAL` or `LOGICAL`.
+- **`<data-segment>`** Defines the data segment you want to use.
+  - *`DEFAULT`* Sets the cluster to the default data segment.
+- **`<location>`** Defines the location for new cluster files, if applicable.  Use `DEFAULT` to save these to the database directory.
+- **`<position>`** Defines where to add new cluster.  Use `APPEND` to create it as the last cluster.  Leave empty to replace.
 
-To display all the cluster configured in the current database use the command [CLUSTERS](Console-Command-Clusters.md).
+**Example**
 
-To delete a cluster use the command [DROP CLUSTER](Console-Command-Drop-Cluster.md).
+- Create a new cluster `documents`:
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE CLUSTER documents PHYSICAL DEFAULT DEFAULT APPEND</code>
+
+  Creating cluster [documents] of type 'PHYSICAL' in database demo as last one...
+  PHYSICAL cluster created correctly with id #68
+  </pre>
+
+
+>You can display all configured clusters in the current database using the [`CLUSTERS`](Console-Command-Clusters.md) command.  To delete an existing cluster, use the [`DROP CLUSTER`](Console-Command-Drop-Cluster.md) command.
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md)

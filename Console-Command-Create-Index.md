@@ -1,35 +1,45 @@
-# Console - CREATE INDEX
+# Console - `CREATE INDEX`
 
-The SQL `CREATE INDEX` command creates an index on a property defined in the schema.
+Create an index on a given property.  OrientDB supports three index algorithms and several index types that use these algorithms.
 
-Indexes can be:
-- **UNIQUE**, doesn't allow duplicated
-- **NOT UNIQUE**, allows duplicates
-- **FULL-TEXT**, by indexing any single word of the text. It's used in query with the operator [CONTAINSTEXT](SQL-Where.md#operators)
+- **SB-Tree Algorithm**
+  - `UNIQUE` Does not allow duplicate keys, fails when it encounters duplicates.
+  - `NOTUNIQUE` Does allow duplicate keys.
+  - `FULLTEXT` Indexes to any single word of text.
+  - `DICTIONARY` Does not allow duplicate keys, overwrites when it encounters duplicates.
+- **Hash Index Algorithm**
+  - `UNIQUE_HASH_INDEX` Does not allow duplicate keys, it fails when it encounters duplicates.
+  - `NOTUNIQUE_HASH_INDEX` Does allow duplicate keys.
+  - `FULLTEXT_HASH_INDEX` Indexes to any single word.
+  - `DICTIONARY` Does not allow duplicate keys, it overwrites when it encounters duplicates.
+- **Lucene Engine**
+  - `LUCENE` Full text index type using the Lucene Engine.
+  - `SPATIAL` Spatial index using the Lucene Engine.
 
-## Syntax
+>For more information on indexing, see [Indexes](Indexes.md).
 
-```xml
-CREATE INDEX <name> [ON <class-name> (prop-names)] <type> [<key-type>]
+
+**Syntax**
+
+```sql
+CREATE INDEX <index-name> [ON <class-name> (<property-names>)] <index-type> [<key-type>]
 ```
-Where:
 
-- **name** logical name of index. Can be **<code>&lt;class&gt;.&lt;property&gt;</code>** to create an automatic index bound to a schema property. In this case **class** is the class of the schema and **property**, is the property created into the class. Notice that in another case index name can't contain '.' symbol
-- **class-name** name of class that automatic index created for. Class with such name must already exist in database
-- **prop-names** comma-separated list of properties that this automatic index is created for. Property with such name must already exist in schema
-- **type**, between `UNIQUE`, `NOTUNIQUE` and `FULLTEXT`
-- **key-type**, is the type of key (Optional). On automatic indexes is auto-determined by reading the target schema property where the index is created. If not specified for manual indexes, at run-time during the first insertion the type will be auto determined by reading the type of the class.
+- **`<index-name>`** Defines a logical name for the index.  Optionally, you can use the format `<class-name>.<property-name>`, to create an automatic index bound to the schema property.
+  >**NOTE** Because of this feature, index names cannot contain periods.
+- **`<class-name>`** Defines the class to index.  The class must already exist in the database schema.
+- **`<property-names>`** Defines a comma-separated list of properties that you want to index.  These properties must already exist in the database schema.
+- **`<index-type>`** Defines the index type that you want to use.
+- **`<key-type>`** Defines the key that you want to use.  On automatic indexes, this is auto-determined by reading the target schema property where you create the index.  When not specified for manual indexes, OrientDB determines the type at run-time during the first insertion by reading the type of the class.
 
-## Examples
+**Examples**
 
-```java
-CREATE INDEX users.Id UNIQUE
-```
+- Create an index that uses unique values and the SB-Tree index algorithm:
 
-For more information look at [CREATE INDEX command](SQL-Create-Index.md).
+  <pre>
+  orientdb> <code class="userinput lang-sql">CREATE INDEX jobs.job_id UNIQUE</code>
+  </pre>
 
-For complete index guide look at [Index guide](Indexes.md).
-
-To know more about other SQL commands look at [SQL commands](SQL.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>The SQL [`CREATE INDEX`](SQL-Create-Index.md) page provides more information on creating indexes.  General information, is available at [Indexes](Indexes.md).  Further SQL information at [SQL Commands](SQL.md).
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md)

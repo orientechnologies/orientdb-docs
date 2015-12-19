@@ -1,25 +1,47 @@
-# Console - CREATE LINK
+# Console - `CREATE LINK`
 
-The `CREATE LINK` command creates links between two or more records of type Document. This is very useful when you're importing data from a Relational database. In facts in the Relational world relationships are resolved as foreign keys.
+Creates a link between two or more records of the Document type.
 
-Consider this example where the class "Post" has a relationship 1-N to "Comment":
+**Syntax**
 
-```java
-Post 1 ---> * Comment
+```sql
+CREATE LINK <link-name> FROM <source-class>.<source-property> TO <target-class>.<target-property>
 ```
 
-In a Relational database you'll have something like that:
+- **`<link-name>`** Defines the logical name of the property for the link.  When not expressed, it overwrites the `<target-property>` field.
+- **`<source-class>`** Defines the source class for the link.
+- **`<source-property>`** Defines the source property for the link.
+- **`<target-class>`** Defines the target class for the link.
+- **`<target-property>`** Defines the target property for the link.
 
-```java
-Table Post
+**Examples**
+
+- Create a 1-*n* link connecting comments to posts:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE LINK comments FROM Comments.!PostId TO Posts.Id INVERSE</code>
+  </pre>
+
+
+## Understanding Links
+
+Links are useful when importing data from a Relational database.  In the Relational world, the database resolves relationships as foreign keys. For instance, consider the above example where you need to show instances in the class `Post` as having a 1-*n* relationship to instances in class `Comment`.  That is, `Post 1 ---> * Comment`.
+
+In a Relational database, where classes are tables, you might have something like this:
+
+<pre>
+reldb> <code class="lang-sql userinput">SELECT * FROM Post;</code>
+
 +----+----------------+
 | Id | Title          |
 +----+----------------+
 | 10 | NoSQL movement |
 | 20 | New OrientDB   |
 +----+----------------+
+2 row in (0.01 sec)
 
-Table Comment
+reldb> <code class="lang-sql userinput">SELECT * FROM Comment;</code>
+
 +----+--------+--------------+
 | Id | PostId | Text         |
 +----+--------+--------------+
@@ -29,27 +51,10 @@ Table Comment
 | 41 |   20   | First again  |
 | 82 |   20   | Second Again |
 +----+--------+--------------+
-```
+5 row in sec (0.03 sec)
+</pre>
 
-Using OrientDB, instead, you have a direct relationship as in your object model. So the navigation is from *Post* to *Comment* and not vice versa as for the Relational model. For this reason you need to create a link as **INVERSE**.
+In OrientDB, instead you have a direct relationship in your object model.  Navigation runs from `Post` to `Comment` and not vice versa, (as in the Relational database model).  For this reason, you need to create a link as an `INVERSE`.
 
-## Syntax
 
-```sql
-CREATE LINK <link-name> FROM <source-class>.<source-property> TO <destination-class>.<destination-property>
-```
-
-Where:
-- *link-name* is the name of the property for the link. If not expressed will be overwritten the *destination-property* field
-- *source-class*, is the source class
-- *source-property*, is the source property
-- *destination-class*, is the destination class
-- *destination-property*, is the destination property
-
-## Examples
-
-CREATE LINK comments FROM comments.!PostId To posts.Id INVERSE
-
-To know more about other SQL commands look at [SQL commands](Commands.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on SQL commands available, see [SQL Commands](Commands.md).  For more information on other commands, see [Console Commands](Console-Commands.md).
