@@ -1,27 +1,27 @@
-# Console - DICTIONARY KEYS
+# Console - `DICTIONARY KEYS`
 
 Displays all the keys stored in the database dictionary.
 
-## Syntax
+**Syntax**
 
 ```
 DICTIONARY KEYS
 ```
 
-## Example
+**Example**
 
-```sql
-DICTIONARY KEYS
+- Display all the keys stored in the database dictionary:
 
-Found 4 keys:
-#0: key-148
-#1: key-147
-#2: key-146
-#3: key-145
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>DICTIONARY KEYS</code>
 
-To load the associated record use the [DICTIONARY GET](Console-Command-Dictionary-Get.md) <code>&lt;key&gt;</code>.
+  Found 4 keys:
+  #0: key-148
+  #1: key-147
+  #2: key-146
+  #3: key-145
+  </pre>
 
-For complete index (and dictionary) guide look at [Index guide](Indexes.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>To load the records associated with these keys, use the [`DICTIONARY GET`](Console-Command-Dictionary-Get.md) command.  For more information on indexes, see [Indexes](Indexes.md).
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md).

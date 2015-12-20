@@ -1,37 +1,37 @@
-# Console - DICTIONARY REMOVE
+# Console - `DICTIONARY REMOVE`
 
 Removes the association from the database dictionary.
 
-## Syntax
+**Syntax**
 
 ```
 DICTIONARY REMOVE <key>
 ```
 
-Where:
+- **`<key>`** Defines the key that you want to remove.
 
-- key            The key to remove
+**Example**
 
-## Example
+- In a database dictionary of U.S. presidents, remove the key for Barack Obama:
 
-```sql
-DICTIONARY REMOVE obama
+  <pre>
+  orientdb> <code class="lang-sql userinput">DICTIONARY REMOVE obama</code>
 
-Entry removed from the dictionary. Last value of entry was:
---------------------------------------------------
-Class: Person   id: 5:4   v.1
---------------------------------------------------
-              parent : null
-            children : [Person@5:5{parent:Person@5:4,children:null,name:Malia Ann,surname:Obama,city:null}, Person@5:6{parent:Person@5:4,children:null
-,name:Natasha,surname:Obama,city:null}]
-                name : Barack
-             surname : Obama
-                city : City@-6:2{name:Honolulu}
---------------------------------------------------
-```
+  Entry removed from the dictionary. Last value of entry was:
+  ------------------------------------------------------------------------
+  Class: Person   id: 5:4   v.1
+  ------------------------------------------------------------------------
+     parent : null
+   children : [Person@5:5{parent:Person@5:4,children:null,name:Malia Ann,
+              surname:Obama,city:null}, Person@5:6{parent:Person@5:4,
+              children:null,name:Natasha,surname:Obama,city:null}]
+       name : Barack
+    surname : Obama
+       city : City@-6:2{name:Honolulu}
+  ------------------------------------------------------------------------
+  </pre>
 
-To know all the keys stored in the database dictionary use the [DICTIONARY KEYS](Console-Command-Dictionary-Keys.md) command.
 
-For complete index (and dictionary) guide look at [Index guide](Indexes.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>You can display information for all keys stored in the database dictionary using the [`DICTIONARY KEY`](Console-Command-Dictionary-Keys.md) command.  For more information on dictionaries and indexes, see [Indexes](Indexes.md).
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md).
