@@ -1,20 +1,21 @@
 # Console - DISCONNECT
 
-Closes the current opened database.
+Closes the currently opened database.
 
-## Syntax
+**Syntax**
 
 ```
 DISCONNECT
 ```
 
-## Example
+**Example**
 
-```sql
-DISCONNECT
+- Disconnect from the current database:
 
-Disconnecting from the database [../databases/petshop/petshop]...OK
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>DISCONNECT</code>
 
+  Disconnecting from the database [../databases/petshop/petshop]...OK
+  </pre>
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>To connect to a database, see [`CONNECT`](Console-Command-Connect.md).  For more information on other commands, see [Console Commands](Console-Commands.md).
