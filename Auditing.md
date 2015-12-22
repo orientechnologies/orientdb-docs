@@ -90,7 +90,7 @@ Auditing Log records have the following structure:
 
 ## Customize the message
 
-Messages can be customized, adding a placeholder for variables resolved at run-time. Below is the list of suppoted variables:
+Messages can be customized, adding a placeholder for variables resolved at run-time. Below is a list of supported variables:
 
 - `${command}`, is the executed command as text
 - `${field.<field-name>}`, to use the field value. Example: `${field.surname}` to get the field "surname" from the current record 
