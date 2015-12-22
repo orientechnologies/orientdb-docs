@@ -72,13 +72,13 @@ Where:
 
 |Parameter|Description|Default value|
 |---------|-----------|-------------|
-|**autoDeploy**|Auto deploy the database in case the joining node hasn't it. It can be <code>true</code> or <code>false</code>|<code>true</code>|
-|**hotAlignment**|In case a node left the cluster <code>hotAlignment</code> the synchronization queue is left or not for hot alignment when the node will join the cluster again. It can be <code>true</code> or <code>false</code>|<code>true</code>|
-|**executionMode**|It can be <code>undefined</code> to let to the client to decide per call execution if synchronous (default) or asynchronous. <code>synchronous</code> forces synchronous mode, and  <code>asynchronous</code> forces asynchronous mode|<code>undefined</code>|
-|**readQuorum**|On "read" operation (record read, query and traverse) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
-|**writeQuorum**|On "write" operation (any write on database) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at write time. Suggested value is N/2+1 where N is the number of replicas. In this way the quorum is reached only if the majority of nodes are coherent|<code>2</code>|
-|**failureAvailableNodesLessQuorum**|Decide to return error when the available nodes are less then quorum. Can be <code>true</code> or <code>false</code>|<code>false</code>|
-|**readYourWrites**|The write quorum is satisfied only when also the local node responded. This assure current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
+|**autoDeploy**|Whether to deploy the database to any joining node that does not have it. It can be <code>true</code> or <code>false</code>|<code>true</code>|
+|**hotAlignment**|Whether the synchronization queue is left or not for a node leaving the cluster for hot alignment when the node joins the cluster again. It can be <code>true</code> or <code>false</code>|<code>false</code>|
+|**executionMode**|It can be <code>undefined</code> to let to the client to decide per call execution between synchronous (default) or asynchronous. <code>synchronous</code> forces synchronous mode, and  <code>asynchronous</code> forces asynchronous mode|<code>undefined</code>|
+|**readQuorum**|On "read" operation (record read, query and traverse) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
+|**writeQuorum**|On "write" operation (any write on database) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at write time. Suggested value is N/2+1 where N is the number of replicas. In this way the quorum is reached only if the majority of nodes are coherent|<code>2</code>|
+|**failureAvailableNodesLessQuorum**|Whether to return error when the available nodes are less then quorum. Can be <code>true</code> or <code>false</code>|<code>false</code>|
+|**readYourWrites**|Whether the write quorum is satisfied only when also the local node responded. This assures current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
 |**servers**|(Since v2.1) Optional, contains the map of server roles in the format <code>server-name</code> : <code>role</code>. <code>*</code> means any server. Available roles are "MASTER" (default) and "REPLICA". For more information look at [Server roles](Distributed-Architecture.md#server_roles)|-|
 |**clusters**|if the object containing the clusters' configuration as map <code>cluster-name</code> : <code>cluster-configuration</code>. <code>*</code> means all the clusters and is the cluster's default configuration|-|
 
