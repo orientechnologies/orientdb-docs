@@ -136,3 +136,22 @@ public class OrientDBEmbeddable {
   }
 }
 ```
+
+## Setting ORIENTDB_HOME
+
+Some functionality wil not work properly if the system property 'ORIENTDB_HOME' is not set. You can set it programmatically like this:
+```java
+import com.orientechnologies.orient.server.OServerMain;
+
+public class OrientDBEmbeddable {
+
+  public static void main(String[] args) throws Exception {
+    String orientdbHome = new File("").getAbsolutePath(); //Set OrientDB home to current directory
+    System.setProperty("ORIENTDB_HOME", orientdbHome);
+
+    OServer server = OServerMain.create();
+    server.startup(cfg);
+    server.activate();
+  }
+}
+```
