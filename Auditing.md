@@ -1,10 +1,10 @@
 # Auditing
 Starting from OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). This page refers to the Auditing feature and how to work with it. Studio web tool provides a GUI on Auditing that makes configuration easier. Look at [Auditing page in Studio](Studio-Auditing.md).
 
-By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough priviledges, can directly query the auditing log. Example on retrieving last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
+By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough privileges, you can directly query the auditing log. Example on retrieving the last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
 
 ## Security first
-For security reasons, no roles should be able to access to the `AuditingLog` records. For this reason before using Auditing assure to revoke any priviledge on cluster `AuditingLog`. You can do that form Studio, security panel, or via SQL by using the [SQL REVOKE](SQL-Revoke.md) command. Example on revoking any access to the writer and reader roles:
+For security reasons, no roles should be able to access the `AuditingLog` records. For this reason before using Auditing assure to revoke any privilege on the `AuditingLog` cluster. You can do that from Studio, security panel, or via SQL by using the [SQL REVOKE](SQL-Revoke.md) command. Here's an example of revoking any access to the writer and reader roles:
 
 ```sql
 REVOKE ALL ON database.cluster.auditinglog TO writer
@@ -12,9 +12,9 @@ REVOKE ALL ON database.cluster.auditinglog TO reader
 ```
 
 ## Polymorphism
-OrientDB schema is polymorphic (taken from Object Orientated paradigm). This means that if you have the class "Person" and the 2 classes "Employee" and "Provider" that extend "Person", all the auditing settings on "Person" will be inherited by "Employee" and "Provider" (if the checkbox "polymorphic" is enabled on class "Person"). 
+OrientDB schema is polymorphic (taken from the Object-Oriented paradigm). This means that if you have the class "Person" and the two classes "Employee" and "Provider" that extend "Person", all the auditing settings on "Person" will be inherited by "Employee" and "Provider" (if the checkbox "polymorphic" is enabled on class "Person"). 
 
-This makes you life easier when you want to profile only certain classes. For example, you could create an abstract class "Profiled" and let all the classes you want to profile to extend it. Starting from v2.1, OrientDB supports multiple inheritance, so it's not a problem extending more classes.
+This makes your life easier when you want to profile only certain classes. For example, you could create an abstract class "Profiled" and let all the classes you want to profile extend it. Starting from v2.1, OrientDB supports multiple inheritance, so it's not a problem extending more classes.
 
 ## Configuration
 To turn on auditing, create the JSON configuration file with name `auditing-config.json` under the database folder. This is the syntax for configuration:
@@ -51,7 +51,7 @@ Where:
 - `onReadMessage`: custom message to write in the auditing record on read record. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize-the-message)
 - `onUpdateEnabled`: enable auditing on updating of records. Default is `false`
 - `onUpdateMessage`: custom message to write in the auditing record on update record. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize-the-message)
-- `onUpdateChanges`: write all the previous values per field. Default is `true` if `onUpdateEnabled` is true.
+- `onUpdateChanges`: write all the previous values per field. Default is `true` if `onUpdateEnabled` is true
 - `onDeleteEnabled`: enable auditing on deletion creation of records. Default is `false`
 - `onDeleteMessage`: custom message to write in the auditing record on delete record. It supports dynamic binding of values, look at [Customize the message](Auditing.md#customize-the-message)
 - `regexp`: is the regular expression to match in order to log the command execution
@@ -83,14 +83,14 @@ Auditing Log records have the following structure:
 |`date`|DATE|Date of execution|-|
 |`user`|LINK|User that executed the command. Can be `null` if internal user has been used|-|
 |`operation`|BYTE|Type of operation|0=READ, 1=UPDATE, 2=DELETE, 3=CREATE, 4=COMMAND|
-|`record`|LINK|Link to the record subjected of the log|-|
+|`record`|LINK|Link to the record subject of the log|-|
 |`note`|STRING|Optional message|-|
 |`changes`|MAP|Only for UDPATE operation, contains the map of changed fields in the form `{"from":<old-value>, "to":<new-value>}`|-|
 
 
 ## Customize the message
 
-Messages can be customized, adding placeholder for variable resolved at run-time. Below there is the list of suppoted variable:
+Messages can be customized, adding a placeholder for variables resolved at run-time. Below is a list of supported variables:
 
 - `${command}`, is the executed command as text
 - `${field.<field-name>}`, to use the field value. Example: `${field.surname}` to get the field "surname" from the current record 
