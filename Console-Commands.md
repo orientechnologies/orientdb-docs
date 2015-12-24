@@ -121,7 +121,7 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`FREEZE DATABASE`](Console-Command-Freeze-Db.md)|Freezes the database locking all the changes. Use this to raw backup. Once frozen it uses the [`RELEASE DATABASE`](Console-Command-Release-Db.md) to release it|
 |[`GET`](Console-Command-Get.md)|Returns the value of a property|
 |[`GRANT`](SQL-Grant.md)|Grants a permission to a user|
-|[`GREMLIN`](Console-Gremlin.md)|Executes a Gremlin script|
+|[`GREMLIN`](Console-Command-Gremlin.md)|Executes a Gremlin script|
 |[`IMPORT DATABASE`](Console-Command-Import.md)|Imports a database previously exported|
 |[`INDEXES`](Console-Command-Indexes.md)|Displays information about indexes|
 |[`INFO`](Console-Command-Info.md)|Displays information about current status|
