@@ -1,23 +1,33 @@
-# Console Gremlin
-OrientDB supports the [Gremlin](Gremlin.md) language from API and console. To execute a Gremlin script, create or open a database, then use the `gremlin` command passing the script. Note that `gremlin`, as `js` command, takes a multi-line input. Once types the gremlin script type `end` in a new line to complete the script and execute it.
+# Console - `GREMLIN`
 
-Example:
+Executes commands in the Gremlin language from the Console.
 
+Gremlin is a graph traversal language.  OrientDB supports it from the Console, API and through a Gremlin shell launched from `$ORIENTDB_HOME/bin/gremlin.sh`.
+
+**Syntax**
+
+```sql
+GREMLIN <command>
 ```
-OrientDB console v.2.1-SNAPSHOT www.orientechnologies.com
-Type 'help' to display all the supported commands.
-Installing extensions for GREMLIN language v.2.6.0
 
-orientdb> create database plocal:/temp/gremlin
+- **`<command>`** Defines the commands you want to know.
 
-Connecting to database [plocal:/temp/gremlin] with user 'admin'...OK
-orientdb {db=gremlin}> 
+>**NOTE**: OrientDB parses Gremlin commands as multi-line input.  It does not execute the command until you type `end`.  Bear in mind, the `end` here is case-sensitive.
 
-orientdb {db=gremlin}> gremlin g.V[0]
-[Started multi-line command. Type just 'end' to finish and execute]
-end
+**Examples**
 
-v[#9:0]
+- Create a vertex using Gremlin:
 
-Script executed in 0,100000 sec(s).
-```
+  <pre>
+  orientdb> <code class="lang-javascript userinput">GREMLIN v1 = g.addVertex();</code>
+  [Started multi-line command.  Type just 'end' to finish and execute.]
+
+  orientdb> <code class="lang-javascript userinput">end</code>
+ 
+  v[#9:0]
+
+  Script executed in 0,100000 sec(s).
+  </pre>
+
+
+>For more information on the Gremlin language, see [Gremlin](Gremlin.md).  For more information on other commands, see [Console Commands](Console-Commands.md).
