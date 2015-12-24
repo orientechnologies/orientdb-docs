@@ -1,29 +1,28 @@
-# Console - FREEZE DATABASE
+# Console - `FREEZE DATABASE`
 
-Flushes all cached content to the disk storage and allows to perform only read commands.
-Database will be "frozen" till release database command will not been executed.
+Flushes all cached content to disk and restricts permitted operations to read commands.  With the exception of reads, none of the commands made on a frozen database execute.  It remains in this state until you run the [`RELEASE`](Console-Command-Release-Db.md) command.
 
-This command requires presence of server administration rights and can be executed only on remote DBs. If you would like to freeze/release local DB use methods ```ODatabase.freeze()``` and ```ODatabase.release()``` directly from OrientDB API.
+Executing this command requires server administration rights.  You can only execute it on remote databases.  If you would like to freeze or release a local database, use the `ODatabase.freeze()` and `ODatabase.release()` methods directly through the OrientDB API.
 
-This command is very useful in case you would like to do "live" database backups.
-You can "freeze" database, do file system snapshot, "release" database, copy snapshot anywhere you want. Using such approach you can perform backup in short term.
+>You may find this command useful in the event that you would like to perform backups on a live database.  To do so, freeze the database, perform a file system snapshot, then release the database.  You can now copy the snapshot anywhere you want.  
 
+>This works best when the backup doesn't take very long to run.
 
-## Syntax
-
-```sql
-FREEZE DATABASE
-```
-
-## See also
-- [RELEASE DATABASE](Console-Command-Release-Db.md), to release the frozen database
-- [SQL commands](SQL.md)
-- [Console-Commands](Console-Commands.md)
-
-## Examples
-
-Freezes the current database:
+**Syntax**
 
 ```sql
 FREEZE DATABASE
 ```
+
+**Example**
+
+- Freezes the current database:
+ 
+  <pre>
+  orientdb> <code class='lang-sql userinput'>FREEZE DATABASE</code>
+  </pre>
+
+>To unfreeze a database, use the [`RELEASE DATABASE`](Console-Command-Release-Db.md) command.
+
+>For more information on other commands, see [SQL](SQL.md) and [Console](Console-Commands.md) commands.
+

@@ -1,27 +1,26 @@
-# Console - GET
+# Console - `GET`
 
-Returns the value of the requested property
+Returns the value of the requested property.
 
-## Syntax
+**Syntax**
 
 ```
 GET <property-name>
 ```
 
-Where:
+- **`<property-name>`** Defines the name of the property.
 
-- property-name  Name of the property
+**Example**
 
-## Example
+- Find the default limit on your database:
 
-```sql
-GET LIMIT
+  <pre>
+  orientdb> <code class="lang-sql userinput">GET LIMIT</code>
 
-limit = 20
-```
+  limit = 20
+  </pre>
 
-## See also
 
-To know all the properties setted use the [PROPERTIES](Console-Command-Properties.md).
+>To display all available properties configured on your database, use the [`PROPERTIES`](Console-Command-Properties.md) command.
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).

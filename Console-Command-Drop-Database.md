@@ -1,45 +1,34 @@
-# Console - DROP DATABASE
+# Console - `DROP DATABASE`
 
-The **Drop Database** command definitely deletes a database. If a database is open and no database name is used, then the current database will be deleted. *NOTE: Unless you've made backups there is no way to restore a deleted database.*
+Removes a database completely.  If the database is open and a database name not given, it removes the current database.
 
-## Syntax
-
-For database opened using "local" protocol:
-```sql
-DROP DATABASE
-```
-
-To remove a database hosted in a remote OrientDB Server you need the credential to do it at the target OrientDB server:
+**Syntax**
 
 ```sql
-DROP DATABASE <database-name> <server-username> <server-userpassword>
+DROP DATABASE [<database-name> <server-username> <server-user-password>]
 ```
 
-Where:
-- **database-name** is the name of database. If not specified means the current database if it's opened
-- **server-username** is the name of the server's user with privileges to drop the database
-- **server-userpassword** is the password of the server's user
+- **`<database-name`** Defines the database you want to drop.  By default it uses the current database, if it's open.
+- **`<server-username>`** Defines the server user.  This user must have the privileges to drop the database.
+- **`<server-user-password>`** Defines the password for the server user.
 
-## See also
-- [Console Command Create Database](Console-Command-Create-Database.md)
-- [SQL Alter Database](SQL-Alter-Database.md)
+>**NOTE**: When you drop a database, it deletes the database and all records, caches and schema information it contains.  Unless you have made backups, there is no way to restore the database after you drop it.
 
-## Examples
+**Examples**
 
-Delete the current local database:
+- Remove the current local database:
 
-```java
-DROP DATABASE
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP DATABASE</code>
+  </pre>
 
-Delete the remote database "demo" hosted on localhost:
+- Remove the database `demo` at localhost:
 
-```sql
-DROP DATABASE remote:localhost/demo root 5B1A917B20C78ECAA219E37CFDDA6598D4D62CE68DD82E5B05D4949758A66828
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP DATABASE REMOTE:localhost/demo root root_password</code>
+  </pre>
 
-To create a new database use the [Create Database](Console-Command-Create-Database.md) command.
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+>You can create a new database using the [`CREATE DATABASE`](Console-Command-Create-Database.md) command.  To make changes to an existing database, use the [`ALTER DATABASE`](SQL-Alter-Database.md) command.
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [SQL](SQL.md) and [Console](Console-Commands.md) commands.

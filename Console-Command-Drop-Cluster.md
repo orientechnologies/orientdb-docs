@@ -1,30 +1,28 @@
-# Console - DROP CLUSTER
+# Console - `DROP CLUSTER`
 
-The **Drop Cluster** command definitely deletes a cluster. This will delete the cluster, all its records and will clear all caches.
+Removes a cluster from the database completely, deleting it with all records and caches in the cluster.
 
->*NOTE: Unless you've made backups there is no way to restore a deleted cluster.*
-
-## Syntax
+**Syntax**
 
 ```sql
 DROP CLUSTER <cluster-name>
 ```
 
-Where:
-- **cluster-name** is the name of the cluster.
+- **`<cluster-name>`** Defines the name of the cluster you want to drop.
 
-## Examples
+>**NOTE**: When you drop a cluster, the cluster and all records and caches in the cluster are gone.  Unless you have made backups, there is no way to restore the cluster after you drop it.
 
-Delete the current local database:
 
-```sql
-DROP CLUSTER Person
-```
+**Examples**
 
-deletes the cluster named 'Person' with all Person records.
+- Drop a cluster `person` from the current, local database:
 
-To create a new cluster use the [CREATE CLUSTER](Console-Command-Create-Cluster.md) command.
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP CLUSTER person</code>
+  </pre>
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+  This removes both the cluster `Person` and all records of the `Person` class in that cluster.
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>You can create a new cluster using the [`CREATE CLUSTER`](Console-Command-Create-Cluster.md) command.
+
+>For information on other commands, see [SQL](SQL.md) and [Console](Console-Commands.md) commands.

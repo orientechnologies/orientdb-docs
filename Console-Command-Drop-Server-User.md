@@ -1,25 +1,32 @@
-# Console - DROP SERVER USER
+# Console - `DROP SERVER USER`
 
-Drops a server user. In order to drop the user the current system user that is running the console, must have the permissions to write the file `$ORIENTDB_HOME/config/orientdb-server-config.xml`. For more information look at [OrientDB Server security](Security.html#orientdb-server-security). Since v 2.2.
+Removes a user from the server.  In order to do so, the current system user running the Console, must have permissions to write to the `$ORIENTDB_HOME/config/orientdb-server-config.xmL` configuration file.
 
-## Syntax
+**Syntax**
 
-```
+```sql
 DROP SERVER USER <user-name>
 ```
 
-## Example
+- **`<user-name>`** Defines the user you want to drop.
 
-```sql
-orientdb> drop server user editor
+>**NOTE**: For more information on server users, see [OrientDB Server Security](Security.md#orientdb-server-security).
 
-Server user 'editor' dropped correctly
-```
+>This feature was introduced in version 2.2.
 
-## See also
 
-- [LIST SERVER USERS](Console-Command-List-Server-Users.md).
-- [SET SERVER USER](Console-Command-Set-Server-User.md).
+**Example**
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+- Remove the user `editor` from the Server:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP SERVER USER editor</code>
+
+  Server user 'editor' dropped correctly
+  </pre>
+
+
+>To view the current server users, see the [`LIST SERVER USERS`](Console-Command-List-Server-Users.md) command.  To create or update a server user, see the [`SET SERVER USER`](Console-Command-Set-Server-User.md) command.
+
+>For more information on other commands, see [Console Commands](Console-Commands.md).
 
