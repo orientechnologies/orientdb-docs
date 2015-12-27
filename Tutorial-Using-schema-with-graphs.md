@@ -103,7 +103,7 @@ orientdb> <code class="lang-sql userinput">CREATE PROPERTY Owns.out LINK Person<
 orientdb> <code class="lang-sql userinput">CREATE PROPERTY Owns.in LINK Car</code>
 </pre>
 
-These commands link outgoing vertices of the `Person` class to incoming vertices of the `Car` calss.  That is, it configures your database so that a user can own a car, but a car cannot own a user.
+These commands link outgoing vertices of the `Person` class to incoming vertices of the `Car` class.  That is, it configures your database so that a user can own a car, but a car cannot own a user.
 
 ### Using `MANDATORY` Constraints on Edges
 
