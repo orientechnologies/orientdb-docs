@@ -1,24 +1,33 @@
-# Console - LIST DATABASES
+# Console - `LIST DATABASES`
 
-Displays all the databases hosted on current server. This command requires a connection to the OrientDB server.
+Displays all databases hosted on the current server.  Note that this command requires you connect to the OrientDB Server.
 
-## Syntax
+**Syntax**
 
 ```sql
 LIST DATABASES
 ```
 
-## Example
+**Example**
 
-```sql
-orientdb {server=remote:localhost/}> list databases
+- Connect to the server:
+ 
+  <pre>
+  orientdb> <code class="lang-sql userinput">CONNECT REMOTE:localhost admin admin_password</code>
+  </pre>
 
-Found 4 databases:
+- List the databases hosted on the server:
 
-* ESA (plocal)
-* Napster (plocal)
-* Homeland (plocal)
-* GratefulDeadConcerts (plocal)
-```
+  <pre>
+  orientdb {server=remote:localhost/}> <code class="lang-sql userinput">LIST DATABASES</code>
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+  Found 4 databases:
+
+  * ESA (plocal)
+  * Napster (plocal)
+  * Homeland (plocal)
+  * GratefulDeadConcerts (plocal)
+  </pre>
+
+>For more information on other commands, see [Console Commands](Console-Commands.md).
+

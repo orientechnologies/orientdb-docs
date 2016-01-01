@@ -1,29 +1,28 @@
-# Console - LIST CONNECTIONS
+# Console - `LIST CONNECTIONS`
 
-(Since v2.2)
+Displays all active connections to the OrientDB Server.  Command introduced in version 2.2.
 
-Displays all the active connections to the OrientDB server.
-
-## Syntax
+**Syntax**
 
 ```sql
 LIST CONNECTIONS
 ```
 
-## Example
+#Example**
 
-```sql
-orientdb {server=remote:localhost/}> list connections
+- List the current connections to the OrientDB Server:
+  
+  <pre>
+  orientdb {server=remote:localhost/}> <code class='lang-sql userinput'>LIST CONNECTIONS</code>
 
-----+----+----------------------+------+-------------------+--------+-----+-------------------------------------------------------+--------
-#   |ID  |REMOTE_ADDRESS        |PROTOC|LAST_OPERATION_ON  |DATABASE|USER |COMMAND                                                |TOT_REQS
-----+----+----------------------+------+-------------------+--------+-----+-------------------------------------------------------+--------
-0   |17  |/127.0.0.1:51406      |binary|2015-10-12 19:22:34|-       |-    |Server Info                                            |1       
-1   |4   |/0:0:0:0:0:0:0:1:51379|http  |2015-10-12 19:19:58|pokec   |admin|Command (select AGE,count(*) from Profile group by AGE)|7       
-2   |16  |/127.0.0.1:51406      |binary|1970-01-01 01:00:00|-       |-    |-                                                      |0       
-3   |1   |/0:0:0:0:0:0:0:1:51359|http  |1970-01-01 00:59:59|pokec   |admin|Listening                                              |32      
-----+----+----------------------+------+-------------------+--------+-----+-------------------------------------------------------+--------
+  ---+----+--------------+------+-------------------+--------+-----+--------+--------
+   # | ID |REMOTE_ADDRESS|PROTOC|LAST_OPERATION_ON  |DATABASE|USER |COMMAND |TOT_REQS
+  ---+----+--------------+------+-------------------+--------+-----+--------+--------
+   0 | 17 |/127.0.0.1    |binary|2015-10-12 19:22:34|-       |-    |info    | 1       
+   1 | 16 |/127.0.0.1    |binary|1970-01-01 01:00:00|-       |-    |-       | 0       
+   5 | 1  |/127.0.0.1    |http  |1970-01-01 00:59:59|pokec   |admin|Listen  | 32      
+  ---+----+--------------+------+-------------------+--------+-----+--------+--------
+  </pre>
 
-```
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).

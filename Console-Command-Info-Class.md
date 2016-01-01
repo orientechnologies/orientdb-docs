@@ -1,34 +1,36 @@
-# Console - INFO CLASS
+# Console - `INFO CLASS`
 
-Displays all the information about the selected class.
+Displays all information on givne class.
 
-## Syntax
+**Syntax**
 
 ```
 INFO CLASS <class-name>
 ```
 
-## Example
-
-```sql
-INFO CLASS Profile
-
-CLASS 'Profile'
-
-Default cluster......: profile (id=10)
-Supported cluster ids: [10]
-Properties:
--------------------------------+----+-------------+-------------------------------+-----------+-----------+----------+------+------+
- NAME                          | ID | TYPE        | LINKED TYPE/CLASS             | INDEX     | MANDATORY | NOT NULL | MIN  | MAX  |
--------------------------------+----+-------------+-------------------------------+-----------+-----------+----------+------+------+
- lastAccessOn                  |  5 | DATETIME    | null                          |           | false     | false    | 2010-01-01 00:00:00|      |
- registeredOn                  |  4 | DATETIME    | null                          |           | false     | false    | 2010-01-01 00:00:00|      |
- nick                          |  3 | STRING      | null                          |           | false     | false    | 3    | 30   |
- name                          |  2 | STRING      | null                          | NOTUNIQUE | false     | false    | 3    | 30   |
- surname                       |  1 | STRING      | null                          |           | false     | false    | 3    | 30   |
- photo                         |  0 | TRANSIENT   | null                          |           | false     | false    |      |      |
--------------------------------+----+-------------+-------------------------------+-----------+-----------+----------+------+------+
-```
+- **`<class-name>`** Defines what class you want information on.
 
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+**Example**
+
+- Display information on class `Profile`
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">INFO CLASS Profile</code>
+
+  Default cluster......: profile (id=10)
+  Supported cluster ids: [10]
+  Properties:
+  --------+----+----------+-----------+---------+-----------+----------+-----+----
+   NAME   | ID | TYPE     | LINK TYPE | INDEX   | MANDATORY | NOT NULL | MIN | MAX
+  --------+----+----------+-----------+---------+-----------+----------+-----+----
+   nick   |  3 | STRING   | null      |         | false     | false    | 3   | 30 
+   name   |  2 | STRING   | null      |NOTUNIQUE| false     | false    | 3   | 30 
+   surname|  1 | STRING   | null      |         | false     | false    | 3   | 30 
+   ...    |    | ...      | ...       | ...     | ...       | ...      |...  | ...
+   photo  |  0 | TRANSIENT| null      |         | false     | false    |     |    
+  --------+----+----------+-----------+---------+-----------+----------+-----+----
+  </pre>
+
+
+>For more information on other commands, see [Console Commands](Console-Commands.md).

@@ -1,32 +1,34 @@
-# Console - LOAD RECORD
+# Console - `LOAD RECORD`
 
-Loads a record by its record-id from the current database.
+Loads a record the given [Record ID](Concepts.md#record-id) from the current database.
 
-## Syntax
+**Syntax**
 
-```
+```sql
 LOAD RECORD <record-id>
 ```
 
-Where:
+- **`<record-id`** Defines the Record ID of the record you want to load.
 
-- record-id      The unique [Record Id](Concepts.md#RecordID) of the record to load. If you don't have the Record Id execute a query first
+In the event that you don't have a Record ID, execute a query to find the one that you want.
 
-## Example
+**Example**
 
-```sql
-LOAD RECORD #5:5
+- Load the record for `#5:5`:
 
---------------------------------------------------
-Class: Person   id: #5:5   v.0
---------------------------------------------------
-              parent : Person@5:4{parent:null,children:[Person@5:5, Person@5:6],name:Barack,surname:Obama,city:City@-6:2}
-            children : null
-                name : Malia Ann
-             surname : Obama
-                city : null
---------------------------------------------------
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">LOAD RECORD #5:5</code>
 
+  --------------------------------------------------------------------------------
+   Class: Person   id: #5:5   v.0
+  --------------------------------------------------------------------------------
+     parent : Person@5:4{parent:null,children:[Person@5:5, Person@5:6],name:Barack,
+              surname:Obama,city:City@-6:2}
+   children : null
+       name : Malia Ann
+    surname : Obama
+       city : null
+  --------------------------------------------------------------------------------
+  </pre>
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).

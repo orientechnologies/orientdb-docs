@@ -1,29 +1,32 @@
-# Console - INDEXES
+# Console - `INDEXES`
 
-Displays all the index in current database.
+Displays all indexes in the current database.
 
-## Syntax
+**Syntax**
 
 ```sql
 INDEXES
 ```
 
-## Example
+**Example**
 
-```sql
-orientdb {db=GratefulDeadConcerts}> indexes
+- Display indexes in the current database:
 
-INDEXES
-----------------------------------------------+------------+-----------------------+----------------+------------+
- NAME                                         | TYPE       |         CLASS         |     FIELDS     | RECORDS    |
-----------------------------------------------+------------+-----------------------+----------------+------------+
- dictionary                                   | DICTIONARY |                       |                |          0 |
- Group.Grp_Id                                 | UNIQUE     | Group                 | Grp_Id         |          1 |
- ORole.name                                   | UNIQUE     | ORole                 | name           |          3 |
- OUser.name                                   | UNIQUE     | OUser                 | name           |          4 |
-----------------------------------------------+------------+-----------------------+----------------+------------+
- TOTAL = 4                                                                                                     8 |
------------------------------------------------------------------------------------------------------------------+
-```
+  <pre>
+  orientdb {db=GratefulDeadConcerts}> <code class="lang-sql userinput">INDEXES</code>
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+  INDEXES
+  --------------+------------+-------+--------+---------
+   NAME         | TYPE       | CLASS | FIELDS | RECORDS 
+  --------------+------------+-------+--------+---------
+   dictionary   | DICTIONARY |       |        |       0 
+   Group.Grp_Id | UNIQUE     | Group | Grp_Id |       1 
+   ORole.name   | UNIQUE     | ORole | name   |       3 
+   OUser.name   | UNIQUE     | OUser | name   |       4 
+  --------------+------------+----------------+---------
+   TOTAL = 4                                          8 
+  ------------------------------------------------------
+  </pre>
+
+
+>For more information on other commands, see [Console Commands](Console-Commands.md).
