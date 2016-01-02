@@ -1,141 +1,145 @@
-# SQL - ALTER CLASS
+# SQL - `ALTER CLASS`
 
-The **Alter Class** command alters a class in the schema.
+Changes an existing class in the schema.
 
-## Syntax
+**Syntax**
 
 ```sql
 ALTER CLASS <class> <attribute-name> <attribute-value>
 ```
 
-Where:
-- **class** is the class name to change
-- **attribute-name**, is the attribute name to alter. Supported attribute names are:
- - **NAME**, the class name. Accepts a string as the value.
- - **SHORTNAME**, a short name (alias) for the class. Accepts a string as the value. NULL to remove it.
- - **SUPERCLASS**, the superclasses to assign. Accepts a string as the value. NULL to remove it. Starting from v2.1 multiple inheritance is supported by passing a list of class names. To add a new class you can also use the syntax `+<class>` and `-<class>` to remove it. Look at the examples below.
- - **OVERSIZE**, the oversize factor. Accepts a decimal number as the value.
- - **ADDCLUSTER**, add a cluster to be part of the class. If the cluster doesn't exist, a physical cluster is created automatically. See also [Create Cluster](SQL-Create-Cluster.md) command. Adding clusters to classes is also useful to store records in distributed servers. Look at [Distributed Sharding](Distributed-Sharding.md)
- - **REMOVECLUSTER**, remove a cluster from a class. The cluster will be not deleted.
- - **STRICTMODE**, enable or disable the strict mode. With the strict mode enabled you work in schema-full mode and you can't add new properties to the record if they're in the class's schema definition.
- - **CLUSTERSELECTION** sets the strategy used on selecting the cluster where to create new records. On class creation the setting is inherited by the database's [cluster-selection property](SQL-Alter-Database.md). For more information look also at [Cluster Selection](Cluster-Selection.md).
- - **CUSTOM**, to set custom properties. Property name and value must be expressed using the syntax: "<code>&lt;name&gt;=&lt;value&gt;</code>" without spaces between name and value.
- -  **ABSTRACT** convert to an abstract class or opposite using true and false
-- **attribute-value**, is the new attribute value to set.
+- **`<class>`** Defines the class you want to change.
+- **`<attribute-name>`** Defines the attribute you want to change.  For a list of supported attributes, see the table below.
+- **`<attribute-value>`** Defines the value you want to set.
+  
 
-## See also
-- [create class](SQL-Create-Class.md)
-- [drop class](SQL-Drop-Class.md)
-- [alter cluster](SQL-Alter-Cluster.md)
-- [SQL commands](SQL.md)
-- [Console commands](Console-Commands.md)
+**Examples**
 
-## Examples
+- Define a super-class:
 
-### Set the super class
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Employee SUPERCLASS Person</code>
+  </pre>
 
-```sql
-ALTER CLASS Employee SUPERCLASS Person
-```
+- Define multiple inheritances:
 
-### Set super classes
-(Since v2.1)
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Employee SUPERCLASS Person, ORestricted</code>
+  </pre>
 
-```sql
-ALTER CLASS Employee SUPERCLASS Person, ORestricted
-```
+  This feature was introduced in version 2.1.
 
-### Add a super class
-(Since v2.1)
+- Add a super-class:
 
-```sql
-ALTER CLASS Employee SUPERCLASS +Person
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLASS Employee SUPERCLASS +Person</code>
+  </pre>
 
-### Remove a super class
-(Since v2.1)
+  This feature was introduced in version 2.1.
 
-```sql
-ALTER CLASS Employee SUPERCLASS -Person
-```
+- Remove a super-class:
 
-### Change the name of the class 'Account'
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLASS Employee SUPERCLASS -Person</code>
+  </pre>
 
-```sql
-ALTER CLASS Account NAME Seller
-```
+  This feature was introduced in version 2.1.
 
-### Change the oversize factor of the class 'Account'
+- Update the class name from `Account` to `Seller`:
 
-```
-ALTER CLASS Account OVERSIZE 2
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLASS Account NAME Seller</code>
+  </pre>
 
-### Add a cluster
+- Update the oversize factor on the class `Account`:
 
-To add a cluster by name to a class. If the cluster doesn't exist, it's created automatically:
-```
-ALTER CLASS Account ADDCLUSTER account2
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Account OVERSIZE 2</code>
+  </pre>
 
-### Remove a cluster
+- Add a cluster to the class `Account`.
 
-To remove a cluster by id to a class without dropping the cluster:
-```
-ALTER CLASS Account REMOVECLUSTER 34
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLASS Account ADDCLUSTER account2</code>
+  </pre>
 
-## Add Custom properties
+  In the event that the cluster does not exist, it automatically creates it.
 
-To add custom properties (in this case used in [Record level security](Security.md#record_level_security)):
-```sql
-ALTER CLASS Post CUSTOM onCreate.fields=_allowRead,_allowUpdate
-ALTER CLASS Post CUSTOM onCreate.identityType=role
-```
+- Remove a cluster from the class `Account` with the ID `34`:
 
-### Change the cluster selection strategy
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Account REMOVECLUSTER 34</code>
+  </pre>
 
-To add a new cluster to a class and set its cluster-selection strategy as "balanced":
+- Add custom properties:
 
-```sql
-CREATE CLUSTER Employee_1
-ALTER CLASS ADDCLUSTER Employee_1
-ALTER CLASS CLUSTERSELECTION balanced
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Post CUSTOM onCreate.fields=_allowRead,_allowUpdate</code>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Post CUSTOM onCreate.identityType=role</code>
+  </pre>
 
-### Convert a class to ABSTRACT
+- Create a new cluster for the class `Employee`, then set the cluster selection strategy to `balanced`:
 
-```sql
-ALTER CLASS TheClass ABSTRACT true
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>CREATE CLUSTER employee_1</code>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Employee ADDCLUSTER employee_1</code>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Employee CLUSTERSELECTION balanced</code>
+  </pre>
+
+- Convert the class `TheClass` to an abstract class:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLASS TheClass ABSTRACT true</code>
+  </pre>
+
+>For more information see [`CREATE CLASS`](SQL-Create-Class.md), [`DROP CLASS`](SQL-Drop-Class.md), [`ALTER CLUSTER`](SQL-Alter-Cluster.md) commands.  For more information on other commands, see [`Console`](Console-Commands.md) and [SQL](SQL.md) commands.
+
+
+## Supported Attributes
+
+| Attribute | Type | Support| Description |
+|---|---|---|---|
+| `NAME` | String | | Changes the class name. |
+| `SHORTNAME`| String | | Defines a short name, (that is, an alias), for the class.  Use `NULL` to remove a short name assignment. |
+| `SUPERCLASS` | String | | Defines a super-class for the class.  Use `NULL` to remove a super-class assignment.  Beginning with version 2.1, it supports multiple inheritances. To add a new class, you can use the syntax `+<class>`, to remove it use `-<class>`.|
+| `OVERSIZE`| Decimal number | | Defines the oversize factor. |
+| `ADDCLUSTER` | String | | Adds a cluster to the class.  If the cluster doesn't exist, it creates a physical cluster. Adding clusters to a class is also useful in storing records in distributed servers.  For more information, see [Distributed Sharding](Distributed-Sharding.md). |
+| `REMOVECLUSTER` | String | | Removes a cluster from a class.  It does not delete the cluster, only removes it from the class. |
+| `STRICTMODE` | | | Enalbes or disables strict mode.  When in strict mode, you work in schema-full mode and cannot add new properties to a record if they're part of the class' schema definition. |
+| `CLUSTERSELECTION` | | 1.7 | Defines the selection strategy in choosing which cluster it uses for new records.  On class creation it inherits the setting from the database.  For more information, see [Cluster Selection](Cluster-Selection.md).|
+| `CUSTOM` | | | Defines custom properties.  Property names and values must follow the syntax `<property-name>=<value>` without spaces between the name and value. |
+| `ABSTRACT` | Boolean | | Converts class to an abstract class or the opposite. |
+
+
 
 
 ## Java API
 
-Below you can find the Java API equivalent for this command.
+In addition to updating a class through the console or SQL, you can also change it through the Java API, using either the Graph or Document API.
 
-**Graph API**
+- **Graph API**:
 
-```java
-// ADD A CLUSTER TO A VERTEX CLASS
-graph.getVertexType("Customer").addCluster("customer_usa");
+  ```java
+  // ADD A CLUSTER TO A VERTEX CLASS
+  graph.getVertexType("Customer").addCluster("customer_usa");
 
-// ADD A CLUSTER TO AN EDGE CLASS
-graph.getEdgeType("WorksAt").addCluster("WorksAt_2015");
-```
+  // ADD A CLUSTER TO AN EDGE CLASS
+  graph.getEdgeType("WorksAt").addCluster("WorksAt_2015");
+  ```
+- **Document API**
 
-**Document API**
-```java
-db.getMetadata().getSchema().getClass("Customer").addCluster("customer_usa");
-```
+  ```java
+  db.getMetadata().getSchema().getClass("Customer").addCluster("customer_usa")
+  ```
 
 
 
 ## History
-### 1.7
 
-- Added support for CLUSTERSELECTION that sets the strategy used on selecting the cluster to use when creating new records.
- 
 ### 2.1
 
 - Added support for multiple inheritance.
+
+### 1.7
+
+- Added support for `CLUSTERSELECTION` that sets the strategy used on selecting the cluster to use when creating new records.

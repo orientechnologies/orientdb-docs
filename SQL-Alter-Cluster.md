@@ -1,54 +1,75 @@
-# SQL - ALTER CLUSTER
+# SQL - `ALTER CLUSTER`
 
-The **Alter Cluster** command updates a cluster.
+Changes an existing cluster.
 
-## Syntax
-
-```sql
-ALTER CLUSTER <cluster-name>|<cluster-id> <attribute-name> <attribute-value>
-```
-
-Where:
-- **cluster-name** name of the cluster to modify. Starting form v2.2, wildcard `*` is accepted at the end of the name to change multiple clusters all together. Example: `alter cluster employee* status offline` to put offline all the cluster with name start starts with employee
-- **cluster-id** id of the cluster to modify
-- **attribute-name** between those supported:
- - **NAME** cluster's name
- - **STATUS** change the cluster's status. Allowed values: ONLINE, OFFLINE. By default clusters are ONLINE. To put  cluster offline, change it status to OFFLINE. Once offline, the physical files of the cluster will be not open by OrientDB. This feature is useful when you want to archive old data elsewhere and restore when needed
- - **COMPRESSION** compression used between: nothing, snappy, gzip and any other compression registered in OCompressionFactory class. OrientDB calls the compress() method every time it saves a record to the storage, and uncompress() every time it loads a record from the storage. You can also use the OCompression interface to manage encryption
- - **USE_WAL** use the Journal (Write Ahead Log) when OrientDB operates against the cluster
- - **RECORD_GROW_FACTOR** grow factor to save more space on record creation. This is useful when you plan to update the record with additional information. Bigger record avoids defragmentation because OrientDB has not to find a new space in case of update with more data
- - ** RECORD_OVERFLOW_GROW_FACTOR** like RECORD_GROW_FACTOR, but on update. When the size limit is reached this setting is considered to get more space (factor > 1)
- - **CONFLICTSTRATEGY**, (since 2.0) is the name of the strategy used to handle conflicts when OrientDB's MVCC finds an update or delete operation executed against an old record. If not defined a strategy at cluster level, the database configuration is taken (use [ALTER DATABASE](SQL-Alter-Database.md) command for this). While it's possible to inject custom logic by writing a Java class, the out of the box modes are:
-  - `version`, the default, throws an exception when versions are different
-  - `content`, in case the version is different, it checks if the content is changed, otherwise use the highest version and avoid throwing exception
-  - `automerge`, merges the changes
-- **attribute-value** attribute's value to set
-
-## See also
-- [create cluster](SQL-Create-Cluster.md)
-- [drop cluster](SQL-Drop-Cluster.md)
-- [alter class](SQL-Alter-Class.md)
-- [SQL commands](SQL.md)
-- [Console commands](Console-Commands.md)
-
-## Examples
+**Syntax**
 
 ```sql
-ALTER CLUSTER profile NAME profile2
+ALTER CLUSTER <cluster> <attribute-name> <attribute-value>
 ```
 
-```sql
-ALTER CLUSTER 9 NAME profile2
-```
+- **`<cluster>`** Defines the cluster you want to change.  You can use its logical name or ID.  Beginning with version 2.2, you can use the wildcard `*` to update multiple clusters together.
+- **`<attribute-name>`** Defines the attribute you want to change.  For a list of supported attributes, see the table below.
+- **`<attribute-value>`** Defines the value you want to set.
 
-```sql
-ALTER CLUSTER V CONFLICTSTRATEGY automerge
-```
+**Examples**
 
-### Put a cluster offline
-```sql
-ALTER CLUSTER V_2012 STATUS OFFLINE
-```
+- Change the name of a cluster, using its name:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLUSTER profile NAME profile2</code>
+  </pre>
+
+- Change the name of a cluster, using its ID:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLUSTER 9 NAME profile2</code>
+  </pre>
+
+- Update the cluster conflict strategy to `automerge`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER CLUSTER V CONFLICTSTRATEGY automerge</code>
+  </pre>
+
+- Put cluster `V_2012` offline:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER CLUSTER V_2012 STATUS OFFLINE</code>
+  </pre>
+
+- Update multiple clusters with a similar name:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER CLUSTER employee* status offline</code>
+  </pre>
+
+
+
+>For more information see, [`CREATE CLUSTER`](SQL-Create-Cluster.md), [`DROP CLUSTER`](SQL-Drop-Cluster.md), [`ALTER CLUSTER`](SQL-Alter-Cluster.md) commands.  For more information on other commands, see [Console](Console-Commands.md) and [SQL](SQL.md) commands.
+
+## Supported Attributes
+
+| Name | Type | Support | Description |
+|---|---|---|---|
+| `NAME` | String | | Changes the cluster name. |
+| `STATUS`| String | | Changes the cluster status.  Allowed values are `ONLINE` and `OFFLINE`.  By default, clusters are online.  When offline, OrientDB no longer opens the physical files for the cluster.  You may find this useful when you want to archive old data elsewhere and restore when needed.|
+| `COMPRESSION` | String | | Defines the compression type to use.  Allowed values are `NOTHING`, `SNAPPY`, `GZIP`, and any other compression types registered in the `OCompressionFactory` class.  OrientDB class the `compress()` method each time it saves the record to the storage, and the `uncompress()` method each time it loads the record from storage.  You can also use the `OCompression` interface to manage encryption.|
+|`USE_WAL`| Boolean || Defines whether it uses the Journal (Write Ahead Log) when OrientDB operates against the cluster.|
+| `RECORD_GROW_FACTOR`|Integer| | Defines the grow factor to save more space on record creation.  You may find this useful when you update the record with additional information.  In larger records, this avoids defragmentation, as OrientDB doesn't have to find new space in the event of updates with more data.|
+|`RECORD_OVERFLOW_GROW_FACTOR`|Integer|| Defines grow factor on updates.  When it reaches the size limit, is uses this setting to get more space, (factor > 1).|
+|`CONFLICTSTRATEGY`|String|2.0+| Defines the strategy it uses to handle conflicts in the event that OrientDB MVCC finds an update or a delete operation it executes against an old record.  If you don't define a strategy at the cluster-level, it uses the database-level configuration.  For more information on supported strategies, see the section below.|
+
+### Supported Conflict Strategies
+
+| Strategy | Description |
+|---|---|
+| `version` | Throws an exception when versions are different.  This is the default setting. |
+| `content` | In the event that the versions are different, it checks for changes in the content, otherwise it uses the highest version to avoid throwing an exception.|
+| `automerge` | Merges the changes.|
+
+
+
 
 
 To know more about other SQL commands, take a look at [SQL commands](SQL.md).
