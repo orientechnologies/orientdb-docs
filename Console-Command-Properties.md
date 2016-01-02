@@ -1,28 +1,36 @@
-# Console - PROPERTIES
+# Console - `PROPERTIES`
 
-Returns all the properties setted.
+Displays all configured properties.
 
-## Syntax
+**Syntax**
 
 ```
 PROPERTIES
 ```
 
-## Example
+**Example**
 
-```sql
-PROPERTIES
+- List configured properties:
 
-PROPERTIES:
-+---------------------+----------------------+
-| NAME                | VALUE                |
-+---------------------+----------------------+
-| limit               = 20                   |
-+---------------------+----------------------+
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>PROPERTIES</code>
 
-## See also
+  PROPERTIES:
+  ------------------------+-----------
+   NAME                   | VALUE
+  ------------------------+-----------
+   limit                  | 20 
+   backupBufferSize       | 1048576
+   backupCompressionLevel | 9      
+   collectionMaxItems     | 10     
+   verbose                | 2      
+   width                  | 150    
+   maxBinaryDisplay       | 150    
+   debug                  | false  
+   ignoreErrors           | false  
+  ------------------------+-----------
+  </pre>
 
-To change a property value use the [SET](Console-Command-Set.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>To change a property value, use the [`SET`](Console-Command-Set.md) command.
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md).

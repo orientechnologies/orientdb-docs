@@ -1,46 +1,69 @@
-# Console - ROLLBACK
+# Console - `ROLLBACK`
 
-OrientDB supports [Transactions](Transactions.md). Once a transaction is [BEGIN](Console-Command-Begin.md) you can abort changes in transactions by using the **ROLLBACK** command.
+Aborts a transaction, rolling the database back to its save point.
 
-## Syntax
+**Syntax**
 
 ```sql
-ROLLBACK
+BEGIN
 ```
-## See also
 
-- [Transactions](Transactions.md)
-- [Console Command COMMIT](Console-Command-Commit.md)
-- [Console Command ROLLBACK](Console-Command-Rollback.md)
-- [Console Commands](Console-Commands.md)
+>For more information on transactions, see [Transactions](Transactions.md).  To initiate a transaction, use the [`BEGIN`](Console-Command-Begin.md) command.  To save changes, see [`COMMIT`](Console-Command-Commit.md) command.
 
-## Example
 
-```
-orientdb> BEGIN
-Transaction 1 is running
+**Example**
 
-orientdb> BEGIN
-Error: an active transaction is currently open (id=1). Commit or rollback before starting a new one.
+- Initiate a new transaction:
 
-orientdb> INSERT INTO account (name) VALUES ('tx test')
+  <pre>
+  orientdb> <code class='lang-sql userinput'>BEGIN</code>
 
-Inserted record 'Account#9:-2{name:tx test} v0' in 0,004000 sec(s).
+  Transaction 1 is running
+  </pre>
 
-orientdb> SELECT FROM account WHERE name LIKE 'tx%'
+- Attempt to start a new transaction, while another is open:
 
----+---------+--------------------
-  #| RID     |name
----+---------+--------------------
-  0|    #9:-2|tx test
----+---------+--------------------
+  <pre>
+  orientdb> <code class='lang-sql userinput'>BEGIN</code>
 
-1 item(s) found. Query executed in 0.076 sec(s).
+  Error: an active transaction is currently open (id=1). Commit or rollback before starting a new one.
+  </pre>
 
-orientdb> ROLLBACK
-Transaction 1 has been rollbacked in 4ms
+- Make changes to the database:
 
-orientdb> SELECT FROM account WHERE name LIKE 'tx%'
+  <pre>
+  orientdb> <code class='lang-sql userinput'>INSERT INTO Account (name) VALUES ('tx test')</code>
 
-0 item(s) found. Query executed in 0.037 sec(s).
-```
+  Inserted record 'Account#9:-2{name:tx test} v0' in 0,004000 sec(s).
+  </pre>
+
+- View changes in database:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>SELECT FROM Account WHERE name LIKE 'tx%'</code>
+
+  ---+-------+--------------------
+   # | RID   | name
+  ---+-------+--------------------
+   0 | #9:-2 | tx test
+  ---+-------+--------------------
+  1 item(s) found. Query executed in 0.076 sec(s).
+  </pre>
+
+- Abort the transaction:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ROLLBACK</code>
+
+  Transaction 1 has been rollbacked in 4ms
+  </pre>
+
+- View rolled back database:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name LIKE 'tx%'</code>
+
+  0 item(s) found. Query executed in 0.037 sec(s).
+  </pre>
+
+>For more information on other commands, see [Console Commands](Console-Commands.md).

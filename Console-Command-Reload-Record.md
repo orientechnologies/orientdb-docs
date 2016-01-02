@@ -1,32 +1,34 @@
-# Console - RELOAD RECORD
+# Console - `RELOAD RECORD`
 
-Reloads a record by its record-id from the current database ignoring the cache. This is useful when external applications change the record and you need to see latest update.
+Reloads a record from the current database by its Record ID, ignoring the cache.
 
-## Syntax
+You may find this command useful in cases where external applications change the record and you need to see the latest update.
+
+**Syntax**
 
 ```
 RELOAD RECORD <record-id>
 ```
 
-Where:
+- **`<record-id>`** Defines the unique Record ID for the record you want to reload.  If you don't have the Record ID, execute a query first.
 
-- record-id      The unique Record Id of the record to reload. If you don't have the Record Id execute a query first
+**Examples**
 
-## Example
+- Reload record with the ID of `5:5`:
 
-```sql
-RELOAD RECORD 5:5
+  <pre>
+  orientdb> <code class='lang-sql userinput'>RELOAD RECORD 5:5</code>
 
---------------------------------------------------
-Class: Person   id: 5:5   v.0
---------------------------------------------------
-              parent : Person@5:4{parent:null,children:[Person@5:5, Person@5:6],name:Barack,surname:Obama,city:City@-6:2}
-            children : null
-                name : Malia Ann
-             surname : Obama
-                city : null
---------------------------------------------------
-```
+  ------------------------------------------------------------------------
+  Class: Person   id: 5:5   v.0
+  ------------------------------------------------------------------------
+     parent : Person@5:4{parent:null,children:[Person@5:5, Person@5:6],
+              name:Barack,surname:Obama,city:City@-6:2}
+   children : null
+       name : Malia Ann
+    surname : Obama
+       city : null
+  ------------------------------------------------------------------------
+  </pre>
 
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).

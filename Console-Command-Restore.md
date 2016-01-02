@@ -1,43 +1,51 @@
-# Console - RESTORE DATABASE
+# Console - `RESTORE DATABASE`
 
-Executes a restore of a database. The restore operation must be done against a new database. Merging of databases with restore operation is not supported. For this reason, use the [export](Console-Command-Export.md)/[import](Console-Command-Import.md) database. 
+Restores a database from a backup.  It must be done against a new database.  It does not support restores that merge with an existing database.  If you need to backup and restore to an existing database, use the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md) commands.
 
-The backup file is created using the [BACKUP DATABASE](Console-Command-Backup.md). Look also to [EXPORT DATABASE](Console-Command-Export.md) and [IMPORT DATABASE](Console-Command-Import.md) commands.
+To create a backup file to restore from, use the [`BACKUP DATABASE`](Console-Command-Backup.md) command.
 
-## Syntax
+**Syntax**
 
 ```sql
 RESTORE DATABASE <backup-file>
 ```
 
-Where:
-- *backup-file* is the backup input file path to restore
+- **`<backup-file>`** Defines the database file you want to restore.
 
-## Example
+**Example**
 
-```
-orientdb> CREATE DATABASE plocal:/temp/mydb
-orientdb> RESTORE DATABASE /backups/mydb.zip
+- Create a new database to receive the restore:
 
-Restore executed in 6,33 seconds
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>CREATE DATABASE PLOCAL:/tmp/mydb</code>
+  </pre>
+
+- Restore the database from the `mydb.zip` backup file:
+
+  <pre>
+  orientdb {db=/tmp/mydb}> <code class='lang-sql userinput'>RESTORE DATABASE /backups/mydb.zip</code>
+  </pre>
+
+>For more information, see the [`BACKUP DATABASE`](Console-Command-Backup.md), [`EXPORT DATABASE`](Console-Command-Export.md), [`IMPORT DATABASE`](Console-Command-Import.md) commands.  For more information on other commands, see [Console Commands](Console-Commands.md).
+
 
 ## Restore API
-Restore can be executed in Java and any language on top of the JVM by using the method restore() against the database instance:
+
+In addition to the console commands, you can also execute restores through the Java API or with any language that can run on top of the JVM using the `restore()` method against the database instance.
 
 ```java
 db.restore(in, options, callable, listener);
 ```
 
-Where:
-- **in**: InputStream used to read the backup content. Use a FileInputStream to read the backup content from disk
-- **options**: Backup options as Map<String, Object> object
-- **callable**: Callback to execute when the database is locked
-iListener: Listener called for backup messages
-- **compressionLevel**: ZIP Compression level between 0 (no compression) and 9 (maximum). The bigger is the compression, the smaller will be the final backup content, but will consume more CPU and time to execute
-- **bufferSize**: Buffer size in bytes, the bigger is the buffer, the more efficient will be the compression
+- **`in`** Defines the `InputStream` used to read the backup content.  Uses a `FileInputStream` to read the backup content from disk.
+- **`options`** Defines backup options, such as `Map<String, Object>` object.
+- **`callable`** Defines the callback to execute when the database is locked.
+- **`listener`** Listener called for backup messages.
+- **`compressionLevel`** Defines the Zip Compression level, between `0` for no compression and `9` for maximum compression.  The greater the compression level, the smaller the final backup content and the greater the CPU and time it takes to execute.
+- **`bufferSize`** Buffer size in bytes, the greater the buffer the more efficient the compression.
 
-Example:
+**Example**
+
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/temp/mydb");
@@ -57,8 +65,3 @@ try{
 }
 ```
 
-## See also
-- [BACKUP DATABASE](Console-Command-Backup.md)
-- [EXPORT DATABASE](Console-Command-Export.md)
-- [IMPORT DATABASE](Console-Command-Import.md)
-- [Console-Commands](Console-Commands.md)

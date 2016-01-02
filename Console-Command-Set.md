@@ -1,30 +1,27 @@
-# Console - SET
+# Console - `SET`
 
 Changes the value of a property.
 
-## Syntax
+**Syntax**
 
 ```
 SET <property-name> <property-value>
 ```
 
-Where:
+- **`<property-name>`** Defines the name of the property
+- **`<property-value>`** Defines the value you want to change the property to.
 
-- property-name  Name of the property
-- property-value Value to set
+**Example**
 
-## Example
+- Change the `LIMIT` property to one hundred:
 
-```sql
-SET LIMIT 100
+  <pre>
+  orientdb> <code class="lang-sql userinput">SET LIMIT 100</code>
 
-Previous value was: 20
+  Previous value was: 20
+  limit = 100
+  </pre>
 
-limit = 100
-```
-
-## See also
-
-To know all the properties setted use the [PROPERTIES](Console-Command-Properties.md). To read the property value use the [GET](Console-Command-Get.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>To display all properties use the [`PROPERTIES`](Console-Command-Properties.md) command.  To display the value of a particular property, use the [`GET`](Console-Command-Get.md) command.
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md).

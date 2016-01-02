@@ -1,24 +1,32 @@
-# Console - PROFILER
+# Console - `PROFILER`
 
 Controls the [Profiler](Profiler.md).
 
-## Syntax
+**Syntax**
 
-```
+```sql
 PROFILER ON|OFF|DUMP|RESET
 ```
+- **`ON`** Turn on the Profiler and begin recording.
+- **`OFF`** Turn off the Profiler and stop recording.
+- **`DUMP`** Dump the Profiler data.
+- **`RESET`** Reset the Profiler data.
 
-Where:
-- ON      Turn on the profiler and start recording
-- OFF     Turn off the profiler and stop recording
-- DUMP    Dump profiler's data
-- RESET   Reset profiler's data
+**Example**
 
-## Example
+- Turn the Profiler on:
 
-```
-orientdb> PROFILER ON
-orientdb> PROFILER DUMP
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>PROFILER ON</code>
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+  Profiler is ON now, use 'profiler off' to turn off.
+  </pre>
+
+- Dump Profiler data:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>PROFILER DUMP</code>
+  </pre>
+
+
+>For more information on other commands, see [Console Commands](Console-Commands.md).

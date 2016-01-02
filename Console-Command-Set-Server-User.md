@@ -1,25 +1,35 @@
-# Console - SET SERVER USER
+# Console - `SET SERVER USER`
 
-Creates or updates a server user. If the user already exists, password and permissions are modified. If not exists, a new user is created. In order to create or modify the user, the current system user that is running the console, must have the permissions to write the file `$ORIENTDB_HOME/config/orientdb-server-config.xml`. For more information look at [OrientDB Server security](Security.html#orientdb-server-security). Since v 2.2.
+Creates a server user.  If the server user already exists, it updates the password and permissions.
 
-## Syntax
+In order to create or modify the user, the current system user must have write permissions on the `$ORIENTDB_HOME/config/orientdb-server-config.xml` configuration file.
+
+
+**Syntax**
 
 ```
 SET SERVER USER <user-name> <user-password> <user-permissions> 
 ```
 
-## Example
+- **`<user-name>`** Defines the server username.
+- **`<user-password>`** Defines the password for the server user.
+- **`<user-permissions>`** Defines the permissions for the server user.
 
-```sql
-orientdb> set server user editor fancypassword *
 
-Server user 'editor' set correctly
-```
+>For more information on security, see [OrientDB Server Security](Security.md#orientdb-server-security).  Feature introduced in version 2.2.
 
-## See also
+**Example**
 
-- [LIST SERVER USERS](Console-Command-List-Server-Users.md).
-- [DROP SERVER USER](Console-Command-Drop-Server-User.md).
+- Create the server user `editor`, give it all permissions:
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+  <pre>
+  orientdb> <code class='lang-sql userinput'>SET SERVER USER editor my_password *</code>
+
+  Server user 'editor' set correctly
+  </pre>
+
+
+>To display all server users, see the [`LIST SERVER USERS`](Console-Command-List-Server-Users.md) command.  To remove a server user, see [`DROP SERVER USER`](Console-Command-Drop-Server-User.md) command.
+>
+>For more information on other commands, see [Console Commands](Console-Commands.md).
 

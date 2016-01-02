@@ -1,29 +1,25 @@
-# Console - RELEASE DATABASE
+# Console - `RELEASE DATABASE`
 
-Switches database from "[frozen](Console-Command-Freeze-Db.md)" state (where only read operations are allowed) to normal mode.
+Releases database from a frozen state, from where it only allows read operations back to normal mode.  Execution requires server administration rights.
 
-Execution of this command requires presence of server administration rights.
+You may find this command useful in the event that you want to perform live database backups.  Run the [`FREEZE DATABASE`](Console-Command-Freeze-Db.md) command to take a snapshot, you can then copy the snapshot anywhere you want.  Use such approach when you want to take short-term backups.
 
-This command is very usefull in case you would like to do "live" database backups.
-You can "freeze" database, do file system snapshot, "release" database, copy snapshot anywhere you want. Using such approach you can perform backup in short term.
-
-## Syntax
+**Syntax**
 
 ```sql
 RELEASE DATABASE
 ```
 
-## See also
-- [Freeze Database](Console-Command-Freeze-Db.md), to freeze a database
-- [SQL commands](SQL.md)
-- [Console-Commands](Console-Commands.md)
+**Example**
+
+- Release the current database from a freeze:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>RELEASE DATABASE</code>
+  </pre>
+
+>To freeze a database, see the [`FREEZE DATABASE`](Console-Command-Freeze-Db.md) command.
+>
+>For more information on other commands, see [Console](Console-Commands.md) and [SQL](SQL.md) commands.
 
 
-
-## Examples
-
-Release the current database:
-
-```sql
-RELEASE DATABASE
-```

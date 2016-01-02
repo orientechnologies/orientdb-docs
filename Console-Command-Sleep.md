@@ -1,21 +1,21 @@
-# Console - SLEEP
+# Console - `SLEEP`
 
-Put in pause the console for an amount of time. This command is useful with batches or to simulate latency.
+Pauses the console for the given amount a time.  You may find this command useful in working with batches or to simulate latency.
 
-## Syntax
-
-```sql
-SLEEP <ms>
-```
-
-WHERE:
-- `ms` is the amount of milliseconds to wait
-
-
-## Example
+**Syntax**
 
 ```sql
-orientdb {server=remote:localhost/}> sleep 3000
+SLEEP <time>
 ```
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+- **`<time>`** Defines the time the Console should pause in milliseconds.
+
+**Example**
+
+- Pause the console for three seconds:
+
+  <pre>
+  orientdb {server=remote:localhost/}> <code class='lang-sql userinput'>SLEEP 3000</code>
+  </pre>
+
+>For more information on other commands, see [Console Commands](Console-Commands.md).

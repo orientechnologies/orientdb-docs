@@ -8,7 +8,7 @@ Displays all active connections to the OrientDB Server.  Command introduced in v
 LIST CONNECTIONS
 ```
 
-#Example**
+**Example**
 
 - List the current connections to the OrientDB Server:
   
