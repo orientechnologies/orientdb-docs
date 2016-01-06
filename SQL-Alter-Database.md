@@ -1,14 +1,45 @@
-# SQL - ALTER DATABASE
+# SQL - `ALTER DATABASE`
 
-The `ALTER DATABASE` command update database settings.
+Updates attributes on the current database.
 
-## Syntax
+**Syntax**
 
 ```sql
 ALTER DATABASE <attribute-name> <attribute-value>
 ```
 
-Where: **attribute-value** attribute's value to set and **attribute-name** between those supported:
+- **`<attribute-name>`** Defines the attribute that you want to change.  For a list of supported attributes, see the section below.
+- **`<attribute-value>`** Defines the value you want to set.
+
+
+**Examples**
+
+- Disable new SQL strict parser:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER DATABASE custom strictSQL=false</code>
+  </pre>
+
+- Update a Graph database that was created before version 1.4:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useLightweightEdges=FALSE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useClassForEdgeLabel=FALSE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useClassForVertexLabel=FALSE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useVertexFieldsForEdgeLabel=FALSE</code>
+  </pre>
+
+  >Version 1.4 introduced [Lightweight Edges](Lightweight-Edges.md), which was disabled by default beginning in version 2.0.  Use the above commands to maintain compatibility when using older databases with newer versions of OrientDB.
+
+
+
+
+>To create a database, see the [`CREATE DATABASE`](Console-Command-Create-Database.md).  To remove a database, see the [`DROP DATABASE`](Console-Command-Drop-Database.md) command.  For more information on other commands, see [Console](Console-Commands.md) and [SQL](SQL.md) commands.
+
+
+
+## Supported Attributes
+
 - **STATUS** database's status between:
 - **IMPORTING** to set importing status
 - **DEFAULTCLUSTERID** to set the default cluster. By default is 2 = "default"
@@ -31,29 +62,9 @@ Where: **attribute-value** attribute's value to set and **attribute-name** betwe
 - **VALIDATION**, (Since v2.2) disable or enable the validation for the entire database. This setting is not persistent, so at the next restart the validation is active (Default). Disabling the validation sometimes is needed in case of [remote import database](Console-Command-Import.md#validation-errors).
 
 
-## See also
-- [Console Command Create Database](Console-Command-Create-Database.md)
-- [Console Command Drop Database](Console-Command-Drop-Database.md)
-
-## Examples
-
-### Disable new SQL strict parser
-
-```sql
-ALTER DATABASE custom strictSQL=false
-```
-
-### Use GraphDB created with releases before 1.4
-Starting from v 1.4, OrientDB can use [Lightweight Edges](Lightweight-Edges.md). After v2.0 this is disabled by default with new databases. To maintain the compatibility with OrientDB 1.4 or minor execute this commands:
-```sql
-ALTER DATABASE custom useLightweightEdges=false
-ALTER DATABASE custom useClassForEdgeLabel=false
-ALTER DATABASE custom useClassForVertexLabel=false
-ALTER DATABASE custom useVertexFieldsForEdgeLabels=false
-```
 
 ## History
 ### 1.7
-- Added support for CLUSTERSELECTION that sets the strategy used on selecting the cluster where to create new records
-- Added **MINIMUMCLUSTERS** to pre-create X clusters every time a new class is created
+- Adds support for `CLUSTERSELECTION` that sets the strategy used on selecting the cluster where to create new records.
+- Adds `MINIMUMCLUSTERS` to pre-create X clusters every time a new class is created.
 

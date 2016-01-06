@@ -1,93 +1,89 @@
-# SQL - ALTER PROPERTY
+# SQL - `ALTER PROPERTY`
 
-The **Alter Property** command alters a class's property in the schema.  
- 
+Updates attributes on the existing property and class in the schema.
 
-## Syntax
+**Syntax**
 
 ```xml
 ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 ```
 
-Where:
-- **class** is the class owner of the property to change
-- **property** is the property name to change
-- **attribute-name**, is the attribute name to alter
-- **attribute-value**, is the new attribute value to set
-
-Supported attribute names are:
-- **LINKEDCLASS**, the linked class name. Accepts a string as value. NULL to remove it
-- **LINKEDTYPE**, the linked type name between those supported:[Types](Types.md). Accepts a string as value. NULL to remove it
-- **MIN**, the minimum value as constraint. NULL to remove it. Accepts strings, numbers or dates as value depending on the type:
- - `String` set the minimum length of the string
- - `Numbers` set the minimum value for the number
- - `Date` set the minimum date accepted
- - `Multi-Value` (List, Set, Maps) set the minimum number of entries
-- **MANDATORY**, true if the property is mandatory. Accepts "true" or "false"
-- **MAX**, the maximum value as constraint. NULL to remove it. Accepts strings, numbers or dates as value depending on the type:
- - `String` set the maximum length of the string
- - `Numbers` set the maximum value for the number
- - `Date` set the maximum date accepted
- - `Multi-Value` (List, Set, Maps) set the maximum number of entries
-- **NAME**, the property name. Accepts a string as value
-- **NOTNULL**, the property can't be null. Accepts "true" or "false"
-- **REGEXP** the regular expression as constraint. Accepts a string as value. NULL to remove it
-- **TYPE**, the type between those supported:[Types](Types.md) Accepts a string as value
-- **COLLATE**, sets the collate to define the strategy of comparison. By default is case sensitive. By setting it yo "ci", any comparison will be case-insensitive
-- **READONLY** the property value is immutable: it can't be changed after the first assignment. Use this with DEFAULT to have immutable values on creation. Accepts "true" or "false"
-- **CUSTOM** Set custom properties. Syntax is <code>&lt;name&gt; = &lt;value&gt;</code>. Example: stereotype = icon
-- **DEFAULT** (Since 2.1) set the default value. Default value can be a value or a function. See below for examples
-
-In case of alter of **NAME** or **TYPE** this command will run a data update that may take some time, depends on the amount of data, don't shutdown the database while this migration is running.
-
-## Examples
-
-### Change the name of the property 'age' in class 'Account' in 'born'
-
-```java
-ALTER PROPERTY Account.age NAME born
-```
-
-### Set a property as mandatory
-
-```java
-ALTER PROPERTY Account.age MANDATORY true
-```
-
-### Set a regexp
-
-```java
-ALTER PROPERTY Account.gender REGEXP [M|F]
-```
+- **`<class>`** Defines the class to which the property belongs.
+- **`<property>`** Defines the property you want to update.
+- **`<attribute-name>`** Defines the attribute you want to change.
+- **`<attribute-value>`** Defines the value you want to set on the attribute.
 
 
-### Set a field as case insensitive to comparison
 
-```java
-ALTER PROPERTY Employee.name COLLATE ci
-```
+**Examples**
+
+- Change the name of the property `age` in the class `Account` to `born`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Account.age NAME born</code>
+  </pre>
+
+- Update a property to make it mandatory:
+
+  <pre>
+  orientdb><code class="lang-sql userinput">ALTER PROPERTY Account.age MANDATORY TRUE</code>
+  </pre>
+
+- Define a Regular Expression as constraint:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Account.gender REGEXP [M|F]</code>
+  </pre>
+
+- Define a field as case-insensitive to comparisons:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Employee.name COLLATE ci</code>
+  </pre>
+
+- Define a custom field on a property:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Foo.bar1 custom stereotype = visible</code>
+  </pre>
+
+- Set the default value for the current date:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.created DEFAULT sysdate()</code>
+  </pre>
+
+- Define a unqiue id that cannot be changed after creation:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.id DEFAULT uuid() READONLY</code>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.id READONLY TRUE</code>
+  </pre>
 
 
-### Set a custom field on property
 
-```java
-ALTER PROPERTY Foo.bar1 custom stereotype = visible
-```
 
-### Set default value to current date
 
-```java
-ALTER PROPERTY Client.created default sysdate()
-```
+## Supported Attributes
 
-### Set a unique id can never change
-```java
-ALTER PROPERTY Client.id default uuid() readonly
-ALTER PROPERTY Client.id readonly true
-```
+|Attribute|Type|Support|Description|
+|---|---|---|---|
+| `LINKEDCLASS` | String | | Defines the linked class name.  Use `NULL` to remove an existing value.|
+| `LINKEDTYPE` | String | | Defines the [link type](Types.md).  Use `NULL` to remove an existing value.|
+| `MIN` | Integer | | Defines the minimum value as a constraint.  Use `NULL` to remove an existing constraint.  On String attributes, it defines the minimum length of the string.  On Integer attributes, it defines the minimum value for the number.  On Date attributes, the earliest date accepted.  For multi-value attributes (lists, sets and maps), it defines the fewest number of entries.|
+| `MANDATORY` | Boolean | | Defines whether the proprety requires a value. |
+| `MAX` | Integer | | Defines the maximum value as a constraint.  Use `NULL` to remove an existing constraint.  On String attributes, it defines the greatest length of the string.  On Integer attributes, it defines the maximum value for the number.  On Date attributes, the last date accepted.  For multi-value attributes (lists, sets and maps), it defines the highest number of entries.|
+| `NAME` | String || Defines the property name.|
+| `NOTNULL` | Boolean || Defines whether the property can have a null value. |
+| `REGEX` | String || Defines a Regular Expression as constraint.  Use `NULL` to remove an existing constraint.|
+| `TYPE` | String || Defines a [property type](Types.md).|
+| `COLLATE` | String || Sets collate to one of the defined comparison strategies.  By default, it is set to case-sensitive (`cs`).  You can also set it to case-insensitive (`ci`).|
+| `READONLY` | Boolean || Defines whether the property value is immutable.  That is, if it is possible to change it after the first assignment.  Use with `DEFAULT` to have immutable values on creation.|
+| `CUSTOM` | String || Defines custom properties.  The syntax for custom properties is `<custom-name> = <custom-value>`, such as `stereotype = icon`.|
+| `DEFAULT` | || Defines the default value or function.  Feature introduced in version 2.1, (see the section above for examples).|
 
-To create a property use the [Create Property](SQL-Create-Property.md) command, to remove a property use the [Drop Property](SQL-Drop-Property.md) command.
+When altering `NAME` or `TYPE` this command runs a data update that may take some time, depending on the amount of data.  Don't shut the database down during this migration.
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+
+>To create a property, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command, to remove a property the [`DROP PROPERTY`](SQL-Drop-Property.md) command.  For more information on other commands, see [Console](Console-Commands.md) and [SQL](SQL.md) commands.

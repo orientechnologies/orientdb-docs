@@ -1,6 +1,6 @@
 # SQL - `ALTER CLUSTER`
 
-Changes an existing cluster.
+Updates attributes on an existing cluster.
 
 **Syntax**
 
