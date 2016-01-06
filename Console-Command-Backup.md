@@ -1,6 +1,8 @@
+<!-- proofread 2015-01-05 SAM -->
+
 # Console - `BACKUP`
 
-Executes a complete backup on the currently opened database.  It then compresses the backup file using the ZIP algorithm.  You can then restore a database from backups, using the [`RESTORE DATABASE`](Console-Command-Restore.md) command.  You can automate backups using the [Automatic-Backup](Automatic-Backup.md) server plugin.
+Executes a complete backup on the currently opened database. It then compresses the backup file using the ZIP algorithm. You can then restore a database from backups, using the [`RESTORE DATABASE`](Console-Command-Restore.md) command. You can automate backups using the [Automatic-Backup](Automatic-Backup.md) server plugin.
 
 Backups and restores are similar to the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md), but they offer better performance than these options.  
 
@@ -13,9 +15,9 @@ BACKUP DATABASE <output-file> [-incremental] [-compressionLevel=<compressionLeve
 ```
 
 - **`<output-file>`** Defines the path to the backup file.
-- **`-incremental`** Option to execute an incremental backup.  When enabled, it computes the data to backup as all new changes since the last backup.  Available since version 2.2.
-- **-`compressionLevel`** Defines the level of compression for the backup file.  Valid levels are `0` to `9`.  The default is `9`.  Available since version 1.7.
-- **`-bufferSize`** Defines the compression buffer size.  By default, this is set to 1MB.  Available since version 1.7.
+- **`-incremental`** Option to execute an incremental backup.  When enabled, it computes the data to backup as all new changes since the last backup. Available in version 2.2 or later.
+- **-`compressionLevel`** Defines the level of compression for the backup file.  Valid levels are `0` to `9`.  The default is `9`.  Available in 1.7 or later.
+- **`-bufferSize`** Defines the compression buffer size.  By default, this is set to 1MB.  Available in 1.7 or later.
 
 **Example:**
 
@@ -31,7 +33,7 @@ Backup executed in 0.52 seconds
 
 ## Backup API
 
-In addition to backups called through the Console, you can also manage backups through the Java API.  Using this you can perform either a full or incremental backup on your database.
+In addition to backups called through the Console, you can also manage backups through the Java API. Using this, you can perform either a full or incremental backup on your database.
 
 ### Full Backup
 
@@ -70,7 +72,7 @@ try{
 
 ### Incremental Backup
 
-Beginning in version 2.2, OrientDB supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
+As of version 2.2, OrientDB supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
 
 ```java
 db.incrementalBackup(backupDirectory);
@@ -78,7 +80,7 @@ db.incrementalBackup(backupDirectory);
 
 - **`backupDirectory`** Defines the directory where it generates the incremental backup files.  
 
-It is important that previous incremental backup files are present in the same directory, in order to compuete the database portion to back up, based on the last incremental backup.
+It is important that previous incremental backup files are present in the same directory, in order to compute the database portion to back up, based on the last incremental backup.
 
 **Example:**
 
@@ -93,8 +95,9 @@ try{
 ```
 
 >For more information, see:
->- [Restore Database](Console-Command-Restore.md)
->- [Export Database](Console-Command-Export.md)
->- [Import Database](Console-Command-Import.md)
->- [Console-Commands](Console-Commands.md)
->- [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)
+
+> - [Restore Database](Console-Command-Restore.md)
+> - [Export Database](Console-Command-Export.md)
+> - [Import Database](Console-Command-Import.md)
+> - [Console-Commands](Console-Commands.md)
+> - [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)

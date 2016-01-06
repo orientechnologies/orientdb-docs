@@ -1,6 +1,8 @@
+<!-- proofread 2015-01-06 SAM -->
+
 # Console - `BEGIN`
 
-Initiates a transaction.  When a transaction is open, any commands you execute on the database remain temporary.  In the event that you are satisfied with the changes, you can call the [`COMMIT`](Console-Command-Commit.md) command to commit them to the database.  Otherwise, you can call the [`ROLLBACK`](Console-Command-Rollback.md) command, to roll the changes back to the point where you called [`BEGIN`](Console-Command-Begin.md).
+Initiates a transaction.  When a transaction is open, any commands you execute on the database remain temporary. In the event that you are satisfied with the changes, you can call the [`COMMIT`](Console-Command-Commit.md) command to commit them to the database.  Otherwise, you can call the [`ROLLBACK`](Console-Command-Rollback.md) command, to roll the changes back to the point where you called [`BEGIN`](Console-Command-Begin.md).
 
 **Syntax:**
 
@@ -43,9 +45,10 @@ BEGIN
    ---+-------+----------
    </pre>
 
-When a transaction is open, new records all have temporary Record ID's, which are given negative values, (for instance, `#9:-2` above).  These remain in effect until you run [`COMMIT`](Console-Command-Commit.md)
+When a transaction is open, new records all have temporary Record ID's, which are given negative values, (for instance, like the `#9:-2` shown above).  These remain in effect until you run [`COMMIT`](Console-Command-Commit.md)
 
 >For more information on Transactions, see
+
 >- [Transactions](Transactions.md)
 >- [Console Command COMMIT](Console-Command-Commit.md)
 >- [Console Command ROLLBACK](Console-Command-Rollback.md)
