@@ -13,13 +13,13 @@ OrientDB also offers several tools for the [import and export of data](Export-an
 
 All of OrientDB's administration facilities are aimed to make your usage of OrientDB as simple and as easy as possible. 
 
-See Also:
+>For more information see:
 
-- [Command Reference](Console-Commands.md)
-- [Backup and Restore](Backup-and-Restore.md)
-- [Export and Import](Export-and-Import.md)
-- [Logging](Logging.md)
-- [Studio](Home-page.md)
-- [Trouble shooting](Troubleshooting.md)
-- [Performance Tuning](Performance-Tuning.md)
-- [ETL Tools](ETL-Introduction.md)
+>- [Command Reference](Console-Commands.md)
+>- [Backup and Restore](Backup-and-Restore.md)
+>- [Export and Import](Export-and-Import.md)
+>- [Logging](Logging.md)
+>- [Studio](Home-page.md)
+>- [Trouble shooting](Troubleshooting.md)
+>- [Performance Tuning](Performance-Tuning.md)
+>- [ETL Tools](ETL-Introduction.md)

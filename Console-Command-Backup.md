@@ -95,8 +95,9 @@ try{
 ```
 
 >For more information, see:
->- [Restore Database](Console-Command-Restore.md)
->- [Export Database](Console-Command-Export.md)
->- [Import Database](Console-Command-Import.md)
->- [Console-Commands](Console-Commands.md)
->- [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)
+
+> - [Restore Database](Console-Command-Restore.md)
+> - [Export Database](Console-Command-Export.md)
+> - [Import Database](Console-Command-Import.md)
+> - [Console-Commands](Console-Commands.md)
+> - [ODatabaseExport Java class](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)

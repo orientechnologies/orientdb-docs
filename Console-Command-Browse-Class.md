@@ -28,7 +28,5 @@ BROWSE CLASS <class-name>
   ----+------+-------------------
   </pre>
 
-For more information on other commands, see 
-
-- [Console Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](Console-Commands.md).
 

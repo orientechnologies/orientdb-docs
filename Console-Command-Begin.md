@@ -47,9 +47,9 @@ BEGIN
 
 When a transaction is open, new records all have temporary Record ID's, which are given negative values, (for instance, like the `#9:-2` shown above).  These remain in effect until you run [`COMMIT`](Console-Command-Commit.md)
 
-For more information on Transactions, see
+>For more information on Transactions, see
 
-- [Transactions](Transactions.md)
-- [Console Command COMMIT](Console-Command-Commit.md)
-- [Console Command ROLLBACK](Console-Command-Rollback.md)
-- [Console Commands](Console-Commands.md)
+>- [Transactions](Transactions.md)
+>- [Console Command COMMIT](Console-Command-Commit.md)
+>- [Console Command ROLLBACK](Console-Command-Rollback.md)
+>- [Console Commands](Console-Commands.md)
