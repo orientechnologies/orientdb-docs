@@ -1,16 +1,18 @@
+<!-- proofread 2015-01-05 SAM -->
+
 # Console Tool
 
-OrientDB provides the Console, which is a Java application that connects to and operates on OrientDB databases and Server instances.
+OrientDB provides a Console Tool, which is a Java application that connects to and operates on OrientDB databases and Server instances.
 
 ## Console Modes
 
-There are two modes available to you in executing commands through the OrientDB Console: interactive mode and batch mode.
+There are two modes available to you, while executing commands through the OrientDB Console: interactive mode and batch mode.
 
 ### Interactive Mode
 
-By default, the Console starts in interactive mode.  In this mode, the Console loads to an `orientdb>` prompt.  From there you can execute commands and SQL statements as you might expect on a database console.
+By default, the Console starts in interactive mode.  In this mode, the Console loads to an `orientdb>` prompt.  From there you can execute commands and SQL statements as you might expect in any other database console.
 
-You can launch the console in interactive mode by executing the `console.sh` or `console.bat` files in `bin` at the OrientDB installation directory.  Note that running this file requires execution permissions.
+You can launch the console in interactive mode by executing the `console.sh` for Linux OS systems or `console.bat` for Windows systems in the `bin` directory of your OrientDB installation. Note that running this file requires execution permissions.
 
 <pre>
 $ <code class="lang-sh userinput">cd $ORIENTDB_HOME/bin</code>
@@ -27,7 +29,7 @@ From here, you can begin running SQL statements or commands.  For a list of thes
 
 ### Batch mode
 
-When the Console runs in batch mode, it takes commands as arguments on the command-line  or as a text file and executes the commands in that file in order.  Use the same `console.sh` or `console.bat` file found in `bin` at the OrientDB installation directory.
+When the Console runs in batch mode, it takes commands as arguments on the command-line or as a text file and executes the commands in that file in order.  Use the same `console.sh` or `console.bat` file found in `bin` at the OrientDB installation directory.
 
 - **Command-line**: To execute commands in batch mode from the command line, pass the commands you want to run in a string, separated by a semicolon.
   <pre>
@@ -58,7 +60,7 @@ $ <code class="lang-sh userinput">vim commands.txt</code>
 
 #### Enabling Echo
 
-Regardless of whether you call the commands as an argument or through a file, when you run console commands in batch mode you may also need to display them as they execute.  You can enable this feature using the `echo` setting, near the start of your commands list.
+Regardless of whether you call the commands as an argument or through a file, when you run console commands in batch mode, you may also need to display them as they execute.  You can enable this feature using the `echo` setting, near the start of your commands list.
 
 <pre>
 $ <code class='lang-sh userinput'>vim commands.txt</code>
@@ -71,7 +73,7 @@ $ <code class='lang-sh userinput'>vim commands.txt</code>
 
 ## Console commands
 
-OrientDB implements a number of SQL statements and commands that are available through the Console.  In the event that you need information while working in the console, you can access it using either the `HELP` or `?` command.
+OrientDB implements a number of SQL statements and commands that are available through the Console. In the event that you need information while working in the console, you can access it using either the `HELP` or `?` command.
 
 
 |Command|Description|
@@ -156,7 +158,7 @@ OrientDB implements a number of SQL statements and commands that are available t
 
 ## Custom Commands
 
-In addition to the commands implemented by OrientDB, you can also develop custom commands to extend features in your particular implementation.  To do this, edit the [OConsoleDatabaseApp](https://github.com/orientechnologies/orientdb/blob/master/tools/src/main/java/com/orientechnologies/orient/console/OConsoleDatabaseApp.java) class and add to it a new method.  There's an auto-discovery system in place that adds the new method to the available commands.  To provide a description of the command, use annotations.  The command name must follow the Java code convention of separating words using camel-case.
+In addition to the commands implemented by OrientDB, you can also develop custom commands to extend features in your particular implementation. To do this, edit the [OConsoleDatabaseApp](https://github.com/orientechnologies/orientdb/blob/master/tools/src/main/java/com/orientechnologies/orient/console/OConsoleDatabaseApp.java) class and add to it a new method.  There's an auto-discovery system in place that adds the new method to the available commands. To provide a description of the command, use annotations. The command name must follow the Java code convention of separating words using camel-case.
 
 For instance, consider a case in which you might want to add a `MOVE CLUSTER` command to the console:
 
