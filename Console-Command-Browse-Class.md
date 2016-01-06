@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-06 SAM -->
+
 # Console - `BROWSE CLASS`
 
 Displays all records associated with the given class.
@@ -26,5 +28,7 @@ BROWSE CLASS <class-name>
   ----+------+-------------------
   </pre>
 
->For more information on other commands, see [Console Commands](Console-Commands.md).
+For more information on other commands, see 
+
+- [Console Commands](Console-Commands.md).
 
