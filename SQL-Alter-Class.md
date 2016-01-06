@@ -1,6 +1,6 @@
 # SQL - `ALTER CLASS`
 
-Changes an existing class in the schema.
+Updates attributes on an existing class in the schema.
 
 **Syntax**
 
