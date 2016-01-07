@@ -143,8 +143,8 @@ Example:
 
     SELECT FROM account WHERE address.city = 'Rome'
 
-#### 1-1 and N-1 referenced relationships
-1-1 and N-1 referenced relationships are expressed using the *EMBEDDED* type.
+#### 1-1 and N-1 embedded relationships
+1-1 and N-1 embedded relationships are expressed using the *EMBEDDED* type.
 
     OClass address = database.getMetadata().getSchema().createClass("Address");
 
@@ -155,8 +155,8 @@ Example:
 
 In this case, records of class "Account" will embed a record of class "Address".
 
-#### 1-N and N-M referenced relationships
-1-N and N-M referenced relationships are expressed using the collection of links such as:
+#### 1-N and N-M embedded relationships
+1-N and N-M embedded relationships are expressed using the collection of links such as:
 - **EMBEDDEDLIST**, as an ordered list of records.
 - **EMBEDDEDSET**, as an unordered set of records. It doesn't accepts duplicates.
 - **EMBEDDEDMAP**, as an ordered map with records as the value and *String* as the key. It doesn't accept duplicate keys.
