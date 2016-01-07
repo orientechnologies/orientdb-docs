@@ -1,6 +1,8 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `CREATE PROPERTY`
 
-Creates a new property on the given class.  The class must already exist.
+Creates a new property on the given class. The class must already exist.
 
 **Syntax**
 
@@ -11,10 +13,10 @@ CREATE PROPERTY <class-name>.<property-name> <property-type> [<linked-type>][ <l
 - **`<class-name>`** Defines the class you want to create the property in.
 - **`<property-name>`** Defines the logical name of the property.
 - **`<property-type>`** Defines the type of property you want to create.  Several options are available:
-- **`<linked-type>`** Defines the containter type, used in container property types.
-- **`<linked-class>`** Defines the container class, used in container property types.
+ - **`<linked-type>`** Defines the container type, used in container property types.
+ - **`<linked-class>`** Defines the container class, used in container property types.
 
->**NOTE**: There are several property and link types available.  For more information, see [Property Types](#property-types).
+>**NOTE**: There are several property and link types available. 
 
 **Examples**
 
@@ -39,7 +41,7 @@ CREATE PROPERTY <class-name>.<property-name> <property-type> [<linked-type>][ <l
   This forms a circular reference.
 
 
->To remove a property, use the [`DROP PROPERTY`](SQL-Drop-Property.md) command.  For more information, see [SQL Commands](Commands.md) and [Console Commands](Console-Commands.md).
+>To remove a property, use the [`DROP PROPERTY`](SQL-Drop-Property.md) command.  
 
 ## Property Types
 
@@ -51,7 +53,7 @@ When creating properties, you need to define the property type, so that OrientDB
 |`FLOAT`|`DATE`|`STRING`|`EMBEDDED`|
 |`LINK`|`BYTE`|`BINARY`|`DOUBLE`|
 
-In addition to these, there are several more property types that function as containers.  These form lists, sets and maps.  Using container property types requires that you also define a link type or class.
+In addition to these, there are several more property types that function as containers. These form lists, sets and maps. Using container property types requires that you also define a link type or class.
 
 |||
 |---|---|---|
@@ -69,5 +71,6 @@ The link types available are the same as those available as the standard propert
 |`BINARY`|`EMBEDDED`|`LINK`|`BYTE`|
 
 
+>For more information, see [SQL Commands](Commands.md) and [Console Commands](Console-Commands.md).
 
 

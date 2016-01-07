@@ -1,6 +1,8 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `LIST SERVERS`
 
-Displays all active servers connected in a cluster.
+Displays all active servers connected within a cluster.
 
 >This command was introduced in OrientDB version 2.2.
 
@@ -44,4 +46,4 @@ LIST SERVERS
   -------------+------------------------------
   </pre>
 
->For more information about other commands available, see [Console Commands](Console-Commands.md)
+>For more information on other commands, see [Console Commands](Console-Commands.md).
