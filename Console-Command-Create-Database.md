@@ -21,7 +21,7 @@ CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]]
 - Create a local database `demo`:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">CREATE DATABASE PLOCAL:/usr/loca/orientdb/databases/demo</code>
+  orientdb> <code class="lang-sql userinput">CREATE DATABASE PLOCAL:/usr/local/orientdb/databases/demo</code>
 
   Creating database [plocal:/usr/local/orientdb/databases/demo]...
   Connecting to database [plocal:/usr/local/orientdb/databases/demo]...OK
