@@ -5,12 +5,12 @@ The **Create Cluster** command creates a new cluster in database. Once created, 
 ## Syntax
 
 ```sql
-CREATE CLUSTER <name> [POSITION <position>|append]
+CREATE CLUSTER <name> [ID <cluster_id>]
 ```
 
 Where:
 - *name* is the cluster name to create. The first character must be alphabetic and others can be any alphanumeric characters plus underscore _ and dash -.
-- *position*, optional, is the position where to add the cluster. If omitted or it's equals to 'default' the cluster is appended at the end
+- *cluster_id*, optional, the cluster id
 
 ## Examples
 
