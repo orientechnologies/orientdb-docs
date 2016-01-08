@@ -156,7 +156,7 @@ Component description.
 |lookup|Can be the index name where to execute the lookup, or a SELECT query|string|true|<!-- PH -->|
 |targetVertexFields|Fields to set in the target vertex (since v2.1)|object|false|<!-- PH -->|
 |edgeFields|Fields to set in the edge (since v2.1)|object|false|<!-- PH -->|
-|skipDuplicates|Duplicated edges are skipped. If `skipDuplicates:true` and a UNIQUE constraint is defined on both "out" and "in" properties in the edge's class, the ETL will ignore the duplicate with no exceptions. Available v 2.2|boolean|false|false|
+|skipDuplicates|Duplicated edges are skipped. If `skipDuplicates:true` and a UNIQUE constraint is defined on both "out" and "in" properties in the edge's class, the ETL will ignore the duplicate with no exceptions|boolean|false|false|
 |unresolvedLinkAction|Action to execute in case the JOIN hasn't been resolved. Actions can be: 'NOTHING' (do nothing), CREATE (create a OrientVertex setting as primary key the join value), WARNING (increment warnings), ERROR (increment errors), HALT (interrupt the process), SKIP (skip current row).|string|false|NOTHING|
 
 #### Example 1
