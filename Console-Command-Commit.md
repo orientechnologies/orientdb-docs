@@ -1,6 +1,8 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - COMMIT
 
-Closes a transaction, committing the changes you have made to the database.  Use the [`BEGIN`](Console-Command-Begin.md) command to open a transaction.  If you don't want to save the changes you've made, use the [`ROLLBACK`](Console-Command-Rollback.md) command to revert the database state back to the point where you opened the transaction.
+Closes a transaction, committing the changes you have made to the database.  Use the [`BEGIN`](Console-Command-Begin.md) command to open a transaction. If you don't want to save the changes you've made, use the [`ROLLBACK`](Console-Command-Rollback.md) command to revert the database state back to the point where you opened the transaction.
 
 >For more information, see [Transactions](Transactions.md).
 
@@ -62,6 +64,7 @@ COMMIT
 When a transaction is open, all new records use a temporary Record ID that features negative numbers.  After the commit, they have a permanent Record ID that uses with positive numbers.
 
 >For more information, see
+>
 >- [Transactions](Transactions.md)
 >- [`BEGIN`](Console-Command-Begin.md)
 >- [`ROLLBACK`](Console-Command-Rollback.md)

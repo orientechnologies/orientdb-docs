@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `DICTIONARY GET`
 
 Displays the value of the requested key, loaded from the database dictionary.
@@ -31,6 +33,6 @@ DICTIONARY GET <key>
   -------------------------------------------------------------------------
   </pre>
 
->You can display all keys stored in a database using the [`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md) command.  For more information on indexes, see [Indexes](Indexes.md).
+>You can display all keys stored in a database using the [`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md) command. For more information on indexes, see [Indexes](Indexes.md).
 
 >For more information on other commands, see [Console Commands](Console-Commands.md).

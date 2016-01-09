@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `LIST CLASSES`
 
 Displays all configured classes in the current database. 
@@ -18,7 +20,7 @@ Displays all configured classes in the current database.
 
 **Example**
 
-- List current classes on the database:
+- List current classes in the database:
 
   <pre>
   orientdb> <code class="lang-sql userinput">LIST CLASSES</code>

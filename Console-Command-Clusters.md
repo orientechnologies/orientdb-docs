@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `LIST CLUSTERS`
 
 Displays all configured clusters in the current database.

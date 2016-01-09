@@ -1,6 +1,8 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `CREATE CLUSTER`
 
-Creates a new cluster in the current database.  The cluster you create can either be physical or memory.  OrientDB saves physical clusters to disk.  Memory clusters are volatile, any records you save to them are lost when the server stops.
+Creates a new cluster in the current database. The cluster you create can either be physical or  in memory. OrientDB saves physical clusters to disk. Memory clusters are volatile, so any records you save to them are lost, should the server be stopped.
 
 **Syntax**
 
@@ -13,7 +15,7 @@ CREATE CLUSTER <cluster-name> <cluster-type> <data-segment> <location> [<positio
 - **`<data-segment>`** Defines the data segment you want to use.
   - *`DEFAULT`* Sets the cluster to the default data segment.
 - **`<location>`** Defines the location for new cluster files, if applicable.  Use `DEFAULT` to save these to the database directory.
-- **`<position>`** Defines where to add new cluster.  Use `APPEND` to create it as the last cluster.  Leave empty to replace.
+- **`<position>`** Defines where to add new cluster.  Use `APPEND` to create it as the last cluster. Leave empty to replace.
 
 **Example**
 
