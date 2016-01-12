@@ -53,7 +53,7 @@ Last update: December 8, 2015
 | Module | Feature | Status                     | Owner |
 |--------|---------|----------------------------|-------|
 | Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% | @laa |
-| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% |) | @laa |
+| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% | @laa |
 | Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% | @laa |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  | @tglman |
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% | @tglman |
