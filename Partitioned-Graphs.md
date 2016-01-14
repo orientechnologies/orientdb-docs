@@ -134,7 +134,7 @@ SELECT FROM V
 Ok, no vertices found. Try to create something:
 
 ```sql
-CREATE VERTEX SEX label = 'car', name = 'Ferrari Modena'
+CREATE VERTEX SET label = 'car', name = 'Ferrari Modena'
 
  Created vertex 'V#9:2{label:car,name:Ferrari Modena,_allow:[1]} v0' in 0,000000 sec(s).
 
