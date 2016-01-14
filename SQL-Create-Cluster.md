@@ -1,26 +1,27 @@
-# SQL - CREATE CLUSTER
+# SQL - `CREATE CLUSTER`
 
-The **Create Cluster** command creates a new cluster in database. Once created, the cluster can be used to save records by specifying its name during save. If you want to add the cluster to a class, use rather the [Alter Class](SQL-Alter-Class.md) command using ADDCLUSTER property. 
+Creates a new cluster in the database.  Once created, you can use the cluster to save records by specifying its name during saves.  If you want to add the new cluster to a class, follow its creation with the [`ALTER CLASS`](SQL-Alter-Class.md) command, using the `ADDCLUSTER` option.
 
-## Syntax
+
+**Syntax**
 
 ```sql
-CREATE CLUSTER <name> [ID <cluster_id>]
+CREATE CLUSTER <cluster> [ID <cluster-id>]
 ```
 
-Where:
-- *name* is the cluster name to create. The first character must be alphabetic and others can be any alphanumeric characters plus underscore _ and dash -.
-- *cluster_id*, optional, the cluster id
+- **`<cluster>`** Defines the name of the cluster you want to create.  You must use a letter for the first character, for all other characters, you can use alphanumeric characters, underscores and dashes.
+- **`<cluster-id>`** Defines the numeric ID you want to use for the cluster.
 
-## Examples
+**Examples**
 
-Create the cluster 'Account':
-```java
-CREATE CLUSTER account
-```
+- Create the cluster `account`:
 
-To remove a cluster use the [Drop Cluster](SQL-Drop-Cluster.md) command.
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE CLUSTER account</code>
+  </pre>
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information see,
+>
+>- [`DROP CLUSTER`](SQL-Drop-Cluster.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)

@@ -1,57 +1,69 @@
-# SQL - CREATE LINK
+# SQL - `CREATE LINK`
 
-The **Create Link** transform two simple values in a link. This is very useful when you're importing data from a Relational database. In facts in the Relational world relationships are resolved as foreign keys.
+Creates a link between two simple values.
 
-This is not the way to create links in general, but a way to convert two values in two different classes in a link. To create a link in OrientDB look at [Relationships](Concepts.md#Relationships). For more information about importing a Relational Database into OrientDB look at [Import from RDBMS to Document Model](Import-RDBMS-to-Document-Model.md).
+**Syntax**
 
-Consider this example where the class "Post" has a relationship 1-N to "Comment":
-
-```java
-Post 1 ---> * Comment
+```sql
+CREATE LINK <link> TYPE [<link-type>] FROM <source-class>.<source-property> TO <destination-class>.<destination-property> [INVERSE]
 ```
 
-In a Relational database you'll have something like that:
+- **`<link`>** Defines the property for the link.  When not expressed, the link overwrites the `<destination-property>` field.
+- **`<link-type>`** Defines the type for the link.  In the event of an inverse relationship, (the most common), you can specify `LINKSET` or `LINKLIST` for 1-*n* relationships.
+- **`<source-class>`** Defines the class to link from.
+- **`<source-property>`** Defines the property to link from.
+- **`<destination-class>`** Defines the class to link to.
+- **`<destination-property>`** Defines the property to link to.
+- **`INVERSE`** Defines whether to create a connection on the opposite direction.  This option is common when creating 1-*n* relationships from a Relational database, where they are mapped at the opposite direction.
 
-```
-Table Post
+**Example**
+
+- Create an inverse link between the classes `Comments` and `Post`:
+  
+   <pre>
+   orientdb> <code class="lang-sq userinput">CREATE LINK comments TYPE LINKSET FROM Comments.PostId TO Posts.Id 
+             INVERSE</code>
+   </pre>
+
+
+>For more information, see
+>
+>- [Relationships](Concepts.md#relationships)
+>- [Importing from Relational Databases](Import-RDBMS-to-Document-Model.md)
+>- [SQL Commands](SQL.md)
+
+## Conversion from Relational Databases
+
+You may find this useful when imported data from a Relational database.  In the Relational world, the database uses links to resolve foreign keys.  In general, this is not the way to create links, but rather a way to convert two values in two different classes into a link.  
+
+As an example, consider a Relational database where the table `Post` has a 1-*n* relationship with the table `Comment`.  That is `Post 1 ---> * Comment`, such as:
+
+<pre>
+reldb> <code class="lang-sql userinput">SELECT * FROM Post;</code>
+
 +----+----------------+
 | Id | Title          |
 +----+----------------+
 | 10 | NoSQL movement |
++----+----------------+
 | 20 | New OrientDB   |
 +----+----------------+
 
-Table Comment
+reldb> <code class="lang-sql userinput">SELECT * FROM Comment;</code>
+
 +----+--------+--------------+
-| Id | PostId | Text         |
+| Id | PostID | Text         |
 +----+--------+--------------+
-|  0 |   10   | First        |
-|  1 |   10   | Second       |
-| 21 |   10   | Another      |
-| 41 |   20   | First again  |
-| 82 |   20   | Second Again |
+|  0 | 10     | First        |
 +----+--------+--------------+
-```
+|  1 | 10     | Second       |
++----+--------+--------------+
+| 21 | 10     | Another      |
++----+--------+--------------+
+| 41 | 20     | First again  |
++----+--------+--------------+
+| 82 | 20     | Second Again |
++----+--------+--------------+
+</pre>
 
-Using OrientDB, instead, you have direct relationship as in your object model. So the navigation is from *Post* to *Comment* and not viceversa as for Relational model. For this reason you need to create a link as **INVERSE**.
-
-## Syntax
-
-`CREATE LINK <link-name> TYPE [<link-type>] FROM <source-class>.<source-property> TO <destination-class>.<destination-property> [INVERSE]`
-
-Where:
-- **link-name** is the name of the property for the link. If not expressed will be overwritten the *destination-property* field
-- **link-type**, optional, is the type to use for the link. In case of inverse relationships (the most commons) you can specify LINKSET or LINKLIST for 1-N relationships
-- **source-class**, is the source class
-- **source-property**, is the source property
-- **destination-class**, is the destination class
-- **destination-property**, is the destination property
-- **INVERSE**, tells to create the connection on the opposite direction. This is common when you've imported 1-N relationships from a RDBMS where they are mapped at the opposite direction
-
-## Examples
-
-```sql
-CREATE LINK comments TYPE LINKSET FROM comments.PostId TO posts.Id INVERSE
-```
-
-To know more about other SQL commands look at [SQL](SQL.md).
+In OrientDB, instead of a separate table for the relationship, you use a direct relationship as your object model.  Meaning that the database navigates from `Post` to `Comment` and not vice versa, as with Relational databases.  To do so, you would also need to create the link with the `INVERSE` option.  

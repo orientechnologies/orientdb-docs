@@ -1,32 +1,33 @@
-# SQL - ALTER SEQUENCE 
+# SQL - ALTER `SEQUENCE` 
 
-(Since v2.2)
+Changes the sequence.  Using this parameter you can change all sequence options, except for the sequence type.
 
-Alters a sequence. All the settings can be changed, but the sequence type.
+This feature was introduced in version 2.2.
 
-## Syntax
-
-```sql
-ALTER SEQUENCE <sequence> [START <start>] [INCREMENT <increment>] [CACHE <cache>]
-```
-
-Where:
-- `sequence` is the sequence name to alter
-- `start` set the initial value of the sequence
-- `increment` set the value to increment when `.next()` is called
-- `cache` set the number of values to pre-cache in case the sequence is of type CACHED
-
-## See also
-- [SQL Create Sequence](SQL-Create-Sequence.md)
-- [SQL Drop Sequence](SQL-Drop-Sequence.md)
-- [Sequences and auto increment](Sequences-and-auto-increment.md)
-
-## Examples
-
-### Alter a sequence by resetting the value to 1000
+**Syntax**
 
 ```sql
-ALTER SEQUENCE idseq START 1000
+ALTER SEQUENCE <sequence> [START <start-point>] [INCREMENT <increment>] [CACHE <cache>]
 ```
 
-To know more about other SQL commands look at [SQL commands](SQL).
+- **`<sequence>`** Defines the sequence you want to change.
+- **`START`** Defines the initial sequence value.
+- **`INCREMENT`** Defines the value to increment when it calls `.next()`.
+- **`CACHE`** Defines the number of values to cache, in the event that the sequence is of the type `CACHED`.
+
+
+**Examples**
+
+- Alter a sequence, resetting the start value to `1000`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">ALTER SEQUENCE idseq START 1000</code>
+  </pre>
+
+
+> For more information, see
+>
+>- [`CREATE SEQUENCE`](SQL-Create-Sequence.md)
+>- [`DROP SEQUENCE`](SQL-Drop-Sequence.md)
+>- [Sequences and Auto-increment](Sequences-and-auto-increment.md)
+>- [SQL Commands](SQL).
