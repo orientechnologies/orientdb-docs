@@ -1,37 +1,39 @@
-# SQL - CREATE SEQUENCE 
+# SQL - `CREATE SEQUENCE`
 
-(Since v2.2)
+Creates a new sequence.  Command introduced in version 2.2.
 
-Creates a new sequence.
+**Syntax**
 
-## Syntax
-
-```sql
-CREATE SEQUENCE <sequence> TYPE <CACHED|ORDERED> [START <start>] [INCREMENT <increment>] [CACHE <cache>]
 ```
-
-Where:
-- `sequence` is the sequence name to create
-- `TYPE` can be:
- - `CACHED`, where each call to the `.next()` will result in a new value
- - `ORDERED`, where the sequence will cache N items on each node, thus improving the performance if many `.next()` calls are required. However, this may create holes with numeration
-- `start` set the initial value of the sequence
-- `increment` set the value to increment when `.next()` is called
-- `cache` set the number of values to pre-cache in case the sequence is of type CACHED
-
-## See also
-- [SQL Alter Sequence](SQL-Alter-Sequence.md)
-- [SQL Drop Sequence](SQL-Drop-Sequence.md)
-- [Sequences and auto increment](Sequences-and-auto-increment.md)
-
-## Examples
-
-### Create and use a new sequence to handle id numbers
-
-```sql
-CREATE SEQUENCE idseq TYPE ORDERED
-INSERT INTO account SET id = sequence('idseq').next()
+CREATE SEQUENCE <sequence> TYPE <CACHED|ORDERED> [START <start>] 
+[INCREMENT <increment>] [CACHE <cache>]
 ```
+- **`<sequence>`** Logical name for the sequence to cache.
+- **`TYPE`** Defines the sequence type.  Supported types are,
+  - `CACHED` For sequences where it draws on a new value with each call to the `.next()` method.
+  - `ORDERED` For sequences where it caches N items on each node to improve performance when you require many calls to the `.next()` method.  (Bear in mind, this many create holes with numeration).
+- **`START`** Defines the initial value of the sequence.
+- **`INCREMENT`** Defines the increment for each call of the `.next()` method.
+- **`CACHE`** Defines the number of value to pre-cache, in the event that you use the cached sequence type.
 
-To know more about other SQL commands look at [SQL commands](SQL).
+**Examples**
+
+- Create a new sequence to handle id numbers:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE SEQUENCE idseq TYPE ORDERED</code>
+  </pre>
+
+- Use the new sequence to insert id values
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">INSERT INTO Account SET id = sequence('idseq').next()</code>
+  </pre>
+
+>For more information, see
+>
+>- [`ALTER SEQUENCE`](SQL-Alter-Sequence.md)
+>- [DROP SEQUENCE](SQL-Drop-Sequence.md)
+>- [Sequences and Auto-increment](Sequences-and-auto-increment.md)
+>- [SQL commands](SQL).
 

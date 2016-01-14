@@ -1,37 +1,35 @@
-# SQL - CREATE USER 
+# SQL - `CREATE USER `
 
-(Since v2.2)
+Creates a user in the current database, using the specified password and an optional role.  When the role is unspecified, it defaults to `writer`.  
 
-Creates a user in the current database, with the specified password and an optional role.
-Note that if a role isn't specified, a default role ("writer") is used.
+The command was introduced in version 2.2.  It is a simple wrapper around the `OUser` and `ORole` classes.  More information is available at [Security](Security.md).
 
-Note this is simply a wrapper around OUser and ORole tables; Look up [Security](Security) for more details.
-
-## Syntax
+**Syntax**
 
 ```sql
-CREATE USER <user-name> IDENTIFIED BY <password> [ROLE <role-name>]
+CREATE USER <user> IDENTIFIED BY <password> [ROLE <role>]
 ```
 
-WHERE:
-- `role-name` is the name of the role. To specify multiple roles pass an array of names. Example: `ROLES ['author','writer']`
+- **`<user>`** Defines the logical name of the user you want to create.
+- **`<password>`** Defines the password to use for this user.
+- **`ROLE`** Defines the role you want to set for the user.  For multiple roles, use the following syntax: `['author', 'writer']`.
 
+**Examples**
 
-## Examples
+- Create a new admin user called `Foo` with the password `bar`:
 
-### Creates a new user called 'Foo', with password 'bar', and role 'admin'
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE USER Foo IDENTIFIED BY bar ROLE admin</code>
+  </pre>
 
-```sql
-create user Foo identified by bar role admin
-```
+- Create a new user called `Bar` with the password `foo`:
 
-### Creates a new user called 'Bar', with password 'Foo'
-```sql
-crete user Bar identified by Foo
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>CREATE USER Bar IDENTIFIED BY Foo</code>
+  </pre>
 
-To know more about other SQL commands look at [SQL commands](SQL).
-
-## References
-- [SQL Drop User](SQL-Drop-User.md)
-
+>For more information, see
+>
+>- [Security](Security.md)
+>- [`DROP USER`](SQL-Drop-User.md)
+>- [SQL Commands](SQL.md)

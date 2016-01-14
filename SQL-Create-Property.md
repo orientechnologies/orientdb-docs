@@ -1,79 +1,68 @@
-# SQL - CREATE PROPERTY
+# SQL - `CREATE PROPERTY`
 
-The **Create Property** command creates a new property in the schema. An existing class is required to perform this command.
+Creates a new property in the schema.  It requires that the class for the property already exist on the database.
 
-## Syntax
-
-```
-CREATE PROPERTY <class>.<property> <type> [<linked-type>|<linked-class>] [UNSAFE]
-```
-
-Where:
-
-- **class** is the class of the property
-- **property**, is the property created in the **class**
-- **type**, the data type of the property. See [Types](Types.md). Valid options are:
-    - **boolean**
-    - **integer**
-    - **short**
-    - **long**
-    - **float**
-    - **double**
-    - **date**
-    - **string**
-    - **binary**
-    - **embedded**
-    - **embeddedlist**, an ordered collection of items that supports duplicates. Optionally accepts the parameter *linked-type* or *linked-class* to specify the collection's content
-    - **embeddedset**, an unordered collection of items that does not support duplicates. Optionally accepts the parameter *linked-type* or *linked-class* to specify the collection's content
-    - **embeddedmap**, a map of key/value entries. Optionally accepts the parameter *linked-type* or *linked-class* to specify the map's value content
-    - **link**
-    - **linklist**, an ordered collection of items that supports duplicates. Optionally accepts the parameter *linked-class* to specify the linked record's class
-    - **linkset**, an unordered collection of items that does not support duplicates. Optionally accepts the parameter *linked-class* to specify the linked record's class
-    - **linkmap**, this is a map of key/<record> entries. Optionally accepts the parameter *linked-class* to specify the map's value record class
-    - **byte**
-- **linked-type**, the contained type in EMBEDDEDSET, EMBEDDEDLIST and EMBEDDEDMAP types (see above). See also [Types](Types.md). Valid options are:
-    - **boolean**
-    - **integer**
-    - **short**
-    - **long**
-    - **float**
-    - **double**
-    - **date**
-    - **string**
-    - **binary**
-    - **embedded**
-    - **link**
-    - **byte**
-- **linked-class**, the contained class in containers (see above).
-- **UNSAFE**, optional, avoid check on existent records. With millions of records this operation could take time. If you are sure the property is new, you can skip the check by using **UNSAFE**. Since 2.0. 
-
-## Existing Data Validation
-
-On Property creation the data is checked for **property** and **type**, in case the persistent data has not compatible values for the specified **type** the property creation fail, no other constraint are applied on the persistent data.
-
-
-## Examples
-
-Create the property 'name' of type 'STRING' in class 'User':
+**Syntax**
 
 ```
-CREATE PROPERTY user.name STRING
+CREATE PROPERTY <class>.<property> <type> [<link-type>|<link-class>] [UNSAFE]
 ```
 
-Create a list of Strings as property 'tags' of type 'EMBEDDEDLIST' in class 'Profile'. The linked type is 'STRING':
+- **`<class>`** Defines the class for the new property.
+- **`<property>`** Defines the logical name for the property.
+- **`<type>`** Defines the property data type.  For supported types, see the table below.
+- **`<link-type>`** Defines the contained type for container property data types.  For supported link types, see the table below.
+- **`<link-class>`** Defines the contained class for container property data types.  For supported link types, see the table below.
+- **`UNSAFE`** Defines whether it checks existing records.  On larger databases, with millions of records, this could take a great deal of time.  Skip the check when you are sure the property is new.  Introduced in version 2.0.
 
-```
-CREATE PROPERTY profile.tags EMBEDDEDLIST STRING
-```
 
-Create the property 'friends' of type 'EMBEDDEDMAP' in class 'Profile'. The linked class is profile itself (circular references):
+>When you create a property, OrientDB checks the data for property and type.  In the event that persistent data contains incompatible values for the specified type, the property creation fails.  It applies no other constraints on the persistent data.
 
-```
-CREATE PROPERTY profile.friends EMBEDDEDMAP Profile
-```
+**Examples**
 
-To remove a property use the [SQL Drop Property](SQL-Drop-Property.md) command.
+- Create the property `name` of the string type in the class `User`:
 
-To learn more about other SQL commands look at [SQL commands](SQL.md).
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE PROPERTY User.name STRING</code>
+  </pre>
 
-This is a command of the Orient console. To learn all available commands go to [Console-Commands](Console-Commands.md).
+- Create a property formed from a list of strings called `tags` in the class `Profile`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE PROPERTY Profile.tags EMBEDDEDLIST STRING</code>
+  </pre>
+
+- Create the property `friends`, as an embedded map in a circular reference:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>CREATE PROPERTY Profile.friends EMBEDDEDMAP Profile</code>
+  </pre>
+
+
+>For more information, see
+>
+>- [`DROP PROPERTY`](SQL-Drop-Property.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)
+
+
+## Supported Types
+
+OrientDB supports the following data types for standard properties:
+
+|||||
+|---|---|---|---|
+| `BOOLEAN` | `SHORT` | `DATE` | `BYTE`|
+| `INTEGER` | `LONG` | `STRING` | `LINK` |
+| `DOUBLE` | `FLOAT` | `BINARY` | `EMBEDDED` |
+
+It supports the following data types for container properties.  
+
+||||
+|---|---|---|
+| `EMBEDDEDLIST` | `EMBEDDEDSET` | `EMBEDDEDMAP` |
+| `LINKLIST` | `LINKSET` | `LINKMAP` |
+
+For these data types, you can optionally define the contained type and class.  The supported link types are the same as the standard property data types above.
+
+

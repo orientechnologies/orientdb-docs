@@ -21,7 +21,7 @@ CREATE LINK <link> TYPE [<link-type>] FROM <source-class>.<source-property> TO <
 - Create an inverse link between the classes `Comments` and `Post`:
   
    <pre>
-   orientdb> <code class="lang-sq userinput">CREATE LINK comments TYPE LINKSET FROM Comments.PostId TO Posts.Id 
+   orientdb> <code class="lang-sql userinput">CREATE LINK comments TYPE LINKSET FROM Comments.PostId TO Posts.Id 
              INVERSE</code>
    </pre>
 

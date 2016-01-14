@@ -1,26 +1,47 @@
-# SQL - MOVE VERTEX
+# SQL - `MOVE VERTEX`
 
-This command moves one or more Vertices into another class or cluster. The new vertices will have a new identity ([RID](Concepts.md#recordid)). The command takes care of updating all the edges to point to the new vertices. If a cluster is specified as target and OrientDB is running distributed, then the vertices will be moved to the servers owner of the target cluster. 
+Moves one or more vertices into a different class or cluster.  
 
-|![](images/warning.png)|NOTE: `MOVE VERTEX` command updates all connected edges, but not [links](Concepts.md#relationships). If you work with Graph API, we suggest to always use edges to connect vertices and never links.|
-|----|----|
+Following the move, the vertices use a different Record ID.  The command updates all edges to use the moved vertices.  When using a distributed database, if you specify a cluster, it moves the vertices to the server owner of the target cluster.
 
-## Syntax
+**Syntax**
 
 ```sql
-MOVE VERTEX <source> TO <destination> [SET [<field>=<value>]* [,]] [MERGE <JSON>] [BATCH <batch-size>]
+MOVE VERTEX <source> TO <destination> [SET [<field>=<value>]* [,]] [MERGE <JSON>] 
+[BATCH <batch-size>]
 ```
 
+- **`<source>`** Defines the vertex you want to move. It supports the following values,
+  - *Vertex* Using the Record ID of a single vertex.
+  - *Array* Using an array of record ID's for vertices you want to move.
+- **`<destination>`** Defines where you want to move the vertex to.  It supports the following values,
+  - *Class* Using `CLASS:<class>` with the class you want to move the vertex into.
+  - *Cluster* Using `CLUSTER:<cluster>` with the cluster you want to move the vertex into. 
+- **`SET`** Clause to set values on fields during the transition.
+- **`MERGE`** Clause to set values on fields during the transition, through JSON.
+- **`BATCH`** Defines the batch size, allowing you to execute the command in smaller blocks to avoid memory problems when moving a large number of vertices.  
+
 Where:
-- `source` are the vertices to move. This could be one of the following values:
+|----|----|
+|![](images/warning.png)|**NOTE**: This command updates all connected edges, but not the [links](Concepts.md#relationships).  When using the Graph API, it is recommend that you always use edges connected to vertices and never links.|
+
+
+## Examples
+
+
  - A **single vertex** by RID. Example: `MOVE VERTEX #34:232 TO CLASS:Provider`
  - An **array of vertices** by RIDs. Example: `MOVE VERTEX [#34:232,#34:444] TO CLASS:Provider`
  - A **subquery** with vertices as result. All the returning vertices will be moved. Example: `MOVE VERTEX (SELECT FROM V WHERE city = 'Rome') TO CLASS:Provider`
-- `destination` is the location where to move vertices. Can be one of the followings:
+
  - **Class**, by using the syntax `CLASS:<class-name>`. Use this to refactor your graph assigning a new class to vertices
  - **Cluster**, by using the syntax `CLUSTER:<cluster-name>`. Use this to move your vertices on different clusters in the same class. This is useful on [Distributed Configuration](Distributed-Architecture.md) where you can move vertices on other servers
+
+
 - `SET` optional block contains the pairs of values to assign during the moving. The syntax is the same as [SQL UPDATE](SQL-Update.md). Example: `MOVE VERTEX (SELECT FROM V WHERE type = 'provider') TO CLASS:Provider SET movedOn = Date()`
+
 - `MERGE` optional block gets a JSON containing the pairs of values to assign during the moving. The syntax is the same as [SQL UPDATE](SQL-Update.md). Example: `MOVE VERTEX (SELECT FROM V WHERE type = 'provider') TO CLASS:Provider MERGE { author : 'Jay Miner' }`
+
+
 - `BATCH` optional block gets the `<batch-size>` to execute the command in small blocks, avoiding memory problems when the number of vertices is high (Transaction consumes RAM). By default is 100. To execute the entire operation in one transaction, disable the batch by setting the `<batch-size>` to `-1`
 
 
@@ -28,11 +49,10 @@ Where:
 - [Create Vertex](SQL-Create-Vertex.md)
 - [Create Edge](SQL-Create-Edge.md)
 
-## History and Compatibility
 
-- 2.0: first version
+To know more about other SQL commands look at [SQL commands](SQL.md).
 
-## Examples
+
 
 ### Refactoring of graph by adding sub-types
 
@@ -56,5 +76,8 @@ With this example, we're moving all the customers that live in Italy, Germany or
 MOVE VERTEX (SELECT FROM Customer WHERE ['Italy', 'Germany', 'UK'] IN out('city').out('country') ) TO CLUSTER:customer_europe
 ```
 
----
-To know more about other SQL commands look at [SQL commands](SQL.md).
+
+
+## History and Compatibility
+
+- 2.0: first version
