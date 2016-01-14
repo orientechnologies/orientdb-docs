@@ -867,7 +867,7 @@ Syntax: `http://<server>:[<port>]/document/<database>/<record-id>`
 
 #### Example ###
 
-HTTP GET request: `http://localhost:2480/document/demo/9:0`
+HTTP DELETE request: `http://localhost:2480/document/demo/9:0`
 
 HTTP response: empty
 

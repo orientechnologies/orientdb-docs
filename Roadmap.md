@@ -9,13 +9,13 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 ## Release 2.2
 ```
 - Development started on.: June 25th 2015
-- Expected BETA..........: December 14th 2015
-- Expected first RC......: December 21st 2015
-- Expected final GA......: January 2016
+- Expected BETA..........: January 22 2015
+- Expected first RC......: February 8 2015
+- Expected final GA......: March 2016
 ```
 
 ### Status
-Last update: December 14, 2015
+Last update: January 12, 2016
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
@@ -43,30 +43,28 @@ Last update: December 14, 2015
 ## Release 3.0
 ```
 - Development started on.: September 2015
-- Expected first RC......: March 2016
-- Expected final GA......: April 2016
+- Expected first RC......: June 2016
+- Expected final GA......: August 2016
 ```
 
 ### Status
 Last update: December 8, 2015
 
-| Module | Feature | Status                     |
-|--------|---------|----------------------------|
-| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% |
-| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% |)
-| Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
-| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0% |
-| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
-| SQL | Distributed SQL Executor | 0% |
-| SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
-| SQL | New functions (strings, maths) | 40% |
-| SQL | Multi-line queries in batch scripts | 0% |
-| Core | Indexing of embedded properties | 0% |
-| Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
-| Distributed | Replication of in-memory databases | 0% |
-| Distributed | Auto-Sharding | 0% |
-| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
-| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% |
+| Module | Feature | Status                     | Owner |
+|--------|---------|----------------------------|-------|
+| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% | @laa |
+| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% | @laa |
+| Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% | @laa |
+| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  | @tglman |
+| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% | @tglman |
+| SQL | Distributed SQL Executor | 0% | @luigidellaquila |
+| SQL | Multi-line queries in batch scripts | 0% | @luigidellaquila |
+| Core | Indexing of embedded properties | 0% | @maggiolo00 |
+| Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% | ?? |
+| Distributed | Replication of in-memory databases | 0% | @lvca |
+| Distributed | Auto-Sharding | 0% | @lvca |
+| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% | @maggiolo00 |
+| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% | @maggiolo00 |
 
 
 ## Release 3.1
@@ -91,3 +89,5 @@ Last update: December 8, 2015
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
 | Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
+| SQL | New functions (strings, maths) | 40% |

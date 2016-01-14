@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `BROWSE CLUSTER`
 
 Displays all records associated with the given cluster.

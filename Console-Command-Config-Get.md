@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `CONFIG GET`
 
 Displays the value of the requested configuration variable.
@@ -21,6 +23,6 @@ CONFIG GET <config-variable>
   Remote configuration: tx.log.fileType = classic
   </pre>
 
->You can display all configuration variables using the [`CONFIG`](Console-Command-Config.md) command.  To change the values, use the [`CONFIG SET`](Console-Command-Config-Set.md) command.
+>You can display all configuration variables using the [`CONFIG`](Console-Command-Config.md) command. To change the values, use the [`CONFIG SET`](Console-Command-Config-Set.md) command.
 >
 >For more information on other commands, see [Config Commands](Console-Commands.md).

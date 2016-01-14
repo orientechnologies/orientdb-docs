@@ -1,6 +1,8 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `DECLARE INTENT`
 
-Declares an intent for the current database.  Intents allow you to tell the database what you want to do.
+Declares an intent for the current database. Intents allow you to tell the database what you want to do.
 
 **Syntax**
 
@@ -8,7 +10,7 @@ Declares an intent for the current database.  Intents allow you to tell the data
 DECLARE INTENT <intent-name>
 ```
 
-- **`<intent-name>`** Defines the name of the intent.  OrientDB supports three intents:
+- **`<intent-name>`** Defines the name of the intent. OrientDB supports three intents:
   - *`NULL`* Removes the current intent.
   - *`MASSIVEINSERT`*
   - *`MASSIVEREAD`*

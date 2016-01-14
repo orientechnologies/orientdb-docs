@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `CREATE DATABASE`
 
 Creates and connects to a new database.
@@ -8,11 +10,11 @@ Creates and connects to a new database.
 CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]]
 ```
 
-- **`<database-url>`** Defines the URL of the database you want to connect to.  It uses the format `<mode>:<path>`
+- **`<database-url>`** Defines the URL of the database you want to connect to. It uses the format `<mode>:<path>`
   - *`<mode>`* Defines the mode you want to use in connecting to the database.  It can be `PLOCAL` or `REMOTE`.
   - *`<path>`* Defines the path to the database.  
-- **`<user>`** Defines the user you want to connect as on the database.
-- **`<password>`** Defines the password you want to use to connect to the database.
+- **`<user>`** Defines the user you want to connect to the database with.
+- **`<password>`** Defines the password needed to connect to the database, with the defined user.
 - **`<storage-type>`** Defines the storage type that you want to use.  You can choose between `PLOCAL` and `MEMORY`.
 - **`<db-type>`** Defines the database type.  You can choose between `GRAPH` and `DOCUMENT`.  The default is `GRAPH`.
 
@@ -21,7 +23,7 @@ CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]]
 - Create a local database `demo`:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">CREATE DATABASE PLOCAL:/usr/loca/orientdb/databases/demo</code>
+  orientdb> <code class="lang-sql userinput">CREATE DATABASE PLOCAL:/usr/local/orientdb/databases/demo</code>
 
   Creating database [plocal:/usr/local/orientdb/databases/demo]...
   Connecting to database [plocal:/usr/local/orientdb/databases/demo]...OK
@@ -48,7 +50,7 @@ CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]]
   </pre>
 
 
->To create a static database to use from th server, see [Server pre-configured storage types](DB-Server.md#storages).
+>To create a static database to use from the server, see [`Server pre-configured storage types`](DB-Server.md#storages).
 >
 >To remove a database, see [`DROP DATABASE`](Console-Command-Drop-Database.md).  To change database configurations after creation, see [`ALTER DATABASE`](SQL-Alter-Database.md).
 >

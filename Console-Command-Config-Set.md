@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `CONFIG SET`
 
 Updates a configuration variable to the given value.

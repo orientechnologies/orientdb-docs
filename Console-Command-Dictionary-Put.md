@@ -1,3 +1,5 @@
+<!-- proofread 2015-01-07 SAM -->
+
 # Console - `DICTIONARY PUT`
 
 Binds a record to a key in the dictionary database, making it accessible to the [`DICTIONARY GET`](Console-Command-Dictionary-Get.md) command.
@@ -32,8 +34,6 @@ DICTIONARY PUT <key> <record-id>
   The entry obama=5:4 has been inserted in the database dictionary
   </pre>
 
-The entry obama=5:4 has been inserted in the database dictionary
-```
 
 >To see all the keys stored in the database dictionary, use the [`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md) command.  For more information on dictionaries and indexes, see [Indexes](Indexes.md).
 >
