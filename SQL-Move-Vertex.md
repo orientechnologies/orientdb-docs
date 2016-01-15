@@ -21,7 +21,6 @@ MOVE VERTEX <source> TO <destination> [SET [<field>=<value>]* [,]] [MERGE <JSON>
 - **`MERGE`** Clause to set values on fields during the transition, through JSON.
 - **`BATCH`** Defines the batch size, allowing you to execute the command in smaller blocks to avoid memory problems when moving a large number of vertices.  
 
-Stuff
 
 |![WARNING](images/warning.png) | **WARNING**: This command updates all connected edges, but not the [links](Concepts.md#relationships).  When using the Graph API, it is recommend that you always use edges connected to vertices and never links. |
 |---|---|
