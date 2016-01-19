@@ -2,10 +2,10 @@
 
 OrientDB supports multi-threads access to the database. `ODatabase*` and `OrientGraph*` instances are not thread-safe, so you've to get *an instance per thread* and each database instance can be used *only in one thread per time*. For more information about how concurrency is managed by OrientDB look at [Concurrency](Concurrency.md).
 
-|![](images/warning.png)|Since v2.1 OrientDB doesn't allow implicit usage of multiple database instances from the same thread. Any attempt to manage multiple instances in the same thread must explicitly call the method `db.activateOnCurrentThread()` against the database instance BFORE you use it.|
+|![](images/warning.png)|Since v2.1 OrientDB doesn't allow implicit usage of multiple database instances from the same thread. Any attempt to manage multiple instances in the same thread must explicitly call the method `db.activateOnCurrentThread()` against the database instance BEFORE you use it.|
 |---|---|
 
-Multiple database instances points to the same storage by using the same URL. In this case Storage is thread-save and orchestrates requests from different ```ODatabase*``` instances.
+Multiple database instances point to the same storage by using the same URL. In this case Storage is thread-safe and orchestrates requests from different ```ODatabase*``` instances.
 
 ```
 ODatabaseDocumentTx-1------+
