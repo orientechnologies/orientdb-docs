@@ -1,6 +1,6 @@
 # Graph API
 
-OrientDB uses [TinkerPop Blueprints](https://github.com/tinkerpop/blueprints) as default Graph Java API.
+OrientDB adheres to the [TinkerPop Blueprints](https://github.com/tinkerpop/blueprints) standard and uses it as default Graph Java API.
 
 ## Requirements
 
