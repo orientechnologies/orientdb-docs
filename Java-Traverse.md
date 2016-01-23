@@ -17,12 +17,12 @@ The main concepts of Traversal are:
 
 ### Traversing strategies
 #### DEPTH_FIRST strategy
-This is the default strategy used by OrientDB for traversal. It explores as far as possible along each branch before backtracking. It's implemented using recursion. To know more look at [Depth-First algorithm](http://en.wikipedia.org/wiki/Depth-first_search). Below the ordered steps executed while traversing the graph using *BREADTH_FIRST* strategy:
+This is the default strategy used by OrientDB for traversal. It explores as far as possible along each branch before backtracking. It's implemented using recursion. To know more look at [Depth-First algorithm](http://en.wikipedia.org/wiki/Depth-first_search). Below the ordered steps executed while traversing the graph using *DEPTH_FIRST* strategy:
 
 ![Depth-first-tree](http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Depth-first-tree.svg/600px-Depth-first-tree.svg.png)
 
 #### BREADTH_FIRST strategy
-It inspects all the neighboring nodes, then for each of those neighbor nodes in turn, it inspects their neighbor nodes which were unvisited, and so on. Compare **BREADTH_FIRST** with the equivalent, but more memory-efficient iterative deepening **DEPTH_FIRST** search and contrast with **DEPTH_FIRST** search. To know more look at [Breadth-First algorithm](http://en.wikipedia.org/wiki/Breadth-first_search). Below the ordered steps executed while traversing the graph using *Depth-First* strategy:
+It inspects all the neighboring nodes, then for each of those neighbor nodes in turn, it inspects their neighbor nodes which were unvisited, and so on. Compare **BREADTH_FIRST** with the equivalent, but more memory-efficient iterative deepening **DEPTH_FIRST** search and contrast with **DEPTH_FIRST** search. To know more look at [Breadth-First algorithm](http://en.wikipedia.org/wiki/Breadth-first_search). Below the ordered steps executed while traversing the graph using *BREADTH_FIRST* strategy:
 
 ![Breadth-first-tree](http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/600px-Breadth-first-tree.svg.png)
 
