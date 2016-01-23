@@ -20,7 +20,7 @@ OClass company = database.getMetadata().getSchema().createClass("Company").setSu
 By default, OrientDB treats all queries as polymorphic. Using the example above, you can run the following query from the console:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name.toUpperCase() = 'Google'</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name.toUpperCase() = 'GOOGLE'</code>
 </pre>
 
 This query returns all instances of the classes `Account` and `Company` that have a property name that matches `Google`.
