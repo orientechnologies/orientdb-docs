@@ -5,11 +5,12 @@ The **Drop Class** command removes a class from the schema. *NOTE: Pay attention
 ## Syntax
 
 ```sql
-DROP CLASS <class>
+DROP CLASS <class> [ UNSAFE ]
 ```
 
 Where:
 - **class** is the class of the schema
+- **UNSAFE** is needed to drop non-empty edge and vertex classes (ATTENTION: it can break data consistency, do it at your own risk)
 
 ## See also
 - [create class](SQL-Create-Class.md)
