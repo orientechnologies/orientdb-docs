@@ -193,13 +193,13 @@ db.getEntityManager().registerEntityClass(Person.class);
 
 // CREATES A NEW PERSON FROM THE EMPTY CONSTRUCTOR
 Person person = db.newInstance(Person.class);
-animal.setName( "Antoni" );
-animal.setSurname( "Gaudi" );
+person.setName( "Antoni" );
+person.setSurname( "Gaudi" );
 db.save( person );
 
 // CREATES A NEW PERSON FROM A PARAMETRIZED CONSTRUCTOR
 Person person = db.newInstance(Person.class,  "Antoni");
-animal.setSurname( "Gaudi" );
+person.setSurname( "Gaudi" );
 db.save( person );
 
 // CREATES A NEW PERSON FROM A PARAMETRIZED CONSTRUCTOR
