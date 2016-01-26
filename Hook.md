@@ -1,6 +1,6 @@
 # Hooks (Triggers)
 
-Hooks work like triggers and enables the user's application to intercept internal events before and after each CRUD operation against records. You can use them to write custom validation rules, to enforce security, or even to orchestrate external events like replicating against a Relational DBMS.
+Hooks work like triggers and enable a user's application to intercept internal events before and after each CRUD operation against records. You can use them to write custom validation rules, to enforce security, or even to orchestrate external events like replicating against a Relational DBMS.
 
 OrientDB supports two kinds of Hooks:
 - [Dynamic Hooks](Dynamic-Hooks.md), defined at the schema and/or document level
