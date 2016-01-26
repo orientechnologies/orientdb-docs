@@ -1,27 +1,28 @@
-# SQL - DROP USER 
+# SQL - `DROP USER`
 
-(Since v2.2)
+Removes a user from the current database.  This feature was introduced in version 2.2
 
-Drops a user from the current database.
-
-Note this is simply a wrapper around OUser table. Look up [Security](Security) for more details.
-
-## Syntax
+**Syntax**
 
 ```sql
-DROP USER <user-name>
+DROP USER <user>
 ```
 
-## Examples
+- **`<user>`** Defines the user you want to remove.
 
-### Drop a user called 'Foo'
 
-```sql
-drop user Foo
-```
+>**NOTE**: This is a wrapper on the class `OUser`.  For more information, see [Security](Security.md).
 
-## References
-- [SQL Create User](SQL-Create-User.md)
 
-To know more about other SQL commands look at [SQL commands](SQL).
+**Examples**
+
+- Remove the user `Foo`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP USER Foo</code>
+  </pre>
+
+>For more information, see,
+>- [`CREATE USER`](SQL-Create-User.md)
+>- [SQL commands](SQL)
 

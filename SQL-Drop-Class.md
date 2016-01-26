@@ -1,26 +1,30 @@
-# SQL - DROP CLASS
+# SQL - `DROP CLASS`
 
-The **Drop Class** command removes a class from the schema. *NOTE: Pay attention to maintain the schema coherent. For example avoid to remove classes that are super classes of others. The associated cluster won't be deleted.*
+Removes a class from the schema.
 
-## Syntax
+**Syntax**
 
 ```sql
 DROP CLASS <class>
 ```
 
-Where:
-- **class** is the class of the schema
+- **`<class>`** Defines the class you want to remove.
 
-## See also
-- [create class](SQL-Create-Class.md)
-- [alter class](SQL-Alter-Class.md)
-- [alter cluster](SQL-Alter-Cluster.md)
-- [SQL commands](SQL.md)
-- [Console commands](Console-Commands.md)
 
-## Examples
+>**NOTE**: Bear in mind, that the schema must remain coherent.  For instance, avoid removing calsses that are super-classes to others.  This operation won't delete the associated cluster.
 
-Remove the class 'Account':
-```sql
-DROP CLASS Account
-```
+**Examples**
+
+- Remove the class `Account`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP CLASS Account</code>
+  </pre>
+
+
+>For more information, see
+>- [`CREATE CLASS`](SQL-Create-Class.md)
+>- [`ALTER CLASS`](SQL-Alter-Class.md)
+>- [`ALTER CLUSTER`](SQL-Alter-Cluster.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)

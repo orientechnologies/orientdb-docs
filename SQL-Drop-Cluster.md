@@ -1,27 +1,27 @@
-# SQL - DROP CLUSTER
+# SQL - `DROP CLUSTER`
 
-The **Drop Cluster** command removes a cluster and all its content. This operation cannot be rollbacked.
+Removes the cluster and all of its content.  This operation is permanent and cannot be rolled back.
 
-## Syntax
+**Syntax**
 
 ```sql
 DROP CLUSTER <cluster-name>|<cluster-id>
 ```
 
-Where:
-- **cluster-name** is the cluster name as string
-- **cluster-id** is the cluster id as integer
+- **`<cluster-name>`** Defines the name of the cluster you want to remove.
+- **`<cluster-id>`** Defines the ID of the cluster you want to remove.
 
-## See also
-- [create cluster](SQL-Create-Cluster.md)
-- [alter cluster](SQL-Alter-Cluster.md)
-- [drop class](SQL-Drop-Class.md)
-- [SQL commands](SQL.md)
-- [Console commands](Console-Commands.md)
+**Examples**
 
-## Examples
+- Remove the cluster `Account`:
 
-Remove the cluster 'Account':
-```sql
-DROP CLUSTER Account
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP CLUSTER Account</code>
+  </pre>
+
+>For more information, see
+>- [`CREATE CLUSTER`](SQL-Create-Cluster.md)
+>- [`ALTER CLUSTER`](SQL-Alter-Cluster.md)
+>- [`DROP CLASS`](SQL-Drop-Class.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)

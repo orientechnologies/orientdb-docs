@@ -1,45 +1,54 @@
-# SQL - EXPLAIN
+# SQL - `EXPLAIN`
 
-Profiles any command and returns back result of execution. This is useful to know why a query is slow. Use EXPLAIN as keyword before the command you want to profile.
+Profiles any command and returns a JSON data on the result of its execution.  You may find this useful to see why queries are running slow.  Use it as a keyword before any command that you want to profile.
 
-# Syntax
+**Syntax**
 
 ```
 EXPLAIN <command>
 ```
 
-- **command** is the command you want to profile.
+- **`<command>`** Defines the command that you want to profile.
 
-Returns a document containing all the profiled metrics:
-<table><tbody>
-  <tr><th>Metric</th><th>Description</th></tr>
-  <tr><td>elapsed</td><td>Time elapsed in seconds to execute the command. The precision is nanosecond</td></tr>
-  <tr><td>resultType</td><td>The result type. Can be 'collection', 'document' or 'number'</td></tr>
-  <tr><td>resultSize</td><td>The number of record retrieved in case the resultType is a 'collection'</td></tr>
-  <tr><td>recordReads</td><td>The number of records read from disk</td></tr>
-  <tr><td>documentReads</td><td>The number of documents read from disk. It could be different by recordReads if other kind of records are present in the target of the command. For example if you put in the same cluster documents and recordbytes you could skip many records. Much better to store different records in separate clusters in case of scan</td></tr>
-  <tr><td>documentAnalyzedCompatibleClass</td><td>The number of documents analyzed of the requested class of the query. It could be different by documentReads if records of different classes are present in the target of the command. For example if you put in the same cluster documents of class "Account" and "Invoice" you could skip many records of type "Invoice" if your're looking for Account instances. Much better to store records of different classes in separate clusters in case of scan</td></tr>
-  <tr><td>involvedIndexes</td><td>The indexes involved in the command</td></tr>
-  <tr><td>indexReads</td><td>The number of records read from the index</td></tr>
-</tbody></table>
+**Examples**
+
+- Profile a query that executes on a class without indexes:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>EXPLAIN SELECT FROM Account</code>
+
+  Profiled command '{documentReads:1126, documentReadsCompatibleClass:1126, 
+  recordReads:1126, elapsed:209, resultType:collection, resultSize:1126}' 
+  in 0,212000 sec(s).
+  </pre>
+
+- Profile a query that executes on a class with indexes:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>EXPLAIN SELECT FROM Profile WHERE name = 'Luca'</code>
+
+  Profiled command '{involvedIndexes:[1], indexReads:1, resultType:collection
+  resultSize:1, documentAnalyzedCompatibleClass:1, elapsed:1}' 
+  in 0,002000 sec(s).
+  </pre>
+
+>For more information,s ee
+>- [SQL Commands](SQL.md)
 
 
-# Examples
+## Understanding the Profile
 
-## Non indexed query
+When you run this command, it returns JSON data containing all of the following profile metrics:
 
-```sql
-EXPLAIN SELECT FROM account
+| Metric | Description |
+|---|---|
+| `elapsed` | Time to execute in seconds.  The precision is the nanosecond.|
+| `resultType` |  The result-type: `collection`, `document`, or `number`.|
+| `resultSize` | Number of records retrieved, in cases where the result-type is `collection`.|
+| `recordReads` | Number of records read from disk.|
+| `documentReads` | Number of documents read from disk.  This metric may differ from `recordReads` in the event that other kinds of records are present in the command target.  For instance, if you have documents and recordbytes in the same cluster it may skip many records.  That said, in case of scans, it is recommended that you store different records in separate clusters.|
+| `documentAnalyzedCompatibleClass` | Number of documents analyzed in the class.  For instance, if you use the same cluster in documents for the classes `Account` and `Invoice`, it would skip records of the class `Invoice` when you target the class `Account`.  In case of scans, it is recommended that you store different classes in separate clusters.|
+| `involvedIndexes` | Indexes involved in the command.|
+| `indexReads` | Number of records read from the index.|
 
-Profiled command
-'{documentReads:1126,documentReadsCompatibleClass:1126,recordReads:1126,elapsed:209,resultType:collection,resultSize:1126}' in 0,212000 sec(s).
-```
-## Indexed query
 
-```sql
-EXPLAIN SELECT FROM profile WHERE name = 'Luca'
-
-Profiled command '{involvedIndexes:[1],indexReads:1,documentAnalyzedCompatibleClass:1,elapsed:1,resultType:collection,resultSize:1}' in 0,002000 sec(s).
-```
-
-To know more about other SQL commands look at [SQL commands](SQL.md).

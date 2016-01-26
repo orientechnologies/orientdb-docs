@@ -1,29 +1,27 @@
-# SQL - DROP SEQUENCE
+# SQL - `DROP SEQUENCE`
 
-(Since v.2.2)
+Removes a sequence.  This feature was introduced in version 2.2.
 
-Drops a sequence.
-
-## Syntax
+**Syntax**
 
 ```sql
 DROP SEQUENCE <sequence>
 ```
 
-Where:
-- `sequence` is the name of the sequence to drop
+- **`<sequence>`** Defines the name of the sequence you want to remove.
 
-## See also
-- [SQL Create Sequence](SQL-Create-Sequence.md)
-- [SQL Drop Sequence](SQL-Drop-Sequence.md)
-- [Sequences and auto increment](Sequences-and-auto-increment.md)
 
-## Examples
+**Examples**
 
-Drop a sequence
+- Remove the sequence `idseq`:
 
-```sql
-DROP SEQUENCE idseq
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP SEQUENCE idseq</code>
+  </pre>
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+
+>For more information, see
+>- [`CREATE SEQUENCE`](SQL-Create-Sequence.md)
+>- [`DROP SEQUENCE`](SQL-Drop-Sequence.md)
+>- [Sequences and auto increment](Sequences-and-auto-increment.md)
+>- [SQL commands](SQL.md)

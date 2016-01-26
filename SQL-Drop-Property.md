@@ -1,27 +1,26 @@
-# SQL - DROP PROPERTY
+# SQL - `DROP PROPERTY`
 
-The **Drop Property** command removes a property from the schema. This doesn't remove the property values in records, but just change the schema information. Records will continue to have the property values if any.
+Removes a property from the schema.  Does not remove the property values in the records, it just changes the schema information.  Records continue to have the property values, if any.
 
-## Syntax
+**Syntax**
 
-```xml
+```sql
 DROP PROPERTY <class>.<property>
 ```
 
-Where:
-- **class** is the class of the schema
-- **property**, is the property created into the **class**
+- **`<class>`** Defines the class where the property exists.
+- **`<property>`** Defines the property you want to remove.
 
-## Examples
+**Examples**
 
-Remove the property 'name' in class 'User':
+- Remove the `name` property from the class `User`:
 
-```java
-DROP PROPERTY user.name
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">DROP PROPERTY User.name</code>
+  </pre>
 
-To create a new property use the [Create Property](SQL-Create-Property.md) command.
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information, see
+>- [`CREATE PROPERTY`](SQL-Create-Property.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)
