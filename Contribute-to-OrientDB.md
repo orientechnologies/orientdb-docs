@@ -3,14 +3,26 @@
 In order to contribute issues and pull requests, please sign OrientDB's [Contributor License Agreement](https://www.clahub.com/agreements/orientechnologies/orientdb). The purpose of this agreement is to protect users of this codebase by ensuring that all code is free to use under the stipulations of the [Apache2 license](http://www.apache.org/licenses/LICENSE-2.0.html).
 
 ## Pushing into main repository
+OrientDB uses different branches to support the development and release process. 
+The `develop` branch contains code under development for which there's not a stable release yet. 
+When a stable version is released, a branch for the hotfix is created. 
+Each stable release is merged on master branch and tagged there.
+As the time of writing this notes, the state of branches is:
+
+* develop: work in progress for next 2.2.x release (2.2.0-SNAPSHOT)
+* 2.1.x: hot fix for next 2.1.x stable release (2.1.10-SNAPSHOT)
+* 2.0.x: hot fix for next 2.0.x stable release (2.0.17-SNAPSHOT)
+* last tag on master is 2.1.9  
+
 If you'd like to contribute to OrientDB with a patch follow the following steps:
-* fork the repository interested in your change. The main one is https://github.com/orientechnologies/orientdb, but plugins, drivers and other components reside in other projects under [Orient Technologies](https://github.com/orientechnologies/) umbrella.
-* select the "develop" branch if present
-* apply your changes,
+* fork the repository interested in your change. The main one is https://github.com/orientechnologies/orientdb, while some other components reside in other projects under [Orient Technologies](https://github.com/orientechnologies/) umbrella.
+* clone the forked repository
+* select the branch, e.g the develop branch: 
+ * `git checkout develop`
+* apply your changes with your favourite editor or IDE
 * test that Test Suite hasn't been broken by running:
  * `mvn clean test`
-* if all the tests pass, then do a **Pull Request** (PR) against **"develop"** branch on GitHub repository and write a comment about the change. Please don't send PR to "master" because we use that branch only for releasing
-* if you want the fix is backported to a previous version, please write it in your comments and if the OrientDB team agree they will do that as soon as the PR is merged
+* if all the tests pass, then do a **Pull Request** (PR) against the branch (e.g.: **"develop"**) on GitHub repository and write a comment about the change. Please don't send PR to "master" because we use that branch only for releasing
 
 ## Documentation
 

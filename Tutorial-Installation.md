@@ -62,12 +62,38 @@ To compile OrientDB from source code, clone the Community Edition repository, th
 
 ```sh
 $ git clone https://github.com/orientechnologies/orientdb
+$ git checkout develop
 $ cd orientdb
 $ mvn clean install
 ```
 
-The build process creates a `releases` directory one level up from the source files and installs OrientDB in a directory with a version number there.  For example, running Maven in the `/opt/orientdb/orientdb` source code directory builds OrientDB version 2.1.2 at `/opt/orientdb/releases/orientdb-community-2.1.2` installation directory.
+It is possible to skip tests:
+```sh
+$ mvn clean install -DskipTests
+```
 
+The develop branch contains code for the next version of OrientDB. Stable versions are tagged on master branch.
+For each maintained version OrientDB has its own `hotfix` branch.
+As the time of writing this notes, the state of branches is:
+
+* develop: work in progress for next 2.2.x release (2.2.0-SNAPSHOT)
+* 2.1.x: hot fix for next 2.1.x stable release (2.1.10-SNAPSHOT)
+* 2.0.x: hot fix for next 2.0.x stable release (2.0.17-SNAPSHOT)
+* last tag on master is 2.1.9  
+
+The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch 2.1.x gave: 
+```sh
+$ls -l distribution/target/
+total 199920
+    1088 26 Jan 09:57 archive-tmp
+     102 26 Jan 09:57 databases
+     102 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.dir
+48814386 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.tar.gz
+53542231 26 Jan 09:58 orientdb-community-2.1.10-SNAPSHOT.zip
+$
+```
+The directory `orientdb-community-2.1.10-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
+Take a look to [Contribute to OrientDB](Contribute-to-OrientDB.md) if you want to be involved.
 
 
 #### Update Permissions
