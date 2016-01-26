@@ -4,14 +4,14 @@ This page contains the roadmap with the main enhancement for OrientDB product.
 
 ### Terms
 - **RC**: [Release Candidate](https://en.wikipedia.org/wiki/Software_release_life_cycle#Release_candidate), is a beta version with potential to be a final product, which is ready to release unless significant bugs emerge. In this stage of product stabilization, all product features have been designed, coded and tested through one or more beta cycles with no known showstopper-class bug. A release is called code complete when the development team agrees that no entirely new source code will be added to this release. There could still be source code changes to fix defects, changes to documentation and data files, and peripheral code for test cases or utilities. Beta testers, if privately selected, will often be credited for using the release candidate as though it were a finished product. Beta testing is conducted in a client's or customer's location and to test the software from a user's perspective.
-- **GA**: [General Availability](https://en.wikipedia.org/wiki/Software_release_life_cycle#General_availability_.28GA.29), is the stage whre the software has "gone live" for usage in production. Users in production are suggested to plan a migration for the current GA evaluating pros and cons of the upgrade.
+- **GA**: [General Availability](https://en.wikipedia.org/wiki/Software_release_life_cycle#General_availability_.28GA.29), is the stage where the software has "gone live" for usage in production. Users in production are suggested to plan a migration for the current GA evaluating pros and cons of the upgrade.
 
 ## Release 2.2
 ```
 - Development started on.: June 25th 2015
-- Expected BETA..........: January 22 2015
-- Expected first RC......: February 8 2015
-- Expected final GA......: March 2016
+- Expected BETA..........: February 2016
+- Expected first RC......: March 2016
+- Planned final GA......: April 2016
 ```
 
 ### Status
@@ -50,21 +50,21 @@ Last update: January 12, 2016
 ### Status
 Last update: December 8, 2015
 
-| Module | Feature | Status                     | Owner |
-|--------|---------|----------------------------|-------|
-| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% | @laa |
-| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% | @laa |
-| Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% | @laa |
-| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  | @tglman |
-| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% | @tglman |
-| SQL | Distributed SQL Executor | 0% | @luigidellaquila |
-| SQL | Multi-line queries in batch scripts | 0% | @luigidellaquila |
-| Core | Indexing of embedded properties | 0% | @maggiolo00 |
-| Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% | ?? |
-| Distributed | Replication of in-memory databases | 0% | @lvca |
-| Distributed | Auto-Sharding | 0% | @lvca |
-| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% | @maggiolo00 |
-| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% | @maggiolo00 |
+| Module | Feature | Status                     |
+|--------|---------|----------------------------|
+| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% |
+| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% |
+| Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
+| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  |
+| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
+| SQL | Distributed SQL Executor | 0% |
+| SQL | Multi-line queries in batch scripts | 0% |
+| Core | Indexing of embedded properties | 0% |
+| Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
+| Distributed | Replication of in-memory databases | 0% |
+| Distributed | Auto-Sharding | 0% |
+| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
+| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% |
 
 
 ## Release 3.1

@@ -5,10 +5,12 @@ Removes a class from the schema.
 **Syntax**
 
 ```sql
-DROP CLASS <class>
+DROP CLASS <class> [ UNSAFE ]
 ```
 
 - **`<class>`** Defines the class you want to remove.
+- **`UNSAFE`** Defines whether the command drops non-empty edge and vertex classes.  Note, this can disrupt data consistency.  Be sure to create a backup before running it.
+
 
 
 >**NOTE**: Bear in mind, that the schema must remain coherent.  For instance, avoid removing calsses that are super-classes to others.  This operation won't delete the associated cluster.

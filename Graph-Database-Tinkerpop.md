@@ -1,5 +1,9 @@
 # Graph API
 
+OrientDB adheres to the [TinkerPop Blueprints](https://github.com/tinkerpop/blueprints) standard and uses it as default Graph Java API.
+
+## Requirements
+
 To use the Graph API include the following jars in your classpath:
 ```
 orientdb-core-*.jar
@@ -34,7 +38,7 @@ groovy-*.jar
 
 _NOTE_: Starting from v2.0, [Lightweight Edges](Lightweight-Edges.md) are disabled by default when new database are created.
 
-# Introduction
+## Introduction
 
 [Tinkerpop](http://www.tinkerpop.com) is a complete stack of projects to handle Graphs:
 - **[Blueprints](http://wiki.github.com/tinkerpop/blueprints)** provides a collection of interfaces and implementations to common, complex data structures. In short, Blueprints provides a one stop shop for implemented interfaces to help developers create software without being tied to particular underlying data management systems.
@@ -43,13 +47,13 @@ _NOTE_: Starting from v2.0, [Lightweight Edges](Lightweight-Edges.md) are disabl
 - **[Rexster](http://rexster.tinkerpop.com)** is a RESTful graph shell that exposes any Blueprints graph as a standalone server. Extensions support standard traversal goals such as search, score, rank, and, in concert, recommendation. Rexster makes extensive use of Blueprints, Pipes, and Gremlin. In this way its possible to run Rexster over various graph systems. To configure Rexster to work with OrientDB follow this guide: [configuration](Rexster.md).
 - **[Sail Ouplementation](https://github.com/tinkerpop/blueprints/wiki/Sail-Ouplementation)** to use OrientDB as a RDF Triple Store.
 
-# Get started with Blueprints
+## Get started with Blueprints
 OrientDB supports different kind of storages and depends by the [Database URL](Concepts.md#database_url) used:
 - **Persistent embedded** GraphDB. OrientDB is linked to the application as JAR (No network transfer). Use **[plocal](Paginated-Local-Storage.md)** as prefix. Example "plocal:/tmp/graph/test"
 - **In-Memory embedded** GraphDB. Keeps all the data only in memory. Use **memory** as prefix. Example "memory:test"
 - **Persistent remote** GraphDB. Uses a binary protocol to send and receive data from a remote OrientDB server. Use **remote** as prefix. Example "remote:localhost/test". It requires a OrientDB Server instance is up and running at the specified address (localhost in this case). Remote database can be persistent or in-memory as well.
 
-# Working with the GraphDB
+## Working with the GraphDB
 
 Before working with a graph you need an instance of [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class. The constructor gets a [URL](Concepts.md#database_url) that is the location of the database. If the database already exists, it will be opened, otherwise it will be created. However a new database can only be created in **plocal** or **memory** mode, not in **remote** mode. In multi-threaded applications use one [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance per thread. Also all the graph components (Vertices and Edges) are not thread-safe, so sharing them between threads could cause unpredictable errors.
 
@@ -64,7 +68,7 @@ try {
   graph.shutdown();
 }
 ```
-## Use the factory
+### Use the factory
 Starting from v1.7 the best way to get a Graph instance is through the [OrientGraphFactory](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraphFactory.html). To know more: [Use the Graph Factory](Graph-Factory.md). Example:
 ```java
 // AT THE BEGINNING
@@ -80,7 +84,7 @@ try {
 }
 ```
 
-# Transactions
+## Transactions
 
 Before v2.1.7, every time the graph is modified an implicit transaction is started automatically if no previous transaction was running. Transactions are committed automatically when the graph is closed by calling the `shutdown()` method or by explicit `commit()`. To rollback changes call the `rollback()` method.
 
@@ -107,7 +111,7 @@ Surrounding the transaction between a try/catch assures that any errors will rol
 
 _NOTE_: Before v2.1.7, to work against a graph always use transactional [OrientGraph](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never non-transactional ones to avoid graph corruption from multi-threaded changes. A non-transactional graph instance created with <code>OrientGraphNoTx graph = factory.getNoTx();</code> is only useful if you don't work with data but want to define the [database schema](Graph-Schema.md) or for [bulk inserts](#using-non-transactional-graphs).
 
-## Optimistic approach
+### Optimistic approach
 OrientDB supports optimistic transactions, so no lock is kept when a transaction is running, but at commit time each graph element version is checked to see if there has been an update by another client. This is the reason why you should write your code to be concurrency-proof by handling the concurrent updating case:
 
 ```java
@@ -132,9 +136,9 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 }
 ```
 
-# Working with Vertices and Edges
+## Working with Vertices and Edges
 
-## Create a vertex
+### Create a vertex
 
 To create a new Vertex in the current Graph call the [Vertex OrientGraph.addVertex(Object id)](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#addVertex(java.lang.Object)) method. Note that the id parameter is ignored since OrientDB implementation assigns a unique-id once the vertex is created. To return it use [Vertex.getId()](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getId()).
 Example:
@@ -143,7 +147,7 @@ Vertex v = graph.addVertex(null);
 System.out.println("Created vertex: " + v.getId());
 ```
 
-## Create an edge
+### Create an edge
 
 An Edge links two vertices previously created. To create a new Edge in the current Graph call the [Edge OrientGraph.addEdge(Object id, Vertex outVertex, Vertex inVertex, String label )](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#addEdge(java.lang.Object,-Vertex,-Vertex,-java.lang.String)) method. Note that the id parameter is ignored since OrientDB implementation assigns a unique-id once the Edge is created. To return it use [Edge.getId()](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getId()). <code>outVertex</code> is the Vertex instance where the Edge starts and <code>inVertex</code> is the Vertex instance where the Edge ends. <code>label</code> is the Edge's label. Specify null to not assign it.
 Example:
@@ -160,7 +164,7 @@ System.out.println("Created edge: " + lucaKnowsMarko.getId());
 
 If you're interested on optimizing creation of edges by concurrent threads/clients, look at [Concurrency on adding edges](Concurrency.md#concurrency-on-adding-edges).
 
-## Retrieve all the Vertices
+### Retrieve all the Vertices
 
 To retrieve all the vertices use the `getVertices()` method:
 ```java
@@ -169,7 +173,7 @@ for (Vertex v : graph.getVertices()) {
 }
 ```
 
-## Retrieve all the Edges
+### Retrieve all the Edges
 
 To retrieve all the vertices use the [getEdges()](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#getEdges()) method:
 ```java
@@ -180,7 +184,7 @@ for (Edge e : graph.getEdges()) {
 
 NOTE: When [Lightweight Edges](Lightweight-Edges.md) are enabled (starting from v2.0 are disabled by default), edges are stored as links not as records. This is to improve performance. As a consequence, `getEdges()` will only retrieve records of class E.  With useLightweightEdges=true, records of class E are only created under certain circumstances (e.g. if the Edge has properties) otherwise they will be links on the in and out vertices.  If you really want `getEdges()` to return all edges, disable the [Lightweight Edges](Lightweight-Edges.md) feature by executing this command once: `alter database custom useLightweightEdges=false`. This will only take effect for new edges so you'll have to convert the links to actual edges before getEdges will return all edges. For more information look at: [Troubleshooting: Why can't I see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges).
 
-## Removing a Vertex
+### Removing a Vertex
 
 To remove a vertex from the current Graph call the [OrientGraph.removeVertex(Vertex vertex)](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#removeVertex(Vertex)) method. The vertex will be disconnected from the graph and then removed. Disconnection means that all the vertex's edges will be deleted as well.
 Example:
@@ -188,7 +192,7 @@ Example:
 graph.removeVertex(luca);
 ```
 
-## Removing an Edge
+### Removing an Edge
 
 To remove an edge from the current Graph call the [OrientGraph.removeEdge(Edge edge)](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#removeEdge(Edge)) method. The edge will be removed and the two vertices will not be connected anymore.
 Example:
@@ -196,7 +200,7 @@ Example:
 graph.removeEdge(lucaKnowsMarko);
 ```
 
-## Set and get properties
+### Set and get properties
 
 Vertices and Edges can have multiple properties where the key is a String and the value can be any [supported OrientDB types](Types.md).
 
@@ -217,7 +221,7 @@ for (String property : vertex2.getPropertyKeys()) {
 vertex1.removeProperty("y");
 ```
 
-### Setting Multiple Properties
+#### Setting Multiple Properties
 
 *Blueprints Extension*
 OrientDB Blueprints implementation supports setting of multiple properties in one shot against Vertices and Edges. This improves performance avoiding to save the graph element at every property set:
@@ -237,7 +241,7 @@ props.put("born", "Victoria, TX");
 vertex.setProperties(props);
 ```
 
-### Creating Element and Properties all together
+#### Creating Element and Properties all together
 
 If you want to create a vertex or an edge while setting the initial properties, the OrientDB Blueprints implementation offers new methods to do it:
 
@@ -257,7 +261,7 @@ Both methods accept a `Map<String, Object>` as a parameter to set one property p
 
 These methods are especially useful if you've declared constraints in the schema.  For example, a property cannot be null, and only using these methods will the validation checks succeed.
 
-## Using Indices
+### Using Indices
 
 OrientDB allows execution of queries against any field of vertices and edges, indexed and not-indexed. The first rule to speed up queries is to setup indices on the key properties you use in the query. For example, if you have a query that is looking for all the vertices with the name 'OrientDB' you do this:
 ```java
@@ -296,13 +300,13 @@ graph.getEdges("age", 20);
 ```
 For more information about indices look at [Index guide](Indexes.md).
 
-# Using Non-Transactional Graphs
+## Using Non-Transactional Graphs
 
 To speed up operations like on massive insertions you can avoid transactions by using a different class than OrientGraph: **OrientGraphNoTx**. In this case each operation is *atomic* and data is updated at each operation. When the method returns, the underlying storage is updated. Use this for bulk inserts and massive operations or for schema definition.
 
 _NOTE_: Using non-transactional graphs could create corruption in the graph if changes are made in multiple threads at the same time. So use non-transactional graph instances only for non multi-threaded operations.
 
-# Configure the Graph
+## Configure the Graph
 Starting from v1.6 OrientDB supports configuration of the graph by setting all the properties during construction:
 
 |Name|Description|Default value|
@@ -318,7 +322,7 @@ Starting from v1.6 OrientDB supports configuration of the graph by setting all t
 |blueprints.orientdb.lightweightEdges	|Uses [Lightweight Edges](Lightweight-Edges.md). This avoids creating a physical document per edge. Documents are created only when the Edges have properties.	|false|
 |blueprints.orientdb.autoStartTx	|Auto starts a transaction as soon as the graph is changed by adding/remote vertices and edges and properties. |true|
 
-# Gremlin usage
+## Gremlin usage
 
 If you use GREMLIN language with OrientDB remember to initialize it with:
 ```java
@@ -330,21 +334,21 @@ Look at these pages about GREMLIN usage:
 - [Getting started with Gremlin](http://github.com/tinkerpop/gremlin/wiki/Getting-Started)
 - [Usage of Gremlin through HTTP/RESTful API using the Rexter project](https://github.com/tinkerpop/rexster/wiki/Using-Gremlin).
 
-# Multi-Threaded Applications
+## Multi-Threaded Applications
 
 Multi-threaded applications must use one OrientGraph instance per thread. For more information about multi-threading look at [Java Multi Threading](Java-Multi-Threading.md). Also all the graph components (Vertices and Edges) are not thread-safe, so sharing them between threads could cause unpredictable errors.
 
-# Blueprints Extensions
+## Blueprints Extensions
 
 OrientDB is a Graph Database on steroids because it merges the graph, document, and object-oriented worlds together. Below are some of the features exclusive to OrientDB.
 
-## Custom types
+### Custom types
 
 OrientDB supports custom types for vertices and edges in an Object Oriented manner. Even if this isn't supported directly by Blueprints there are some tricks to use them. Look at the [Graph Schema](Graph-Schema.md) page to know how to create a schema and work against types.
 
 OrientDB added a few variants to the Blueprints methods to work with types.
 
-### Creating vertices and edges in specific clusters
+#### Creating vertices and edges in specific clusters
 
 By default each class has one cluster with the same name. You can add multiple clusters to the class to allow OrientDB to write vertices and edges on multiple files. Furthermore working in [Distributed Mode](Distributed-Architecture.md) each cluster can be configured to be managed by a different server.
 
@@ -354,7 +358,7 @@ Example:
 graph.addVertex("class:Person,cluster:Person_usa");
 ```
 
-### Retrieve vertices and edges by type
+#### Retrieve vertices and edges by type
 
 To retrieve all the vertices of `Person` class use the special `getVerticesOfClass(String className)` method:
 ```java
@@ -374,7 +378,7 @@ The same variants also apply to the `getEdges()` method as:
 - `getEdgesOfClass(String className)` and
 - `getEdgesOfClass(String className, boolean polymorphic)`
 
-## Ordered Edges
+### Ordered Edges
 
 OrientDB, by default, uses a set to handle the edge collection. Sometimes it's better having an ordered list to access the edge by an offset. Example:
 
@@ -405,7 +409,7 @@ create property out_Photos LINKLIST
 alter property User.out_Photos custom ordered=true
 ```
 
-## Working on detached elements
+### Working on detached elements
 
 When you work with web applications, it’s very common to query elements and render them to the user to let him apply some changes. Once the user updates some fields and presses the “save” button, what happens?
 
@@ -417,15 +421,15 @@ Starting with OrientDB v1.7 we added two new methods to the Graph API on the Ori
 - `OrientBaseGraph.detach(OrientElement)`
 - `OrientBaseGraph.attach(OrientElement)`
 
-### Detach
+#### Detach
 
 Detach methods fetch all the record content in RAM and reset the connection to the Graph instance. This allows you to modify the element off-line and to re-attach it once finished.
 
-### Attach
+#### Attach
 
 Once the detached element has been modified, to save it back to the database you need to call the `attach()` method. It restores the connection between the Graph Element and the Graph Instance.
 
-### Example
+#### Example
 
 The first step is load a vertex and detach it.
 ```java
@@ -454,17 +458,17 @@ try {
 }
 ```
 
-### FAQ
+#### FAQ
 **Does detach go recursively to detach all connected elements?**
 No, it works only at the current element level.
 
 **Can I add an edge against detached elements?**
 No, you can only get/set/remove a property while is detached. Any other operation that requires the database will throw an IllegalStateException.
 
-## Execute commands
+### Execute commands
 The OrientDB Blueprints implementation allows you to execute commands using SQL, Javascript, and all the other supported languages.
 
-### SQL queries
+#### SQL queries
 ```java
 for (Vertex v : (Iterable<Vertex>) graph.command(
             new OCommandSQL("SELECT EXPAND( out('bought') ) FROM Customer WHERE name = 'Jay'")).execute()) {
@@ -490,7 +494,7 @@ graph.command(
 ```
 
 
-### SQL commands
+#### SQL commands
 
 Along with queries, you can execute any SQL command like `CREATE VERTEX`, `UPDATE`, or `DELETE VERTEX`. In the example below it sets a new property called "local" to true on all the Customers that live in Rome:
 ```java
@@ -506,7 +510,7 @@ graph.getRawGraph().getMetadata().getSchema().reload();
 
 For more information look at the [available SQL commands](SQL.md).
 
-### SQL batch
+#### SQL batch
 
 To execute multiple SQL commands in a batch, use the OCommandScript and SQL as the language. This is recommended when creating edges on the server side, to minimize the network roundtrip:
 
@@ -524,7 +528,7 @@ OIdentifiable edge = graph.command(new OCommandScript("sql", cmd)).execute();
 For more information look at [SQL Batch](SQL-batch.md).
 
 
-### Database functions
+#### Database functions
 
 To execute a database function it must be written in Javascript or any other supported languages. In the example below we imagine having written the function `updateAllTheCustomersInCity(cityName)` that executes the same update like above. Note the 'Rome' attribute passed in the `execute()` method:
 ```java
@@ -532,7 +536,7 @@ graph.command(
           new OCommandFunction("updateAllTheCustomersInCity")).execute("Rome"));
 ```
 
-### Code
+#### Code
 To execute code on the server side you can select between the supported language (by default Javascript):
 ```java
 graph.command(
@@ -541,7 +545,7 @@ graph.command(
 
 This prints the line "Hello World!" ten times in the server console or in the local console if the database has been opened in "plocal" mode.
 
-# Access to the underlying Graph
+## Access to the underlying Graph
 
 Since the TinkerPop Blueprints API is quite raw and doesn't provide ad-hoc methods for very common use cases, you might need to access the underlying ODatabaseGraphTx object to better use the graph-engine under the hood. Commons operations are:
 - Count incoming and outgoing edges without browsing them all
@@ -561,9 +565,9 @@ try {
 }
 ```
 
-## Security
+### Security
 
 If you want to use OrientDB security, use the constructor that retrieves the [URL](Concepts.md#database_url), user and password. To know more about OrientDB security visit [Security](Security.md). By default the "admin" user is used.
 
-# Tuning
+## Tuning
 Look at the [Performance Tuning Blueprints](Performance-Tuning-Graph.md) page.
