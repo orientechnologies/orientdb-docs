@@ -106,6 +106,7 @@ The supported special types are:
 - 'z' for linklist
 - 'm' for linkmap
 - 'g' for linkbag
+- 'u' for custom
 
 ## Keep-Alive
 

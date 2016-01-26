@@ -15,7 +15,7 @@ BACKUP DATABASE <output-file> [-incremental] [-compressionLevel=<compressionLeve
 ```
 
 - **`<output-file>`** Defines the path to the backup file.
-- **`-incremental`** Option to execute an incremental backup.  When enabled, it computes the data to backup as all new changes since the last backup. Available in version 2.2 or later.
+- **`-incremental`** Option to execute an incremental backup.  When enabled, it computes the data to backup as all new changes since the last backup. Available in [OrientDB Enterprise Edition](Enterprise-Edition.md) version 2.2 or later.
 - **-`compressionLevel`** Defines the level of compression for the backup file.  Valid levels are `0` to `9`.  The default is `9`.  Available in 1.7 or later.
 - **`-bufferSize`** Defines the compression buffer size.  By default, this is set to 1MB.  Available in 1.7 or later.
 
@@ -72,7 +72,7 @@ try{
 
 ### Incremental Backup
 
-As of version 2.2, OrientDB supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
+As of version 2.2, [OrientDB Enterprise Edition](Enterprise-Edition.md) supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
 
 ```java
 db.incrementalBackup(backupDirectory);
