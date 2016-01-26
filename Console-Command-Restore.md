@@ -13,7 +13,8 @@ RESTORE DATABASE <backup-file>|<incremental-backup-directory>
 ```
 
 - **`<backup-file>`** Defines the database file you want to restore.
-- **`<incremental-backup-directory>`** Defines the database directory you want to restore from an incremental backup.
+- **`<incremental-backup-directory>`** Defines the database directory you want to restore from an incremental backup. Available only in [OrientDB Enterprise Edition](Enterprise-Edition.md) version 2.2 and major.
+
 
 **Example of full restore**
 
@@ -30,6 +31,8 @@ RESTORE DATABASE <backup-file>|<incremental-backup-directory>
   </pre>
 
 **Example of incremental restore**
+
+This is available only in [OrientDB Enterprise Edition](Enterprise-Edition.md) version 2.2 and major.
 
 - Open a database to receive the restore:
 
