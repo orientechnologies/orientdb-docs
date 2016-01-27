@@ -32,7 +32,7 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 - Define a Regular Expression as constraint:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Account.gender REGEXP [M|F]</code>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Account.gender REGEXP "[M|F]"</code>
   </pre>
 
 - Define a field as case-insensitive to comparisons:
