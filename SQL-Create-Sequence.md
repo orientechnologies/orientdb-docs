@@ -10,8 +10,8 @@ CREATE SEQUENCE <sequence> TYPE <CACHED|ORDERED> [START <start>]
 ```
 - **`<sequence>`** Logical name for the sequence to cache.
 - **`TYPE`** Defines the sequence type.  Supported types are,
-  - `CACHED` For sequences where it draws on a new value with each call to the `.next()` method.
-  - `ORDERED` For sequences where it caches N items on each node to improve performance when you require many calls to the `.next()` method.  (Bear in mind, this many create holes with numeration).
+  - `CACHED` For sequences where it caches N items on each node to improve performance when you require many calls to the `.next()` method.  (Bear in mind, this many create holes with numeration).
+  - `ORDERED` For sequences where it draws on a new value with each call to the `.next()` method.
 - **`START`** Defines the initial value of the sequence.
 - **`INCREMENT`** Defines the increment for each call of the `.next()` method.
 - **`CACHE`** Defines the number of value to pre-cache, in the event that you use the cached sequence type.

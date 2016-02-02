@@ -19,7 +19,7 @@ public interface ORecordHook {
 
 ### The ORecordHookAbstract abstract class
 
-OrientDB comes with an abstract implementation of the [ORecordHook](https://github.com/orientechnologies/orientdb/blob/develop/core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHook.java) interface called [ORecordHookAbstract.java](https://github.com/orientechnologies/orientdb/blob/develop/core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHookAbstract.java). It switches the callback event calling seperate methods for each one:
+OrientDB comes with an abstract implementation of the [ORecordHook](https://github.com/orientechnologies/orientdb/blob/develop/core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHook.java) interface called [ORecordHookAbstract.java](https://github.com/orientechnologies/orientdb/blob/develop/core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHookAbstract.java). It switches the callback event, calling separate methods for each one:
 
 ```java
 public abstract class ORecordHookAbstract implements ORecordHook {
@@ -36,7 +36,7 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 ```
 
 ### The ODocumentHookAbstract abstract class
-When you want to catch event from Document only, the best way to create a hook is to extend the `ODocumentHookAbstract` abstract class. You can specify what classes you're interested in. In this way the callbacks will be called only to the document of specified classes. Classes are polymorphic so filtering works against specified classes and all sub-classes.
+When you want to catch an event from a Document only, the best way to create a hook is to extend the `ODocumentHookAbstract` abstract class. You can specify what classes you're interested in. In this way the callbacks will be called only on documents of the specified classes. Classes are polymorphic so filtering works against specified classes and all sub-classes.
 
 You can specify only the class you're interested or the classes you want to exclude. Example to include only the `Client` and `Provider` classes:
 
@@ -59,7 +59,7 @@ public class MyHook extends ODocumentHookAbstract {
 ```
 
 ### Access to the modified fields
-In Hook methods, you can access to the dirty fields and the original values. Example:
+In Hook methods you can access dirty fields and the original values. Example:
 
 ```java
 for( String field : document.getDirtyFields() ) {
@@ -71,7 +71,7 @@ for( String field : document.getDirtyFields() ) {
 
 ### Self registration
 
-Hooks could be installed only to certain database instances, but in most of the cases you'd need to register it for each instance. To do this programmatically you can intercept the `onOpen()` and `onCreate()` callbacks from OrientDB to install hooks. All you need is to implement the `ODatabaseLifecycleListener` interface. Example:
+Hooks can be installed on certain database instances, but in most cases you'll need to register it for each instance. To do this programmatically you can intercept the `onOpen()` and `onCreate()` callbacks from OrientDB to install hooks. All you need is to implement the `ODatabaseLifecycleListener` interface. Example:
 
 ```java
 public class MyHook extends ODocumentHookAbstract implements ODatabaseLifecycleListener {
@@ -167,7 +167,7 @@ For more information take a look to the [HookTest.java](https://github.com/orien
 
 ### Install server-side hooks
 
-To let a hook to be executed in the Server space you've to register it in the server `orientdb-server-config.xml` configuration file.
+To let a hook be executed in the Server space you have to register it in the server `orientdb-server-config.xml` configuration file.
 
 #### Write your hook
 

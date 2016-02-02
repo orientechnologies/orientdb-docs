@@ -5,11 +5,12 @@ Removes a property from the schema.  Does not remove the property values in the 
 **Syntax**
 
 ```sql
-DROP PROPERTY <class>.<property>
+DROP PROPERTY <class>.<property> [FORCE]
 ```
 
 - **`<class>`** Defines the class where the property exists.
 - **`<property>`** Defines the property you want to remove.
+- **FORCE** In case one or more indexes are defined on the property, the command will throw an exception. Use FORCE to drop indexes together with the property
 
 **Examples**
 
