@@ -44,3 +44,18 @@ On drop class are dropped all the cluster owned by the class, and not just the d
 ### Configuration Changes
 
 Since 2.2 you can force to not ask for a root password setting `<isAfterFirstTime>true</isAfterFirstTime>` inside the `<orient-server>` element in the orientdb-server-config.xml file.
+
+
+### SQL and Console commands Changes
+
+Strict SQL parsing is now applied also to statements for Schema Manipulation.
+
+*ALTER DATABASE*: A statement like
+```
+ALTER DATABASE dateformat yyyy-MM-dd
+```
+is correctly executed, but is interpreted in the WRONG way: the `yyyy-MM-dd` is interpreted as an expression (two subtractions) and not as a single date format. Please re-write it as (see quotes)
+```
+ALTER DATABASE dateformat 'yyyy-MM-dd'
+```
+
