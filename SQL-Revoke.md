@@ -5,7 +5,7 @@ Changes permissions of a role, revoking access to one or more resources.  To giv
 **Syntax**
 
 ```
-REVOKE <permission> ON <resource> TO <role>
+REVOKE <permission> ON <resource> FROM <role>
 ```
 - **`<permission>`** Defines the permission you want to revoke from the role.
 - **`<resource>`** Defines the resource on which you want to revoke the permissions.
