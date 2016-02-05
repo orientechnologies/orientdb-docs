@@ -1,14 +1,12 @@
-# SQL - TRAVERSE
+# SQL - `TRAVERSE`
 
-**Traverse** is a special command that retrieves the connected records crossing the relationships. This command works not only with graph API but at document level. This means you can traverse relationships between invoice and customers without the need to model the domain using the Graph API.
-
-To know more look at [Java-Traverse](Java-Traverse.md) page.
+Retrieves connected records crossing relationships.  This works with both the Document and Graph API's, meaning that you can traverse relationships between say invoices and customers on a graph, without the need to model the domain using the Graph API.
 
 | | |
 |----|-----|
-|![](images/warning.png)|In many cases SELECT can be used instead of TRAVERSE, resulting in faster and shorter query. Take a look at [Should I use TRAVERSE or SELECT?](SQL-Traverse.md#should-i-use-traverse-or-select)|
+|![](images/warning.png)| In many cases, you may find it more efficient to use [`SELECT`](SQL-Query.md), which can result in shorter and faster queries.  For more information, see [`TRAVERSE` versus `SELECT`](#traverse-versus-select) below.|
 
-## Syntax
+**Syntax**
 
 ```sql
 TRAVERSE <[class.]field>|*|any()|all()
@@ -19,196 +17,215 @@ TRAVERSE <[class.]field>|*|any()|all()
          [STRATEGY <strategy>]
 ```
 
-- **[fields](#Fields)** are the list of fields you want to traverse
-- **[target](#Target)** can be a class, one or more clusters, a single [RID](Concepts.md#recordid), a set of [RID](Concepts.md#recordid)s or another command like another TRAVERSE (as recursion) or a [SELECT](SQL-Query.md)
-- **MAXDEPTH** is the maximum depth for traversal, 0 means only root node, negative values are not allowed
-- **[while](SQL-Where.md)** condition to continue the traversing while it's true. Usually it's used to limit the traversing depth by using `$depth` where x is the maximum level of depth you want to reach. **$depth** is the first context variable that reports the depth level during traversal. *NOTE: the old 'where' keyword is deprecated*
-- **max-records** sets the maximum result the command can return
-- **[strategy](Java-Traverse.md#traversing-strategies)**, to specify how to traverse the graph
+- **[`<fields>`](#Fields)** Defines the fields you want to traverse.
+- **[`<target>`](#Target)** Defines the target you want to traverse.  This can be a class, one or more clusters, a single Record ID, set of Record ID's, or a sub-query.
+- **`MAXDEPTH`** Defines the maximum depth of the traversal.  `0` indicates that you only want to traverse the root node.  Negative values are invalid.
+- **`WHILE`** Defines the condition for continuing the traversal while it is true.  
+- **`LIMIT`** Defines the maximum number of results the command can return.
+- **[`STRATEGY`](Java-Traverse.md#traversing-strategies)** Defines strategy for traversing the graph.
+
+>**NOTE**: The use of the [`WHERE`](SQL-Where.md) clause has been deprecated for this command.
+
+
+**Examples**
+
+In a social network-like domain, a user profile is connected to friends through links.  The following examples consider common operations on a user with the record ID `#10:1234`.
+
+- Traverse all fields in the root record:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">TRAVERSE * FROM #10:1234</code>
+  </pre>
+
+- Specify fields and depth up to the htird level, using the [`BREADTH_FIRST`](Java-Traverse.md#traversing-strategies) strategy:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">TRAVERSE friends FROM #10:1234 WHILE $depth &lt;= 3 
+            STRATEGY BREADTH_FIRST</code>
+  </pre>
+
+- Execute the same command, this time filtering for a minimum depth to exclude the first target vertex:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE friends FROM #10:1234 WHILE $depth &lt;= 3) 
+            WHERE $depth >= 1</code>
+  </pre>
+
+  >**NOTE**: You can also define the maximum depth in the [`SELECT`](SQL-Query.md) command, but it's much more efficient to set it at the inner [`TRAVERSE`](SQL-Traverse.md) statement because the returning record sets are already filtered by depth.
+
+- Combine traversal with [`SELECT`](SQL-Query.md) command to filter the result-set.  Repeat the above example, filtering for users in Rome:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE friends FROM #10:1234 WHILE $depth &lt;= 3) 
+            WHERE city = 'Rome'</code>
+  </pre>
+
+- Extract movies of actors that have worked, at least once, in any movie produced by J.J. Abrams:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>SELECT FROM (TRAVERSE Movie.actors, Actor.movies FROM (SELECT FROM 
+            Movie WHERE producer = "J.J. Abrams") WHILE $depth &lt;= 3) WHERE 
+            @class = 'Movie'</code>
+  </pre>
+
+- Display the current path in the traversal:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>SELECT $path FROM ( TRAVERSE out FROM V WHILE $depth &lt;= 10 )</code>
+  </pre>
+
+
+
+## Supported Variables
 
 ### Fields
 
-Are the list of fields you want to traverse. If `*`, any() or all() are specified then all the fields are traversed. This could be costly so to optimize the traverse use the pertinent fields. You can also specify fields at class level. [Polymorphism](Inheritance.md) is supported, so by specifying Person.city and Customer class extends Person, you will traverse Customer instances too.
+Defines the fields that you want to traverse.  If set to `*`, `any()` or `all()` then it traverses all fields.  This can prove costly to performance and resource usage, so it is recommended that you optimize the command to only traverse the pertinent fields.
+
+In addition tot his, you can specify the fields at a class-level.  [Polymorphism](Inheritance.md) is supported.  By specifying `Person.city` and the class `Customer` extends person, you also traverse fields in `Customer`.
 
 Field names are case-sensitive, classes not.
 
 ### Target
 
-Target can be:
-- **Class** is the class name to browse all the record to be traversed. You can avoid to specify **class:** as prefix
-- **Cluster** with the prefix 'cluster:' is the cluster name where to execute the query
-- A set of [RID](Concepts.md#recordid)s inside square brackets to specify one or a small set of records. This is useful to navigate graphs starting from some root nodes
-- A root record specifying its [RID](Concepts.md#recordid)
+Targets for traversal can be,
+- **`<class>`** Defines the class that you want to traverse.  
+- **`CLUSTER:<cluster>`** Defines the cluster you want to traverse.
+- **`<record-id>`** Individual root Record ID that you want to traverse.
+- **`[<record-id>,<record-id>,...]`** Set of Record ID's that you want to traverse.  This is useful when navigating graphs starting from the same root nodes.
 
-### Context
+### Context Variables
 
-Traverse command uses the following variables in the context:
-- **$parent**, to access to the parent's context if any. This is useful when the Traverse is called in a sub-query
-- **$current**, current record iterated. To access to the upper level record in nested queries use $parent.$current
-- **$depth**, as the current depth of nesting
-- **$path**, as the string representation of the current path. Example <code>#6:0.in.#5:0#.out</code>. You can also display it with -> <code>select $path from (traverse ** from V)</code>
-- **$stack**, as the List of operation in the stack. Use it to access to the history of the traversal. It's a List<OTraverseAbstractProcess<?>> where process implementations are:
- - **OTraverseRecordSetProcess**, usually the first one it's the base target of traverse
- - **OTraverseRecordProcess**, represent a traversed record
- - **OTraverseFieldProcess**, represent a traversal through a record's field
- - **OTraverseMultiValueProcess**, use on fields that are multivalue: arrays, collections and maps
-- **$history**, as the set of all the records traversed as a <code>Set&lt;ORID&gt;</code>.
+In addition to the above, you can use the following context variables in traversals:
+- **`$parent`** Gives the parent context, if any.  You may find this useful when traversing from a sub-query. 
+- **`$current`** Gives the current record in the iteration.  To get the upper-level record in nested queries, you can use `$parent.$current`.
+- **`$depth`** Gives the current depth of nesting.
+- **`$path`** Gives a string representation of the current path.  For instance, `#5:0#.out`.  You can also display it through [`SELECT`](SQL-Query.md):
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT $path FROM (TRAVERSE ** FROM V)</code>
+  </pre>
+- **`$stack`** Gives a list of operations in the stack.  Use it to access the traversal history.  It's a `List<OTraverseAbstractProcess<?>>`, where the process implementations are:
+  - *`OTraverseRecordSetProcess`*  The base target of traversal, usually the first given.
+  - *`OTraverseRecordProcess`* The traversed record.
+  - *`OTraverseFieldProcess`* The traversal through the record's fields.
+  - *`OTraverseMultiValueProcess`* Use on fields that are multivalue, such as arrays, collections and maps.
+- **`$history`** Gives a set of records traversed as `SET<ORID>`.
 
-## Examples
 
-### Traverse all the fields of a root record
+## Use Cases
 
-Assuming #10:1234 is the [RID](Concepts.md#rid) of the record to start traversing:
-```sql
-TRAVERSE * FROM #10:1234
-```
+### `TRAVERSE` versus `SELECT`
 
-### Social Network domain
+When you already know traversal information, such as relationship names and depth-level, consider using [`SELECT`](SQL-Query.md) instead of [`TRAVERSE`](SQL-Traverse.md) as it is faster in some cases. 
 
-In a social-network-like domain a profile is linked to all the friends. Below some commands.
+For example, this query traverses the `follow` relationship on Twitter accounts, getting the second level of friendship:
 
-#### Specify fields and depth level
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT FROM (TRAVERSE out('follow') FROM TwitterAccounts WHILE 
+          $depth &lt;= 2) WHERE $depth = 2</code>
+</pre>
 
-Assuming #10:1234 is the [RID](Concepts.md#rid) of the record to start traversing get all the friends up to the third level of depth using the [BREADTH_FIRST](Java-Traverse.md#traversing-strategies) strategy:
-```sql
-TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 STRATEGY BREADTH_FIRST
-```
+But, you could also express this same query using [`SELECT`](SQL-Query.md) operation, in a way that is also shorter and faster:
 
-In case you want to filter per minimum depth create a predicate in the select. Example like before but excluding the first target vertex (#10:1234):
-```sql
-SELECT FROM ( TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 ) WHERE $depth >= 1
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT out('follow').out('follow') FROM TwitterAccounts</code>
+</pre>
 
->NOTE: You can also define the maximum depth in the SELECT clause but it's much more efficient to set it at the inner TRAVERSE statement because the returning record sets are already filtered by depth
+### `TRAVERSE` with the Graph Model and API
 
-#### Mix with select to have more power
+While you can use the [`TRAVERSE`](SQL-Traverse.md) command with any domain model, it provides the greatest utility in [Graph Databases[(Graph-Database-Tinkerpop.md) model.
 
-Traverse command can be combined with [SQL SELECT](SQL-Query.md) statement to filter the result set. Below the same example above but filtering by Rome as city:
-```sql
-SELECT FROM ( TRAVERSE friends FROM #10:1234 WHILE $depth <= 3 ) WHERE city = 'Rome'
-```
+This model is based on the concepts of the Vertex (or Node) as the class `V` and the Edge (or Arc, Connection, Link, etc.) as the class `E`.  If you want to traverse in a direction, you have to use the class name when declaring the traversing fields.  The supported directions are:
 
-Another example to extract all the movies of actors that have worked, at least once, in any movie produced by J.J. Abrams:
-```sql
-SELECT FROM (
-  TRAVERSE Movie.actors, Actor.movies FROM (
-    SELECT FROM Movie WHERE producer = "J.J. Abrams"
-  ) WHILE $depth <= 3
-) WHERE @class = 'Movie'
-```
+- **Outgoing**  Using `V.out` and `E.in`.  That is, going out from a vertex and into the edge.
+- **Incoming** Using `V.in` and `E.out`.  That is, going out from an edge and into a vertex.
 
-### Display the current path
+For instance, traversing outgoing links on the record `#10:3434`:
 
-To return or use the current path in traversal refer to the **$path** variable:
-```sql
-SELECT $path FROM ( TRAVERSE out FROM V WHILE $depth <= 10 )
-```
+<pre>
+orientdb> <code class="lang-sql userinput">TRAVERSE V.out, E.in FROM #10:3434</code>
+</pre>
 
-## Should I use TRAVERSE or SELECT?
-If traversing information, such as relationship names and depth level, are known at priori, please consider using SELECT instead of TRAVERSE. SELECT is faster on this case. Example:
+In a domain for emails, to find all messages sent on January 1, 2012 from the user Luca, assuming that they are stored in the vertex class `User` and that the messages are contained in the vertex class `Message`.  Sent messages are stored as `out` connections on the edge class `SentMessage`:
 
-This query traverses the "follow" relationship of Twitter accounts getting the 2nd level of friendship:
-```sql
-SELECT FROM (
-  TRAVERSE out('follow') FROM TwitterAccounts WHILE $depth <= 2
-) WHERE $depth = 2
-```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE V.out, E.in FROM (SELECT FROM User WHERE 
+          name = 'Luca') WHILE $depth <= 2 AND (@class = 'Message' || 
+          (@class = 'SentMessage' AND sentOn = '01/01/2012') )) WHERE 
+          @class = 'Message'</code>
+</pre>
 
-But can be expressed also with SELECT and it's shorter and faster:
-```sql
-SELECT out('follow').out('follow') FROM TwitterAccounts
-```
+## Deprecated `TRAVERSE` Operator
 
-## Using TRAVERSE with Graph model and API
+Before the introduction of the [`TRAVERSE`](SQL-Traverse.md) command, OrientDB featured a `TRAVERSE` operator, which worked in a different manner and was applied to the [`WHERE`](SQL-Where.md) condition.
 
-Even if the TRAVERSE command can be used with any domain model, the place where it is most used is the [Graph-Database](Graph-Database-Tinkerpop.md) model.
+More recent releases deprecated this operator.  It is recommended that you transition to the [`TRAVERSE`](SQL-Traverse.md) command with [`SELECT`](SQL-Query.md) queries to utilize more power.
 
-Following this model all is based on the concepts of the Vertex (or Node) as the class "V" and the Edge (or Arc, Connection, Link, etc.) as the class "E". So if you want to traverse in a direction you have to use the class name when declare the traversing fields. Below the directions:
-- **OUTGOING**, use <code>V.out, E.in</code> because vertices are connected with the "out" field but the edge exits as "in" field.
-- **INCOMING**, use <code>V.in, E.out</code> because vertices are connected with the "in" field but the edge enters as "out" field.
-
-Example of traversing all the outgoing vertices found starting from the vertex with id #10:3434:
-```sql
-TRAVERSE V.out, E.in FROM #10:3434
-```
-
-So in a mailing-like domain to find all the messages sent in 1/1/2012 from the user 'Luca' assuming it's stored in the 'User' Vertex class and that messages are contained in the 'Message' Vertex class. Sent messages are stored as "out" connections of Edge class 'SentMessage':
-
-```sql
-SELECT FROM (
-  TRAVERSE V.out, E.in FROM (
-    SELECT FROM User WHERE name = 'Luca'
-  ) WHILE $depth <= 2 AND (@class = 'Message' || ( @class = 'SentMessage' AND sentOn = '01/01/2012') )
-) WHERE @class = 'Message'
-```
-
-## Operator TRAVERSE
-
-Before the introducing of TRAVERSE command OrientDB has the TRAVERSE operator but worked in the opposite way and it was applied in the WHERE condition.
-
-TRAVERSE operator is deprecated. Please use the TRAVERSE command together with SELECT command to have much more power!
-
-The syntax of the old TRAVERSE operator was:
-```sql
-SELECT FROM <target> WHERE <field> TRAVERSE[(<minDeep> [,<maxDeep> [,<fields>]])] (<conditions>)
-```
+The deprecated syntax for the `TRAVERSE` operator looks like this:
 
 | | |
 |----|-----|
-|![](images/warning.png)|WARNING: THIS SYNTAX WILL NOT BE SUPPORTED ANYMORE IN v. 2.1|
+|![](images/warning.png)|WARNING: Beginning in version 2.1, OrientDB no longer supports this syntax.|
 
-
-Where:
-- **target** can be one of [listed above](#Query_target)
-- **field** can be:
- - **out**, as the outgoing edges
- - **in**, as the incoming edges
- - **any attribute of the vertex**
- - **any()**, means any of the field considering also **in** and **out**
- - **all()**, means all the fields considering also **in** and **out**
-- **minDeep** is the minimum deep level to start to apply the conditions. Usually is 0 for the root vertex or 1 for the just-outgoing vertexes
-- **maxDeep**, optionally limits the maximum deep level to reach. -1 means infinite. Default is -1
-- **fields**, optionally tells the field list to traverse. Default is any()
-- **conditions** are the conditions to check for any traversed vertex. To know more about the query syntax see [SQL syntax](http://code.google.com/p/orient/wiki/SQLWhere)
-
-### Examples
-
-Example of a query that returns all the vertices that have at least one friend (connected with out), up to the 3rd degree, that lives in Rome:
-
-```sql
-SELECT FROM Profile WHERE any() TRAVERSE(0,3) (city = 'Rome')
-```
-
-This can be rewritten using the most power TRAVERSE command:
-```sql
-SELECT FROM Profile
-LET $temp = (
-  SELECT FROM (
-    TRAVERSE * FROM $current WHILE $depth <= 3
-  )
-  WHERE city = 'Rome'
-)
-WHERE $temp.size() > 0
-```
-### Examples Of Graph Query.
+**Syntax**
 
 ```
-Vertex    edge         Vertex
-User----->Friends----->User
-          Label='f'
+SELECT FROM <target> WHERE <field> TRAVERSE[(<minDeep> [,<maxDeep> [,<fields>]])] (<conditions>)
 ```
 
-#### Query to Find the first level friends of User Whose record Id is #10:11
-```sql
-SELECT DISTINCT(in.lid) AS lid,distinct(in.fid) AS fid FROM (TRAVERSE V.out, E.in FROM #10:11 WHILE $depth <=1) WHERE @class='Friends'
-```
+- **`<target>`** Defines the query target.
+- **`<field>`** Defines the field to traverse. Supported fields are,
+  - *`out`* Gives outgoing edges.
+  - *`in`* Gives incoming edges.
+  - *`any()`* Any field, including `in` and `out`.
+  - *`all()`* All fields, including `in` and `out`.
+  - Any attribute of the vertex.
+- *`minDeep`* Defines the minimum depth-level to begin applying the conditions.  This is usually `0` for the root vertex, or `1` for only the outgoing vertices.
+- **`maxDeep`** Defines  the maximum depth-level to read.  Default is `-1`, for infinite depth.
+- **`[<field>, <field>,...]`** Defines a list of fields to traverse.  Default is `any()`.
+- **`<conditions>`** Defines conditions to check on any traversed vertex.  
 
-#### 2nd level friends of a user, to find that we have to just change the depth to 3
+>For more information, see [SQL syntax](http://code.google.com/p/orient/wiki/SQLWhere).
 
-```sql
-SELECT distinct(in.lid) AS lid, distinct(in.fid) AS fid FROM (
-  TRAVERSE V.out, E.in FROM #10:11 WHILE $depth <=3
-) WHERE @class='Friends'
-```
+**Examples**
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+- Find all vertices that have at least one friend, (connected through `out`), up to the third depth, that lives in Rome:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>SELECT FROM Profile WHERE any() TRAVERSE(0,3) (city = 'Rome')</code>
+  </pre>
+
+- Alternatively, you can write the above as:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>SELECT FROM Profile LET $temp = (SELECT FROM (TRAVERSE * FROM $current
+            WHILE $depth &lt;= 3) WHERE city = 'Rome') WHERE $temp.size() > 0</code>
+  </pre>
+
+- Consider an example using the Graph Query, with the following schema:
+
+  ```
+  Vertex    edge         Vertex
+  User----->Friends----->User
+            Label='f'
+  ```
+
+- Find the first-level friends of the user with the Record ID `#10:11`:
+ 
+  <pre>
+  orientdb> <code class='lang-sql userinput'>SELECT DISTINCT(in.lid) AS lid,distinct(in.fid) AS fid FROM 
+            (TRAVERSE V.out, E.in FROM #10:11 WHILE $depth &lt;=1) WHERE 
+            @class = 'Friends'</code>
+  </pre>
+
+- By changing the depth to 3, you can find the second-level friends of the user:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT distinct(in.lid) AS lid, distinct(in.fid) AS fid FROM 
+            (TRAVERSE V.out, E.in FROM #10:11 WHILE $depth &lt;=3) WHERE 
+            @class = 'Friends'</code>
+  </pre>
+
+>For more information, see
+>- [Java-Traverse](Java-Traverse.md) page.
+>- [SQL Commands](SQL.md)

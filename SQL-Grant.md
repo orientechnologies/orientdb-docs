@@ -1,38 +1,56 @@
-# SQL - GRANT
+# SQL - `GRANT`
 
-The **SQL Grant** command changes the permission of a role granting the access to one or more resources. It works as opposite to the [SQL REVOKE](SQL-Revoke.md) command.
+Changes the permission of a role, granting it access to one or more resources.  To remove access to a resource from the role, see the [`REVOKE`](SQL-Revoke.md) command.
 
-## Syntax
+**Syntax**
 
 ```
 GRANT <permission> ON <resource> TO <role>
 ```
 
-Where:
-- **permission** can be:
- - `NONE`, no permission
- - `CREATE`, to create the indicated resource
- - `READ`, to read the indicated resource
- - `UPDATE`, to update the indicated resource
- - `DELETE`, to delete the indicated resource
- - `ALL`, all permissions
-- **resource**, the target resource where to change the permissions
- - `database`, as the access to the whole database
- - `database.class`, as the access to the records contained in a class. Use <code>**</code> to indicate all the classes
- - `database.cluster`, as the access to the records contained in a cluster. Use <code>**</code> to indicate all the clusters
- - `database.query`, as the ability to execute query (READ is enought)
- - `database.command`, as the ability to execute SQL commands. CREATE is for [INSERT](SQL-Insert.md), READ is for [SELECT](SQL-Query.md), UPDATE for [UPDATE](SQL-Update.md) and DELETE is for [DELETE](SQL-Delete.md)
- - `database.config`, as the ability to access to the configuration. Valid permissions are READ and UPDATE
- - `database.hook.record`, as the ability to set hooks
- - `server.admin`, as the ability to access to the server resources
-- **role**, the role name
+- **`<permission>`** Defines the permission you want to grant to the role.
+- **`<resource>`** Defines the resource on which you want to grant the permissions.
+- **`<role>`** Defines the role you want to grant the permissions.
 
-## Examples
+**Examples**
 
-Grant the permission to *update* any records in *cluster Account* to the *role "backoffice"*.
+- Grant permission to update any record in the cluster `account` to the role `backoffice`:
 
-```
-GRANT UPDATE ON database.cluster.Account TO backoffice
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">GRANT UPDATE ON database.cluster.account TO backoffice</code>
+  </pre>
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+>For more information, see
+>- [`REVOKE](SQL-Revoke.md)
+>- [SQL Commands](SQL.md)
+
+
+## Supported Permissions
+
+Using this command, you can grant the following permissions to a role.
+
+| Permission | Description |
+|---|---|
+| `NONE` | Grants no permissions on the resource. |
+| `CREATE` | Grants create permissions on the resource, such as the [`CREATE CLASS`](SQL-Create-Class.md) or [`CREATE CLUSTER`](SQL-Create-Cluster.md) commands.  |
+| `READ` | Grants read permissions on the resource, such as the [`SELECT`](SQL-Query.md) query. |
+| `UPDATE` | Grants update permissions on the resource, such as the [`UPDATE`](SQL-Update.md) or [`UPDATE EDGE`](SQL-Update.md) commands. |
+| `DELETE` | Grants delete permissions on the resource, such as the [`DROP INDEX`](SQL-Drop-Index.md) or [`DROP SEQUENCE`](SQL-Drop-Sequence.md) commands. |
+| `ALL` | Grants all permissions on the resource. |
+
+
+## Supported Resources
+
+Using this command, you can grant permissions on the following resources.
+
+| Resource | Description |
+|---|---|
+| `database` | Grants access on the current database. |
+| `database.class.<class>` | Grants access on records contained in the indicated class.  Use `**` to indicate all classes. |
+| `database.cluster.<cluster>` | Grants access to records contained in the indicated cluster.  Use `**` to indicate all clusters.|
+| `database.query` | Grants the ability to execute a query, (`READ` is sufficient).|
+| `database.command.<command>` | Grants the ability to execute the given command.  Use `CREATE` for [`INSERT`](SQL-Insert.md), `READ` for [`SELECT`](SQL-Query.md), `UPDATE` for [`UPDATE`](SQL-Update.md) and `DELETE` for [`DELETE`](SQL-Delete.md).|
+| `database.config.<permission>` | Grants access to the configuration.  Valid permissions are `READ` and `UPDATE`.|
+| `database.hook.record` | Grants the ability to set hooks. |
+| `server.admin` | Grants the ability to access server resources.|
+

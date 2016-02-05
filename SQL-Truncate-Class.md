@@ -1,29 +1,32 @@
-# SQL - TRUNCATE CLASS
+# SQL - `TRUNCATE CLASS`
 
-The **Truncate Class** command deletes the records of all the clusters defined as part of the class. By default every class has one cluster associated with the same name. This command acts at lower level then [SQL Delete Command](SQL-Delete.md).
+Deletes records of all clusters defined as part of the class.  
 
-If the class has subclasses, they will not be affected by this command (eg. their records will remain in their clusters). If you want to also remove all the records from the class hierarchy, you have to use the POLYMORPHIC keyword.
+By default, every class has an associated cluster with the same name.  This command operates at a lower level that [`DELETE`](SQL-Delete.md).  This commands ignores sub-classes, (That is, their records remain in their clusters).  If you want to also remove all records from the class hierarchy, you need to use the `POLYMORPHIC` keyword.
 
-Truncate is not allowed on Graph classes (classes that extend V or E), but its execution can be forced using UNSAFE. Forcing truncate operation is strongly discouraged, because it can leave the graph in an inconsistent state.
+Truncation is not permitted on vertex or edge classes, but you can force its execution using the `UNSAFE` keyword.  Forcing truncation is strongly discouraged, as it can leave the graph in an inconsistent state.
 
-## Syntax
+**Syntax**
 
 ```
-TRUNCATE CLASS <class-name> [ POLYMORPHIC ] [ UNSAFE ] 
+TRUNCATE CLASS <class> [ POLYMORPHIC ] [ UNSAFE ] 
 ```
 
-Where:
-- **class-name** is the name of the class
+- **`<class>`** Defines the class you want to truncate.
+- **`POLYMORPHIC`** Defines whether the command also truncates the class hierarchy.
+- **`UNSAFE`** Defines whether the command forces truncation on vertex or edge classes, (that is, sub-classes that extend the classes `V` or `E`).
 
-## Examples
+**Examples**
 
-Remove all the record of class "Profile":
-```java
-TRUNCATE CLASS Profile
-```
+- Remove all records of the class `Profile`:
 
-See also [SQL Delete Command](SQL-Delete.md) and [SQL Truncate Cluster Command](SQL-Truncate-Cluster.md). To create a new class use the [Create Class](SQL-Create-Class.md) command.
+  <pre>
+  orientdb> <code class='lang-sql userinput'>TRUNCATE CLASS Profile</code>
+  </pre>
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information, see
+>- [`DELETE`](SQL-Delete.md)
+>- [`TRUNCATE CLUSTER`](SQL-Truncate-Cluster.md)
+>- [`CREATE CLASS`](SQL-Create-Class.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)

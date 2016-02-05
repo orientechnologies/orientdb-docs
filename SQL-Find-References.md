@@ -1,54 +1,58 @@
-# SQL - FIND REFERENCES
+# SQL - `FIND REFERENCES`
 
-SQL command to search all records that contains a link to a given record id in the entire database or a subset of specified class and cluster. Returns a set of record ids.
+Searches records in the database that contain links to the given Record ID in the database or a subset of the specified class and cluster, returning the matching Record ID's.
 
-# Syntax
-
-```sql
-FIND REFERENCES <rid|(<sub-query>)> [class-list]
-```
-Where:
-- *rid* is the record id to search. If a sub-query is passed, then all the RIDs returned by the sub-query will be searched. Sub-query is available since 1.0rc9
-- *class-list* list of specific class or cluster, separated by commas, you want to execute the search in.
-
-Returns a list of document containing 2 fields:
-- rid, as the original RID searched
-- referredBy, as a Set of RIDs containing the collection of RID that reference the searched rid if any, otherwise the set is empty
-
-# Examples
-
-Get all the records that contains a link to 5:0
+**Syntax**
 
 ```sql
-FIND REFERENCES 5:0
+FIND REFERENCES <record-id>|(<sub-query>) [class-list]
 ```
 
-Result example:
+- **`<record-id>`** Defines the Record ID you want to find links to in the database.
+- **`<sub-query>`** Defines a sub-query for the Record ID's you want to find links to in the database.  This feature was introduced in version 1.0rc9.
+- **`<class-list>`** Defines a comma-separated list of classes or clusters that you want to search.
 
-```sql
-RESULT:
-+------+-----------------+
-| rid  | referredBy      |
-+------+-----------------+
-| #5:0 | [#10:23, #30:4] |
-+------+-----------------+
-```
+This command returns a document containing two fields:
 
-Get all the references to the record of the default cluster (available since 1.0rc9):
+| Field | Description |
+|---|---|
+| `rid` | Record ID searched. |
+| `referredBy` | Set of Record ID's referenced by the Record ID searched, if any.  In the event that no records reference the searched Record ID, it returns an empty set. |
 
-```sql
-FIND REFERENCES (SELECT FROM CLUSTER:default)
-```
-Get all the records in Profile and !AnimalType classes that contains a link to 5:0 :
 
-```sql
-FIND REFERENCES 5:0 [Profile,AnimalType]
-```
+**Examples**
 
-Get all the records in Profile cluster and !AnimalType class that contains a link to 5:0
+- Find records that contain a link to `#5:0`:
 
-```sql
-FIND REFERENCES 5:0 [CLUSTER:Profile,AnimalType]
-```
+  <pre>
+  orientdb> <code class="lang-sql userinput">FIND REFERENCES 5:0</code>
 
-To know more about other SQL commands look at [SQL Commands](Commands.md).
+  RESULT:
+  ------+-----------------
+   rid  | referredBy      
+  ------+-----------------
+   #5:0 | [#10:23, #30:4] 
+  ------+-----------------
+  </pre>
+
+- Find references to the default cluster record
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>FIND REFERENCES (SELECT FROM CLUSTER:default)</code>
+  </pre>
+
+- Find all records in the classes `Profile` and `AnimalType` that contain a link to `#5:0`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput"> FIND REFERENCES 5:0 [Profile, AnimalType]</code>
+  </pre>
+
+- Find all records in the cluster `profile` and class `AnimalType` that contain a link to `#5:0`:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>FIND REFERENCES 5:0 [CLUSTER:profile, AnimalType]</code>
+  </pre>
+
+
+>For more information, see
+>- [SQL Commands](SQL.md)

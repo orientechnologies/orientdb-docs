@@ -1,31 +1,33 @@
-# SQL - REBUILD INDEXES
+# SQL - `REBUILD INDEXES`
 
-The **Rebuild Index** command rebuilds an automatic index.
+Rebuilds automatic indexes.
 
->NOTE: During the rebuilding, any idempotent query against the index skip the index and do a sequential scan. This means queries will be slower until the index is rebuilt. Non-idempotent commands, like INSERT, UPDATE and DELETE, will be blocked waiting for the index rebuild process is finished.
-
-## Syntax
+**Syntax**
 
 ```sql
-REBUILD INDEX <index-name>
+REBUILD INDEX <index>
 ```
 
-Where:
-- **index-name** name of the index. Use * to rebuild all the automatic indices
+- **`<index>`** Defines the index that you want to rebuild.  Use `*` to rebuild all automatic indexes.
 
-## See also
-- [SQL Create Index](SQL-Create-Index.md)
-- [SQL Drop Index](SQL-Drop-Index.md)
-- [Indexes](Indexes.md)
-- [SQL commands](SQL.md)
+>**NOTE**: During the rebuild, any idempotent queries made against the index, skip the index and perform sequential scans.  This means that queries run slower during this operation.  Non-idempotent commands, such as [`INSERT`](SQL-Insert.md), [`UPDATE`](SQL-Update.md), and [`DELETE`](SQL-Delete.md) are blocked waiting until the indexes are rebuilt.
 
+**Examples**
 
-## Examples
+- Rebuild an index on the `nick` property on the class `Profile`:
 
-```sql
-REBUILD INDEX Profile.nick
-```
+  <pre>
+  orientdb> <code class='lang-sql userinput'>REBUILD INDEX Profile.nick</code>
+  </pre>
 
-```sql
-REBUILD INDEX *
-```
+- Rebuild all indexes:
+  
+  <pre>
+  orientdb> <code class='lang-sql userinput'>REBUILD INDEX *</code>
+  </pre>
+
+>For more information, see
+>- [`CREATE INDEX`](SQL-Create-Index.md)
+>- [`DROP INDEX`](SQL-Drop-Index.md)
+>- [Indexes](Indexes.md)
+>- [SQL commands](SQL.md)

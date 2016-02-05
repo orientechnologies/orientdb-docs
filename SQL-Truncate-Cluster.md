@@ -1,26 +1,26 @@
-# SQL - TRUNCATE CLUSTER
+# SQL - `TRUNCATE CLUSTER`
 
-The **Truncate Cluster** command deletes all the records of a cluster. This command acts at lower level then [SQL Delete Command](SQL-Delete.md).
+Deletes all records of a cluster.  This command operates at a lower level than the standard [`DELETE`](SQL-Delete.md) command.
 
-## Syntax
+**Syntax**
 
 ```
-TRUNCATE CLUSTER <cluster-name>
+TRUNCATE CLUSTER <cluster>
 ```
 
-Where:
-- **cluster-name** is the name of the cluster
+- **`<cluster>`** Defines the cluster to delete.
 
-## Examples
 
-Remove all the records in the cluster "Profile":
+**Examples**
 
-```java
-TRUNCATE CLUSTER Profile
-```
+- Remove all records in the cluster `profile`:
 
-See also [SQL Delete Command](SQL-Delete.md) and [SQL Truncate Class](SQL-Truncate-Class.md) commands.
+  <pre>
+  orientdb> <code class='lang-sql userinput'>TRUNCATE CLUSTER profile</code>
+  </pre>
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
-
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+>For more information, see
+>- [`DELETE`](SQL-Delete.md)
+>- [`TRUNCATE CLASS`](SQL-Truncate-Class.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)

@@ -1,24 +1,27 @@
-# SQL - OPTIMIZE DATABASE
+# SQL - `OPTIMIZE DATABASE`
 
-The **OPTIMIZE DATABASE** command optimizes the database by using different ways. Today only the conversion of regular edges to [Lightweight edges](Lightweight-Edges.md) is supported. This command will be improved in the future with new modes.
+Optimizes the database for particular operations. 
 
-## Syntax
+**Syntax**
 
 ```sql
 OPTIMIZE DATABASE [-lwedges] [-noverbose]
 ```
 
-Where:
-- **-lwedges** converts regular edges into [Lightweight edges](Lightweight-Edges.md)
-- **-noverbose** disable output
+- **`-lwedges`** Converts regular edges into Lightweight Edges.
+- **`-noverbose`** Disables output.
 
-## See also
-- [SQL commands](SQL.md)
-- [Console commands](Console-Commands.md)
+>Currently, this command only supports optimization for [Lightweight Edges](Lightweight-Edges.md).  Additional optimization options are planned for future releases of OrientDB.
 
-## Examples
+**Examples**
 
-Converts all regular edges into [Lightweight edges](Lightweight-Edges.md). 
-```sql
-OPTIMIZE DATABASE -lwedges
-```
+- Convert regular edges into Lightweight Edges:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">OPTIMIZE DATABASE -lwedges</code>
+  </pre>
+
+>For more information, see
+>- [Lightweight Edges](Lightweight-Edges.md)
+>- [SQL Commands](SQL.md)
+>- [Console Commands](Console-Commands.md)
