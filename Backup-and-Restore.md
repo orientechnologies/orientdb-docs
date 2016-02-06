@@ -1,71 +1,97 @@
 # Backup & Restore
 
-OrientDB supports backup and restore operations like any RDBMS.
+OrientDB supports back and and restore operations, like any database management system.
 
-Backup executes a complete backup against the currently opened database. The backup file is compressed using the ZIP algorithm. To restore the database use the [Restore Database command](Console-Command-Restore.md). Backup is much faster than [Export Database](Console-Command-Export.md). Look also to [Export Database](Console-Command-Export.md) and [Import Database](Console-Command-Import.md) commands. Backup can be done automatically by enabling the [Automatic-Backup](Automatic-Backup.md) Server plugin.  [OrientDB Enterprise Edition](Enterprise-Edition.md) version 2.2 and major support incremental backup.
+The [`BACKUP DATABASE`](Console-Command-Backup.md) command executes a complete backup on the currently open database.  It compresses the backup the backup using the ZIP algorithm.  To restore the database from the subsequent `.zip` file, you can use the [`RESTORE DATABASE`](Console-Command-Restore.md) command.
+
+Backups and restores are much faster than the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md) commands.  You can also automate backups using the [Automatic Backup](Automatic-Backup.md) server plugin.  Additionally, beginning with version 2.2 of [Enterprise Edition](Enterprise-Edition.md) OrientDB introduces major support for incremental backups.
 
 
-## When to use backup and when export?
-Backup does a consistent copy of database, all further write operations are locked waiting to finish it. The database is in read-only mode during backup operation. If you need an read/write database during backup setup a distributed cluster of nodes.
+## Backups versus Exports
 
-Export, instead, doesn't lock the database and allows concurrent writes during the export process. This means the exported database could have changes executed during the export.
+During backups, the [`BACKUP DATABASE`](Console-Command-Backup.md) command produces a consistent copy of the database.  During this process, the database locks all write operations, waiting for the backup to finish.  If you need perform reads and writes on the database during backups, set up a distributed cluster of nodes.
 
-## Backup database
-Starting from v1.7.8, OrientDB comes with the script "backup.sh" under the "bin" directory. This script executes the backup by using the console. Syntax:
+By contrast, the [`EXPORT DATABASE`](Console-Command-Export.md) command doesn't lock the database, allowing concurrent writes to occur during the export process.  Consequentially, the export may include changes made after you initiated the export, which may result in inconsistencies.
 
-```
-./backup.sh <dburl> <user> <password> <destination> [<type>]
-```
+## Using the Backup Script
 
-Where:
-- **dburl**: database URL
-- **user**: database user allowed to run the backup
-- **password**: database password for the specified user
-- **destination**: destination file path (use .zip as extension) where the backup is created
-- **type**: optional backup type, supported types are:
- - **default**, locks the database during the backup
- - **lvm**, uses LVM copy-on-write snapshot to execute in background
+Beginning in version 1.7.8, OrientDB introduces a `backup.sh` script found in the `$ORIENTDB_HOME/bin` directory.  This script allows you to initiate backups from the system console.
 
-Example of backup against a database open with "plocal":
-```
-./backup.sh plocal:../database/testdb admin admin /dest/folder/backup.zip
-```
-
-### Non-Blocking Backup
-backup.sh script supports non-blocking backup if the OS supports [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29). Example:
+**Syntax**
 
 ```
-./backup.sh plocal:../database/testdb admin admin /dest/folder/backup.zip lvm
+./backup.sh <db-url> <user> <password> <destination> [<type>]
 ```
 
-Same example like before, but against a remote database hosted on localhost:
-```
-./backup.sh remote:localhost/testdb root rootpwd /dest/folder/backup.zip lvm
-```
+- **`<db-url>`** Defines the URL for the database to back up.
+- **`<user>`** Defines the user to run the backup.
+- **`<password>`** Defines the password for the user.
+- **`<destination>`** Defines the path to the backup file the script creates, (use the `.zip` extension).
+- **`<type>`** Defines the backup type.  Supported types:
+  - *`default`* Locks the database during the backup.
+  - *`lvm`* Executes an LVM copy-on-write snapshot in the background.
 
-For more information about [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29) and Copy On Write (COS) look at:
-- [File system snapshots with LVM](http://arstechnica.com/information-technology/2004/10/linux-20041013/)
-- [LVM snapshot backup](http://www.tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html)
 
-### Using the console
-You can also use the [console](Console-Command-Backup.md) to execute a backup. Below the same backup like before, but using the console.
-```sql
-orientdb> CONNECT plocal:../database/testdb admin admin
-orientdb> BACKUP DATABASE /dest/folder/backup.zip
-Backup executed in 0.52 seconds
-```
+**Examples**
 
-## Restore database
-Use the [console](Console-Command-Restore.md) to restore a database or Java API. The restore operation must be done against a new database. Merging of databases with restore operation is not supported. For this reason, use the [export](Console-Command-Export.md)/[import](Console-Command-Import.md) database. Example:
+- Backup a database opened using `plocal`:
 
-```
-orientdb> RESTORE DATABASE /backups/mydb.zip
+  <pre>
+  $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/backup.sh plocal:../database/testdb \
+        admin adminpasswd \
+		/path/to/backup.zip</code>
+  </pre>
+
+- Perform a non-blocking LVM backup, using `plocal`:
+
+  <pre>
+  $ <code class='lang-sh userinput'>$ORIENTDB_HOME/bin/backup.sh plocal:../database/testdb \
+        admin adminpasswd \
+		/path/to/backup.zip \
+		lvm</code>
+  </pre>
+
+- Perform a non-blocking LVM backup, using a remote database hosted at `localhost`:
+
+  <pre>
+  $ <code class='lang-sh userinput'>$ORIENTDB_HOME/bin/backup.sh remote:localhost/testdb \
+        root rootpasswd \
+		/path/to/backup.zip \
+		lvm</code>
+  </pre>
+
+- Perform a backup using the OrientDB Console with the [`BACKUP`](Console-Command-Backup.md) command:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>CONNECT PLOCAL:../database/testdb/ admin adminpasswd</code>
+  orientdb> <code class='lang-sql userinput'>BACKUP DATABASE /path/to/backup.zip</code>
+  
+  Backup executed in 0.52 seconds.
+  </pre>
+
+>**NOTE** Non-blocking backups require that the operating system support LVM.  For more information, see
+>- [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29)
+>- [File system snapshots with LVM](http://arstechnica.com/information-technology/2004/10/linux-20041013/) 
+>- [LVM snapshot backup](http://www.tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html)
+
+
+## Restoring Databases
+
+Once you have created your `backup.zip` file, you can restore it to the database either through the OrientDB Console, using the [`RESTORE DATABASE`](Console-Command-Restore.md) command.  
+
+<pre>
+orientdb> <code class='lang-sql userinput'>RESTORE DATABASE /backups/mydb.zip</code>
+
 Restore executed in 6.33 seconds
-```
+</pre>
 
-## See also
-- [BACKUP DATABASE](Console-Command-Backup.md)
-- [RESTORE DATABASE](Console-Command-Restore.md)
-- [EXPORT DATABASE](Console-Command-Export.md)
-- [IMPORT DATABASE](Console-Command-Import.md)
-- [Console-Commands](Console-Commands.md)
+Bear in mind that OrientDB does not support merging during restores.  If you need to merge the old data with new writes, instead use [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Export.md) commands, instead.
+
+
+>For more information, see
+>
+>- [`BACKUP DATABASE`](Console-Command-Backup.md)
+>- [`RESTORE DATABASE`](Console-Command-Restore.md)
+>- [`EXPORT DATABASE`](Console-Command-Export.md)
+>- [`IMPORT DATABASE`](Console-Command-Import.md)
+>- [Console Commands](Console-Commands.md)

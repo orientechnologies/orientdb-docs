@@ -1,24 +1,14 @@
-# Export & Import
+# Export and Import
 
-OrientDB supports export and import operations like any RDBMS.
+OrientDB supports export and import operations, like any database management system.
 
-The Export command exports the current opened database to a file. The exported file is in [JSON](http://en.wikipedia.org/wiki/JSON) format using the [Export-Format](Export-Format.md). By default the file is compressed using the GZIP algorithm. The EXPORT/[IMPORT](Console-Command-Import.md) commands allow to migrate the database between different releases of OrientDB without loosing data. If you receive an error about the database version, export the database using the same version of OrientDB that has generated the database.
+The [`EXPORT DATABASE`](Console-Command-Export.md) command exports the current opened database into a file.  The exported file is in the [Export JSON](Export-Format.md) format.  By default, it compresses the file using the GZIP algorithm.
 
-Export doesn't lock your database, but browses it. This means that concurrent operation can be executed during the export, but the exported database couldn't be the exact replica when you issued the command because concurrent updates could occurs. If you need a snapshot of database at a point in a time, please use [BACKUP](Console-Command-Backup.md).
+Using exports with the [`IMPORT DATABASE`](Console-Command-Import.md) command, you can migrate the database between different releases of OrientDB without losing data.  When doing this, if you receive an error relating to the database version, export the database using the same version of OrientDB on which you created the database.
 
-Once exported, use the [IMPORT](Console-Command-Import.md) to restore it. The database will be imported and will be ready to be used. Look also to [BACKUP DATABASE](Console-Command-Backup.md) and [RESTORE DATABASE](Console-Command-Restore.md) commands.
 
-## When to use backup and when export?
-Backup does a consistent copy of database, all further write operations are locked waiting to finish it. The database is in read-only mode during backup operation. If you need an read/write database during backup setup a distributed cluster of nodes.
-
-Export, instead, doesn't lock the database and allow concurrent writes during the export process. This means the exported database could have changes executed during the export.
-
-_NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore._
-
-## Export Example
-
-```
-orientdb> EXPORT DATABASE /temp/petshop.export
+<pre>
+orientdb> <code class='lang-sql userinput'>EXPORT DATABASE /temp/petshop.export</code>
 
 Exporting current database to: /temp/petshop.export...
 
@@ -39,13 +29,24 @@ Exporting clusters...
 - Exporting cluster 'order' (records=0) -> OK
 - Exporting cluster 'city' (records=3) -> OK
 Export of database completed.
-```
+</pre>
 
 
-## Import Example
+## Exports versus Backups
 
-```
-> IMPORT DATABASE /temp/petshop.export -preserveClusterIDs=true
+Exports don't lock the database.  Instead, they browse the contents.  This means that OrientDB can execute concurrent operations during the export, but the exported database may not be an exact replica from the time when you issued the command.  If you need a database snapshot, use backups.
+
+The [`BACKUP DATABASE`](Console-Command-Backup.md) command does create a consistent copy of the database, but it locks the database.  During the backup, the database remains in read-only mode, all concurrent write operations are blocked until the backup finishes.  In the event that you need a database snapshot *and* the ability to perform read/write operations during the backup, set up a distributed cluster of nodes.
+
+>**NOTE**: Even though the export file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept.  Modifying the file to adjust the indentation may make the file unusable in database imports.
+
+## Importing Databases
+
+Once you have exported your database, you can import it using the [`IMPORT DATABASE`](Console-Command-Import.md) command.
+
+<pre>
+orientdb> <code class='lang-sql userinput'>IMPORT DATABASE /temp/petshop.export -preserveClusterIDs=true</code>
+
 Importing records...
 - Imported records into the cluster 'internal': 5 records
 - Imported records into the cluster 'index': 4 records
@@ -65,12 +66,13 @@ Importing records...
 - Imported records into the cluster 'ographvertex': 102 records
 - Imported records into the cluster 'ographedge': 101 records
 - Imported records into the cluster 'graphcar': 1 records
-```
+</pre>
 
 
-## See also
-- [Export-Format](Export-Format.md)
-- [RESTORE DATABASE](Console-Command-Restore.md)
-- [EXPORT DATABASE](Console-Command-Export.md)
-- [IMPORT DATABASE](Console-Command-Import.md)
-- [Console-Commands](Console-Commands.md)
+>For more information, see
+>
+>- [JSON Export Format](Export-Format.md)
+>- [`RESTORE DATABASE`](Console-Command-Restore.md)
+>- [`EXPORT DATABASE`](Console-Command-Export.md)
+>- [`IMPORT DATABASE`](Console-Command-Import.md)
+>- [Console Commands](Console-Commands.md)

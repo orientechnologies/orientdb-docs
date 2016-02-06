@@ -1,51 +1,20 @@
-# Export format
+# Export Format
 
-This page contains the format used by [EXPORT DATABASE](Console-Command-Export.md) and [IMPORT DATABASE](Console-Command-Import.md) tools. The file is a zipped JSON.
-
-_NOTE: Even if the file is 100% JSON, there are some constraints in the JSON format, where the field order must be kept. If you prettify the file, the import couldn't work anymore._
-
-## See also
-- [EXPORT DATABASE](Console-Command-Export.md)
-- [IMPORT DATABASE](Console-Command-Import.md)
+When you run the [`EXPORT DATABASE`](Console-Command-Export.md) command, OrientDB exports the database into a zipped file using a special JSON format.  When you run the [`IMPORT DATABASE`](Console-Command-Import.md) command, OrientDB unzips the file and parses the JSON, making the import.
 
 ## Sections
 
+Export files for OrientDB use the following sections.  Note that while the export format is 100% JSON, there are some constraints in the format, where the field order must be kept.  Additionally, modifying the file to adjust the indentation (as has been done in the examples below), may make it unusable in database imports.
+
 ### Info Section
 
-First section resuming the database information and all the version used to check compatibility on import.
-```json
-{
-  "info":{
-  "name": <database-name>,
-  "default-cluster-id": <default-cluster-id>,
-  "exporter-version": <exporter-format>,
-  "engine-version": <engine-version>,
-  "storage-config-version": <storage-version>,
-  "schema-version": <schema-version>,
-  "mvrbtree-version": <mvrbtree-version>
-}
-```
-
-|Parameter|Description|JSON Type|
-|---------|-----------|---------|
-|database-name|Name of database|String|
-|default-cluster-id|Cluster Id used by default. Range: 0-32,767|Integer|
-|exporter-format|Version of Database exporter|Integer|
-|engine-version|Version of OrientDB|String|
-|storage-version|Version of Storage layer|Integer|
-|schema-version|Version of the schema exporter|Integer|
-|mvrbtree-version|Version of the MVRB-Tree|Integer|
-
-
-#### Example
-
+The first section contains the resuming database information as well as all versions used during the export.  OrientDB uses this information to check for compatibility during the import.
 
 ```json
-{
-  "info":{
+"info": {
   "name": "demo",
   "default-cluster-id": 2,
-  "exporter-version": 2,
+  "exporter-format": 2,
   "engine-version": "1.7-SNAPSHOT",
   "storage-config-version": 2,
   "schema-version": 4,
@@ -53,26 +22,23 @@ First section resuming the database information and all the version used to chec
 }
 ```
 
-### Clusters Section
-
-Contains the database structure in clusters.
-
-```json
-"clusters": [
-  {"name": <cluster-name>, "id": <cluster-id>, "type": <cluster-type>}
-]
-```
-
 |Parameter|Description|JSON Type|
 |---------|-----------|---------|
-|cluster-name|Name of cluster|String|
-|cluster-id|Cluster id. Range: 0-32,767|Integer|
-|cluster-type|Cluster type between "PHYSICAL", "LOGICAL" and "MEMORY"|String|
+| `"name"` | Defines the name of the database. | String |
+| `"default-cluster-id"` | Defines the Cluster ID to use by default.  Range: 0-32,762. | Integer |
+| `"exporter-format"` | Defines the version of the database exporter. | Integer |
+| `"engine-version"` | Defines the version of OrientDB. | String |
+| `"storage-version"` | Defines the version of the Storage layer. | Integer |
+| `"schema-version"` | Defines the version of the schema exporter. | Integer |
+| `"mvrbtree-version"` | Defines the version of the MVRB-Tree. | Integer |
 
 
 
 
-#### Example
+
+### Clusters Section
+
+This section defines the database structure in clusters.  It is formed from a list with an entry for each cluster in the database.
 
 
 ```json
@@ -83,46 +49,16 @@ Contains the database structure in clusters.
 ]
 ```
 
+|Parameter|Description|JSON Type|
+|---------|-----------|---------|
+| `"name"` | Defines the logical name of the cluster. | String |
+| `"id"` | Defines the Cluster ID.  Range: 0-32, 767. | Integer |
+| `"type"` | Defines the cluster type: `PHYSICAL`, `LOGICAL` and `MEMORY`. | String |
+
 
 ### Schema Section
 
-Contains the schema as classes and properties.
-
-
-```json
-"schema":{
-  "version": <schema-version>,
-  "classes": [
-    { "name": <class-name>,
-      "default-cluster-id": <default-cluster-id>,
-      "cluster-ids": [<cluster-ids>],
-      "properties": [
-        { "name": <property-name>,
-          "type": <property-type>,
-          "mandatory": <property-is-mandatory>,
-          "not-null": <property-not-null> }
-      ]
-    }
-  ]
-}
-```
-
-
-|Parameter|Description|JSON Type|
-|---------|-----------|---------|
-|schema-version|Version of the record where the schema is stored. Range: 0-2,147,483,647|Integer|
-|class-name|Class name|String|
-|default-cluster-id|Default cluster id for the class. Represents the cluster where records will be stored|Integer|
-|cluster-ids|Array of cluster ids where the class records can be stored. The first is always the <code>&lt;default-cluster-id&gt;</code>|Array of Integer|
-|property-name|Name of the property|String|
-|property-type|Property type between the [supported ones](Types.md)|String|
-|property-is-mandatory|Is this property mandatory? true or false|Boolean|
-|property-not-null|The property can't accept null? true or false|Boolean|
-
-
-
-#### Example
-
+This section defines the database schema as classes and properties.
 
 ```json
 "schema":{
@@ -139,57 +75,75 @@ Contains the schema as classes and properties.
 }
 ```
 
+|Parameter|Description|JSON Type|
+|---------|-----------|---------|
+| `"version"` | Defines the version of the record storing the schema.  Range: 0-2,147,483,647. | Integer|
+| `"classes"` | Defines a list of entries for each class in the schema. | Array |
 
-### Records Section
-
-Contains the exported records with metadata (prefixed by @) and fields.
-```json
-"records": [
-  {
-    "@type": <record-type>,
-    "@rid": <record-id>,
-    "@version": 0,
-    "@class": <record-class>,
-
-    <field-name>: <field-value>,
-
-    ["@fieldTypes": "<field-name>=<field-type>"]
-  }
-]
-```
-
+**Parameters for the Classes Subsection:**
 
 |Parameter|Description|JSON Type|
 |---------|-----------|---------|
-|record-type|Record type: d = document, b = binary|String|
-|record-id|[RecordID](Concepts.md#recordid) in the format <code>#&lt;cluster-id&gt;:&lt;cluster-position&gt;</code>|String|
-|record-version|Record version from 0 to 2,147,483,647|Integer|
-|record-class|Record class name|String|
-|field-name|Field name|String|
-|field-value|Field value|Any|
-|field-type|Optional, it's the field type: 'l'=Long, 'f'=Float, 'd'=Double, 's'=Short, 't'=Datetime, 'd'=Date, 'c'=Decimal, 'b'=Byte|Any|
+| `"name"` | Defines the logical name of the class. | String |
+| `"default-cluster-id"` | Defines the default Cluster ID for the class.  It represents the cluster that stores the class records. | Integer |
+| `"cluster-ids"` | Defines an array of Cluster ID's that store the class records.  The first ID is always the default Cluster ID. | Array of Integers |
+| `"properties"` | Defines a list of entries for each property for the class in the schema. | Array |
 
 
-#### Example
+**Parameters for the Properties Sub-subsection:**
 
+|Parameter|Description|JSON Type|
+|---------|-----------|---------|
+| `"name"` | Defines the logical name of the property. | String |
+| `"type"` | Defines the [property type](Types.md). | String |
+| `"mandatory"` | Defines whether the property is mandatory. | Boolean |
+| `"not-null"` | Defines whether the property accepts a `NULL` value. | Boolean |
+
+
+
+### Records Section
+
+This section defines the exported record with metadata and fields.  Entries for metadata are distinguished from fields by the `@` symbol.
 
 ```json
 "records": [
-  {
-    "@type": "d", "@rid": "#12:476", "@version": 0, "@class": "Whiz",
-    "id": 476,
-    "date": "2011-12-09 00:00:00:000",
-    "text": "Los a went chip, of was returning cover, In the",
-    "@fieldTypes": "date=t"
-  },{
-    "@type": "d", "@rid": "#12:477", "@version": 0, "@class": "Whiz",
+   {"@type": "d", "@rid": "#12:476", "@version": 0, "@class": "Account",
+    "account_id": 476,
+	"date": "2011-12-09 00:00:00:0000",
+	"@fieldTypes": ["account_id=i", "date=t"]
+   },
+   {"@type": "d", "@rid": "#12:477", "@version": 0,	"@class": "Whiz",
     "id": 477,
     "date": "2011-12-09 00:00:00:000",
     "text": "He in office return He inside electronics for $500,000 Jay",
     "@fieldTypes": "date=t"
-  }
+   }
 ]
 ```
+
+**Parameters for Metadata**
+
+|Parameter|Description|JSON Type|
+|---------|-----------|---------|
+| `"@type"` | Defines the record-type: `d` for Document, `b` for Binary. | String|
+| `"@rid"` | Defines the [Record ID](Concepts.md#record-id), using the format: `<cluster-id>:<cluster-position>`. | String |
+| `"@version"` | Defines the record version.  Range: 0-2, 147, 483, 647. | Integer |
+| `"@class"` | Defines the logical class name for the record. | String |
+| `"@fieldTypes"` | Defines an array of the types for each field in this record. | Any |
+
+**Supported Field Types**
+
+| Value | Type |
+|---|---|
+| `l` | Long |
+| `f` | Float |
+| `d` | Double |
+| `s` | Short |
+| `t` | Datetime |
+| `d` | Date |
+| `c` | Decimal |
+| `b` | Byte |
+
 
 ## Full Example
 
