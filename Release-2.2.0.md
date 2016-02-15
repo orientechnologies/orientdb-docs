@@ -40,6 +40,8 @@ To execute quick expression starting from a ODocument and Vertex/Edge objects, u
 #### Schema.dropClass()
 On drop class are dropped all the cluster owned by the class, and not just the default cluster.
 
+#### ODatabaseDocument.setValidationEnabled(boolean enabled)
+The validation setting is now persistent
 
 ### Configuration Changes
 
