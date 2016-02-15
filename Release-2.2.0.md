@@ -50,7 +50,7 @@ Since 2.2 you can force to not ask for a root password setting `<isAfterFirstTim
 
 Strict SQL parsing is now applied also to statements for Schema Manipulation.
 
-**ALTER DATABASE**: A statement like
+*ALTER DATABASE*: A statement like
 ```
 ALTER DATABASE dateformat yyyy-MM-dd
 ```
@@ -58,18 +58,4 @@ is correctly executed, but is interpreted in the WRONG way: the `yyyy-MM-dd` is 
 ```
 ALTER DATABASE dateformat 'yyyy-MM-dd'
 ```
-
-**CREATE FUNCTION**
-
-In some cases a variant the syntax with curly braces was accepted (not documented), eg.
-
-```
-CREATE FUNCTION testCreateFunction {return 'hello '+name;} PARAMETERS [name] IDEMPOTENT true LANGUAGE Javascript
-```
-
-Now it's not supported anymore, the right syntax is
-```
-CREATE FUNCTION testCreateFunction "return 'hello '+name;" PARAMETERS [name] IDEMPOTENT true LANGUAGE Javascript
-```
-
 

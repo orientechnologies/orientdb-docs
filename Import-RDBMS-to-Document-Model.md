@@ -1,17 +1,15 @@
-# Import from RDBMS to Document Model
+# Import from a Relational Database
 
-This guide is to import an exported relational database into OrientDB using the Document Model. If you're using the Graph Model, look at [Import into Graph Model](Import-RDBMS-to-Graph-Model.md).
+Relational databases typically query and manipulate data with SQL.  Given that OrientDB supports a subset of SQL, it is relatively straightfoward to import data from a Relational databases to OrientDB.
+You can manage imports using the Java API, [OrientDB Studio](Home-page.md) or the [OrientDB Console](Console-Commands.md).  The examples below use the Console.
 
-OrientDB supports a subset of SQL, so importing a database created as "Relational" is straightforward. You can import a database using the API, the [OrientDB Studio visual tool](Home-page.md) or the [Console](Console-Commands.md). In this guide the console is used.
+>This guide covers importing into the Document Model.  Beginning with version 2.0, you can import into the Graph Model using the [ETL Module](Import-from-DBMS.md).  From version 1.7.x you can still use ETL by installing it as a separate module
 
-For the sake of simplicity consider your Relational database having just these two tables:
-- POST
-- COMMENT
+For these examples, assume that your Relational database, (referred to as `reldb` in the code), contains two tables: `Post` and `Comment`.  The relationship between these tables is one-to-many.
 
-Where the relationship is between Post and comment as One-2-Many.
+<pre>
+reldb> <code class='lang-sql userinput'>SELECT * FROM post;</code>
 
-```
-TABLE POST:
 +----+----------------+
 | id | title          |
 +----+----------------+
@@ -19,7 +17,9 @@ TABLE POST:
 | 20 | New OrientDB   |
 +----+----------------+
 
-TABLE COMMENT:
+
+reldb> <code class='lang-sql userinput'>SELECT * FROM comment;</code>
+
 +----+--------+--------------+
 | id | postId | text         |
 +----+--------+--------------+
@@ -29,26 +29,35 @@ TABLE COMMENT:
 | 41 |   20   | First again  |
 | 82 |   20   | Second Again |
 +----+--------+--------------+
-```
+</pre>
 
-Since the Relational Model hasn't Object Oriented concepts you can create a class per table in OrientDB. Furthermore in the RDBMS references One-2-Many are inverted from the target table to the source one. In OrientDB the Object Oriented model is respected and you've a collection of links from POST to COMMENT instances.
-In a RDBMS you have:
-```
-Table POST    <- (foreign key) Table COMMENT
-```
-In OrientDB the Document model uses [Links](Concepts.md#Relationships) to manage relationships:
-```
-Class POST ->* (collection of links) Class COMMENT
-```
 
-# Export your Relational Database
+Given that the Relational Model doesn't use concepts from Object Oriented Programming, there are some things to consider in the transition from a Relational database to OrientDB.
 
-Most of Relational DBMSs provide a way to export a database in SQL format. What you need is a text file containing the SQL INSERT commands to recreate the database from scratch. Take a look to the documentation of your RDBMS provider. Below the link to the export utilities for the most common RDBMSs:
-- MySQL: http://www.abbeyworkshop.com/howto/lamp/MySQL_Export_Backup/index.html
-- Oracle: http://www.orafaq.com/wiki/Import_Export_FAQ
-- MS SqlServer: http://msdn.microsoft.com/en-us/library/ms140052.aspx
+- In Relational databases there is no concept of class, so in the import to OrientDB you need to create on class per table.
 
-At this point you should have a <code>.sql</code> file containing the Relational database exported in SQL format like this:
+- In Relational databases, one-to-many references invert from the target table to the source table.
+
+  ```
+  Table POST    <- (foreign key) Table COMMENT
+  ```
+
+  In OrientDB, it follows the Object Oriented Model, so you have a collection of [links](Concepts.md#Relationships) connecting instances of `Post` and `Comment`. 
+
+  ```
+  Class POST ->* (collection of links) Class COMMENT
+  ```
+
+## Exporting Relational Databases
+
+Most Relational database management systems provide a way to export the database into SQL format.  What you specifically need from this is a text file that contains the SQL [`INSERT`](SQL-Insert.md) commands to recreate the database from scratch.  For example,
+
+- MySQL: the [`mysqldump`](https://dev.mysql.com/doc/refman/5.6/en/mysqldump.html) utility.
+- Oracle Database: the [Datapump](http://www.orafaq.com/wiki/Data_Pump) utilities.
+- Microsoft SQL Server: the [Import and Export Wizard](https://msdn.microsoft.com/en-us/library/ms141209.aspx).
+
+When you run this utility on the example database, it produces an `.sql` file that contains the exported SQL of the Relational database.
+
 ```sql
 DROP TABLE IF EXISTS post;
 CREATE TABLE post (
@@ -78,145 +87,187 @@ INSERT INTO COMMENT (id, postId, text) VALUES( 41, 20, 'First again' );
 INSERT INTO COMMENT (id, postId, text) VALUES( 82, 20, 'Second Again' );
 ```
 
-# Modify the SQL script
 
-What we're going to do is to change the generated SQL file to be imported into a OrientDB database. Don't execute the following commands but include them into the SQL file to be executed in batch mode by the [OrientDB Console](Console-Commands.md).
+## Modifying the Export File
 
-## What database to use?
+Importing from the Relational database requires that you modify the SQL file to make it usable by OrientDB.  In order to do this, you need to open the SQL file, (called `export.sql` below), in a text editor and modify the commands there.  Once this is done, you can execute the file on the Console using batch mode.
 
-Before to import the database you need an open connection to a OrientDB database. You can create a brand new database or use an existent one. You can use a volatile in-memory only database or a persistent disk-based one.
+### Database
 
-For persistent databases you can choose to create it in a remote server or locally using the "plocal" mode avoiding the server at all. This is suggested to have better performance on massive insertion.
+In order to import a data into OrientDB, you need to have a database ready to receive the import.  Note that the example `export.sql` file doesn't include statements to create the database.  You can either create a new database or use an existing one.
 
-### Create a new database
+#### Using New Databases
 
-#### Use the embedded mode
+In creating a database for the import, you can either create a volatile in-memory database, (one that is only available while OrientDB is running), or you can create a persistent disk-based database.  For a persistent database, you can create it on a remote server or locally through the PLocal mode.
 
-```sql
-CREATE DATABASE plocal:/tmp/db/blog admin admin plocal document
-```
+The recommended method is PLocal, given that it offers better performance on massive inserts.
 
-Thes [CREATE DATABASE](Console-Command-Create-Database.md) command creates a new database under the directory "/tmp/db/blog".
+- Using the embedded Plocal mode:
 
-#### Use the remote mode
+  <pre>
+  $ <code class="lang-sh userinput">vim export.sql</code>
+  <code class="lang-sql userinput">
+  CREATE DATABASE PLOCAL:/tmp/db/blog admin_user admin_passwd PLOCAL DOCUMENT
+  </code></pre>
+  
+  Here, the [`CREATE DATABASE`](Console-Command-Create-Database.md) command creates a new database at `/tmp/db/blog`.
 
-Or start a OrientDB server and create a database using the "remote" protocol in the connection URL. Example:
-```sql
-CREATE DATABASE remote:localhost/blog root dkdf383dhdsj plocal document
-```
+- Using the Remote mode:
 
-*NOTE: When you create a remote database you need the server's credentials to do it. Use the user "root" and the password stored in <code>config/orientdb-server-config.xml</code> file.*
+  <pre>
+  $ <code class="lang-sh userinput">vim export.sql</code>
+  <code class="lang-sql userinput">
+  CREATE DATABASE REMOTE:localhost/blog root_user dkdf383dhdsj PLOCAL DOCUMENT
+  </code></pre>
+  
+  This creates a database at the URL `http://localhost/blog`.
 
-### Use an existent database
+>**NOTE**: When you create remote databases, you need the server credentials to access it.  The user `root` and its password are stored in the `$ORIENTDB_HOME/config/orientdb-server-config.xml` configuration file.
 
-#### Use the embedded mode
 
-If you already have a database where to import, just open it:
-```sql
-CONNECT plocal:/tmp/db/blog admin admin
-```
-#### Use the remote mode
+#### Using Existing Databases
 
-```sql
-CONNECT remote:localhost/blog admin admin
-```
-## Declare the 'massive insert' intent
+In the event that you already have a database set up and ready for the import, instead of creating a database add a line that connects to that databases, using the [`CONNECT`](Console-Command-Connect.md) command.
 
-In order to obtain the maximum of performance you can tell to OrientDB what you're going to do. These are called "Intents". The "Massive Insert" intent will auto tune the OrientDB engine for fast insertion.
+- Using the embedded PLocal mode:
 
-Add the following line:
-```sql
-DECLARE INTENT massiveinsert
-```
-## Create the classes, one for tables
+  <pre>
+  $ <code class="lang-sh userinput">vim export.sh</code>
+  <code class="lang-sql userinput">
+  CONNECT PLOCAL:/tmp/db/blog admin_user admin_passwd
+  </code></pre>
 
-Since the Relational Model hasn't Object Oriented concepts you can create a class per table. Change the <code>CREATE TABLE ...</code> statements with <code>CREATE CLASS</code>:
-```sql
-CREATE CLASS POST
-CREATE CLASS COMMENT
-```
+  This connects to the database at `/tmp/db/blog`.
 
-### Pseudo Object Oriented database
+- Using the Remote mode:
 
-This is the case when your Relational database was created using a OR-Mapping tool like [Hibernate](http://www.hibernate.org) or [Data Nucleus](http://www.datanucleus.org) (JDO).
+  <pre>
+  $ <code class="lang-sh userinput">vim export.sql</code>
+  <code class="lang-sql userinput">
+  CONNECT REMOTE:localhost/blog admin_user admin_passwd
+  </code></pre>
+  
+  This connects to the database at the URL `http://localhost/blog`.
+  
+  
+### Declaring Intent
+  
+In the SQL file, after you create or connect to the database, you need to declare your intention to perform a massive insert.  Intents allow you to utilize automatic tuning OrientDB for maximum performance on particular operations, such as large inserts or reads.
 
-In this case you have to re-build the original Object Oriented structure directly in OrientDB using the Object Oriented capabilities of OrientDB.
+<pre>
+$ <code class="lang-sh userinput">vim export.sh</code>
+...<code class="lang-sql userinput">
+DECLARE INTENT MASSIVEINSERT
+</code></pre>
 
-## Remove not supported statements
 
-Leave only the <code>INSERT INTO</code> statements. OrientDB supports not only INSERT statement but for this purpose is out of scope.
+### Creating Classes 
 
-## Create links
+Relational databases have no parallel to concepts in Object Oriented programming, such as classes.  Conversely, OrientDB doesn't have a concept of tables in the Relational sense. 
 
-At this point you need to create links as relationships in OrientDB. The  [CREATE LINK command](SQL-Create-Link.md) creates links between two or more records of type Document. In facts in the Relational world relationships are resolved as foreign keys.
+Modify the SQL file, changing `CREATE TABLE` statements to [`CREATE CLASS`](SQL-Create-Class.md) commands:
 
-Using OrientDB, instead, you have direct relationship as in your object model. So the navigation is from *Post* to *Comment* and not viceversa as for Relational model. For this reason you need to create a link as **INVERSE**.
+<pre>
+$ <code class="lang-sql userinput">vim export.sql</code>
+...<code class="lang-sql userinput">
+CREATE CLASS Post
+CREATE CLASS Comment
+</code></pre>
 
-Execute:
-```sql
-CREATE LINK comments TYPE linkset FROM comment.postId TO post.id INVERSE
-```
+>**NOTE**: In cases where your Relational database was created using Object Relational Mapping, or ORM, tools, such as  [Hibernate](http://www.hibernate.org) or [Data Nucleus](http://www.datanucleus.org), you have to rebuild the original Object Oriented Structure directly in OrientDB.
 
-## Remove old constraints
+### Create Links
 
-This is an optional step. Now you've direct links the field 'postId' has no more sense, so remove it:
-```sql
+In the Relational database, the relationship between the `post` and `comment` was handled through foreign keys on the `id` fields.  OrientDB handles relationships differently, using links between two or more records of the Document type.
+
+By default, the [`CREATE LINK`](SQL-Create-Link.md) command creates a direct relationship in your object model. Navigation goes from `Post` to `Comment` and not vice versa, which is the case for the Relational database.  You'll need to use the `INVERSE` keyword to make the links work in both directions.
+
+Add the following line after the [`INSERT`](SQL-Insert.md) statements.
+
+<pre>
+$ <code class="lang-sh userinput">vim export.sql</code>
+...<code class="lang-sql userinput">
+CREATE LINK comments TYPE LINKSET FROM comment.postId TO post.id INVERSE
+</code></pre>
+
+### Remove Constraints
+
+Unlike how Relational databases handle tables, OrientDB does not require you to create a strict schema on your classes.  The properties on each class are defined through the [`INSERT`](SQL-Insert.md) statements.  That is, `id` and `title` on `Post` and `id`, `postId` and `text` on `Comment`.
+
+Given that you created a link in the above section, the property `postId` is no longer necessary.  Instead of modifying each [`INSERT`](SQL-Insert.md) statement, you can use the [`UPDATE`](SQL-Update.md) command to remove them at the end:
+
+<pre>
+$ <code class="lang-sh userinput">vim export.sql</code>
+...<code class="lang-sql userinput">
 UPDATE comment REMOVE postId
-```
+</code></pre>
 
-## Expected output
+Bear in mind, this is an optional step.  The database will still function if you leave this field in place.
 
-After these steps the expected output should be similar to that below:
-```sql
+### Expected Output
+
+When you've finished, remove any statements that OrientDB does not support.  With the changes above this leaves you with a file similar to the one below:
+
+<pre>
+$ <code class="lang-sh userinput">cat export.sql</code>
+
 CONNECT plocal:/tmp/db/blog admin admin
 
-DECLARE INTENT massiveinsert
+DECLARE INTENT MASSIVEINSERT
 
-CREATE CLASS POST
-CREATE CLASS COMMENT
+CREATE CLASS Post
+CREATE CLASS Comment
 
-INSERT INTO POST (id, title) VALUES( 10, 'NoSQL movement' );
-INSERT INTO POST (id, title) VALUES( 20, 'New OrientDB' );
+INSERT INTO Post (id, title) VALUES( 10, 'NoSQL movement' )
+INSERT INTO Post (id, title) VALUES( 20, 'New OrientDB' )
 
-INSERT INTO COMMENT (id, postId, text) VALUES( 0, 10, 'First' );
-INSERT INTO COMMENT (id, postId, text) VALUES( 1, 10, 'Second' );
-INSERT INTO COMMENT (id, postId, text) VALUES( 21, 10, 'Another' );
-INSERT INTO COMMENT (id, postId, text) VALUES( 41, 20, 'First again' );
-INSERT INTO COMMENT (id, postId, text) VALUES( 82, 20, 'Second Again' );
+INSERT INTO Comment (id, postId, text) VALUES( 0, 10, 'First' )
+INSERT INTO Comment (id, postId, text) VALUES( 1, 10, 'Second' )
+INSERT INTO Comment (id, postId, text) VALUES( 21, 10, 'Another' )
+INSERT INTO Comment (id, postId, text) VALUES( 41, 20, 'First again' )
+INSERT INTO Comment (id, postId, text) VALUES( 82, 20, 'Second Again' )
 
-CREATE LINK comments TYPE linkset FROM comment.postId To post.id INVERSE
-UPDATE comment REMOVE postId
-```
-
-# Import the records
-
-Now you have modified the SQL script execute it by invoking the console tool in batch mode (text file just created as first argument). Example of importing the file called "database.sql":
-```
-$ console.sh database.sql
-```
-
-# Enjoy
-
-That's all. Now you've a OrientDB database where relationships are direct without JOINS.
-
-Now enjoy with your new document-graph database and the following queries:
-
-Select all the post with comments:
-```sql
-orientdb> SELECT * FROM post WHERE comments.size() > 0
-```
-
-Select all the posts where comments contain the word 'flame' in the text property (before as column):
-```sql
-orientdb> SELECT * FROM post WHERE comments CONTAINS ( text like '%flame%' )
-```
-
-Select all the posts commented today. In this case we're assuming a property "date" is present in Comment class:
-```sql
-orientdb> SELECT * FROM post WHERE comments CONTAINS ( date > '2011-04-14 00:00:00' )
-```
+CREATE LINK comments TYPE LINKSET FROM Comment.postId TO Post.id INVERSE
+UPDATE Comment REMOVE postId
+</pre>
 
 
-To know more about other SQL commands look at [SQL commands](SQL.md).
+## Importing Databases
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+When you finish modifying the SQL file, you can execute it through the Console in batch mode.  This is done by starting the Console with the SQL file given as the first argument.
+
+<pre>
+$ <code class="lang-sql userinput">$ORIENTDB_HOME/bin/console.sh export.sql</code>
+</pre>
+
+When the OrientDB starts, it executes each of the commands given in the SQL files, creating or connecting to the database, creating the classes and inserting the data from the Relational database.  You now have a working instance of OrientDB to use.
+
+### Using the Database
+
+You now have an OrientDB Document database where relationships are direct and handled without the use of joins.
+
+- Query for all posts with comments:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM Post WHERE comments.size() > 0</code>
+  </pre>
+
+- Query for all posts where the comments contain the word "flame" in the `text` property:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM Post WHERE comments CONTAINS(text 
+            LIKE '%flame%')</code>
+  </pre>
+
+- Query for all posts with comments made today, assuming that you have added a `date` property to the `Comment` class:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM Post WHERE comments CONTAINS(date > 
+            '2011-04-14 00:00:00')</code>
+  </pre>
+
+
+>For more information, see
+>
+>- [SQL commands](SQL.md)
+>- [Console-Commands](Console-Commands.md)

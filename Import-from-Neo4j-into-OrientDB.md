@@ -1,134 +1,212 @@
 # Import from Neo4j
 
-This guide explains how to export a graph from Neo4j* and import it into OrientDB in 3 easy steps. If you want to know more about the differences between OrientDB and Neo4j, take a look at [OrientDB vs Neo4j](http://www.orientechnologies.com/orientdb-vs-neo4j/).
+Neo4j is an open-source graph database that queries and manipulates data using its own Cypher Query Language and can export in GraphML, an XML-based file format for graphs.  Given that OrientDB can read GraphML, it is relatively straightforward to import data from Neo4j into OrientDB.  You can manage the imports using the Console or the Java API.
 
-## 1) Download Neo4j Shell Tools plugin
-In order to export the database in GraphML format, you need the additional [neo4j-shell-tools](https://github.com/jexp/neo4j-shell-tools) plugin:
-- [Download it from the Neo4j web site](https://github.com/jexp/neo4j-shell-tools)
-- Extract the ZIP content inside Neo4j `lib` folder
+>Neo4j is a registered trademark of Neo Technology, Inc.  For more information on the differences between Neo4j and OrientDB, see [OrientDB vs. Neo4j]((http://www.orientechnologies.com/orientdb-vs-neo4j/).
 
-## 2) Export the Neo4j database to a file
-Now launch the [Neo4j-Shell](http://docs.neo4j.org/chunked/stable/shell.html) tool located in the `bin` directory and execute the following command:
 
-```
-export-graphml -t -o /tmp/out.graphml
-```
 
-Where `/tmp/out.graphml` is the location to save the file in GraphML format.
+## Exporting GraphML
 
-Example:
+In order to export data from Neo4j into GraphML, you need to install the [Neo4j Shell Tools](https://github.com/jexp/neo4j-shell-tools) plugin.  Once you have this package installed, you can use the `export-graphml` utility to export the database.
 
-```
-$ bin/neo4j-shell
-Welcome to the Neo4j Shell! Enter 'help' for a list of commands
-NOTE: Remote Neo4j graph database service 'shell' at port 1337
+1. Change into the Neo4j home directory:
 
-neo4j-sh (0)$ export-graphml -t -o /tmp/out.graphml
-Wrote to GraphML-file /tmp/out.graphml 0. 100%: nodes = 302 rels = 834 properties = 4221 time 59 sec total 59 sec
-```
+   <pre>
+   $ <code class="lang-sql userinput">cd /path/to/neo4j-community-2.3.2</code>
+   </pre>
+   
+1. Download the Neo4j Shell Tools:
 
-## 3) Import the database into OrientDB
-The third and last step can be done in 3 ways, based on the OrientDB version you are using.
+   <pre>
+   $ <code class="lang-sh userinput">curl http://dist.neo4j.org/jexp/shell/neo4j-shell-tools_2.3.2.zip \
+         -o neo4j-shell-tools.zip</code>
+   </pre>
+   
+1. Unzip the `neo4j-shell-tools.zip` file into the `lib` directory:
 
-### 3a) Using the console with OrientDB 2.0.x or further
-If you have OrientDB 2.0, this is the suggested method because it's easier and is able to import Neo4j labels as OrientDB classes automatically.
+   <pre>
+   $ <code class="lang-sh userinput">unzip neo4j-shell-tools.zip -d lib</code>
+   </pre>
+   
+1. Restart the Neo4j Server.  In the event that it's not running, `start` it:
 
-```
-$ cd $ORIENTDB_HOME/bin
-$ ./console.sh
-orientdb> CREATE DATABASE plocal:/tmp/db/test
-creating database [plocal:/tmp/db/test] using the storage type [plocal]...
-Database created successfully.
+   <pre>
+   $ <code class="lang-sh userinput">./bin/neo4j restart</code>
+   </pre>
+   
+1. Once you have Neo4j restarted with the Neo4j Shell Tools, launch the [Neo4j Shell](http://docs.neo4j.org/chunked/stable/shell.html) tool, located in the `bin/` directory:
 
-Current database is: plocal:/tmp/db/test
+   <pre>
+   $ <code class="lang-sh userinput">./bin/neo4j-shell</code>
+   Welcome to the Neo4j Shell! Enter 'help' for a list of commands
+   NOTE: Remote Neo4j graph database service 'shell' at port 1337
 
-orientdb {db=test}> IMPORT DATABASE /tmp/out.graphml
+   neo4j-sh (0)$
+   </pre>
 
-Importing GRAPHML database database from /tmp/out.graphml...
-Transaction 8 has been committed in 12ms
-```
+1. Export the database into GraphML:
 
-### 3b) Using the console with OrientDB 1.7 or previous
-This method uses the standard Gremlin importer, but doesn't take in consideration any label declared in Neo4j, so everything is imported as V (base Vertex class) and E (base Edge class). After importing you could need to refactor your graph element to fit in a more structured schema.
+   <pre>
+   neo4j-sh (0)$ <code class="lang-sh userinput">export-graphml -t -o /tmp/out.graphml</code>
+   Wrote to GraphML-file /tmp/out.graphml 0. 100%: nodes = 302 rels = 834
+   properties = 4221 time 59 sec total 59 sec
+   </pre>
+   
+This exports the database to the path `/tmp/out.graphml`.
 
-To import the GraphML file into OrientDB complete the following steps:
-- execute the Gremlin console located in `$ORIENTDB_HOME/bin`
-- create a new graph with the command `g = new OrientGraph("plocal:/tmp/db/test");` specifying the path of your new OrientDB Graph Database, `/tmp/db/test` in this case
-- execute the command `g.loadGraphML('/tmp/out.graphml');` where `/tmp/out.graphml` is the path of the exported file
 
-Example:
 
-```
-$ cd $ORIENTDB_HOME/bin
-$ ./gremlin.sh
 
-         \,,,/
-         (o o)
------oOOo-(_)-oOOo-----
-gremlin> g = new OrientGraph("plocal:/tmp/db/test");
-==>orientgraph[plocal:/db/test]
-gremlin> g.loadGraphML('/tmp/out.graphml');
-==>null
-gremlin> quit
-```
+## Importing GraphML
 
-### 3c) Using Java API
-Java API are called by console. Using Java API directly allows you more control on the importing process. 
+There are three methods available in importing the GraphML file into OrientDB: through the Console, through Gremlin or through the Java API.
 
-Example of simple importing:
+### Importing through the OrientDB Console
+
+For more recent versions of OrientDB, you can import data from GraphML through the OrientDB Console.  If you have version 2.0 or greater, this is the recommended method given that it can automatically translate the Neo4j labels into classes.
+
+1. Log into the OrientDB Console.
+
+   <pre>
+   $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/console.sh</code>
+   </pre>
+   
+1. In OrientDB, create a database to receive the import:
+
+   <pre>
+   orientdb> <code class="lang-sql userinput">CREATE DATABASE PLOCAL:/tmp/db/test</code>
+   Creating database [plocal:/tmp/db/test] using the storage type [plocal]...
+   Database created successfully.
+
+   Current database is: plocal:/tmp/db/test
+   </pre>
+
+1. Import the data from the GraphML file:
+
+   <pre>
+   orientdb {db=test}> <code class="lang-sql userinput">IMPORT DATABASE /tmp/out.graphml</code>
+   
+   Importing GRAPHML database database from /tmp/out.graphml...
+   Transaction 8 has been committed in 12ms
+   </pre>
+
+This imports the Neo4j database into OrientDB on the `test` database.
+
+
+
+### Importing through the Gremlin Console
+
+For older versions of OrientDB, you can import data from GraphML through the Gremlin Console.  If you have a version 1.7 or earlier, this is the method to use.  It is not recommended on more recent versions, given that it doesn't consider labels declared in Neo4j.  In this case, everything imports as the base vertex and edge classes, (that is, `V` and `E`).  This means that, after importing through Gremlin you need to refactor you graph elements to fit a more structured schema.
+
+To import the GraphML file into OrientDB, complete the following steps:
+
+1. Launch the Gremlin Console:
+
+   <pre>
+   $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/gremlin.sh</code>
+   
+            \,,,/
+            (o o)
+   -----oOOo-(_)-oOOo-----
+   </pre>
+
+1. From the Gremlin Console, create a new graph, specifying the path to your Graph database, (here `/tmp/db/test`):
+
+   <pre>
+   gremlin> <code class="lang-js userinput">g = new OrientGraph("plocal:/tmp/db/test");</code>
+   ==>orientgraph[plocal:/db/test]
+   </pre>
+   
+1. Load the GraphML file into the graph object (that is, `g`):
+
+   <pre>
+   gremlin> <code class="lang-js userinput">g.loadGraphML("/tmp/out.graphml");</code>
+   ==>null
+   </pre>
+   
+1. Exit the Gremlin Console:
+
+   <pre>
+   gremlin> <code class="lang-js userinput">quit</code>
+   </pre>
+
+This imports the GraphML file into your OrientDB database.
+
+
+
+### Importing through the Java API
+
+OrientDB Console calls the Java API.  Using the Java API directly allows you greater control over the import process.  For instance,
+
 ```java
 new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).inputGraph("/temp/neo4j.graphml");
 ```
 
-#### Define custom strategies
-Starting from OrientDB 2.1 you can customize the importing process by specifying custom strategies for vertex and edge attributes. The suppoted strategies are:
-- `com.orientechnologies.orient.graph.graphml.OIgnoreGraphMLImportStrategy` to ignore an attribute and
-- `com.orientechnologies.orient.graph.graphml.ORenameGraphMLImportStrategy` to rename an attribute
+This line imports the GraphML file into OrientDB.
 
-Example to ignore the vertex attribute `type`:
 
-```java
-new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
-```
+#### Defining Custom Strategies
 
-Example to ignore the edge attribute `weight`:
+Beginning in version 2.1, OrientDB allows you to modify the import process through custom strategies for vertex and edge attributes.  It supports the following strategies:
 
-```java
-new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineEdgeAttributeStrategy("weight", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
-```
-Example on renaming the vertex attribute `type` in just `type`:
+- `com.orientechnologies.orient.graph.graphml.OIgnoreGraphMLImportStrategy` 
+Defines attributes to ignore.
+- `com.orientechnologies.orient.graph.graphml.ORenameGraphMLImportStrategy` Defines attributes to rename.
 
-```java
-new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new ORenameGraphMLImportStrategy("type")).inputGraph("/temp/neo4j.graphml");
-```
-----
-Congratulations! The database has been imported into OrientDB.
+**Exammples**
 
-### Tricks and Tips
-#### Memory problems
-If you experiment out of memory problems, try to reduce the batchSize (default is 1000), by setting the `batchSize` property. Example from console:
+- Ignore the vertex attribute `type`:
 
-```
-orientdb {db=test}> IMPORT DATABASE /tmp/out.graphml batchSize=100
-```
+  ```java
+  new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
+  ```
 
-Example from Java API:
+- Ignore the edge attribute `weight`:
 
-```java
-new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).setBatchSize(100).inputGraph("/temp/neo4j.graphml");
-```
+  ```java
+  new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineEdgeAttributeStrategy("weight", new OIgnoreGraphMLImportStrategy()).inputGraph("/temp/neo4j.graphml");
+  ```
+  
+- Rename the vertex attribute `type` in just `type`:
 
-#### Store the vertices ids
-By deault OrientDB uses own IDs for vertices. If you want to save the original ids for vertices, use the option `storeVertexIds=true`. Example from console:
+  ```java
+  new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).defineVertexAttributeStrategy("__type__", new ORenameGraphMLImportStrategy("type")).inputGraph("/temp/neo4j.graphml");
+  ```
 
-```
-orientdb {db=test}> IMPORT DATABASE /tmp/out.graphml storeVertexIds=true
-```
-Example from Java API:
 
-```java
-new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).setStoreVertexIds(true).inputGraph("/temp/neo4j.graphml");
-```
 
------
-*Neo4j is a registered trademark of Neo Technology Inc.
+## Import Tips and Tricks
+
+### Dealing with Memory Issues
+
+In the event that you experience memory issues while attempting to import from Neo4j, you might consider reducing the batch size.  By default, the batch size is set to `1000`.  Smaller value causes OrientDB to process the import in smaller units.
+
+- Import with adjusted batch size through the Console:
+
+  <pre>
+  orientdb {db=test}> <code class="lang-sql userinput">IMPORT DATABASE /tmp/out.graphml batchSize=100</code>
+  </pre>
+
+- Import with adjusted batch size through the Java API:
+
+  ```java
+  new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).setBatchSize(100).inputGraph("/temp/neo4j.graphml");
+  ```
+
+### Storing the Vertex ID's
+
+By default, OrientDB updates the import to use its own ID's for vertices.  If you want to preserve the original vertex ID's from Neo4j, use the `storeVertexIds` option.
+
+- Import with the original vertex ID's through the Console:
+
+  <pre>
+  orientdb {db=test}> <code class="lang-sql userinput">IMPORT DATABASE /tmp/out.graphml storeVertexIds=true</code>
+  </pre>
+  
+- Import with the original vertex ID's through the Java API:
+
+  ```java
+  new OGraphMLReader(new OrientGraph("plocal:/temp/bettergraph")).setStoreVertexIds(true).inputGraph("/temp/neo4j.graphml");
+  ```
+
