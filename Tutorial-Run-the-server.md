@@ -83,7 +83,7 @@ $ <code class="lang-sh userinput">./shutdown.sh -h odb1.mydomain.com -P 2424-243
 List of params
 
 - -h | --host **HOSTNAME or IP ADDRESS** : the host or ip where OrientDB is running, default to **localhost**
-- -P | --potrs **PORT or PORT RANGE** : single port value or range of ports; default to **2424-2430**
+- -P | --ports **PORT or PORT RANGE** : single port value or range of ports; default to **2424-2430**
 - -u | --user **ROOT USERNAME** : root's username; deafult to  **root**
 - -p | --password **ROOT PASSWORD** : root's user password; **mandatory**
 
