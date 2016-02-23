@@ -2,6 +2,14 @@
 
 ## What's new?
 
+### Direct Memory
+Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) already set the maximum size value to 512GB of memory by setting the JVM configuration
+```
+-XX:MaxDirectMemorySize=512g
+```
+
+If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
+
 ### Command Cache
 OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](Command-Cache.md) to know more.
 
