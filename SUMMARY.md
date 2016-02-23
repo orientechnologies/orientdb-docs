@@ -89,6 +89,7 @@
     * [Sleep](Console-Command-Sleep.md)
   * [Upgrading](Upgrade.md)
     * [Backward compatibility](Backward-compatibility.md)
+    * [From 2.1.x to 2.2.x](Release-2.2.0.md)
     * [From 2.0.x to 2.1.x](Release-2.1.0.md)
     * [From 1.7.x to 2.0.x](Migration-from-1.7.x-to-2.0.x.md)
     * [From 1.6.x to 1.7.x](Migration-from-1.6.x-to-1.7.x.md)
