@@ -188,6 +188,7 @@
       * [Insert](SQL-Insert.md)
       * [Update](SQL-Update.md)
       * [Delete](SQL-Delete.md)  
+      * [Match] (SQL-Match.md)
   * [Commands](Commands.md)
     * [Alter Class](SQL-Alter-Class.md)
     * [Alter Cluster](SQL-Alter-Cluster.md)
