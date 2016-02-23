@@ -12,12 +12,12 @@ Download the plugin jar from maven central
     http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/VERSION/orientdb-spatial-VERSION-dist.jar
 
 where **VERSION** must be the same of the OrientDB installation.
-After download, copy the jar to orient plugins directory.
+After download, copy the jar to orient lib directory.
 On *nix system it could be done this way:
 
 ```console
 wget  http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/VERSION/orientdb-spatial-VERSION-dist.jar
-cp orientdb-spatial-VERSION-dist.jar /PATH/orientdb-community-VERSION/plugins/
+cp orientdb-spatial-VERSION-dist.jar /PATH/orientdb-community-VERSION/lib/
 ```
 
 Orient db will load the spatial plugin on startup.
