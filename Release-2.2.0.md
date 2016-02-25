@@ -80,3 +80,16 @@ Now it's not supported anymore, the right syntax is
 ```
 CREATE FUNCTION testCreateFunction "return 'hello '+name;" PARAMETERS [name] IDEMPOTENT true LANGUAGE Javascript
 ```
+
+**ALTER PROPERTY**
+
+The ALTER PROPERTY command, in previous versions, accepted any unformatted value as last argument, eg.
+
+```
+ALTER PROPERTY Foo.name min 2015-01-01 00:00:00
+```
+
+In v.2.2 the value must be a valid expression (eg. a string):
+```
+ALTER PROPERTY Foo.name min "2015-01-01 00:00:00"
+```
