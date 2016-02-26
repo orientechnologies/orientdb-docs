@@ -538,13 +538,15 @@ Returns the shortest path between two vertices. Direction can be OUT (default), 
 
 Available since: 1.3.0
 
-Syntax: ```shortestPath( <sourceVertex>, <destinationVertex> [, <direction> [, <edgeClassName>]])```
+Syntax: ```shortestPath( <sourceVertex>, <destinationVertex> [, <direction> [, <edgeClassName> [, <additionalParams>]]])```
 
 Where:
 - `sourceVertex` is the source vertex where to start the path
 - `destinationVertex` is the destination vertex where the path ends
 - `direction`, optional, is the direction of traversing. By default is "BOTH" (in+out). Supported values are "BOTH" (incoming and outgoing), "OUT" (outgoing) and "IN" (incoming)
 - `edgeClassName`, optional, is the edge class to traverse. By default all edges are crossed. Since 2.0.9 and 2.1-rc2
+- `additionalParams` (since v 2.1.12), optional, here you can pass a map of additional parametes (Map<String, Object> in Java, JSON from SQL). Currently allowed parameters are
+   - 'maxDepth': integer, maximum depth for paths (ignore path longer that 'maxDepth')
 
 #### Example on finding the shortest path between vertices #8:32 and #8:10
 
@@ -562,6 +564,13 @@ SELECT shortestPath(#8:32, #8:10, 'OUT')
 ```sql
 SELECT shortestPath(#8:32, #8:10, 'IN', 'Friend')
 ```
+
+#### Example on finding the shortest path between vertices #8:32 and #8:10, long at most five hops
+
+```sql
+SELECT shortestPath(#8:32, #8:10, null, null, {"maxDepth": 5})
+```
+
 
 ---
 ### distance()
