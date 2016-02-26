@@ -13,7 +13,7 @@ That is,
 - `<cluster-id>` The cluster identifier.
 - `<cluster-position>` The position of the data within the cluster.
 
-Each database can have a maximum of 32,767 clusters, or 2<sup>15</sup> - 1.  Each cluster can handle up to 9,223,372,036,780,000 records, or 2<sup>63, namely 8,223,372 trillion records.
+Each database can have a maximum of 32,767 clusters, or 2<sup>15</sup> - 1.  Each cluster can handle up to 9,223,372,036,780,000 records, or 2<sup>63</sup>, namely 8,223,372 trillion records.
 
 > The maximum size of a database is 2<sup>78</sup> records, or 302,231,454,903 trillion records.  Due to limitations in hardware resources, OrientDB has not been tested at such high numbers, but there are users working with OrientDB in the billions of records range.
 
