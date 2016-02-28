@@ -1,81 +1,81 @@
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Sources
 
-**Source** components represent the source of the data to be extracted. Some [Extractors](Extractor.md) like JDBCExtractor work without a source, and thus can be optional.
+When OrientDB executes the ETL module, source components define the source of the data you want to extract.  In the case of some [extractors](Extractor.md) like JDBCExtractor work without source, making this component optional.  The ETL module in OrientDB supports the following types of sources:
 
-## Available Sources
+- [`"file"`](#file-sources)
+- [`"input"`](#input-sources)
+- [`"http"`](#http-sources)
 
 
-|[file](Source.md#file)|[input](Source.md#input)|[http](Source.md#http)|
-|-----|-----|-----|
-|<!-- PH -->|<!-- PH -->|<!-- PH -->|
+## File Sources
 
-### file
+In the file source component, the variables represent a source file containing the data you want the ETL module to read.  You can use text files or files comprssed to `tar.gz`.
 
-Represents a source file, from which data is read. Files can be text files or compressed with tar.gz.
+**Syntax**
 
-- Component name: **file**
-
-#### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|path|File path|string|true|-|
-|lock|Lock the file while the extraction phase|boolean|false|false|
-|encoding|File encoding|string|false|UTF-8|
+|-----------|-------------|------|:---------:|-----------|
+| `"path"` | Defines the path to the file | string | yes | |
+| `"lock"` | Defines whether to lock the file during the extraction phase. | boolean | | `false` |
+| `"encoding"` | Defines the encoding for the file. | string | | `UTF-8` |
 
+**Examples**
 
-#### Example
-Extracts from the file "/temp/actor.tar.gz":
+- Extract data from the file at `/tmp/actor.tar.gz`:
 
-```json
-{ "file": { "path": "/temp/actor.tar.gz", "lock" : true , "encoding" : "UTF-8"} }
-```
-
------
-
-### input
-
-Extracts data from console input. This is useful when the ETL works in a PIPE with other tools
-
-- Component name: **input**
-
-#### Syntax
-| Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-
-#### Example
-Extracts the file as input
-
-```
-cat /etc/csv|oetl.sh "{transformers:[{csv:{}}]}"
-```
------
-
-### http
-
-Uses an HTTP endpoint as a data source.
-
-- Component name: **http**
-
-#### Syntax
-| Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|url|HTTP URL to invoke|String|true|-|
-|method|HTTP Method between "GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "TRACE"|String|false|GET|
-|headers|Request headers as inner document key/value|Document|false| |
-
-#### Example
-Execute an HTTP request against the URL "http://ip.jsontest.com/" in a GET, setting the User-Agent in the headers:
-
-```json
-{ "http": {
-    "url": "http://ip.jsontest.com/",
-    "method": "GET",
-    "headers": {
-      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
-    }
+  ```json
+  { 
+     "file": { 
+	    "path": "/tmp/actor.tar.gz", 
+		"lock" : true , 
+		"encoding" : "UTF-8" 
+     }
   }
-}
-```
+  ```
 
------
+## Input Sources
+
+In the input source component, the ETL module extracts data from console input.  You may find this useful in cases where the ETL module operates in a pipe with other tools.
+
+**Syntax**
+```sh
+oetl.sh "<input>"
+```
+**Example**
+
+- Cat a file, piping its output into the ETL module:
+
+  <pre>
+  $ <code class="lang-sh userinput">cat /etc/csv | $ORIENTDB_HOME/bin/oetl.sh \
+        "{transformers:[{csv:{}}]}"</code>
+  </pre>
+
+
+## HTTP Sources
+
+In the HTTP source component, the ETL module extracts data from an HTTP address as source.
+
+**Syntax**
+
+| Parameter | Description | Type | Mandatory | Default value |
+|-------|-------|------|:--------:|-----------|
+| `"url"` | Defines the URL to look to for source data. | string | yes | |
+| `"method"` | Defines the HTTP method to use in extracting data.  Supported methods are: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, and `TRACE`. | string | | `GET` |
+| `"headers"` | Defines the request headers as an inner document key/value. | document | | |
+
+**Examples**
+
+- Execute an HTTP request in a `GET`, setting the user agent in the header:
+
+  ```json
+  { 
+     "http": {
+        "url": "http://ip.jsontest.com/",
+        "method": "GET",
+        "headers": {
+           "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
+        }
+     }
+  }
+  ```

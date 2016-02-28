@@ -1,19 +1,11 @@
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Configuration
 
-One of the most important OrientDB-ETL module features is the simplicity to configure complex ETL processes, just by working with a single [JSON](http://en.wikipedia.org/wiki/JSON) file.
+OrientDB manages configuration for the ETL module through a single JSON configuration file, called at execution.
 
-The Configuration file is divided into the following sections:
-- **config**, to manage all the settings and context's variables used by any component of the process
-- **source**, to manage the source to process
-- **begin**, as a list of [Blocks](Block.md) to execute in order. This section is executed, when the process begins
-- **extractor**, contains the [Extractor](Extractor.md) configuration
-- **transformers**, contains the list of [Transformers](Transformer.md) to execute in the pipeline
-- **loader**, contains the [Loader](Loader.md) configuration
-- **end**, as a list of [Blocks](Block.md) to execute in order. This section is executed, when the process is finished
+**Syntax** 
 
-## Syntax
-```
+```json
 {
   "config": {
     <name>: <value>
@@ -37,7 +29,16 @@ The Configuration file is divided into the following sections:
 }
 ```
 
-Example:
+- **`"config"`** Manages all settings and context variables used by any component of the process.
+- **`"source"`** Manages the source data to process.
+- **`"begin"`** Defines a list of [blocks](Block.md) to execute in order when the process begins.
+- **`"extractor"`** Manages the [extractor](Extractor.md) settings.
+- **`"transformers"`** Defines a list of [transformers](Transformer.md) to execute in the pipeline.
+- **`"loader"`** Manages the [loader](Loader.md) settings.
+- **`"end"`** Defines a list of [blocks](Block.md) to execute in order when the process finishes.
+
+**Example**
+
 
 ```json
 {
@@ -76,13 +77,22 @@ Example:
 }
 ```
 
-## Generic rules
-- context variables can be used by prefixing them with $
-- `$input` is the context variable assigned, before each transformation
-- to execute an expression using OrientDB SQL, use `={<expression>}`, example: `={eval('3 * 5')}`
+## General Rules
 
-## Conditional execution
-All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), can be executed only if a condition is true by using the **if** conditional expression using the [OrientDB SQL syntax](SQL-Where.md). Example:
+In developing a configuration file for ETL module processes, consider the following:
+- You can use context variables by prefixing them with the `$` sign.
+- It assigns the `$input` context variable before each transformation.
+- You can execute an expression in OrientDB SQL with the `={<expression>}` syntax.  For instance,
+
+  ```json
+  "field": ={EVAL('3 * 5)}
+  ```
+  
+### Conditional Execution
+
+In conditional execution, OrientDB only runs executable blocks, such as [transformers](Transformer.md) and [blocks](Block.md), when a condition is found true, such as with a [`WHERE`](SQL-Where.md) clause. 
+
+For example,
 
 ```json
 { "let": {
@@ -99,10 +109,11 @@ All executable blocks, like [Transformers](Transformer.md) and [Blocks](Block.md
 }
 ```
 
-## Log setting
-Most of the blocks, like [Transformers](Transformer.md) and [Blocks](Block.md), supports the `log` setting. Log can be one of the following values (case insensitive): `[NONE, ERROR, INFO, DEBUG]`. The default is `INFO`.
+### Log setting
 
-Set the log level to `DEBUG` to display more information on execution. Remember that logging slows down execution, so use it only for development and debugging purposed. Example:
+Most blocks, such [transformers](Transformer.md) and [blocks](Block.md), support the `"log"` setting.  Logs take one of the following logging levels, (which are case-insensitive),: `NONE`, `ERROR`, `INFO`, `DEBUG`.  By default, it uses the `INFO` level.
+
+Setting the log-level to `DEBUG` displays more information on execution.  It also slows down execution, so use it only for development and debugging purposes.
 
 ```json
 { "http": {
@@ -116,36 +127,37 @@ Set the log level to `DEBUG` to display more information on execution. Remember 
 }
 ```
 
-## Configuration variables
-All of the variables declared in a "config" block are bound in the execution context and can be used by ETL processing.
 
-There are also special variables used by the ETL process:
+### Configuration Variables
 
-| Variable | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|log|Global "log" setting. Accepted values: `[NONE, ERROR, INFO, DEBUG]`. Useful to debug a ETL process or single component.|string|false|INFO|
-|maxRetries|Maximum number of retries in case the loader raises a ONeedRetryException: concurrent modification of the same records|integer|false|10|
-|parallel|Executes pipelines in parallel by using all the available cores.|boolean|false|false|
-|haltOnError|Halt the process in case of unmanaged error. If it is false, the process continue in case of errors. The encountered error number is reported at the end of importing. Since 2.0.9.|boolean|false|true|
+The ETL module binds all values declared in the `"config"` block to the execution context and are accessible to ETL processing.  There are also some special variables used by the ETL process.
 
-## Split configuration on multiple files
+| Variable | Description | Type | Default value |
+|-----------|-------------|------|-----------|
+| `"log"` | Defines the global logging level.  The accepted levels are: `NONE`, `ERROR`, `INFO`, and `DEBUG`. This parameter is useful to debug a ETL process or single component. | string | `INFO` |
+| `"maxRetries"` | Defines the maximum number of retries allowed, in the event that the loader raises an `ONeedRetryException`, for concurrent modification of the same record. | integer | 10 |
+| `"parallel"` | Defines whether the ETL module executes pipelines in parallel, using all available cores. | boolean | `false` |
+| `"haltOnError"` | Defines whether the ETL module halts the process when it encounters unmanageable errors.  When set to `false`, the process continues in the event of errors.  It reports the number of errors it encounters at the end of the import.  This feature was introduced in version 2.0.9. | boolean | `true` |
 
-Configuration can be split into several files allowing composition of common parts such as paths, urls, and database references.
-The previous configuration could be split in two files:
+### Split Configuration on Multiple Files
 
-a configuration file with input path for Person csv: *personConfig.json*
-```json
+You can split the configuration into several files allowing for the composition of common parts such as paths, URL's and database references. 
+
+For example, you might split the above configuration into two files: one with the input paths for `Person.csv` specifically, while the other would contain common configurations for the ETL module.
+
+<pre>
+$ <code class="lang-sh userinput">cat personConfig.json</code>
+<code class="lang-json">
 {
   "config": {
     "log": "debug",
     "fileDirectory": "/temp/databases/dbpedia_csv/",
     "fileName": "Person.csv.gz"
   }
-}
-```
+}</code>
 
-a common configuration file, where other parts are configured: *commonConfig.json*
-```json
+$ <code class="lang-sh userinput">cat commonConfig.json</code>
+<code class="lang-json">
 {
   "begin": [
    { "let": { "name": "$filePath",  "value": "$fileDirectory.append( $fileName )"} },
@@ -174,26 +186,31 @@ a common configuration file, where other parts are configured: *commonConfig.jso
       "indexes": [{"class":"V", "fields":["URI:string"], "type":"UNIQUE" }]
     }
   }
-}
-```
+}</code>
+</pre>
 
-Then pass the split files to otel.sh:
-```
-$ ./oetl.sh commonConfig.json personConfig.json
-```
+Then, when you can call both configuration files when you run the ETL module:
+
+<pre>
+$ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh commonConfig.json personConfig.json</code>
+</pre>
+
+
 
 
 
 ### Run-time configuration
 
-In the ETL JSON file you can define variables, which will be resolved at run-time by passing them at startup.
-Values passed by command line *override* values defined in the config section, even in case multiple configuration files, are used.
-You could, for example, assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
+In the configuration file for the ETL module, you can define variables that the module resolves at run-time by passing them as command-line options.  Values passed in this manner *override* the values defined in the `"config"` section, even when you use multiple configuration files.
 
-```
-$ ./oetl.sh config-dbpedia.json -databaseURL=plocal:/temp/mydb
-```
-In case the *databaseUrl* was assigned in the *config* section, its value will be overridden by any command line value:
+For instance, you might set the configuration variable in the file to `${databaseURL}`, then define it through the command-line using:
+
+<pre>
+$ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json \
+      -databaseURL=plocal:/tmp/mydb</code>
+</pre>
+
+In this case, the `databaseURL` parameter is set in the `"config"` section to `/tmp/mydb`, overriding any value given the file.
 
 ```json
 {

@@ -1,84 +1,106 @@
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Blocks
 
-**Block** components execute operations.
+When OrientDB executes the ETL module, blocks in the ETL configuration define components to execute in the process. The ETL module in OrientDB supports the following types of blocks:
 
-## Available Blocks
+- [`"let"`](#let-blocks)
+- [`"code"`](#code-blocks)
+- [`"console"`](#console-blocks)
 
-|[let](Block.md#row)|[code](Block.md#code)|[console](Block.md#console)|
-|---|---|---|
-|<!-- PH -->|<!-- PH -->|<!-- PH -->|
+## Let Blocks
 
-### let
+In a `"let"` block, you can define variables to the ETL process context.
 
-Assigns a variable in the ETL process context.
+**Syntax**
 
-- Component name: **let**
-
-#### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|name|Variable name. Any $ prefix is ignored|string|true|-|
-|value|Fixed value to assign|any|false|-|
-|expression|Expression in OrientDB SQL language, to evaluate and assign|string|false|-|
+|-----------|-------------|------|:-------:|-----------|
+| `"name"` | Defines the variable name.  The ETL process ignores any values with the `$` prefix. |string| yes | |
+| `"value"` | Defines the fixed value to assign. | an |  | |
+| `"expression"` | Defines an expression in the OrientDB SQL language to evaluate and assign. | string | | |
 
-#### Example
-Assign a value to the variable:
+**Examples**
 
-```json
-{ "let": { "name": "$filePath",  "value": "/temp/myfile"} }
+- Assign a value to the file path variable
+
+  ```json
+  { 
+    "let": { 
+      "name": "$filePath",
+	  "value": "/temp/myfile"
+	} 
+  }
+  ```
+
+- Concat the `$fileName` variable to the `$fileDirectory` to create a new variable for `$filePath`:
+
+  ```json
+  { 
+     "let": { 
+	    "name": "$filePath",  
+		"expression": "$fileDirectory.append($fileName )"
+     } 
+  }
 ```
 
-Concats the $fileName variable to $fileDirectory to create the new variable $filePath:
+## Code Block
 
-```json
-{ "let": { "name": "$filePath",  "expression": "$fileDirectory.append( $fileName )"} }
-```
+In the `"code"` block, you can configure code snippets to execute in any JVM-supported languages.  The default language is JavaScript.
 
-### code
+**Syntax**
 
-Execute a snippet of code in any of the JVM supported languages. Default is Javascript.
 
-- Component name: **code**
-
-#### Syntax
 | Parameter | Description | Type| Mandatory | Default value |
-|-----------|-------------|-----|-----------|-----------|
-|language|Programming language used|string|false|Javascript|
-|code|Code to execute|string|true|-|
+|-----------|-------------|-----|:---------:|-----------|
+|`"language"` | Defines the programming language to use. | string | | Javascript |
+| `"code"` | Defines the code to execute. | string | yes | |
 
-#### Example
 
-```json
-{ "code": { "language": "Javascript",
-            "code": "print('Hello World!');"}
-}
-```
+**Examples**
 
-### console
+- Execute a `Hello, World!` program in JavaScript, through the ETL module:
 
-Execute commands invoking the [OrientDB Console](Console-Commands.md).
+  ```json
+  { 
+     "code": { 
+	    "language": "Javascript",
+        "code": "print('Hello World!');"
+     }
+  }
+  ```
 
-- Component name: **console**
+## Console Block
 
-#### Syntax
+In a `"console"` block, you can define commands OrientDB executes through the [Console](Console-Commands.md).
+
+**Syntax**
+
 | Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|file|File path containing the commands to execute|string|false|-|
-|commands|Array of commands, as string, to execute in sequence|string array|false|-|
+|-----------|-------------|------|:--------:|-----------|
+| `"file"` | Defines the path to a file containing the commands you want to execute.  | string | | |
+|`"commands"` | Defines an array of commands, as strings, to execute in sequence. | string array | | |
 
-#### Example
+**Example**
 
-Invoke the console with a file containing the commands to execute
-```json
-{ "console": { "file": "/temp/commands.sql"}  }
-```
+- Invoke the console with a file containing the commands:
 
-```json
-{ "console": {
-    "commands": [
-      "CONNECT plocal:/temp/db/mydb admin admin",
-      "INSERT INTO Account set name = 'Luca'"
-  ] }
-}
-```
+  ```json
+  { 
+     "console": { 
+	    "file": "/temp/commands.sql"
+	 } 
+   }
+  ```
+
+- Invoke the console with an array of commands:
+
+  ```json
+  { 
+     "console": {
+        "commands": [
+           "CONNECT plocal:/temp/db/mydb admin admin",
+           "INSERT INTO Account set name = 'Luca'"
+        ]
+	}
+  }
+  ```

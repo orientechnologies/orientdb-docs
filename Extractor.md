@@ -1,266 +1,285 @@
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Extractors
 
-**Extractor** components are the first part of the ETL process and are responsible for the extracting of data.
+When OrientDB executes the ETL module, extractor components handle data extraction from source.  They are the first part of the ETL process. The ETL module in OrientDB supports the following extractors:
 
-## Available Extractors
+- [Row](#row-extractor)
+- [CSV](#csv-extractor)
+- [JDBC](#jdbc-extractor)
+- [JSON](#json-extractor)
+- [XML](#xml-extractor)
 
-|[row](Extractor.md#row)|[jdbc](Extractor.md#jdbc)|[json](Extractor.md#json) | [csv](Extractor.md#csv)|[xml](Extractor.md#xml)|
-|-----|-----|-----|-----|
-|<!-- PH -->|<!-- PH -->|<!-- PH -->|<!-- PH -->|<!-- PH -->|  
+## Row Extractor
 
-### row
-Extracts content row by row.
+When the ETL module runs with a Row Extractor, it extracts content row by row.  It outputs a string array class.
 
-- Component name: **row**
-- Output class: [**String**]
+**Syntax**
 
-#### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|multiLine|Supports multi line. This is useful with CSV supporting linefeed inside strings. As of 2.0.9|boolean|false|true|
-|lineFeed|Linefeed to use in case of multiline (see above). Since 2.0.9|string|false|`\r\n`|
+|-----------|-------------|------|:------:|-----------|
+| `"multiLine"` | Defines whether the process supports multiline.  Useful with CSV's supporting linefeed inside of string. | boolean | | `true` |
+| `"linefeed"` | Defines the linefeed to use in the event of multiline processing. | string | | `\r\n` |
 
-#### Example with default configuration
-
-```json
-{ "row": {} }
-```
-
------
-
-### csv  (as of v2.1.4)
-
-Extract content from csv files. [Apache Commons-csv](https://commons.apache.org/proper/commons-csv/) is used to parse csv files. 
-This component is avaliable as of version **2.1.4**
-
-- Component name. **csv**
-- Output class: [**ODocument**]
-
-#### Syntax
-| Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|separator|Column separator|char|false|,|
-|columnsOnFirstLine|Columns are described in the first line|boolean|false|true|
-|columns|Columns array containing names, and optionally types by postfixing names with:<type> . Specifying type guarantee better performances'| string[] |false|-|
-|nullValue|value to consider as *NULL*|string|false|NULL|
-|dateFormat|date format to use for parsing dates|string|false|yyy-mm-dd|
-|quote|String character delimiter|char|false|"|
-|skipFrom|Line number where start to skip|integer|false|-|
-|skipTo|Line number where skip ends|integer|false|-|
-|ignoreEmptyLines|Ignore empry lines|boolean|false|false|
-|predefinedFormat|Name of standard csv format (from Apache commons-csv): *DEFAULT*, *EXCEL*, *MYSQL*, *RFC4180*, *TDF*|string|false|-|
-
-Documentation about commons-csv predefined format is available here: (https://commons.apache.org/proper/commons-csv/apidocs/org/apache/commons/csv/CSVFormat.html)
+>The `"multiLine"` and `"linefeed"` parameters were introduced in version 2.0.9.
 
 
-#### Examples
-Extract lines from CSV (as ODocument), using comma as separator, considering "NULL" as null value and skipping the rows 2-4:
-```json
-{ "csv": 
-    {  "separator": ",", 
-        "nullValue": "NULL",
-        "skipFrom": 1, 
-        "skipTo": 3 
-    }
-}
-```
+**Examples**
 
-Extract lines from a CSV exported from MYSQL:
+- Use the row extractor with its default configuration:
 
-```json
-{ "csv": 
-    {  "predefinedFormat": "MYSQL"}
-}
-```
-
-
-Extract lines from a CSV with default format using 'N/A' as null value placeholder and custom date format:
-
-```json
-{ "csv": 
-    {  "predefinedFormat": "DEFAULT",
-        "nullValue" : "N/A",
-        "dateFormat" : "dd-mm-yyyy HH:MM"
-    }
-}
-```
-
-
------
-
-
-### jdbc
-
-Extracts data from any **DBMS** that support [JDBC](http://en.wikipedia.org/wiki/JDBC_driver) driver. In order to get the ETL component to connect to the source database, put the DBMS's JDBC driver in the **classpath** or **$ORIENTDB_HOME/lib** directory.
-
-- Component name: **jdbc**
-- Output class: [**ODocument**]
-
-#### Syntax
-| Parameter | Description | Type | Mandatory | Default value |
-|-----------|-------------|------|-----------|-----------|
-|driver|JDBC Driver class|string|true|-|
-|url|JDBC URL to connect|string|true|-|
-|userName|DBMS User name|string|true|-|
-|userPassword|DBMS User password|string|true|-|
-|query|Query that extract the record to import|string|true|-|
-|queryCount|Query that return the count of the fetched records. This is used to provide a correct progress indicator|string|false|-|
-
-#### Example
-Extracts all the "Client" table from a MySQL database "test" hosted on localhost:
-
-```json
-{ "jdbc": {
-    "driver": "com.mysql.jdbc.Driver",
-    "url": "jdbc:mysql://localhost/test",
-    "userName": "root",
-    "userPassword": "",
-    "query": "select * from Client"
+  ```json
+  { 
+     "row": {} 
   }
-}
-```
+  ```
 
------
+## CSV Extractor
 
-### json
-Extracts data by parsing json objects. If the data has more json items, they must be enclosed between [].
+When the ETL module runs the CSV Extractor, it parses a file formated to [Apache Commons CSV](https://commons.apache.org/proper/commons-csv) and extracts the data into OrientDB.  This component was introduced in version 2.1.4 and is unavailable in older releases of OrientDB.
 
-- Component name: **json**
-- Output class: [**ODocument**]
+The component writes to the `ODocument` class.
+
+**Syntax**
+
+| Parameter | Description | Type | Mandatory | Default value |
+|-----------|-------------|------|-----------|-----------|
+| `"separator"` | Defines the column separator. | char | | `,` |
+| `"columnsOnFirstLine"` | Defines whether the first line contains column descriptors. | boolean | | `true` |
+| `"columns"` | Defines array for names and (optionally) types to write. | string array | | |
+| `"nullValue"` | Defines the null value in the file. | string | | `NULL` |
+| `"dateFormat"` | Defines the format to use in parsing dates from file. | string | | `yyyy-mm-dd` |
+| `"quote"` | Defines string character delimiter. | char | | `"`|
+| `"skipFrom"` | Defines the line number you want to skip from. | integer | | |
+| `"skipTo"` | Defines the line number you want to skip to. | integer | | |
+| `"ignoreEmptyLines"` | Defines whether it should ignore empty lines. | boolean | | `false` |
+| `"predefinedFormat"` | Defines the CSV format you want to use. | string | | |
+
+- For the `"columns"` parameter, specify the type by postfixing it to the value.  Specifying types guarantees better performance.  
+
+- For the `"predefinedFormat"` parameter, the available formats are: `DEFAULT`, `EXCEL`, `MYSQL`, `RFC4180`, `TDF`.
+
+**Examples**
+
+- Extract lines from CSV to the `ODocument` class, using comas as the separator, considering `NULL` as the null value and skipping rows two through four:
+
+
+  ```json
+  { "csv": 
+      {  "separator": ",", 
+         "nullValue": "NULL",
+         "skipFrom": 1, 
+         "skipTo": 3 
+      }
+  }
+  ```
+
+- Extract lines from a CSV exported from MySQL:
+
+  ```json
+  { "csv": 
+      {  "predefinedFormat": "MYSQL"}
+  }
+  ```
+
+- Extract lines from a CSV with the default formatting, using `N/A` as the null value and a custom date format:
+
+  ```json
+  { "csv": 
+      {  "predefinedFormat": "DEFAULT",
+         "nullValue" : "N/A",
+         "dateFormat" : "dd-mm-yyyy HH:MM"
+      }
+  }
+  ```
+
+
+## JDBC Extractor
+
+When the ETL module runs the JDBC Extractor, it can access any database management system that supports the [JDBC](http://en.wikipedia.org/wiki/JDBC_driver) driver.
+
+In order for the ETL component to connect to the source database, put the source database's JDBC driver in the classpath, or in the `$ORIENTDB_HOME/lib` directory.
+
+The component writes to the `ODocument` class.
+
+**Syntax**
+
+| Parameter | Description | Type | Mandatory | Default value |
+|-----------|-------------|------|-----------|-----------|
+| `"driver"` | Defines the JDBC Driver class. | string | yes | |
+| `"url"` | Defines the JDBC URL to connect to. | string | yes | |
+| `"userName"` | Defines the username to use on the source database. | string | yes | |
+| `"userPassword"` | Defines the user password to use on the source database. | string | yes | |
+| `"query"` | Defines the query to extract the record you want to import. | string | yes | |
+| `"queryCount"` | Defines query that returns the count of the fetched records, (used to provide a correct progress indicator). | string | | |
+
+**Example**
+
+- Extract the contents of the `client` table on the MySQL database `test` at localhost:
+
+  ```json
+  { "jdbc": {
+      "driver": "com.mysql.jdbc.Driver",
+      "url": "jdbc:mysql://localhost/test",
+      "userName": "root",
+      "userPassword": "my_mysql_passwd",
+      "query": "SELECT * FROM client"
+    }
+  }
+  ```
+
+## JSON Extractor
+
+When the ETL module runs with a JSON Extractor, it extracts data by parsing JSON objects.  If the data has more than one JSON items, you must enclose the in `[]` brackets.  
+
+The component writes to the `ODocument` class.
 
 <!-- #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------| -->
 
 
-#### Example
+**Example**
 
-```json
-{ "json": {} }
-```
+- Extract data from a JSON file.
 
+  ```json
+  { "json": {} }
+  ```
 
------
+## XML
 
-### xml (as of v2.2) 
-____
-Extracts the data by parsing XML.
+When the ETL module runs with the XML extractor, it extracts data by parsing XML elements.  This feature was introduced in version 2.2.
 
-- Component name: **xml**
-- Output class: [**ODocument**]
+The component writes to the `ODocument` class.
 
-#### Syntax
+**Syntax**
+
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
-|rootNode|Root node to consider. By default it build a document starting from the root tag|string|false|empty|
-|tagsAsAttribute|array of tags where children tags are considered as attributes of document and the attribute value is the text inside the tag|string[]|false|empty|
+| `"rootNode"` | Defines the root node to extract in the XML.  By default, it builds from the root element in the file. | string | | |
+| `"tagsAsAttribute"` | Defines an array of elements, where child elements are considered as attributes of the document and the attribute values as the text within the element. | string array | | |
 
-#### Examples
+**Examples**
 
-##### Example 1: extract data from an XML file.
+- Extract data from an XML file, where the XML file reads as:
 
-`simple.xml` XML file content:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<a>
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <a>
 	<b>
 		<c name='Ferrari' color='red'>ignore</c>
 		<c name='Maserati' color='black'/>
 	</b>
-</a>
-```
+  </a>
+  ```
 
-OrientDB ETL configuration file:
-```json
-{"source": { "file": { "path": "src/test/resources/simple.xml" } }, "extractor" : { "xml": {} }, "loader": { "test": {} } }
-```
+  While the OrientDB-ETL configuration file reads as:
 
-Result:
-```json
-{
-  "a": {
-    "b": {
-      "c": [
-        {
-          "color": "red",
-          "name": "Ferrari"
-        },
-        {
-          "color": "black",
-          "name": "Maserati"
-        }
-      ]
+  ```json
+  { "source": 
+    { "file": 
+	  { "path": "src/test/resources/simple.xml" } 
+    }, 
+    "extractor" : 
+	  { "xml": {} }, 
+	  "loader": 
+	    { "test": {} } 
+  }
+  ```
+
+  This extracts the data as:
+  ```json
+  {
+    "a": {
+      "b": {
+        "c": [
+          {
+            "color": "red",
+            "name": "Ferrari"
+          },
+          {
+            "color": "black",
+            "name": "Maserati"
+          }
+        ]
+      }
     }
   }
-}
-```
+  ```
 
+- Extract a collection from XML, where the XML file reads as:
 
-##### Example 2: extract a collection from XML.
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <CATALOG>
+      <CD>
+          <TITLE>Empire Burlesque</TITLE>
+          <ARTIST>Bob Dylan</ARTIST>
+          <COUNTRY>USA</COUNTRY>
+          <COMPANY>Columbia</COMPANY>
+          <PRICE>10.90</PRICE>
+          <YEAR>1985</YEAR>
+      </CD>
+      <CD>
+          <TITLE>Hide your heart</TITLE>
+          <ARTIST>Bonnie Tyler</ARTIST>
+          <COUNTRY>UK</COUNTRY>
+          <COMPANY>CBS Records</COMPANY>
+          <PRICE>9.90</PRICE>
+          <YEAR>1988</YEAR>
+      </CD>
+      <CD>
+          <TITLE>Greatest Hits</TITLE>
+          <ARTIST>Dolly Parton</ARTIST>
+          <COUNTRY>USA</COUNTRY>
+          <COMPANY>RCA</COMPANY>
+          <PRICE>9.90</PRICE>
+          <YEAR>1982</YEAR>
+      </CD>
+  </CATALOG>
+  ```
 
-`simple.xml` XML file content:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<CATALOG>
-    <CD>
-        <TITLE>Empire Burlesque</TITLE>
-        <ARTIST>Bob Dylan</ARTIST>
-        <COUNTRY>USA</COUNTRY>
-        <COMPANY>Columbia</COMPANY>
-        <PRICE>10.90</PRICE>
-        <YEAR>1985</YEAR>
-    </CD>
-    <CD>
-        <TITLE>Hide your heart</TITLE>
-        <ARTIST>Bonnie Tyler</ARTIST>
-        <COUNTRY>UK</COUNTRY>
-        <COMPANY>CBS Records</COMPANY>
-        <PRICE>9.90</PRICE>
-        <YEAR>1988</YEAR>
-    </CD>
-    <CD>
-        <TITLE>Greatest Hits</TITLE>
-        <ARTIST>Dolly Parton</ARTIST>
-        <COUNTRY>USA</COUNTRY>
-        <COMPANY>RCA</COMPANY>
-        <PRICE>9.90</PRICE>
-        <YEAR>1982</YEAR>
-    </CD>
-</CATALOG>
-```
+  While the OrientDB-ETL configuration file reads:
 
-OrientDB ETL configuration file:
-```json
-{"source": { "file": { "path": "src/test/resources/music.xml" } }, "extractor" : { "xml": { "rootNode": "CATALOG.CD", "tagsAsAttribute": ["CATALOG.CD"] } }, "loader": { "test": {} } }
-```
+  ```json
+  { "source": 
+    { "file": 
+	  { "path": "src/test/resources/music.xml" } 
+    }, "extractor" : 
+	  { "xml": 
+	    { "rootNode": "CATALOG.CD", 
+		  "tagsAsAttribute": ["CATALOG.CD"] 
+		} 
+	  }, 
+	  "loader": { "test": {} } 
+  }
+  ```
 
-Result:
-```json
-{
-  "TITLE": "Empire Burlesque",
-  "ARTIST": "Bob Dylan",
-  "COUNTRY": "USA",
-  "COMPANY": "Columbia",
-  "PRICE": "10.90",
-  "YEAR": "1985"
-}
-{
-  "TITLE": "Hide your heart",
-  "ARTIST": "Bonnie Tyler",
-  "COUNTRY": "UK",
-  "COMPANY": "CBS Records",
-  "PRICE": "9.90",
-  "YEAR": "1988"
-}
-{
-  "TITLE": "Greatest Hits",
-  "ARTIST": "Dolly Parton",
-  "COUNTRY": "USA",
-  "COMPANY": "RCA",
-  "PRICE": "9.90",
-  "YEAR": "1982"
-}
-```
+  This extracts the data as:
 
------
+  ```json
+  {
+    "TITLE": "Empire Burlesque",
+    "ARTIST": "Bob Dylan",
+    "COUNTRY": "USA",
+    "COMPANY": "Columbia",
+    "PRICE": "10.90",
+    "YEAR": "1985"
+  }
+  {
+    "TITLE": "Hide your heart",
+    "ARTIST": "Bonnie Tyler",
+    "COUNTRY": "UK",
+    "COMPANY": "CBS Records",
+    "PRICE": "9.90",
+    "YEAR": "1988"
+  }
+  {
+    "TITLE": "Greatest Hits",
+    "ARTIST": "Dolly Parton",
+    "COUNTRY": "USA",
+    "COMPANY": "RCA",
+    "PRICE": "9.90",
+    "YEAR": "1982"
+  }
+  ```

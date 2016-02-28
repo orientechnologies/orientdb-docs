@@ -1,17 +1,23 @@
 <!-- proofread 2015-12-11 SAM -->
 # ETL
 
-The OrientDB-ETL module is an amazing tool to move data from and to OrientDB by executing an [ETL process](http://en.wikipedia.org/wiki/Extract,_transform,_load). It's super easy to use. OrientDB ETL is based on the following principles:
-- one [configuration file](Configuration-File.md) in [JSON](http://en.wikipedia.org/wiki/JSON) format
-- one [Extractor](Extractor.md) is allowed to extract data from a source
-- one [Loader](Loader.md) is allowed to load data to a destination
-- multiple [Transformers](Transformer.md) that transform data in a pipeline. They receive something as input, do something, then return something as output that will be processed as input by the next component
+The Extractor Transformer and Loader, or ETL, module for OrientDB provides support for moving data to and from OrientDB databases using [ETL processes](http://en.wikipedia.org/wiki/Extract,_transform,_load).
 
-## How ETL works
+- [Configuration](Configuration-File.md): The ETL module uses a configuration file, written in JSON.
+- [Extractor](Extractor.md) Pulls data from the source database.
+- [Transformers](Transformer.md) Convert the data in the pipeline from its source format to one accessible to the target database.
+- [Loader](Loader.md) loads the data into the target database.
+
+
+## How ETL Works
+
+The ETL module receives a backup file from another database, it then converts the fields into an accessible format and loads it into OrientDB.
+
 ```
 EXTRACTOR => TRANSFORMERS[] => LOADER
 ```
-An example of a process that extracts from a CSV file, applies some change, does a lookup to see if the record has already been created and then stores the record as a document against OrientDB database:
+
+For example, consider the process for a CSV file.  Using the ETL module, OrientDB loads the file, applies whatever changes it needs, then stores the reocrd as a document into the current OrientDB database.
 
 ```
 +-----------+-----------------------+-----------+
@@ -23,10 +29,16 @@ An example of a process that extracts from a CSV file, applies some change, does
 +-----------+-----------------------+-----------+
 ```
 
-The pipeline, composed of transformation and loading phases, can run in parallel by setting the configuration ```{"parallel":true}```.
+You can modify this pipeline, allowing the transformation and loading phases to run in parallel by setting the configuration variable `"parallel"` to `true`.
 
-## Installation
-Starting from OrientDB v2.0 the ETL module is bundled with the official release.  Follow these steps to use the module:
+```json
+{"parallel": true}
+```
+
+
+## Installation
+
+Beginning with version 2.0, OrientDB bundles the ETL module with the official release.  Follow these steps to use the module:
 - Clone the repository on your computer, by executing:
  - ```git clone https://github.com/orientechnologies/orientdb-etl.git```
 - Compile the module, by executing:
@@ -36,23 +48,32 @@ Starting from OrientDB v2.0 the ETL module is bundled with the official release.
 
 ## Usage
 
-```
-$ cd $ORIENTDB_HOME/bin
-$ ./oetl.sh config-dbpedia.json
-```
+To use the ETL module, run the `oetl.sh` script with the configuration file given as an argument.
+
+<pre>
+$ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json</code>
+</pre>
+
 
 |    |    |
 |----|----|
 | ![NOTE](images/warning.png) | _NOTE: If you are importing data for use in a distributed database, then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` for the ETL process to avoid replication errors, when the database is updated online._ |
 
-### Run-time configuration
+### Run-time Configuration
 
-In an ETL JSON file you can define variables, which will be resolved at run-time by passing them at startup. You could, for example, assign the database URL as `${databaseURL}` and then pass the database URL at execution time with:
-```
-$ ./oetl.sh config-dbpedia.json -databaseURL=plocal:/temp/mydb
-```
+When you run the ETL module, you can define its configuration variables by passing it a JSON file, which the ETL module resolves at run-time by passing them as it starts up.
 
-## Available Components
+You could also define the values for these variables through command-line options.  For example, you could assign the database URL as `${databaseURL}`, then pass the relevant argument through the command-line:
+
+<pre>
+$ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json \
+      -databaseURL=plocal:/tmp/mydb</code>
+</pre>
+
+When the ETL module initializes, it pulls `/tmp/mydb` from the command-line to define this variable in the configuration file.
+
+## Available Components
+
 - [Blocks](Block.md)
 - [Sources](Source.md)
 - [Extractors](Extractor.md)
