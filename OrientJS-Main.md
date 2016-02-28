@@ -49,10 +49,12 @@ npm test
 - Tested with latest OrientDB (2.0.x and 2.1).
 - Intuitive API, based on [bluebird](https://github.com/petkaantonov/bluebird) promises.
 - Fast binary protocol parser.
+- Distributed Support
 - Access multiple databases via the same socket.
 - Migration support.
 - Simple CLI.
 - Connection Pooling
+
 
 
 
@@ -76,8 +78,6 @@ npm test
 
 
 
-
-
 ## Configuring the Client
 ```js
 var OrientDB = require('orientjs');
@@ -94,7 +94,43 @@ var server = OrientDB({
 // CLOSE THE CONNECTION AT THE END
 server.close();
 ```
+### Use [JWT](http://orientdb.com/docs/2.1/Network-Binary-Protocol.html#token)
 
+```js
+var server = OrientDB({
+  host: 'localhost',
+  port: 2424,
+  username: 'root',
+  password: 'yourpassword',
+  useToken: true
+});
+```
+
+### Distributed Support (experimental)
+
+**Since orientjs 2.1.11**
+
+You can pass paramenter `servers` to specify the OrientDB distributed instances to be used in case of connection error on the primary host.
+The only requirement is that at the first connection one of these server have to be online. Then orientjs will keep updated the list of the servers online in the cluster thanks to the push notification that OrientDB send to the connected clients when the shape of the cluster changes.
+
+
+```js
+var OrientDB = require("orientjs");
+
+var server = OrientDB({
+ host: '10.0.1.5',
+ port: 2424,
+ username: 'root',
+ password: 'root',
+ servers : [{host : '10.0.1.5' , port : 2425}]
+});
+
+var db = server.use({
+ name: 'GratefulDeadConcerts',
+ username: 'admin',
+ password: 'admin'
+});
+```
 
 ## Server API
 
@@ -120,14 +156,26 @@ server.create({
 });
 ```
 
+
+## Database API
+
 ### Using an existing database
 
 ```js
 var db = server.use('mydb');
 console.log('Using database: ' + db.name);
 
-// CLOSE THE CONNECTION AT THE END
+// CLOSE THE DB SESSION AT THE END
 db.close();
+```
+
+If you want to close also the connection you can
+
+```js
+db.close().then(function(){
+	// CLOSE THE CONNECTION 
+	server.close();
+})
 ```
 
 ### Using an existing database with credentials
@@ -143,8 +191,31 @@ console.log('Using database: ' + db.name);
 db.close();
 ```
 
+### Using standalone db object without Server
 
-## Database API
+**Since orientjs 2.1.11**
+
+```
+var ODatabase = require('orientjs').ODatabase;
+var db = new ODatabase({
+	 	host: 'localhost', 
+		port: 2424, 
+		username : 'admin', 
+		password : 'admin', 
+		name : 'GratefulDeadConcerts'});
+
+db.open().then(function(){
+	return db.query('select from v limit 1');
+}).then(function(res){
+	console.log(res.length);
+	// this will send a db close command and then close the connection
+	db.close().then(function(){
+		console.log('closed');
+	});
+});
+
+```
+
 
 ### Record API
 
@@ -436,7 +507,7 @@ db.delete('EDGE', 'E')
 });
 ```
 
-#### Query Builder: Insert Record
+#### Insert Record
 
 ```js
 db.insert().into('OUser').set({name: 'demo', password: 'demo', status: 'ACTIVE'}).one()
@@ -445,7 +516,7 @@ db.insert().into('OUser').set({name: 'demo', password: 'demo', status: 'ACTIVE'}
 });
 ```
 
-#### Query Builder: Update Record
+#### Update Record
 
 ```js
 db.update('OUser').set({password: 'changed'}).where({name: 'demo'}).scalar()
@@ -454,7 +525,7 @@ db.update('OUser').set({password: 'changed'}).where({name: 'demo'}).scalar()
 });
 ```
 
-#### Query Builder: Delete Record
+#### Delete Record
 
 ```js
 db.delete().from('OUser').where({name: 'demo'}).limit(1).scalar()
@@ -464,7 +535,7 @@ db.delete().from('OUser').where({name: 'demo'}).limit(1).scalar()
 ```
 
 
-#### Query Builder: Select Records
+#### Select Records
 
 ```js
 db.select().from('OUser').where({status: 'ACTIVE'}).all()
@@ -473,7 +544,7 @@ db.select().from('OUser').where({status: 'ACTIVE'}).all()
 });
 ```
 
-#### Query Builder: Text Search
+#### Text Search
 
 ```js
 db.select().from('OUser').containsText({name: 'er'}).all()
@@ -482,7 +553,7 @@ db.select().from('OUser').containsText({name: 'er'}).all()
 });
 ```
 
-#### Query Builder: Select Records with Fetch Plan
+#### Select Records with Fetch Plan
 
 ```js
 db.select().from('OUser').where({status: 'ACTIVE'}).fetch({role: 5}).all()
@@ -491,7 +562,7 @@ db.select().from('OUser').where({status: 'ACTIVE'}).fetch({role: 5}).all()
 });
 ```
 
-#### Query Builder: Select an expression
+#### Select an expression
 
 ```js
 db.select('count(*)').from('OUser').where({status: 'ACTIVE'}).scalar()
@@ -500,7 +571,7 @@ db.select('count(*)').from('OUser').where({status: 'ACTIVE'}).scalar()
 });
 ```
 
-#### Query Builder: Traverse Records
+####  Traverse Records
 
 ```js
 db.traverse().from('OUser').where({name: 'guest'}).all()
@@ -509,7 +580,7 @@ db.traverse().from('OUser').where({name: 'guest'}).all()
 });
 ```
 
-#### Query Builder: Return a specific column
+#### Return a specific field
 
 ```js
 db
@@ -524,7 +595,7 @@ db
 ```
 
 
-#### Query Builder: Transform a field
+#### Transform a field
 
 ```js
 db
@@ -544,7 +615,7 @@ db
 ```
 
 
-#### Query Builder: Transform a record
+#### Transform a record
 
 ```js
 db
@@ -562,7 +633,7 @@ db
 ```
 
 
-#### Query Builder: Specify default values
+#### Specify default values
 
 ```js
 db
@@ -580,7 +651,7 @@ db
 ```
 
 
-#### Query Builder: Put a map entry into a map
+#### Put a map entry into a map
 
 ```js
 db
@@ -594,6 +665,36 @@ db
   console.log('updated', total, 'records');
 });
 ```
+### Transaction Builder
+
+Transaction builder help you create batch script that will run on the server as a sigle transaction.
+
+```js
+db.let('first',function(f){
+		f.create('vertex','V')
+		.set({ name : 'John'})
+	})
+	.let('second',function(s){
+		s.create('vertex','V')
+		.set({ name : 'John'})
+	})
+	.let('edge' , function(e){
+		e.create('edge','E')
+		.from('$first')
+		.to('$second')
+		.set({ when : new Date()})
+	})
+	.commit()
+	.return('$edge')
+	.all()
+	.then(function(res){
+		console.log(res);
+})
+```
+
+### Batch Script without Transaction Builder
+
+
 
 ### Function API
 
@@ -781,7 +882,10 @@ orientjs migrate down
 orientjs migrate down 1
 ```
 
+##Troubleshooting
 
+* Node exception Maximum call stack size exceeded [here](https://github.com/orientechnologies/orientjs/issues/116)
+	
 ## History
 
 In 2012, [Gabriel Petrovay](https://github.com/gabipetrovay) created the original [node-orientdb](https://github.com/gabipetrovay/node-orientdb) library, with a straightforward callback based API.

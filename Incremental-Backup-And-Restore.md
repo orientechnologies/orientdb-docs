@@ -31,14 +31,14 @@ The most important information is the `lsn` field that is the WAL LSN (Last Seri
 
 ```
 orientdb> connect plocal:/databases/mydb admin admin
-orientdb {db=Whisky}> backup database /tmp/backup.zip -incremental
+orientdb {db=Whisky}> backup database /tmp/backup -incremental
 ```
 
 Incremental backup setting allows also to specify a specific version (LSN) to start. Example:
 
 ```
 orientdb> connect plocal:/databases/mydb admin admin
-orientdb {db=Whisky}> backup database /tmp/backup.zip -incremental=93222
+orientdb {db=Whisky}> backup database /tmp/backup -incremental=93222
 ```
 
 ### Incremental backup via Java API
@@ -52,7 +52,7 @@ orientdb {db=Whisky}> backup database /tmp/backup.zip -incremental=93222
 
 ```
 orientdb> connect plocal:/databases/mydb admin admin
-orientdb {db=Whisky}> restore database /tmp/backup.zip
+orientdb {db=Whisky}> restore database /tmp/backup
 ```
 
 ### Incremental restore via Java API

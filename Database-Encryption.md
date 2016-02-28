@@ -38,7 +38,7 @@ For more information on security in OrientDB, see the following pages:
 You can create an encrypted database using either the console or through the Java API.  To create an encrypted database, use the `-encryption` option through the [`CREATE DATABASE`](Console-Command-Create-Database.md) command.  However, before you do so, you must set the encryption key by defining the `storage.encryptionKey` value through the [`CONFIG`](Console-Command-Config.md) command.
 
 <pre>
-orientdb> <code class="lang-sql userinput">CONFIG SET storage.encryptionKe T1JJRU5UREJfSVNfQ09PTA==</code>
+orientdb> <code class="lang-sql userinput">CONFIG SET storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==</code>
 orientdb> <code class="lang-sql userinput">CREATE DATABASE plocal:/tmp/db/encrypted-db admin my_admin_password 
           plocal document -encryption=aes</code>
 </pre>

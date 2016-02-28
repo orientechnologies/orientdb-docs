@@ -2,6 +2,14 @@
 
 ## What's new?
 
+### Direct Memory
+Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) already set the maximum size value to 512GB of memory by setting the JVM configuration
+```
+-XX:MaxDirectMemorySize=512g
+```
+
+If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
+
 ### Command Cache
 OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](Command-Cache.md) to know more.
 
@@ -27,6 +35,7 @@ Databases created with release 2.1.x are compatible with 2.2.x, so you don't hav
 ### Security and speed
 
 OrientDB v2.2 increase security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycle for SALT: more is harder to decode but is slower. Change setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
+The default password hashing algorithm is now `PBKDF2WithHmacSHA256` this is not present in any environment so you can change it setting `security.userPasswordDefaultAlgorithm` possible alternatives values are `PBKDF2WithHmacSHA1` or `SHA-256`
 
 To improve performance consider also avoiding opening and closing connection, but rather using a connection pool.
 
@@ -70,4 +79,17 @@ CREATE FUNCTION testCreateFunction {return 'hello '+name;} PARAMETERS [name] IDE
 Now it's not supported anymore, the right syntax is
 ```
 CREATE FUNCTION testCreateFunction "return 'hello '+name;" PARAMETERS [name] IDEMPOTENT true LANGUAGE Javascript
+```
+
+**ALTER PROPERTY**
+
+The ALTER PROPERTY command, in previous versions, accepted any unformatted value as last argument, eg.
+
+```
+ALTER PROPERTY Foo.name min 2015-01-01 00:00:00
+```
+
+In v.2.2 the value must be a valid expression (eg. a string):
+```
+ALTER PROPERTY Foo.name min "2015-01-01 00:00:00"
 ```

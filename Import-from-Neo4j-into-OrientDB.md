@@ -2,7 +2,7 @@
 
 Neo4j is an open-source graph database that queries and manipulates data using its own Cypher Query Language and can export in GraphML, an XML-based file format for graphs.  Given that OrientDB can read GraphML, it is relatively straightforward to import data from Neo4j into OrientDB.  You can manage the imports using the Console or the Java API.
 
->Neo4j is a registered trademark of Neo Technology, Inc.  For more information on the differences between Neo4j and OrientDB, see [OrientDB vs. Neo4j]((http://www.orientechnologies.com/orientdb-vs-neo4j/).
+>Neo4j is a registered trademark of Neo Technology, Inc.  For more information on the differences between Neo4j and OrientDB, see [OrientDB vs. Neo4j](http://orientdb.com/orientdb-vs-neo4j/).
 
 
 
