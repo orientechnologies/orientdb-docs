@@ -60,7 +60,7 @@ The component writes to the `ODocument` class.
 
 **Examples**
 
-- Extract lines from CSV to the `ODocument` class, using comas as the separator, considering `NULL` as the null value and skipping rows two through four:
+- Extract lines from CSV to the `ODocument` class, using commas as the separator, considering `NULL` as the null value and skipping rows two through four:
 
 
   ```json
@@ -146,7 +146,7 @@ The component writes to the `ODocument` class.
   { "json": {} }
   ```
 
-## XML
+## XML Extractor
 
 When the ETL module runs with the XML extractor, it extracts data by parsing XML elements.  This feature was introduced in version 2.2.
 
