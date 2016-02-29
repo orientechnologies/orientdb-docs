@@ -12,6 +12,8 @@ When OrientDB executes the ETL module, source components define the source of th
 
 In the file source component, the variables represent a source file containing the data you want the ETL module to read.  You can use text files or files comprssed to `tar.gz`.
 
+- Component name: `file`
+
 **Syntax**
 
 | Parameter | Description | Type | Mandatory | Default value |
@@ -38,6 +40,8 @@ In the file source component, the variables represent a source file containing t
 
 In the input source component, the ETL module extracts data from console input.  You may find this useful in cases where the ETL module operates in a pipe with other tools.
 
+- Component name: `input`
+
 **Syntax**
 ```sh
 oetl.sh "<input>"
@@ -55,6 +59,8 @@ oetl.sh "<input>"
 ## HTTP Sources
 
 In the HTTP source component, the ETL module extracts data from an HTTP address as source.
+
+- Component name: `http`
 
 **Syntax**
 

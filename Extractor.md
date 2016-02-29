@@ -13,6 +13,9 @@ When OrientDB executes the ETL module, extractor components handle data extracti
 
 When the ETL module runs with a Row Extractor, it extracts content row by row.  It outputs a string array class.
 
+- Compnent name: `row`
+- Output Class: `[ string ]`
+
 **Syntax**
 
 | Parameter | Description | Type | Mandatory | Default value |
@@ -37,7 +40,8 @@ When the ETL module runs with a Row Extractor, it extracts content row by row.  
 
 When the ETL module runs the CSV Extractor, it parses a file formated to [Apache Commons CSV](https://commons.apache.org/proper/commons-csv) and extracts the data into OrientDB.  This component was introduced in version 2.1.4 and is unavailable in older releases of OrientDB.
 
-The component writes to the `ODocument` class.
+- Component name: `csv`
+- Output class: `[ ODocument ]`
 
 **Syntax**
 
@@ -99,7 +103,8 @@ When the ETL module runs the JDBC Extractor, it can access any database manageme
 
 In order for the ETL component to connect to the source database, put the source database's JDBC driver in the classpath, or in the `$ORIENTDB_HOME/lib` directory.
 
-The component writes to the `ODocument` class.
+- Component name: `jdbc`
+- Output class: `[ ODocument ]`
 
 **Syntax**
 
@@ -129,9 +134,10 @@ The component writes to the `ODocument` class.
 
 ## JSON Extractor
 
-When the ETL module runs with a JSON Extractor, it extracts data by parsing JSON objects.  If the data has more than one JSON items, you must enclose the in `[]` brackets.  
+When the ETL module runs with a JSON Extractor, it extracts data by parsing JSON objects.  If the data has more than one JSON items, you must enclose the in `[]` brackets.
 
-The component writes to the `ODocument` class.
+- Component name: `json`
+- Output class: `[ ODocument ]`
 
 <!-- #### Syntax
 | Parameter | Description | Type | Mandatory | Default value |
@@ -150,7 +156,8 @@ The component writes to the `ODocument` class.
 
 When the ETL module runs with the XML extractor, it extracts data by parsing XML elements.  This feature was introduced in version 2.2.
 
-The component writes to the `ODocument` class.
+- Component name: `xml`
+- Output class: `[ ODocument ]`
 
 **Syntax**
 

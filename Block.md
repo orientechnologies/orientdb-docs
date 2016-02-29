@@ -11,6 +11,8 @@ When OrientDB executes the ETL module, blocks in the ETL configuration define co
 
 In a `"let"` block, you can define variables to the ETL process context.
 
+- Component name: `let`
+
 **Syntax**
 
 | Parameter | Description | Type | Mandatory | Default value |
@@ -47,8 +49,9 @@ In a `"let"` block, you can define variables to the ETL process context.
 
 In the `"code"` block, you can configure code snippets to execute in any JVM-supported languages.  The default language is JavaScript.
 
-**Syntax**
+- Component name: `code`
 
+**Syntax**
 
 | Parameter | Description | Type| Mandatory | Default value |
 |-----------|-------------|-----|:---------:|-----------|
@@ -72,6 +75,8 @@ In the `"code"` block, you can configure code snippets to execute in any JVM-sup
 ## Console Block
 
 In a `"console"` block, you can define commands OrientDB executes through the [Console](Console-Commands.md).
+
+- Component name: `console`
 
 **Syntax**
 
