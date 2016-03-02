@@ -1,35 +1,37 @@
 # Logging
 
-OrientDB uses the Java Logging framework bundled with the Java Virtual Machine. OrientDB's default log format (managed by `OLogFormatter` class) is:
+OrientDB handles logs using the Java Logging Framework, which is bundled with the JVM.  The specific format it uses derives from the `OLogFormatter` class, which defaults to:
+
 ```
 <date> <level> <message> [<requester>]
 ```
 
-Where:
-- `<date>` is the log date in the following format: `yyyy-MM-dd HH:mm:ss:SSS`
-- `<level>` is the logging level (see below for all the available levels) as 5 chars output
-- `<message>` is the text of log, it can be any size
-- `[<class>]` is the Java class that logged (optional)
+- **`<date>`** Shows the date of the log entry, using the date format `YYYY-MM-DD HH:MM:SS:SSS`.
+- **`<level>`** Shows the log level.
+- **`<message>`** Shows the log message.
+- **`<class>`** Shows the Java class that made the entry, (optional).
 
-Supported levels are those contained in the JRE class [java.util.logging.Level](http://java.sun.com/j2se/1.5.0/docs/api/java/util/logging/Level.html):
-- SEVERE (highest value)
-- WARNING
-- INFO
-- CONFIG
-- FINE
-- FINER
-- FINEST (lowest value)
+The supported levels are those contained in the JRE class [`java.util.logging.Level`](http://java.sun.com/j2se/1.5.0/docs/api/java/util/logging/Level.html).  From highest to lowest:
 
-By default 2 loggers are installed:
-- **console**, as the output of the shell/command prompt that starts the application/server. Can be changed by setting the variable <code>log.console.level</code>
-- **file**, as the output to the log files. Can be changed by setting the <code>log.file.level</code>
+- `SEVERE`
+- `WARNING`
+- `INFO`
+- `CONFIG`
+- `FINE`
+- `FINER`
+- `FINEST`
 
-## Configuration file
+By default, OrientDB installs two loggers:
+- **`console`**: Logs to the shell or command-prompt that starts the application or the server.  You can modify it by setting the `log.console.level` variable.
+- **`file`**: Logs to the log file.  You can modify it by setting the `log.file.level` variable.
 
-The logging strategies and policies can be configured using a file following the Java syntax: [Java Logging configuration](http://www.javapractices.com/topic/TopicAction.do?Id=143).
 
-Example taken from **orientdb-server-log.properties**:
-```
+## Configuration File
+
+You can configure logging strategies and policies by creating a configuration file that follows the 
+Java [Logging Messages](http://www.javapractices.com/topic/TopicAction.do?Id=143) configuration syntax.  For example, consider the following from the `orientdb-server-log.properties` file:
+
+```java
 # Specify the handlers to create in the root logger
 # (all loggers are children of the root logger)
 # The following creates two handlers
@@ -56,38 +58,48 @@ java.util.logging.FileHandler.limit=10000000
 java.util.logging.FileHandler.count=10
 ```
 
-To tell to the JVM where the properties file is placed you need to set the *"java.util.logging.config.file"* system property to it. Example:
+When the log properties file is ready, you need to tell the JVM to use t, by setting `java.util.logging.config.file` system property.
 
-```
-$ java -Djava.util.logging.config.file=mylog.properties ...
-```
+<pre>
+$ <code class="lang-sh userinput">java -Djava.util.logging.config.file=mylog.properties</code>
+</pre>
 
-## Set the logging level
+## Setting the Log Level
 
-To change the logging level without modify the logging configuration just set the *"log.console.level"* and *"log.file.level"* system variables to the requested levels.
+To change the log level without modifying the logging configuration, set the `log.console.level` and `log.file.level` system variables.  These system variables are accessible both at startup and at runtime.
 
-### At startup
-#### In the server configuration
+### Configuring Log Level at Startup
 
-Open the file **orientdb-server-config.xml** and add or update these lines at the end of the file inside the <code>&lt;properties&gt;</code> section:
+You can configure log level at startup through both the `orientdb-server-config.xml` configuration file and by modifying the JVM before you start the server:
+
+#### Using the Configuration File
+
+To configure log level from the configuration file, update the following elements in the `<properties>` section:
+  
 ```xml
-<entry value="fine" name="log.console.level" />
-<entry value="fine" name="log.file.level" />
+<properties>
+   <entry value="info" name="log.console.level" />
+   <entry value="fine" name="log.file.level" />
+   ...
+</properties>
 ```
 
-#### In server.sh (or .bat) script
+#### Using the JVM
 
-Set the system property *"log.console.level"* and *"log.file.level"* to the levels you want using the -D parameter of java.
+To configure log level from the JVM before starting the server, run the `java` command to configure the `log.console.level` and `log.file.level` variables:
+  
+<pre>
+$ <code class="lang-sh userinput">java -Dlog.console.level=INFO -Dlog.file.level=FINE</code>
+</pre>
 
-Example:
-```
-$ java -Dlog.console.level=FINE ...
-```
+### Configuring Log Level at Runtime
 
-### At run-time
+You can configure log level at runtime through both the Java API and by executing an HTTP `POST` against the remote server.
 
-#### By using Java code
-The system variable can be setted at startup using the <code>System.setProperty()</code> API. Example:
+#### Using Java Code
+
+Through the Java API, you can set the system variables for logging at startup through the `System.setProperty()` method.  For instance,
+
 ```java
 public void main(String[] args){
   System.setProperty("log.console.level", "FINE");
@@ -95,29 +107,41 @@ public void main(String[] args){
 }
 ```
 
-#### On remote server
-Execute a HTTP POST against the URL: `/server/log.<type>/<level>`. Where:
-- `<type>` can be "console" or "file"
-- `<level>` is one of the supported levels (see above)
+#### Using HTTP POST
 
-##### Examples
-The examples below uses [cURL](https://en.wikipedia.org/wiki/CURL) to execute a HTTP POST command against OrientDB Server. Server's "root" user and password were used, replace with your own password.
+Through the HTTP requests, you can update the logging system variables by executing a `POST` against the URL: `/server/log.<type>/<level>`.
 
-Enable the finest tracing level to console:
+- **`<type>`** Defines the log type: `console` or `file`.
+- **`<level>`** Defines the log level.
 
-    curl -u root:root -X POST http://localhost:2480/server/log.console/FINEST
+**Examples**
 
-Enable the finest tracing level to file:
+The examples below use [cURL](https://en.wikipedia.org/wiki/CURL) to execute the HTTP `POST` commands against the OrientDB server.  It uses the server `root` user and password.
 
-    curl -u root:root -X POST http://localhost:2480/server/log.file/FINEST
+- Enable the finest tracing level to the console:
 
-## Install Log formatter
+  <pre>
+  $ <code class="lang-sh userinput">curl -u root:root -X POST http://localhost:2480/server/log.console/FINEST</code>
+  </pre>
 
-OrientDB Server uses own LogFormatter. To use the same by your application call:
+- Enable the finest tracing level to file:
+
+  <pre>
+  $ <code class="lang-sh userinput">curl -u root:root -X POST http://localhost:2480/server/log.file/FINEST</code>
+  </pre>
+
+
+
+## Install Log Formatter
+
+OrientDB Server uses its own log formatter.  In order to enable the same for your application, you need to include the following line:
+
 ```java
 OLogManager.installCustomFormatter();
 ```
 
-LogFormatter is installed automatically by Server. To disable it define the setting `orientdb.installCustomFormatter` to `false`. Example:
+The Server automatically installs the log formatter.  To disable it, use `orientdb.installCustomFormatter`.
 
-    java ... -Dorientdb.installCustomFormatter=false=false ...
+<pre>
+$ <code class="lang-sh userinput">java -Dorientdb.installCustomFormatter=false</code>
+</pre>
