@@ -1,6 +1,6 @@
 # Database Security
 
-OrientDB uses a security model based on well-known concepts of users and roles.  That is, a database has its own users.  Each [User](#user) has on ore more roles.  [Roles](#roles) are a combination of the working mode and a set of permissions.
+OrientDB uses a security model based on well-known concepts of users and roles.  That is, a database has its own users.  Each [User](#user) has one or more roles.  [Roles](#roles) are a combination of the working mode and a set of permissions.
 
 ![Security overview](http://www.orientdb.org/images/orientdb-dbsecurity.png)
 
