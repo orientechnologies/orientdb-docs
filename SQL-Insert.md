@@ -5,7 +5,7 @@ The [`INSERT`](SQL-Insert.md) command creates a new record in the database.  Rec
 **Syntax**:
 
 ```sql
-INSERT INTO [class:]<class>|cluster:<cluster>|index:<index>
+INSERT INTO [CLASS:]<class>|CLUSTER:<cluster>|INDEX:<index>
   [(<field>[,]*) VALUES (<expression>[,]*)[,]*]|
   [SET <field> = <expression>|<sub-command>[,]*]|
   [CONTENT {<JSON>}]
