@@ -5,7 +5,7 @@ Update one or more records in the current database.  Remember: OrientDB can work
 **Syntax**:
 
 ```sql
-UPDATE <class>|cluster:<cluster>|<recordID>
+UPDATE <class>|CLUSTER:<cluster>|<recordID>
   [SET|INCREMENT|ADD|REMOVE|PUT <field-name> = <field-value>[,]*]|[CONTENT|MERGE <JSON>]
   [UPSERT]
   [RETURN <returning> [<returning-expression>]]
