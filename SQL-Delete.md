@@ -8,7 +8,7 @@ Removes one or more records from the database.  You can refine the set of record
 **Syntax:**
 
 ```sql
-DELETE FROM <Class>|cluster:<cluster>|index:<index> [LOCK <default|record>] [RETURN <returning>]
+DELETE FROM <Class>|CLUSTER:<cluster>|INDEX:<index> [LOCK <default|record>] [RETURN <returning>]
   [WHERE <Condition>*] [LIMIT <MaxRecords>] [TIMEOUT <timeout>]
 ```
 - **`LOCK`** Determines how the database locks the record between load and delete.  It takes one of the following values:
