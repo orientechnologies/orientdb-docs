@@ -72,7 +72,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 - Return all records of type `!AnimalType` where the collection `races` contains at least one entry with names `European` or `Asiatic`:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">SELECT * FROM animaltype WHERE races CONTAININS(name in ['European',
+  orientdb> <code class="lang-sql userinput">SELECT * FROM animaltype WHERE races CONTAINS(name in ['European',
             'Asiatic'])</code>
   </pre>
 
