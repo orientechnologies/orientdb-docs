@@ -17,16 +17,16 @@ ALTER DATABASE <attribute-name> <attribute-value>
 - Disable new SQL strict parser:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER DATABASE custom strictSQL=false</code>
+  orientdb> <code class="lang-sql userinput">ALTER DATABASE CUSTOM strictSQL=false</code>
   </pre>
 
 - Update a Graph database that was created before version 1.4:
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useLightweightEdges=FALSE</code>
-  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useClassForEdgeLabel=FALSE</code>
-  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useClassForVertexLabel=FALSE</code>
-  orientdb> <code class='lang-sql userinput'>ALTER DATABASE custom useVertexFieldsForEdgeLabel=FALSE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE CUSTOM useLightweightEdges=FALSE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE CUSTOM useClassForEdgeLabel=FALSE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE CUSTOM useClassForVertexLabel=FALSE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER DATABASE CUSTOM useVertexFieldsForEdgeLabel=FALSE</code>
   </pre>
 
   >Version 1.4 introduced [Lightweight Edges](Lightweight-Edges.md), which was disabled by default beginning in version 2.0.  Use the above commands to maintain compatibility when using older databases with newer versions of OrientDB.
@@ -41,7 +41,9 @@ ALTER DATABASE <attribute-name> <attribute-value>
 ## Supported Attributes
 
 - **STATUS** database's status between:
-- **IMPORTING** to set importing status
+ - **CLOSED** to set closed status
+ - **IMPORTING** to set importing status
+ - **OPEN** to set open status
 - **DEFAULTCLUSTERID** to set the default cluster. By default is 2 = "default"
 - **DATEFORMAT** sets the default date format. Look at [Java Date Format](http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html) for more information. Default is "yyyy-MM-dd"
 - **DATETIMEFORMAT** sets the default date time format. Look at [Java Date Format](http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html) for more information. Default is "yyyy-MM-dd HH:mm:ss"
