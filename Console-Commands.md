@@ -43,7 +43,7 @@ When the Console runs in batch mode, it takes commands as arguments on the comma
   <code class="lang-sql userinput">
     CONNECT REMOTE:localhost/demo;SELECT FROM Profile
   </code>
-  $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/console.sh commands.txt</code>
+  $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/console.sh < commands.txt</code>
   </pre>
 
 #### Ignoring Errors
