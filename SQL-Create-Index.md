@@ -1,7 +1,7 @@
 # SQL - `CREATE INDEX`
 
 Creates a new index.  Indexes can be
-- **Unqiue** Where they don't allow duplicates.
+- **Unique** Where they don't allow duplicates.
 - **Not Unique** Where they allow duplicates.
 - **Full Text** Where they index any single word of text.
 
