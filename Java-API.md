@@ -24,7 +24,7 @@ API: [Document API](Document-Database.md)
 
 ### Object API
 
-It's the JPA like interface where POJO are automatically bound to the database as documents. Can be used in schema-less or schema-based modes. This API hasn't been improved since OrientDB 1.5. Please consider using Document or Graph API by writing an additional layer of mapping with your POJO.
+It's the JPA like interface where POJO are automatically bound to the database as documents. Can be used in schema-less or schema-based modes. This API hasn't been improved since OrientDB v1.5. Please consider using Document or Graph API by writing an additional layer of mapping with your POJO. While you can use both Graph and Document APIs at the same time, the Object API is compatible with Document API, but it doesn't work very well with the Graph API. The main reason is that you should create POJOs that mimic the Vertex and Edge classes with sub optimal performance in comparison with direct Graph API. For this reason we don't suggest to work with Object API with a Graph domain. You could evaluate using Object Mapping on top of OrientDB Blueprints Graph API, such as [TinkerPop Frames](https://github.com/tinkerpop/frames/wiki), [Ferma](https://github.com/Syncleus/Ferma) and [Totorom](https://github.com/BrynCooke/totorom).
 
 API: [Object Database](Object-Database.md)
 
@@ -52,7 +52,7 @@ OrientDB comes with some jar files contained in the lib directory
 |-----|-----|------|------|
 |`orientdb-core-*.jar`|Core library|Always|`snappy-*.jar` as optional, performance pack: `orientdb-nativeos-*.jar`, `jna-*.jar` and `jna-platform-*.jar`|
 |`orientdb-client-*.jar`|Remote client|When your application talks with a remote server|
-|`orientdb-enterprise-*.jar`|Base package with the protocol and network classes shared by client and server|When your application talks with a remote server|
+|`orientdb-enterprise-*.jar`|Deprecated since v2.2. Base package with the protocol and network classes shared by client and server|When your application talks with a remote server|
 |`orientdb-server-*.jar`|Server component|It's used by the server component. Include it only if you're embedding a server|
 |`orientdb-tools-*.jar`|Contain the console and console commands|Never, unless you want to execute console command directly by your application. Used by the console application|
 |`orientdb-object-*.jar`|Contain the Object Database interface|Include it if you're using this interface|`javassist.jar`, `persistence-api-1.0.jar`|

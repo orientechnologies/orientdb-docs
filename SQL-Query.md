@@ -30,7 +30,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 - **[`WHERE`](SQL-Where.md)** Designates conditions to filter the result-set.
 - **[`LET`](SQL-Query.md#let-block)** Binds context variables to use in projections, conditions or sub-queries.
 - **`GROUP BY`** Designates field on which to group the result-set.  In the current release, you can only group on one field. 
-- **`ORDER BY`** Designates the field with which to order the result-set.  Use the optional `ASC` and `DESC` operators to define the direction of the order.  The default is ascending.  Additionally, if you are using a [projection](SQL-Query.md#projections), you need to include the `ORDER BY` field in the projection.
+- **`ORDER BY`** Designates the field with which to order the result-set.  Use the optional `ASC` and `DESC` operators to define the direction of the order.  The default is ascending.  Additionally, if you are using a [projection](SQL-Query.md#projections), you need to include the `ORDER BY` field in the projection. Note that ORDER BY works only on projection fields (fields that are returned in the result set) not on LET variables.
 - **[`UNWIND`](SQL-Query.md#unwind)** Designates the field on which to unwind the collection.  Introduced in version 2.1.
 - **`SKIP`** Defines the number of records you want to skip from the start of the result-set.  You may find this useful in [pagination](Pagination.md), when using it in conjunction with `LIMIT`.
 - **`LIMIT`** Defines the maximum number of records in the result-set.  You may find this useful in [pagination](Pagination.md), when using it in conjunction with `SKIP`. 
@@ -84,6 +84,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 
 - Return any record at any level that has the word `danger`:
 
+  DEPRECIATED SYNTAX
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM Profile WHERE ANY() TRAVERSE( ANY() LIKE '%danger%' )</code>
   </pre>
