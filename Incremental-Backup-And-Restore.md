@@ -42,7 +42,21 @@ orientdb {db=Whisky}> backup database /tmp/backup -incremental=93222
 ```
 
 ### Incremental backup via Java API
--Draft-
+You can perform an incremental backup through the Java API too.
+If you are managing a ODocumentDatabase you have to call the 'incrementalBackup' method that accepts as parameter the String path of the backup directory:
+
+```
+ODatabaseDocumentTx documentDatabase = new ODatabaseDocumentTx(dbURL);
+documentDatabase.incrementalBackup(backupPath);
+```
+
+If you are managing a OrientGraph you have to get the raw graph before the call to the 'incrementalBackup' method:
+
+```
+OrientGraph graphDatabase = new OrientGraphNoTx(dbURL);
+graphDatabase.getRawGraph().incrementalBackup(backupPath);
+```
+
 
 ## Execute an incremental restore
 
@@ -56,7 +70,20 @@ orientdb {db=Whisky}> restore database /tmp/backup
 ```
 
 ### Incremental restore via Java API
--Draft-
+You can perform an incremental restore through the Java API too.
+If you are managing a ODocumentDatabase you have to call the 'incrementalRestore' method that accepts as parameter the String path of the backup directory:
+
+```
+ODatabaseDocumentTx documentDatabase = new ODatabaseDocumentTx(dbURL);
+documentDatabase.incrementalRestore(backupPath);
+```
+
+If you are managing a OrientGraph you have to get the raw graph before the call to the 'incrementalRestore' method:
+
+```
+OrientGraph graphDatabase = new OrientGraphNoTx(dbURL);
+graphDatabase.getRawGraph().incrementalRestore(backupPath);
+```
 
 ## Distributed Architecture
 
