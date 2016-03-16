@@ -47,14 +47,14 @@ If you are managing a ODocumentDatabase you have to call the 'incrementalBackup'
 
 ```
 ODatabaseDocumentTx documentDatabase = new ODatabaseDocumentTx(dbURL);
-documentDatabase.incrementalBackup(backupPath);
+documentDatabase.incrementalBackup("/tmp/backup");
 ```
 
 If you are managing a OrientGraph you have to get the raw graph before the call to the 'incrementalBackup' method:
 
 ```
 OrientGraph graphDatabase = new OrientGraphNoTx(dbURL);
-graphDatabase.getRawGraph().incrementalBackup(backupPath);
+graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 ```
 
 
@@ -75,14 +75,14 @@ If you are managing a ODocumentDatabase you have to call the 'incrementalRestore
 
 ```
 ODatabaseDocumentTx documentDatabase = new ODatabaseDocumentTx(dbURL);
-documentDatabase.incrementalRestore(backupPath);
+documentDatabase.incrementalRestore("/tmp/backup");
 ```
 
 If you are managing a OrientGraph you have to get the raw graph before the call to the 'incrementalRestore' method:
 
 ```
 OrientGraph graphDatabase = new OrientGraphNoTx(dbURL);
-graphDatabase.getRawGraph().incrementalRestore(backupPath);
+graphDatabase.getRawGraph().incrementalRestore("/tmp/backup");
 ```
 
 ## Distributed Architecture
