@@ -1,6 +1,6 @@
 # Incremental Backup and Restore
 
-(Since v2.2)
+(Since v2.2 - Enteprise Edition only)
 
 Incremental backup generates smaller backup files with only the delta between 2 versions of databases. This is useful when you execute a backup at regular basis and you want to avoid to backup the entire database everytime.
 
