@@ -57,7 +57,7 @@ Since 2.2 you can force to not ask for a root password setting `<isAfterFirstTim
 
 ### SQL and Console commands Changes
 
-Strict SQL parsing is now applied also to statements for Schema Manipulation.
+Strict SQL parsing is now applied also to statements for *Schema Manipulation* (CREATE CLASS, ALTER CLASS, CREATE PROPERTY, ALTER PROPERTY etc.)
 
 **ALTER DATABASE**: A statement like
 ```
