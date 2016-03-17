@@ -255,7 +255,7 @@ In addition to managing record-level security features through the OrientDB cons
 
 ### Customize on Creation
 
-By default, whenever you create a restricted record, (that is, create a class that extends the class `ORestricted`), OrientDB inserts the current suer into the `_allow` field.  You can change this using custom properties in the class schema:
+By default, whenever you create a restricted record, (that is, create a class that extends the class `ORestricted`), OrientDB inserts the current user into the `_allow` field.  You can change this using custom properties in the class schema:
 - `onCreate.fields` Specifies the names of the fields it sets.  By default, these are `_allow`, but you can also specify `_allowRead`, `_allowUpdate`, `_allowDelete` or a combination of them as an alternative.  Use commas to separate multiple fields.
 - `onCreate.identityType` Specifies whether to insert the user's object or its role (the first one).  By default, it is set to `user`, but you can also set it to use its `role`.
 
