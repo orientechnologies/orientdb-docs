@@ -26,7 +26,10 @@ Last update: January 12, 2016
 | Core | AES and DES enchryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
 | Distributed | Fast synchronization by using Incremental Backup | 100% |
+| Distributed | Faster replication by using remote binary protocol instead of hazelcast queues | 100% |
+| Distributed | Support for `majority` (default) and `all` in quorum | 100% |
 | Distributed / Remote protocol | [Load balancing on client](https://github.com/orientechnologies/orientdb/issues/3165) | 100% |
+| Remote | Support for IPV6 | 100% |
 | SQL | Pattern matching | 100% |
 | SQL | Command Cache | 100% |
 | SQL | Automatic parallel queries | 100% |
@@ -57,9 +60,10 @@ Last update: December 8, 2015
 | Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  |
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
+| Core | Indexing of embedded properties | 0% |
+| Core | Index per cluster | 0% |
 | SQL | Distributed SQL Executor | 0% |
 | SQL | Multi-line queries in batch scripts | 0% |
-| Core | Indexing of embedded properties | 0% |
 | Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
 | Distributed | Replication of in-memory databases | 0% |
 | Distributed | Auto-Sharding | 0% |
