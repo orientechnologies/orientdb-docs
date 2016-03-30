@@ -2,9 +2,11 @@
 
 OrientDB can be distributed across different servers and used in different ways to achieve the maximum of performance, scalability and robustness.
 
-OrientDB uses the [Hazelcast Open Source project](http://www.hazelcast.com) to manage the clustering. Many of the references in this page are linked to the Hazelcast official documentation to get more information about such topic.
+OrientDB uses the [Hazelcast Open Source project](http://www.hazelcast.com) for auto-discovering of nodes, storing the runtime cluster configuration and synchronize certain operations between nodes. Some of the references in this page are linked to the Hazelcast official documentation to get more information about such topic.
 
 ## Presentation 
+
+Below you can find a presentation of the OrientDB replication. _NOTE: Starting from v2.2, OrientDB uses internal binary protocol for replication and not Hazelcast queues anymore_.
 <div>
 <iframe src="https://www.slideshare.net/slideshow/embed_code/38975360" width="760px" height="570px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 </div>
