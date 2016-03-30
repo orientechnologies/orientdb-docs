@@ -20,10 +20,10 @@ Below you can find a presentation of the OrientDB replication. _NOTE: Starting f
 - [Tutorial to setup a distributed database](Tutorial-Setup-a-distributed-database.md)
 - [Tuning](Distributed-Configuration-Tuning.md)
 
-## Server roles
+## Basic concepts
+### Server roles
 OrientDB has a multi-master distributed architecture (called also as "master-less") where each server can read and write. Starting from v2.1, OrientDB support the role of "REPLICA", where the server is in read-only mode, accepting only idempotent commands, like Reads and Query. Furthermore when the server joins the distributed cluster as "REPLICA", own record clusters are not created like does the "MASTER" nodes.
 
-## Basic concepts
 ### Cluster Ownership
 
 When new records (documents, vertices and edges) are created in distributed mode, the [RID](Concepts.md#rid) is assigned by following the "cluster locality", where every server defines a "own" record cluster where it is able to create records. If you have class `Customer` and 3 server nodes (node1, node2, node3), you'll have these clusters:
