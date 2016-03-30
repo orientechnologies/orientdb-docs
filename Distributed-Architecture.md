@@ -26,7 +26,7 @@ OrientDB has a multi-master distributed architecture (called also as "master-les
 
 ### Cluster Ownership
 
-When new records (documents, vertices and edges) are created in distributed mode, the [RID](Concepts.md#rid) is assigned by following the "cluster locality", where every server defines a "own" record cluster where it is able to create records. If you have class `Customer` and 3 server nodes (node1, node2, node3), you'll have these clusters:
+When new records (documents, vertices and edges) are created in distributed mode, the [RID](Concepts.md#rid) is assigned by following the "cluster locality", where every server defines a "own" record cluster where it is able to create records. If you have the class `Customer` and 3 server nodes (node1, node2, node3), you'll have these clusters (names can be different):
 - `customer` with id=#15 (this is the default one, assigned to node1)
 - `customer_node2` with id=#16
 - `customer_node3` with id=#17
@@ -43,7 +43,7 @@ Ownership configuration is stored in the [default-distributed-db-config.json](Di
 }
 ```
 
-Cluster the server node "usa" is the owner for cluster `client_usa`, so "usa" is th eonly server can create records on such cluster. Since every server node has own clusters where is the owner, every node is able to create records, but on different clusters. Since the record clusters are part of a class, when the user executes a `INSERT INTO client SET name = "Jay"`, the local cluster is selected to store the new client. If the operation is executed on the server "usa", the "client_usa" cluster is selected. If on the server "europe", then the cluster "client_europe" would be selected. The important thing is that from a logical point of view both records are always client, so if you execute the following query `SELECT * FROM client`, both record would be retrieved.
+The server node "usa" is the owner for cluster `client_usa`, so "usa" is the only server can create records on such cluster. Since every server node has own cluster per class, every node is able to create records, but on different clusters. Since the record clusters are part of a class, when the user executes a `INSERT INTO client SET name = "Jay"`, the local cluster is selected automatically by OrientDB to store the new "client" record. If this INSERT operation is executed on the server "usa", the "client_usa" cluster is selected. If the sam eoperation is executed on the server "europe", then the cluster "client_europe" would be selected. The important thing is that from a logical point of view, both records from clusters "client_usa" and "client_europe" are always instances of "client" class, so if you execute the following query `SELECT * FROM client`, both record would be retrieved.
 
 ### Distributed transactions
 
