@@ -16,7 +16,7 @@ REVOKE <permission> ON <resource> FROM <role>
 - Revoke permission to delete records on any cluster to the role `backoffice`:
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>REVOKE DELETE ON database.cluster.* TO backoffice</code>
+  orientdb> <code class='lang-sql userinput'>REVOKE DELETE ON database.cluster.* FROM backoffice</code>
   </pre>
 
 
