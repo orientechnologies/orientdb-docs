@@ -4,7 +4,7 @@ Write Ahead Log, **WAL** form now, is operation log which is used to store data 
 
 You could disable the journal (WAL) for some operations where reliability is not necessary:
 
-    -storage.useWAL=false
+    -Dstorage.useWAL=false
 
 By default, the WAL files are written in the database folder. Since these files can growth very fast, it's a best practice to store in a dedicated partition. WAL are written in append-only mode, so there is not much difference on using a SSD or a normal HDD. If you have a SSD we suggest to use for database files only, not WAL.
 

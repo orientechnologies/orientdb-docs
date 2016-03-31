@@ -50,16 +50,13 @@ Default **default-distributed-db-config.json** file content:
     "hotAlignment": false,
     "executionMode": "undefined",
     "readQuorum": 1,
-    "writeQuorum": 2,
-    "failureAvailableNodesLessQuorum": false,
+    "writeQuorum": "majority",
     "readYourWrites": true,
     "servers": {
         "*": "master"
     },
     "clusters": {
         "internal": {
-        },
-        "index": {
         },
         "*": {
             "servers" : [ "<NEW_NODE>" ]
@@ -76,8 +73,7 @@ Where:
 |**hotAlignment**|Whether the synchronization queue is left or not for a node leaving the cluster for hot alignment when the node joins the cluster again. It can be <code>true</code> or <code>false</code>|<code>false</code>|
 |**executionMode**|It can be <code>undefined</code> to let to the client to decide per call execution between synchronous (default) or asynchronous. <code>synchronous</code> forces synchronous mode, and  <code>asynchronous</code> forces asynchronous mode|<code>undefined</code>|
 |**readQuorum**|On "read" operation (record read, query and traverse) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
-|**writeQuorum**|On "write" operation (any write on database) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at write time. Suggested value is N/2+1 where N is the number of replicas. In this way the quorum is reached only if the majority of nodes are coherent|<code>2</code>|
-|**failureAvailableNodesLessQuorum**|Whether to return error when the available nodes are less then quorum. Can be <code>true</code> or <code>false</code>|<code>false</code>|
+|**writeQuorum**|On "write" operation (any write on database) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at write time. Suggested value is "majority", the default, that means N/2+1 where N is the number of available nodes. In this way the quorum is reached only if the majority of nodes are coherent. "all" means all the available nodes|<code>"majority"</code>|
 |**readYourWrites**|Whether the write quorum is satisfied only when also the local node responded. This assures current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
 |**servers**|(Since v2.1) Optional, contains the map of server roles in the format <code>server-name</code> : <code>role</code>. <code>*</code> means any server. Available roles are "MASTER" (default) and "REPLICA". For more information look at [Server roles](Distributed-Architecture.md#server_roles)|-|
 |**clusters**|if the object containing the clusters' configuration as map <code>cluster-name</code> : <code>cluster-configuration</code>. <code>*</code> means all the clusters and is the cluster's default configuration|-|
@@ -87,8 +83,7 @@ The **cluster** configuration inherits database configuration, so if you declare
 |Parameter|Description|Default value|
 |---------|-----------|-------------|
 |**readQuorum**|On "read" operation (record read, query and traverse) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
-|**writeQuorum**|On "write" operation (any write on database) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at write time. Suggested value is N/2+1 where N is the number of replicas. In this way the quorum is reached only if the majority of nodes are coherent|<code>2</code>|
-|**failureAvailableNodesLessQuorum**|Decide to return error when the available nodes are less then quorum. Can be <code>true</code> or <code>false</code>|<code>false</code>|
+|**writeQuorum**|On "write" operation (any write on database) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at write time. Suggested value is "majority", the default, that means N/2+1 where N is the number of available nodes. In this way the quorum is reached only if the majority of nodes are coherent. "all" means all the available nodes|<code>"majority"</code>|
 |**readYourWrites**|The write quorum is satisfied only when also the local node responded. This assure current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
 |**servers**|Is the array of servers where to store the records of cluster|empty for internal and index clusters and ```[ "<NEW_NODE>" ]``` for cluster * representing any cluster|
 
@@ -96,10 +91,15 @@ The **cluster** configuration inherits database configuration, so if you declare
 
 ### Default configuration
 
-In the default configuration all the record clusters are replicated but <code>internal</code>, <code>index</code>, because all the changes remain locally to each node (indexing is per node). Every node that joins the cluster shares all the rest of the clusters ("*" settings). Since "readQuorum" is 1 all the reads are executed on the first available node where the local node is preferred if own the requested record. "writeQuorum" to 2 means that all the changes are in at least 2 nodes. If available nodes are less then 2, no error is given because "failureAvailableNodesLessQuorum" is false.
+In the default configuration all the record clusters are replicated, but <code>internal</code>. Every node that joins the cluster shares all the rest of the clusters ("*" settings). Since "readQuorum" is 1 all the reads are executed on the first available node where the local node is preferred if own the requested record. "writeQuorum" to "majority" means that all the changes are in at least N/2+1 nodes, where N is the number of available nodes. Using "majority" instead of a number, allows you to have an elastic configuration where nodes can join and left without the need to rebalance this value manually.
 
-### 100% asynchronous writes
-By default writeQuorum is 2. This means that it waits and checks the answer from at least 2 nodes before to send the ACK to the client. If you've more then 2 nodes configured, then starting from the 3rd node the response will be managed asynchronously. You could also set this to 1 to have all the writes asynchronous.
+### 100% Asynchronous Writes
+
+By default writeQuorum is "majority". This means that it waits and checks the answer from at least N/2+1 (where N is the number of available nodes) nodes before to send the ACK to the client. After the quorum is reached, the responses are managed asyncrhonously. For example, with 3 nodes and `writeQuorum: "majority"`, then after the 2nd node's answer, the collecting and check of the 3rd node answer is managed asynchronously. You could also set this to 1 to have all the writes asynchronous.
+
+### Full Consistency
+
+To avoid experiencing any dirty reads during the replication, you can setup the writeQuorum to "all", that means all the available nodes. Example: `writeQuorum: "all". Setting writeQuorum to "all" means each replication operation will take the time of the slowest node in the cluster.
 
 ## hazelcast.xml
 
@@ -128,7 +128,7 @@ A OrientDB cluster is composed by two or more servers that are the **nodes** of 
 </hazelcast>
 ```
 
-*NOTE: Change the name and password of the group to prevent external nodes from joining it!*
+*NOTE: Change the name and password of the group to prevent foreign nodes from joining it!*
 
 ### Network configuration
 
@@ -225,16 +225,13 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
     "hotAlignment": false,
     "executionMode": "asynchronous",
     "readQuorum": 1,
-    "writeQuorum": 2,
-    "failureAvailableNodesLessQuorum": false,
+    "writeQuorum": "majority",
     "readYourWrites": true,
     "servers": {
         "*": "master"
     },
     "clusters": {
         "internal": {
-        },
-        "index": {
         },
         "*": {
             "servers" : [ "<NEW_NODE>" ]
@@ -323,6 +320,9 @@ Users reported that Hazelcast Health Monitoring could cause problem with a JVM k
 
 
 ## History
+### v2.2
+The intra-node communication is not managed with Hazelcast Queues anymore, but rather through the OrientDB binary protocol. This assure better performance and avoid the problem of locality of the Hazelcast queues. Release v2.2 also supported the wildcard "majority" and "all" for the read and write quorums.
+
 ### v1.7
 Simplified configuration by moving. Removed some flags (replication:boolean, now it’s deducted by the presence of “servers” field) and settings now are global (autoDeploy, hotAlignment, offlineMsgQueueSize, readQuorum, writeQuorum, failureAvailableNodesLessQuorum, readYourWrites), but you can overwrite them per-cluster.
 
