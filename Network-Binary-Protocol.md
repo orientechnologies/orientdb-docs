@@ -1001,8 +1001,30 @@ Where:
 
 The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. To compute it: 39 bytes + 10 * PAGE-SIZE bytes. For a page-size = 16 you'll have 39 + 160 = 199 bytes.
 
+### REQUEST_PUSH_DISTRIB_CONFIG 
+
+```
+(configuration:document)
+```
+
+where:
+**configuration** is and oriendb document serialized with the network [Record Format](#record-format), that contain the distributed configuration.
+
 
 ### REQUEST_PUSH_LIVE_QUERY
+
+```
+(message-type:byte)(message-body)
+```
+where:  
+**message-type** is the type of message and can have as a value  
+  - *RECORD* = 'r'
+  - *UNSUBSCRIBE* = 'u'  
+
+**message-body** is one for each type of message
+
+
+##### Record Message Body:
 
 ```
 (operation:byte)(query_token:int)(record-type:byte)(record-version:int)(cluster-id:short)(cluster-position:long)(record-content:bytes)
@@ -1020,6 +1042,14 @@ where:
 **cluster-id** record cluster id   
 **cluster-position** record cluster postion  
 **record-content** record content  
+
+##### Usubscribe Message Body:
+
+```
+(query_token:int)
+```
+
+**query_token** the token for identify the query that has been usubscribed.
 
 # History
 
