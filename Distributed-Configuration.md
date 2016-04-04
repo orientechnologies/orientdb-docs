@@ -14,7 +14,7 @@ Main topics:
 
 ## orientdb-server-config.xml
 
-To enable and configure the clustering between nodes, add and enable the **OHazelcastPlugin** plugin. It is configured as a [Server handler](DB-Server.md#handlers). The default configuration is reported below.
+To enable and configure the clustering between nodes, add and enable the **OHazelcastPlugin** plugin. It is configured as a [Server Plugin](DB-Server.md#handlers). The default configuration is reported below.
 
 File **orientdb-server-config.xml**:
 ```xml
