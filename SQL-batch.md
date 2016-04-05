@@ -17,8 +17,18 @@ SQL Batch supports all the OrientDB [SQL commands](SQL.md), plus the following:
 - ```return``` <value>, where value can be:
  - any value. Example: ```return 3```
  - any variable with $ as prefix. Example: ```return $a```
- - arrays. Example: ```return [ $a, $b ]```
- - maps. Example: ```return { 'first' : $a, 'second' : $b }```
+ - arrays (HTTP protocol only, see below). Example: ```return [ $a, $b ]```
+ - maps (HTTP protocol only, see below). Example: ```return { 'first' : $a, 'second' : $b }```
+ - a query. Example: ```return (SELECT FROM Foo)```  
+ 
+ NOTE: to return arrays and maps (eg. Java or Node.js driver) it's strongly recommended to use a RETURN SELECT, eg.  
+
+```
+return (SELECT $a as first, $b as second)
+```
+
+This will work on any protocol and driver.
+
 
 ## See also
 - [Javascript-Command](Javascript-Command.md)
