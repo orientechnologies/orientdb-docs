@@ -45,6 +45,19 @@ Ownership configuration is stored in the [default-distributed-db-config.json](Di
 
 The server node "usa" is the owner for cluster `client_usa`, so "usa" is the only server can create records on such cluster. Since every server node has own cluster per class, every node is able to create records, but on different clusters. Since the record clusters are part of a class, when the user executes a `INSERT INTO client SET name = "Jay"`, the local cluster is selected automatically by OrientDB to store the new "client" record. If this INSERT operation is executed on the server "usa", the "client_usa" cluster is selected. If the sam eoperation is executed on the server "europe", then the cluster "client_europe" would be selected. The important thing is that from a logical point of view, both records from clusters "client_usa" and "client_europe" are always instances of "client" class, so if you execute the following query `SELECT * FROM client`, both record would be retrieved.
 
+#### Static Owner
+
+Starting from v2.2, you can stick a node as owner, no matter the runtime configuration. We call this "static owner". For this purpose use the `"owner":"<NODE_NAME>"`. Example:
+
+```json
+"client_usa": {
+  "owner": "usa",
+  "servers" : [ "usa", "europe", "asia" ]
+}
+```
+
+With the configuration above, if the "usa" server is unreachable, the ownership of the cluster "client_usa" is not reassigned, so you can't create new records on that cluster until the server "usa" is back online. The static owner comes useful when you want to partition your database to be sure all the inserts come to a particular node.
+
 ### Distributed transactions
 
 Starting from v1.6, OrientDB supports distributed transactions. When a transaction is committed, all the updated records are sent across all the servers, so each server is responsible to commit the transaction. In case one or more nodes fail on commit, the quorum is checked. If the quorum has been respected, then the failing nodes are aligned to the winner nodes, otherwise all the nodes rollback the transaction.
