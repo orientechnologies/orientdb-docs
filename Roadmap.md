@@ -62,7 +62,7 @@ Last update: December 8, 2015
 | Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | Core | Indexing of embedded properties | 0% |
 | Core | Index per cluster | 0% |
-| Core | [New structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
+| Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
 | SQL | Distributed SQL Executor | 0% |
 | SQL | Multi-line queries in batch scripts | 0% |
 | Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
