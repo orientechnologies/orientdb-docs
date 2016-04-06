@@ -65,7 +65,7 @@ Last update: December 8, 2015
 | Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
 | SQL | Distributed SQL Executor | 0% |
 | SQL | Multi-line queries in batch scripts | 0% |
-| Java API | [Support fot TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
+| Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
 | Distributed | Replication of in-memory databases | 0% |
 | Distributed | Auto-Sharding | 0% |
 | Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
