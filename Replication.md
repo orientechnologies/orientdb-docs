@@ -17,7 +17,7 @@ If the [database configuration](Distributed-Configuration#default-distributed-db
 
 ## Server unreachable
 
-In case a server becomes unreachable, the node is removed by [database configuration](Distributed-Configuration#default-distributed-db-configjson) unless the setting ```"hotAlignment" : true```. In this case all the new synchronization messages are kept in a distributed queue.
+In case a server becomes unreachable, the node is removed by [database configuration](Distributed-Configuration.md#default-distributed-db-configjson) unless the setting ```"hotAlignment" : true```. In this case all the new synchronization messages are kept in a distributed queue.
 
 ![image](http://www.orientdb.org/images/distributed-srv-unreacheable.png)
 
