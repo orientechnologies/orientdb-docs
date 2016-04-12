@@ -19,11 +19,11 @@ Last update: January 12, 2016
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| OrientJS| Native unmarshaling of requests by using C++ code| 100% |
+| OrientJS| Native unmarshalling of requests by using C++ code| 100% |
 | Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 100% |
 | Core | Incremental Backup | 100% |
 | Core| [Automatic minimum clusters](https://github.com/orientechnologies/orientdb/issues/4518) | 100% |
-| Core | AES and DES enchryption | 100% |
+| Core | AES and DES encryption | 100% |
 | Core | [Support SALT in passwords](https://github.com/orientechnologies/orientdb/issues/1229) | 100% |
 | Distributed | Fast synchronization by using Incremental Backup | 100% |
 | Distributed | Faster replication by using remote binary protocol instead of hazelcast queues | 100% |
