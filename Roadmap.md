@@ -10,12 +10,12 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 ```
 - Development started on.: June 25th 2015
 - Expected BETA..........: February 2016
-- Expected first RC......: March 2016
-- Planned final GA......: April 2016
+- Expected first RC......: April 2016
+- Planned final GA......: End of April 2016
 ```
 
 ### Status
-Last update: January 12, 2016
+Last update: April 12, 2016
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
@@ -46,12 +46,12 @@ Last update: January 12, 2016
 ## Release 3.0
 ```
 - Development started on.: September 2015
-- Expected first RC......: June 2016
-- Expected final GA......: August 2016
+- Expected first RC......: October 2016
+- Expected final GA......: December 2016
 ```
 
 ### Status
-Last update: December 8, 2015
+Last update: April 12, 2016
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
@@ -75,12 +75,12 @@ Last update: December 8, 2015
 ## Release 3.1
 ```
 - Development started on.: -
-- Expected first RC......: June 2016
-- Expected final GA......: August 2016
+- Expected first RC......: June 2017
+- Expected final GA......: August 2017
 ```
 
 ### Status
-Last update: December 8, 2015
+Last update: April 12, 2015
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
