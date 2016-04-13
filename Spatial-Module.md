@@ -26,14 +26,13 @@ Orient db will load the spatial plugin on startup.
 
 OrientDB supports the following Geometry objects :
 
-* Point
-* Line
-* Polygon
-* MultiPoint
-* MultiLine
-* MultiPolygon
-* Geometry Collections
-
+* Point (**OPoint**)
+* Line (**OLine**)
+* Polygon (**OPolygon)**
+* MultiPoint (**OMultiPoint**)
+* MultiLine (**OMultiline**)
+* MultiPolygon (**OMultiPlygon**)
+* Geometry Collections 
 
 OrientDB stores those objects like embedded documents with special classes.
 The module creates abstract classes that represent each Geometry object type, and those classes
@@ -65,6 +64,7 @@ or as an alternative, if you use [WKT](https://it.wikipedia.org/wiki/Well-Known_
 INSERT INTO  Restaurant SET name = 'Dar Poeta', location = St_GeomFromText("POINT (12.4684635 41.8914114)")
 ```
 
+
 From JAVA
 
 ```JAVA
@@ -78,11 +78,17 @@ doc.field("location",location);
 doc.save();
 ```
 
+A spatial index on the *location* field s defined by
+
+```SQL
+CREATE INDEX Restaurant.location ON Restaurant(location) SPATIAL ENGINE LUCENE"
+```
+
+
+## Functions
 
 OrientDB follows The Open Geospatial Consortium [OGC](http://www.opengeospatial.org/standards/sfs) for extending SQL to support spatial data.
 OrientDB implements a subset of SQL-MM functions with ST prefix (Spatial Type)
-
-## Functions
 
 ### ST_AsText
 
@@ -325,18 +331,3 @@ The syntax for creating a spatial index on a geometry field is :
 CREATE INDEX <name> ON <class-name> (geometry-field) SPATIAL ENGINE LUCENE
 ```
 
-## Install 
-
-### 2.2.0-SNAPSHOT
-
-The module has been merged into the main repository branch [develop](https://github.com/orientechnologies/orientdb/tree/develop)
-* Take the latest OrientDB 2.2.0-Snapshot [here](https://oss.sonatype.org/content/repositories/snapshots/com/orientechnologies/orientdb-community/2.2.0-SNAPSHOT/)
-
-Or
-
-build the develop branch from scratch
-
-
-### 2.2 GA
-
-This module is part of orientdb-lucene plugin and will be included in OrientDB 2.2 GA
