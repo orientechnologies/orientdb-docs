@@ -20,6 +20,7 @@ Release v2.2 contains many improvement on distributed part. First of all there i
 - Removed `failureAvailableNodesLessQuorum` setting: with majority you don't need this setting anymore
 - Removed `hotAlignment` setting: servers, once they join the cluster, remain always in the configuration until they are manually removed
 - [Server Roles](Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
+- [Load balancing on the client side](Distributed-Configuration.md#load-balancing)
 - OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol.
 
 ### Command Cache
@@ -108,3 +109,6 @@ In v.2.2 the value must be a valid expression (eg. a string):
 ```
 ALTER PROPERTY Foo.name min "2015-01-01 00:00:00"
 ```
+
+**CREATE USER** and **DROP USER**
+In v2.2 we introduced new [specific commands to work with users](https://github.com/orientechnologies/orientdb/pull/4000).
