@@ -111,4 +111,5 @@ ALTER PROPERTY Foo.name min "2015-01-01 00:00:00"
 ```
 
 **CREATE USER** and **DROP USER**
+
 In v2.2 we introduced new [specific commands to work with users](https://github.com/orientechnologies/orientdb/pull/4000).
