@@ -10,6 +10,18 @@ Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) al
 
 If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
 
+### Distributed
+
+Release v2.2 contains many improvement on distributed part. First of all there is a huge improvement on performance. With 2 nodes we measured 4x better and with 3 nodes is 8x faster than 2.1! Below the main new features on distributed part:
+
+- Multi-Threads message management
+- [Static Ownership of clusters](Distributed-Architecture.md#static-owner)
+- ['majority' and 'all' quorum](Distributed-Configuration.md#default-distributed-db-configjson) to assure you have the majority (N/2+1) or the total of the consensus
+- Removed `failureAvailableNodesLessQuorum` setting: with majority you don't need this setting anymore
+- Removed `hotAlignment` setting: servers, once they join the cluster, remain always in the configuration until they are manually removed
+- [Server Roles](Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
+- OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol.
+
 ### Command Cache
 OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](Command-Cache.md) to know more.
 
@@ -48,7 +60,7 @@ To improve performance consider also avoiding opening and closing connection, bu
 
 #### ODocument.field()
 
-To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. This is because we simplified the `.field()` method to don't accept expressoion anymore. This allows to boost up performance on such used method. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
+To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is still supported. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
 
 
 #### Schema.dropClass()
@@ -56,12 +68,10 @@ On drop class are dropped all the cluster owned by the class, and not just the d
 
 
 ### Configuration Changes
-
 Since 2.2 you can force to not ask for a root password setting `<isAfterFirstTime>true</isAfterFirstTime>` inside the `<orient-server>` element in the orientdb-server-config.xml file.
 
 
 ### SQL and Console commands Changes
-
 Strict SQL parsing is now applied also to statements for **Schema Manipulation** (CREATE CLASS, ALTER CLASS, CREATE PROPERTY, ALTER PROPERTY etc.)
 
 **ALTER DATABASE**: A statement like
