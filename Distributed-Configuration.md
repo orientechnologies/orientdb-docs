@@ -47,7 +47,6 @@ Default **default-distributed-db-config.json** file content:
 ```json
 {
     "autoDeploy": true,
-    "hotAlignment": false,
     "executionMode": "undefined",
     "readQuorum": 1,
     "writeQuorum": "majority",
@@ -70,7 +69,6 @@ Where:
 |Parameter|Description|Default value|
 |---------|-----------|-------------|
 |**autoDeploy**|Whether to deploy the database to any joining node that does not have it. It can be <code>true</code> or <code>false</code>|<code>true</code>|
-|**hotAlignment**|Whether the synchronization queue is left or not for a node leaving the cluster for hot alignment when the node joins the cluster again. It can be <code>true</code> or <code>false</code>|<code>false</code>|
 |**executionMode**|It can be <code>undefined</code> to let to the client to decide per call execution between synchronous (default) or asynchronous. <code>synchronous</code> forces synchronous mode, and  <code>asynchronous</code> forces asynchronous mode|<code>undefined</code>|
 |**readQuorum**|On "read" operation (record read, query and traverse) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
 |**writeQuorum**|On "write" operation (any write on database) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at write time. Suggested value is "majority", the default, that means N/2+1 where N is the number of available nodes. In this way the quorum is reached only if the majority of nodes are coherent. "all" means all the available nodes|<code>"majority"</code>|
@@ -222,7 +220,6 @@ In order to reduce the latency in WAN, the suggested configuration is to set `ex
 ```json
 {
     "autoDeploy": true,
-    "hotAlignment": false,
     "executionMode": "asynchronous",
     "readQuorum": 1,
     "writeQuorum": "majority",
@@ -321,7 +318,7 @@ Users reported that Hazelcast Health Monitoring could cause problem with a JVM k
 
 ## History
 ### v2.2
-The intra-node communication is not managed with Hazelcast Queues anymore, but rather through the OrientDB binary protocol. This assure better performance and avoid the problem of locality of the Hazelcast queues. Release v2.2 also supported the wildcard "majority" and "all" for the read and write quorums.
+The intra-node communication is not managed with Hazelcast Queues anymore, but rather through the OrientDB binary protocol. This assure better performance and avoid the problem of locality of the Hazelcast queues. Release v2.2 also supported the wildcard "majority" and "all" for the read and write quorums. Introduced also the concept of static cluster owner. Furthermore nodes are not removed by configuration when they are offline.
 
 ### v1.7
 Simplified configuration by moving. Removed some flags (replication:boolean, now it’s deducted by the presence of “servers” field) and settings now are global (autoDeploy, hotAlignment, offlineMsgQueueSize, readQuorum, writeQuorum, failureAvailableNodesLessQuorum, readYourWrites), but you can overwrite them per-cluster.
