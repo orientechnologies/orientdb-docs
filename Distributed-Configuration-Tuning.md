@@ -20,6 +20,12 @@ OrientDB [distributed configuration](Distributed-Configuration.md) is set to ful
 
 With writes it's the opposite: having multiple nodes with full replication slows down operations if the replication is synchronous. In this case [Sharding](Distributed-Sharding.md) the database across multiple nodes allows you to scale up writes, because only a subset of nodes are involved on write. Furthermore you could have a database bigger than one server node HD.
 
+## Use few MASTER and many REPLICA servers
+
+Starting from v2.2, the biggest advantage of having many REPLICA servers is that they don't concur in the `writeQuorum`, so if you have 3 MASTER servers and 100 REPLICA servers, every write operation will be replicated across 103 servers, but the majority of the writeQuorum would be just 2, because given N/2+1, N is the number of MASTER servers. In this case after the operation is executed locally, the server coordinator of the write operation has to wait only for one more MASTER server.
+
+For more information look at [Server roles](Distributed-Architecture.html#server-roles).
+
 ## Scale up on writes
 If you have a slow network and you have a synchronous (default) replication, you could pay the cost of latency. In facts when OrientDB runs synchronously, it waits at least for the `writeQuorum`. This means that if the `writeQuorum` is 3 ("majority"), and you have 5 nodes, the coordinator server node (where the distributed operation is started) has to wait for the answer from at least 3 nodes in order to provide the answer to the client. 
 
@@ -30,9 +36,3 @@ To speed up things, you can setup [Asynchronous Replication](Distributed-Configu
 
 ## Scale up on reads
 If you already set the `writeQuorum` to the majority to the nodes, you can leave the `readQuorum` to 1 (the default). This speeds up all the reads.
-
-## Use few MASTER and many REPLICA servers
-
-Starting from v2.2, the biggest advantage of having many REPLICA servers is that they don't concur in the `writeQuorum`, so if you have 3 MASTER servers and 100 REPLICA servers, every write operation will be replicated across 103 servers, but the majority of the writeQuorum would be just 2, because given N/2+1, N is the number of MASTER servers. In this case after the operation is executed locally, the server coordinator of the write operation has to wait only for one more MASTER server.
-
-For more information look at [Server roles](Distributed-Architecture.html#server-roles).
