@@ -10,14 +10,32 @@ Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) al
 
 If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
 
+### Distributed
+
+Release v2.2 contains many improvement on distributed part. First of all there is a huge improvement on performance. With 2 nodes we measured 4x better and with 3 nodes is 8x faster than 2.1! Below the main new features on distributed part:
+
+- Multi-Threads message management
+- [Static Ownership of clusters](Distributed-Architecture.md#static-owner)
+- ['majority' and 'all' quorum](Distributed-Configuration.md#default-distributed-db-configjson) to assure you have the majority (N/2+1) or the total of the consensus
+- Removed `failureAvailableNodesLessQuorum` setting: with majority you don't need this setting anymore
+- Removed `hotAlignment` setting: servers, once they join the cluster, remain always in the configuration until they are manually removed
+- [Server Roles](Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
+- [Load balancing on the client side](Distributed-Configuration.md#load-balancing)
+- OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol.
+
 ### Command Cache
 OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](Command-Cache.md) to know more.
 
 ### Sequences
--In progress-
+In v2.2 we introduced [Sequences](Sequences-and-auto-increment.md). Thanks to the sequences it's easy to maintain counters and incremental ids in your application. You can use [Sequences](Sequences-and-auto-increment.md) from both Java API and SQL.
 
 ### Parallel queries
-Starting from v2.2, the OrientDB SQL executor will decide if execute or not a query in parallel. Before v2.2 executing parallel queries could be done only manually by appending the `PARALLEL` keyword at the end of SQL SELECT. [Issue 4578](https://github.com/orientechnologies/orientdb/issues/4578).
+Starting from v2.2, the OrientDB SQL executor will decide if execute or not a query in parallel. To tune parallel query execution these are the new settings:
+- `query.parallelAuto` enable automatic parallel query, if requirements are met. By default is true if your system has more than 2 CPUs/Cores.
+- `query.parallelMinimumRecords` is the minimum number of records to activate parallel query automatically. Default is 300,000.
+- `query.parallelResultQueueSize` is the size of the queue that holds results on parallel execution. The queue is blocking, so in case the queue is full, the query threads will be in a wait state. Default is 20,000 results.
+
+Before v2.2 executing parallel queries could be done only manually by appending the `PARALLEL` keyword at the end of SQL SELECT. [Issue 4578](https://github.com/orientechnologies/orientdb/issues/4578).
 
 ### Automatic usage of Multiple clusters
 Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
@@ -43,7 +61,7 @@ To improve performance consider also avoiding opening and closing connection, bu
 
 #### ODocument.field()
 
-To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. This is because we simplified the `.field()` method to don't accept expressoion anymore. This allows to boost up performance on such used method. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
+To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is still supported. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
 
 
 #### Schema.dropClass()
@@ -51,12 +69,10 @@ On drop class are dropped all the cluster owned by the class, and not just the d
 
 
 ### Configuration Changes
-
 Since 2.2 you can force to not ask for a root password setting `<isAfterFirstTime>true</isAfterFirstTime>` inside the `<orient-server>` element in the orientdb-server-config.xml file.
 
 
 ### SQL and Console commands Changes
-
 Strict SQL parsing is now applied also to statements for **Schema Manipulation** (CREATE CLASS, ALTER CLASS, CREATE PROPERTY, ALTER PROPERTY etc.)
 
 **ALTER DATABASE**: A statement like
@@ -93,3 +109,7 @@ In v.2.2 the value must be a valid expression (eg. a string):
 ```
 ALTER PROPERTY Foo.name min "2015-01-01 00:00:00"
 ```
+
+**CREATE USER** and **DROP USER**
+
+In v2.2 we introduced new [specific commands to work with users](https://github.com/orientechnologies/orientdb/pull/4000).

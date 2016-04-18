@@ -11,13 +11,13 @@ In Distributed Architecture the replicated database must have the same name. Whe
 
 _NOTE: In Distributed Architecture assure to avoid conflict with database names, otherwise 2 different databases could start replication with the chance to get corrupted._
 
-If the [database configuration](Distributed-Configuration#default-distributed-db-configjson) has the setting ```"autoDeploy" : true```, then the databases are automatically deployed across the network to the other nodes as soon as they join the cluster.
+If the [database configuration](Distributed-Configuration.md#default-distributed-db-configjson) has the setting ```"autoDeploy" : true```, then the databases are automatically deployed across the network to the other nodes as soon as they join the cluster.
 
 ![image](http://www.orientdb.org/images/distributed-db-autodeploy.png)
 
 ## Server unreachable
 
-In case a server becomes unreachable, the node is removed by [database configuration](Distributed-Configuration#default-distributed-db-configjson) unless the setting ```"hotAlignment" : true```. In this case all the new synchronization messages are kept in a distributed queue.
+In case a server becomes unreachable, the node is removed by [database configuration](Distributed-Configuration.md#default-distributed-db-configjson) unless the setting ```"hotAlignment" : true```. In this case all the new synchronization messages are kept in a distributed queue.
 
 ![image](http://www.orientdb.org/images/distributed-srv-unreacheable.png)
 

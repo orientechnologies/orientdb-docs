@@ -110,8 +110,8 @@ These commands link outgoing vertices of the `Person` class to incoming vertices
 By default, when OrientDB creates an edge that lacks properties, it creates it as a Lightweight Edge.  That is, it creates an edge that has no physical record in the database.  Using the `MANDATORY` setting, you can stop this behavior, forcing it to create the standard Edge, without outright disabling Lightweight Edges.
 
 <pre>
-orientdb> <code class="lang-sql userinput">ALTER PROPERTY Owns.out MANDATORY=TRUE</code>
-orientdb> <code class="lang-sql userinput">ALTER PROPERTY Owns.in MANDATORY=TRUE</code>
+orientdb> <code class="lang-sql userinput">ALTER PROPERTY Owns.out MANDATORY TRUE</code>
+orientdb> <code class="lang-sql userinput">ALTER PROPERTY Owns.in MANDATORY TRUE</code>
 </pre>
 
 ### Using `UNIQUE` with Edges
