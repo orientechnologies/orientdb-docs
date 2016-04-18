@@ -30,7 +30,7 @@ OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disab
 In v2.2 we introduced [Sequences](Sequences-and-auto-increment.md). Thanks to the sequences it's easy to maintain counters and incremental ids in your application. You can use [Sequences](Sequences-and-auto-increment.md) from both Java API and SQL.
 
 ### Parallel queries
-OrientDB v2.2 can run query in parallel, using multiple threads. To use parallel queries, append the `PARALLEL` keyword at the end of SQL SELECT.
+OrientDB v2.2 can run query in parallel, using multiple threads. To use parallel queries, append the `PARALLEL` keyword at the end of SQL SELECT. Example: `SELECT FROM V WHERE amount < 100 PARALLEL`.
 
 Starting from v2.2, the OrientDB SQL executor can decide if execute or not a query in parallel, only if `query.parallelAuto` setting is enabled. To tune parallel query execution these are the new settings:
 - `query.parallelAuto` enable automatic parallel query, if requirements are met. By default is false.
