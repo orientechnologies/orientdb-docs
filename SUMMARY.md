@@ -155,6 +155,8 @@
   * [Java API](Java-API.md) 
     * [Java API Introduction](Tutorial-Java.md) 
     * [Graph API](Graph-Database-Tinkerpop.md) 
+	  * [Vertices and Edges](Graph-VE.md)
+	  * [Blueprints Extension](Graph-Blueprints.md)
       * [Factory](Graph-Factory.md) 
       * [Schema](Graph-Schema.md) 
       * [Partitioned](Partitioned-Graphs.md) 

@@ -1,60 +1,88 @@
 # Java API
 
-OrientDB is written 100% in Java. You can use the native Java APIs without any driver or adapter. [Here the Javadocs](http://www.orientechnologies.com/javadoc/latest/).
+OrientDB is written completely in the Java language.  This means that you can use its Java API's without needing to install any additional drivers or adapters.
 
-## Architecture of components
+>For more information, see the [OrientDB Java Documentation](http://www.orientechnologies.com/javadoc/latest/)
+
+
+## Component Architecture 
 
 ![image](http://www.orientdb.org/images/orientdb-api-stack.png)
 
-OrientDB provides 3 different Java APIs to work with OrientDB. Each one has pros and cons.
+OrientDB provides three different Java API's that allow you to work with OrientDB.
 
-Which API to choose between Graph and Document? Look also at [Graph-or-Document-API?](Choosing-between-Graph-or-Document-API.md).
+- [**Graph API**](#graph-api) Use this Java API if you work with graphs and want portable code across TinkerPop Blueprints implementations.  It is easiest to switch to this when migrating from other Graph Databases, such as Neo4J or Titan.  If you used TinkerPop standard on these, you can use OrientDB as a drop-in replacement.
+- [**Document API**](#document-api) Use this Java API if your domain fits Document Database use case with schema-less structures.  It is easiest to switch to this when migrating from other Document Databases, such as MongoDB and CouchDB.
+- [**Object API**](#object-api) Use this Java API if you need a full Object Oriented abstraction that binds all database entities to POJO (that is, Plain Old Java Objects).  It is easiest to switch to this when migrating from JPA applications.
+
+Each Java API has its own pros and cons.  For more information on determining which Java API to use with your application, see [Choosing between the Graph or Document API](Choosing-between-Graph-or-Document-API.md).
+
+|    | Graph | Document | Object |
+|----|----|----|----|
+|API|[Graph API](Graph-Database-Tinkerpop.md)|[Document API](Document-Database.md)|[Object Database](Object-Database.md)|
+|Java class|<a href="https://github.com/orientechnologies/orientdb/blob/master/graphdb/src/main/java/com/tinkerpop/blueprints/impls/orient/OrientGraph.java">OrientGraph</a>|<a href="http://www.orientechnologies.com/javadoc/latest/index.html?com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html">ODatabaseDocumentTx</a>|<a href="http://www.orientechnologies.com/javadoc/latest/index.html?com/orientechnologies/orient/object/db/OObjectDatabaseTx.html">OObjectDatabaseTx</a>|
+|Query|Yes|Yes|Yes|
+|Schema Less|Yes|Yes|Yes
+|Schema full|Yes|Yes|Yes
+|Speed<sup>`1`</sup>|90%|100%|50%|
+
+><sup>`1`</sup>: Speed comparisons show for generic CRUD operations, such as queries, insertions, updates and deletions.  Large values are better, where 100% indicates the fastest possible.
+>
+>In general, the cost of high-level abstraction is a speed penalty, but remember that OrientDB is orders of magnitude faster than the class Relational Database.  So, using the Object Database provides a high-level of abstraction with much less code to develop and maintain.
+
+
 
 ### Graph API
 
-Use OrientDB as a Graph Database working with Vertices and Edges. Graph API is 100% compliant with <a href="http://www.tinkerpop.com">TinkerPop</a> standard.
+With this Java API, you can use OrientDB as a Graph Database, allowing you to work with Vertices and Edges.  The Graph API is compliant with the [TinkerPop](http://www.tinkerpop.com) standard.
 
 API: [Graph API](Graph-Database-Tinkerpop.md)
 
 ### Document API
 
-Handles records as documents. Documents are comprised of fields. Fields can be any of the types supported. Does not need a Java domain POJO, as required for the Object Database. Can be used as schema-less or schema-base modes.
+With this Java API, you can handle records and documents.  Documents are comprised of fields and fields can be any of the supported types.  You can use it with a schema, without, or in a mixed mode.
+
+Additionally, it does not require a Java domain POJO, as is the case with Object Databases. 
 
 API: [Document API](Document-Database.md)
 
+
 ### Object API
 
-It's the JPA like interface where POJO are automatically bound to the database as documents. Can be used in schema-less or schema-based modes. This API hasn't been improved since OrientDB v1.5. Please consider using Document or Graph API by writing an additional layer of mapping with your POJO. While you can use both Graph and Document APIs at the same time, the Object API is compatible with Document API, but it doesn't work very well with the Graph API. The main reason is that you should create POJOs that mimic the Vertex and Edge classes with sub optimal performance in comparison with direct Graph API. For this reason we don't suggest to work with Object API with a Graph domain. You could evaluate using Object Mapping on top of OrientDB Blueprints Graph API, such as [TinkerPop Frames](https://github.com/tinkerpop/frames/wiki), [Ferma](https://github.com/Syncleus/Ferma) and [Totorom](https://github.com/BrynCooke/totorom).
+With this Java API, you can use OrientDB with JPA-like interfaces where POJO, (that is, Plain Old Java Objects), are automatically bound to the database as documents.  You can use this in schema-less or schema-full modes.
+
+>Bear in mind that this Java API has not received improvements since OrientDB version 1.5.  Consider using the Document API or Graph API instead, with an additional layer to map to your POJO's.
+
+While you can use both the Graph API and Document API at the same time, the Object API is only compatible with the Document API.  It doesn't work well with the Graph API.  The main reason is that it requires you to create POJO's that mimic the Vertex and Edge classes, which provides sub-optimal performance in comparison with using the Graph API directly.  For this reason, it is recommended that you don't use the Object API with a Graph domain.  To evaluate Object Mapping on top of OrientDB Blueprints Graph API, see [TinkerPop Frames](https://github.com/tinkerpop/frames/wiki), [Ferma](https://github.com/Syncleus/Ferma) and [Totorom](https://github.com/BrynCooke/totorom).
 
 API: [Object Database](Object-Database.md)
 
 
-## What to use? Feature Matrix
+## Supported Libraries
 
-|    | Graph | Document | Object |
-|----|----|----|----|
-|API|[Graph API](Graph-Database-Tinkerpop.md)|[Document API](Document-Database.md)|[Object Database](Object-Database.md)|
-|Use this if|You work with **graphs** and want your code to be **portable** across **TinkerPop Blueprints** implementations|Your domain fits better the Document Database use case with **schema-less structures**|If you need a full **Object Oriented** abstraction that binds all the database entities to **POJO** (Plain Old Java Object)|
-|Easy to switch from|Other GraphDBs like Neo4J or Titan. If you used TinkerPop standard OrientDB is a drop-in replacement|Other DocumentDB like MongoDB and CouchDB|JPA applications|
-|Java class|<a href="https://github.com/orientechnologies/orientdb/blob/master/graphdb/src/main/java/com/tinkerpop/blueprints/impls/orient/OrientGraph.java">OrientGraph</a>|<a href="http://www.orientechnologies.com/javadoc/latest/index.html?com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html">ODatabaseDocumentTx</a>|<a href="http://www.orientechnologies.com/javadoc/latest/index.html?com/orientechnologies/orient/object/db/OObjectDatabaseTx.html">OObjectDatabaseTx</a>|
-|Query|Yes|Yes|Yes|
-|Schema Less|Yes|Yes|Yes
-|Schema full|Yes|Yes|Yes
-|Speed<code>*</code>|90%|100%|50%|
+OrientDB ships with a number of JAR files in the `$ORIENTDB_HOME/lib` directory.
 
-<code>*</code> Speed comparison for generic CRUD operations such as query, insertion, update and deletion. Larger is better. 100% is fastest. In general the price of a high level of abstraction is a speed penalty, but remember that Orient is orders of magnitude faster than the classic RDBMS. So using the Object Database gives you a high level of abstraction with much less code to develop and maintain.
-
-## Which library do I use?
-
-OrientDB comes with some jar files contained in the lib directory
-
-|JAR name|Description|When required|Depends on 3rd party jars|
-|-----|-----|------|------|
-|`orientdb-core-*.jar`|Core library|Always|`snappy-*.jar` as optional, performance pack: `orientdb-nativeos-*.jar`, `jna-*.jar` and `jna-platform-*.jar`|
-|`orientdb-client-*.jar`|Remote client|When your application talks with a remote server|
-|`orientdb-enterprise-*.jar`|Deprecated since v2.2. Base package with the protocol and network classes shared by client and server|When your application talks with a remote server|
-|`orientdb-server-*.jar`|Server component|It's used by the server component. Include it only if you're embedding a server|
-|`orientdb-tools-*.jar`|Contain the console and console commands|Never, unless you want to execute console command directly by your application. Used by the console application|
-|`orientdb-object-*.jar`|Contain the Object Database interface|Include it if you're using this interface|`javassist.jar`, `persistence-api-1.0.jar`|
-|`orientdb-graphdb-*.jar`|Contain the GraphDB interface|Include it if you're using this interface|`blueprints-core-*.jar`|
-|`orientdb-distributed-*.jar`|Contain the distributed plugin|Include it if you're working with a server cluster|`hazelcast-*.jar`|
+- **`orientdb-core-*.jar`** Provides the core library.
+  - *Required*: Always.
+  - *Dependencies*: `snappy-*.jar`  
+  - *Performance Pack (Optional)*: 
+	- `orientdb-nativeos-*.jar`
+	- `jna-*.jar`
+	- `jna-platform-*.jar`.
+- **`orientdb-client-*.jar`** Provides the remote client.
+  - *Required*: When your application connects with a remote server.
+- **`orientdb-enterprise-*.jar`** Provides the base package with the protocol and network classes shared by the client and server. Deprecated since version 2.2.
+  - *Required*: When your application connects to a remote server.
+- **`orientdb-server-*.jar`** Provides the server component.
+  - *Required*: When building an embedded server.  Used by the OrientDB Server.
+- **`orientdb-tools-*.jar`** Provides the console and console commands.
+  - *Required*: When you need to execute console commands directly through your application.  Used by the OrientDB Console.
+- **`orientdb-object-*.jar`** Provides the Object Database interface.
+  - *Required*: When you want to use this interface.
+  - *Dependencies*: `javassist.jar` and `persistence-api-1.0.jar`.
+- **`orientdb-graphdb-*.jar`** Provides the Graph Database interface.
+  - *Required*: When you want to use this interface.
+  - *Dependencies*: `blueprints-core-*.jar`.
+- **`orientdb-distributed-*.jar`** Provides the distributed database plugin.
+  - *Required*: When you want to use a server cluster.
+  - *Dependencies*: `hazelcast-*.jar`.
