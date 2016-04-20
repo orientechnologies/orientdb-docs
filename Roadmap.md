@@ -19,6 +19,8 @@ Last update: April 12, 2016
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
+| Tools| [New tool to automatically import any RDBMS into OrientDB](http://orientdb.com/orientdb-labs/teleporter/)| 100% |
+| Security | [Kerberos Support](https://github.com/orientechnologies/orientdb-labs/blob/master/Security-Kerberos-Client-Examples.md)| 100% |
 | OrientJS| Native unmarshalling of requests by using C++ code| 100% |
 | Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 100% |
 | Core | Incremental Backup | 100% |
