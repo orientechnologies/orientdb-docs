@@ -19,7 +19,7 @@ Last update: April 12, 2016
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| Tools| [New tool to automatically import any RDBMS into OrientDB](http://orientdb.com/orientdb-labs/teleporter/)| 100% |
+| Tools| [Teleporter: the new tool to automatically import any RDBMS into OrientDB](http://orientdb.com/orientdb-labs/teleporter/)| 100% |
 | Security | [Kerberos Support](https://github.com/orientechnologies/orientdb-labs/blob/master/Security-Kerberos-Client-Examples.md)| 100% |
 | OrientJS| Native unmarshalling of requests by using C++ code| 100% |
 | Core| [Dirty Manager](https://github.com/orientechnologies/orientdb/issues/2620)| 100% |
@@ -31,6 +31,7 @@ Last update: April 12, 2016
 | Distributed | Faster replication by using remote binary protocol instead of hazelcast queues | 100% |
 | Distributed | Support for `majority` (default) and `all` in quorum | 100% |
 | Distributed / Remote protocol | [Load balancing on client](https://github.com/orientechnologies/orientdb/issues/3165) | 100% |
+| Lucene | [Spatial Module](https://github.com/orientechnologies/orientdb-spatial) New module for indexing of shapes, not only points | 100% |
 | Remote | Support for IPV6 | 100% |
 | SQL | Pattern matching | 100% |
 | SQL | Command Cache | 100% |
@@ -43,7 +44,6 @@ Last update: April 12, 2016
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
 | Studio | New P2P architecture, new Enterprise modules (it replaces the Enterprise Workbench) | 100% |
-| Lucene | [Spatial Module](https://github.com/orientechnologies/orientdb-spatial) New module for indexing of shapes, not only points | 100% |
 
 ## Release 3.0
 ```
