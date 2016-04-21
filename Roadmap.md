@@ -55,13 +55,14 @@ Last update: April 12, 2016
 ### Status
 Last update: April 12, 2016
 
+For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://github.com/orientechnologies/orientdb/issues/6005).
+
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% |
 | Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% |
 | Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  |
-| Core | [Increase cluster-id from short to int](https://github.com/orientechnologies/orientdb/issues/1930) | 15% |
 | Core | Indexing of embedded properties | 0% |
 | Core | Index per cluster | 0% |
 | Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
@@ -70,7 +71,6 @@ Last update: April 12, 2016
 | Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
 | Distributed | Replication of in-memory databases | 0% |
 | Distributed | Auto-Sharding | 0% |
-| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
 | Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% |
 
 
@@ -87,6 +87,7 @@ Last update: April 12, 2015
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 0%|
+| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
 | Core | Override of properties | 0% |
 | Core | [Auto close storages](https://github.com/orientechnologies/orientdb/issues/3055) | 0% |
 | Core | Enhance isolation level also for remote commands| 0% |
