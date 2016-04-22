@@ -27,6 +27,13 @@ LIMIT <number>
 - **`as: <alias>`** Defines an alias for a node in the pattern.
 - **`<whereCondition>`** Defines a filter condition to match a node in the pattern.  It supports the normal SQL [`WHERE`](SQL-Where.md) clause.  You can also use the `$currentMatch` and `$matched` [context variables](#context-variables).
 - **`<functionName>`** Defines a graph function to represent the connection between two nodes.  For instance, `out()`, `in()`, `outE()`, `inE()`, etc.
+For out(), in(), both() also a shortened *arrow* syntax is supported: 
+  - `{...}.out(){...}` can be written as `{...}-->{...}`
+  - `{...}.out("EdgeClass"){...}` can be written as `{...}-EdgeClass->{...}`
+  - `{...}.in(){...}` can be written as `{...}<--{...}`
+  - `{...}.in("EdgeClass"){...}` can be written as `{...}<-EdgeClass-{...}`
+  - `{...}.both(){...}` can be written as `{...}--{...}`
+  - `{...}.both("EdgeClass"){...}` can be written as `{...}-EdgeClass-{...}`
 - **`<whileCondition>`** Defines a condition that the statement must meet to allow the traversal of this path.  It supports the normal SQL [`WHERE`](SQL-Where.md) clause.  You can also use the `$currentMatch`, `$matched` and `$depth` [context variables](#context-variables).  For more information, see [Deep Traversal While Condition](#deep-traversal-while-condition), below.
 - **`<maxDepth>`** Defines the maximum depth for this single path.
 - **`RETURN <alias>`** Defines elements in the pattern that you want returned.  It can use one of the following:
