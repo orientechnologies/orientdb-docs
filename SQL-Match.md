@@ -479,7 +479,43 @@ orientdb> <code class="lang-sql userinput">SELECT person.name AS name, friendshi
 </pre>
 
 
+### Arrow notation
+
+`out()`, `in()` and `both()` operators can be replaced with arrow notation `-->`, `<--` and `--`
+
+Eg. the query 
+
+<pre>
+<code class="lang-sql userinput">
+MATCH {class: V, as: a}.out(){}.out(){}.out(){as:b}
+RETURN a, b
+</code>
+</pre>
+
+can be written as
+
+<pre>
+<code class="lang-sql userinput">
+MATCH {class: V, as: a}-->{}-->{}-->{as:b}
+RETURN a, b
+</code>
+</pre>
 
 
+Eg. the query (things that belong to friends)
 
+<pre>
+<code class="lang-sql userinput">
+MATCH {class: Person, as: a}.out('Friend'){as:friend}.in('BelongsTo'){as:b}
+RETURN a, b
+</code>
+</pre>
 
+can be written as
+
+<pre>
+<code class="lang-sql userinput">
+MATCH {class: Person, as: a}-Friend->{as:friend}<-BelongsTo-{as:b}
+RETURN a, b
+</code>
+</pre>
