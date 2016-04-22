@@ -43,7 +43,7 @@ From version 2.1.16 it is possible to provide a set of stopwords to the analyzer
 orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
           {
           "analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer",
-          "analyzer_stopwords_": ["a", "an", "and", "are", "as", "at", "be", "but", "by" ]
+          "analyzer_stopwords": ["a", "an", "and", "are", "as", "at", "be", "but", "by" ]
           }
           
           </code>
@@ -194,3 +194,12 @@ You can then query the index through [`SELECT...FROM INDEX:`](SQL-Query.md):
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:Manual WHERE key LUCENE "Enrico"</code>
 </pre>
 
+Manual indexes could be created programmatically using the Java API
+
+```java
+ODocument meta = new ODocument().field("analyzer", StandardAnalyzer.class.getName());
+OIndex<?> index = databaseDocumentTx.getMetadata().getIndexManager()
+        .createIndex("apiManual", OClass.INDEX_TYPE.FULLTEXT.toString(),
+            new OSimpleKeyIndexDefinition(1, OType.STRING, OType.STRING), null, null, meta, OLuceneIndexFactory.LUCENE_ALGORITHM);
+
+```

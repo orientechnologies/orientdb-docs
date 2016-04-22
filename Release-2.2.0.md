@@ -30,12 +30,12 @@ OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disab
 In v2.2 we introduced [Sequences](Sequences-and-auto-increment.md). Thanks to the sequences it's easy to maintain counters and incremental ids in your application. You can use [Sequences](Sequences-and-auto-increment.md) from both Java API and SQL.
 
 ### Parallel queries
-Starting from v2.2, the OrientDB SQL executor will decide if execute or not a query in parallel. To tune parallel query execution these are the new settings:
-- `query.parallelAuto` enable automatic parallel query, if requirements are met. By default is true if your system has more than 2 CPUs/Cores.
+OrientDB v2.2 can run query in parallel, using multiple threads. To use parallel queries, append the `PARALLEL` keyword at the end of SQL SELECT. Example: `SELECT FROM V WHERE amount < 100 PARALLEL`.
+
+Starting from v2.2, the OrientDB SQL executor can decide if execute or not a query in parallel, only if `query.parallelAuto` setting is enabled. To tune parallel query execution these are the new settings:
+- `query.parallelAuto` enable automatic parallel query, if requirements are met. By default is false.
 - `query.parallelMinimumRecords` is the minimum number of records to activate parallel query automatically. Default is 300,000.
 - `query.parallelResultQueueSize` is the size of the queue that holds results on parallel execution. The queue is blocking, so in case the queue is full, the query threads will be in a wait state. Default is 20,000 results.
-
-Before v2.2 executing parallel queries could be done only manually by appending the `PARALLEL` keyword at the end of SQL SELECT. [Issue 4578](https://github.com/orientechnologies/orientdb/issues/4578).
 
 ### Automatic usage of Multiple clusters
 Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
