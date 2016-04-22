@@ -519,3 +519,17 @@ MATCH {class: Person, as: a}-Friend->{as:friend}<-BelongsTo-{as:b}
 RETURN a, b
 </code>
 </pre>
+
+Using arrow notation the curly braces are mandatory on both sides. eg:
+
+<pre>
+<code class="lang-sql userinput">
+MATCH {class: Person, as: a}-->{}-->{as:b} RETURN a, b  //is allowed
+
+MATCH {class: Person, as: a}-->-->{as:b} RETURN a, b  //is NOT allowed
+
+MATCH {class: Person, as: a}.out().out(){as:b} RETURN a, b  //is allowed
+
+MATCH {class: Person, as: a}.out(){}.out(){as:b} RETURN a, b  //is allowed
+</code>
+</pre>
