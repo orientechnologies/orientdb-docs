@@ -52,9 +52,9 @@ OrientDB supports the following data types for standard properties:
 
 |||||
 |---|---|---|---|
-| `BOOLEAN` | `SHORT` | `DATE` | `BYTE`|
-| `INTEGER` | `LONG` | `STRING` | `LINK` |
-| `DOUBLE` | `FLOAT` | `BINARY` | `EMBEDDED` |
+| `BOOLEAN` | `SHORT` | `DATE` | `DATETIME` | `BYTE`|
+| `INTEGER` | `LONG` | `STRING` | `LINK` | `DECIMAL` |
+| `DOUBLE` | `FLOAT` | `BINARY` | `EMBEDDED` | `LINKBAG` |
 
 It supports the following data types for container properties.  
 
