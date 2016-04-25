@@ -51,7 +51,7 @@ CREATE PROPERTY <class>.<property> <type> [<link-type>|<link-class>] [UNSAFE]
 OrientDB supports the following data types for standard properties:
 
 |||||
-|---|---|---|---|
+|---|---|---|---|---|
 | `BOOLEAN` | `SHORT` | `DATE` | `DATETIME` | `BYTE`|
 | `INTEGER` | `LONG` | `STRING` | `LINK` | `DECIMAL` |
 | `DOUBLE` | `FLOAT` | `BINARY` | `EMBEDDED` | `LINKBAG` |
