@@ -8,7 +8,7 @@
 <dependency>
   <groupId>com.orientechnologies</groupId>
   <artifactId>orientdb-jdbc</artifactId>
-  <version>1.7</version>
+  <version>2.1.16</version>
 </dependency>
 ```
 _NOTE: to use SNAPSHOT version remember to add the Snapshot repository to your ```pom.xml```._
