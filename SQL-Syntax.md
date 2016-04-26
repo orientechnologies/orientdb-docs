@@ -1,4 +1,65 @@
-# SQL parser syntax
+# OrientDB SQL syntax
+
+OrientDB Query Language is and SQL dialect.
+
+This page lists all the details about its syntax.
+
+### Identifiers
+An identifier is a name that identifies an entity in OrientDB schema. Identifiers can refer to
+- class names
+- property names
+- index names
+- aliases
+- cluster names
+- function names
+- method names
+
+An identifier is a sequence of characters delimited by back-ticks ``` ` ```. 
+Examples of valid identifiers are
+- ``` `surname` ```
+- ``` `name and surname` ```
+- ``` `foo.bar` ```
+- ``` `a + b` ```
+- ``` `select` ```
+
+The back-tick character can be used as a valid character for identifiers, but it has to be quoted with a backslash, eg.
+- ``` `foo \` bar` ```
+
+**Simplified identifiers**
+
+Identifiers that start with a letter or with `$` and that contain only numbers, letters and underscores, can be written without back-tick quoting. Reserved words cannot be used as simplified identifiers. Valid simplified identifiers are
+- ```name```
+- ```name_and_surname```
+- ```$foo```
+- ```name_12```
+
+
+Examples of INVALID queries for wrong identifier syntax
+
+```SQL
+/* INVALID - `from` is a reserved keyword */
+SELECT from from from 
+/* CORRECT */
+SELECT `from` from `from` 
+
+/* INVALID - simplified identifiers cannot start with a number */
+SELECT name as 1name from Foo
+/* CORRECT */
+SELECT name as `1name` from Foo
+
+/* INVALID - simplified identifiers cannot contain `-` character, `and` is a reserved keyword */
+SELECT name-and-surname from Foo
+/* CORRECT 1 - `name-and-surname` is a single field name */
+SELECT `name-and-surname` from Foo
+/* CORRECT 2 - `name`, `and` and `surname` are numbers and the result is the subtraction */
+SELECT name-`and`-surname from Foo
+/* CORRECT 2 - with spaces  */
+SELECT name - `and` - surname from Foo
+
+
+
+```
+
 
 [BNF](https://en.wikipedia.org/wiki/Backus-Naur_Form) token specification
 ```java
