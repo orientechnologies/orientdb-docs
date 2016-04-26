@@ -22,7 +22,7 @@ Examples of valid identifiers are
 - ``` `a + b` ```
 - ``` `select` ```
 
-The back-tick character can be used as a valid character for identifiers, but it has to be quoted with a backslash, eg.
+The back-tick character can be used as a valid character for identifiers, but it has to be escaped with a backslash, eg.
 - ``` `foo \` bar` ```
 
 **Simplified identifiers**
@@ -56,6 +56,10 @@ SELECT name-`and`-surname from Foo
 /* CORRECT 2 - with spaces  */
 SELECT name - `and` - surname from Foo
 
+/* INVALID - wrong back-tick escaping */
+SELECT `foo`bar` from Foo
+/* CORRECT */
+SELECT `foo\`bar` from Foo
 
 
 ```
