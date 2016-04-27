@@ -13,6 +13,8 @@ An identifier is a name that identifies an entity in OrientDB schema. Identifier
 - cluster names
 - function names
 - method names
+- named parameters
+- variable names (LET)
 
 An identifier is a sequence of characters delimited by back-ticks ``` ` ```. 
 Examples of valid identifiers are
