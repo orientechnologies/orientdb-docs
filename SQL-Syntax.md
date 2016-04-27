@@ -61,9 +61,10 @@ SELECT `foo`bar` from Foo
 /* CORRECT */
 SELECT `foo\`bar` from Foo
 
-
 ```
+**Case sensitivity**
 
+*(draft, TBD)* All the identifiers are case sensitive.
 
 [BNF](https://en.wikipedia.org/wiki/Backus-Naur_Form) token specification
 ```java
