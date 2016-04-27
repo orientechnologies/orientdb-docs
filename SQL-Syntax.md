@@ -66,6 +66,74 @@ SELECT `foo\`bar` from Foo
 
 *(draft, TBD)* All the identifiers are case sensitive.
 
+###Base types
+
+Accepted base types in OrientDB SQL are:
+- integer numbers: TODO precision
+
+Valid integers are
+```
+1
+12345678
+-45
+```
+(TODO hex and oct, decimal exponent, hex exponent)
+
+- floating point numbers: single or double precision
+
+Valid floating point numbers are:
+```
+1.5
+12345678.65432
+-45.0
+0.23
+.23
+```
+
+
+- strings: delimited by `'` or by `"`. Single quotes, double quotes and back-slash inside strings can escaped using a back-slash
+
+Valid strings are:
+```
+"foo bar"
+'foo bar'
+"foo \" bar"
+'foo \' bar'
+'foo \\ bar'
+```
+
+- booleans: boolean values are case sensitive
+
+Valid boolean values are
+```
+true
+false
+```
+
+- null: case insensitive (for consistency with IS NULL and IS NOT NULL conditions, that are case insensitive)
+
+Valid null expressions include
+```
+NULL
+null
+Null
+nUll
+...
+```
+
+###Expressions
+
+Expressions can be used as:
+- single projections
+- 
+
+Valid expressions are:
+- single field names
+- single 
+
+###Conditions
+
+TODO
 
 ##Grammar
 [BNF](https://en.wikipedia.org/wiki/Backus-Naur_Form) token specification
