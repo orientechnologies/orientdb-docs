@@ -66,6 +66,8 @@ SELECT `foo\`bar` from Foo
 
 *(draft, TBD)* All the identifiers are case sensitive.
 
+
+##Grammar
 [BNF](https://en.wikipedia.org/wiki/Backus-Naur_Form) token specification
 ```java
 DOCUMENT START
