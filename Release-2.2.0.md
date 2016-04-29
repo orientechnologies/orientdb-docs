@@ -65,7 +65,7 @@ In v 2.1, by default, indexes ignore null values in keys.
 
 In v 2.2 this default changed, now null keys are indexed by default.
 
-This has an impact on UNIQUE indexes: two records with a null (or non existing) indexed field cannot be inserted in a UNIQUE index on defined on that field.
+This has an impact on UNIQUE indexes: two records with a null (or non existing) indexed field cannot be inserted in a UNIQUE index defined on that field, so the second insert will fail.
 
 If you need backward compatibility, you can explicitly configure your indexes to ignore null values:
 
