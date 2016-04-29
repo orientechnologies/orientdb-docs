@@ -59,6 +59,28 @@ To improve performance consider also avoiding opening and closing connection, bu
 
 ### API changes
 
+### NULL values in indexes
+
+In v 2.1, by default, indexes ignore null values in keys.
+
+In v 2.2 this default changed, now null keys are indexed by default.
+
+This has an impact on UNIQUE indexes: two records with a null (or non existing) indexed field cannot be inserted in a UNIQUE index on defined on that field.
+
+If you need backward compatibility, you can explicitly configure your indexes to ignore null values:
+
+```sql
+CREATE INDEX Foo.bar on Foo (bar) UNIQUE METADATA {ignoreNullValues: true}
+```
+
+```java
+OClass oClass = ...
+oClass.createIndex("Foo.bar", OClass.INDEX_TYPE.UNIQUE.toString(), null, new ODocument().fields("ignoreNullValues", true), new String[]{ "bar"});
+```
+
+Please also pay attention to multi-key indexes, partially null keys will be indexed as well.
+
+
 #### ODocument.field()
 
 To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is still supported. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
