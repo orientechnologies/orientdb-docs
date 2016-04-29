@@ -42,4 +42,4 @@ When you execute a query against a class, OrientDB limits the result-sets to onl
 orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name.toUpperCase() = 'GOOGLE'</code>
 </pre>
 
-This query returns all the records with the name property set to `GOOGLE` from all three classes, given that the base class `Account` was specified.  For the class `Account`, OrientDB searches inside the clusters `10`, `13` and `17`, following the inheritance specified in the schema.
+This query returns all the records with the name property set to `GOOGLE` from all three classes, given that the base class `Account` was specified.  For the class `Account`, OrientDB searches inside the clusters `10`, `13` and `27`, following the inheritance specified in the schema.
