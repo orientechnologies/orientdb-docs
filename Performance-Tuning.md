@@ -178,8 +178,8 @@ Moreover, because of partial match searching, this index will be used for optimi
 SELECT * FROM testClass WHERE prop1 = ?
 ```
 
-For deep understanding of query optimization look at the unit test:
-http://code.google.com/p/orient/source/browse/trunk/tests/src/test/java/com/orientechnologies/orient/test/database/auto/SQLSelectIndexReuseTest.java
+For deep understanding of query optimization look at [the unit test](https://github.com/orientechnologies/orientdb/blob/master/tests/src/test/java/com/orientechnologies/orient/test/database/auto/SQLSelectIndexReuseTest.java).
+
 
 ### Parallel queries
 

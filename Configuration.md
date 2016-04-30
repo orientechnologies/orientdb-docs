@@ -41,7 +41,7 @@ OGlobalConfiguration.dumpConfiguration(System.out);
 
 ## Parameters ##
 
-To know more look at the Java enumeration: <code>[OGlobalConfiguration.java](https://github.com/nuvolabase/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/config/OGlobalConfiguration.java)</code>.
+To know more look at the Java enumeration: [OGlobalConfiguration.java](https://github.com/nuvolabase/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/config/OGlobalConfiguration.java).
 
 
 ----
