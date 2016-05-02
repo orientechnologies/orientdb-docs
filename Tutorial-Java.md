@@ -86,7 +86,7 @@ You have now created:
 [John Smith:Person] --[lives]--> [Van Ness Ave:Address]
 ```
 
-Bear in mind that, in this example, you have used a partially schema-full mode, given taht you defined the vertex types, but not their properties.  By default, OrientDB dynamically accepts everything and works in a schema-less mode.
+Bear in mind that, in this example, you have used a partially schema-full mode, given that you defined the vertex types, but not their properties.  By default, OrientDB dynamically accepts everything and works in a schema-less mode.
 
 
 ### Use Case: SQL Queries
