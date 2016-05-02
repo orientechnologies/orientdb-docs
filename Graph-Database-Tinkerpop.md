@@ -185,7 +185,7 @@ Beginning in version 1.6 of OrientDB, you can configure the graph by setting all
 - **`blueprints.orientdb.useVertexFieldsForEdgeLabels`** Defines whether it stores the edge relationship in the vertex by using the edge class.  This allows you to use multiple fields and makes traversals by the edge label (class) faster.
 
   Default: `true`
-- **`blueprints.orientdb.lightweightEdges`** Defines whether it uses [Lightweight Edges](Lightweight-Edges.md).  This allows you to avoid creating a physical document per edge.  Documennts are only created when edges have properties.
+- **`blueprints.orientdb.lightweightEdges`** Defines whether it uses [Lightweight Edges](Lightweight-Edges.md).  This allows you to avoid creating a physical document per edge.  Documents are only created when edges have properties.
 
   Default: `false`
 - **`blueprints.orientdb.autoStartTx`** Defines whether it auto-starts transactions when the graph is changed by adding or removing vertices, edges and properties.
@@ -209,7 +209,7 @@ OGremlinHelper.global().create()
 
 ## Multi-Threaded Applications
 
-In order to use the OrientDB Graph API with multi-threaded applicationsm, you must use one `OrientGraph` instance per thread.
+In order to use the OrientDB Graph API with multi-threaded applications, you must use one `OrientGraph` instance per thread.
 
 For more information about multi-threading look at [Java Multi Threading](Java-Multi-Threading.md). Bear in mind, graph components (such as, Vertices and Edges) are not thread-safe.  Sharing them between threads could cause unpredictable errors.
 
