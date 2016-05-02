@@ -78,7 +78,7 @@ orientdb> <code class="lang-sql userinput">ALTER DATABASE my_db useLightweightEd
 
 You only need to run this command once to disable Lightweight Edges.  The change only takes effect on edges you create after running it.  For existing edges, you need to convert them from links to actual edges before the `.getEdges()` method returns all edges.  For more information, see [Troubleshooting](Troubleshooting.md#why-cant-i-see-all-the-edges).
 
->**NOTE**: By default, since version 2.0 of OrientDB, the Lightweight Edges feature is disabled by default.
+>**NOTE**: Since version 2.0 of OrientDB, the Lightweight Edges feature is disabled by default.
 
 
 ### Removing Edges
