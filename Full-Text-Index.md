@@ -139,7 +139,7 @@ For a detailed explanation of config parameters and IndexWriter behaviour
 
 ## Querying Lucene FullText Indexes
 
-You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Synta]x(http://lucene.apache.org/core/5_4_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
+You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Syntax](http://lucene.apache.org/core/5_4_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
 
 <pre>
 orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
