@@ -43,7 +43,7 @@ odb.createVertexType("Person");
 odb.createVertexType("Address");
 ```
 
-The Blueprint adapter for OrientDB is thread-safe and where necessary automatically creates transactions.  That is, it creates a transaction at the first operation, int he event that you have not yet explicitly started one.  You have to specify where these transactions end, for commits or rollbacks.
+The Blueprint adapter for OrientDB is thread-safe and where necessary automatically creates transactions.  That is, it creates a transaction at the first operation, in the event that you have not yet explicitly started one.  You have to specify where these transactions end, for commits or rollbacks.
 
 To add vertices into the database with the Blueprints API:
 
