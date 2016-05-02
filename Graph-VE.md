@@ -153,13 +153,13 @@ For instance,
 - The same procedure also works for edges.
 
   ```java
-  person1.addEdge("class:Friend", person2, null, null, 
+  person1.addEdge("class:Friend", person1, person2, null, 
 	  "since", "2013-07-30");
   ```
 
   This creates an edge of the class `Friend` between the vertices `person1` and `person2` with the property `since`.
   
-Both methods accept `Map<String, Object>` as a parameter, allowing you to set one property per map entry, sucha s in the above example.
+Both methods accept `Map<String, Object>` as a parameter, allowing you to set one property per map entry, such as in the above example.
 
 ## Using Indices 
 
