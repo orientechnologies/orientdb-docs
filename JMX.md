@@ -21,7 +21,7 @@ JMX bean of write cache has following members:
 # More about memory model and data flow
 
 At first when we read page we load it from disk and put it in read cache.
-Then we change page and put it back to read cache and write cache,  but we do not copy page from read to write cache we merely send pointer to the same memory to write cache. Write cache flushes "dirty write page" in background thread. That is what property "writeCachSize" shows us amount of data in dirty pages which should be flushed. But there are very rare situations when page which is rarely used still is not flushed on disk and read cache has not enough memory to keep it. In such case this page is removed from read cache , but pointer to this page still exists in write cache, that is what property "exclusiveWriteCacheSize" shows us. Please not that this value is more than 0 only during extremely high load.  
+Then we change page and put it back to read cache and write cache,  but we do not copy page from read to write cache we merely send pointer to the same memory to write cache. Write cache flushes "dirty write page" in background thread. That is what property "writeCachSize" shows us amount of data in dirty pages which should be flushed. But there are very rare situations when page which is rarely used still is not flushed on disk and read cache has not enough memory to keep it. In such case this page is removed from read cache , but pointer to this page still exists in write cache, that is what property "exclusiveWriteCacheSize" shows us. Please note that this value is more than 0 only during extremely high load.  
 
 The rest properties of write cache JMX bean are following:
 - `lastFuzzyCheckpointDate`
