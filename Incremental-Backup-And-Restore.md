@@ -62,11 +62,19 @@ graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 
 ### Incremental restore via console
 
-[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Example:
+[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Incremental backup must be performed only against a new database: the execution of the create database command with the option `-restore` will build a fresh database and perform the incremental backup starting from the backup path. 
+
+Example:
 
 ```
-orientdb> connect plocal:/databases/mydb admin admin
-orientdb {db=Whisky}> restore database /tmp/backup
+orientdb> create database remote:localhost/mydb root root plocal graph -restore=/tmp/backup
+
+Creating database [remote:localhost/mydb] using the storage type [plocal]...
+Connecting to database [remote:localhost/mydb] with user 'admin'...OK
+
+Database created successfully.
+
+Current database is: remote:localhost/mydb
 ```
 
 ### Incremental restore via Java API
