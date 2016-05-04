@@ -79,11 +79,7 @@ Current database is: remote:localhost/mydb
 
 ### Incremental restore via Java API
 You can perform an incremental restore through the Java API too.
-To create database from incremental backup you can call from Java ODatabase#create(path-to-incremental-backup-directory):
-
-```
-documentDatabase.create("/tmp/backup");
-```
+To create database from incremental backup you can call from Java ODatabase#create(path-to-incremental-backup-directory).
 
 ## Distributed Architecture
 
