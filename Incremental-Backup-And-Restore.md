@@ -79,18 +79,10 @@ Current database is: remote:localhost/mydb
 
 ### Incremental restore via Java API
 You can perform an incremental restore through the Java API too.
-If you are managing a ODocumentDatabase you have to call the 'incrementalRestore' method that accepts as parameter the String path of the backup directory:
+To create database from incremental backup you can call from Java ODatabase#create(path-to-incremental-backup-directory):
 
 ```
-ODatabaseDocumentTx documentDatabase = new ODatabaseDocumentTx(dbURL);
-documentDatabase.incrementalRestore("/tmp/backup");
-```
-
-If you are managing a OrientGraph you have to get the raw graph before the call to the 'incrementalRestore' method:
-
-```
-OrientGraph graphDatabase = new OrientGraphNoTx(dbURL);
-graphDatabase.getRawGraph().incrementalRestore("/tmp/backup");
+documentDatabase.create("/tmp/backup");
 ```
 
 ## Distributed Architecture
