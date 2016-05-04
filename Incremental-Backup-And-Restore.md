@@ -62,7 +62,7 @@ graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 
 ### Incremental restore via console
 
-[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Incremental backup can be performed only against a new database: the execution of the create database command with the option `-restore` will build a fresh database and perform the incremental backup starting from the backup path. 
+[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Incremental backup can be performed only against a new database: the execution of the create database command with the option `-restore` builds a fresh database and performs the incremental backup starting from the backup path. 
 
 Example:
 
