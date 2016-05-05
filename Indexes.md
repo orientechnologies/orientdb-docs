@@ -60,7 +60,7 @@ orientdb> <code class='lang-sql userinput'>CREATE INDEX addresses ON Employee (a
 
 ### Indexes and Composite Keys
 
-Operations that work with indexes also work with indexes formed from composite keys.  By its nature, a composite key is  acollection of values, so, syntactically, it is a collection.
+Operations that work with indexes also work with indexes formed from composite keys.  By its nature, a composite key is  a collection of values, so, syntactically, it is a collection.
 
 For example, consider a case where you have a class `Book`, indexed by three fields: `author`, `title` and `publicationYear`.  You might use the following query to look up an individual book:
 
