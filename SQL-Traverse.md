@@ -37,7 +37,7 @@ In a social network-like domain, a user profile is connected to friends through 
   orientdb> <code class="lang-sql userinput">TRAVERSE * FROM #10:1234</code>
   </pre>
 
-- Specify fields and depth up to the htird level, using the [`BREADTH_FIRST`](Java-Traverse.md#traversing-strategies) strategy:
+- Specify fields and depth up to the third level, using the [`BREADTH_FIRST`](Java-Traverse.md#traversing-strategies) strategy:
 
   <pre>
   orientdb> <code class="lang-sql userinput">TRAVERSE out("Friend") FROM #10:1234 WHILE $depth &lt;= 3 
