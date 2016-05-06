@@ -76,7 +76,7 @@ All the nodes in the distributed cluster must have the same settings.
 
 ![image](http://www.orientdb.org/images/cluster-security.png)
 
-For more information look at: [Hazelcast Encryption](http://www.hazelcast.org/docs/latest/manual/html-single/hazelcast-documentation.html#encryption).
+For more information look at: [Hazelcast Encryption](http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#encryption).
 
 ### Join to an existent cluster
 
