@@ -56,6 +56,7 @@ CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]] [-
 >
 >For more information on other commands, see [Console Commands](Console-Commands.md).
 
+
 **Incremental restore option**
 
 You can execute an incremental restore at creation time through the option `-restore` specifying as value the path where your backup is placed. Let's suppose we want create a new fresh database "mydb" and restore data from a backup, located in `/tmp/backup`, performed from another database in one shot. In this case we can type:
