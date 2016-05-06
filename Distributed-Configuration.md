@@ -251,7 +251,7 @@ g.command( new OCommandSQL("create edge Own from (select from User) to (select f
     return iException instanceof ONeedRetryException && iRetry<=3 ? ACTION.RETRY : ACTION.IGNORE;
   }
 })
- .onAsyncReplicationError(new OAsyncReplicationOk() {
+ .onAsyncReplicationOk(new OAsyncReplicationOk() {
    System.out.println("OK");
  }
 ).execute();
