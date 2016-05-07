@@ -7,7 +7,7 @@ Creates and connects to a new database.
 **Syntax**
 
 ```sql
-CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]]
+CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]] [-restore=<backup-path>]
 ```
 
 - **`<database-url>`** Defines the URL of the database you want to connect to. It uses the format `<mode>:<path>`
@@ -55,3 +55,19 @@ CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]]
 >To remove a database, see [`DROP DATABASE`](Console-Command-Drop-Database.md).  To change database configurations after creation, see [`ALTER DATABASE`](SQL-Alter-Database.md).
 >
 >For more information on other commands, see [Console Commands](Console-Commands.md).
+
+**Incremental restore option**
+
+You can execute an incremental restore at creation time through the option `-restore` specifying as value the path where your backup is placed. Let's suppose we want create a new fresh database "mydb" and restore data from a backup, located in `/tmp/backup`, performed from another database in one shot. In this case we can type:
+
+```
+orientdb> create database remote:localhost/mydb root root plocal graph -restore=/tmp/backup
+
+Creating database [remote:localhost/mydb] using the storage type [plocal]...
+Connecting to database [remote:localhost/mydb] with user 'admin'...OK
+
+Database created successfully.
+
+Current database is: remote:localhost/mydb
+```
+For further details on incremental backup and restore you can refer to the page [Incremental Backup and Restore](Incremental-Backup-And-Restore.md).

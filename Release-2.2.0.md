@@ -50,12 +50,26 @@ To execute quick expression starting from a ODocument and Vertex/Edge objects, u
 
 Databases created with release 2.1.x are compatible with 2.2.x, so you don't have to export/import the database.
 
-### Security and speed
+### Security and Speed
 
 OrientDB v2.2 increase security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycle for SALT: more is harder to decode but is slower. Change setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
 The default password hashing algorithm is now `PBKDF2WithHmacSHA256` this is not present in any environment so you can change it setting `security.userPasswordDefaultAlgorithm` possible alternatives values are `PBKDF2WithHmacSHA1` or `SHA-256`
 
 To improve performance consider also avoiding opening and closing connection, but rather using a connection pool.
+
+### System Database
+OrientDB now uses a "system database" to provide additional capabilities.
+
+The system database, currently named *OSystem*, is created when the OrientDB server starts, if the database does not exist.
+
+Here's a list of some of the features that the system database may support:
+- A new class of user called the *system user*
+- A centralized location for configuration files
+- Logging of global auditing events
+- Recording performance metrics about the server and its databases
+
+#### System Users
+A third type of user now exists, called a *system user*.  A *system user* is similar in concept to a *server user* but resides in the system database as an *OUser* record and supports having roles and permissions.
 
 ### API changes
 

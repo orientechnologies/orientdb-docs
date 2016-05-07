@@ -128,7 +128,7 @@ Where rules determine what users belonging to certain roles can do on the databa
 
 #### Operations
 
-The supported operations are the classic CRUD operations.  That is, **C**reate, **R**ead, **U**pdate, **D**elete.  Roles can have none of these permissions or all of them.  OrientDB represents each permission internally by a 4-digit bitmask flask.
+The supported operations are the classic CRUD operations.  That is, **C**reate, **R**ead, **U**pdate, **D**elete.  Roles can have none of these permissions or all of them.  OrientDB represents each permission internally by a 4-digit bitmask flag.
 
 ```
 NONE:   #0000 - 0
@@ -142,9 +142,9 @@ ALL:    #1111 - 15
 In addition to these base permissions, you can also combine them to create new permissions.  For instance, say you want to allow only the Read and Update permissions:
 
 ```
-READ:               #0010 - 1
+READ:               #0010 - 2
 UPDATE:             #0100 - 4
-Permission to use:  #0110 - 5
+Permission to use:  #0110 - 6
 ```
 
 ### Resources

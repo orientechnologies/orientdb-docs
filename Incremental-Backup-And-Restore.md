@@ -62,28 +62,24 @@ graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 
 ### Incremental restore via console
 
-[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Example:
+[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Incremental backup can be performed only against a new database: the execution of the create database command with the option `-restore` builds a fresh database and performs the incremental backup starting from the backup path. 
+
+Example:
 
 ```
-orientdb> connect plocal:/databases/mydb admin admin
-orientdb {db=Whisky}> restore database /tmp/backup
+orientdb> create database remote:localhost/mydb root root plocal graph -restore=/tmp/backup
+
+Creating database [remote:localhost/mydb] using the storage type [plocal]...
+Connecting to database [remote:localhost/mydb] with user 'admin'...OK
+
+Database created successfully.
+
+Current database is: remote:localhost/mydb
 ```
 
 ### Incremental restore via Java API
 You can perform an incremental restore through the Java API too.
-If you are managing a ODocumentDatabase you have to call the 'incrementalRestore' method that accepts as parameter the String path of the backup directory:
-
-```
-ODatabaseDocumentTx documentDatabase = new ODatabaseDocumentTx(dbURL);
-documentDatabase.incrementalRestore("/tmp/backup");
-```
-
-If you are managing a OrientGraph you have to get the raw graph before the call to the 'incrementalRestore' method:
-
-```
-OrientGraph graphDatabase = new OrientGraphNoTx(dbURL);
-graphDatabase.getRawGraph().incrementalRestore("/tmp/backup");
-```
+To create database from incremental backup you can call from Java ODatabase#create(path-to-incremental-backup-directory).
 
 ## Distributed Architecture
 
