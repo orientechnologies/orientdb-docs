@@ -1,13 +1,23 @@
 # Lightweight Edges
 
-OrientDB supports **Lightweight Edges** as regular edges, but without an identity on database. Lightweight edges can be used only when no properties are defined on edge.
+In OrientDB Graph databases, there are two types of edges available: 
 
-By avoiding the creation of the underlying Document, **Lightweight Edges** have the same impact on speed and space as with Document [LINKs](Concepts.md#relationships), but with the additional bonus to have bidirectional connections. This means you can use the MOVE VERTEX command to refactor your graph with no broken LINKs.
+- [**Regular Edges**](#regular-edge-representation), which are instances or extensions of the `E` class and have their own records on the database.
+- [**Lightweight Edges**](#lightweight-edge-representation), which have no properties and have no identity on the database, since they only exist within the vertex records.
 
-## Regular Edge representation
-Look at the figure below. With Regular Edges both vertices (#10:33 and #10:12) are connected through an Edge Document (#17:11). The outgoing `out_Friend` property in #10:33 document is a set of [LINKs](Concepts.md#relationships) with #17:11 as item. Instead, in document #10:12 the relationship is as incoming, so the property `in_Friend` is used with the [LINK](Concepts.md#relationships) to the same Edge #17:11.
+The advantage of Lightweight Edges lies in performance and disk usage.  Similar to [links](Concepts.md#relationships), because it doesn't create the underlying document it runs faster and saves on space, with the addition of allowing for bidirectional connections.  This allows you to use the [`MOVE VERTEX`](SQL-Move-Vertex.md) command to refactor your graph without breaking any links.
 
-When you cross this relationship, OrientDB loads the Edge document #17:11 to resolve the other part of the relationship.
+>**NOTE**: Beginning in version 2.0, OrientDB disables Lightweight Edges by default.
+
+
+## Edge Representations
+
+In order to better understand edges and their use, consider the differences in how OrientDB handles and stores them in records.  The examples below show a Graph Database built to form a social network where you need to connect to `Account` vertices by an edge to indicate that one user is friends with another.
+
+
+### Regular Edge Representation
+
+When building a social network using regular edges, the edge exists as a separate record, which is either an instance of `E` or an extension of that class.
 
 ```
 +---------------------+    +---------------------+    +---------------------+  
@@ -19,10 +29,15 @@ When you cross this relationship, OrientDB loads the Edge document #17:11 to res
                            +---------------------+    +---------------------+
 ```
 
-## Lightweight Edge representation
-With Lightweight Edge, instead, there is no Edge document, but both vertices (#10:33 and #10:12) are connected directly to each other. The outgoing `out_Friend` property in #10:33 document contains the direct [LINK](Concepts.md#relationships) to the vertex #10:12. The same happens on Vertex document #10:12, where the relationship is as incoming and the property `in_Friend` contains the direct [LINK](Concepts.md#relationships) to vertex #10:33.
+When using regular edges, the vertices are connected through an edge document.  Here, the account vertices for users #10:33 and #10:12 are connected by the edge class instance #17:11, which indicates that the first user is friends with the second.  The outgoing `out_Friend` property on #10:33 and the incoming `in_Friend` property on #10:12 each take #17:11 as a link to that edge.  
 
-When you cross this relationship, OrientDB doesn't need to load any edge to resolve the other part of the relationship. Furthermore no edge document is created.
+When you cross this relationship, OrientDB loads the edge document #17:11  to resolve the other side of the relationship.
+
+
+### Lightweight Edge Representation
+
+When building a social network using Lightweight Edges, the edge doesn't exist as a document, but rather are connected directly to each other through properties on the relevant vertices.
+
 ```
 +---------------------+    +---------------------+
 |   Account Vertex    |    |    Account Vertex   |
@@ -32,28 +47,46 @@ When you cross this relationship, OrientDB doesn't need to load any edge to reso
 +---------------------+    +---------------------+
 ```
 
-Starting from OrientDB v2.0, **Lightweight Edges** are disabled by default with new databases. This is because having regular edges makes easier to act on edges from SQL. Many issues from beginner users were on **Lightweight Edges**. If you want to use **Lightweight Edges**, enable it via API:
+When using Lightweight Edges, instead of an edge document, each vertex (here, #10:33 and #10:12), are connected directly to each other.  The outgoing `out_Friend` property in the #10:30 document contains the direct link to the vertex #10:12.  The occurs in #10:12, where the incoming `in_Friend` property contains a direct link to #10:30.
+
+When you cross this relationship, OrientDB can register the relationship without needing to load a third record to resolve the relationship, thus it doesn't create an edge document.
+
+#### Enabling Lightweight Edges
+
+Beginning in version 2.0, OrientDB disables Lightweight Edges by default on new databases.  The reasoning behind this decision is that it is easier for users and applications to operate on OrientDB from SQL when the edges are regular edges.  Enabling it by default created a number of issues with beginners just starting out with OrientDB who were unprepared for how it handles Lightweight Edges.
+
+In the event that you would like to restore Lightweight Edges as the default, you can do so by updating the database.  From the Java API, add the following lines:
+
 
 ```java
 OrientGraph g = new OrientGraph("mygraph");
 g.setUseLightweightEdges(true);
 ```
 
-Or via [SQL](SQL-Alter-Database.md):
+You can do the same from the Console using the [`ALTER DATABASE`](SQL-Alter-Database.md) command:
 
-```sql
-ALTER DATABASE custom useLightweightEdges=true
-```
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER DATABASE custom useLightweightEdges=true</code>
+</pre>
 
-Changing `useLightweightEdges` setting to `true`, will not transform previous edges, but all new edges could be **Lightweight Edges** if they meet the requirements.
+Note that changing the `useLightweightEdges` to `true` does not update or transform any existing edges on the database.  They remain in the same state they held before you issued the command.  That said, all new edges you create after running the above commands are Lightweight Edges.
 
-## When use Lightweight Edges?
 
-These are the PROS and CONS of Lightweight Edges vs Regular Edges:
 
-PROS:
-- faster in creation and traversing, because don't need an additional document to keep the relationships between 2 vertices
+## Lightweight Edges vs. Regular Edges
 
-CONS:
-- cannot store properties
-- harder working with Lightweight edges from SQL, because there is no a regular document under the edge
+
+There are advantages and disadvantages to using Lightweight Edges.  You should consider these before switching your application over to one or the other:
+
+**Advantages**
+
+- *Faster Creation and Traversal*: Given that OrientDB can operate on the relationship between two vertices without needing to load any additional documents, it's able to create and traverse relationships faster with Lightweight Edges than it can with Regular Edges.
+
+**Disadvantages**
+
+- *Edge Properties*: Given that Lightweight Edges do not have records of their own, you cannot assign properties to the edge.
+- *SQL Issues*: It is more difficult to interact with OrientDB through SQL given that there is no document underlying the edges.
+
+
+
+
