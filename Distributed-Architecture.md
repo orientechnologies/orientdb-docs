@@ -61,7 +61,20 @@ With the configuration above, if the "usa" server is unreachable, the ownership 
 
 ### Distributed transactions
 
-Starting from v1.6, OrientDB supports distributed transactions. When a transaction is committed, all the updated records are sent across all the servers, so each server is responsible to commit the transaction. In case one or more nodes fail on commit, the quorum is checked. If the quorum has been respected, then the failing nodes are aligned to the winner nodes, otherwise all the nodes rollback the transaction.
+OrientDB supports distributed transactions. When a transaction is committed, all the updated records are sent across all the servers, so each server is responsible to commit the transaction. In case one or more nodes fail on commit, the quorum is checked. If the quorum has been respected, then the failing nodes are aligned to the winner nodes, otherwise all the nodes rollback the transaction.
+
+When running distributed, the transactions use a 2 phase lock like protocol, with the cool thing that everything is optimistic, so no locks between the begin and the commit, but everything is executed at commit time only.
+
+During the commit time, OrientDB acquires locks on the touched records and check the version of records (optimistic MVCC approach). At this point this could happen:
+- All the record can be locked and nobody touched the records since the beginning of the tx, so the transaction is committed. Cool.
+- If somebody modified any of the records that are part of the transaction, the transaction fails and the client can retry it
+- If at commit time, another transaction locked any of the same records, the transaction fails, but the retry in this case is automatic and configurable
+
+If you have 5 servers, and writeQuorum is the majority (N/2+1 = 3), this could happen:
+- All the 5 servers commit the TX: cool
+- 1 or 2 servers report any error, the TX is still committed (quorum passes) and the 1 or 2 servers will be forced to have the same result as the others
+- 3 servers or more have different results/errors, so the tx is rollbacked on all the servers to the initial state
+
 
 #### What about the visibility during distributed transaction?
 
