@@ -21,7 +21,11 @@ Release v2.2 contains many improvement on distributed part. First of all there i
 - Removed `hotAlignment` setting: servers, once they join the cluster, remain always in the configuration until they are manually removed
 - [Server Roles](Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
 - [Load balancing on the client side](Distributed-Configuration.md#load-balancing)
-- OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol.
+- OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol
+- New SQL commands to manage the distributed configuration:
+ - `HA REMOVE SERVER <server-name>`, to remove a server from the configuration
+ - `HA SYNC DATABASE`, to ask for a resync of the database
+ - `HA SYNC CLUSTER <cluster-name>`, to ask for a resync of a single cluster
 
 ### Command Cache
 OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](Command-Cache.md) to know more.
