@@ -492,7 +492,7 @@ SELECT FROM Account WHERE created <= date('2012-07-02', 'yyyy-MM-dd')
 ---
 ### sysdate()
 
-Returns the current date time. To know more about it, look at [Managing Dates](Managing-Dates.md).
+Returns the current date time. If executed with no parameters, it returns a Date object, otherwise a string with the requested format/timezone. To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```sysdate( [<format>] [,<timezone>] )```
 
