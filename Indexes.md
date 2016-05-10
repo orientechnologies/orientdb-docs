@@ -49,9 +49,25 @@ Every database has a default manual index type `DICTIONARY`, which uses strings 
 
 ### Indexes and Null Values
 
-By default, indexes do not support null values.  Queries made against `NULL` values that use indexes fail with the `Null keys are not supported` exception.
 
-In the event that you want to index null values, you must set `{ignoreNullValues: false}` in the metadata.  For instance,
+### Indexes
+Starting from v2.2, Indexes do not ignore NULL values, but they are indexes as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening a database with indexes previously created, will all ignore NULL by default.
+
+To create an index that expressely ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
+
+SQL:
+<pre>
+orientdb> <code class='lang-sql userinput'>CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
+</code>
+</pre>
+
+And Java API:
+```
+schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
+```
+
+
+By default, indexes do not support null values.  Queries made against `NULL` values that use indexes fail with the `Null keys are not supported` exception. In the event that you want to index null values, you must set `{ignoreNullValues: false}` in the metadata.  For instance,
 
 <pre>
 orientdb> <code class='lang-sql userinput'>CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: false}</code>
