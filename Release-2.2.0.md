@@ -10,6 +10,21 @@ Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) al
 
 If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
 
+### Indexes
+Starting from v2.2, Indexes do not ignore NULL values, but they are indexes as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening a database with indexes previously created, will all ignore NULL by default.
+
+To create an index that expressely ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
+
+SQL:
+```
+CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
+```
+
+And Java API:
+```
+schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
+```
+
 ### Distributed
 
 Release v2.2 contains many improvement on distributed part. First of all there is a huge improvement on performance. With 2 nodes we measured 4x better and with 3 nodes is 8x faster than 2.1! Below the main new features on distributed part:
