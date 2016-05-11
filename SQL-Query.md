@@ -84,7 +84,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 
 - Return any record at any level that has the word `danger`:
 
-  DEPRECIATED SYNTAX
+  DEPRECATED SYNTAX
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM Profile WHERE ANY() TRAVERSE( ANY() LIKE '%danger%' )</code>
   </pre>
