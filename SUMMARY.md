@@ -225,6 +225,7 @@
     * [Find References](SQL-Find-References.md) 
     * [Grant](SQL-Grant.md) 
     * [HA Remove Server](SQL-HA-Remove-Server.md) 
+    * [HA Status](SQL-HA-Status.md) 
     * [HA Sync Cluster](SQL-HA-Sync-Cluster.md) 
     * [HA Sync Database](SQL-HA-Sync-Database.md) 
     * [Optimize Database](SQL-Optimize-Database.md) 
