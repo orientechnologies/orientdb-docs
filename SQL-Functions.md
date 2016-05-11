@@ -605,7 +605,7 @@ SELECT distinct(name) FROM City
 
 Syntax: ```unionall(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed then aggregates, otherwise executes and returns a UNION of all the collections received as parameters. Also works also with no collection values.
+Works as aggregate or inline. If only one argument is passed then aggregates, otherwise executes and returns a UNION of all the collections received as parameters. Also works with no collection values.
 
 Available since: 1.7
 
