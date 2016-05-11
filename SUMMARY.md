@@ -293,7 +293,6 @@
     * [Gephi Graph Render](Gephi.md) 
     * [spider-box](spider-box.md) 
 * [Contribute to OrientDB](Contribute-to-OrientDB.md) 
-  * [The Team](Team.md) 
     * [Hackaton](Hackaton.md) 
     * [Report an issue](Report-an-issue.md) 
   * [Get in touch](Get-in-Touch.md) 
