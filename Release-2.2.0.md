@@ -27,7 +27,19 @@ schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_
 
 ### Distributed
 
-Release v2.2 contains many improvement on distributed part. First of all there is a huge improvement on performance. With 2 nodes we measured 4x better and with 3 nodes is 8x faster than 2.1! Below the main new features on distributed part:
+Release v2.2 contains many improvement on distributed part. First of all there is a huge improvement on performance. With 2 nodes we measured 5x better and with 3 nodes is about 10x faster than 2.1!
+
+#### Management of the Quorum 
+
+Before 2.2, the `writeQuorum` was scaled down to `1` because the setting `failureAvailableNodesLessQuorum` (that now is no longer supported). 
+
+This wasn't correct, because if a node is unreachable, it could be because network temporary error, split brain, etc. So downgrading the `writeQuorum` means no guarantee for consistency when 2 nodes see each other again, because both nodes thought to be the only one and they continue working with quorum=1 with evident merge conflict risks.
+
+In v2.2.0-rc1 the nodes is never removed automatically from the configuration for this reason, unless you manually remove a node from the configuration claiming that node is not part of the cluster anymore. The new SQL command is:
+
+    HA REMOVE SERVER <server-name>
+
+#### Other changes
 
 - Multi-Threads message management
 - [Static Ownership of clusters](Distributed-Architecture.md#static-owner)
