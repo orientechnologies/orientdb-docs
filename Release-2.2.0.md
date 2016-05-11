@@ -10,18 +10,18 @@ Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) al
 
 If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
 
-### Indexes
-Starting from v2.2, Indexes do not ignore NULL values, but they are indexes as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening a database with indexes previously created, will all ignore NULL by default.
+### NULL Values in Indexes
+Starting from v2.2, by default any new index created will not ignore NULL values, but they are indexes as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening a database with indexes previously created, will all ignore NULL by default.
 
 To create an index that expressely ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
 
 SQL:
-```
+```sql
 CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
 ```
 
 And Java API:
-```
+```java
 schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
 ```
 
@@ -103,28 +103,6 @@ Here's a list of some of the features that the system database may support:
 A third type of user now exists, called a *system user*.  A *system user* is similar in concept to a *server user* but resides in the system database as an *OUser* record and supports having roles and permissions.
 
 ### API changes
-
-### NULL values in indexes
-
-In v 2.1, by default, indexes ignore null values in keys.
-
-In v 2.2 this default changed, now null keys are indexed by default.
-
-This has an impact on UNIQUE indexes: two records with a null (or non existing) indexed field cannot be inserted in a UNIQUE index defined on that field, so the second insert will fail.
-
-If you need backward compatibility, you can explicitly configure your indexes to ignore null values:
-
-```sql
-CREATE INDEX Foo.bar on Foo (bar) UNIQUE METADATA {ignoreNullValues: true}
-```
-
-```java
-OClass oClass = ...
-oClass.createIndex("Foo.bar", OClass.INDEX_TYPE.UNIQUE.toString(), null, new ODocument().fields("ignoreNullValues", true), new String[]{ "bar"});
-```
-
-Please also pay attention to multi-key indexes, partially null keys will be indexed as well.
-
 
 #### ODocument.field()
 
