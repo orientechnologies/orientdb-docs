@@ -286,11 +286,11 @@ SELECT if(eval("name = 'John'"), "My name is John", "My name is not John") FROM 
 
 ### ifnull()
 
-Returns the passed field/value (or optional parameter return_value_if_not_null). If field/value is not null, otherwise it returns return_value_if_null.
+Returns the passed field/value (or optional parameter *return_value_if_not_null*). If field/value is not null, otherwise it returns *return_value_if_null*.
 
 Syntax:
 ```java
-ifnull(&lt;field&#124;value&gt;, &lt;return_value_if_null&gt; [,&lt;return_value_if_not_null&gt;](,&lt;field&.md#124;value&gt;]*)
+ifnull(<field/value>, <return_value_if_null>)
 ```
 
 Available since: 1.3.0
