@@ -392,7 +392,7 @@ SELECT COUNT(*) FROM Account
 ---
 ### min()
 
-Returns the minimum value. If invoked with more than one parameters, the function doesn't aggregate, but returns the minimum value between all the arguments.
+Returns the minimum value. If invoked with more than one parameter, the function doesn't aggregate but returns the minimum value between all the arguments.
 
 Syntax: ```min(<field> [, <field-n>]* )```
 
@@ -411,7 +411,7 @@ SELECT min(salary1, salary2, salary3) FROM Account
 ---
 ### max()
 
-Returns the maximum value. If invoked with more than one parameters, the function doesn't aggregate, but returns the maximum value between all the arguments.
+Returns the maximum value. If invoked with more than one parameter, the function doesn't aggregate, but returns the maximum value between all the arguments.
 
 Syntax: ```max(<field> [, <field-n>]* )```
 
@@ -623,7 +623,7 @@ select unionall(inEdges, outEdges) from OGraphVertex where label = 'test'
 
 Syntax: ```intersect(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed than aggregates, otherwise executes, and returns, the INTERSECTION of the collections received as parameters.
+Works as aggregate or inline. If only one argument is passed then it aggregates, otherwise executes and returns the INTERSECTION of the collections received as parameters.
 
 Available since: 1.0rc2
 
@@ -641,7 +641,7 @@ SELECT intersect(inEdges, outEdges) FROM OGraphVertex
 
 Syntax: ```difference(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed than aggregates, otherwise executes, and returns, the DIFFERENCE between the collections received as parameters.
+Works as aggregate or inline. If only one argument is passed then it aggregates, otherwise it executes and returns the DIFFERENCE between the collections received as parameters.
 
 Available since: 1.0rc2
 
@@ -660,7 +660,7 @@ SELECT difference(inEdges, outEdges) FROM OGraphVertex
 
 Syntax: ```symmetricDifference(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed than aggregates, otherwise executes, and returns, the SYMMETRIC DIFFERENCE between the collections received as parameters.
+Works as aggregate or inline. If only one argument is passed then it aggregates, otherwise executes and returns the SYMMETRIC DIFFERENCE between the collections received as parameters.
 
 Available since: 2.0.7
 
