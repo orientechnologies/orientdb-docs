@@ -5,12 +5,13 @@ Retrieves information about HA.
 **Syntax**
 
 ```
-HA STATUS [-servers] [-db] [-all]
+HA STATUS [-servers] [-db] [-all] [-output=table]
 ```
 
 - **`-servers`** Dumps the configuration of servers
 - **`-db`** Dumps the configuration of the database
 - **`-all`** Dumps all the information
+- **`-output=text`** Write the output as text formatted in readable tables
 
 
 **Examples**
@@ -18,7 +19,7 @@ HA STATUS [-servers] [-db] [-all]
 - Display the configuration of servers
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>HA STATUS -servers</code>
+  orientdb> <code class='lang-sql userinput'>HA STATUS -servers -output=text</code>
 
   Executed '
   +--------+------+------------------------+-----+---------+----------------+----------------+-----------------------+
@@ -32,7 +33,7 @@ HA STATUS [-servers] [-db] [-all]
 - Display the configuration of the current database
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>HA STATUS -db</code>
+  orientdb> <code class='lang-sql userinput'>HA STATUS -db -output=text</code>
   Executed '
   LEGEND: X = Owner, o = Copy
   +-----------+-----------+----------+-------+-------+
