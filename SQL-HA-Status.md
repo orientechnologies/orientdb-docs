@@ -5,7 +5,7 @@ Retrieves information about HA.
 **Syntax**
 
 ```
-HA STATUS [-servers] [-db] [-all] [-output=table]
+HA STATUS [-servers] [-db] [-all] [-output=text]
 ```
 
 - **`-servers`** Dumps the configuration of servers
