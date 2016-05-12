@@ -28,6 +28,8 @@ When the ETL module runs the OrientDB Loader, it loads the records and vertices 
 | `"dbURL"` | Defines the database URL. | string | yes | |
 | `"dbUser"` | Defines the user name. | string | | `admin` |
 | `"dbPassword"` | Defines the user password. | string | | `admin` |
+| `"serverUser"` | Defines the server administrator user name. | string | |  |
+| `"serverPassword"` | Defines the server administrator user password. | string | |  |
 | `"dbAutoCreate"` | Defines whether it automatically creates the database, in the event that it doesn't exist already. | boolean | | `true` |
 | `"dbAutoCreateProperties"` | Defnes whether it automatically creates properties in the schema. | boolean | | `false` |
 | `"dbAutoDropIfExists"` | Defines whether it automatically drops the database if it exists already. | boolean | | `false` |
@@ -44,6 +46,7 @@ When the ETL module runs the OrientDB Loader, it loads the records and vertices 
 | `"standardELementConstraints"` | Defines whether it changes the default setting for TinkerPop BLueprint constraints.  Value cannot be null and you cannot use `id` as a property name. | boolean |  | `true` |
 
 For the `"txUseLog"` parameter, when WAL is disabled you can still achieve reliable transactions through this parameter.  You may find it useful to group many operations into a batch, such as [`CREATE EDGE`](SQL-Create-Edge.md).
+If `"dbAutoCreate"` or `"dbAutoDropIfExists"` are set to true and remote connection is used,  `serverUsername` and `serverPassword` must be provided. Usually the server user name is root, while the password for server administrator is provided at the startup of the OrientDB server.  
 
 
 ### Classes
