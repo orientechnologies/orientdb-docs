@@ -3,6 +3,35 @@
 
 OrientDB uses an optimistic approach to concurrency.  Optimistic Concurrency Control, or [OCC](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) assumes that multiple transactions can compete frequently without interfering with each other.
 
+## How does it work?
+
+Consider the following scenario, where 2 clients, A and B, want to update the amount of a bank account:
+
+```
+       Client A                               Client B
+       
+           |                                     |
+          (t1)                                   |
+   Read record #13:22                            |
+     amount is 100                              (t2)
+           |                             Read record #13:22                   
+          (t3)                             amount is 100
+  Update record #13:22                           |
+set amount = amount + 10                        (t4)
+           |                            Update record #13:22
+           |                           set amount = amount + 10
+           |                                     |
+```
+
+Client A (t1) and B (t2) read the record #13:22 and both receive the last amount as USD 100. Client A updates the amount by adding USD 10 (t3), then the Client B is trying to do the same thing: updates the amount by adding USD 10. Here is the problem: Client B is doing an operation based on current information: the amount was USD 100. But at the moment of update, such information is changed (by Client A on t3), so the amount is USD 110 in the database. Should the update succeed by setting the new amount to USD 120?
+
+In some cases this could be totally fine, in others not. It depends by the use case. For example, in your application there could be a logic where you are donating USD 10 to all the accounts where the amount is <=100. The owner of the account behind the record #13:22 is more lucky than the others, because it receives the donation even if it has USD 110 at that moment.
+
+For this reason in OrientDB when this situation happens a `OConcurrentModificationException` exception is thrown, so the application can manage it properly. Usually the 3 most common strategies to handle this exceptions are:
+1. **Retry** doing the same operation by reloading the record #13:22 first with the updated amount
+2. **Ignore** the change, because the basic condition is changed
+3. **Propagate the exception to the user**, so he can decide what to do in this case
+
 ## Optimistic Concurrency in OrientDB
 
 Optimistic concurrency control is used in environments with low data contention.  That is, where conflicts are rare and transactions can complete without the expense of managing locks and without having transactions wait for locks to clear. This means a reduced throughput over other concurrency control methods.
