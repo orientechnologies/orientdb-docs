@@ -4,7 +4,7 @@ OrientDB supports four index algorithms:
 
 - [**SB-Tree Index**](SB-Tree-index.md) Provides a good mix of features available from other index types, good for general use.  It is durable, transactional and supports range queries.  It is the default index type.
 - [**Hash Index**](Hash-Index.md) Provides fast lookup and is very light on disk usage.  It is durable and transactional, but does not support range queries.  It works like a HashMap, which makes it faster on punctual lookups and it consumes less resources than other index types.
-- [**Auto Sharding Index**](Auto-Sharding-Index.md) Provides an implementation of a [DHT](https://en.wikipedia.org/wiki/Distributed_hash_table). (Since v2.2)
+- [**Auto Sharding Index**](Auto-Sharding-Index.md) Provides an implementation of a [DHT](https://en.wikipedia.org/wiki/Distributed_hash_table).  It is durable and transactional, but does not support range queries.  (Since v2.2)
 - [**Lucene Full Text Index**](Full-Text-Index.md) Provides good full-text indexes, but cannot be used to index other types.  It is durable, transactional and supports range queries.
 - [**Lucene Spatial Index**](Spatial-Index.md) Provides good spatial indexes, but cannot be used to index other types.  It is durable, transactional and supports range queries.
 
@@ -117,7 +117,7 @@ orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = "
 
 ### Range Queries
 
-In the case of range queries, the field subject to the range must be the last one, (that is, the one on the far right).  For example,
+Not all the indexes support range queries (check above). In the case of range queries, the field subject to the range must be the last one, (that is, the one on the far right).  For example,
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key BETWEEN ["Donald Knuth", "The Art of 
