@@ -41,7 +41,10 @@ through plugins.
   - `NOTUNIQUE_HASH_INDEX` These indexes allow duplicate keys.  Available since version 1.5.x.
   - `FULLTEXT_HASH_INDEX` These indexes are based on any single word of text.  You can use them in queries through the `CONTAINSTEXT` operator.  Available since version 1.5.x.
   - `DICTIONARY_HASH_INDEX` These indexes are similar to those that use `UNIQUE_HASH_INDEX`, but in cases of duplicate keys, they replaces the existing record with the new record.  Available since version 1.5.x.
-- **Lucene Engine**
+- **HashIndex Algorithm** (Since v2.2)
+  - `UNIQUE_HASH_INDEX` These indexes do not allow duplicate keys.  For composite indexes, this refers to the uniqueness of the composite keys.
+  - `NOTUNIQUE_HASH_INDEX` These indexes allow duplicate keys.
+- - **Lucene Engine**
   - `FULLTEXT` These indexes use the Lucene engine to index string content.  You can use them in queries with the `LUCENE` operator.
   - `SPATIAL` These indexes use the Lucene engine to index geospatial coordinates.
 
