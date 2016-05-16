@@ -11,7 +11,7 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 - Development started on.: June 25th 2015
 - Expected BETA..........: February 2016
 - Expected first RC......: April 2016
-- Planned final GA......: End of April 2016
+- Planned final GA......: May 18, 2016
 ```
 
 ### Status
