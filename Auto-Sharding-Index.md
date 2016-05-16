@@ -1,11 +1,24 @@
 # Auto Sharding Index Algorithm
 
-This indexing algorithm is based on the [DHT concept](https://en.wikipedia.org/wiki/Distributed_hash_table), where they keys are stored on different partition, based on the f(key), where f is Murmor3 hash function.
-
-Under the hood, this index creates multiple [Hash Indexes](Hash-Index.md), one per cluster. So if you have 8 clusters for the class "Employee", this index will create, at the beginning, 8 [Hash Indexes](Hash-Index.md).
+This indexing algorithm is based on the [DHT concept](https://en.wikipedia.org/wiki/Distributed_hash_table), where they keys are stored on different partition, based on the [Murmur3](https://en.wikipedia.org/wiki/MurmurHash) hash function.
 
 Auto Sharding Index supports the following index types:
 - `UNIQUE_HASH_INDEX` Does not allow duplicate keys, it fails when it encounters duplicates.
 - `NOTUNIQUE_HASH_INDEX` Does allow duplicate keys.
+
+Under the hood, this index creates multiple [Hash Indexes](Hash-Index.md), one per cluster. So if you have 8 clusters for the class "Employee", this index will create, at the beginning, 8 [Hash Indexes](Hash-Index.md).
+
+This is the algorithm for the `put(key,value)`:
+
+```
+int partition = Murmur3_hash(key) % partitions;
+getSubIndex(partition).put(key,value);
+```
+
+This is for the `value = get(key)`:
+```
+int partition = Murmur3_hash(key) % partitions;
+return getSubIndex(partition).get(key);
+```
 
 Since this index is based on the [Hash Index](Hash-Index.md), it's able to perform index read operations in one I/O operation and write operations in a maximum of three I/O operations. The Hash Index algorithm is based on the [Extendible Hashing](http://en.wikipedia.org/wiki/Extendible_hashing) algorithm.  Despite not providing support for range queries, it is noticeably faster than [SB-Tree Index Algorithms](SB-Tree-index.md), (about twice as fast when querying through ten million records).
