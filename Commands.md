@@ -10,14 +10,8 @@
 | [TRAVERSE](SQL-Traverse.md) | [UPDATE EDGE](SQL-Update-Edge.md) |  [ALTER PROPERTY](SQL-Alter-Property.md) | [CREATE DATABASE (console only)](Console-Command-Create-Database.md) | [HA STATUS](SQL-HA-Status.md) |
 | [TRUNCATE CLASS](SQL-Truncate-Class.md) | [MATCH](SQL-Match.md) | [DROP PROPERTY](SQL-Drop-Property.md) | [DROP DATABASE (console only)](Console-Command-Drop-Database.md) | [HA REMOVE SERVER](SQL-HA-Remove-Server.md) |
 | [TRUNCATE CLUSTER](SQL-Truncate-Cluster.md) | | [CREATE INDEX](SQL-Create-Index.md) | [OPTIMIZE DATABASE](SQL-Optimize-Database.md) | [HA SYNC DATABASE](SQL-HA-Sync-Database.md) |
-| [TRUNCATE RECORD](SQL-Truncate-Record.md) | | [REBUILD INDEX](SQL-Rebuild-Index.md)  | | [HA SYNC CLUSTER](SQL-HA-Sync-Cluster.md) |
-|  | |[DROP INDEX](SQL-Drop-Index.md)  | | |
-|  | |[CREATE SEQUENCE](SQL-Create-Sequence.md)  | | |
-|  | |[ALTER SEQUENCE](SQL-Alter-Sequence.md)  | | |
+| [TRUNCATE RECORD](SQL-Truncate-Record.md) | | [REBUILD INDEX](SQL-Rebuild-Index.md)  | [CREATE USER](SQL-Create-User.md) | [HA SYNC CLUSTER](SQL-HA-Sync-Cluster.md) |
+|  | |[DROP INDEX](SQL-Drop-Index.md)  | [DROP USER](SQL-Drop-User.md) | |
+|  | |[CREATE SEQUENCE](SQL-Create-Sequence.md)  | [GRANT](SQL-Grant.md) | |
+|  | |[ALTER SEQUENCE](SQL-Alter-Sequence.md)  | [REVOKE](SQL-Revoke.md)  | |
 |  | |[DROP SEQUENCE](SQL-Drop-Sequence.md)  | | |
-
-
-[CREATE USER](SQL-Create-User.md)
-[DROP USER](SQL-Drop-User.md)
-[GRANT](SQL-Grant.md) 
-[REVOKE](SQL-Revoke.md) 
