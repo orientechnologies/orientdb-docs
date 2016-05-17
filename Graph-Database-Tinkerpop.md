@@ -55,7 +55,7 @@ In order to use the Graph API, you need to create an instance of the [`OrientGra
 
 >**NOTE**: When creating a database through the Graph API, you can only create PLocal and Memory databases.  Remote databases must already exist.
 
->**NOTE**: In v. 2.2, when using PLocal or Memory,please set MaxDirectMemorySize (JVM setting) to a high value, like 512g ``` -XX:MaxDirectMemorySize=512g ```
+>**NOTE**: In v. 2.2 and following releases, when using PLocal or Memory,please set MaxDirectMemorySize (JVM setting) to a high value, like 512g ``` -XX:MaxDirectMemorySize=512g ```
 
 When building multi-threaded application, use one instance of [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) per thread.  Bear in mind that all graph components, such as vertices and edges, are not thread safe.  So, sharing them between threads may result in unpredictable results.
 
