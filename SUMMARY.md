@@ -118,6 +118,7 @@
     * [Import from DB-Pedia](Import-from-DBPedia.md) 
     * [Import from Parse (Facebook)](Import-from-PARSE.md) 
   * [Logging](Logging.md) 
+  * [Scheduler](Scheduler.md) 
   * [Studio](Studio-Home-page.md) 
     * [Query](Query.md) 
     * [Edit Document](Edit-Document.md) 
