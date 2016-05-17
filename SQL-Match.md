@@ -103,7 +103,7 @@ The following examples are based on this sample data-set from the class `People`
             RETURN person, friend</code>
 
   --------+---------
-   people | friend 
+   person | friend 
   --------+---------
    #12:0  | #12:1
    #12:0  | #12:2
@@ -122,7 +122,7 @@ The following examples are based on this sample data-set from the class `People`
 			{as: friendOfFriend} RETURN person, friendOfFriend</code>
 
   --------+----------------
-   people | friendOfFriend 
+   person | friendOfFriend 
   --------+----------------
    #12:0  | #12:0
    #12:0  | #12:1
@@ -142,7 +142,7 @@ The following examples are based on this sample data-set from the class `People`
 			RETURN person, friendOfFriend</code>
 
   --------+----------------
-   people | friendOfFriend
+   person | friendOfFriend
   --------+----------------
    #12:0  | #12:1
    #12:0  | #12:2
@@ -160,7 +160,7 @@ The following examples are based on this sample data-set from the class `People`
 			RETURN person, friend</code>
 
   --------+---------
-   people | friend
+   person | friend
   --------+---------
    #12:0  | #12:0
    #12:0  | #12:1
@@ -192,7 +192,7 @@ The following examples are based on this sample data-set from the class `People`
 			RETURN person, friend</code>
 
   --------+--------
-   people | friend
+   person | friend
   --------+--------
    #12:0  | #12:1
    #12:0  | #12:2
@@ -262,6 +262,28 @@ orientdb> <code class="lang-sql userinput">SELECT person.name AS name, person.su
  John   | Smith    | Jenny      | Smith
 --------+----------+------------+---------------
 </pre>
+
+As an alternative, you can use the following:
+
+<pre>
+orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person,
+		  where: (name = 'John')}.both('Friend'){as: friend}
+		  RETURN 
+		  person.name as name, person.surname as surname, 
+		  friend.name as firendName, friend.surname as friendSurname</code>
+
+--------+----------+------------+---------------
+ name   | surname  | friendName | friendSurname
+--------+----------+------------+---------------
+ John   | Doe      | John       | Smith
+ John   | Doe      | Jenny      | Smith
+ John   | Doe      | Frank      | Bean
+ John   | Smith    | John       | Doe
+ John   | Smith    | Jenny      | Smith
+--------+----------+------------+---------------
+</pre>
+
+
   
 
 
