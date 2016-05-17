@@ -4,13 +4,13 @@ OrientDB supports back and and restore operations, like any database management 
 
 The [`BACKUP DATABASE`](Console-Command-Backup.md) command executes a complete backup on the currently open database.  It compresses the backup the backup using the ZIP algorithm.  To restore the database from the subsequent `.zip` file, you can use the [`RESTORE DATABASE`](Console-Command-Restore.md) command.
 
-Backups and restores are much faster than the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md) commands.  You can also automate backups using the [Automatic Backup](Automatic-Backup.md) server plugin.  Additionally, beginning with version 2.2 of [Enterprise Edition](Enterprise-Edition.md) OrientDB introduces major support for incremental backups.
+Backups and restores are much faster than the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md) commands.  You can also automate backups using the [Automatic Backup](Automatic-Backup.md) server plugin.  Additionally, beginning with version 2.2 of [Enterprise Edition](Enterprise-Edition.md) OrientDB introduces major support for [incremental backups](Incremental-Backup-And-Restore.md).
 
 >**NOTE**: OrientDB Community Edition does not support backing up remote databases.  OrientDB [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/) does support this feature.  For more information on how to implement this with Enterprise Edition, see [Remote Backups](http://www.orientechnologies.com/enterprise/last/servermanagement.html).
 
 ## Backups versus Exports
 
-During backups, the [`BACKUP DATABASE`](Console-Command-Backup.md) command produces a consistent copy of the database.  During this process, the database locks all write operations, waiting for the backup to finish.  If you need perform reads and writes on the database during backups, set up a distributed cluster of nodes.
+During backups, the [`BACKUP DATABASE`](Console-Command-Backup.md) command produces a consistent copy of the database.  During this process, the database locks all write operations, waiting for the backup to finish.  If you need perform reads and writes on the database during backups, set up a distributed cluster of nodes.  To access to the non blocking backup feature, use the [Enterprise Edition](Incremental-Backup-And-Restore.md).
 
 By contrast, the [`EXPORT DATABASE`](Console-Command-Export.md) command doesn't lock the database, allowing concurrent writes to occur during the export process.  Consequentially, the export may include changes made after you initiated the export, which may result in inconsistencies.
 
