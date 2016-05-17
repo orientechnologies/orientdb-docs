@@ -1180,6 +1180,9 @@ Removed double serialization of commands parameters, now the parameters are dire
 # Compatibility
 
 Current release of OrientDB server supports older client versions.
+- version 35: 100% compatible 2.2-SNAPSHOT
+- version 34: 100% compatible 2.2-SNAPSHOT
+- version 34: 100% compatible 2.2-SNAPSHOT
 - version 33: 100% compatible 2.2-SNAPSHOT
 - version 32: 100% compatible 2.1-SNAPSHOT
 - version 31: 100% compatible 2.1-SNAPSHOT
