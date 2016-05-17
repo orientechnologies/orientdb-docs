@@ -6,6 +6,7 @@ The [`BACKUP DATABASE`](Console-Command-Backup.md) command executes a complete b
 
 Backups and restores are much faster than the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md) commands.  You can also automate backups using the [Automatic Backup](Automatic-Backup.md) server plugin.  Additionally, beginning with version 2.2 of [Enterprise Edition](Enterprise-Edition.md) OrientDB introduces major support for incremental backups.
 
+>**NOTE**: OrientDB Community Edition does not support backing up remote databases.  OrientDB [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/) does support this feature.  For more information on how to implement this with Enterprise Edition, see [Remote Backups](http://www.orientechnologies.com/enterprise/last/servermanagement.html).
 
 ## Backups versus Exports
 
@@ -51,14 +52,6 @@ Beginning in version 1.7.8, OrientDB introduces a `backup.sh` script found in th
 		lvm</code>
   </pre>
 
-- Perform a non-blocking LVM backup, using a remote database hosted at `localhost`:
-
-  <pre>
-  $ <code class='lang-sh userinput'>$ORIENTDB_HOME/bin/backup.sh remote:localhost/testdb \
-        root rootpasswd \
-		/path/to/backup.zip \
-		lvm</code>
-  </pre>
 
 - Perform a backup using the OrientDB Console with the [`BACKUP`](Console-Command-Backup.md) command:
 
