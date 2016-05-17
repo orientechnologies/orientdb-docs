@@ -262,6 +262,7 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_INDEX_GET<td>120</td><td>Lookup in an index by key</td><td>no</td><td>2.1rc4</td></tr>
 <tr><td>REQUEST_INDEX_PUT<td>121</td><td>Create or update an entry in an index</td><td>no</td><td>2.1rc4</td></tr>
 <tr><td>REQUEST_INDEX_REMOVE<td>122</td><td>Remove an entry in an index by key</td><td>no</td><td>2.1rc4</td></tr>
+<tr><td>REQUEST_INCREMENTAL_RESTORE</td><td> Incremental restore </td><td>no</td><td>2.2-rc1</td></tr>
 </table>
 
 # Response
@@ -361,7 +362,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
 
 ```
-Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(database-name:string)(user-name:string)(user-password:string)
+Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(support-push:boolean)(collect-stats:boolean)(database-name:string)(user-name:string)(user-password:string)
 Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:string)(cluster-id:short)](cluster-config:bytes)(orientdb-release:string)
 ```
 
@@ -373,6 +374,8 @@ Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:str
 - client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480".
 - client's **serialization-impl** - the [serialization format](#record-format) required by the client.
 - **token-session** - true if the client wants to use a token-based session, false otherwise.
+- **support-push** - true if the client support push request
+- **collect-stats** - true if this connection is to be counted on the server stats, normal client should use true
 - **database-name** - the name of the database to connect to. Example: "demo".
 - **user-name** - the username of the user on the server. Example: "root".
 - **user-password** - the password of the user on the server. Example: "37aed6392".
@@ -751,7 +754,7 @@ Response is different for synchronous and asynchronous request:
        - '0' a record in the next bytes
        - '-2' no record and is considered as a null record
        - '-3' only a recordId in the next bytes
- - 'a', serialized result, a byte[] is sent
+ - 'w', is a simple result wrapped inside a single record, deserialize the record as the `r` option and unwrap the real result reading the field `result` of the record.
  - 'i', iterable of records
    - the result records will be streamed, no size as start is given, each entry has a flag at the start(same as **asynch-result-type**)
      - 0: no record remain to be fetched
@@ -1052,6 +1055,25 @@ where:
 **query_token** the token for identify the query that has been usubscribed.
 
 # History
+
+## version 36
+
+add support for REQUEST_INCREMENTAL_RESTORE
+
+## version 35
+
+command result review:
+add support for "wrapped types" on command result set, removed support for "simple types".
+
+is now possible a new option `w` over the one already existent `r`,`s`,`l`,`i`
+it consist in a document serialized in the same way of `r` that wrap the result in a field called `result`.
+
+the old options `a` for simple results is now removed.
+
+
+## version 34
+
+Add flags `support-push` and `collect-stats` on  REQUEST_DB_OPEN.
 
 ## version 33
 
