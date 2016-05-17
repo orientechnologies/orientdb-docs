@@ -32,6 +32,11 @@ Beginning in version 1.7.8, OrientDB introduces a `backup.sh` script found in th
   - *`default`* Locks the database during the backup.
   - *`lvm`* Executes an LVM copy-on-write snapshot in the background.
 
+>**NOTE** Non-blocking backups require that the operating system support LVM.  For more information, see
+>- [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29)
+>- [File system snapshots with LVM](http://arstechnica.com/information-technology/2004/10/linux-20041013/) 
+>- [LVM snapshot backup](http://www.tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html)
+
 
 **Examples**
 
@@ -62,10 +67,6 @@ Beginning in version 1.7.8, OrientDB introduces a `backup.sh` script found in th
   Backup executed in 0.52 seconds.
   </pre>
 
->**NOTE** Non-blocking backups require that the operating system support LVM.  For more information, see
->- [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29)
->- [File system snapshots with LVM](http://arstechnica.com/information-technology/2004/10/linux-20041013/) 
->- [LVM snapshot backup](http://www.tldp.org/HOWTO/LVM-HOWTO/snapshots_backup.html)
 
 
 ## Restoring Databases
