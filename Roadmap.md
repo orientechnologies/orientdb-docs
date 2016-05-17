@@ -11,7 +11,7 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 - Development started on.: June 25th 2015
 - Expected BETA..........: February 2016
 - Expected first RC......: April 2016
-- Planned final GA......: May 18, 2016
+- Planned final GA.......: May 18, 2016
 ```
 
 ### Status
@@ -44,6 +44,7 @@ Last update: April 12, 2016
 | SQL | [Command to manage users](https://github.com/orientechnologies/orientdb/pull/4000) | 100% |
 | Java API | [ODocument.eval()](https://github.com/orientechnologies/orientdb/issues/4505)  | 100% |
 | Studio | New P2P architecture, new Enterprise modules (it replaces the Enterprise Workbench) | 100% |
+| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 100% |
 
 ## Release 3.0
 ```
@@ -71,7 +72,6 @@ For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://git
 | Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
 | Distributed | Replication of in-memory databases | 0% |
 | Distributed | Auto-Sharding | 0% |
-| Console | Display distributed information about [sharding](https://github.com/orientechnologies/orientdb/issues/3968) and [nodes](https://github.com/orientechnologies/orientdb/issues/3967) | 50% |
 
 
 ## Release 3.1
