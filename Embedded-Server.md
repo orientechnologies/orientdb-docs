@@ -14,6 +14,12 @@ In order to embed the server you need to include the following jar files in the 
 - <code>orientdb-enterprise-**.jar</code>
 - <code>orientdb-server-**.jar</code>
 
+In v 2.2 please set MaxDirectMemorySize to a high value, like 512g (JVM setting):
+```
+-XX:MaxDirectMemorySize=512g
+```
+
+
 ## Include the commands you need
 
 Even if most of the HTTP commands are auto registered assure to have all the commands you need. For example the static content must be registered. This is fundamental if you want to use OrientDB as Web Server providing static content like the Studio app:
