@@ -13,13 +13,17 @@ OrientDB has a Scheduler of events you can use to fire your events on regular ba
 In order to schedule a new event via SQL, all you need is to create a new record in the `OSchedule` class. Example on scheduling the event "myEvent" that calls the function "myFunction" every second:
 
 ```sql
-INSERT INTO oschedule SET name = 'myEvent', function = (SELECT FROM ofunction WHERE name = 'myFunction'), rule = \"0/1 * * * * ?\"
+INSERT INTO oschedule
+  SET name = 'myEvent',
+      function = (SELECT FROM ofunction WHERE name = 'myFunction'),
+      rule = \"0/1 * * * * ?\"
 ```
 
 ### Via Java API
 ```java
 db.getMetadata().getScheduler().scheduleEvent(
-  new OScheduledEventBuilder().setName("myEvent").setRule("0/1 * * * * ?").setFunction(func).build());
+  new OScheduledEventBuilder().setName("myEvent").setRule("0/1 * * * * ?")
+  .setFunction(func).build());
 ```
 ## Update an event
 
@@ -38,7 +42,8 @@ To update an event, remove it and reschedule it.
 ```java
 db.getMetadata().getScheduler().removeEvent("myEvent");
 db.getMetadata().getScheduler().scheduleEvent(
-  new OScheduledEventBuilder().setName("myEvent").setRule("0/2 * * * * ?").setFunction(func).build());
+  new OScheduledEventBuilder().setName("myEvent").setRule("0/2 * * * * ?")
+  .setFunction(func).build());
 ```
 
 ## Remove an event
@@ -66,7 +71,9 @@ First, create a SQL function that delete the records. To have the date of 1y ago
 
 #### Via [SQL](SQL-Create-Function.md)
 ```sql
-CREATE FUNCTION purgeHistoricalRecords "DELETE FROM Logs WHERE date < ( sysdate() - 31536000000 )" LANGUAGE SQL 
+CREATE FUNCTION purgeHistoricalRecords
+  "DELETE FROM Logs WHERE date < ( sysdate() - 31536000000 )"
+  LANGUAGE SQL 
 ```
 
 #### Via Java API
@@ -85,11 +92,15 @@ The second step is scheduling the event. The CRON expression for "every midnight
 #### Via SQL
 
 ```sql
-INSERT INTO oschedule SET name = 'purgeHistoricalRecordsAtMidnight', function = (SELECT FROM ofunction WHERE name = 'purgeHistoricalRecords'), rule = \"00 00 * * * ?\"
+INSERT INTO oschedule
+ SET name = 'purgeHistoricalRecordsAtMidnight',
+     function = (SELECT FROM ofunction WHERE name = 'purgeHistoricalRecords'),
+     rule = \"00 00 * * * ?\"
 ```
 
 #### Via Java API
 ```java
-db.command(new OCommandSQL("INSERT INTO oschedule SET name = 'purgeHistoricalRecordsAtMidnight', function = ?, rule = \"00 00 * * * ?\""))
-  .execute(func.getId());
+db.command(new OCommandSQL(
+ "INSERT INTO oschedule SET name = 'purgeHistoricalRecordsAtMidnight', function = ?, rule = \"00 00 * * * ?\""))
+ .execute(func.getId());
 ```
