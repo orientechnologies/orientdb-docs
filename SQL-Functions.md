@@ -17,11 +17,12 @@
 |[bothE()](SQL-Functions.md#bothE)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalesce()](SQL-Functions.md#coalesce)
 |[outV()](SQL-Functions.md#outV)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
 |[inV()](SQL-Functions.md#inV)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
-|[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|
-|[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|
-|[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)|
-|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricDifference)|
-|[dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)| |
+|[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|  |
+|[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|  |
+|[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)| |
+|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricDifference)|-|
+|[dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)|  |  |
+|[astar()](SQL-Functions.md#astar) |  |  |  |
 
 ### Functions by name
 
@@ -518,6 +519,32 @@ Available since: 0.9.25
 SELECT format("%d - Mr. %s %s (%s)", id, name, surname, address) FROM Account
 ```
 ---
+
+### astar()
+
+A*'s algorithm describes how to find the cheapest path from one node to another node in a directed weighted graph with husrestic function.
+
+The first parameter is source record. The second parameter is destination record. The third parameter is a name of property that
+represents 'weight' and fourth represnts the map of options.
+
+If property is not defined in edge or is null, distance between vertexes are 0 .
+
+Syntax: ```astar(<sourceVertex>, <destinationVertex>, <weightEdgeFieldName>, [<options>]) ```
+
+options: 
+```
+{
+  direction:"OUT", //the edge direction (OUT, IN, BOTH)
+  edgeTypeNames:[],  
+  vertexAxisNames:[], 
+  parallel : false, 
+  tieBreaker:true,
+  maxDepth:99999,
+  dFactor:1.0,
+  customHeuristicFormula:'custom_Function_Name_here'  // (MANHATAN, MAXAXIS, DIAGONAL, EUCLIDEAN, EUCLIDEANNOSQR, CUSTOM)
+}
+```
+
 ### dijkstra()
 
 Returns the cheapest path between two vertices using the [http://en.wikipedia.org/wiki/Dijkstra's_algorithm Dijkstra algorithm] where the **weightEdgeFieldName** parameter is the field containing the weight. Direction can be OUT (default), IN or BOTH.
