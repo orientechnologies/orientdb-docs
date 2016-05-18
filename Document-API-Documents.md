@@ -189,7 +189,7 @@ int recordsUpdated = db.comamnd(
 ).execute();
 ```
 
-When the command modifies the schema, such as [`CREATE CLASS`](SQL-Create-Class.md) or [`ALTER PROPERTY`](SQL-ALter-Property.md), remember that you also need to force a schema update on the database instance you're using.
+When the command modifies the schema, such as [`CREATE CLASS`](SQL-Create-Class.md) or [`ALTER PROPERTY`](SQL-Alter-Property.md), remember that you also need to force a schema update on the database instance you're using.
 
 ```java
 db.getMetadata().getSchema().reload();

@@ -45,7 +45,7 @@ Additionally, in the event that you would like to interface with the Document AP
 >For more information, see
 >
 >- Javadoc: [JavaDoc](http://www.orientechnologies.com/javadoc/latest/)
->- [OrientDB Studio Web tool](Home-page.md).
+>- [OrientDB Studio Web tool](Studio-Home-page.md).
 
 
 
