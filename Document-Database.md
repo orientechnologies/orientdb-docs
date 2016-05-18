@@ -35,7 +35,7 @@ In order to use the Document API, you must include the following jars in your cl
 
 
 - `orientdb-core-*.jar`
-- `concurrentlinkedhashmap-lru.jar`
+- `concurrentlinkedhashmap-lru-*.jar`
 
 Additionally, in the event that you would like to interface with the Document API on a remote server, you also need to include these jars:
 
