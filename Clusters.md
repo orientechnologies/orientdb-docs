@@ -20,5 +20,5 @@ Also called Physical cluster, it stores data on disk.
 
 ## <a name="wiki-In-Memory_cluster">In-Memory cluster</a>
 
-The information stored in "In-Member clusters" is volatile (that is, it is never stored to disk). Use this cluster only to work with temporary data. If you need an In-Memory database, create it as an In-memory Database. In-memory databases have only In-memory clusters.
+The information stored in "In-Memory clusters" is volatile (that is, it is never stored to disk). Use this cluster only to work with temporary data. If you need an In-Memory database, create it as an In-memory Database. In-memory databases have only In-memory clusters.
 
