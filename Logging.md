@@ -131,6 +131,13 @@ The examples below use [cURL](https://en.wikipedia.org/wiki/CURL) to execute the
   </pre>
 
 
+## Change logging on the client
+
+On the client is the same as for the server, but you should rather configure the file `config/orientdb-client-log.properties` and add this at your client's JVM:
+
+<pre>
+$ <code class="lang-sh userinput">java -Djava.util.logging.config.file=config/orientdb-client-log.properties</code>
+</pre>
 
 ## Install Log Formatter
 
