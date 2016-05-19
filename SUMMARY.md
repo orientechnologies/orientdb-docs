@@ -277,10 +277,6 @@
   * [Replication](Replication.md) 
   * [Sharding](Distributed-Sharding.md) 
   * [Tuning](Distributed-Configuration-Tuning.md)
-  * HA SQL Commands
-    * [HA Remove Server](SQL-HA-Remove-Server.md)
-    * [HA Sync Cluster](SQL-HA-Sync-Cluster.md)
-    * [HA Sync Database](SQL-HA-Sync-Database.md)
 * [Internals](Internals.md) 
   * [Storages](Storages.md) 
     * [Memory storage](Memory-storage.md) 
