@@ -10,8 +10,8 @@ Server users are stored in the `config/orientdb-server-config.xml` configuration
 
 ```xml
     <users>
-        <user name="root" password="{PBKDF2WithHmacSHA256}55F95B91628EF3E679628ACB23AE" resources="*" />
-        <user name="guest" password="guest" resources="connect,server.listDatabases,server.dblist" />
+        <user name="root" password="{PBKDF2WithHmacSHA256}55F95B91628EF3E67962KFK3RDDKS8ACB23AE:DLDFK3IFJFNJ3JE3JEJFDKKGOY8:65536" resources="*" />
+        <user name="guest" password="{PBKDF2WithHmacSHA256}B36E79CDB1F24E135448281D0007E725606D88867993C961:C8CF28E37B45EA6B211DD0B52D814F5624FA722B388B36F3:65536" resources="connect,server.listDatabases,server.dblist" />
     </users>
 ```
 
