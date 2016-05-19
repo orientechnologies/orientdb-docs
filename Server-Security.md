@@ -10,12 +10,12 @@ Server users are stored in the `config/orientdb-server-config.xml` configuration
 
 ```xml
     <users>
-        <user name="root" password="{SHA-256}55F95B91628EF3E679628ACB23AE" resources="*" />
+        <user name="root" password="{PBKDF2WithHmacSHA256}55F95B91628EF3E679628ACB23AE" resources="*" />
         <user name="guest" password="guest" resources="connect,server.listDatabases,server.dblist" />
     </users>
 ```
 
-When the OrientDB server starts for the first time, it creates the user `root` automatically, by asking you to give the password in the terminal.  In the event that you do not specify a password, OrientDB generates a random password.  Beginning with version 2.2, OrientDB hashes the passwords using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) algorithm.
+When the OrientDB server starts for the first time, it creates the user `root` automatically, by asking you to give the password in the terminal.  In the event that you do not specify a password, OrientDB generates a random password.  Beginning with version 2.2, OrientDB hashes the passwords using `PBKDF2WithHmacSHA256` algorithm if it's running on Java 8 or major, otherwise `PBKDF2WithHmacSHA1`.
 
 For more information on security in Orientdb, see:
 - [Database security](Database-Security.md)
