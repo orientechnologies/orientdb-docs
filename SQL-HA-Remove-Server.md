@@ -19,7 +19,8 @@ HA REMOVE SERVER <server-name>
   orientdb> <code class='lang-sql userinput'>HA REMOVE SERVER europe</code>
   </pre>
 
-** Upgrading **
+**Upgrading**
+
 Before v2.2, the list of servers running in HA configuration, was updated with the real situation. This could cause consistency problems in case of split brain network, because the two isolated network partitions could agree with a quorum based on the lower number of servers.
 
 Example: if you have 5 servers with a `writeQuorum:"majority"`, means that if a node is unavailable (crash, network errors, etc.), the quorum is always on base 5, so 4 available nodes are ok. If you've lost also another node, you're still ok, because 3 is still the majority.
