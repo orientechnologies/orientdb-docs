@@ -301,7 +301,39 @@ The class has four properties defined: *Domain*, *BaseDN*, *Filter*, and *Roles*
 
 
 ## "auditing"
-The *auditing* component of the new security system is configured with the "auditing" object.  It has two properties, the usual "class" and "enabled" properties.
+The *auditing* component of the new security system is configured with the "auditing" object.  It has three properties, the usual "class" and "enabled" properties and a third, "systemImport".
+
+### "systemImport"
+The *systemImport* property is an object and is used for importing a database's auditing log into the system database, where all new auditing is stored.
+
+Each auditing log record from the specified databases is moved to a cluster in the new system database with the name *databasename*_auditing.
+
+The *systemImport* object may contain these properties:
+
+|Property|Description|Default Value|
+|--------|-----------|-------------|
+|"enabled"|When set to true, the audit log importer will run for the specified databases.|false|
+|"databases"|This property is a list of database names that will have their auditing logs imported.|none|
+|"auditingClass"|This specifies the name of the auditing class used in the database being imported.|*AuditingLog*|
+|"limit"|The *limit* property indicates how many records will be imported during each *iteration* of the importer.  To reduce the impact on the system, the importer retrieves a block of auditing log records for each *iteration* and then sleeps before beginning again.|1000|
+|"sleepPeriod"|This represents (in milliseconds) how long the importer sleeps after each *iteration*.|1000|
+
+The importer stops for each database once all the auditing log records have been transferred to the system database.
+
+Here's an example of a "systemImport" section:
+```
+  "auditing": {
+    "class": "com.orientechnologies.security.auditing.ODefaultAuditing",
+    "enabled": true,
+    "systemImport": {
+      "enabled": true,
+      "databases": ["MyDB", "MyOtherDB", "OneMoreDB"],
+      "auditingClass": "AuditingLog",
+      "limit": 1000,
+      "sleepPeriod": 2000
+    }
+  }
+```
 
 ## "syslog"
 The "syslog" component can be configured with these properties.
