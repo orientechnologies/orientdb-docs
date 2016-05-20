@@ -35,9 +35,10 @@ Before 2.2, the `writeQuorum` was scaled down to `1` because the setting `failur
 
 This wasn't correct, because if a node is unreachable, it could be because network temporary error, split brain, etc. So downgrading the `writeQuorum` means no guarantee for consistency when 2 nodes see each other again, because both nodes thought to be the only one and they continue working with quorum=1 with evident merge conflict risks.
 
-In v2.2.0-rc1 the nodes is never removed automatically from the configuration for this reason, unless you manually remove a node from the configuration claiming that node is not part of the cluster anymore. The new SQL command is:
+In v2.2.0-rc1 the nodes is never removed automatically from the configuration for this reason, unless you manually remove a node from the configuration claiming that node is not part of the cluster anymore. The new SQL command to remove a server from the configuration is:
 
-    HA REMOVE SERVER <server-name>
+[`HA REMOVE SERVER <server-name>`](HA-Remove-Server.md)
+
 
 #### Other changes
 
