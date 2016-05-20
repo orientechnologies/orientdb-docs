@@ -1,6 +1,6 @@
 # SQL - `HA SYNC CLUSTER`
 
-Asks for a re-synchronization of a cluster when running in HA. OrientDB will select the best server to provide the cluster.
+(Since v2.2) Asks for a re-synchronization of a cluster when running in HA. OrientDB will select the best server to provide the cluster.
 
 **Syntax**
 
