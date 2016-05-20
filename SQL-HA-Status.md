@@ -1,6 +1,6 @@
 # SQL - `HA STATUS`
 
-Retrieves information about HA.
+(Since v2.2) Retrieves information about HA.
 
 **Syntax**
 
