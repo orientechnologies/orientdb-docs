@@ -37,7 +37,7 @@ This wasn't correct, because if a node is unreachable, it could be because netwo
 
 In v2.2.0-rc1 the nodes is never removed automatically from the configuration for this reason, unless you manually remove a node from the configuration claiming that node is not part of the cluster anymore. The new SQL command to remove a server from the configuration is:
 
-[`HA REMOVE SERVER <server-name>`](HA-Remove-Server.md)
+[`HA REMOVE SERVER <server-name>`](SQL-HA-Remove-Server.md)
 
 
 #### Other changes
