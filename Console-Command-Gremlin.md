@@ -19,9 +19,9 @@ GREMLIN <command>
 - Create a vertex using Gremlin:
 
   <pre>
-  orientdb> <code class="lang-javascript userinput">GREMLIN v1 = g.addVertex();</code>
+  orientdb> <code class="lang-javascript userinput">gremlin</code>
   [Started multi-line command.  Type just 'end' to finish and execute.]
-
+  orientdb> <code class="lang-javascript userinput">v1 = g.addVertex();</code>
   orientdb> <code class="lang-javascript userinput">end</code>
  
   v[#9:0]
