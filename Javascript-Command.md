@@ -8,7 +8,9 @@ In order to return the result of a variable, put the variable name as last state
 
 ```js
 var r = db.query('select from ouser');
-print(r);
+for( var i = 0; i < r.length; ++ r ){
+  print(r);
+}
 r
 ```
 
@@ -27,8 +29,8 @@ db.command( new OCommandScript("Javascript", "print('hello world')") ).execute()
 ## Via console
 
 JavaScript code can be executed on the client-side, the console, or server-side:
-- Use <code>js</code> to execute the script on the **client-side** running it in the console
-- use <code>jss</code> to execute the script on the **server-side**. This feature is disabled by default. To enable it look at [Enable Server side scripting](#Enable_Server_side_scripting).
+- Use [<code>js</code>](Console-Command-Js.md) to execute the script on the **client-side** running it in the console
+- use [<code>jss</code>](Console-Command-Jss.md) to execute the script on the **server-side**. This feature is disabled by default. To enable it look at [Enable Server side scripting](#Enable_Server_side_scripting).
 
 Since the semi-colon <code>;</code> character is used in both console and JavaScript languages to separate statements, how can we execute multiple commands on the console and with JavaScript?
 
@@ -36,7 +38,7 @@ The OrientDB console uses a reserved keyword <code>end</code> to switch from Jav
 
 Example:
 ```
-orientdb> connect remote:localhost/demo admin admin; js for( i = 0; i < 10; i++ ){ db.query('select from MapPoint') };end; exit
+orientdb> connect remote:localhost/demo admin admin; js; for( i = 0; i < 10; i++ ){ db.query('select from MapPoint') };end; exit
 ```
 
 This line connects to the remote server and executes 10 queries on the console. The <code>end</code> command switches the mode back to the OrientDB console and then executes the console <code>exit</code> command.
@@ -58,7 +60,7 @@ Type 'help' to display all the commands supported.
 orientdb> connect remote:localhost/demo admin admin
 Connecting to database [remote:localhost/demo] with user 'admin'...OK
 
-orientdb> jss var r = db.query('select from ouser');print(r);r
+orientdb> jss;var r = db.query('select from ouser');print(r);r
 
 ---+---------+--------------------+--------------------+--------------------+--------------------
   #| RID     |name                |password            |status              |roles
@@ -76,7 +78,7 @@ orientdb> exit
 
 The same example above is executed in batch mode:
 ```java
-$ ./console.sh "connect remote:localhost/demo admin admin;jss var r = db.query('select from ouser');print(r);r;exit"
+$ ./console.sh "connect remote:localhost/demo admin admin;jss;var r = db.query('select from ouser');print(r);r;exit"
 OrientDB console v.1.0-SNAPSHOT (build 11761) www.orientechnologies.com
 Type 'help' to display all the commands supported.
 Connecting to database [remote:localhost/demo] with user 'admin'...OK
@@ -96,7 +98,7 @@ Script executed in 0,099000 sec(s). Returned 3 records
 ### Insert 1000 records
 
 ```xml
-orientdb> js for( i = 0; i < 1000; i++ ){ db.query( 'insert into jstest (label) values ("test'+i+'")' ); }
+orientdb> js;for( i = 0; i < 1000; i++ ){ db.query( 'insert into jstest (label) values ("test'+i+'")' ); }
 ```
 
 ### Create documents using wrapped Java API
