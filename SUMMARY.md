@@ -67,7 +67,7 @@
     * [Export Record](Console-Command-Export-Record.md) 
     * [Freeze DB](Console-Command-Freeze-Db.md) 
     * [Get](Console-Command-Get.md) 
-    * [GREMLIN](Console-Command-Gremlin.md) 
+    * [Gremlin](Console-Command-Gremlin.md) 
     * [Import Database](Console-Command-Import.md) 
     * [Indexes](Console-Command-Indexes.md) 
     * [Info](Console-Command-Info.md) 
