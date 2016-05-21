@@ -15,9 +15,7 @@ You can execute a command in just one line (`JS print('Hello World!')`) or enabl
 
 **Examples**
 
-- Create a vertex using Gremlin:
-
-for(var i=0;i<r.length;++i){print( r[i] );};end;"
+- Execute a query and display the result:
 
   <pre>
   orientdb> <code class="lang-javascript userinput">js</code>
