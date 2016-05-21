@@ -15,7 +15,6 @@
         }
     },
     "search": {
-        "maxIndexSize": 1000000000
     },
     "pdf": {
         "toc": true,
@@ -38,6 +37,7 @@
             "token": "UA-28543690-2"
         },
 	"addcssjs":{
+		"js": ["js/custom.js"],
 		"css": ["css/custom.css"]
 	},
 	"versions": {

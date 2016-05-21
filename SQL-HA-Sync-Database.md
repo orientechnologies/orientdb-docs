@@ -1,6 +1,6 @@
 # SQL - `HA SYNC DATABASE`
 
-Asks for a re-synchronization of the current database when running in HA. OrientDB will select the best server where to synchronize the database.
+(Since v2.2) Asks for a re-synchronization of the current database when running in HA. OrientDB will select the best server where to synchronize the database.
 
 **Syntax**
 

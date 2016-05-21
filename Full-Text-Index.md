@@ -103,6 +103,23 @@ OClass oClass = schema.createClass("Foo");
 oClass.createProperty("name", OType.STRING);
 oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
 ```
+## Allow Leading Wildcard
+
+Lucene by default doesn't support leading wildcard: [Lucene wildcard support](https://wiki.apache.org/lucene-java/LuceneFAQ#What_wildcard_search_support_is_available_from_Lucene.3F)
+
+It is possible to override this behaviour with a dedicated flag on metadata:
+
+```json
+{
+  "allowLeadingWildcard": true
+}
+```
+
+Use this flag carefully, as stated in the Lucene FAQ: 
+> Note that this can be an expensive operation: it requires scanning the list of tokens in the index in its entirety to look for those that match the pattern.
+
+
+
 
 ## Lucene Writer fine tuning (expert)
 

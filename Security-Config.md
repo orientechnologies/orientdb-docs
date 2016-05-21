@@ -301,7 +301,70 @@ The class has four properties defined: *Domain*, *BaseDN*, *Filter*, and *Roles*
 
 
 ## "auditing"
-The *auditing* component of the new security system is configured with the "auditing" object.  It has two properties, the usual "class" and "enabled" properties.
+The *auditing* component of the new security system is configured with the "auditing" object.  It has four possible properties, the usual "class" and "enabled" properties, and "distributed" and "systemImport" properties.
+
+### "distributed"
+The *distributed* property is an object and is used to configure what node events are recorded in the auditing log.
+
+The *distributed* object may contain these properties:
+
+|Property|Description|
+|--------|-----------|
+|"onNodeJoinedEnabled"|If `true`, enables auditing of node joined events. The default is `false`.|
+|"onNodeJoinedMessage"|This is a custom message stored in the `note` field of the auditing record on node joined events. It supports the dynamic binding of values, see *Customing the Message* below.|
+|"onNodeLeftEnabled"|If `true`, enables auditing of node left events. The default is `false`.|
+|"onNodeLeftMessage"|This is a custom message stored in the `note` field of the auditing record on node left events. It supports the dynamic binding of values, see *Customing the Message* below.|
+
+#### Customing the Message
+The variable `${node}` will be substituted in the specified message, if node joined or node left auditing is enabled.
+
+#### Example
+Here's an example of a "distributed" section:
+```
+  "auditing": {
+    "class": "com.orientechnologies.security.auditing.ODefaultAuditing",
+    "enabled": true,
+    "distributed": {
+      "onNodeJoinedEnabled": true,
+      "onNodeJoinedMessage": "Node ${node} has joined...",
+      "onNodeLeftEnabled": true,
+      "onNodeLeftMessage": "Node ${node} has left..."
+    }
+  }
+```
+
+
+### "systemImport"
+The *systemImport* property is an object and is used for importing a database's auditing log into the system database, where all new auditing is stored.
+
+Each auditing log record from the specified databases is moved to a cluster in the new system database with the name *databasename*_auditing.
+
+The *systemImport* object may contain these properties:
+
+|Property|Description|Default Value|
+|--------|-----------|-------------|
+|"enabled"|When set to true, the audit log importer will run for the specified databases.|false|
+|"databases"|This property is a list of database names that will have their auditing logs imported.|none|
+|"auditingClass"|This specifies the name of the auditing class used in the database being imported.|*AuditingLog*|
+|"limit"|The *limit* property indicates how many records will be imported during each *iteration* of the importer.  To reduce the impact on the system, the importer retrieves a block of auditing log records for each *iteration* and then sleeps before beginning again.|1000|
+|"sleepPeriod"|This represents (in milliseconds) how long the importer sleeps after each *iteration*.|1000|
+
+The importer stops for each database once all the auditing log records have been transferred to the system database.
+
+Here's an example of a "systemImport" section:
+```
+  "auditing": {
+    "class": "com.orientechnologies.security.auditing.ODefaultAuditing",
+    "enabled": true,
+    "systemImport": {
+      "enabled": true,
+      "databases": ["MyDB", "MyOtherDB", "OneMoreDB"],
+      "auditingClass": "AuditingLog",
+      "limit": 1000,
+      "sleepPeriod": 2000
+    }
+  }
+```
 
 ## "syslog"
 The "syslog" component can be configured with these properties.
