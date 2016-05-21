@@ -2,7 +2,7 @@
 
 OrientDB supports server-side scripting. All the [JVM languages](http://en.wikipedia.org/wiki/List_of_JVM_languages) are supported. By default [JavaScript](http://en.wikipedia.org/wiki/JavaScript) is installed.
 
-Scripts can be executed on the client and on the server-side.  On the client-side, the user must have READ privilege against the <code>database.command</code> resource.  On the server-side, [the scripting interpreter](#Enable_Server_side_scripting) must be enabled.  It is disabled by default for security reasons.
+Scripts can be executed on the client and on the server-side.  On the client-side, the user must have READ privilege against the <code>database.command</code> resource.  On the server-side, [the scripting interpreter](#enable_server_side_scripting) must be enabled.  It is disabled by default for security reasons.
 
 In order to return the result of a variable, put the variable name as last statement. Example:
 
@@ -111,14 +111,17 @@ Client side script executed in 0,426000 sec(s). Value returned is: Profile#11:52
 
 ## Enable Server-side scripting
 
-For security reasons server-side scripting is disabled by default on the server. To enable it change the enable field to <code>true</code> in the **orientdb-server-config.xml** file:
+For security reasons server-side scripting is disabled by default on the server. To enable it change the enable field to <code>true</code> in the **orientdb-server-config.xml** file under the [Server Side Script Interpreter Plugin](Script-Interpreter-Plugin.md) component and set "Javascript" between the supported languages:
 ```xml
 <!-- SERVER SIDE SCRIPT INTERPRETER. WARNING! THIS CAN BE A SECURITY HOLE: ENABLE IT ONLY IF CLIENTS ARE TRUSTED, TO TURN ON SET THE 'ENABLED' PARAMETER TO 'true' -->
   <handler class="com.orientechnologies.orient.server.handler.OServerSideScriptInterpreter">
     <parameters>
       <parameter name="enabled" value="true" />
+      <parameter name="allowedLanguages" value="SQL,Javascript" />
     </parameters>
   </handler>
 ```
+
+For more information look at [Server Side Script Interpreter Plugin](Script-Interpreter-Plugin.md).
 
 *NOTE: this will allow clients to execute any code inside the server. Enable it only if clients are trusted.*
