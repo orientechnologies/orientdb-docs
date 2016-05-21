@@ -2,7 +2,7 @@
 
 OrientDB supports server-side scripting. All the [JVM languages](http://en.wikipedia.org/wiki/List_of_JVM_languages) are supported. By default [JavaScript](http://en.wikipedia.org/wiki/JavaScript) is installed.
 
-Scripts can be executed on the client and on the server-side.  On the client-side, the user must have READ privilege against the <code>database.command</code> resource.  On the server-side, [the scripting interpreter](#enable_server_side_scripting) must be enabled.  It is disabled by default for security reasons.
+Scripts can be executed on the client and on the server-side.  On the client-side, the user must have READ privilege against the <code>database.command</code> resource.  On the server-side, [the scripting interpreter](#enable-server-side-scripting) must be enabled.  It is disabled by default for security reasons.
 
 In order to return the result of a variable, put the variable name as last statement. Example:
 
