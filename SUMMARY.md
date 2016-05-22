@@ -204,7 +204,7 @@
   * [Javascript](Javascript-Command.md) 
     * [Javascript API](Javascript-Driver.md)
   * [OrientJS](OrientJS.md)
-    * [Getting Started](OrientJS-Getting-Started.md)
+    * [Server API](OrientJS-Server.md)
   * [Scala API](Scala-Language.md) 
   * [HTTP API](OrientDB-REST.md) 
   * [Binary Protocol](Network-Binary-Protocol.md) 
