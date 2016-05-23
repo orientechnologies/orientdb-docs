@@ -55,7 +55,7 @@ Every database has a default manual index type `DICTIONARY`, which uses strings 
 
 Starting from v2.2, Indexes do not ignore NULL values, but they are indexes as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening a database with indexes previously created, will all ignore NULL by default.
 
-To create an index that expressely ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
+To create an index that expressly ignore nulls (like the default with v2.1 and earlier), look at the following examples by using SQL or Java API.
 
 SQL:
 <pre>
@@ -106,7 +106,7 @@ In the event that you also don't know the title of the work you want, you can fu
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = ["Donald Knuth"]</code>
 </pre>
 
-Or, the equivalent,
+Or, the equal,
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = "Donald Knuth"</code>
@@ -151,7 +151,7 @@ CREATE INDEX <name> [ON <class-name> (prop-names)] <type> [<key-type>]
 
   Bear in mind that this means case index names cannot contain the period (`.`) symbol, as OrientDB would interpret the text after as a property.
 
-- `<class-name>` Provides the name of the class that you are creating the automatic index to index.  Thisclass must already exist in the database.
+- `<class-name>` Provides the name of the class that you are creating the automatic index to index.  This class must already exist in the database.
 
 - `<prop-names>` Provides a comma-separated list of properties, which you want the automatic index to index.  These properties must already exist in the schema.
 
