@@ -301,7 +301,38 @@ The class has four properties defined: *Domain*, *BaseDN*, *Filter*, and *Roles*
 
 
 ## "auditing"
-The *auditing* component of the new security system is configured with the "auditing" object.  It has three properties, the usual "class" and "enabled" properties and a third, "systemImport".
+The *auditing* component of the new security system is configured with the "auditing" object.  It has four possible properties, the usual "class" and "enabled" properties, and "distributed" and "systemImport" properties.
+
+### "distributed"
+The *distributed* property is an object and is used to configure what node events are recorded in the auditing log.
+
+The *distributed* object may contain these properties:
+
+|Property|Description|
+|--------|-----------|
+|"onNodeJoinedEnabled"|If `true`, enables auditing of node joined events. The default is `false`.|
+|"onNodeJoinedMessage"|This is a custom message stored in the `note` field of the auditing record on node joined events. It supports the dynamic binding of values, see *Customing the Message* below.|
+|"onNodeLeftEnabled"|If `true`, enables auditing of node left events. The default is `false`.|
+|"onNodeLeftMessage"|This is a custom message stored in the `note` field of the auditing record on node left events. It supports the dynamic binding of values, see *Customing the Message* below.|
+
+#### Customing the Message
+The variable `${node}` will be substituted in the specified message, if node joined or node left auditing is enabled.
+
+#### Example
+Here's an example of a "distributed" section:
+```
+  "auditing": {
+    "class": "com.orientechnologies.security.auditing.ODefaultAuditing",
+    "enabled": true,
+    "distributed": {
+      "onNodeJoinedEnabled": true,
+      "onNodeJoinedMessage": "Node ${node} has joined...",
+      "onNodeLeftEnabled": true,
+      "onNodeLeftMessage": "Node ${node} has left..."
+    }
+  }
+```
+
 
 ### "systemImport"
 The *systemImport* property is an object and is used for importing a database's auditing log into the system database, where all new auditing is stored.
