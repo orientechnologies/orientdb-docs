@@ -7,6 +7,13 @@ This page aims to link all the guides to Problems and Troubleshooting.
 
 ## Topics
 
+
+#### Best practice to map the [RID](Concepts.md#record_id) in REST Full friendly ID representation
+
+Take a look at [HashID](http://hashids.org/). HashID should get you a hashed Rid, which is also convertible, so it won't take up more storage space (like with a UUID). It will just take a small bit of CPU time.
+
+Please note, this little tool is not in any way a true hash, as in, it makes it very hard to crack the hash. It is more about good obfuscation. If you are at all worried about the Rids being known, this isn't a proper solution.
+
 #### Why can't I see all the edges?
 
 OrientDB, by default, manages edges as "lightweight" edges if they have no properties. This means that if an edge has no properties, it's not stored as physical record. But don't worry, your edge is still there but encoded in a separate data structure. For this reason if you execute a ```select from E```no edges or less edges than expected are returned. It's extremely rare the need to have the list of edges, but if this is your case you can disable this feature by issuing this command once (with a slow down and a bigger database size):
