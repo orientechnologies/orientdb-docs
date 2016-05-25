@@ -146,6 +146,24 @@ Example
 ```SQL
 select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12.314015 41.963125, 12.6605063 41.963125, 12.6605063 41.8262816, 12.314015 41.8262816))') = true
 ```
+
+### ST_DWithin
+
+Returns true if the geometries are within the specified distance of one another
+
+Syntax : ST_DWithin(geom1,geom2,distance)
+
+
+Example
+
+```SQL
+SELECT ST_DWithin(ST_GeomFromText('POLYGON((0 0, 10 0, 10 5, 0 5, 0 0))'), ST_GeomFromText('POLYGON((12 0, 14 0, 14 6, 12 6, 12 0))'), 2.0d) as distance
+```
+
+```SQL
+SELECT from Polygon where ST_DWithin(geometry, ST_GeomFromText('POLYGON((12 0, 14 0, 14 6, 12 6, 12 0))'), 2.0) = true
+```
+
 ### ST_Contains
 Returns true if geom1 contains geom2
 
