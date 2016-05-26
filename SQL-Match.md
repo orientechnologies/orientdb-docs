@@ -517,9 +517,10 @@ In the RETURN section you can use:
 
 - **multiple expressions**, with or without an alias (if no alias is defined, OrientDB will generate a default alias for you), comma separated
 ```
-MATCH {class: Person, as: person}.bothE('Friend')
-{as: friendship}.bothV(){as: friend, 
-where: ($matched.person != $currentMatch)} 
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){as: friendship}
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
 RETURN person, friendship, friend
 
 result: 
@@ -532,9 +533,10 @@ result:
 ```
 
 ```
-MATCH {class: Person, as: person}.bothE('Friend')
-{as: friendship}.bothV(){as: friend, 
-where: ($matched.person != $currentMatch)} 
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){as: friendship}
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
 RETURN person.name as name, friendship.since as since, friend.name as friend
 
 result: 
@@ -547,9 +549,10 @@ result:
 
 ```
 ```
-MATCH {class: Person, as: person}.bothE('Friend')
-{as: friendship}.bothV(){as: friend, 
-where: ($matched.person != $currentMatch)} 
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){as: friendship}
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
 RETURN person.name + " is a friend of " + friend.name as friends
 
 result: 
@@ -567,9 +570,10 @@ result:
 eg.
 
 ```
-MATCH {class: Person, as: person}.bothE('Friend')
-{}.bothV(){as: friend,                               // no 'as:friendship' in this case
-where: ($matched.person != $currentMatch)} 
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
 RETURN $matches
 
 result: 
@@ -585,9 +589,10 @@ result:
 - **$paths**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing all th nodes in the statement. For nodes that have an `as:`, the alias will be returned, for the others a default alias is generated (automatically generated aliases start with `$ORIENT_DEFAULT_ALIAS_`)
 
 ```
-MATCH {class: Person, as: person}.bothE('Friend')
-{}.bothV(){as: friend,                               // no 'as:friendship' in this case
-where: ($matched.person != $currentMatch)} 
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
 RETURN $paths
 
 result: 
@@ -604,9 +609,10 @@ result:
 eg.
 
 ```
-MATCH {class: Person, as: person}.bothE('Friend')
-{}.bothV(){as: friend,                               // no 'as:friendship' in this case
-where: ($matched.person != $currentMatch)} 
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
 RETURN $elements
 
 result: 
@@ -623,9 +629,10 @@ result:
 - **$pathElements** (since 2.2.1), the same as `$paths`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
 
 ```
-MATCH {class: Person, as: person}.bothE('Friend')
-{}.bothV(){as: friend,                               // no 'as:friendship' in this case
-where: ($matched.person != $currentMatch)} 
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
 RETURN $pathElements
 
 result: 
@@ -660,7 +667,7 @@ can be written as
 
 <pre>
 <code class="lang-sql userinput">
-MATCH {class: V, as: a}-->{}-->{}-->{as:b}
+MATCH {class: V, as: a} --> {} --> {} --> {as:b}
 RETURN a, b
 </code>
 </pre>
@@ -679,7 +686,7 @@ can be written as
 
 <pre>
 <code class="lang-sql userinput">
-MATCH {class: Person, as: a}-Friend->{as:friend}<-BelongsTo-{as:b}
+MATCH {class: Person, as: a}  -Friend-> {as:friend} <-BelongsTo- {as:b}
 RETURN a, b
 </code>
 </pre>
@@ -688,9 +695,9 @@ Using arrow notation the curly braces are mandatory on both sides. eg:
 
 <pre>
 <code class="lang-sql userinput">
-MATCH {class: Person, as: a}-->{}-->{as:b} RETURN a, b  //is allowed
+MATCH {class: Person, as: a} --> {} --> {as:b} RETURN a, b  //is allowed
 
-MATCH {class: Person, as: a}-->-->{as:b} RETURN a, b  //is NOT allowed
+MATCH {class: Person, as: a} --> --> {as:b} RETURN a, b  //is NOT allowed
 
 MATCH {class: Person, as: a}.out().out(){as:b} RETURN a, b  //is allowed
 
