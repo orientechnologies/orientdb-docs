@@ -649,6 +649,8 @@ result:
 
 ```
 
+**IMPORTANT**: When using MATCH statemet in OrientDB Studio Graph panel you have to use $elements or $pathElements as return type, to let the Graph panel render the matched patterns correctly
+
 
 ### Arrow notation
 
