@@ -19,7 +19,7 @@ MATCH
     [while: (<whileCondition>)]
     [maxDepth: <number>]
   }*
-RETURN <alias> [, <alias>]*
+RETURN <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
 LIMIT <number>
 ```
 
@@ -36,15 +36,17 @@ For out(), in(), both() also a shortened *arrow* syntax is supported:
   - `{...}.both("EdgeClass"){...}` can be written as `{...}-EdgeClass-{...}`
 - **`<whileCondition>`** Defines a condition that the statement must meet to allow the traversal of this path.  It supports the normal SQL [`WHERE`](SQL-Where.md) clause.  You can also use the `$currentMatch`, `$matched` and `$depth` [context variables](#context-variables).  For more information, see [Deep Traversal While Condition](#deep-traversal-while-condition), below.
 - **`<maxDepth>`** Defines the maximum depth for this single path.
-- **`RETURN <alias>`** Defines elements in the pattern that you want returned.  It can use one of the following:
+- **`RETURN <expression> [ AS <alias> ]`** Defines elements in the pattern that you want returned.  It can use one of the following:
   - Aliases defined in the `as:` block.
   - `$matches` Indicating all defined aliases.
   - `$paths` Indicating the full traversed paths.
+  - `$elements` (since 2.2.1) Indicating that all the elements that would be returned by the $matches have to be returned flattened, without duplicates.
+  - `$pathElements` (since 2.2.1) Indicating that all the elements that would be returned by the $paths have to be returned flattened, without duplicates.
 
 **BNF Syntax**
 
 ```
-MatchStatement     := ( <MATCH> MatchExpression ( <COMMA> MatchExpression )* <RETURN> Identifier ( <COMMA> Identifier )* ( Limit )? )
+MatchStatement     := ( <MATCH> MatchExpression ( <COMMA> MatchExpression )* <RETURN> Expression (<AS> Identifier)? ( <COMMA> Expression (<AS> Identifier)? )* ( Limit )? )
 	
 MatchExpression	   := ( MatchFilter ( ( MatchPathItem | MultiMatchPathItem ) )* )
 	
