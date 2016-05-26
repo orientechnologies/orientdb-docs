@@ -511,6 +511,137 @@ orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person}.bot
 		  RETURN person.name as name, friendship.since as since, friend.name as friend</code>
 </pre>
 
+### RETURN expressions
+
+In the RETURN section you can use:
+
+- **multiple expressions**, with or without an alias (if no alias is defined, OrientDB will generate a default alias for you), comma separated
+```
+MATCH {class: Person, as: person}.bothE('Friend')
+{as: friendship}.bothV(){as: friend, 
+where: ($matched.person != $currentMatch)} 
+RETURN person, friendship, friend
+
+result: 
+
+| person | friendship | friend |
+--------------------------------
+| #12:0  | #13:0      | #12:2  |
+| #12:0  | #13:1      | #12:3  |
+| #12:1  | #13:2      | #12:3  |
+```
+
+```
+MATCH {class: Person, as: person}.bothE('Friend')
+{as: friendship}.bothV(){as: friend, 
+where: ($matched.person != $currentMatch)} 
+RETURN person.name as name, friendship.since as since, friend.name as friend
+
+result: 
+
+| name | since | friend |
+-------------------------
+| John | 2015  | Frank  |
+| John | 2015  | Jenny  |
+| Joe  | 2016  | Jenny  |
+
+```
+```
+MATCH {class: Person, as: person}.bothE('Friend')
+{as: friendship}.bothV(){as: friend, 
+where: ($matched.person != $currentMatch)} 
+RETURN person.name + " is a friend of " + friend.name as friends
+
+result: 
+
+| friends                    |
+------------------------------
+| John is a friend of Frank  |
+| John is a friend of Jenny  |
+| Joe is a friend of Jenny   |
+
+```
+
+- **$matches**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing only nodes in the statement that have an `as:` defined
+
+eg.
+
+```
+MATCH {class: Person, as: person}.bothE('Friend')
+{}.bothV(){as: friend,                               // no 'as:friendship' in this case
+where: ($matched.person != $currentMatch)} 
+RETURN $matches
+
+result: 
+
+| person |  friend | 
+--------------------
+| #12:0  |  #12:2  |
+| #12:0  |  #12:3  |
+| #12:1  |  #12:3  |
+
+```
+
+- **$paths**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing all th nodes in the statement. For nodes that have an `as:`, the alias will be returned, for the others a default alias is generated (automatically generated aliases start with `$ORIENT_DEFAULT_ALIAS_`)
+
+```
+MATCH {class: Person, as: person}.bothE('Friend')
+{}.bothV(){as: friend,                               // no 'as:friendship' in this case
+where: ($matched.person != $currentMatch)} 
+RETURN $paths
+
+result: 
+
+| person | friend | $ORIENT_DEFAULT_ALIAS_0 |
+---------------------------------------------
+| #12:0  | #12:2  | #13:0                   |
+| #12:0  | #12:3  | #13:1                   |
+| #12:1  | #12:3  | #13:2                   |
+```
+
+- **$elements** (since 2.2.1), the same as `$matches`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
+
+eg.
+
+```
+MATCH {class: Person, as: person}.bothE('Friend')
+{}.bothV(){as: friend,                               // no 'as:friendship' in this case
+where: ($matched.person != $currentMatch)} 
+RETURN $elements
+
+result: 
+
+| @rid   |  @class | name   | since  |  .....   |
+----------------------------------------
+| #12:0  |  Person | John   |        |  .....   |
+| #12:1  |  Person | Joe    |        |  .....   |
+| #12:2  |  Person | Frank  |        |  .....   |
+| #12:3  |  Person | Jenny  |        |  .....   |
+
+```
+
+- **$pathElements** (since 2.2.1), the same as `$paths`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
+
+```
+MATCH {class: Person, as: person}.bothE('Friend')
+{}.bothV(){as: friend,                               // no 'as:friendship' in this case
+where: ($matched.person != $currentMatch)} 
+RETURN $pathElements
+
+result: 
+
+| @rid   |  @class | name   | since  |  .....   |
+----------------------------------------
+| #12:0  |  Person | John   |        |  .....   |
+| #12:1  |  Person | Joe    |        |  .....   |
+| #12:2  |  Person | Frank  |        |  .....   |
+| #12:3  |  Person | Jenny  |        |  .....   |
+| #13:0  |  Friend |        |  2015  |  .....   |
+| #13:1  |  Friend |        |  2015  |  .....   |
+| #13:2  |  Friend |        |  2016  |  .....   |
+
+```
+
 
 ### Arrow notation
 
