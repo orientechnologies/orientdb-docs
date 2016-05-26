@@ -210,6 +210,7 @@
     * [Class API](OrientJS-Class.md)
       * [Class](OrientJS-Class-Classes.md)
       * [Property](OrientJS-Class-Properties.md)
+      * [Records](OrientJS-Class-Records.md)
   * [Scala API](Scala-Language.md) 
   * [HTTP API](OrientDB-REST.md) 
   * [Binary Protocol](Network-Binary-Protocol.md) 
