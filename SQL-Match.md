@@ -515,7 +515,7 @@ orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person}.bot
 
 In the RETURN section you can use:
 
-- **multiple expressions**, with or without an alias (if no alias is defined, OrientDB will generate a default alias for you), comma separated
+**multiple expressions**, with or without an alias (if no alias is defined, OrientDB will generate a default alias for you), comma separated
 
 ```
 MATCH 
@@ -567,7 +567,7 @@ result:
 
 ```
 
-- **$matches**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing only nodes in the statement that have an `as:` defined
+**$matches**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing only nodes in the statement that have an `as:` defined
 
 ```
 MATCH 
@@ -586,7 +586,7 @@ result:
 
 ```
 
-- **$paths**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing all th nodes in the statement. For nodes that have an `as:`, the alias will be returned, for the others a default alias is generated (automatically generated aliases start with `$ORIENT_DEFAULT_ALIAS_`)
+**$paths**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing all th nodes in the statement. For nodes that have an `as:`, the alias will be returned, for the others a default alias is generated (automatically generated aliases start with `$ORIENT_DEFAULT_ALIAS_`)
 
 ```
 MATCH 
@@ -604,7 +604,7 @@ result:
 | #12:1  | #12:3  | #13:2                   |
 ```
 
-- **$elements** (since 2.2.1), the same as `$matches`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
+**$elements** (since 2.2.1), the same as `$matches`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
 
 ```
 MATCH 
@@ -624,7 +624,7 @@ result:
 
 ```
 
-- **$pathElements** (since 2.2.1), the same as `$paths`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
+**$pathElements** (since 2.2.1), the same as `$paths`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
 
 ```
 MATCH 
