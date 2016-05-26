@@ -615,12 +615,12 @@ RETURN $elements
 
 result: 
 
-| @rid   |  @class | name   | since  |  .....   |
+| @rid   |  @class | name   |  .....   |
 ----------------------------------------
-| #12:0  |  Person | John   |        |  .....   |
-| #12:1  |  Person | Joe    |        |  .....   |
-| #12:2  |  Person | Frank  |        |  .....   |
-| #12:3  |  Person | Jenny  |        |  .....   |
+| #12:0  |  Person | John   |  .....   |
+| #12:1  |  Person | Joe    |  .....   |
+| #12:2  |  Person | Frank  |  .....   |
+| #12:3  |  Person | Jenny  |  .....   |
 
 ```
 
@@ -636,7 +636,7 @@ RETURN $pathElements
 result: 
 
 | @rid   |  @class | name   | since  |  .....   |
-----------------------------------------
+-------------------------------------------------
 | #12:0  |  Person | John   |        |  .....   |
 | #12:1  |  Person | Joe    |        |  .....   |
 | #12:2  |  Person | Frank  |        |  .....   |
