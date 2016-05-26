@@ -492,7 +492,7 @@ orientdb> <code class="lang-sql userinput">MATCH {class: Person, where: (name = 
 
 Projections and grouping operations are better expressed with a [`SELECT`](SQL-Query.md) query.  If you need to filter and do projection or aggregation in the same query, you can use [`SELECT`](SQL-Query.md) and [`MATCH`](SQL-Match.md) in the same statement.
 
-This is particular important when you expect a result that contains attributes from different connected records (cartesian product).  FOr instance, to retrieve names, their friends and the date since they became friends:
+This is particular important when you expect a result that contains attributes from different connected records (cartesian product).  For instance, to retrieve names, their friends and the date since they became friends:
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT person.name AS name, friendship.since AS since, friend.name 
@@ -500,6 +500,15 @@ orientdb> <code class="lang-sql userinput">SELECT person.name AS name, friendshi
 		  {as: friendship}.bothV(){as: friend, 
 		  where: ($matched.person != $currentMatch)} 
 		  RETURN person, friendship, friend)</code>
+</pre>
+
+The same can be also achieved with the MATCH only:
+
+<pre>
+orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person}.bothE('Friend')
+		  {as: friendship}.bothV(){as: friend, 
+		  where: ($matched.person != $currentMatch)} 
+		  RETURN person.name as name, friendship.since as since, friend.name as friend</code>
 </pre>
 
 
