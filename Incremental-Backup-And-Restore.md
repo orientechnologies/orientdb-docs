@@ -43,10 +43,14 @@ orientdb {db=Whisky}> backup database /tmp/backup -incremental=93222
 
 ### Incremental Backup via Java API
 You can perform an incremental backup via the Java API too.
+
+**NOTE** The `remote` protocol is supported, but the specified *path* is relative to the server.
+
 If you are managing an ODocumentDatabase you have to call the `incrementalBackup()` method that accepts a String *path* parameter to the backup directory:
 
 ```
 ODatabaseDocumentTx documentDatabase = new ODatabaseDocumentTx(dbURL);
+documentDatabase.open("root", "password");
 documentDatabase.incrementalBackup("/tmp/backup");
 ```
 
@@ -54,6 +58,7 @@ If you are using the OrientGraph interface you have to get the raw graph before 
 
 ```
 OrientGraph graphDatabase = new OrientGraphNoTx(dbURL);
+graphDatabase.open("root", "password");
 graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 ```
 
