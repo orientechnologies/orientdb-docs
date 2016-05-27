@@ -2,7 +2,7 @@
 
 (Since v2.2 - Enteprise Edition only)
 
-An incremental backup generates smaller backup files by storing only the delta between two versions of the database. This is useful when you execute a backup on a regular basis and you want to avoid to backing up the entire database each time.
+An incremental backup generates smaller backup files by storing only the delta between two versions of the database. This is useful when you execute a backup on a regular basis and you want to avoid having to back up the entire database each time.
 
 ## See also
 - [Backup and Restore](Backup-and-Restore.md)
@@ -11,7 +11,7 @@ An incremental backup generates smaller backup files by storing only the delta b
 
 ## How does it work?
 
-Every time a backup is executed, OrientDB writes in the database directory a file named `last-backup.json`. This is an example of the content:
+Every time a backup is executed, OrientDB writes a file named `last-backup.json` in the database directory. This is an example of the content:
 
 ```json
 {
