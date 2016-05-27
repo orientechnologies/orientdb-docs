@@ -25,7 +25,7 @@ Installing extensions for GREMLIN language v.X.X.X
 orientdb>
 </pre>
 
-From here, you can begin running SQL statements or commands.  For a list of these commands, see [commands](#Consoel_Commands).
+From here, you can begin running SQL statements or commands.  For a list of these commands, see [commands](Console-Commands.md#console-commands).
 
 ### Batch mode
 
