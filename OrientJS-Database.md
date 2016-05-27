@@ -16,7 +16,7 @@ var db = server.use('BaseballStats');
 console.log('Using database: ' + db.name);
 ```
 
-Using this code, your application would attempt to connect to the `BaseballStats` database.  When it succeeds, it logs a message to the console to tell the user which database they're on.  
+Using this code, your application would attempt to connect to the `BaseballStats` database.  When it succeeds, it logs a message to the console to tell the user which database they're on.
 
 When you're done with the database, be sure to close the instance,
 
@@ -69,6 +69,7 @@ db.open().then(function() {
 
 ## Working with Databases
 
+Methods are tied to the variable you initialize the Database API to: `db.<method>`.  These can also be used to define and call other API's in the OrientJS driver.
 
 
 ### Using the Record API
@@ -79,7 +80,63 @@ Methods tied to the Record API are called through the `db.record` object.  These
 var rec = db.record.get('#1:1');
 ```
 
-For more information on other methods available, see [Record API](OrientJS-Record.md).
+For more information on the Record API and other methods available, see [Record API](OrientJS-Record.md).
+
+
+### Using the Class API
+
+Methods tied to the Class API are called through the `db.class` object.  These methods allow you to create, access and manipulate classes directly through their class names.  For instance, say you wanted to create a class in a baseball database for players,
+
+```js
+var Player = db.class.create('Player', 'V');
+```
+
+For more information on the Class API and other methods available, see [Class API](OrientJS-Class.md).
+
+
+### Using the Index API
+
+Methods tied to the Index API are called throught the `db.index` object.  These methods all you to create adn fetch index properties for a given class.  For instance, say you want create an index on the `Player` class in your baseball database for the players' names,
+
+```js
+var indexName = db.index.create({
+   name: 'Player.name',
+   type: 'fulltext'
+});
+```
+
+For more information on the Index API and other methods, see [Index API](OrientJS-Index.md).  For more information on indices in general, see [Indexes](Indexes.md).
+
+
+### Querying the Database
+
+Unlike the above operations, querying the database does not require that you call a dedicated API.  You can call these methods on the Database API directly, without setting or defining an additional object, using the `db.query()` method.
+
+The `db.query` method executes an SQL query against the opened database.  You can either define these values directly in SQL, or define arbitrary parameters through additional arguments.  
+
+For instance, using the baseball database, say that you want to allow users to retrieve statistical information on players.  They provide the parameters and your application sorts and displays the resuults.
+
+
+```js
+var targetAvg = 0.3
+var targetTeam = 'Red Sox'
+
+var hitters = db.query(
+   'SELECT name, battavg FROM Player
+   WHERE battavg >= :ba AND team = :team',
+   {params: {
+      ba: targetAvg,
+      team: targetTeam
+     },
+     limit: 20
+   }
+);
+console.log(hitters);
+```
+
+Here, the variables `targetAvg` and `targetTeam` are defined at the start, then the query is run against the `Player` class for Red Sox players with batting averages greater than or equal to .300, printing the return value to the console.
+
+There are a number of more specialized query related methods supported by the Database API,
 
 
 ### Closing the Database
