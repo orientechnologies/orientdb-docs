@@ -4,12 +4,12 @@ Starting in OrientDB 2.1, the Auditing component is part of the [Enterprise Edit
 By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough privileges, you can directly query the auditing log. Example on retrieving the last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
 
 **OrientDB 2.2**
-Starting in OrientDB 2.2, all auditing logs are now stored in the [system database](System-Database.md).  The class used is still `AuditingLog`, but the logs for each database are stored in a specific cluster with this format: *databaseName*_auditing.
+Starting in OrientDB 2.2, all auditing logs are now stored in the [system database](System-Database.md).  The auditing log for each database is stored in a derived class of the `AuditingLog` class with this format: *databaseName*OAuditingLog.
 
-As an example, if you have a database called *MyDB*, then the cluster name will be `MyDB_auditing`.
+As an example, if you have a database called *MyDB*, then the class name will be `MyDBOAuditingLog`.
 
 Using the previous example to retrieve the last 20 log entries for a specific database, do this from within the system database:
-`select from cluster:MyDB_auditing order by @rid desc limit 20`
+`select from MyDBOAuditingLog order by @rid desc limit 20`
 
 ## Security First
 For security reasons, no roles should be able to access the `AuditingLog` records. For this reason before using Auditing assure to revoke any privilege on the `AuditingLog` cluster. You can do that from Studio, security panel, or via SQL by using the [SQL REVOKE](SQL-Revoke.md) command. Here's an example of revoking any access to the writer and reader roles:
