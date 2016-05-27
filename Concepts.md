@@ -40,9 +40,9 @@ Documents handle fields in a flexible manner.  You can easily import and export 
 
 For Documents, OrientDB also supports complex [relationships](Concepts.md#relationships).  From the perspective of developers, this can be understood as a persistent `Map<String,Object>`.
 
-### RecordBytes
+### BLOB
 
-In addition to the Document record type, OrientDB can also load and store binary data.  The RecordBytes record type is similar to the `BLOB` data type in Relational databases.
+In addition to the Document record type, OrientDB can also load and store binary data.  The BLOB record type was called `RecordBytes` before OrientDB v2.2.
 
 
 
