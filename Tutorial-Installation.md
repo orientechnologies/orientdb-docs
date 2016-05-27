@@ -17,6 +17,16 @@ OrientDB is available in two editions:
 
 The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://orientdb.com/support/) purchases.
 
+## Use Docker
+
+If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
+
+    $ docker run -d –name orientdb -p 2424:2424 -p 2480:2480 -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
+
+Where instead of "root", type the root's password you want to use.
+
+
+
 **Prerequisites**
 
 Both editions of OrientDB run on any operating system that implements the Java Virtual machine (JVM).  Examples of these include:
@@ -51,10 +61,10 @@ OrientDB provides a pre-compiled binary package to install the database on your 
 On server installations, you can use the `wget` utility:
 
 ```sh
-$ wget https://orientdb.com/download.php?file=orientdb-community-2.1.2.tar.gz
+$ wget https://orientdb.com/download.php?file=orientdb-community-2.2.0.tar.gz
 ```
 
-Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.1.2` with relevant files and scripts, which you will need to run OrientDB on your system.
+Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.2.0` with relevant files and scripts, which you will need to run OrientDB on your system.
 
 ### Source Code Installation
 
@@ -78,10 +88,10 @@ The develop branch contains code for the next version of OrientDB. Stable versio
 For each maintained version OrientDB has its own `hotfix` branch.
 As the time of writing this notes, the state of branches is:
 
-* develop: work in progress for next 2.2.x release (2.2.0-SNAPSHOT)
-* 2.1.x: hot fix for next 2.1.x stable release (2.1.10-SNAPSHOT)
-* 2.0.x: hot fix for next 2.0.x stable release (2.0.17-SNAPSHOT)
-* last tag on master is 2.1.9  
+* develop: work in progress for next 2.2.x release (2.2.1-SNAPSHOT)
+* 2.1.x: hot fix for next 2.1.x stable release (2.1.x-SNAPSHOT)
+* 2.0.x: hot fix for next 2.0.x stable release (2.0.x-SNAPSHOT)
+* last tag on master is 2.2.0
 
 The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch 2.1.x gave: 
 ```sh
@@ -89,12 +99,12 @@ $ls -l distribution/target/
 total 199920
     1088 26 Jan 09:57 archive-tmp
      102 26 Jan 09:57 databases
-     102 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.dir
-48814386 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.tar.gz
-53542231 26 Jan 09:58 orientdb-community-2.1.10-SNAPSHOT.zip
+     102 26 Jan 09:57 orientdb-community-2.2.1-SNAPSHOT.dir
+48814386 26 Jan 09:57 orientdb-community-2.2.1-SNAPSHOT.tar.gz
+53542231 26 Jan 09:58 orientdb-community-2.2.1-SNAPSHOT.zip
 $
 ```
-The directory `orientdb-community-2.1.10-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
+The directory `orientdb-community-2.2.1-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
 Take a look to [Contribute to OrientDB](Contribute-to-OrientDB.md) if you want to be involved.
 
 
