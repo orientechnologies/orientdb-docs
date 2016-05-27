@@ -1,6 +1,6 @@
 <!-- proofread 2015-01-05 SAM -->
 
-# Console Tool
+# Console
 
 OrientDB provides a Console Tool, which is a Java application that connects to and operates on OrientDB databases and Server instances.
 
