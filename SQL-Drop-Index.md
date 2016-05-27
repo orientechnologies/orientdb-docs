@@ -2,6 +2,8 @@
 
 Removes an index from a property defined in the schema.
 
+If the index does not exist, this call just returns with no errors.
+
 **Syntax**
 
 ```sql

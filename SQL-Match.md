@@ -19,7 +19,7 @@ MATCH
     [while: (<whileCondition>)]
     [maxDepth: <number>]
   }*
-RETURN <alias> [, <alias>]*
+RETURN <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
 LIMIT <number>
 ```
 
@@ -36,15 +36,17 @@ For out(), in(), both() also a shortened *arrow* syntax is supported:
   - `{...}.both("EdgeClass"){...}` can be written as `{...}-EdgeClass-{...}`
 - **`<whileCondition>`** Defines a condition that the statement must meet to allow the traversal of this path.  It supports the normal SQL [`WHERE`](SQL-Where.md) clause.  You can also use the `$currentMatch`, `$matched` and `$depth` [context variables](#context-variables).  For more information, see [Deep Traversal While Condition](#deep-traversal-while-condition), below.
 - **`<maxDepth>`** Defines the maximum depth for this single path.
-- **`RETURN <alias>`** Defines elements in the pattern that you want returned.  It can use one of the following:
+- **`RETURN <expression> [ AS <alias> ]`** Defines elements in the pattern that you want returned.  It can use one of the following:
   - Aliases defined in the `as:` block.
   - `$matches` Indicating all defined aliases.
   - `$paths` Indicating the full traversed paths.
+  - `$elements` (since 2.2.1) Indicating that all the elements that would be returned by the $matches have to be returned flattened, without duplicates.
+  - `$pathElements` (since 2.2.1) Indicating that all the elements that would be returned by the $paths have to be returned flattened, without duplicates.
 
 **BNF Syntax**
 
 ```
-MatchStatement     := ( <MATCH> MatchExpression ( <COMMA> MatchExpression )* <RETURN> Identifier ( <COMMA> Identifier )* ( Limit )? )
+MatchStatement     := ( <MATCH> MatchExpression ( <COMMA> MatchExpression )* <RETURN> Expression (<AS> Identifier)? ( <COMMA> Expression (<AS> Identifier)? )* ( Limit )? )
 	
 MatchExpression	   := ( MatchFilter ( ( MatchPathItem | MultiMatchPathItem ) )* )
 	
@@ -490,7 +492,7 @@ orientdb> <code class="lang-sql userinput">MATCH {class: Person, where: (name = 
 
 Projections and grouping operations are better expressed with a [`SELECT`](SQL-Query.md) query.  If you need to filter and do projection or aggregation in the same query, you can use [`SELECT`](SQL-Query.md) and [`MATCH`](SQL-Match.md) in the same statement.
 
-This is particular important when you expect a result that contains attributes from different connected records (cartesian product).  FOr instance, to retrieve names, their friends and the date since they became friends:
+This is particular important when you expect a result that contains attributes from different connected records (cartesian product).  For instance, to retrieve names, their friends and the date since they became friends:
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT person.name AS name, friendship.since AS since, friend.name 
@@ -499,6 +501,153 @@ orientdb> <code class="lang-sql userinput">SELECT person.name AS name, friendshi
 		  where: ($matched.person != $currentMatch)} 
 		  RETURN person, friendship, friend)</code>
 </pre>
+
+The same can be also achieved with the MATCH only:
+
+<pre>
+orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person}.bothE('Friend')
+		  {as: friendship}.bothV(){as: friend, 
+		  where: ($matched.person != $currentMatch)} 
+		  RETURN person.name as name, friendship.since as since, friend.name as friend</code>
+</pre>
+
+### RETURN expressions
+
+In the RETURN section you can use:
+
+**multiple expressions**, with or without an alias (if no alias is defined, OrientDB will generate a default alias for you), comma separated
+
+```
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){as: friendship}
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
+RETURN person, friendship, friend
+
+result: 
+
+| person | friendship | friend |
+--------------------------------
+| #12:0  | #13:0      | #12:2  |
+| #12:0  | #13:1      | #12:3  |
+| #12:1  | #13:2      | #12:3  |
+```
+
+```
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){as: friendship}
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
+RETURN person.name as name, friendship.since as since, friend.name as friend
+
+result: 
+
+| name | since | friend |
+-------------------------
+| John | 2015  | Frank  |
+| John | 2015  | Jenny  |
+| Joe  | 2016  | Jenny  |
+
+```
+
+```
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){as: friendship}
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
+RETURN person.name + " is a friend of " + friend.name as friends
+
+result: 
+
+| friends                    |
+------------------------------
+| John is a friend of Frank  |
+| John is a friend of Jenny  |
+| Joe is a friend of Jenny   |
+
+```
+
+**$matches**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing only nodes in the statement that have an `as:` defined
+
+```
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
+RETURN $matches
+
+result: 
+
+| person |  friend | 
+--------------------
+| #12:0  |  #12:2  |
+| #12:0  |  #12:3  |
+| #12:1  |  #12:3  |
+
+```
+
+**$paths**, to return all the patterns that match current statement. Each row in the result set will be a single pattern, containing all th nodes in the statement. For nodes that have an `as:`, the alias will be returned, for the others a default alias is generated (automatically generated aliases start with `$ORIENT_DEFAULT_ALIAS_`)
+
+```
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
+RETURN $paths
+
+result: 
+
+| person | friend | $ORIENT_DEFAULT_ALIAS_0 |
+---------------------------------------------
+| #12:0  | #12:2  | #13:0                   |
+| #12:0  | #12:3  | #13:1                   |
+| #12:1  | #12:3  | #13:2                   |
+```
+
+**$elements** (since 2.2.1), the same as `$matches`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
+
+```
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
+RETURN $elements
+
+result: 
+
+| @rid   |  @class | name   |  .....   |
+----------------------------------------
+| #12:0  |  Person | John   |  .....   |
+| #12:1  |  Person | Joe    |  .....   |
+| #12:2  |  Person | Frank  |  .....   |
+| #12:3  |  Person | Jenny  |  .....   |
+
+```
+
+**$pathElements** (since 2.2.1), the same as `$paths`, but for each node present in the pattern, a single row is created in the result set (no duplicates)
+
+```
+MATCH 
+  {class: Person, as: person}
+  .bothE('Friend'){}                                                  // no 'as:friendship' in this case
+  .bothV(){as: friend, where: ($matched.person != $currentMatch)} 
+RETURN $pathElements
+
+result: 
+
+| @rid   |  @class | name   | since  |  .....   |
+-------------------------------------------------
+| #12:0  |  Person | John   |        |  .....   |
+| #12:1  |  Person | Joe    |        |  .....   |
+| #12:2  |  Person | Frank  |        |  .....   |
+| #12:3  |  Person | Jenny  |        |  .....   |
+| #13:0  |  Friend |        |  2015  |  .....   |
+| #13:1  |  Friend |        |  2015  |  .....   |
+| #13:2  |  Friend |        |  2016  |  .....   |
+
+```
+
+**IMPORTANT**: When using MATCH statemet in OrientDB Studio Graph panel you have to use $elements or $pathElements as return type, to let the Graph panel render the matched patterns correctly
 
 
 ### Arrow notation
@@ -518,7 +667,7 @@ can be written as
 
 <pre>
 <code class="lang-sql userinput">
-MATCH {class: V, as: a}-->{}-->{}-->{as:b}
+MATCH {class: V, as: a} --> {} --> {} --> {as:b}
 RETURN a, b
 </code>
 </pre>
@@ -537,7 +686,7 @@ can be written as
 
 <pre>
 <code class="lang-sql userinput">
-MATCH {class: Person, as: a}-Friend->{as:friend}<-BelongsTo-{as:b}
+MATCH {class: Person, as: a}  -Friend-> {as:friend} <-BelongsTo- {as:b}
 RETURN a, b
 </code>
 </pre>
@@ -546,9 +695,9 @@ Using arrow notation the curly braces are mandatory on both sides. eg:
 
 <pre>
 <code class="lang-sql userinput">
-MATCH {class: Person, as: a}-->{}-->{as:b} RETURN a, b  //is allowed
+MATCH {class: Person, as: a} --> {} --> {as:b} RETURN a, b  //is allowed
 
-MATCH {class: Person, as: a}-->-->{as:b} RETURN a, b  //is NOT allowed
+MATCH {class: Person, as: a} --> --> {as:b} RETURN a, b  //is NOT allowed
 
 MATCH {class: Person, as: a}.out().out(){as:b} RETURN a, b  //is allowed
 

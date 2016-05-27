@@ -103,11 +103,16 @@ OClass oClass = schema.createClass("Foo");
 oClass.createProperty("name", OType.STRING);
 oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
 ```
-## Allow Leading Wildcard
+
+## Query parser
+
+It is possible to configure some behavior of the Lucene [query parser](https://lucene.apache.org/core/5_3_2/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+
+### Allow Leading Wildcard
 
 Lucene by default doesn't support leading wildcard: [Lucene wildcard support](https://wiki.apache.org/lucene-java/LuceneFAQ#What_wildcard_search_support_is_available_from_Lucene.3F)
 
-It is possible to override this behaviour with a dedicated flag on metadata:
+It is possible to override this behavior with a dedicated flag on meta-data:
 
 ```json
 {
@@ -118,7 +123,34 @@ It is possible to override this behaviour with a dedicated flag on metadata:
 Use this flag carefully, as stated in the Lucene FAQ: 
 > Note that this can be an expensive operation: it requires scanning the list of tokens in the index in its entirety to look for those that match the pattern.
 
+### Disable lower case on terms
 
+Lucene's QueryParser applies a lower case filter on expanded queries by default. It is possible to override this behavior with a dedicated flag on meta-data:
+
+```json
+{
+  "lowercaseExpandedTerms": false
+}
+```
+
+It is useful when used in pair with keyword analyzer:
+
+```json
+{
+  "lowercaseExpandedTerms": false,
+  "default" : "org.apache.lucene.analysis.core.KeywordAnalyzer"
+}
+```
+
+With *lowercaseExpandedTerms* set to false, these two queries will return different results:
+
+<pre>
+<code class="lang-sql userinput">SELECT from Person WHERE name LUCENE "NAME"
+
+SELECT from Person WHERE name LUCENE "name"
+
+</code>
+</pre>
 
 
 ## Lucene Writer fine tuning (expert)
