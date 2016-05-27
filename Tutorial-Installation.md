@@ -3,9 +3,9 @@
 
 OrientDB is available in two editions:
 
-- **[Community Edition](http://www.orientechnologies.com/orientdb/)** This edition is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
+- **[Community Edition](http://orientdb.com/orientdb/)** This edition is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
 
-- **[[Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/)](http://www.orientechnologies.com/enterprise.htm)** OrientDB Enterprise Edition is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition, providing Enterprise features, such as:
+- **[[Enterprise Edition](http://orientdb.com/orientdb-enterprise/)](http://orientdb.com/enterprise.htm)** OrientDB Enterprise Edition is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition, providing Enterprise features, such as:
 
     - Query Profiler
     - Distributed Clustering configuration
@@ -13,7 +13,7 @@ OrientDB is available in two editions:
     - Live Monitoring with configurable Alerts
 
 
-The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://www.orientechnologies.com/support/) purchases.
+The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://orientdb.com/support/) purchases.
 
 **Prerequisites**
 
@@ -44,7 +44,7 @@ There are two methods available to install OrientDB, with some variations on eac
 
 ### Binary Installation
 
-OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://www.orientechnologies.com/download/) and select the package that best suits your system.
+OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
 
 On server installations, you can use the `wget` utility:
 
