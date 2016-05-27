@@ -180,7 +180,7 @@ Once you have this code in place, `MOVE CLUSTER` now appears in the listing of a
 orientdb> <code class="lang-sql userinput">HELP</code>
 
 AVAILABLE COMMANDS:
-AVAILABLE COMMANDS:
+
  * alter class <command-text>   Alter a class in the database schema
  * alter cluster <command-text> Alter class in the database schema
  ...                            ...
