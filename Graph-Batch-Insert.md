@@ -69,27 +69,27 @@ This batch insert procedure is made of four phases, that have to be executed in 
  ### Typical usage: 
 
  ```
-    OGraphBatchInsert batch = new OGraphBatchInsert("plocal:your/db", "admin", "admin");
+   OGraphBatchInsert batch = new OGraphBatchInsert("plocal:your/db", "admin", "admin");
  
-    //phase 1: begin
-    batch.begin();
+//phase 1: begin
+batch.begin();
   
-    //phase 2: create edges
-    Map<String, Object> edgeProps = new HashMap<String, Object>;
-    edgeProps.put("foo", "bar");
-    batch.createEdge(0L, 1L, edgeProps);
-    batch.createVertex(2L);
-    batch.createEdge(3L, 4L, null);
-    ...
+//phase 2: create edges
+Map<String, Object> edgeProps = new HashMap<String, Object>;
+edgeProps.put("foo", "bar");
+batch.createEdge(0L, 1L, edgeProps);
+batch.createVertex(2L);
+batch.createEdge(3L, 4L, null);
+...
   
-    //phase 3: set properties on vertices, THIS CAN BE DONE ONLY AFTER EDGE AND VERTEX CREATION
-    Map<String, Object> vertexProps = new HashMap<String, Object>;
-    vertexProps.put("foo", "bar");
-    batch.setVertexProperties(0L, vertexProps)
-    ...
+//phase 3: set properties on vertices, THIS CAN BE DONE ONLY AFTER EDGE AND VERTEX CREATION
+Map<String, Object> vertexProps = new HashMap<String, Object>;
+ vertexProps.put("foo", "bar");
+batch.setVertexProperties(0L, vertexProps)
+...
   
-    //phase 4: end
-    batch.end();
+//phase 4: end
+batch.end();
 ```
  
   There is no need to create vertices before connecting them:
