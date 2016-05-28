@@ -166,7 +166,7 @@ ORecordId ridEdge1 = new ORecordId(10L, 0L); // #10:0, the RID of Edge1, that st
 ORecordId ridEdge2 = new ORecordId(10L, 1L); // #10:1, the RID of Edge2, that still does not exist
 
 ODocument vertex1 = new ODocument("VertexClass");
-vertex1.field("foo", "bar");// set property names
+vertex1.field("foo", "bar");// set property names and values
 ORidBag outBag1 = new ORidBag();
 outBag1.add(ridEdge1); // add the RID of the corresponding outgoing edge
 vertex1.field("out_EdgeClass", outBag1);
@@ -181,7 +181,7 @@ The vertex points to an edge (#10:0) that still does not exist and that will be 
 
 
 ODocument vertex2 = new ODocument("VertexClass");
-vertex2.field("foo", "bar");// set property names
+vertex2.field("foo", "bar");// set property names and values
 ORidBag outBag2 = new ORidBag();
 outBag2.add(ridEdge2); // add the RID of the corresponding outgoing edge
 vertex2.field("out_EdgeClass", outBag2);
@@ -191,7 +191,7 @@ vertex2.field("in_EdgeClass", inBag2);
 db.save(vertex2, "vertexclass"); //make sure that you are saving on the right cluster
 
 ODocument vertex3 = new ODocument("VertexClass");
-vertex3.field("foo", "bar");// set property names
+vertex3.field("foo", "bar");// set property names and values
 ORidBag inBag3 = new ORidBag();
 inBag3.add(ridEdge2); // add the RID of the corresponding incoming edge
 vertex3.field("in_EdgeClass", inBag3);
