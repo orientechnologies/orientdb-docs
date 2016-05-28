@@ -184,6 +184,7 @@
       * [Partitioned](Partitioned-Graphs.md) 
       * [Comparison](GraphDB-Comparison.md) 
       * [Lightweight Edges](Lightweight-Edges.md) 
+      * [Graph Barch Insert](Graph-Batch-Insert.md) 
     * [Document API](Document-Database.md)
       * [Database](Document-API-Database.md) 
       * [Documents](Document-API-Documents.md)
