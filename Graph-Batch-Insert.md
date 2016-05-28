@@ -68,8 +68,8 @@ This batch insert procedure is made of four phases, that have to be executed in 
  
  ### Typical usage: 
 
- ```
-   OGraphBatchInsert batch = new OGraphBatchInsert("plocal:your/db", "admin", "admin");
+```
+OGraphBatchInsert batch = new OGraphBatchInsert("plocal:your/db", "admin", "admin");
  
 //phase 1: begin
 batch.begin();
@@ -94,11 +94,11 @@ batch.end();
  
   There is no need to create vertices before connecting them:
   
- ```
+```
     batch.createVertex(0L);
     batch.createVertex(1L);
     batch.createEdge(0L, 1L, props);
- ```
+```
  
   is equivalent to (but less performing than)
   
