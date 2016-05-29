@@ -280,7 +280,7 @@ A push request is a message sent by the server without any request from the clie
 - **1 byte**: Success status has value 3 in case of push request
 - **4 bytes**: [Session-Id](#session-id) has everytime MIN_INTEGER value (-2^31)
 - **1 byte**: Push command id
-- **N bytes**: Message content depending on the push massage, this is written ass a `(content:bytes)` having inside the details of the specific message.
+- **N bytes**: Message content depending on the push massage, this is written as a `(content:bytes)` having inside the details of the specific message.
 
 
 ## Statuses
