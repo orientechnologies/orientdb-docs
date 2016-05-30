@@ -280,7 +280,7 @@ A push request is a message sent by the server without any request from the clie
 - **1 byte**: Success status has value 3 in case of push request
 - **4 bytes**: [Session-Id](#session-id) has everytime MIN_INTEGER value (-2^31)
 - **1 byte**: Push command id
-- **N bytes**: Message content depending on the push massage, this is written ass a `(content:bytes)` having inside the details of the specific message.
+- **N bytes**: Message content depending on the push massage, this is written as a `(content:bytes)` having inside the details of the specific message.
 
 
 ## Statuses
@@ -333,20 +333,22 @@ Typically the credentials are those of the OrientDB server administrator. This i
 This is the first operation requested by the client when it needs to work with the server instance. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls.
 
 ```
-Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(user-name:string)(user-password:string)
+Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(support-push)(collect-stats)(user-name:string)(user-password:string)
 Response: (session-id:int)(token:bytes)
 ```
 
 #### Request
 
-- client's **driver-name** - the name of the client driver. Example: "OrientDB Java client".
+- client's **driver-name** - the name of the client driver. Example: "OrientDB Java client"
 - client's **driver-version** - the version of the client driver. Example: "1.0rc8-SNAPSHOT"
-- client's **protocol-version** - the version of the protocol the client wants to use. Example: 30.
-- client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480".
-- client's **serialization-impl** - the [serialization format](#record-format) required by the client.
-- **token-session** - true if the client wants to use a token-based session, false otherwise.
-- **user-name** - the username of the user on the server. Example: "root".
-- **user-password** - the password of the user on the server. Example: "37aed6392".
+- client's **protocol-version** - the version of the protocol the client wants to use. Example: 30
+- client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480"
+- client's **serialization-impl** - the [serialization format](#record-format) required by the client
+- **token-session** - true if the client wants to use a token-based session, false otherwise
+- **support-push** - supports push messages from the server (starting from v34)
+- **collect-stats** - collects statistics for the connection (starting from v34)
+- **user-name** - the username of the user on the server. Example: "root"
+- **user-password** - the password of the user on the server. Example: "37aed6392"
 
 Typically the credentials are those of the OrientDB server administrator. This is not the same as the *admin* user for individual databases.
 
@@ -404,7 +406,7 @@ Response:(session-id:int)
 Creates a database in the remote OrientDB server instance.
 
 ```
-Request: (database-name:string)(database-type:string)(storage-type:string)
+Request: (database-name:string)(database-type:string)(storage-type:string)(backup-path)
 Response: empty
 ```
 
@@ -415,6 +417,7 @@ Response: empty
 - **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
+- **backup-path** - path of the backup file to restore located on the server's file system (since version 36). This is used when a database is created starting from a previous backup
 
 **Note**: it doesn't make sense to use `remote` in this context.
 

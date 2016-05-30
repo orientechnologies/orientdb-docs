@@ -3,17 +3,29 @@
 
 OrientDB is available in two editions:
 
-- **[Community Edition](http://www.orientechnologies.com/orientdb/)** This edition is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
+- **[Community Edition](http://orientdb.com/orientdb/)** This edition is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
 
-- **[[Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/)](http://www.orientechnologies.com/enterprise.htm)** OrientDB Enterprise Edition is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition, providing Enterprise features, such as:
+- **[[Enterprise Edition](http://orientdb.com/orientdb-enterprise/)](http://orientdb.com/enterprise.htm)** OrientDB Enterprise Edition is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition, providing Enterprise features, such as:
 
+    - Non-Stop Backup and Restore
+    - Scheduled FULL and Incremental Backups
     - Query Profiler
     - Distributed Clustering configuration
     - Metrics Recording
     - Live Monitoring with configurable Alerts
 
 
-The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://www.orientechnologies.com/support/) purchases.
+The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://orientdb.com/support/) purchases.
+
+## Use Docker
+
+If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
+
+    $ docker run -d –name orientdb -p 2424:2424 -p 2480:2480
+       -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
+
+Where instead of "root", type the root's password you want to use.
+
 
 **Prerequisites**
 
@@ -37,22 +49,18 @@ OrientDB requires [Java](http://www.java.com/en/download), version 1.7 or higher
 >$ java -Dorg.osgi.framework.system.packages.extra=sun.misc
 >```
 
-## Installing OrientDB
-
-There are two methods available to install OrientDB, with some variations on each depending on your operating system. The first method is to download a binary package from OrientDB. The other method is to compile the package from the source code.
-
 
 ### Binary Installation
 
-OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://www.orientechnologies.com/download/) and select the package that best suits your system.
+OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
 
 On server installations, you can use the `wget` utility:
 
 ```sh
-$ wget https://orientdb.com/download.php?file=orientdb-community-2.1.2.tar.gz
+$ wget https://orientdb.com/download.php?file=orientdb-community-2.2.0.tar.gz
 ```
 
-Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.1.2` with relevant files and scripts, which you will need to run OrientDB on your system.
+Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.2.0` with relevant files and scripts, which you will need to run OrientDB on your system.
 
 ### Source Code Installation
 
@@ -76,10 +84,10 @@ The develop branch contains code for the next version of OrientDB. Stable versio
 For each maintained version OrientDB has its own `hotfix` branch.
 As the time of writing this notes, the state of branches is:
 
-* develop: work in progress for next 2.2.x release (2.2.0-SNAPSHOT)
-* 2.1.x: hot fix for next 2.1.x stable release (2.1.10-SNAPSHOT)
-* 2.0.x: hot fix for next 2.0.x stable release (2.0.17-SNAPSHOT)
-* last tag on master is 2.1.9  
+* develop: work in progress for next 2.2.x release (2.2.1-SNAPSHOT)
+* 2.1.x: hot fix for next 2.1.x stable release (2.1.x-SNAPSHOT)
+* 2.0.x: hot fix for next 2.0.x stable release (2.0.x-SNAPSHOT)
+* last tag on master is 2.2.0
 
 The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch 2.1.x gave: 
 ```sh
@@ -87,12 +95,12 @@ $ls -l distribution/target/
 total 199920
     1088 26 Jan 09:57 archive-tmp
      102 26 Jan 09:57 databases
-     102 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.dir
-48814386 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.tar.gz
-53542231 26 Jan 09:58 orientdb-community-2.1.10-SNAPSHOT.zip
+     102 26 Jan 09:57 orientdb-community-2.2.1-SNAPSHOT.dir
+48814386 26 Jan 09:57 orientdb-community-2.2.1-SNAPSHOT.tar.gz
+53542231 26 Jan 09:58 orientdb-community-2.2.1-SNAPSHOT.zip
 $
 ```
-The directory `orientdb-community-2.1.10-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
+The directory `orientdb-community-2.2.1-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
 Take a look to [Contribute to OrientDB](Contribute-to-OrientDB.md) if you want to be involved.
 
 

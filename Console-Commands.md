@@ -1,6 +1,6 @@
 <!-- proofread 2015-01-05 SAM -->
 
-# Console Tool
+# Console
 
 OrientDB provides a Console Tool, which is a Java application that connects to and operates on OrientDB databases and Server instances.
 
@@ -25,7 +25,7 @@ Installing extensions for GREMLIN language v.X.X.X
 orientdb>
 </pre>
 
-From here, you can begin running SQL statements or commands.  For a list of these commands, see [commands](#Consoel_Commands).
+From here, you can begin running SQL statements or commands.  For a list of these commands, see [commands](Console-Commands.md#console-commands).
 
 ### Batch mode
 
@@ -180,7 +180,7 @@ Once you have this code in place, `MOVE CLUSTER` now appears in the listing of a
 orientdb> <code class="lang-sql userinput">HELP</code>
 
 AVAILABLE COMMANDS:
-AVAILABLE COMMANDS:
+
  * alter class <command-text>   Alter a class in the database schema
  * alter cluster <command-text> Alter class in the database schema
  ...                            ...
