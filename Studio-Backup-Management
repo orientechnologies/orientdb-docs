@@ -28,9 +28,9 @@ Now you must select the **backup mode** you want to use:
 - **Incremental Backup**
 - **Full + Incremental Backup**
 
-These the modes will be analysed further.
+These modes will be analysed further.
 
-Once you have chosen you desired backup mode, you have to chose the **backup period** that indicates the time you want to
+Once you have chosen the desired backup mode, you have to chose the **backup period** that indicates the time you want to
 wait between each backup and the next one.
 Eventually you must flag the **Enabled** checkbox and click on the **Save** button in order to start the scheduling of the 
 backups according to your chosen settings.
@@ -38,7 +38,12 @@ backups according to your chosen settings.
 Below we will examine briefly the three different backup strategies.
 
 ###Full backup
+Through this mode every period you set a full backup will be performed under the path you choose in the settings.
+If you want know more about the full backup you can refer to the Full Backup (link) page on the OrientDB Manual (link).
+
+<img with settings about 
 
 ###Incremental Backup
+If you prefer to execute an incremental backup (Incremental Backup link) you can select this mode.
 
 ###Full + Incremental Backup
