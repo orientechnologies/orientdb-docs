@@ -404,7 +404,7 @@ Response:(session-id:int)
 Creates a database in the remote OrientDB server instance.
 
 ```
-Request: (database-name:string)(database-type:string)(storage-type:string)
+Request: (database-name:string)(database-type:string)(storage-type:string)(backup-path)
 Response: empty
 ```
 
@@ -415,6 +415,7 @@ Response: empty
 - **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
+- **backup-path** - path of the backup file to restore located on the server's file system (since version 36). This is used when a database is created starting from a previous backup
 
 **Note**: it doesn't make sense to use `remote` in this context.
 
