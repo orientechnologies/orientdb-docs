@@ -22,7 +22,7 @@ Using the Java API, you can retrieve documents into an object or access the data
 - Browe all records in a class:
 
   ```java
-  for (ODcoument animal : database.browseClass("Animal")) {
+  for (ODocument animal : database.browseClass("Animal")) {
      System.out.println(animal.field("name"));
   }
   ```
@@ -46,7 +46,7 @@ While OrientDB is a NoSQL database implementation, it does support a subset of S
 
 ```java
 List<ODocument> result = db.query(
-   new OSQLQuery<ODcoument>(
+   new OSQLQuery<ODocument>(
       "SELECT FROM Animal WHERE id = 10
       AND NAME LIKE 'G%'"
    )
