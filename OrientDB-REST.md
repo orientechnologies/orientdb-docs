@@ -627,6 +627,9 @@ Imports a database from an uploaded JSON text file.
 
 Syntax: `http://<server>:[<port>]/import/<database>`
 
+The body of the HTTP call has to be the JSON of an exported DB (plain text).
+Multipart is not supported.
+
 **Important**: Connect required: the connection with the selected database must be already established
 #### Example ###
 
