@@ -3,7 +3,7 @@
 Studio 2.2 Enterprise Edition includes a new **Backup Manager** that allow you to schedule and perform your backups and easily execute and manage restores you may need.
 You can enjoy this functionality by reaching the panel in the Server Management area, this is what you will find:
 
-<fresh scheduler image>
+![](images/studio-backup-00-fresh-scheduler.png)
 
 How you can see the panel is divided into two sections, on the left side you can schedule your backups, on the right side on the calendar you can check:
 - the executed tasks (backup or restore)
@@ -16,7 +16,7 @@ Now let's see how you can schedule your backups.
 
 On the left you can find all the settings for your backup scheduling.
 
-<left-panel with db, path and retention selected>
+![](images/studio-backup-01-backup-scheduler-right panel.png)
 
 As first thing **choose the database** that you want backup. In the example above we have chosen the GratefulDeadConcerts
 database.
@@ -39,14 +39,12 @@ Below we will examine briefly the three different backup strategies.
 Through this mode at every period striking a full backup will be performed in the path you specified in the settings.
 If you want know more about the full backup you can refer to the [Full Backup](Backup-and-Restore.md) page.
 
-<img with settings about Full backup>
+![](images/studio-backup-02-full-backup-scheduling.png)
 
 With the settings shown above a full backup will be performed every 5 minutes. In our example, as the period is 5 minutes, after 5 minutes we will have the first backup, after 10 minutes the second one and so on.
 
-<img opt and directories written on the FS>
-
 ```
-/home/user/full-backup
+/tmp/backup/full
           |
           |____________<directory-backup1>                         
           |                      |____________<full-backup-file1>    // execute at 00:00:00
@@ -65,10 +63,10 @@ If you prefer to execute an incremental backup you can select this mode.
 As declared in the [Incremental Backup](Incremental-Backup-And-Restore.md) page the incremental backup generates smaller backup files by storing only the delta between two versions of the database.
 Let's suppose we want execute a backup every 5 minutes: then will be performed a first full backup which will be followed by a new incremental backup, containing  only the delta, every 5 minutes.
 
-<img with settings about Incremental backup>
+![](images/studio-backup-03-incremental-backup-scheduling.png)
 
 ```
-/home/user/full-backup
+/tmp/backup/incremental
           |
           |____________<directory-backup1>                         
                                 |____________<full-backup-file0>    // execute at 00:00:00
@@ -86,7 +84,7 @@ This mode is follows an hybrid approach between the first two strategies, combin
 - Full Backup period: it specifies how much time wait between two sequential full backups.
 - Incremental Backup period: it specifies how much time wait between two sequential incremental backups.
 
-<img with settings about full+incr backup>
+![](images/studio-backup-03-full-incremental-backup-scheduling.png)
 
 Let's analyse in which way the two modes are combined. Suppose we decided to execute the full backup every 5 minutes and the incremental backup every 1 minute as shown in the example above.
 Thus we will obtain that every 5 minutes a new directory with a full backup will be added in the specified path, then in the following 4 minutes will be performed an incremental backup. As we set 1 minute for the incremental backup, we will have 4 incremental backups after the first full.
@@ -95,7 +93,7 @@ That's all, after another 5 minutes we will have a third directory with an initi
 incremental backups, ans so on.
 
 ```
-/home/user/full-backup
+/tmp/backup/full-incremental
           |
           |____________<directory-backup1>                         
           |                      |____________<full-backup-file0>    // execute at 00:00:00
