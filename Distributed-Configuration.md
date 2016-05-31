@@ -313,7 +313,15 @@ OGlobalConfiguration.NETWORK_BINARY_DNS_LOADBALANCING_ENABLED.setValue(true);
 ```
 
 ## Troubleshooting
+### Hazelcast Monitor
 Users reported that Hazelcast Health Monitoring could cause problem with a JVM kill (OrientDB uses Hazelcast to manage replication between nodes). By default this setting is OFF, so if you are experiencing this kind of problem assure this is set:  `hazelcast.health.monitoring.level=OFF`
+
+### Extraction Directory
+OrientDB extract the database form the network to the temporary directory set in the JVM by `java.io.tmpdir` setting. To change the temporary directory used to store the temporary database, overwrite the default setting at JVM startup (or even at run-time from Java). Example:
+
+    java ... -Djava.io.tmpdir=/myfolder/server1
+
+OrientDB will create the temporary database under the folder `/myfolder/server1/orientdb`.
 
 
 ## History
