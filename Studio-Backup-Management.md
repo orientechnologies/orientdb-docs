@@ -47,13 +47,13 @@ With the settings shown above a full backup will be performed every 5 minutes. I
 /tmp/backup/full
           |
           |____________<directory-backup1>                         
-          |                      |____________<full-backup-file1>    // execute at 00:00:00
+          |                      |____________<full-backup-file1>    // executed at 00:00:00
           |
           |____________<directory-backup2>                         
-          |                      |____________<full-backup-file2>    // execute at 00:00:00
+          |                      |____________<full-backup-file2>    // executed at 00:00:00
           |
           |____________<directory-backup3>                        
-          |                      |____________<full-backup-file3>    // execute at 00:00:00
+          |                      |____________<full-backup-file3>    // executed at 00:00:00
           ...
 ```
 
@@ -69,11 +69,11 @@ Let's suppose we want execute a backup every 5 minutes: then will be performed a
 /tmp/backup/incremental
           |
           |____________<directory-backup1>                         
-                                |____________<full-backup-file0>    // execute at 00:00:00
-                                |____________<incr-backup-file1>    // execute at 00:00:00
-                                |____________<incr-backup-file2>    // execute at 00:00:00
-                                |____________<incr-backup-file3>    // execute at 00:00:00
-                                |____________<incr-backup-file4>    // execute at 00:00:00
+                                |____________<full-backup-file0>    // executed at 00:00:00
+                                |____________<incr-backup-file1>    // executed at 00:00:00
+                                |____________<incr-backup-file2>    // executed at 00:00:00
+                                |____________<incr-backup-file3>    // executed at 00:00:00
+                                |____________<incr-backup-file4>    // executed at 00:00:00
                                 ...
 
 ```
@@ -96,21 +96,21 @@ incremental backups, ans so on.
 /tmp/backup/full-incremental
           |
           |____________<directory-backup1>                         
-          |                      |____________<full-backup-file0>    // execute at 00:00:00
-          |                      |____________<incr-backup-file1>    // execute at 00:00:00
-          |                      |____________<incr-backup-file2>    // execute at 00:00:00
-          |                      |____________<incr-backup-file3>    // execute at 00:00:00
-          |                      |____________<incr-backup-file4>    // execute at 00:00:00
+          |                      |____________<full-backup-file0>    // executed at 00:00:00
+          |                      |____________<incr-backup-file1>    // executed at 00:00:00
+          |                      |____________<incr-backup-file2>    // executed at 00:00:00
+          |                      |____________<incr-backup-file3>    // executed at 00:00:00
+          |                      |____________<incr-backup-file4>    // executed at 00:00:00
           |
           |____________<directory-backup2>                         
-          |                      |____________<full-backup-file0>    // execute at 00:00:00
-          |                      |____________<incr-backup-file1>    // execute at 00:00:00
-          |                      |____________<incr-backup-file2>    // execute at 00:00:00
-          |                      |____________<incr-backup-file3>    // execute at 00:00:00
-          |                      |____________<incr-backup-file4>    // execute at 00:00:00
+          |                      |____________<full-backup-file0>    // executed at 00:00:00
+          |                      |____________<incr-backup-file1>    // executed at 00:00:00
+          |                      |____________<incr-backup-file2>    // executed at 00:00:00
+          |                      |____________<incr-backup-file3>    // executed at 00:00:00
+          |                      |____________<incr-backup-file4>    // executed at 00:00:00
           |
-          |____________<directory-backup3>                         // execute at 00:00:00
-          |                      |____________<full-backup-file0>
+          |____________<directory-backup3>                         
+          |                      |____________<full-backup-file0>    // executed at 00:00:00
           |                      ...
           ...
 ```
