@@ -16,7 +16,7 @@ Now let's see how you can schedule your backups.
 
 On the left you can find all the settings for your backup scheduling.
 
-![](images/studio-backup-01-backup-scheduler-right panel.png)
+![](images/studio-backup-01-backup-scheduler-right-panel.png)
 
 As first thing **choose the database** that you want backup. In the example above we have chosen the GratefulDeadConcerts
 database.
@@ -84,7 +84,7 @@ This mode is follows an hybrid approach between the first two strategies, combin
 - Full Backup period: it specifies how much time wait between two sequential full backups.
 - Incremental Backup period: it specifies how much time wait between two sequential incremental backups.
 
-![](images/studio-backup-03-full-incremental-backup-scheduling.png)
+![](images/studio-backup-03-full-incr-backup-scheduling.png)
 
 Let's analyse in which way the two modes are combined. Suppose we decided to execute the full backup every 5 minutes and the incremental backup every 1 minute as shown in the example above.
 Thus we will obtain that every 5 minutes a new directory with a full backup will be added in the specified path, then in the following 4 minutes will be performed an incremental backup. As we set 1 minute for the incremental backup, we will have 4 incremental backups after the first full.
