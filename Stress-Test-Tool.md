@@ -19,7 +19,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
  * U1000 defines 1000 Update operations
  * D1000 defines 1000 Delete operations
 So a valid set is C1000R1000U1000D1000
-The only constraint is that the number of deletes must be greater than the number of inserts.
+There are two contraints: both the number of reads and deletes must be greater than the number of creates. 
 If not present, it defaults to C1000R1000U500D500.
 
 If launched without parameters, it connects to a localhost instance of OrientDB and sets 10 iterations, 4 thread and 'C1000R1000U500D500' as the OperationSet.
@@ -28,7 +28,7 @@ If launched without parameters, it connects to a localhost instance of OrientDB 
 This is a sample of a result:
 
 	Starting execution.
-	Stress test in progress 100% [Creates: 100% - Inserts: 100% - Updates: 100% - Deletes: 100%]
+	Stress test in progress 100% [Creates: 100% - Reads: 100% - Updates: 100% - Deletes: 100%]
 
     OrientDB Stress Test v0.1
     Mode: PLOCAL, Threads: 4, Iterations: 10, Operations: [Creates: 1000 - Reads: 1000 - Updates: 500 - Deletes: 500]
