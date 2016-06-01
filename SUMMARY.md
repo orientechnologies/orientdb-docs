@@ -165,6 +165,7 @@
     * [Install as Service on Unix](Unix-Service.md) 
     * [Install as Service on Windows](Windows-Service.md) 
     * [Install with Docker](Docker-Home.md) 
+  * [Stress Test Tool](Stress-Test-Tool.md) 
 * [APIs and Drivers](Programming-Language-Bindings.md) 
   * [Functions](Functions.md)
     * [Creating Functions](Functions-Creation.md)
