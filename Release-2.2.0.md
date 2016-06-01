@@ -76,7 +76,7 @@ Starting from v2.2, when a class is created, the number of underlying clusters w
 OrientDB v2.2 can encrypt database at [file system level](Database-Encryption.md) by using DES and AES encryption.
 
 ### New ODocument.eval()
-To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
+To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` has been deprecated, but still supported. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
 
 ## Migration from 2.1.x to 2.2.x
 
