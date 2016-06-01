@@ -24,6 +24,9 @@ And Java API:
 ```java
 schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
 ```
+### Non-Stop Incremental Backup and Restore
+
+OrientDB Enterprise Edition allows [Non-Stop Incremental Backup and Restore](Incremental-Backup-And-Restore.md).
 
 ### Distributed
 
