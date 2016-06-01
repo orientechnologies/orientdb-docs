@@ -73,7 +73,7 @@ Starting from v2.2, the OrientDB SQL executor can decide if execute or not a que
 Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
 
 ### Encryption at rest
-OrientDB v2.2 can encrypt database at file system level [89](https://github.com/orientechnologies/orientdb/issues/89).
+OrientDB v2.2 can encrypt database at [file system level](Database-Encryption.md) by using DES and AES encryption.
 
 ### New ODocument.eval()
 To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
