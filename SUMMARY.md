@@ -317,6 +317,7 @@
     * [Web Server](Web-Server.md) 
   * [Plugins](Extend-Server.md) 
     * [Automatic Backup](Automatic-Backup.md) 
+    * [SysLog](SysLog-Plugin.md)
     * [Mail](Mail-Plugin.md) 
     * [JMX](JMX-Plugin.md) 
     * [Rexster](Rexster.md) 
