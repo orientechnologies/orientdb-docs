@@ -24,6 +24,10 @@ If not present, it defaults to C1000R1000U500D500.
 
 If launched without parameters, it connects to a localhost instance of OrientDB and sets 10 iterations, 4 thread and 'C1000R1000U500D500' as the OperationSet.
 
+## How it works
+The stress tester tool creates a pool of N threads (where N is the threadsNumber parameter) that - all together - execute the number of operations defined in the OperationSet.
+So, if the number of Creates is 1000, the iteration number is 10 and the thread number is 2, every single thread will execute 500 Creates (1000/2), divided in 10 iterations of 50 Creates each.
+
 ## Results
 This is a sample of a result:
 
@@ -32,14 +36,17 @@ This is a sample of a result:
 
     OrientDB Stress Test v0.1
     Mode: PLOCAL, Threads: 4, Iterations: 10, Operations: [Creates: 1000 - Reads: 1000 - Updates: 500 - Deletes: 500]
-
-    Total execution time: 19.09 seconds.
-    Average time for 1,000 Creates: 0.50 secs (2,009/s).
-    Average time for 1,000 Reads: 0.24 secs (4,195/s).
-    Average time for 500 Updates: 0.64 secs (786/s).
-    Average time for 500 Deletes: 0.37 secs (1,369/s).
+    
+    Total execution time: 4.59 seconds.
+    Average time for 250 Creates: 0.06 secs [65th percentile] - Throughput: 4,149/s."
+    Average time for 250 Reads: 0.05 secs [57th percentile] - Throughput: 4,992/s."
+    Average time for 250 Updates: 0.08 secs [62th percentile] - Throughput: 1,516/s."
+    Average time for 250 Deletes: 0.09 secs [95th percentile] - Throughput: 1,453/s."
 
 The first part of the result is updated as long as the test is running, to give the user an idea of how long it will last. It will be deleted as soon as the test successfully terminates.
 The second part shows the results of the test:
 * The total time of execution
-* The partial times of execution of every operation and the throughput
+* The average times of execution of every operation, their percentiles and the throughput.
+
+
+The average time is computed by averaging all the iterations (of all the threads) for that operation; the percentile value shows where the average result is located compared to all other results: if the average is a lot higher than 50%, it means that there are a few executions with higher times that lifted up the average (and you can expect better performance in general); a high percentile can happen when, for example, the OS or another process is doing something else (either CPU or I/O intensive) during the execution of the test.
