@@ -962,3 +962,4 @@ List<ODocument> result = database.command(
   new OSQLSynchQuery<ODocument>("SELECT FROM Account WHERE bigger( salary, 10 ) > 10") )
   .execute();
 ```
+    
