@@ -2,7 +2,7 @@
 
 # Lucene Spatial
 
-(Versions 2.2 and after only, otherwise look at [Legacy](Spatial-Index.md#Legacy) section)
+(Versions 2.2 and after only, otherwise look at [Legacy](Spatial-Index.md#legacy) section)
 
 This module is provided as external plugin. You can find it bundled in the GeoSpatial distribution, or you can add this plugin by yourself into any OrientDB distribution (Community and Enterprise Editions).
 
@@ -351,7 +351,7 @@ CREATE INDEX <name> ON <class-name> (geometry-field) SPATIAL ENGINE LUCENE
 ```
 
 
-## Legacy (before v2.2)
+## Legacy
 
 Before v2.2, OrientDB was able to only index Points. Other Shapes like rectangles and polygons are managed starting from v2.2 (look above). This is the legacy section for databases created before v2.2.
 
