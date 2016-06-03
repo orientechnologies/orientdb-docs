@@ -2,28 +2,7 @@
 
 ## What's new?
 
-### Direct Memory
-Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) already set the maximum size value to 512GB of memory by setting the JVM configuration
-```
--XX:MaxDirectMemorySize=512g
-```
 
-If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
-
-### NULL Values in Indexes
-Starting from v2.2, by default any new index created will not ignore NULL values; null values will be indexed as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening an old database with indexes previously created, will all ignore NULL by default.
-
-To create an index that explicitly ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
-
-SQL:
-```sql
-CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
-```
-
-And Java API:
-```java
-schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
-```
 ### Spatial Module
 
 OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](Spatial-Module.md).
@@ -124,6 +103,29 @@ Here's a list of some of the features that the system database may support:
 - A centralized location for configuration files
 - Logging of global auditing events
 - Recording performance metrics about the server and its databases
+
+### Direct Memory
+Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) already set the maximum size value to 512GB of memory by setting the JVM configuration
+```
+-XX:MaxDirectMemorySize=512g
+```
+
+If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
+
+### NULL Values in Indexes
+Starting from v2.2, by default any new index created will not ignore NULL values; null values will be indexed as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening an old database with indexes previously created, will all ignore NULL by default.
+
+To create an index that explicitly ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
+
+SQL:
+```sql
+CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
+```
+
+And Java API:
+```java
+schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
+```
 
 ### API changes
 
