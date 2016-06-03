@@ -24,6 +24,14 @@ And Java API:
 ```java
 schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
 ```
+### Spatial Module
+
+OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](Spatial-Module.md).
+
+### Pattern Matching
+
+Starting from v2.2, OrientDB provides an alternative way to query the database by using the Pattern Matching approach. For more information look at [SQL Match](SQL-Match.md).
+
 ### Non-Stop Incremental Backup and Restore
 
 OrientDB Enterprise Edition allows [Non-Stop Incremental Backup and Restore](Incremental-Backup-And-Restore.md).
