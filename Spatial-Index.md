@@ -2,7 +2,7 @@
 
 # Lucene Spatial
 
-(Versions 2.2 and after only, otherwise look at [Legacy](Spatial-Module.md#Legacy) section)
+(Versions 2.2 and after only, otherwise look at [Legacy](Spatial-Index.md#Legacy) section)
 
 This module is provided as external plugin. You can find it bundled in the GeoSpatial distribution, or you can add this plugin by yourself into any OrientDB distribution (Community and Enterprise Editions).
 
