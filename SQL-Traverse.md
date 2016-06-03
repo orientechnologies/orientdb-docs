@@ -102,7 +102,7 @@ In addition to the above, you can use the following context variables in travers
 - **`$depth`** Gives the current depth of nesting.
 - **`$path`** Gives a string representation of the current path.  For instance, `#5:0#.out`.  You can also display it through [`SELECT`](SQL-Query.md):
   <pre>
-  orientdb> <code class="lang-sql userinput">SELECT $path FROM (TRAVERSE *** FROM V)</code>
+  orientdb> <code class="lang-sql userinput">SELECT $path FROM (TRAVERSE * FROM V)</code>
   </pre>
 - **`$stack`** Gives a list of operations in the stack.  Use it to access the traversal history.  It's a `List<OTraverseAbstractProcess<?>>`, where the process implementations are:
   - *`OTraverseRecordSetProcess`*  The base target of traversal, usually the first given.
