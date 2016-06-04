@@ -114,29 +114,26 @@ Unlike the above operations, querying the database does not require that you cal
 
 The `db.query` method executes an SQL query against the opened database.  You can either define these values directly in SQL, or define arbitrary parameters through additional arguments.  
 
-For instance, using the baseball database, say that you want to allow users to retrieve statistical information on players.  They provide the parameters and your application sorts and displays the resuults.
+For instance, using the baseball database, say that you want to allow users to retrieve statistical information on players.  They provide the parameters and your application sorts and displays the results.
 
 
 ```js
-var targetAvg = 0.3
-var targetTeam = 'Red Sox'
+var targetAvg = 0.3;
+var targetTeam = 'Red Sox';
 
 var hitters = db.query(
-   'SELECT name, battavg FROM Player
-   WHERE battavg >= :ba AND team = :team',
+   'SELECT name, battavg FROM Player WHERE battavg >= :ba AND team = :team', 
    {params: {
       ba: targetAvg,
       team: targetTeam
-     },
-     limit: 20
-   }
+    },limit: 20 }
 );
 console.log(hitters);
 ```
 
 Here, the variables `targetAvg` and `targetTeam` are defined at the start, then the query is run against the `Player` class for Red Sox players with batting averages greater than or equal to .300, printing the return value to the console.
 
-There are a number of more specialized query related methods supported by the Database API,
+There are a number of more specialized query related methods supported by the Database API.  For more information, see the [Query](OrientJS-Query.md) guide.
 
 
 ### Closing the Database
