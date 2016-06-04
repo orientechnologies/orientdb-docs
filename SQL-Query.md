@@ -20,7 +20,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 ```
 
 - **[`<Projections>`](SQL-Query.md#projections)** Indicates the data you want to extract from the query as the result-set.  Note: In OrientDB, this variable is optional.  In the projections you can define aliases for single fields, using the `AS` keyword; in current release aliases cannot be used in the WHERE condition, GROUP BY and ORDER BY (they will be evaluated to null)
-- **`FROM`** Designates the object to query.  This can be a class, cluster, single [Recprd ID](Concepts.md#recordid), set of [Record ID's](Concepts.md#recordid), or (beginning in version 1.7.7) index values sorted by ascending or descending key order.
+- **`FROM`** Designates the object to query.  This can be a class, cluster, single [Record ID](Concepts.md#recordid), set of [Record ID's](Concepts.md#recordid), or (beginning in version 1.7.7) index values sorted by ascending or descending key order.
    - When querying a class, for `<target>` use the class name.
    - When querying a cluster, for `<target>` use `CLUSTER:<cluster-name>`.  This causes the query to execute only on records in that cluster. 
    - When querying record ID's, you can specific one or a small set of records to query.  This is useful when you need to specify a starting point in navigating graphs.

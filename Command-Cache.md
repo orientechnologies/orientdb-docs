@@ -5,7 +5,7 @@ Starting from release 2.2, OrientDB supports caching of commands results. Cachin
 - there are a few heavy queries that result a small result set
 - you have available RAM to use or caching results
 
-By default, the command cache is disabled. To enable it, set `command.cache.enabled=true`.
+By default, the command cache is disabled. To enable it, set `command.cache.enabled=true`. Look at the [Studio page about Command Cache](Studio-Query-Profiler.md#command-cache).
 
 ## Settings
 
