@@ -30,9 +30,9 @@ If not present, it defaults to C5000R5000U5000D5000.
 If the StressTester is launched without parameters, it fails because the _-m_ parameter is mandatory.
 
 ## How it works
-The stress tester tool creates the specified database 
-The stress tester tool creates a pool of N threads (where N is the threadsNumber parameter) that - all together - execute the number of operations defined in the OperationSet.
+The stress tester tool creates a temporary database where needed (on memory / plocal / remote) and then creates a pool of N threads (where N is the threadsNumber parameter) that - all together - execute the number of operations defined in the OperationSet.
 So, if the number of Creates is 1000, the iteration number is 10 and the thread number is 2, every single thread will execute 500 Creates (1000/2), divided in 10 iterations of 50 Creates each.
+After the execution of the test (or any error) the temporary database is dropped.
 
 ## Results
 This is a sample of a result:
