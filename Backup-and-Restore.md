@@ -1,6 +1,6 @@
 # Backup & Restore
 
-OrientDB supports back and and restore operations, like any database management system.
+OrientDB supports backup and and restore operations, like any database management system.
 
 The [`BACKUP DATABASE`](Console-Command-Backup.md) command executes a complete backup on the currently open database.  It compresses the backup the backup using the ZIP algorithm.  To restore the database from the subsequent `.zip` file, you can use the [`RESTORE DATABASE`](Console-Command-Restore.md) command.
 
@@ -24,7 +24,7 @@ Beginning in version 1.7.8, OrientDB introduces a `backup.sh` script found in th
 ./backup.sh <db-url> <user> <password> <destination> [<type>]
 ```
 
-- **`<db-url>`** Defines the URL for the database to back up.
+- **`<db-url>`** Defines the URL for the database to backup.
 - **`<user>`** Defines the user to run the backup.
 - **`<password>`** Defines the password for the user.
 - **`<destination>`** Defines the path to the backup file the script creates, (use the `.zip` extension).

@@ -52,7 +52,7 @@ The [security configuration](Security-Config.md) page explains in great details 
 
 
 ## Auditing/Syslog ##
-Enhancements to the auditing component have also been made.  The audit log now supports monitoring of a class being created and dropped as well as when distributed nodes join and leave the cluster.  Additionally, for operating systems that support *syslog*, a new *syslog* component, `ODefaultSyslog`, has been added for recording auditing events.  
+Enhancements to the auditing component have also been made.  The audit log now supports monitoring of a class being created and dropped as well as when distributed nodes join and leave the cluster.  Additionally, for operating systems that support *syslog*, a new *syslog* plug-in has been added for recording auditing events.  
 
 See the [security configuration](Security-Config.md) page for details on auditing properties.
 
@@ -87,4 +87,3 @@ Currently, you can reload the following security components:
 - passwordValidator
 - ldapImporter
 - auditing
-- syslog

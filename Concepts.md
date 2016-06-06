@@ -140,7 +140,7 @@ CLASS=Invoice                 CLASS=Customer
   RID=5:23                       RID=10:2
 ```
 
-Here, record `A` contains the reference to record `B` in the property `customer`.  Note that both records are reachable by other records, given that they have a [Record ID](Concepts.md#recordid).
+Here, record `A` contains the reference to record `B` in the property `customer`.  Note that both records are reachable by other records, given that they have a [Record ID](Concepts.md#record-id).
 
 With the Graph API, [Edges](Concepts.md#edges) are represented with two links stored on both vertices to handle the bidirectional relationship.
 
@@ -162,7 +162,7 @@ With the Graph API, [Edges](Concepts.md#edge) connect only two vertices.  This m
 
 When using Embedded relationships, OrientDB stores the relationship within the record that embeds it.  These relationships are stronger than Reference relationships.  You can represent it as a [UML Composition relationship](http://en.wikipedia.org/wiki/Class_diagram#Composition).
 
-Embedded records do not have thier own [Record ID](Concepts.md#recordid), given that you can't directly reference it through other records.  It is only accessible through the container record.
+Embedded records do not have thier own [Record ID](Concepts.md#record-id), given that you can't directly reference it through other records.  It is only accessible through the container record.
 
 In the event that you delete the container record, the embedded record is also deleted.  For example,
 
