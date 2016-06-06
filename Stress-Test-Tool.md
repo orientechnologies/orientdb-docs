@@ -37,17 +37,17 @@ So, if the number of Creates is 1000, the iteration number is 10 and the thread 
 ## Results
 This is a sample of a result:
 
-	Starting execution.
+	Created database [memory:stress-test-db-20160606_184456].
 	Stress test in progress 100% [Creates: 100% - Reads: 100% - Updates: 100% - Deletes: 100%]
 
     OrientDB Stress Test v0.1
-    Mode: PLOCAL, Threads: 4, Iterations: 10, Operations: [Creates: 1000 - Reads: 1000 - Updates: 500 - Deletes: 500]
-    
-    Total execution time: 4.59 seconds.
-    Average time for 250 Creates: 0.06 secs [65th percentile] - Throughput: 4,149/s.
-    Average time for 250 Reads: 0.05 secs [57th percentile] - Throughput: 4,992/s.
-    Average time for 250 Updates: 0.08 secs [62th percentile] - Throughput: 1,516/s.
-    Average time for 250 Deletes: 0.09 secs [95th percentile] - Throughput: 1,453/s.
+    Mode: MEMORY, Threads: 4, Iterations: 10, Operations: [Creates: 125 - Reads: 125 - Updates: 125 - Deletes: 125]
+
+    Total execution time: 1.89 seconds.
+    Average time for 125 Creates: 0.04 secs [65th percentile] - Throughput: 3,340/s.
+    Average time for 125 Reads: 0.05 secs [57th percentile] - Throughput: 2,557/s.
+    Average time for 125 Updates: 0.07 secs [50th percentile] - Throughput: 1,761/s.
+    Average time for 125 Deletes: 0.02 secs [67th percentile] - Throughput: 7,407/s.
 
 The first part of the result is updated as long as the test is running, to give the user an idea of how long it will last. It will be deleted as soon as the test successfully terminates.
 The second part shows the results of the test:
