@@ -43,14 +43,14 @@ With the settings shown above a full backup will be performed every 5 minutes. T
 ```
 /tmp/backup/full
           |
-          |____________<backup-direcory1>                         
-          |                      |____________<full-backup-file1>    // executed at 00:00:00
+          |____________GratefulDeadConcerts-1465213003035                         
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-36-43_0_full.ibu
           |
-          |____________<backup-direcory2>                         
-          |                      |____________<full-backup-file2>    // executed at 00:00:00
+          |____________GratefulDeadConcerts-1465213020008                         
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-37-00_0_full.ibu
           |
-          |____________<backup-direcory3>                        
-          |                      |____________<full-backup-file3>    // executed at 00:00:00
+          |____________GratefulDeadConcerts-1465213080003                        
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-38-00_0_full.ibu
           ...
 ```
 
@@ -65,12 +65,12 @@ Let's suppose we want execute a backup every 5 minutes: a **first full backup** 
 ```
 /tmp/backup/incremental
           |
-          |____________<backup-direcory1>                         
-                                |____________<full-backup-file0>    // executed at 00:00:00
-                                |____________<incr-backup-file1>    // executed at 00:00:00
-                                |____________<incr-backup-file2>    // executed at 00:00:00
-                                |____________<incr-backup-file3>    // executed at 00:00:00
-                                |____________<incr-backup-file4>    // executed at 00:00:00
+          |____________GratefulDeadConcerts-incremental                         
+                                |____________GratefulDeadConcerts_2016-06-06-13-27-00_0_full.ibu
+                                |____________GratefulDeadConcerts_2016-06-06-13-28-00_1.ibu
+                                |____________GratefulDeadConcerts_2016-06-06-13-29-00_2.ibu
+                                |____________GratefulDeadConcerts_2016-06-06-13-30-00_3.ibu
+                                |____________GratefulDeadConcerts_2016-06-06-13-31-00_4.ibu
                                 ...
 
 ```
@@ -86,28 +86,28 @@ Let's analyse in which way the two modes are combined. Suppose we decided to exe
 ![](images/studio-backup-04-full-incr-backup-scheduling.png)
 
 Thus we will obtain that every 5 minutes a new directory with a full backup will be added in the specified path, then in the following 4 minutes only incremental backups will be performed. As we set 1 minute for the incremental backup, we will have 4 incremental backups after the first full backup.
-After 5 minutes a new full backup in another directory will be performed, and the following incrementals will be executed according to the delta relative to this second full backup and they will put in this second directory.
+After 5 minutes a new full backup in another folder will be performed, and the following incrementals will be executed according to the delta relative to this second full backup and they will put in this second folder.
 That's all, after another 5 minutes we will have a third directory with an initial full backup that will be followed by 4 incremental backups, ans so on.
 
 ```
 /tmp/backup/full-incremental
           |
-          |____________<backup-direcory1>                         
-          |                      |____________<full-backup-file0>    // executed at 00:00:00
-          |                      |____________<incr-backup-file1>    // executed at 00:00:00
-          |                      |____________<incr-backup-file2>    // executed at 00:00:00
-          |                      |____________<incr-backup-file3>    // executed at 00:00:00
-          |                      |____________<incr-backup-file4>    // executed at 00:00:00
+          |____________GratefulDeadConcerts-1465213200182                         
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-40-00_0_full.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-41-00_1.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-42-00_2.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-44-00_3.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-44-00_4.ibu
           |
-          |____________<backup-direcory2>                         
-          |                      |____________<full-backup-file0>    // executed at 00:00:00
-          |                      |____________<incr-backup-file1>    // executed at 00:00:00
-          |                      |____________<incr-backup-file2>    // executed at 00:00:00
-          |                      |____________<incr-backup-file3>    // executed at 00:00:00
-          |                      |____________<incr-backup-file4>    // executed at 00:00:00
+          |____________GratefulDeadConcerts-1465213440019                         
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-45-00_0_full.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-46-00_1.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-47-00_2.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-48-00_3.ibu
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-49-00_4.ibu
           |
-          |____________<backup-direcory3>                         
-          |                      |____________<full-backup-file0>    // executed at 00:00:00
+          |____________GratefulDeadConcerts-1467210084991                         
+          |                      |____________GratefulDeadConcerts_2016-06-06-13-46-00_0_full.ibu
           |                      ...
           ...
 ```
@@ -132,22 +132,22 @@ In the calendar you can visualize and filter all the tasks (with the eventual re
 
 ![](images/studio-backup-05.1- calendar-not-empty.png) 
 
-Notice you can choose three different scopes: month, week and day.
+Notice you can choose three different scopes: **month**, **week** and **day**.
 
-Clicking on a backup you can examine additional info like execution timestamp, directory path, file name and file size.
+Clicking on a backup you can examine additional info like execution **timestamp**, **execution time**, **directory path**, **file name** and **file size**.
 Moreover you can remove the backup or carry out a restore starting from it.
 
 ![](images/studio-backup-06-backup-event.png) 
 
-Let's make a restore by clicking on the butto "Restore Backup". A new window will be opened.
+Let's make a restore by clicking on the button "Restore Backup". A new window will be opened.
 Here you must select the database where you want restore the backup: notice you must specify a fresh database you just created manually or declare just a name and a new empty database will be automatically created for the restore procedure.
 Below are reported all the files involved in the restore procedure: the number of files used to restore your database depends on the **backup mode** you chose for the selected backup task.
 
-If the backup belongs to a Full Backup schedule, just a file will be involved for each restore procedure.
+If the backup belongs to a **Full Backup** schedule, just a file will be involved for each restore procedure.
 
 ![](images/studio-backup-07-restore-from-full.png)
 
-If the backup belongs to an Incremental Backup schedule, doesn't matter which file is selected, all the files in the directory will be processed during the restore.
+If the backup belongs to an **Incremental** Backup schedule, doesn't matter which file is selected, all the files in the directory will be processed during the restore.
 
 ![](images/studio-backup-08-restore-from-incremental.png) 
 
