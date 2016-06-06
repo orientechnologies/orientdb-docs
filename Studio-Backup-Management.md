@@ -135,23 +135,23 @@ Notice you can choose three different scopes: month, week and day.
 Clicking on a backup you can examine additional info like execution timestamp, directory path, file name and file size.
 Moreover you can remove the backup or carry out a restore starting from it.
 
-![<img backup-info>](<img backup-info>) 
+![](images/studio-backup-06-backup-event.png) 
 
 Let's make a restore by clicking on the butto "Restore Backup". A new window will be opened.
 
-![<img restore-db>](<img restore-db>) 
+![](images/studio-backup-07-restore-from-full.png) 
 
 As you can see you must select the database where you want restore the backup: notice you must specify a fresh database you just created manually or declare just a name and a new empty database will be automatically created for the restore procedure.
 Below are reported all the files involved in the restore procedure: the number of files used to restore your database depends on the **backup mode** you chose for the selected backup task.
 
 If the backup belongs to a Full Backup schedule, just a file will be involved for each restore procedure.
 
-![<img full-backup restore>](<img full-backup restore>)
+![](images/studio-backup-07-restore-from-full.png)
 
 If the backup belongs to an Incremental Backup schedule, doesn't matter which file is selected, all the files in the directory will be processed during the restore.
 
-![<img incremental-backup restore>](<img incremental-backup restore>) 
+![](images/studio-backup-08-restore-from-incremental.png) 
 
 If you chose a backup belonging to a Full + Incremental backup schedule, then will be evaluated all the files contained in the directory which contains the backup file you selected from the calendar.
 
-![<img full+incr backup restore>](<img full+incr backup restore>)
+![](images/studio-backup-09-restore-from-full-incr.png)
