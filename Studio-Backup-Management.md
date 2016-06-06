@@ -151,10 +151,10 @@ If the backup belongs to a **Full Backup** schedule, just a file will be involve
 
 ![](images/studio-backup-07-restore-from-full.png)
 
-If the backup belongs to an **Incremental** Backup schedule, doesn't matter which file is selected, all the files in the directory will be processed during the restore.
+If the backup belongs to an **Incremental Backup** schedule, doesn't matter which file is selected, all the files in the directory will be processed during the restore.
 
 ![](images/studio-backup-08-restore-from-incremental.png) 
 
-If you chose a backup belonging to a Full + Incremental backup schedule, then will be evaluated all the files contained in the directory which contains the backup file you selected from the calendar.
+If you chose a backup belonging to a **Full + Incremental Backup** schedule, then will be evaluated all the files contained in the folder which contains the backup file you selected from the calendar.
 
 ![](images/studio-backup-09-restore-from-full-incr.png)
