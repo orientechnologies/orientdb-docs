@@ -115,10 +115,8 @@ That's all, after another 5 minutes we will have a third directory with an initi
 In this way we can have a "checkpoint" for each different directory to use in order to restore the database to a specific moment. You can decide if delete or maintain old backups and for each of them you can exploit the incremental backup features at the same time. To achieve this goal and use this feature properly mind that **full backup period must be major than incremental backup period**, different settings may cause illogical behaviours.
 
 ###Granularity
-You can have different granularities to schedule your backups. Besides minutes granularity you can choose hour, day, week, month, and year granularity.
+You can have different granularities to schedule your backups. Besides **minutes** granularity you can choose **hour**, **day**, **week**, **month**, and **year** granularity.
 
-![](images/studio-backup-05-granularity.png)
-![](images/studio-backup-05-granularity.png)
 ![](images/studio-backup-05-granularity.png)
 
 ##Restore
