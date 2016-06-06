@@ -130,6 +130,8 @@ In the calendar you can visualize and filter all the tasks (with the eventual re
 - Backup Error
 - Restore Error
 
+![](images/studio-backup-05.1- calendar-not-empty.png) 
+
 Notice you can choose three different scopes: month, week and day.
 
 Clicking on a backup you can examine additional info like execution timestamp, directory path, file name and file size.
@@ -138,10 +140,7 @@ Moreover you can remove the backup or carry out a restore starting from it.
 ![](images/studio-backup-06-backup-event.png) 
 
 Let's make a restore by clicking on the butto "Restore Backup". A new window will be opened.
-
-![](images/studio-backup-07-restore-from-full.png) 
-
-As you can see you must select the database where you want restore the backup: notice you must specify a fresh database you just created manually or declare just a name and a new empty database will be automatically created for the restore procedure.
+Here you must select the database where you want restore the backup: notice you must specify a fresh database you just created manually or declare just a name and a new empty database will be automatically created for the restore procedure.
 Below are reported all the files involved in the restore procedure: the number of files used to restore your database depends on the **backup mode** you chose for the selected backup task.
 
 If the backup belongs to a Full Backup schedule, just a file will be involved for each restore procedure.
