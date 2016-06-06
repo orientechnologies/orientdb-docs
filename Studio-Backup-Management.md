@@ -139,11 +139,11 @@ Moreover you can remove the backup or carry out a restore starting from it.
 
 ![](images/studio-backup-06-backup-event.png) 
 
-Let's make a restore by clicking on the button "Restore Backup". A new window will be opened.
-Here you must select the database where you want restore the backup: notice you must declare just a name and a new empty database will be automatically created by the restore procedure, don't use:
+Let's make a restore by clicking on the button "Restore Database". A new window will be opened.
+Here you must **select the database where you want restore the backup**: notice you must declare just a name and a new empty database will be automatically created by the restore procedure, **don't use**:
 
-- an existent not-empty database
-- fresh manually-built database
+- **an existent not-empty database**
+- **fresh manually-built database**
 
 Below are reported all the files involved in the restore procedure: the number of files used to restore your database depends on the **backup mode** you chose for the selected backup task.
 
