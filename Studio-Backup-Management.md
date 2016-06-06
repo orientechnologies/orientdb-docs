@@ -118,8 +118,6 @@ In this way we can have a "checkpoint" for each different directory to use in or
 You can have different granularities to schedule your backups. Besides minutes granularity you can choose hour, day, week, month, and year granularity.
 
 ![](images/studio-backup-05-granularity.png)
-![](images/studio-backup-05-granularity.png)
-![](images/studio-backup-05-granularity.png)
 
 ##Restore
 
