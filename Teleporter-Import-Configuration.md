@@ -1,4 +1,4 @@
-# Importing Configuration
+# Import Configuration
 
 It's possible to specify an importing configuration by writing down a **configuration file in JSON format** and passing its location to Teleporter through the argument `-conf`:
 
