@@ -39,8 +39,8 @@ In fact Teleporter, at execution time, **sequentially looks for**:
 ## Relationship configuration
 
 The configuration allows you to **manage the relationships of your database domain**.
-To comprehend the importance of this feature we have to consider that Teleporter builds the schema in OrientDB and carries out the migration starting from the source DB schema: **Vertices and Edges are built starting from Entities (tables) and Relationships (foreign keys)** which are inferred from your database metadata.
-Therefore if you didn't defined some constraints, such as foreign keys between the tables on which you usually perform join operations, you will lose this kind of info during the importing process.
+To comprehend the importance of this feature we have to consider that Teleporter builds the schema in OrientDB and carries out the migration starting from the source DB schema: **Vertices and Edges are built starting from Entities (tables) and Relationships (foreign keys)** which are inferred from your database metadata.  
+Therefore if you didn't defined some constraints, such as foreign keys between the tables on which you usually perform join operations, you will lose this kind of info during the importing process.  
 To be clear **if no foreign keys are declared in the schema, you will not have any edges in your final Graph Database**.
 
 So if some constraints are not defined in your schema for performance reasons, submitting a configuration file is essential  in order to obtain a complete graph model and perform a good and effective migration to OrientDB.
