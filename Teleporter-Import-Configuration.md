@@ -440,7 +440,7 @@ Through the configuration you can overcome this limit and kill two birds with on
 Let's suppose we have a N-N relationship between two tables "Film" and "Actor" without foreign keys defined in the schema.
 
 ```
-		   ACTOR                                  ACTOR_FILM                                FILM
+                 ACTOR                                    ACTOR_FILM                                FILM
                                                          (Join Table)
  ____________________________________        ____________________________________        ______________________________
 |       |              |             |      |            |           |           |      |       |         |            |
