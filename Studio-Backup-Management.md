@@ -135,8 +135,8 @@ In the calendar you can visualize and filter all the tasks (with the eventual re
 Notice you can choose three different scopes: **month**, **week** and **day**.
 
 Clicking on a backup you can examine additional info like **execution time** and **timestamp**, **directory path**, **file name** and **file size**.
-Moreover you can **remove** the backup or carry out a restore starting from it.
-**Use this way to delete your backups because removing them manually may generates unexpected behaviours**.
+Moreover you can **remove** the backup or carry out a restore starting from it.  
+**Use this way to delete your backups** because removing them manually may generates **unexpected behaviours**.
 
 ![](images/studio-backup-06-backup-event.png) 
 
