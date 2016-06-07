@@ -23,7 +23,8 @@ Teleporter is a tool written in Java, but can be used as a tool thanks to the te
                 -jpasswd <password> -ourl <orientdb-url> [-s <strategy>]
                 [-nr <name-resolver>] [-v <verbose-level>] 
                 ([-include <table-names>] | [-exclude <table-names>]) 
-                [-inheritance <orm-technology>:<ORM-file-url>] [-conf <configuration-file-location>]
+                [-inheritance <orm-technology>:<ORM-file-url>] 
+                [-conf <configuration-file-location>]
 ```
 
 #### Arguments
