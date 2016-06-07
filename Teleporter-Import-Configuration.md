@@ -8,7 +8,8 @@ It's possible to specify an import configuration by writing down a **configurati
                 -jpasswd <password> -ourl <orientdb-url> [-s <strategy>]
                 [-nr <name-resolver>] [-v <verbose-level>] 
                 ([-include <table-names>] | [-exclude <table-names>]) 
-                [-inheritance <orm-technology>:<ORM-file-url>] [-conf <configuration-file-location>]
+                [-inheritance <orm-technology>:<ORM-file-url>] 
+                [-conf <configuration-file-location>]
 
 
 ```
