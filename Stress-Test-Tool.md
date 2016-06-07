@@ -15,6 +15,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 * the _m_ parameter sets the type of database to be stressed (distributed is not yet implemented).
 * the _t_ parameter sets the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
 * the _x_ parameter sets the number of operations to be included in a transaction. This value must be lesser than the number of creates divided by the threads number and the iterations number. If the _x_ parameter is not present, all the operations will be executed outside transactions.
+* the _o_ parameter sets the filename where the results are written in JSON format.
 * the _n_ parameter sets the number of iterations to execute (where every iteration is a whole OperationSet executed by _n_ executors). If not present, it defaults to 10.
 * the _s_ parameter defines which and how many operations to execute. It is in the form of C#R#U#D#, where the '#' is a number:
  * C1000 defines 1000 Create operations
@@ -61,3 +62,6 @@ The second part shows the results of the test:
 
 
 The average time is computed by averaging all the iterations (of all the threads) for that operation; the percentile value shows where the average result is located compared to all other results: if the average is a lot higher than 50%, it means that there are a few executions with higher times that lifted up the average (and you can expect better performance in general); a high percentile can happen when, for example, the OS or another process is doing something else (either CPU or I/O intensive) during the execution of the test.
+
+
+If you plan to use thre results of the StressTester the _o_ option is available for writing the results in JSON format on disk. 
