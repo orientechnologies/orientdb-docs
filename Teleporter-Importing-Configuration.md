@@ -28,7 +28,7 @@ After the first migration, the graph database will be built and the configuratio
 ORIENDB_HOME/testdb/teleporter-config/migration-config.json
 ```
 
-In the following executions the new configuration in your database will be processed automatically, making coherent and simpler the synchronization procedure. If you want change any setting you can modify directly that file. 
+In the following executions the new configuration in your database will be processed automatically, making coherent and simpler the synchronization procedure. If you want change any setting you can modify directly that file.  
 In fact Teleporter, at execution time, **sequentially looks for**:
 
 1. the configuration file `migration-config.json` in the database directory **ORIENDB_HOME/<you-target-db>/teleporter-config/**
@@ -38,14 +38,14 @@ In fact Teleporter, at execution time, **sequentially looks for**:
 
 ## Relationship configuration
 
-The configuration allows you to **manage the relationships of your database domain**.
+The configuration allows you to **manage the relationships of your database domain**.  
 To comprehend the importance of this feature we have to consider that Teleporter builds the schema in OrientDB and carries out the migration starting from the source DB schema: **Vertices and Edges are built starting from Entities (tables) and Relationships (foreign keys)** which are inferred from your database metadata.  
 Therefore if you didn't defined some constraints, such as foreign keys between the tables on which you usually perform join operations, you will lose this kind of info during the importing process.  
 To be clear **if no foreign keys are declared in the schema, you will not have any edges in your final Graph Database**.
 
-So if some constraints are not defined in your schema for performance reasons, submitting a configuration file is essential  in order to obtain a complete graph model and perform a good and effective migration to OrientDB.
+So if some constraints are not defined in your schema for performance reasons, submitting a configuration file is essential in order to obtain a complete graph model and perform a good and effective migration to OrientDB.
 
-You can do that by **enriching the basic mapping** of Teleporter between the **E-R model and the Graph Model** to customize your importing. You can add new relationships or modify info about relationships already defined in your database schema, interacting directly on the domains-mapping carried out by Teleporter. 
+You can do that by **enriching the basic mapping** of Teleporter between the **E-R model and the Graph Model** to customize your importing. You can add new relationships or modify info about relationships already defined in your database schema, interacting directly on the domains-mapping carried out by Teleporter.  
 Each Relationship expressed in your schema through a foreign key will be transformed into an Edge class in the graph model according to automatic choices that implicate:
 
 - the **name** of the Edge
@@ -63,7 +63,7 @@ Let's start to analyse the syntax in order to examine the two main actions you c
 
 ###Adding Relationships
 
-The JSON syntax of the **configuration file** will appear very intuitive if you bear in mind that it **reflects the mapping between the E-R model and the Graph Model**.
+The JSON syntax of the **configuration file** will appear very intuitive if you bear in mind that it **reflects the mapping between the E-R model and the Graph Model**.  
 Let's consider the configuration below:
 
 ```
@@ -90,9 +90,8 @@ Let's consider the configuration below:
 }
 ```
 
-We are defining all the edges we want to map through the key `edges` which contains an array of elements. Each element in the array is an **Edge class definition containing the mapping with a Relationship** in the relational model.
-Let's suppose we have two entities "Employee" and "Project" in our database with a logical Relationship between them: starting from an Employee you can navigate the
-Projects he's working at.
+We are defining all the edges we want to map through the key `edges` which contains an array of elements. Each element in the array is an **Edge class definition containing the mapping with a Relationship** in the relational model.  
+Let's suppose we have two entities "Employee" and "Project" in our database with a logical Relationship between them: starting from an Employee you can navigate the Projects he's working at.
 
 
 ```
@@ -109,11 +108,11 @@ Projects he's working at.
 
 ```
 
-Without a foreign key definition we lose this Relationship and we obtain a graph model without the correspondent Edge class; consequently no edges between vertices of class "Employee" and vertices of class "Project" will be present:
+Without a foreign key definition we lose this Relationship and we obtain a graph model without the correspondent Edge class; consequently no edges between vertices of class "Employee" and vertices of class "Project" will be present.
 
 <img: tables without FK --> graph model wihtout edge class --> graph without edges>
 
-Through this mapping we can **overcome the lack of a foreign key** and recover the lost info.
+Through this mapping we can **overcome the lack of a foreign key** and recover the lost info.  
 Let's take a look closer to the **edge mapping**:
 
 ```
@@ -142,8 +141,7 @@ We are mapping the Edge class "WorksAtProject" with a Relationship with cardinal
 
 - **fromTable**: the foreign entity that import the primary key of the parent table. In the example is the table "EMPLOYEE".        
 - **fromColumns**: the attributes involved in the foreign key. In the example it's the field "PROJECT" in the table "EMPLOYEE".
-- **toTable**: the parent entity whose primary key is imported by the foreign table. In the example is the table "PROJECT". 
-- **toColumns**: the attributes involved in the primary key imported. In the example it's the field "ID" in the table "PROJECT".
+- **toTable**: the parent entity whose primary key is imported by the foreign table. In the example is the table "PROJECT". - **toColumns**: the attributes involved in the primary key imported. In the example it's the field "ID" in the table "PROJECT".
 
 As this Relationship is not declared in your database, it will be added and the correspondent Edge will be built according to the other info you can set.
 
@@ -182,7 +180,7 @@ and choosing "direct" direction, or don't declaring anything about that, we will
 Employee ----[WorksAtProject]----> Project
 ```
 
-Suppose we want have the **inverse logical navigation** in the graph database that we could not express in the relational model.
+Suppose we want have the **inverse logical navigation** in the graph database that we could not express in the relational model.  
 Here is the configuration we must use:
 
 ```
@@ -247,7 +245,7 @@ As you can see it's possible to **define additional properties** for the final e
 
 ```
 
-In the example above we added a property named `updatedOn` of type OType.DATE to our Edge class. 
+In the example above we added a property named `updatedOn` of type OType.DATE to our Edge class.  
 For each new defined property you can declare the following values:
 
 - **type**: it's the OrientDB type. This value is mandatory, if not declared the property is not added to the Edge.
@@ -260,8 +258,8 @@ By omitting a constraint or setting it to false you will have the same result: t
 
 ###Modifying existent Relationships
 
-If the relationship you are mapping is already present in your database, it will be overridden with the parameters you defined in the configuration.
-In this way you can **change the name and the direction of the Edge class correspondent to a relationship already present** in the database schema.
+If the relationship you are mapping is already present in your database, it will be overridden with the parameters you defined in the configuration.  
+In this way you can **change the name and the direction of the Edge class correspondent to a relationship already present** in the database schema.  
 Let's suppose we have a foreign key between "Employee" and "Project":
 
 
@@ -287,7 +285,7 @@ In this case through the automated mapping of Teleporter we will obtain the foll
 Employee ----[HasProject]----> Project
 ```
 
-In case we want reach a different result from the migration we can **change the attributes of the relationship** declaring them in the mapping. 
+In case we want reach a different result from the migration we can **change the attributes of the relationship** declaring them in the mapping.  
 Teleporter will **recognize the relationship** you want override on the basis of the values:
 
 - **fromTable**        
@@ -295,7 +293,7 @@ Teleporter will **recognize the relationship** you want override on the basis of
 - **toTable**
 - **toColumns**
 
-**These values must to be coherent with the direction of the relationship defined in the db schema, otherwise Teleporter will interpret the relationship as a new one.**
+**These values must to be coherent with the direction of the relationship defined in the db schema, otherwise Teleporter will interpret the relationship as a new one**.  
 So if for example we want override the Edge built starting from the relationship
 
 ```
@@ -432,10 +430,10 @@ Teleporter offers two importing strategies as described in the [Execution strate
 - **naive** strategy: no aggregations are executed
 - **naive-aggregate** strategy: aggregations can be executed
 
-The aggregation is performed on join tables of dimension equals to 2 (other join tables are ignored), that is to say those tables which allow joins only between two tables. 
+The aggregation is performed on join tables of dimension equals to 2 (other join tables are ignored), that is to say those tables which allow joins only between two tables.  
 Each candidate join table is converted into an appropriate Edge class, and each field not involved in any relationship with other tables (hence not involved in any foreign key in the source database schema) is aggregated in the properties of the new built Edge.
 
-If no foreign keys are defined for a specific join table the aggregation will not be performed and no edges will represent the N-N relationship.
+If no foreign keys are defined for a specific join table the aggregation will not be performed and no edges will represent the N-N relationship.  
 Through the configuration you can overcome this limit and kill two birds with one stone: in fact you can **declare the two relationships with the external tables and define the mapping with an Aggregator-Edge in one shot**.
 
 Let's suppose we have a N-N relationship between two tables "Film" and "Actor" without foreign keys defined in the schema.
@@ -540,7 +538,7 @@ In this field you have to specify:
 
 **This info are essential** for Teleporter to infer all the single relationships between the records of the two external tables "ACTOR" and "FILM" and to build all the edges coherently, so if you don't declare any of these fields an **exception** will be thrown.
 
-Remember that this syntax offers a shortcut to configure relationships and aggregation choices, thus **you can use it only when you are executing the aggregation strategy**. 
+Remember that this syntax offers a shortcut to configure relationships and aggregation choices, thus **you can use it only when you are executing the aggregation strategy**.  
 Performing your migration with a naive strategy using this syntax makes no sense, and here again an exception will be thrown.
 
 
