@@ -8,7 +8,7 @@ It's possible to specify an importing configuration by writing down a **configur
                 -jpasswd <password> -ourl <orientdb-url> [-s <strategy>]
                 [-nr <name-resolver>] [-v <verbose-level>] 
                 ([-include <table-names>] | [-exclude <table-names>]) 
-                [-inheritance <orm-technology>:<ORM-file-url>] **[-conf <configuration-file-location>]**
+                [-inheritance <orm-technology>:<ORM-file-url>] [-conf <configuration-file-location>]
 
 
 ```
@@ -18,7 +18,7 @@ For example if you want enrich your migration from Postgresql with a configurati
 ```
 ./oteleporter.sh -jdriver postgresql -jurl jdbc:postgresql://localhost:5432/testdb 
                 -juser username -jpasswd password -ourl plocal:$ORIENTDB_HOME/databases/testdb 
-                **-conf /tmp/migration-config.json**
+                -conf /tmp/migration-config.json
 
 ```
 
@@ -234,14 +234,14 @@ As you can see it's possible to **define additional properties** for the final e
 			"toColumns": ["ID"],
 			"direction": "direct"
 		},
-	**	"properties": {
+		"properties": {
 			"updatedOn": {
 				"type": "DATE",
 				"mandatory": true,
 				"readOnly": false,
 				"notNull": false
 			}
-		} **
+		}
 	}
 }
 
@@ -410,14 +410,14 @@ You can also **add properties** to the Edge class using the syntax already defin
 			"toColumns": ["ID"],
 			"direction": "direct"
 		},
-	**	"properties": {
+		"properties": {
 			"updatedOn": {
 				"type": "DATE",
 				"mandatory": true,
 				"readOnly": false,
 				"notNull": false
 			}
-		} **
+		}
 	}
 }
 ```
