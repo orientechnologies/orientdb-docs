@@ -7,12 +7,14 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 		-n iterationsNumber
 		-s operationSet
 		-t threadsNumber
-		--root-password rootPassword (optional)
-		--remote-ip remoteIpOrHost (optional)
-		--remote-port remotePort (optional)
+		-x operationsPerTransaction
+		--root-password rootPassword
+		--remote-ip remoteIpOrHost
+		--remote-port remotePort
 
 * the _m_ parameter sets the type of database to be stressed (distributed is not yet implemented).
 * the _t_ parameter sets the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
+* the _x_ parameter sets the number of operations to be included in a transaction. This value must be lesser than the number of creates divided by the threads number and the iterations number. If the _x_ parameter is not present, all the operations will be executed outside transactions.
 * the _n_ parameter sets the number of iterations to execute (where every iteration is a whole OperationSet executed by _n_ executors). If not present, it defaults to 10.
 * the _s_ parameter defines which and how many operations to execute. It is in the form of C#R#U#D#, where the '#' is a number:
  * C1000 defines 1000 Create operations
@@ -48,6 +50,9 @@ This is a sample of a result:
     Average time for 125 Reads: 0.05 secs [57th percentile] - Throughput: 2,557/s.
     Average time for 125 Updates: 0.07 secs [50th percentile] - Throughput: 1,761/s.
     Average time for 125 Deletes: 0.02 secs [67th percentile] - Throughput: 7,407/s.
+    
+    Dropped database [memory:stress-test-db-20160606_184456].
+
 
 The first part of the result is updated as long as the test is running, to give the user an idea of how long it will last. It will be deleted as soon as the test successfully terminates.
 The second part shows the results of the test:
