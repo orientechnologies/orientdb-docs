@@ -3,8 +3,9 @@ Teleporter provides two different import strategies:
 - **naive** strategy
 - **naive-aggregate** strategy
 
-Both strategies build a schema in OrientDB starting from the source DB schema: each table (known also as Entity) and each Relationship in the DB is inferred from these metadata, therefore if you didn't defined some constraints, such as foreign keys between the tables on which you usually perform join operations, you will lose this kind of info during the import process.
+Both strategies build a schema in OrientDB starting from the source DB schema: each table (known also as Entity) and each Relationship in the DB is inferred from these metadata, therefore if you didn't defined some constraints, such as foreign keys between the tables on which you usually perform join operations, you will lose this kind of info during the import process.  
 For example if foreign keys are missing, you will not have any edges in your final Graph Database.  
+You can overcome this limit by defining an [Import Configuration](Teleporter-Import-Configuration.md) that allows you to add new relationships or modify those already present in your source database schema.  
 Once built the OrientDB schema, the real import process begins.
 
 Now both strategies will be individually discussed below.
