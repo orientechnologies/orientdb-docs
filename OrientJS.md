@@ -7,7 +7,6 @@ OrientDB supports all JVM languages for server-side scripting.  Using the Orient
 - Multi-Database Access, through the same socket.
 - Connection Pooling
 - Migration Support
-- Simple CLI
 
 This page provides basic information on setting up OrientJS on your system.  For more information on using OrientJS in developing applications, see
 - [Server API](OrientJS-Server.md)
@@ -18,7 +17,6 @@ This page provides basic information on setting up OrientJS on your system.  For
 - [Queries](OrientJS-Query.md)
 - [Transactions](OrientjS-Transactions.md)
 - [Events](OrientJS-Events.md)
-- [Command-line Interface](OrientJS-CLI.md)
 
 
 ## Installation
