@@ -7,7 +7,7 @@ Once you have initialized the [Server API](OrientJS-Server.md), you can begin to
 
 ## Initializing the Database API
 
-In order to work with an OrientDB database in your Node.js application, you need to initialize an instance of the Database API.  This provides your application with the tools it needs to access, manipulate and otherwise interact with specific databases.  The initialization process is handled through the Server API, which is called `server` by convention.
+In order to work with an OrientDB database in your Node.js application, you need to initialize an instance of the Database API.  This provides your application with the tools it needs to access, manipulate and otherwise interact with specific databases.  The initialization process is handled through the Server API, which is here called `server`, by convention.
 
 For instance, with an existing database,
 
@@ -96,7 +96,7 @@ For more information on the Class API and other methods available, see [Class AP
 
 ### Using the Index API
 
-Methods tied to the Index API are called throught the `db.index` object.  These methods all you to create adn fetch index properties for a given class.  For instance, say you want create an index on the `Player` class in your baseball database for the players' names,
+Methods tied to the Index API are called through the `db.index` object.  These methods all you to create and fetch index properties for a given class.  For instance, say you want create an index on the `Player` class in your baseball database for the players' names,
 
 ```js
 var indexName = db.index.create({
@@ -106,6 +106,18 @@ var indexName = db.index.create({
 ```
 
 For more information on the Index API and other methods, see [Index API](OrientJS-Index.md).  For more information on indices in general, see [Indexes](Indexes.md).
+
+### Using the Function API
+
+Using the Database API, you can access the Function API through the `db.createFn()` method.  This allows you to create custom functions to operate on your data.  For instance, in the example of a database for baseball statistics, you might want a function to calculate a player's batting average.
+
+```js
+db.createFn("batAvg", function(hits, atBats){
+   return hits / atBats;
+});
+```
+
+For more information, see [Function API](OrientJS-Functions.md).
 
 
 ### Querying the Database
@@ -134,6 +146,43 @@ console.log(hitters);
 Here, the variables `targetAvg` and `targetTeam` are defined at the start, then the query is run against the `Player` class for Red Sox players with batting averages greater than or equal to .300, printing the return value to the console.
 
 There are a number of more specialized query related methods supported by the Database API.  For more information, see the [Query](OrientJS-Query.md) guide.
+
+
+### Transactions
+
+The Database API supports transactions through the `db.let()` and `db.commit()` methods.  These allow you to string together a series of changes to the database and then commit them together.  For instance, here is a transaction to add the player Shoeless Joe Jackson to the database:
+
+```js
+var trx = db.let('player', 
+   function(p){
+      p.create('VERTEX', 'Player')
+         .set({
+            name:      'Shoeless Joe Jackson',
+            birthDate: '1887-07-16',
+            deathDate: '1951-12-05',
+            batted:    'left',
+            threw:     'right'
+         })
+   }).commit()
+   .return('$player').all();
+```
+
+For more information, see [Transactions](OrientJS-Transactions.md).
+
+
+### Events
+
+You may find it useful to run additional code around queries outside of the normal operations for your application.  For instance, as part of a logging or debugging process, to record the queries made and how OrientDB or your application performed in serving the data.
+
+Using the `db.on()` method, you can set custom code to run on certain events, such as the beginning and ending of queries.  For instance,
+
+```js
+db.on("endQuery", function(obj){
+   console.log("DEBUG QUERY:", obj);
+});
+```
+
+For more information, see [Events](OrientJS-Events.md).
 
 
 ### Closing the Database
