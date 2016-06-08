@@ -34,7 +34,7 @@ var name = Player.property.create({
 });
 ```
 
-This adds a property ot the class where you can give the player's name when entering data.  This is fine if you only have a few properties to create, but in the case of the example, there are a large number of values you might assign to a given player, such as dates of birth and death, team, batting averages, and so on.  You can set multiple properties together by passing `class.property.create()` an array.
+This adds a property to the class where you can give the player's name when entering data.  This is fine if you only have a few properties to create, but in the case of the example, there are a large number of values you might assign to a given player, such as dates of birth and death, team, batting averages, and so on.  You can set multiple properties together by passing `class.property.create()` an array.
 
 ```js
 var properties = Player.property.create([

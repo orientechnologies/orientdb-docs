@@ -1,6 +1,6 @@
 # Working with Records
 
-With OrientJS yu can access and manipulate records on your OrientDB database, through the Class API.  This allows you to perform various operations on the data in a given class directly from within your Node.js application.
+With OrientJS you can access and manipulate records on your OrientDB database, through the Class API.  This allows you to perform various operations on the data in a given class directly from within your Node.js application.
 
 The examples below use a database of baseball statistics, assuming that you've already created a class for players and initialized it in your code.  For instance,
 
