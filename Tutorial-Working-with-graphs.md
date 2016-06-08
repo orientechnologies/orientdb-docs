@@ -25,7 +25,7 @@ By using the graph commands over the standard SQL syntax, OrientDB ensures that 
 - [CREATE VERTEX](SQL-Create-Vertex.md)
 - [DELETE VERTEX](SQL-Delete-Vertex.md)
 - [CREATE EDGE](SQL-Create-Edge.md)
-- [UDPATE EDGE](SQL-Update-Edge.md)
+- [UPDATE EDGE](SQL-Update-Edge.md)
 - [DELETE EDGE](SQL-Delete-Edge.md)
 
 ## Use Case: Social Network for Restaurant Patrons

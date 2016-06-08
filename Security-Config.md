@@ -1,7 +1,7 @@
 # OrientDB Security Configuration #
 The new OrientDB security system uses a JSON configuration file that's located by default in the *config* directory.  The default name of the file is *security.json*, but it can be overridden by setting the "server.security.file" property in *orientdb-server-config.xml* or by setting the global server property, "server.security.file".
 
-The security.json configuration file may contain up to eight global properties: "enabled", "debug", "server", "authentication", "passwordValidator", "ldapImporter", "auditing", and "syslog".
+The security.json configuration file may contain up to eight global properties: "enabled", "debug", "server", "authentication", "passwordValidator", "ldapImporter" and "auditing".
 
 Here's a description of each top-level property in the security.json file.
 
@@ -14,7 +14,6 @@ Here's a description of each top-level property in the security.json file.
 |"passwordValidator"|This property is also an object and defines the parameters required for the security system's password validator when enabled.  It is described in detail below.|
 |"ldapImporter"|This property is an object with up to five sub-properties, and it defines the LDAP importer object.  See below for more details.|
 |"auditing"|This property is also an object and contains two sub-properties, "class" and "enabled", and is described below.|
-|"syslog"|This property is an object and contains five sub-properties.  It is described below.| 
 
 ## "server"
 The "server" object contains one property called "createDefaultUsers".
@@ -364,27 +363,4 @@ Here's an example of a "systemImport" section:
       "sleepPeriod": 2000
     }
   }
-```
-
-## "syslog"
-The "syslog" component can be configured with these properties.
-
-|Property|Description|
-|--------|-----------|
-|"class"|The "class" property defines which component is instantiated for the *syslog* object.  The default class for the *syslog* component is "com.orientechnologies.security.syslog.ODefaultSyslog".|
-|"enabled"|When set to true, the *syslog* component is used in conjunction with the regular OrientDB auditing log.|
-|"hostname"|This property specifies the name or address of the *syslog* daemon.|
-|"port"|The "port" property specifies which UDP port to use when communicating with the *syslog* daemon.  The default *syslog* port of 514 is used if "port" is not specified.|
-|"appName"|This property indicates what *application name* is displayed in the *syslog* output.  By default, it's set to "OrientDB".| 
-
-Here's an example of the "syslog" configuration:
-```
-"syslog" :
-{
-	"class"		: "com.orientechnologies.security.syslog.ODefaultSyslog",
-	"enabled"	: true,
-	"hostname"	: "localhost",
-	"port"		: 514,
-	"appName"	: "OrientDB"
-}
 ```

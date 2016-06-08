@@ -14,6 +14,7 @@ OrientDB is the NoSQL implementation with the greatest focus on security.
 |![](images/warning.png)| While OrientDB Server can function as a regular Web Server, it is not recommended that you expose it directly to either the Internet or public networks.  Instead, always hide OrientDB server in private networks.|
 
 See also:
+- [New Security Features](Security-OrientDB-New-Security-Features.md)
 - [Database security](Database-Security.md)
 - [Server security](Server-Security.md)
 - [Database Encryption](Database-Encryption.md)

@@ -10,8 +10,8 @@ When you finish with a database instance, you must close it in order to free up 
 
 ```java
 // Open the /tmp/test Document Database
-ODatabaseDocumentTx db = new ODatabaseDocumentTX("plocal:/tmp/test");
-db.open("admin", "admin_passwd");
+ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/tmp/test");
+db.open("admin", "admin");
 
 try {
      // Enter your code here...
@@ -38,28 +38,45 @@ ODatabaseDocumentTx db = new ODatabaseDocumentTx
         .create();
 ```
 
+When you create a db for the first time, OrientDB creates three users and three roles for you
+
+Users:
+
+- User `admin` (password "admin") with role `admin`
+- User `reader` (password "reader") with role `reader`
+- User `writer` (password "writer") with role `writer`
+
+Roles:
+
+- Role `admin` - full control on the database
+- Role `reader` - read only permissions
+- Role `writer` - read/write permissions, but no schema manipulation
+
+For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](Database-Security.md)
+
 For creating database instances on remote servers, the process is a little more complicated.  You need the user and password to access the remote OrientDB Server instance.  By default, OrientDB creates the `root` user when the server first starts.  Checking the file in `$ORIENTDB_HOME/config/orientdb-server-config.xml`, which also provides the password.
+
 
 To create a new document database, here `ExampleDB` at the address `dbhost` using file system storage, add the following lines to your application:
 
 ```java
 new OServerAdmin("remote:dbhost")
       .connect("root", "root_passwd")
-      .createDatabase("ExampleDB", "document", "local").close();
+      .createDatabase("ExampleDB", "document", "plocal").close();
 ```
 
-This uses the `root` user to connect to the OrientDB Server, then creates the `ExampleDB` Document Database.  To create a graph database, replace `document` with `graph`.  To store the database in memory, replace `local` with `memory`.
+This uses the `root` user to connect to the OrientDB Server, then creates the `ExampleDB` Document Database.  To create a graph database, replace `document` with `graph`.  To store the database in memory, replace `plocal` with `memory`.
 
 
 
 ## Opening Existing Databases
 
-When dealing with existing databases, you need to open the instance instead of creating it.  The database instance shares the connection, rather than the storage.  If it's a `local` storage, then all the database instances synchronize on it.  IF it's a `remote` storage, then all the database instances share the network connection.
+When dealing with existing databases, you need to open the instance instead of creating it.  The database instance shares the connection, rather than the storage.  If it's a `plocal` storage, then all the database instances synchronize on it.  IF it's a `remote` storage, then all the database instances share the network connection.
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx 
       ("remote:localhost/petshop")
-      .open("admin", "admin_passwd");
+      .open("admin", "admin"); //default password
 ``` 
 
 ### Using Database Pools
@@ -96,5 +113,20 @@ pool.close()
 ```
 
 
+### Dropping a database
+
+To drop a database (`plocal`) ODatabaseDocumentTx provides the following API:
+
+```
+db.drop();
+```
+
+To drop a db in `remote`, you can use the following:
+
+```
+new OServerAdmin("remote:dbhost")
+      .connect("root", "root_passwd")
+      .dropDatabase("dbName", "plocal");
+```
 
 

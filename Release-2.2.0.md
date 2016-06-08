@@ -2,28 +2,18 @@
 
 ## What's new?
 
-### Direct Memory
-Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) already set the maximum size value to 512GB of memory by setting the JVM configuration
-```
--XX:MaxDirectMemorySize=512g
-```
 
-If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
+### Spatial Module
 
-### NULL Values in Indexes
-Starting from v2.2, by default any new index created will not ignore NULL values; null values will be indexed as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening an old database with indexes previously created, will all ignore NULL by default.
+OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](Spatial-Module.md).
 
-To create an index that explicitly ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
+### Pattern Matching
 
-SQL:
-```sql
-CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
-```
+Starting from v2.2, OrientDB provides an alternative way to query the database by using the Pattern Matching approach. For more information look at [SQL Match](SQL-Match.md).
 
-And Java API:
-```java
-schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
-```
+### Non-Stop Incremental Backup and Restore
+
+OrientDB Enterprise Edition allows [Non-Stop Incremental Backup and Restore](Incremental-Backup-And-Restore.md).
 
 ### Distributed
 
@@ -73,24 +63,38 @@ Starting from v2.2, the OrientDB SQL executor can decide if execute or not a que
 Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
 
 ### Encryption at rest
-OrientDB v2.2 can encrypt database at file system level [89](https://github.com/orientechnologies/orientdb/issues/89).
+OrientDB v2.2 can encrypt database at [file system level](Database-Encryption.md) by using DES and AES encryption.
 
 ### New ODocument.eval()
-To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` is not supported anymore. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
+To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` has been deprecated, but still supported. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
 
-## Migration from 2.1.x to 2.2.x
+### Security
+OrientDB v2.2 comes with a plethora of [new security features](Security-OrientDB-New-Security-Features.md), including a new centralized security module, external authenticators (including Kerberos), LDAP import of users, password validation, enhanced auditing features, support for syslog events, using a salt with password hashes, and a new *system user*.
 
-Databases created with release 2.1.x are compatible with 2.2.x, so you don't have to export/import the database.
+#### security.json
+The new security module uses a [JSON configuration file](Security-Config.md), located at `config\security.json`.
 
-### Security and Speed
+#### External Authenticators
+OrientDB v2.2 supports external authentication, meaning that authentication of database and server users can occur outside the database and server configuration.  Kerberos/SPNEGO authentication is now fully supported.
 
-OrientDB v2.2 increase security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycle for SALT: more is harder to decode but is slower. Change setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
+#### LDAP Import
+As part of the new security module, LDAP users can be imported automatically into OrientDB databases (including the new system database) using LDAP filters.
+
+#### Password Validator
+Password validation is now fully supported, including the ability to specify minimum length and the number of uppercase, special, and numeric characters.
+
+#### Auditing
+Auditing is no longer an Enterprise-only feature and supports many new auditing events, including the creation and dropping of classes, reloading of configuration files, and distributed node events.  Additionally, if the new [syslog plugin](SysLog-Plugin.md) is installed, auditing events will also be recorded to syslog.
+
+#### Salt
+OrientDB v2.2 increases security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycles for the SALT: more is harder to decode but is slower. Change the setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
 The default password hashing algorithm is now `PBKDF2WithHmacSHA256` this is not present in any environment so you can change it setting `security.userPasswordDefaultAlgorithm` possible alternatives values are `PBKDF2WithHmacSHA1` or `SHA-256`
 
-To improve performance consider also avoiding opening and closing connection, but rather using a connection pool.
+#### System User
+As part of the new ["system database"](System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
 
 ### System Database
-OrientDB now uses a "system database" to provide additional capabilities.
+OrientDB now uses a ["system database"](System-Database.md) to provide additional capabilities.
 
 The system database, currently named *OSystem*, is created when the OrientDB server starts, if the database does not exist.
 
@@ -100,8 +104,28 @@ Here's a list of some of the features that the system database may support:
 - Logging of global auditing events
 - Recording performance metrics about the server and its databases
 
-#### System Users
-A third type of user now exists, called a *system user*.  A *system user* is similar in concept to a *server user* but resides in the system database as an *OUser* record and supports having roles and permissions.
+### Direct Memory
+Starting from v2.2, OrientDB uses direct memory. The new server.sh (and .bat) already set the maximum size value to 512GB of memory by setting the JVM configuration
+```
+-XX:MaxDirectMemorySize=512g
+```
+
+If you run OrientDB embedded or with a different script, please set `MaxDirectMemorySize` to a high value, like `512g`.
+
+### NULL Values in Indexes
+Starting from v2.2, by default any new index created will not ignore NULL values; null values will be indexed as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening an old database with indexes previously created, will all ignore NULL by default.
+
+To create an index that explicitly ignore nulls (like the default with v2.1 and earlier), look at the following examples by usinng SQL or Java API.
+
+SQL:
+```sql
+CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
+```
+
+And Java API:
+```java
+schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
+```
 
 ### API changes
 
@@ -159,3 +183,8 @@ ALTER PROPERTY Foo.name min "2015-01-01 00:00:00"
 **CREATE USER** and **DROP USER**
 
 In v2.2 we introduced new [specific commands to work with users](https://github.com/orientechnologies/orientdb/pull/4000).
+
+
+## Migration from 2.1.x to 2.2.x
+Databases created with release 2.1.x are compatible with 2.2.x, so you don't have to export/import the database.
+

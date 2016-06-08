@@ -14,8 +14,6 @@
             "all": "http://orientdb.com"
         }
     },
-    "search": {
-    },
     "pdf": {
         "toc": true,
         "pageNumbers": true,
@@ -30,7 +28,7 @@
         "footerTemplate": "Copyright (c) OrientDB LTD"
     },
     "plugins": [
-        "ga", "anchors", "collapsible-menu", "versions", "edit-link", "addcssjs"
+        "ga", "anchors", "collapsible-menu", "versions", "edit-link", "addcssjs", "search"
     ],
     "pluginsConfig": {
         "ga": {
@@ -56,6 +54,10 @@
         },
         "github": {
             "url": "https://github.com/orientechnologies/orientdb"
+        },
+        "search": {
+            "maxIndexSize": 2000000
         }
+        
     }
 }
