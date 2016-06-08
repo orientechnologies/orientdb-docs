@@ -1,4 +1,4 @@
-# OrientJS - `update()` 
+# OrientJS - `update()`
 
 Update queries in OrientJS are those used in changing or otherwise modifying existing records in the database.  The method is comparable to the [`UPDATE`](SQL-Update.md) command on the OrientDB Console.
 
@@ -21,7 +21,7 @@ var update = db.update('#12:97')
 console.log('Updated ', update);
 ```
 
-### Putting in Map Entires
+### Putting in Map Entries
 
 When working with map fields, you sometimes need to put entries into map properties.  In the OrientDB Console, you can do this with the `PUT` clause, in OrientJS you can do so through the `put()` method.
 

@@ -5,7 +5,7 @@ In OrientDB, sometimes the default behavior of the [`SELECT`](SQL-Query.md) comm
 >For more information, see [Fetching Strategies](Fetching-Strategies.md).
 
 
-## Working with Fetching Strategies 
+## Working with Fetching Strategies
 
 Using Fetching Strategies in OrientJS operates through the `fetch()` method tied into a larger query.
 

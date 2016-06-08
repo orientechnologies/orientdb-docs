@@ -19,7 +19,7 @@ console.log(hitters);
 
 ### Using Parameters
 
-In the event that you want to query other teams and batting averages, such as the case where you want your application to serve a website, you can use perviously defined variables, here `targetBA` and `targetTeam`, to set these parameters.  You can also add a limit to minimize the amount of data your application needs to parse.
+In the event that you want to query other teams and batting averages, such as the case where you want your application to serve a website, you can use previously defined variables, (here, `targetBA` and `targetTeam`), to set these parameters.  You can also add a limit to minimize the amount of data your application needs to parse.
 
 ```js
 var hitters = db.query(
@@ -36,15 +36,17 @@ console.log(hitters);
 
 ## Query Builder
 
-Rather than writing out query strings in SQL, you can use the OrientJS Query Builder to construct queries using a series of methods connected through the Database API.
+Rather than writing out query strings in SQL, you can alternatively use the OrientJS Query Builder to construct queries using a series of methods connected through the Database API.
 
-- [**`create()`**](OrientJS-Query-Create.md) Method used in creating vertices and edges.
-- [**`delete()`**](OrientJS-Query-Delete.md) Method used in removing vertices, edges and records from the database.
-- [**`fetch()`**](OrientJS-Query-Fetch.md) Method used in defining a fetching strategy for the query.
-- [**`insert()`**](OrientJS-Query-Insert.md) Method used in adding records to the database.
-- [**`select()`**](OrientJS-Query-Select.md) Method used in fetching records from the database.
-- [**`transform()`**](OrientJS-Query-Transform.md) Method used in modifying fetched data before setting it to the variable.
-- [**`traverse()`**](OrientJS-Query-Traverse.md) Method used in traversing relationships when fetching from the database.
-- [**`update()`**](OrientJS-Query-Update.md) Method used in updating records on the database.
+| Method | Description |
+|---|---|
+| [**`create()`**](OrientJS-Query-Create.md) | Creates vertices and edges. |
+| [**`delete()`**](OrientJS-Query-Delete.md) | Removes vertices, edges, and records.|
+| [**`fetch()`**](OrientJS-Query-Fetch.md) | Defines a [Fetching Strategy](Fetching-Strategies.md).|
+| [**`insert()`**](OrientJS-Query-Insert.md)| Adds records.|
+| [**`select()`**](OrientJS-Query-Select.md)| Fetches records by query.|
+| [**`transform()`**](OrientJS-Query-Transform.md)| Modifies records in transit.|
+| [**`traverse()`**](OrientJS-Query-Traverse.md) | Fetches records by traversal.|
+| [**`update()`**](OrientJS-Query-Update.md)| Modifies records on database.|
 
 

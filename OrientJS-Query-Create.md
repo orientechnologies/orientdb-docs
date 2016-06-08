@@ -22,7 +22,7 @@ console.log('Created Vertex:', player);
 Create a vertex with properties:
 
 ```js
-var player = db.create('VERTEX', 'Player)
+var player = db.create('VERTEX', 'Player')
    .set({
       name:      'Ty Cobb',
       birthDate: '1886-12-18',
@@ -44,7 +44,7 @@ var playsFor = db.create('EDGE', 'PlaysFor')
    .from('#12:12').to('#12:13').one();
 ```
 
-This creates an edge between the player Ty Cobb, (#12:12), and the Detroit Tigers, (#12:13).  While this approach may be useful with players that stay with the same team, many don't.  In order to account for this, you would need to define properties on the edge. 
+This creates an edge between the player Ty Cobb, (#12:12), and the Detroit Tigers, (#12:13).  While this approach may be useful with players that stay with the same team, many don't.  In order to account for this, you would need to define properties on the edge.
 
 ```js
 var playsFor = db.create('EDGE', 'PlaysFor')

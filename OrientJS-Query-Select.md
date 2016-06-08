@@ -1,4 +1,4 @@
-# OrientJS - `select()` 
+# OrientJS - `select()`
 
 Selection queries in OrientJS are those used to fetch data from the database, so that you can operate on it with your application.  The method is comparable to the [`SELECT`](SQL-Query.md) command in the OrientDB Console.
 
@@ -21,7 +21,7 @@ console.log('Hitters:', hitters);
 
 ### Searching Records
 
-Using the `containsText()` method, you can search recods for specific strings.  For instance, say that a user would like information on a particular player, but does not remember the player's full name.  So, they want to fetch every player with the string `Ty` in their name.
+Using the `containsText()` method, you can search records for specific strings.  For instance, say that a user would like information on a particular player, but does not remember the player's full name.  So, they want to fetch every player with the string `Ty` in their name.
 
 ```js
 var results = db.select().from('Player')
@@ -36,7 +36,7 @@ console.log('Found Players:', results);
 
 In the event that you would like to return only certain properties on the class or use OrientDB functions, you can pass the expression as an argument to the `select()` method.
 
-For instance, say you want to know how many players threw right and batted left: 
+For instance, say you want to know how many players threw right and batted left:
 
 ```js
 var count = db.select('count(*)').from('Player')

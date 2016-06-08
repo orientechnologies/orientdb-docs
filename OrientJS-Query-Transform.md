@@ -1,4 +1,4 @@
-# OrientJS - `transform()` 
+# OrientJS - `transform()`
 
 When working with queries in OrientJS, you may sometimes need to operate on data before setting it to the variable.  For instance, in cases where the data stored in the database is not in a format that suits your needs.  Transformation allows you to define functions within your application to update or alter the data as it comes in from the database.
 
@@ -31,7 +31,7 @@ In the `transform()` method, the `toLowerCase()` method operates on the return s
 
 ### Transforming Records
 
-On occasion, you may need to operate on the entire record rather than individual fields.  
+On occasion, you may need to operate on the entire record rather than individual fields.
 
 ```js
 var user = db.select('name').from('OUser')
