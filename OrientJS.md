@@ -7,12 +7,16 @@ OrientDB supports all JVM languages for server-side scripting.  Using the Orient
 - Multi-Database Access, through the same socket.
 - Connection Pooling
 - Migration Support
-- Simple CLI
 
 This page provides basic information on setting up OrientJS on your system.  For more information on using OrientJS in developing applications, see
 - [Server API](OrientJS-Server.md)
 - [Database API](OrientJS-Database.md)
 - [Class API](OrientJS-Class.md)
+- [Index API](OrientjS-Index.mdi)
+- [Function API](OrientJS-Functions.md)
+- [Queries](OrientJS-Query.md)
+- [Transactions](OrientJS-Transactions.md)
+- [Events](OrientJS-Events.md)
 
 
 ## Installation
@@ -83,15 +87,23 @@ By calling NPM without an argument, it builds the package in the current working
 
 
 
-## Support 
+## Support
 
 OrientJS aims to support version 2.0.0 and later.  It has been tested on both versions 2.0.x and 2.1 of OrientDB.  While it may work with earlier versions, it does not currently support them directly.
 
-<!-- Need new boilerplate for Contributions -->
 
->**NOTE**: OrientJS does not currently support the tree-based [Bonsai Structure](RidBag.md) feature in OrientDB, as it relies on additional network requests.  
->
->This means that by default, the result of `JSON.stringify(record)` on a record with 119 edges would behave very differently from a record with more than 120 edges.  This can lead to unexpected results that may not appear at any point in development, but which could occur when your application runs in production.
->
->For more information, see [Issue 2315](https://github.com/orientechnologies/orientdb/issues/2315).  Until this issue is addressed, it is **strongly recommended** that you set the `RID_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to a very large value, for instance 2147483647.
+### Bonsai Structure
+
+Currently, OrientJS does not support the tree-based [Bonsai Structure](RidBag.md) feature in OrientDB, as it relies on additional network requests.
+
+What this means is that, by default, the result  of `JSON.stringify(record)` on a record with 119 edges would behave very differently from a record with more than 120 edges.  It can least to unexpected results that may not appear at any point during development, but which will occur when your application runs in production
+
+For more information, see [Issue 2315](https://orientechnologies/orientdb/issues/2315).  Until this issue is addressed it is **strongly recommended** that you set the `RID_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to a very large figure, such as 2147483647.
+
+
+### Maximum Call Stack Size Exceeded
+
+There is a maximum call stack size issue currently being worked on.  This occurs in queries over large record-sets (as in, in the range of 150,000 records), results in a `RangeError` exception.
+
+For more information, see [Issue 116](https://github.com/orientechnologies/orientjs/issues/116).
 

@@ -122,7 +122,7 @@ Using this code initializes an instance of the `BaseballStats` database within y
 
 ### Closing Connections
 
-When you're finished with the Server API, you need to close the client connection through the `server.close()` method.  When you call this method, OrientJS sends a message to OrientDB that it no longer needs these resources, allowing the Server itself to reallocate them to other processes. 
+When you're finished with the Server API, you need to close the client connection through the `server.close()` method.  When you call this method, OrientJS sends a message to OrientDB that it no longer needs these resources, allowing the Server itself to reallocate them to other processes.
 
 ```js
 server.close()

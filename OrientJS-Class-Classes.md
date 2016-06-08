@@ -54,7 +54,7 @@ console.log('Retrieved class: ' + Player.name);
 
 ## Updating Classes
 
-In certain situations, you may want to update or otherwise change a class after creating it.  You can do so through the `db.class.update()` method.  
+In certain situations, you may want to update or otherwise change a class after creating it.  You can do so through the `db.class.update()` method.
 
 For instance, above there were two examples on how to create a class for baseball players, one using the default method and one creating the class as an extension of the vertex class `V`.  By updating the class, you can add the super-class to an existing class, removing the need to create it all over again.
 
@@ -63,8 +63,8 @@ var Player = db.class.update({
    name: 'Player',
    superClass: 'V'
 });
-console.log('Updated class: ' Player.name 
-   + ' to extend ' 
+console.log('Updated class: ' Player.name
+   + ' to extend '
    + Player.superClass);
 ```
 
