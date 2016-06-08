@@ -49,7 +49,7 @@ console.log(trx);
 
 ## Working with Batch Scripts
 
-In addition to the standard transactions, you can also execute raw batch scripts, without using the transaction builder.  These are the equivalent of [SQL Batch](SQL-Batch.md) scripting in the OrientDB Console.
+In addition to the standard transactions, you can also execute raw batch scripts, without using the transaction builder.  These are the equivalent of [SQL Batch](SQL-batch.md) scripting in the OrientDB Console.
 
 ```js
 var fetch = db.query('begin;'
