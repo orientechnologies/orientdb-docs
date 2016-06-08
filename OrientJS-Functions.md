@@ -23,4 +23,4 @@ In the event that you don't want to define a name for the function, it defaults 
 db.createFn(function nameOfFunction(arg1, arg2){
    return arg1 + arg2;
 });
-``` 
+```

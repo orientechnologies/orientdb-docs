@@ -124,7 +124,7 @@ For more information, see [Function API](OrientJS-Functions.md).
 
 Unlike the above operations, querying the database does not require that you call a dedicated API.  You can call these methods on the Database API directly, without setting or defining an additional object, using the `db.query()` method.
 
-The `db.query` method executes an SQL query against the opened database.  You can either define these values directly in SQL, or define arbitrary parameters through additional arguments.  
+The `db.query` method executes an SQL query against the opened database.  You can either define these values directly in SQL, or define arbitrary parameters through additional arguments.
 
 For instance, using the baseball database, say that you want to allow users to retrieve statistical information on players.  They provide the parameters and your application sorts and displays the results.
 
@@ -134,7 +134,7 @@ var targetAvg = 0.3;
 var targetTeam = 'Red Sox';
 
 var hitters = db.query(
-   'SELECT name, battavg FROM Player WHERE battavg >= :ba AND team = :team', 
+   'SELECT name, battavg FROM Player WHERE battavg >= :ba AND team = :team',
    {params: {
       ba: targetAvg,
       team: targetTeam
@@ -153,7 +153,7 @@ There are a number of more specialized query related methods supported by the Da
 The Database API supports transactions through the `db.let()` and `db.commit()` methods.  These allow you to string together a series of changes to the database and then commit them together.  For instance, here is a transaction to add the player Shoeless Joe Jackson to the database:
 
 ```js
-var trx = db.let('player', 
+var trx = db.let('player',
    function(p){
       p.create('VERTEX', 'Player')
          .set({

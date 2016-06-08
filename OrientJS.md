@@ -87,7 +87,7 @@ By calling NPM without an argument, it builds the package in the current working
 
 
 
-## Support 
+## Support
 
 OrientJS aims to support version 2.0.0 and later.  It has been tested on both versions 2.0.x and 2.1 of OrientDB.  While it may work with earlier versions, it does not currently support them directly.
 
