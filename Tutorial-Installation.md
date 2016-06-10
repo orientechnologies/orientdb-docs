@@ -17,15 +17,6 @@ OrientDB is available in two editions:
 
 The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://orientdb.com/support/) purchases.
 
-## Use Docker
-
-If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
-
-    $ docker run -d –name orientdb -p 2424:2424 -p 2480:2480
-       -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
-
-Where instead of "root", type the root's password you want to use.
-
 
 **Prerequisites**
 
@@ -48,6 +39,15 @@ OrientDB requires [Java](http://www.java.com/en/download), version 1.7 or higher
 >```sh
 >$ java -Dorg.osgi.framework.system.packages.extra=sun.misc
 >```
+
+## Use Docker
+
+If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
+
+    $ docker run -d –name orientdb -p 2424:2424 -p 2480:2480
+       -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
+
+Where instead of "root", type the root's password you want to use.
 
 
 ### Binary Installation
