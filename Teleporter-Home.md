@@ -23,7 +23,8 @@ Teleporter is a tool written in Java, but can be used as a tool thanks to the te
                 -jpasswd <password> -ourl <orientdb-url> [-s <strategy>]
                 [-nr <name-resolver>] [-v <verbose-level>] 
                 ([-include <table-names>] | [-exclude <table-names>]) 
-                [-inheritance <orm-technology>:<ORM-file-url>]
+                [-inheritance <orm-technology>:<ORM-file-url>] 
+                [-conf <configuration-file-location>]
 ```
 
 #### Arguments
@@ -47,7 +48,8 @@ Teleporter is a tool written in Java, but can be used as a tool thanks to the te
  - **4**: ERROR level logging messages
 - **-include (optional)** allows you to import only the listed tables
 - **-exclude (optional)** excludes the listed tables from the importing process
-- **-inheritance (optional)** executes the import taking advantage of OrientDB's polymorphism    
+- **-inheritance (optional)** executes the import taking advantage of OrientDB's polymorphism 
+- **-config** allows you to define a custom configuration for your importing job
 
 #### Access Credentials
 By convention three users are always created by default each time a new database is built. Passwords are the same as the user name. Default users are:

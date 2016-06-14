@@ -364,7 +364,7 @@ If you add a ```while``` condition:
 
 <pre>
 orientdb> <code class="lang-sql userinput">MATCH {class: Person, where: (name = 'a')}.out("FriendOf")
-          {as: friend, while: ($depth <= 1)} RETURN friend</code>
+          {as: friend, while: ($depth < 2)} RETURN friend</code>
 
 ---------
  friend 
@@ -380,7 +380,7 @@ To exclude the starting point, you need to add a `where:` condition, such as:
 
 <pre>
 orientdb> <code class="lang-sql userinput">MATCH {class: Person, where: (name = 'a')}.out("FriendOf")
-          {as: friend, while: ($depth <= 1) where: ($depth > 0)} 
+          {as: friend, while: ($depth < 2) where: ($depth > 0)} 
 		  RETURN friend</code>
 </pre>
 

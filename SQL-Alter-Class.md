@@ -74,8 +74,8 @@ ALTER CLASS <class> <attribute-name> <attribute-value>
 - Add custom properties:
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>ALTER CLASS Post CUSTOM onCreate.fields=_allowRead,_allowUpdate</code>
-  orientdb> <code class='lang-sql userinput'>ALTER CLASS Post CUSTOM onCreate.identityType=role</code>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Post CUSTOM `onCreate.fields`="_allowRead,_allowUpdate"</code>
+  orientdb> <code class='lang-sql userinput'>ALTER CLASS Post CUSTOM `onCreate.identityType`="role"</code>
   </pre>
 
 - Create a new cluster for the class `Employee`, then set the cluster selection strategy to `balanced`:
@@ -107,7 +107,7 @@ ALTER CLASS <class> <attribute-name> <attribute-value>
 | `REMOVECLUSTER` | String | | Removes a cluster from a class.  It does not delete the cluster, only removes it from the class. |
 | `STRICTMODE` | | | Enalbes or disables strict mode.  When in strict mode, you work in schema-full mode and cannot add new properties to a record if they're part of the class' schema definition. |
 | `CLUSTERSELECTION` | | 1.7 | Defines the selection strategy in choosing which cluster it uses for new records.  On class creation it inherits the setting from the database.  For more information, see [Cluster Selection](Cluster-Selection.md).|
-| `CUSTOM` | | | Defines custom properties.  Property names and values must follow the syntax `<property-name>=<value>` without spaces between the name and value. |
+| `CUSTOM` | | | Defines custom properties.  Property names and values must follow the syntax `<property-name>=<value>` without spaces between the name and value. The attribute name is an indentifier, so it has to be back-tick quoted if it contains special characters (eg. dots); the value is a string, so it has to be quoted with single or double quotes.|
 | `ABSTRACT` | Boolean | | Converts class to an abstract class or the opposite. |
 
 
