@@ -12,7 +12,9 @@ Usually the main problems are related to the difference in calling conventions b
 
 More detailed info here:
 http://stackoverflow.com/questions/3022865/calling-java-vararg-method-from-scala-with-primitives
+
 http://stackoverflow.com/questions/1008783/using-varargs-from-scala
+
 http://stackoverflow.com/questions/3856536/how-to-pass-a-string-scala-vararg-to-a-java-method-using-scala-2-8
 
 
