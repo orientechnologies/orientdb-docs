@@ -137,6 +137,12 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM Profile ORDER BY @rid DESC</code>
   </pre>
+  
+- Return value of `email` which is stored in a JSON field `data` (type EMBEDDED)  of the class `Person`, where the name starts with `Luk`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT data.email FROM Person WHERE name LIKE 'Luk%'</code>
+  </pre>
 
   Beginning in version 1.7.7, OrientDB can open an inverse cursor against clusters.  This is very fast and doesn't require the classic ordering resources, CPU and RAM.
 
