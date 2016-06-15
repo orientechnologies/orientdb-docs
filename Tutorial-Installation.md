@@ -142,6 +142,9 @@ $ mvn clean install
 
 builds the `2.1.x` branch, instead of `master`.
 
+## Building a single executable jar with OrientDB
+
+OrientDB for internal components like engines, operators, factories uses Java SPI [Service Provider Interface](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html). That means that the jars of OrientDB are shipped with files in `META-INF/services` that contains the implementation of components. Bear in mind that when building a single executable jar, you have to concatenate the content of files with the same name in different orientdb-*.jar . If you are using [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/) you can use [Service Resource Transformer](https://maven.apache.org/plugins/maven-shade-plugin/examples/resource-transformers.html#ServicesResourceTransformer) to do that.
 
 ## Other Resources
 
