@@ -43,8 +43,18 @@ OGlobalConfiguration.dumpConfiguration(System.out);
 
 To know more look at the Java enumeration: [OGlobalConfiguration.java](https://github.com/nuvolabase/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/config/OGlobalConfiguration.java).
 
+---
+
+### Classes
+
+Minimum clusters to create when a new class is created. 0 means Automatic.
 
 ----
+```
+Setting name...: class.minimumClusters
+Default value..: 0
+Set at run-time: false
+```
 
 ### Environment
 
