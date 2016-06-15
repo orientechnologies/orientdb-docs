@@ -50,13 +50,13 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 - Set the default value for the current date:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.created DEFAULT sysdate()</code>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.created DEFAULT "sysdate()"</code>
   </pre>
 
 - Define a unqiue id that cannot be changed after creation:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.id DEFAULT uuid() READONLY</code>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.id DEFAULT "uuid()" READONLY</code>
   orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.id READONLY TRUE</code>
   </pre>
 
