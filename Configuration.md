@@ -1177,7 +1177,7 @@ Set at run-time: true
 
 ##### network.binary.maxLength
 
-TCP/IP max content length in bytes of BINARY requests.
+TCP/IP max content length in KB of BINARY requests.
 
 ```
 Setting name...: network.binary.maxLength
