@@ -146,6 +146,8 @@ Valid expressions are:
 - `[ <expression> (, <expression>)* ]`: a list, an ordered collection that allows duplicates, eg. `["a", "b", "c"]`)
 - `{ <expression>: <expression> (, <expression>: <expression>)* }`: the result is an ODocument, with <field>:<value> values, eg. `{"a":1, "b": 1+2+3, "c": foo.bar.size() }`. The key name is converted to String if it's not.
 - `<expression> <modifier> ( <modifier> )*`: a chain of modifiers (see below)
+- `<expression> IS NULL`: check for null value of an expression
+- `<expression> IS NOT NULL`: check for non null value of an expression
 
 #### Modifiers
 
@@ -176,7 +178,7 @@ A condition is an expression that returns a boolean value.
 
 An expression that returns something different from a boolean value is always evaluated to `false`.
 
-### Operators
+### Math Operators
 
 - **`=`  (equals)**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
 - **`!=` (not equals)**: inequality operator. (TODO type conversion)
@@ -185,11 +187,24 @@ An expression that returns something different from a boolean value is always ev
 - **`>=` (greater or equal)**
 - **`<`  (less than)**
 - **`<=` (less or equal)**
-- **`+`  (plus)**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'` 
-- **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). 
+- **`+`  (plus)**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'`. Plus can also be used as a unary operator (no effect)
+- **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). Minus can also be used as a unary operator, to invert the sign of a number
 - **`*`  (multiplication)**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
 - **`/`  (division)**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
 - **`%`  (modulo)**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
+- **`>>`  (bitwise right shift)**
+- **`<<`  (bitwise right shift)**
+- **`&`  (bitwise AND)**
+- **`|`  (bitwise OR)**
+- **`~`  (bitwise NOT)**
 
+### Boolean Operators
 
+- **`AND`**: logical AND
+- **`OR`**: logical OR
+- **`NOT`**: logical NOT
+- **`CONTAINS`**: checks if the left collection contains the right element. The left argument has to be a colleciton, otherwise it returns FALSE. It's NOT the check of colleciton intersections, so `['a', 'b', 'c'] CONTAINS ['a', 'b']` will return FALSE, while `['a', 'b', 'c'] CONTAINS 'a'` will return TRUE. 
+- **`IN`**: the same as CONTAINS, but with inverted operands.
+- **`CONTAINSKEY`**: for maps, the same as for CONTAINS, but checks on the map keys
+- **`CONTAINSVALUE`**: for maps, the same as for CONTAINS, but checks on the map values
 
