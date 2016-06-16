@@ -44,6 +44,7 @@ Rather than writing out query strings in SQL, you can alternatively use the Orie
 | [**`delete()`**](OrientJS-Query-Delete.md) | Removes vertices, edges, and records.|
 | [**`fetch()`**](OrientJS-Query-Fetch.md) | Defines a [Fetching Strategy](Fetching-Strategies.md).|
 | [**`insert()`**](OrientJS-Query-Insert.md)| Adds records.|
+| [**`liveQuery()`**](OrientJS-Query-Live-Query.md) | Executes a Live Query. |
 | [**`select()`**](OrientJS-Query-Select.md)| Fetches records by query.|
 | [**`transform()`**](OrientJS-Query-Transform.md)| Modifies records in transit.|
 | [**`traverse()`**](OrientJS-Query-Traverse.md) | Fetches records by traversal.|

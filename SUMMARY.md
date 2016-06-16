@@ -227,6 +227,7 @@
       * [delete()](OrientJS-Query-Delete.md)
       * [fetch()](OrientJS-Query-Fetch.md)
       * [insert()](OrientJS-Query-Insert.md)
+      * [liveQuery()](OrientJS-Query-Live-Query.md)
       * [select()](OrientJS-Query-Select.md)
       * [transform()](OrientJS-Query-Transform.md)
       * [traverse()](OrientJS-Query-Traverse.md)
