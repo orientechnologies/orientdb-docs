@@ -90,6 +90,8 @@ Auditing is no longer an Enterprise-only feature and supports many new auditing 
 OrientDB v2.2 increases security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycles for the SALT: more is harder to decode but is slower. Change the setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
 The default password hashing algorithm is now `PBKDF2WithHmacSHA256` this is not present in any environment so you can change it setting `security.userPasswordDefaultAlgorithm` possible alternatives values are `PBKDF2WithHmacSHA1` or `SHA-256`
 
+If you are using Java < 8,  since `PBKDF2WithHmacSHA256` is not supported you should change it  into `PBKDF2WithHmacSHA1` 
+
 #### System User
 As part of the new ["system database"](System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
 
