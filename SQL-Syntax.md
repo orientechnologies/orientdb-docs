@@ -146,7 +146,7 @@ Valid expressions are:
 - `[ <expression> (, <expression>)* ]`: a list, an ordered collection that allows duplicates, eg. `["a", "b", "c"]`)
 - `{ <expression>: <expression> (, <expression>: <expression>)* }`: the result is an ODocument, with <field>:<value> values, eg. `{"a":1, "b": 1+2+3, "c": foo.bar.size() }`. The key name is converted to String if it's not.
 - `<expression> <modifier> ( <modifier> )*`: a chain of modifiers (see below)
-- 
+
 #### Modifiers
 
 A modifier can be
