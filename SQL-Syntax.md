@@ -258,6 +258,7 @@ An expression that returns something different from a boolean value is always ev
 - **`<<`  (bitwise right shift)**
 - **`&`  (bitwise AND)**
 - **`|`  (bitwise OR)**
+- **`^`  (bitwise XOR)**
 - **`~`  (bitwise NOT)**
 
 ### Boolean Operators
