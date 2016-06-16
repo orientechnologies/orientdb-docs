@@ -164,7 +164,7 @@ object OrientDbSample extends App {
             company.createProperty("name", OType.STRING)
             company.createProperty("revenue", OType.LONG)
 
-            val product: OrientVertexType = graph.createVertexType("Product")
+            val product: OrientVertexType = graph.createVertexType("Project")
             product.createProperty("name", OType.STRING)
 
             // we now extend the Edge class for a "Work" relationship
