@@ -4,10 +4,11 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 ## Syntax
 	StressTester
 		-m [plocal|memory|remote|distributed] (mandatory)
-		-n iterationsNumber
 		-s operationSet
 		-t threadsNumber
 		-x operationsPerTransaction
+        -o resultOutputFile
+        -d plocalDirectory
 		--root-password rootPassword
 		--remote-ip remoteIpOrHost
 		--remote-port remotePort
@@ -16,7 +17,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 * the _t_ parameter sets the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
 * the _x_ parameter sets the number of operations to be included in a transaction. This value must be lesser than the number of creates divided by the threads number and the iterations number. If the _x_ parameter is not present, all the operations will be executed outside transactions.
 * the _o_ parameter sets the filename where the results are written in JSON format.
-* the _n_ parameter sets the number of iterations to execute (where every iteration is a whole OperationSet executed by _n_ executors). If not present, it defaults to 10.
+* the _d_ parameter sets the base directory for writing the plocal da 
 * the _s_ parameter defines which and how many operations to execute. It is in the form of C#R#U#D#, where the '#' is a number:
  * C1000 defines 1000 Create operations
  * R1000 defines 1000 Read operations
@@ -40,28 +41,29 @@ After the execution of the test (or any error) the temporary database is dropped
 ## Results
 This is a sample of a result:
 
-	Created database [memory:stress-test-db-20160606_184456].
+	Created database [plocal:/tmp/stress-test-db-20160616_130606].
 	Stress test in progress 100% [Creates: 100% - Reads: 100% - Updates: 100% - Deletes: 100%]
 
+                                                                                             
     OrientDB Stress Test v0.1
-    Mode: MEMORY, Threads: 4, Iterations: 10, Operations: [Creates: 125 - Reads: 125 - Updates: 125 - Deletes: 125]
+    Mode: PLOCAL, Threads: 4, Operations: [Creates: 20,000 - Reads: 20,000 - Updates: 20,000 - Deletes: 20,000], OperationsPerTx: 500
 
-    Total execution time: 1.89 seconds.
-    Average time for 125 Creates: 0.04 secs [65th percentile] - Throughput: 3,340/s.
-    Average time for 125 Reads: 0.05 secs [57th percentile] - Throughput: 2,557/s.
-    Average time for 125 Updates: 0.07 secs [50th percentile] - Throughput: 1,761/s.
-    Average time for 125 Deletes: 0.02 secs [67th percentile] - Throughput: 7,407/s.
-    
-    Dropped database [memory:stress-test-db-20160606_184456].
+    Total execution time: 4.61 seconds.
+    Time for 20,000 Create: 0.86 secs [72th percentile] - Throughput: 23,168/s.
+    Time for 20,000 Read: 0.82 secs [69th percentile] - Throughput: 24,502/s.
+    Time for 20,000 Update: 1.87 secs [57th percentile] - Throughput: 10,693/s.
+    Time for 20,000 Delete: 1.05 secs [60th percentile] - Throughput: 19,047/s.
+
+    Dropped database [plocal:/tmp/stress-test-db-20160616_130606].
 
 
 The first part of the result is updated as long as the test is running, to give the user an idea of how long it will last. It will be deleted as soon as the test successfully terminates.
 The second part shows the results of the test:
 * The total time of execution
-* The average times of execution of every operation, their percentiles and the throughput.
+* The times of execution of every operation type, their percentiles and the throughput.
 
 
-The average time is computed by averaging all the iterations (of all the threads) for that operation; the percentile value shows where the average result is located compared to all other results: if the average is a lot higher than 50%, it means that there are a few executions with higher times that lifted up the average (and you can expect better performance in general); a high percentile can happen when, for example, the OS or another process is doing something else (either CPU or I/O intensive) during the execution of the test.
+The time is computed by summing up the times of execution of all the threads and dividing it by their number; the percentile value shows where the average result is located compared to all other results: if the average is a lot higher than 50%, it means that there are a few executions with higher times that lifted up the average (and you can expect better performance in general); a high percentile can happen when, for example, the OS or another process is doing something else (either CPU or I/O intensive) during the execution of the test.
 
 
-If you plan to use thre results of the StressTester the _o_ option is available for writing the results in JSON format on disk. 
+If you plan to use the results of the StressTester the _o_ option is available for writing the results in JSON format on disk. 
