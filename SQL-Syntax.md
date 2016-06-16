@@ -178,18 +178,18 @@ An expression that returns something different from a boolean value is always ev
 
 ### Operators
 
-- **`=` - equals**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
-- **`!=` - not equals**: inequality operator. (TODO type conversion)
-- **`<>` - not equals**: same as `!=`
-- **`>` greater than**
-- **`>=` greater or equal**
-- **`<` less than**
-- **`<=` less or equal**
-- **`+` plus**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'` 
-- **`-` minus**: subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). 
-- **`*` multiplication**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
-- **`/` division**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
-- **`%` modulo**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
+- **`=`  (equals)**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
+- **`!=` (not equals)**: inequality operator. (TODO type conversion)
+- **`<>` (not equals)**: same as `!=`
+- **`>`  (greater than)**
+- **`>=` (greater or equal)**
+- **`<`  (less than)**
+- **`<=` (less or equal)**
+- **`+`  (plus)**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'` 
+- **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). 
+- **`*`  (multiplication)**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
+- **`/`  (division)**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
+- **`%`  (modulo)**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
 
 
 
