@@ -269,4 +269,10 @@ An expression that returns something different from a boolean value is always ev
 - **`IN`**: the same as CONTAINS, but with inverted operands.
 - **`CONTAINSKEY`**: for maps, the same as for CONTAINS, but checks on the map keys
 - **`CONTAINSVALUE`**: for maps, the same as for CONTAINS, but checks on the map values
+- **`LIKE`**: for strings, checks if a string contains another string. `%` is used as a wildcard, eg. `'foobar CONTAINS '%ooba%''`
+- **`IS DEFINED`** (unary): returns TRUE is a field is defined in a document
+- **`IS NOT DEFINED`** (unary): returns TRUE is a field is not defined in a document
+- **`BETWEEN - AND`** (ternary): returns TRUE is a value is between two values, eg. `5 BETWEEN 1 AND 10`
+- **`MATCHES`**: checks if a string matches a regular expression
+- **`INSTANCEOF`**: checks the type of a value, the right operand has to be the a String representing a class name, eg. `father INSTANCEOF 'Person'` (TODO consider identifiers as class names as well?)
 
