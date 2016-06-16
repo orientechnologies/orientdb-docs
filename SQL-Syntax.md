@@ -134,19 +134,26 @@ Expressions can be used as:
 - right argument of a LET assignment
 
 Valid expressions are:
-- `<base type value>`
+- `<base type value>` (string, number, boolean)
 - `<field name>`
 - `<@attribute name>`
 - `<function invocation>`
-- `<expression> <modifier> ( <modifier> )*`
-- `( <query> )`
-
+- `<expression> <binary operator> <expression>`: with Java precedence rules
+- `<unary operator> <expression>` 
+- `<expression> ? <expression> : <expression>`: ternary if-else operator
+- `( <expression> )`: expression between parenthesis, for precedences
+- `( <query> )`: query between parenthesis
+- `[ <expression> (, <expression>)* ]`: a list, an ordered collection that allows duplicates, eg. `["a", "b", "c"]`)
+- `{ <expression>: <expression> (, <expression>: <expression>)* }`: the result is an ODocument, with <field>:<value> values, eg. `{"a":1, "b": 1+2+3, "c": foo.bar.size() }`. The key name is converted to String if it's not.
+- `<expression> <modifier> ( <modifier> )*`: a chain of modifiers (see below)
+- 
 #### Modifiers
 
 A modifier can be
-- a method invocation, eg. `foo.size()`
+- a dot-separated field chain, eg. `foo.bar`.
+- a method invocation, eg. `foo.size()`.
 - a square bracket filter, eg. `foo[1]` or `foo[name = 'John']`
-- a dot-separated field chain, eg. `foo.bar`
+
 
 #### Square bracket filters
 
@@ -159,13 +166,30 @@ Based on what is between brackets, the square bracket filtering has different ef
 - `<expression>`: If the expression returns an Integer or Long value (i), the result of the square bracket filtering
 is the i-th element of the collection/map. If the result of the expresson (K) is not a number, the filtering returns the value corresponding to the key K in the map field. If the field is not a collection/map, the square bracket filtering returns `null`.
 The result of this filtering is ALWAYS a single value.
-- `<range>`: A range is something like `M..N`  or `M...N` where M and N are integer/long numbers, eg. `fieldName[2..5]`. The result of range filtering is a collection that is a subet of the original field value, containing all the items from position M (included) to position N (excluded for `..`, included for `...`). Eg. if `fieldName = ['a', 'b', 'c', 'd', 'e']`, `fieldName[1..3] = ['b', 'c']`, `fieldName[1...3] = ['b', 'c', 'd']`. Ranges start from `0`.
-- `<condition>`: A normal SQL condition, that is applied to each element in the `fieldName` collection. The result is a sub-collection that contains only items that match the condition. Eg. `fieldName = [{foo = 1},{foo = 2},{foo = 5},{foo = 8}]`, `fieldName[foo > 4] = [{foo = 5},{foo = 8}]`.
-
-
+- `<range>`: A range is something like `M..N`  or `M...N` where M and N are integer/long numbers, eg. `fieldName[2..5]`. The result of range filtering is a collection that is a subet of the original field value, containing all the items from position M (included) to position N (excluded for `..`, included for `...`). Eg. if `fieldName = ['a', 'b', 'c', 'd', 'e']`, `fieldName[1..3] = ['b', 'c']`, `fieldName[1...3] = ['b', 'c', 'd']`. Ranges start from `0`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
+- `<condition>`: A normal SQL condition, that is applied to each element in the `fieldName` collection. The result is a sub-collection that contains only items that match the condition. Eg. `fieldName = [{foo = 1},{foo = 2},{foo = 5},{foo = 8}]`, `fieldName[foo > 4] = [{foo = 5},{foo = 8}]`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
 
 
 ###Conditions
 
-TODO
+A condition is an expression that returns a boolean value.
+
+An expression that returns something different from a boolean value is always evaluated to `false`.
+
+### Operators
+
+- **`=` - equals**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
+- **`!= - not equals**: inequality operator. (TODO type conversion)
+- **`<> - not equals**: same as `!=`
+- **`>` greater than**
+- **`>=` greater or equal**
+- **`<` less than**
+- **`<=` less or equal**
+- **`+` plus**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'` 
+- **`-` minus**: subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). 
+- **`*` multiplication**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
+- **`/` division**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
+- **`%` modulo**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
+
+
 
