@@ -179,8 +179,8 @@ An expression that returns something different from a boolean value is always ev
 ### Operators
 
 - **`=` - equals**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
-- **`!= - not equals**: inequality operator. (TODO type conversion)
-- **`<> - not equals**: same as `!=`
+- **`!=` - not equals**: inequality operator. (TODO type conversion)
+- **`<>` - not equals**: same as `!=`
 - **`>` greater than**
 - **`>=` greater or equal**
 - **`<` less than**
