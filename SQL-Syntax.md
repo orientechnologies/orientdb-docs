@@ -68,6 +68,68 @@ SELECT `foo\`bar` from Foo
 
 *(draft, TBD)* All the identifiers are case sensitive.
 
+###Reserved words
+
+In OrientDB SQL the following are reserved words
+
+- AFTER
+- AND
+- AS
+- ASC
+- BATCH
+- BEFORE
+- BETWEEN
+- BREADTH_FIRST
+- BY
+- CLUSTER
+- CONTAINS
+- CONTAINSALL
+- CONTAINSKEY
+- CONTAINSTEXT
+- CONTAINSVALUE
+- CREATE
+- DEFAULT
+- DEFINED
+- DELETE
+- DEPTH_FIRST
+- DESC
+- EDGE
+- FETCHPLAN
+- FROM
+- INCREMENT
+- INSERT
+- INSTANCEOF
+- INTO
+- IS
+- LET
+- LIKE
+- LIMIT
+- LOCK
+- MATCH
+- MATCHES
+- MAXDEPTH
+- NOCACHE
+- NOT
+- NULL
+- OR
+- PARALLEL
+- POLYMORPHIC
+- RETRY
+- RETURN
+- SELECT
+- SKIP2
+- STRATEGY
+- TIMEOUT
+- TRAVERSE
+- UNSAFE
+- UNWIND
+- UPDATE
+- UPSERT
+- VERTEX
+- WAIT
+- WHERE
+- WHILE
+
 ###Base types
 
 Accepted base types in OrientDB SQL are:
