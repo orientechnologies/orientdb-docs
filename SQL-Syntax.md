@@ -117,7 +117,7 @@ In OrientDB SQL the following are reserved words
 - RETRY
 - RETURN
 - SELECT
-- SKIP2
+- SKIP
 - STRATEGY
 - TIMEOUT
 - TRAVERSE
