@@ -29,7 +29,37 @@ A projection block has the following syntax:
 
 - `DISTINCT`: removes duplicates from the result-set
 
+*IMPORTANT - the old `distinct()` function (used in OrientDB <=2.x) is no longer supported*
 
 
+### Expansion
 
+By default, a query returns a different result-set based on the projections it has:
+- **`*` alone**: The result set is made of records as they arrive from the target, with the original @rid and @class attributes (if any)
+- **`*` plus other projections**: records of the original target, merged with the other projection values, with temporary @rid and no @class (if not explicitly declared in the other projections)
+- **no projections**: same behavior as `*`
+- **`expand(<projection>)`**:
+- **one or more projections**: temporary records (with temporary @rid and no @class). Projections that represent links are returned as simple @rid values, unless differently specified in the fetchplan.
 
+*IMPORTANT - projection values can be overwritten in the final result, the overwrite happens from left to right*
+eg.
+```sql
+SELECT 1 as a, 2 as a 
+```
+will return `{"a":2}`
+
+eg.
+
+Having the record `{"@class":"Foo", "name":"bar", "@rid":"#12:0"}`
+
+```sql
+SELECT *, "hey" as name from Foo
+```
+will return  `{"name":"hey"}`
+
+```sql
+SELECT  "hey" as name, * from Foo
+```
+will return  `{"name":"bar"}`
+
+*IMPORTANT - the result of the query can be further unwinded using the UNWIND operator*
