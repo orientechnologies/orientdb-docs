@@ -42,6 +42,7 @@ By default, a query returns a different result-set based on the projections it h
 - **one or more projections**: temporary records (with temporary @rid and no @class). Projections that represent links are returned as simple @rid values, unless differently specified in the fetchplan.
 
 *IMPORTANT - projection values can be overwritten in the final result, the overwrite happens from left to right*
+
 eg.
 ```sql
 SELECT 1 as a, 2 as a 
