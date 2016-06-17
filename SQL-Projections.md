@@ -55,11 +55,11 @@ Having the record `{"@class":"Foo", "name":"bar", "@rid":"#12:0"}`
 ```sql
 SELECT *, "hey" as name from Foo
 ```
-will return  `{"name":"hey"}`
+will return `{"@rid": "-2:0", "name":"hey"}`
 
 ```sql
 SELECT  "hey" as name, * from Foo
 ```
-will return  `{"name":"bar"}`
+will return  `{"@rid": "-2:0", "name":"bar"}`
 
 *IMPORTANT - the result of the query can be further unwinded using the UNWIND operator*
