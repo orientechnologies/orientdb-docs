@@ -84,7 +84,8 @@ The develop branch contains code for the next version of OrientDB. Stable versio
 For each maintained version OrientDB has its own `hotfix` branch.
 As the time of writing this notes, the state of branches is:
 
-* develop: work in progress for next 2.2.x release (2.2.1-SNAPSHOT)
+* develop: work in progress for next 3.0.x release (3.0.x-SNAPSHOT)
+* 2.2.x: hot fix for next 2.2.x stable release (2.2.x-SNAPSHOT)
 * 2.1.x: hot fix for next 2.1.x stable release (2.1.x-SNAPSHOT)
 * 2.0.x: hot fix for next 2.0.x stable release (2.0.x-SNAPSHOT)
 * last tag on master is 2.2.0
@@ -95,14 +96,33 @@ $ls -l distribution/target/
 total 199920
     1088 26 Jan 09:57 archive-tmp
      102 26 Jan 09:57 databases
-     102 26 Jan 09:57 orientdb-community-2.2.1-SNAPSHOT.dir
-48814386 26 Jan 09:57 orientdb-community-2.2.1-SNAPSHOT.tar.gz
-53542231 26 Jan 09:58 orientdb-community-2.2.1-SNAPSHOT.zip
+     102 26 Jan 09:57 orientdb-community-3.0.0-SNAPSHOT.dir
+48814386 26 Jan 09:57 orientdb-community-3.0.0-SNAPSHOT.tar.gz
+53542231 26 Jan 09:58 orientdb-community-3.0.0-SNAPSHOT.zip
 $
 ```
-The directory `orientdb-community-2.2.1-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
+The directory `orientdb-community-3.0.0-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
 Take a look to [Contribute to OrientDB](Contribute-to-OrientDB.md) if you want to be involved.
 
+Each distribution package contains a sample database called *GratefulDeadConcerts*. It is possible to generate the database:
+```sh
+$ cd distribution/
+$ mvn  prepare-package
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OrientDB Community Distribution ...
+...
+Importing GRAPHML database from ../graphdb/src/test/resources/graph-example-2.xml with options ()...
+Done: imported 809 vertices and 8049 edges
+Imported in 1141ms. Vertexes: 809
+```
+
+The database is created inside the target directory
+```sh
+$ ls target/databases/
+GratefulDeadConcerts/
+```
 
 #### Update Permissions
 
@@ -136,11 +156,11 @@ $ mvn clean install
 Bear in mind that when you build from source, you can switch branches to build different versions of OrientDB using Git.  For example,
 
 ```sh
-$ git checkout 2.1.x
+$ git checkout 2.2.x
 $ mvn clean install
 ```
 
-builds the `2.1.x` branch, instead of `master`.
+builds the `2.2.x` branch, instead of `master`.
 
 ## Building a single executable jar with OrientDB
 
