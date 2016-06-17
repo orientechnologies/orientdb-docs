@@ -32,13 +32,13 @@ A projection block has the following syntax:
 *IMPORTANT - the old `distinct()` function (used in OrientDB <=2.x) is no longer supported*
 
 
-### Expansion
+### Query result
 
 By default, a query returns a different result-set based on the projections it has:
 - **`*` alone**: The result set is made of records as they arrive from the target, with the original @rid and @class attributes (if any)
 - **`*` plus other projections**: records of the original target, merged with the other projection values, with temporary @rid and no @class (if not explicitly declared in the other projections)
 - **no projections**: same behavior as `*`
-- **`expand(<projection>)`**:
+- **`expand(<projection>)`**: The result set is made of the records returned by the projection, expanded (if the projection result is a link or a colleciton of links) and unwinded (if the projection result is a collection). Nothing in all the other cases.
 - **one or more projections**: temporary records (with temporary @rid and no @class). Projections that represent links are returned as simple @rid values, unless differently specified in the fetchplan.
 
 *IMPORTANT - projection values can be overwritten in the final result, the overwrite happens from left to right*
