@@ -43,7 +43,7 @@ CREATE PROPERTY
   orientdb> <code class='lang-sql userinput'>CREATE PROPERTY Profile.friends EMBEDDEDMAP Profile</code>
   </pre>
 
-- Create the property `name` of the string type in the class `User`, mandatory, with with minimum and maximum length (since V2.2.3):
+- Create the property `name` of the string type in the class `User`, mandatory, with minimum and maximum length (since V2.2.3):
 
   <pre>
   orientdb> <code class="lang-sql userinput">CREATE PROPERTY User.name STRING (MANDATORY TRUE, MIN 5, MAX 25)  </code>
