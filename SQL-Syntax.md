@@ -93,6 +93,7 @@ In OrientDB SQL the following are reserved words
 - DELETE
 - DEPTH_FIRST
 - DESC
+- DISTINCT
 - EDGE
 - FETCHPLAN
 - FROM
