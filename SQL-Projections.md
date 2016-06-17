@@ -47,7 +47,7 @@ eg.
 ```sql
 SELECT 1 as a, 2 as a 
 ```
-will return `{"@rid": "-2:0", "a":2}`
+will return `[{"@rid": "-2:0", "a":2}]`
 
 eg.
 
@@ -56,11 +56,54 @@ Having the record `{"@class":"Foo", "name":"bar", "@rid":"#12:0"}`
 ```sql
 SELECT *, "hey" as name from Foo
 ```
-will return `{"@rid": "-2:0", "name":"hey"}`
+will return `[{"@rid": "-2:0", "name":"hey"}]`
 
 ```sql
 SELECT  "hey" as name, * from Foo
 ```
-will return  `{"@rid": "-2:0", "name":"bar"}`
+will return  `[{"@rid": "-2:0", "name":"bar"}]`
 
 *IMPORTANT - the result of the query can be further unwinded using the UNWIND operator*
+
+### Aliases
+
+The alias is the field name that a projection will have in the result-set.
+
+An alias can be implicit, if declared with the `AS` keyword, eg.
+
+```sql
+SELECT name + " " + surname as full_name from Person
+
+result:
+[{"@rid":"#-2:0", "full_name":"John Smith"}]
+```
+
+An alias can be implicit, when no `AS` is defined, eg.
+
+
+```sql
+SELECT name from Person
+
+result:
+[{"@rid":"#-2:0", "name":"John"}]
+```
+
+An implicit alias is calculated based on how the projection is written. By default, OrientDB uses the plain String representation of the projection as alias. 
+
+The String representation of a projection is the exact representation of the projection string, without spaces before and after dots and brackets, no spaces before commans, a single space before and after operators.
+
+eg.
+
+```
+SELECT 1+2 
+
+result:
+[{"@rid":"#-2:0", "a + b": 3}] /* see the space before and after the + sign */
+```
+
+```
+SELECT parent.name+" "+parent.surname from Node
+
+result:
+[{"@rid":"#-2:0", "parent.name + \" \" + parent.nurname": "John Smith"}] 
+```
