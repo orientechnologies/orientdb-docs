@@ -5,7 +5,11 @@ Creates a new property in the schema.  It requires that the class for the proper
 **Syntax**
 
 ```
-CREATE PROPERTY <class>.<property> <type> [<link-type>|<link-class>] ( <property constraint> [, <property-constraint>]* ) [UNSAFE]
+CREATE PROPERTY 
+<class>.<property> <type> 
+[<link-type>|<link-class>] 
+( <property constraint> [, <property-constraint>]* ) 
+[UNSAFE]
 ```
 
 - **`<class>`** Defines the class for the new property.
