@@ -90,6 +90,21 @@ result:
 
 An implicit alias is calculated based on how the projection is written. By default, OrientDB uses the plain String representation of the projection as alias. 
 
+
+```
+SELECT 1+2 as sum
+
+result:
+[{"@rid":"#-2:0", "sum": 3}] 
+```
+
+```
+SELECT parent.name+" "+parent.surname as full_name from Node
+
+result:
+[{"@rid":"#-2:0", "full_name": "John Smith"}] 
+```
+
 The String representation of a projection is the exact representation of the projection string, without spaces before and after dots and brackets, no spaces before commans, a single space before and after operators.
 
 eg.
@@ -106,4 +121,11 @@ SELECT parent.name+" "+parent.surname from Node
 
 result:
 [{"@rid":"#-2:0", "parent.name + \" \" + parent.nurname": "John Smith"}] 
+```
+
+```
+SELECT items[4] from Node
+
+result:
+[{"@rid":"#-2:0", "items[4]": "John Smith"}] 
 ```
