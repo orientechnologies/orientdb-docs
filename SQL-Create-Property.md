@@ -5,7 +5,7 @@ Creates a new property in the schema.  It requires that the class for the proper
 **Syntax**
 
 ```
-CREATE PROPERTY <class>.<property> <type> [<link-type>|<link-class>] [UNSAFE]
+CREATE PROPERTY <class>.<property> <type> [<link-type>|<link-class>] ( <property constraint> [, <property-constraint>]* ) [UNSAFE]
 ```
 
 - **`<class>`** Defines the class for the new property.
@@ -13,6 +13,7 @@ CREATE PROPERTY <class>.<property> <type> [<link-type>|<link-class>] [UNSAFE]
 - **`<type>`** Defines the property data type.  For supported types, see the table below.
 - **`<link-type>`** Defines the contained type for container property data types.  For supported link types, see the table below.
 - **`<link-class>`** Defines the contained class for container property data types.  For supported link types, see the table below.
+- **`<property-constraint>`** See [`ALTER PROPERTY`](SQL-Alter-Property.md) `<attribute-name> [ <attribute-value> ]` (since 2.2.3)
 - **`UNSAFE`** Defines whether it checks existing records.  On larger databases, with millions of records, this could take a great deal of time.  Skip the check when you are sure the property is new.  Introduced in version 2.0.
 
 
@@ -37,6 +38,13 @@ CREATE PROPERTY <class>.<property> <type> [<link-type>|<link-class>] [UNSAFE]
   <pre>
   orientdb> <code class='lang-sql userinput'>CREATE PROPERTY Profile.friends EMBEDDEDMAP Profile</code>
   </pre>
+
+- Create the property `name` of the string type in the class `User`, mandatory, with with minimum and maximum length:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE PROPERTY User.name STRING (MANDATORY TRUE, MIN 5, MAX 25)  </code>
+  </pre>
+
 
 
 >For more information, see
