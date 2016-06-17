@@ -67,7 +67,7 @@ graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 
 ### Incremental Restore via the Console
 
-[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Restoring an incremental backup creates a new database with the restored content.  You cannot perform an in-place incremental restore on an existing database.  The execution of the create database command with the option `-restore` builds a fresh database and performs the incremental restore starting from the backup path. 
+[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Restoring an incremental backup creates a new database with the restored content.  You cannot perform an in-place incremental restore on an existing database. The execution of the create database command with the option `-restore` builds a fresh database and performs the incremental restore starting from the backup path. 
 
 Example:
 
@@ -81,6 +81,8 @@ Database created successfully.
 
 Current database is: remote:localhost/mydb
 ```
+
+In distributed mode restore will success only with a single node in the cluster. If you have 2 nodes or more in your cluster you have to use the standard restore procedure.
 
 ### Incremental Restore via the Java API
 You can perform an incremental restore via the Java API too.
