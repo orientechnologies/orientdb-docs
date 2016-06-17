@@ -46,7 +46,7 @@ eg.
 ```sql
 SELECT 1 as a, 2 as a 
 ```
-will return `{"a":2}`
+will return `{"@rid": "-2:0", "a":2}`
 
 eg.
 
