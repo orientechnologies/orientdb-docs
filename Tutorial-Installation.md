@@ -34,7 +34,7 @@ OrientDB requires [Java](http://www.java.com/en/download), version 1.7 or higher
 
 >**Note**: In OSGi containers, OrientDB uses a `ConcurrentLinkedHashMap` implementation provided by [concurrentlinkedhashmap](https://code.google.com/p/concurrentlinkedhashmap/) to create the LRU based cache. This library actively uses the sun.misc package which is usually not exposed as a system package. To overcome this limitation you should add property `org.osgi.framework.system.packages.extra` with value `sun.misc` to your list of framework properties.
 >
->It may be as simple as passing an argument to the VM starting the platform: 
+>It may be as simple as passing an argument to the VM starting the platform:
 >
 >```sh
 >$ java -Dorg.osgi.framework.system.packages.extra=sun.misc
@@ -89,7 +89,7 @@ As the time of writing this notes, the state of branches is:
 * 2.0.x: hot fix for next 2.0.x stable release (2.0.x-SNAPSHOT)
 * last tag on master is 2.2.0
 
-The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch 2.1.x gave: 
+The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch 2.1.x gave:
 ```sh
 $ls -l distribution/target/
 total 199920
