@@ -40,6 +40,7 @@ In v2.2.0-rc1 the nodes is never removed automatically from the configuration fo
 - [Server Roles](Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
 - [Load balancing on the client side](Distributed-Configuration.md#load-balancing)
 - OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol
+- Hazelcast is still used for: auto-discovery of servers, distributed locks and distributed configuration
 - New SQL commands to manage the distributed configuration:
  - `HA REMOVE SERVER <server-name>`, to remove a server from the configuration
  - `HA SYNC DATABASE`, to ask for a resync of the database
