@@ -130,6 +130,7 @@ In OrientDB SQL the following are reserved words
 - STRATEGY
 - TIMEOUT
 - TRAVERSE
+- UNDEFINED
 - UNSAFE
 - UNWIND
 - UPDATE
