@@ -183,7 +183,7 @@ true
 false
 ```
 
-- **Link**: A link is a pointer to a document in the database
+- **links**: A link is a pointer to a document in the database
 
 In SQL a link is represented as follows:
 
