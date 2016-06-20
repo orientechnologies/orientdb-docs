@@ -183,6 +183,29 @@ true
 false
 ```
 
+- Link: A link is a pointer to a document in the database
+
+In SQL a link is represented as follows:
+
+```
+#<cluster-id>:<cluster-position>
+```
+eg.
+```
+#12:15
+```
+
+A link in its basic form can be used in any expression (projections, WHERE conditions, LET assignments and so on), apart from in JSON notation. In JSON the following is not valid `{'my_link': #12:0}` and the following represents a String  `{'my_link': '#12:0'}`, so OrientDB has to adopt a particular convention for this speficic use case.
+
+To represent a link in a JSON snippet you have to use the following syntax: 
+```
+{
+   'my_link': {'@rid': '#12:0'} 
+}
+```
+
+
+
 - null: case insensitive (for consistency with IS NULL and IS NOT NULL conditions, that are case insensitive)
 
 Valid null expressions include
@@ -193,6 +216,24 @@ Null
 nUll
 ...
 ```
+
+###Collections
+
+OrientDB supports two types of collections:
+- **Lists**: ordered, allow duplicates
+- **Sets**: not ordered (?), no duplicates
+ 
+The SQL notation allows to create `Lists` with square bracket notation, eg.
+```
+[1, 3, 2, 2, 4]
+```
+
+A `List` can be converted to a `Set` using the `.asSet()` method:
+
+```
+[1, 3, 2, 2, 4].asSet() = [1, 3, 2, 4] /*  the order of the elements in the resulting set is not guaranteed */
+```
+
 
 ###Expressions
 
