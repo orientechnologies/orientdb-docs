@@ -111,7 +111,7 @@ Let's suppose we have two entities "Employee" and "Project" in our database with
 
 Without a foreign key definition we lose this Relationship and we obtain a graph model without the correspondent Edge class; consequently no edges between vertices of class "Employee" and vertices of class "Project" will be present.
 
-<img: tables without FK --> graph model wihtout edge class --> graph without edges>
+<img: tables without FK -- graph model wihtout edge class -- graph without edges>
 
 Through this mapping we can **overcome the lack of a foreign key** and recover the lost info.  
 Let's take a look closer to the **edge mapping**:
