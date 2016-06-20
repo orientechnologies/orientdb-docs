@@ -6,7 +6,11 @@ Update one or more records in the current database.  Remember: OrientDB can work
 
 ```sql
 UPDATE <class>|CLUSTER:<cluster>|<recordID>
-  [SET|INCREMENT|ADD|REMOVE|PUT <field-name> = <field-value>[,]*]|[CONTENT|MERGE <JSON>]
+  (
+    [SET <field-name>[<modifier>*] = <field-value>[, <field-name>[<modifier>*] = <field-value>]*] 
+    | 
+    [CONTENT | MERGE <JSON>]
+  )
   [UPSERT]
   [RETURN <returning> [<returning-expression>]]
   [WHERE <conditions>]
@@ -15,14 +19,8 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
 ```
 
 - **`SET`** Defines the fields to update.
-- **`INCREMENT`** Increments the field by the value.
-
-  For instance, record at `10` with `INCREMENT value = 3` sets the new value to `13`.  You may find this useful in atomic updates of counters.  Use negative numbers to decrement.  Additionally, you can use `INCREMENT` to implement [sequences and auto-increment](Sequences-and-auto-increment.md).
-- **`ADD`** Adds a new item in collection fields.
-- **`REMOVE`** Removes an item in collection and map fields.
-- **`PUT`** Puts an entry into a map field.
 - **`CONTENT`** Replaces the record content with a JSON document.
-- **`MERGE`** Merges the record content with a JSON document.
+- **`MERGE`** Merges the record content with a JSON document. (`TODO shallow and deep merge`)
 - **`LOCK`** Specifies how to lock the record between the load and update.  You can use one of the following lock strategies:
   - `DEFAULT` No lock.  Use in the event of concurrent updates, the MVCC throws an exception.
   - `RECORD` Locks the record during the update.
@@ -52,67 +50,79 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
 - Update to remove a field from all records:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Profile REMOVE nick</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Profile SET nick = UNDEFINED</code>
   </pre>
-
-- Update to add a value into a collection:
+  
+- Update to replace an item in a collection
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account ADD address=#12:0</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Profile SET addresses[3] = #12:0</code>
+  </pre>
+  
+The previous element in that position is just remoted. If the array was smaller that the index specified, the remaining elements are filled with null (see validation).
+  
+
+- Update to add a value into a collection (see [Array Concatenation](SQL-Syntax.md#array-concatenation)): 
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = addresses || #12:0</code> /* append on tail */
+  
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = #12:0 || addresses </code> /* append on tail */
   </pre>
 
-  >**NOTE**: Beginning with version 2.0.5, the OrientDB server generates a server error if there is no space between `#` and the `=`.  You must write the command as:
-  >
-  ><pre>
-  >orientdb> <code class='lang-sql userinput'>UPDATE Account ADD address = #12:0</code>
-  ></pre>
 
 - Update to remove a value from a collection, if you know the exact value that you want to remove:
 
   Remove an element from a link list or set:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE address = #12:0</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET address = address.removeFirst(#12:0)</code>
   </pre>
 
-  Remove an element from a list or set of strings:
+- Update to remove all the occurrences of a value from a collection:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = 'Foo'</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET address = address.removeAll(#12:0)</code>
   </pre>
 
-- Update to remove a value, filtering on value attributes.
+
+- Update to remove a value, filtering on a condition.
 
   Remove addresses based in the city of Rome:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = addresses[city = 'Rome']</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = addresses[NOT (city = 'Rome')]</code>
   </pre>
 
 - Update to remove a value, filtering based on position in the collection.
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = addresses[1]</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = addresses[1...]</code> /* remove the first element */
+  
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = addresses[3...]</code> /* remove the first three elements */
+  
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = addresses[0..(addresses.length - 1)]</code> /* remove last element */
+
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = addresses[0..3] || addresses[4..]</code> /* remove the 3rd element */
   </pre>
 
-  This remove the second element from a list, (position numbers start from `0`, so `addresses[1]` is the second elelment).
 
 - Update to put a map entry into the map:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account PUT addresses = 'Luca', #12:0</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses['Luca'] = #12:0</code>
   </pre>
 
 - Update to remove a value from a map
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses = 'Luca'</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses['Luca'] = UNDEFINED</code>
   </pre>
 
 - Update an embedded document.  The [`UPDATE`](SQL-Update.md) command can take JSON as a value to update.
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account SET address={ "street": "Melrose Avenue", "city": { 
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET address = { "street": "Melrose Avenue", "city": { 
             "name": "Beverly Hills" } }</code>
 
   </pre>
@@ -132,18 +142,21 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
 - Update a web counter, avoiding concurrent accesses:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Counter INCREMENT views = 1 WHERE pages = '/downloads/' 
+  orientdb> <code class="lang-sql userinput">UPDATE Counter SET views = views + 1 WHERE pages = '/downloads/' 
             LOCK RECORD</code>
+            
+  orientdb> <code class="lang-sql userinput">UPDATE Counter SET views += 1 WHERE pages = '/downloads/' 
+            LOCK RECORD</code>            
   </pre>
 
 - Updates using the `RETURN` keyword:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @rid</code>
-  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @version</code>
-  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @this</code>
-  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 INCREMENT Counter = 123 RETURN BEFORE $current.Counter</code>
-  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER $current.exclude(
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender = 'male' RETURN AFTER @rid</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender = 'male' RETURN AFTER @version</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender = 'male' RETURN AFTER @this</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET Counter += 123 RETURN BEFORE $current.Counter</code>
+  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender = 'male' RETURN AFTER $current.exclude(
             "really_big_field")</code>
   orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 ADD out_Edge = ♯12:1 RETURN AFTER $current.outE("Edge")</code>
   </pre>
