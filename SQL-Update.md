@@ -7,7 +7,7 @@ Update one or more records in the current database.  Remember: OrientDB can work
 ```sql
 UPDATE <class>|CLUSTER:<cluster>|<recordID>
   (
-    [SET <field-name>[<modifier>*] = <field-value>[, <field-name>[<modifier>*] = <field-value>]*] 
+    [SET <field-name>[<modifier>*] <assign-operator> <field-value>[, <field-name>[<modifier>*] <assign-operator> <field-value>]*] 
     | 
     [CONTENT | MERGE <JSON>]
   )
@@ -17,7 +17,7 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
   [LOCK default|record]
   [LIMIT <max-records>] [TIMEOUT <timeout>]
 ```
-
+- **`<assign-operator>`**: It can be `=` (set), `+=` (add and set or concat and set), `-=` (subtract and set), `*=` (multiply and set), `/=` (divide and set), `%=` (modulo and set)
 - **`SET`** Defines the fields to update.
 - **`CONTENT`** Replaces the record content with a JSON document.
 - **`MERGE`** Merges the record content with a JSON document. (`TODO shallow and deep merge`)
