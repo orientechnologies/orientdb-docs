@@ -307,7 +307,7 @@ An expression that returns something different from a boolean value is always ev
 - **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). Minus can also be used as a unary operator, to invert the sign of a number
 - **`*`  (multiplication)**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
 - **`/`  (division)**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
-- **`+=`  (add and assign)**: adds right operand to left operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`+=`  (add and assign)**: adds right operand to left operand and assigns the value to the left operand. Returns the final value of the left operand. If one of the operands is not a number, then this operator acts as a `concatenate string values and assign`
 - **`-=`  (subtract and assign)**: subtracts right operand from left operand and assigns the value to the left operand. Returns the final value of the left operand
 - **`*=`  (multiply and assign)**: multiplies left operand and right operand and assigns the value to the left operand. Returns the final value of the left operand
 - **`/=`  (divide and assign)**: divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
