@@ -322,6 +322,7 @@ An expression that returns something different from a boolean value is always ev
 - **`-=`  (subtract and assign)**: subtracts right operand from left operand and assigns the value to the left operand. Returns the final value of the left operand
 - **`*=`  (multiply and assign)**: multiplies left operand and right operand and assigns the value to the left operand. Returns the final value of the left operand
 - **`/=`  (divide and assign)**: divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`%=`  (modulo and assign)**: calculates left operand modulo right operand and assigns the value to the left operand. Returns the final value of the left operand
 
 ### Array concatenation
 
