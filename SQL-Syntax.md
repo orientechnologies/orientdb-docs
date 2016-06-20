@@ -142,7 +142,7 @@ In OrientDB SQL the following are reserved words
 ###Base types
 
 Accepted base types in OrientDB SQL are:
-- integer numbers: TODO precision
+- **integer numbers**: TODO precision
 
 Valid integers are
 ```
@@ -152,7 +152,7 @@ Valid integers are
 ```
 (TODO hex and oct, decimal exponent, hex exponent)
 
-- floating point numbers: single or double precision
+- **floating point numbers**: single or double precision
 
 Valid floating point numbers are:
 ```
@@ -164,7 +164,7 @@ Valid floating point numbers are:
 ```
 
 
-- strings: delimited by `'` or by `"`. Single quotes, double quotes and back-slash inside strings can escaped using a back-slash
+- **strings**: delimited by `'` or by `"`. Single quotes, double quotes and back-slash inside strings can escaped using a back-slash
 
 Valid strings are:
 ```
@@ -175,7 +175,7 @@ Valid strings are:
 'foo \\ bar'
 ```
 
-- booleans: boolean values are case sensitive
+- **booleans**: boolean values are case sensitive
 
 Valid boolean values are
 ```
@@ -183,7 +183,7 @@ true
 false
 ```
 
-- Link: A link is a pointer to a document in the database
+- **Link**: A link is a pointer to a document in the database
 
 In SQL a link is represented as follows:
 
@@ -206,7 +206,7 @@ To represent a link in a JSON snippet you have to use the following syntax:
 
 
 
-- null: case insensitive (for consistency with IS NULL and IS NOT NULL conditions, that are case insensitive)
+- **null**: case insensitive (for consistency with IS NULL and IS NOT NULL conditions, that are case insensitive)
 
 Valid null expressions include
 ```
