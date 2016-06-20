@@ -38,13 +38,7 @@ You can modify this pipeline, allowing the transformation and loading phases to 
 
 ## Installation
 
-Beginning with version 2.0, OrientDB bundles the ETL module with the official release.  Follow these steps to use the module:
-- Clone the repository on your computer, by executing:
- - ```git clone https://github.com/orientechnologies/orientdb-etl.git```
-- Compile the module, by executing:
- - ```mvn clean install```
-- Copy ```script/oetl.sh``` (or .bat under Windows) to $ORIENTDB_HOME/bin
-- Copy ```target/orientdb-etl-2.0-SNAPSHOT.jar``` to $ORIENTDB_HOME/lib
+Since version 2.0, OrientDB bundles the ETL module with the official release. 
 
 ## Usage
 
