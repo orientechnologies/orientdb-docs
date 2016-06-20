@@ -270,6 +270,44 @@ An expression that returns something different from a boolean value is always ev
 - **`|`  (bitwise OR)**
 - **`^`  (bitwise XOR)**
 - **`~`  (bitwise NOT)**
+- **`||`**: array concatenation
+
+### Array concatenation
+
+The `||` operator concatenates two arrays.
+
+```
+[1, 2, 3] || [4, 5] = [1, 2, 3, 4, 5]
+```
+
+If one of the elements is not an array, then it's converted to an array of one element, before the concatenation operation is executed
+
+```
+[1, 2, 3] || 4 = [1, 2, 3, 4]
+
+1 || [2, 3, 4] = [1, 2, 3, 4]
+
+1 || 2 || 3 || 4 = [1, 2, 3, 4]
+```
+
+To add an array, you have to wrap the array element in another array:
+
+```
+[[1, 2], [3, 4]] || [5, 6] = [[1, 2], [3, 4], 5, 6]
+
+[[1, 2], [3, 4]] || [[5, 6]] = [[1, 2], [3, 4], [5, 6]]
+```
+
+The result of an array concatenation is always a List (ordered and with duplicates). The order of the elements in the list is the same as the order in the elements in the source arrays, in the order they appear in the original expression.
+
+To transform the result of an array concatenation in a Set (remove duplicates), just use the `.asSet()` method
+
+```
+[1, 2] || [2, 3] = [1, 2, 2, 3]
+
+([1, 2] || [2, 3]).asSet() = [1, 2, 3] 
+```
+
 
 ### Boolean Operators
 
