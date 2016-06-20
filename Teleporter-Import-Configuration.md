@@ -140,9 +140,10 @@ Let's take a look closer to the **edge mapping**:
 
 We are mapping the Edge class "WorksAtProject" with a Relationship with cardinality 1-N between "Employee" and "Project" on the basis of 4 essential values:
 
-- **fromTable**: the foreign entity that import the primary key of the parent table. In the example is the table "EMPLOYEE".        
-- **fromColumns**: the attributes involved in the foreign key. In the example it's the field "PROJECT" in the table "EMPLOYEE".
-- **toTable**: the parent entity whose primary key is imported by the foreign table. In the example is the table "PROJECT". - **toColumns**: the attributes involved in the primary key imported. In the example it's the field "ID" in the table "PROJECT".
+- **fromTable**: the foreign entity that imports the primary key of the parent table. In the example it's the "EMPLOYEE" table.        
+- **fromColumns**: the attributes involved in the foreign key. In the example it's the "PROJECT" column in the "EMPLOYEE" table.
+- **toTable**: the parent entity whose primary key is imported by the foreign table. In the example it's the "PROJECT" table. 
+- **toColumns**: the attributes involved in the primary key imported. In the example it's the "ID" column in the "PROJECT" table.
 
 As this Relationship is not declared in your database, it will be added and the correspondent Edge will be built according to the other info you can set.
 
