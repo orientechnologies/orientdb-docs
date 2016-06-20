@@ -218,6 +218,8 @@ nUll
 ...
 ```
 
+- **UNDEFINED**: a non-value. It is used to reset fields to "non existing" state (eg. `UPDATE V set name = UNDEFINED`)
+
 ###Collections
 
 OrientDB supports two types of collections:
