@@ -17,8 +17,11 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
   [LOCK default|record]
   [LIMIT <max-records>] [TIMEOUT <timeout>]
 ```
-- **`<assign-operator>`**: It can be `=` (set) or one of the [math + assign operators](SQL-Syntax.md#math--assign-operators) 
+- **`<class>`**: the target class name
+- **`<cluster>`**: the target cluster name
+- **`<recordID>`**: a RID
 - **`SET`** Defines the fields to update.
+- **`<assign-operator>`**: It can be `=` (set) or one of the [math + assign operators](SQL-Syntax.md#math--assign-operators) 
 - **`CONTENT`** Replaces the record content with a JSON document.
 - **`MERGE`** Merges the record content with a JSON document. (`TODO shallow and deep merge`)
 - **`LOCK`** Specifies how to lock the record between the load and update.  You can use one of the following lock strategies:
