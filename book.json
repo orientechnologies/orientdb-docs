@@ -49,7 +49,7 @@
 		] 
     	},
 	"edit-link": {
-                "base": "https://github.com/orientechnologies/orientdb-docs/edit/master",
+                "base": "https://github.com/orientechnologies/orientdb-docs/edit/2.2.x",
                 "label": "Edit This Page"
         },
         "github": {
