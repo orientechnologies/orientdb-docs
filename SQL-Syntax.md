@@ -300,6 +300,10 @@ A `List` can be converted to a `Set` using the `.asSet()` method:
 [1, 3, 2, 2, 4].asSet() = [1, 3, 2, 4] /*  the order of the elements in the resulting set is not guaranteed */
 ```
 
+###Binary data
+OrientDB can store binary data (byte arrays) in document fields. There is no native representation of binary data in SQL syntax, insert/update a binary field you have to use `decode(<base64string>, "base64")` function.
+
+To obtain the base64 string representation of a byte array, you can use the function `encode(<byteArray>, "base64")`
 
 ###Expressions
 
