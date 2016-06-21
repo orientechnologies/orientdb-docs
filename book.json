@@ -44,8 +44,8 @@
 			{ "value": "http://orientdb.com/docs/1.7.8/", "text": "Version 1.7.x" },
 			{ "value": "http://orientdb.com/docs/2.0/", "text": "Version 2.0.x" },
 			{ "value": "http://orientdb.com/docs/2.1", "text": "Version 2.1.x" },
-			{ "value": "http://orientdb.com/docs/2.2", "text": "Version 2.2.x" },
-			{ "value": "http://orientdb.com/docs/last", "text": "Version last", "selected": true }
+			{ "value": "http://orientdb.com/docs/2.2.x", "text": "Version 2.2.x" },
+			{ "value": "http://orientdb.com/docs/master", "text": "Version last", "selected": true }
 		] 
     	},
 	"edit-link": {
