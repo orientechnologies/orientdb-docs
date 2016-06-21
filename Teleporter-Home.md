@@ -62,10 +62,18 @@ For further informations about the Security of the OrientDB database [click here
    
 #### Example of "testdb" importing from PostgreSQL DBMS with default parameters
 
+Using plocal connection:
 ```
 ./oteleporter.sh -jdriver postgresql -jurl jdbc:postgresql://localhost:5432/testdb 
-                -juser username -jpasswd password -ourl plocal:$ORIENTDB_HOME/databases/testdb 
+                -juser username -jpasswd password -ourl plocal:$ORIENTDB_HOME/databases/testdb
 ```   
+Using remote connection:
+```
+./oteleporter.sh -jdriver postgresql -jurl jdbc:postgresql://localhost:5432/testdb 
+                -juser username -jpasswd password -ourl remote:localhost/testdb
+```   
+
+
 With these parameters it will be performed an import according to the default settings:
 
 - strategy adopted: **naive-aggregate**
@@ -74,11 +82,19 @@ With these parameters it will be performed an import according to the default se
 
 #### Example of "testdb" importing from PostgreSQL DBMS with customized optional parameters
 
+Using plocal connection:
 ```
 ./oteleporter.sh -jdriver postgresql -jurl jdbc:postgresql://localhost:5432/testdb 
                 -juser username -jpasswd password -ourl plocal:$ORIENTDB_HOME/databases/testdb 
                 -s naive -nr java -v 1
 ```             
+Using remote connection:
+```
+./oteleporter.sh -jdriver postgresql -jurl jdbc:postgresql://localhost:5432/testdb 
+                -juser username -jpasswd password -ourl remote:localhost/testdb 
+                -s naive -nr java -v 1
+```  
+
 With these parameters it will be performed an import according to the chosen settings:
 
 - strategy adopted: **naive**
