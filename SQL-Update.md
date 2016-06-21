@@ -17,7 +17,7 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
   [LOCK default|record]
   [LIMIT <max-records>] [TIMEOUT <timeout>]
 ```
-- **`<assign-operator>`**: It can be `=` (set), `+=` (add and set or concat and set), `-=` (subtract and set), `*=` (multiply and set), `/=` (divide and set), `%=` (modulo and set)
+- **`<assign-operator>`**: It can be `=` (set) or one of the [math + assign operators](SQL-Syntax.md#math--assign-operators) 
 - **`SET`** Defines the fields to update.
 - **`CONTENT`** Replaces the record content with a JSON document.
 - **`MERGE`** Merges the record content with a JSON document. (`TODO shallow and deep merge`)
