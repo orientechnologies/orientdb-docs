@@ -220,6 +220,48 @@ nUll
 
 - **UNDEFINED**: a non-value. It is used to reset fields to "non existing" state (eg. `UPDATE V set name = UNDEFINED`)
 
+
+###Numbers
+
+OrientDB can store five different types of numbers
+- Integer: 32bit signed
+- Long: 64bit signed
+- Float: decimal 32bit signed
+- Duoble: decimal 64bit signed
+- BigDecimal: absolute precision
+
+**Integers** are represented in SQL as plain numbers, eg. `123`. If the number represented exceeds the Integer maximum size (see Java java.lang.Integer `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Long. 
+
+When an integer is saved to a schemaful property of another numerical type, it is automatically converted. 
+
+**Longs** are represented in SQL as numbers with `L` suffix, eg. `123L` (L can be uppercase or lowercase). Plain numbers (withot L prefix) that exceed the Integer range are also automatically converted to Long. If the number represented exceeds the Long maximum size (see Java java.lang.Long `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a BigDecimal. 
+
+**Float* numbers are represented in SQL as `[-][<number>].<number>`, eg. valid Float values are `1.5`, `-1567.0`, `.556767`. If the number represented exceeds the Float maximum size (see Java java.lang.Float `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Double. 
+
+**Double* numbers are represented in SQL as `[-][<number>].<number>D` (D can be uppercase or lowercase), eg. valid Float values are `1.5d`, `-1567.0D`, `.556767D`. If the number represented exceeds the Double maximum size (see Java java.lang.Double `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a BigDecimal. 
+
+Mathematical operations with numbers follow these rules:
+- Operations are calculated from left to right, following the operand priority (see maths section)
+- When an operation involves two numbers of different type, both are converted to the higher precision type between the two. 
+
+Eg. 
+
+```
+15 + 20L = 15L + 20L     // the 15 is converted to 15L
+
+15L + 20 = 15L + 20L     // the 20 is converted to 20L
+
+15 + 20.3 = 15.0 + 20.3     // the 15 is converted to 15.0
+
+15.0 + 20.3D = 15.0D + 20.3D     // the 15.0 is converted to 15.0D
+```
+
+the overflow follows Java rules.
+
+The conversion of a number to BigDecimal can be done in two ways:
+- implicit, at query parsing, when the number representation (number of digits) exceeds the allowed precision of other numeric types
+- explicit, using the `bigDecimal()` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+
 ###Collections
 
 OrientDB supports two types of collections:
