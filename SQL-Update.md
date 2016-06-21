@@ -70,7 +70,7 @@ The previous element in that position is just remoted. If the array was smaller 
   <pre>
   orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = addresses || #12:0</code> /* append on tail */
   
-  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = #12:0 || addresses </code> /* append on tail */
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses = #12:0 || addresses </code> /* append on head */
   </pre>
 
 
