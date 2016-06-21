@@ -143,26 +143,38 @@ In OrientDB SQL the following are reserved words
 ###Base types
 
 Accepted base types in OrientDB SQL are:
-- **integer numbers**: TODO precision
+- **integer numbers**: 
 
 Valid integers are
 ```
+(32bit)
 1
 12345678
 -45
+
+(64bit)
+1L
+12345678L
+-45L
 ```
-(TODO hex and oct, decimal exponent, hex exponent)
 
 - **floating point numbers**: single or double precision
 
 Valid floating point numbers are:
 ```
+(single precision)
 1.5
 12345678.65432
 -45.0
-0.23
-.23
+
+(double precision)
+0.23D
+.23D
 ```
+
+- **absolute precision, decimal numbers**: like BigDecimal in Java
+
+Use the `bigDecimal(<number>)` function to explicitly instantiate an absolute precision number.
 
 
 - **strings**: delimited by `'` or by `"`. Single quotes, double quotes and back-slash inside strings can escaped using a back-slash
@@ -229,6 +241,8 @@ OrientDB can store five different types of numbers
 - Float: decimal 32bit signed
 - Duoble: decimal 64bit signed
 - BigDecimal: absolute precision
+
+(TODO hex and oct, decimal exponent, hex exponent)
 
 **Integers** are represented in SQL as plain numbers, eg. `123`. If the number represented exceeds the Integer maximum size (see Java java.lang.Integer `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Long. 
 
