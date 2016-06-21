@@ -113,7 +113,7 @@ eg.
 SELECT 1+2 
 
 result:
-[{"@rid":"#-2:0", "a + b": 3}] /* see the space before and after the + sign */
+[{"@rid":"#-2:0", "1 + 2": 3}] /* see the space before and after the + sign */
 ```
 
 ```
