@@ -32,7 +32,7 @@ $ORIENDB_HOME/databases/testdb/teleporter-config/migration-config.json
 In the following executions the new configuration in your database will be processed automatically, making coherent and simpler the synchronization procedure. If you want change any setting you can modify directly that file.  
 In fact Teleporter, at execution time, **sequentially looks for**:
 
-1. the configuration file `migration-config.json` in the database directory **$ORIENDB_HOME/databases/<you-target-db>/teleporter-config/**
+1. the configuration file `migration-config.json` in the database directory **$ORIENDB_HOME/databases/testdb/teleporter-config/**
 2. if no config file will be found, then a **potential input config** will be considered 
 3. if no config file was passed as argument the **migration will be performed without any configuration**
 
