@@ -119,7 +119,7 @@ The previous element in that position is just remoted. If the array was smaller 
 - Update to remove a value from a map
 
   <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account REMOVE addresses['Luca'] = UNDEFINED</code>
+  orientdb> <code class="lang-sql userinput">UPDATE Account SET addresses['Luca'] = UNDEFINED</code>
   </pre>
 
 - Update an embedded document.  The [`UPDATE`](SQL-Update.md) command can take JSON as a value to update.
