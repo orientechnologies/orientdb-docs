@@ -2,13 +2,13 @@ stage 'Generate docs for branch ${env.BRANCH_NAME}'
 node("master") {
 
     sh "rm -rf ./*"
-    git url: 'https://github.com/orientechnologies/orientdb-docs.git', branch:"${env.BRANCH_NAME}"
+    git url: 'https://github.com/orientechnologies/orientdb-docs.git', branch: "${env.BRANCH_NAME}"
 
     docker.image("orientdb/jenkins-slave-gitbook:20160511").inside() {
         sh "rm -rf _/book/*"
-        sh "gitbook -v 2.6.7 install . "
-        sh "gitbook -v 2.6.7 build ."
-        sh "gitbook -v 2.6.7 pdf . _book/OrientDB-Manual.pdf"
+        sh "gitbook install . "
+        sh "gitbook build ."
+        sh "gitbook pdf . _book/OrientDB-Manual.pdf"
     }
 
     docker.image("orientdb/jenkins-slave-rsync:20160503").inside("-v /home/orient:/home/jenkins:ro") {
