@@ -1,6 +1,6 @@
 # Scala API
 
-There's no specific API written in Scala for OrientDB, but since there's a Java API it'easy to use that one to access OrientDB from Scala, and if needed to write wrappers around it for making a more Scala-like API.
+There's no specific API written in Scala for OrientDB, but since there's a Java API it's easy to use that one to access OrientDB from Scala, and if needed to write wrappers around it for making a more Scala-like API.
  
 Here we just explain how to start using Scala for doing some basic operations on OrientDB, based on this GitHub repository: [OrientDbScalaExample](https://github.com/andreaiacono/OrientDbScalaExample) that uses the [Graph API](http://orientdb.com/docs/last/Graph-Database-Tinkerpop.html). 
 To fully leverage the features of the API, refer to the Java documentation.
@@ -20,15 +20,10 @@ http://stackoverflow.com/questions/3856536/how-to-pass-a-string-scala-vararg-to-
 
 
 ## build.sbt
-Let's start defining the build.sbt. All we need are the library dependencies:
+Let's start defining the build.sbt. All we need is a library dependency:
 ```
 libraryDependencies ++= Seq(
-  "com.orientechnologies" % "orientdb-core" % "2.2.0",
-  "com.orientechnologies" % "orientdb-client" % "2.2.0",
-  "com.orientechnologies" % "orientdb-jdbc" % "2.2.0",
   "com.orientechnologies" % "orientdb-graphdb" % "2.2.0",
-  "com.orientechnologies" % "orientdb-distributed" % "2.2.0",
-  "com.tinkerpop.blueprints" % "blueprints-core" % "2.6.0"
 )
 ```
 
@@ -38,7 +33,8 @@ We can start creating/opening a database:
 
 ```
     val uri: String = "plocal:target/database/scala_sample"
-    val graph: OrientGraph = new OrientGraph(uri)
+    val factory: OrientGraphFactory = new OrientGraphFactory(uri)
+    val graph: OrientGraph = factory.getTx()
 ```
 If the database at the specified uri is existing, it will be just opened; if it's not existing, it will be created and opened.
 
