@@ -12,7 +12,7 @@ ODocument doc = new ODocument();
 doc.field("foo.bar", 15); 
 
 ODocument foo = new ODocument();
-doc.field("foo", bar);
+doc.field("foo", foo);
 foo.field("bar", 30);
 
 Integer thisIs15 = doc.field("foo.bar"); //this evaluates the field whose name is `foo.bar`
