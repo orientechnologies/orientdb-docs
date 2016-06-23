@@ -25,4 +25,4 @@ IMPORTANT: in the near future `ODocument.field()` methods will be deprecated and
 
 **OProperty**
 
-`OProperty.getFullName()` now returns ``` `ClassName`.`propertyName` ``` instead of ```ClassName.propertyName```
+`OProperty.getFullName()` now returns ``` "`ClassName`.`propertyName`" ``` instead of ```"ClassName.propertyName"```
