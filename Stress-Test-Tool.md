@@ -17,12 +17,12 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 * the _c_ parameter sets the concurrency level, as the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
 * the _tx_ parameter sets the number of operations to be included in a transaction. This value must be lesser than the number of creates divided by the threads number and the iterations number. If the _tx_ parameter is not present, all the operations will be executed outside transactions.
 * the _w_ parameter defines the workload. Workload are pluggable, the available ones are:
- * CRUD, executed, in orderm (C)reate, (R)ead, (U)pdate and (D)elete operations. The `<workload-params>` must follow the format `C#R#U#D#`, where the '#' is a number:
-  * C1000 defines 1000 Create operations
-  * R1000 defines 1000 Read operations
-  * U1000 defines 1000 Update operations
-  * D1000 defines 1000 Delete operations
- So a valid set is C1000R1000U1000D1000. There is only one constraint: the number of reads, updates and deletes cannot be greater than the number of creates. If not present, it defaults to C5000R5000U5000D5000.
+	* CRUD, executed, in orderm (C)reate, (R)ead, (U)pdate and (D)elete operations. The `<workload-params>` must follow the format `C#R#U#D#`, where the '#' is a number:
+		* C1000 defines 1000 Create operations
+		* R1000 defines 1000 Read operations
+		* U1000 defines 1000 Update operations
+		* D1000 defines 1000 Delete operations
+   	So a valid set is C1000R1000U1000D1000. There is only one constraint: the number of reads, updates and deletes cannot be greater than the number of creates. If not present, it defaults to C5000R5000U5000D5000.
 * the _o_ parameter sets the filename where the results are written in JSON format.
 * the _d_ parameter sets the base directory for writing the plocal database
 * the _remote-ip_ parameter defines the remote host (or IP) of the server to connect to. The StressTester will fail if this parameter is not specified and mode is _remote_.
