@@ -33,6 +33,33 @@ var hitters = db.query(
 console.log(hitters);
 ```
 
+### Using Fetching Strategies
+
+While the `query()` method supports most OrientDB SQL statements, there are some limitations in regards to [Fetching Strategies](Fetching-Strategies.md).
+
+The `query()` method does not support Fetching Strategies directly.For instance, say that you want to query the player records in your baseball database with baseball card images.  From the OrientDB Console, you might issue this command:
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT name, OUT("hasCard") AS cards
+          FROM Player FETCHPLAN *:1</code>
+</pre>
+
+This would return a result-set with the player's name in one colmn and an array from the `Card` class with all properties on that class, (as expected).  If instead, you passed this query in OrientJS through the `query()` method, you would meet with different results:
+
+```js
+var results = db.query(
+   'SELECT name, OUT("hasCard") AS cards '
+   + 'FROM Player FETCHPLAN *:1');
+```
+
+Using this code, instead of fetching and unpacking the relationship connecting the `Player` and `Card` class, the `card` column would only contain an array of Record ID's, ignoring the Fetch Plan.  The reason is that it expects to parse Fetch Plans as part of a parameter option, rather than with the query itself.  To use Fetching Strategies with OrientJS, pass it as a parameter:
+
+```js
+var results = db.query(
+   'SELECT name, OUT("hasCard") AS cards '
+   + 'FROM Player',
+   {fetchPlan: 'hasCard:1'});
+```
 
 ## Query Builder
 
