@@ -23,7 +23,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 		* U1000 defines 1000 Update operations
 		* D1000 defines 1000 Delete operations
 		
-   	So a valid set is C1000R1000U1000D1000. There is only one constraint: the number of reads, updates and deletes cannot be greater than the number of creates. If not present, it defaults to C5000R5000U5000D5000.
+   		So a valid set is C1000R1000U1000D1000. There is only one constraint: the number of reads, updates and deletes cannot be greater than the number of creates. If not present, it defaults to C5000R5000U5000D5000.
 * the _o_ parameter sets the filename where the results are written in JSON format.
 * the _d_ parameter sets the base directory for writing the plocal database
 * the _remote-ip_ parameter defines the remote host (or IP) of the server to connect to. The StressTester will fail if this parameter is not specified and mode is _remote_.
