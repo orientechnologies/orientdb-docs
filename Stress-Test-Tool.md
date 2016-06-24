@@ -5,13 +5,13 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 	StressTester
 		-m [plocal|memory|remote|distributed] (mandatory)
 		-w <workload-name>:<workload-params>
-		-c concurrency level (number of parallel threads)
-		-tx operationsPerTransaction
-        -o resultOutputFile
-        -d plocalDirectory
-		--root-password rootPassword
-		--remote-ip remoteIpOrHost
-		--remote-port remotePort
+		-c <concurrency level> (number of parallel threads)
+		-tx <operationsPerTransaction>
+        -o <resultOutputFile>
+        -d <plocalDirectory>
+		--root-password <rootPassword>
+		--remote-ip <remoteIpOrHost>
+		--remote-port <remotePort>
 
 * the **m** parameter sets the type of database to be stressed (distributed is not yet implemented).
 * the **c** parameter sets the concurrency level, as the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
