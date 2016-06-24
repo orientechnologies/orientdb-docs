@@ -38,8 +38,16 @@ The stress tester tool creates a temporary database where needed (on memory / pl
 So, if the number of Creates is 1000 and the thread number is 4, every single thread will execute 250 Creates (1000/4).
 After the execution of the test (or any error) the temporary database is dropped.
 
-## Results
-This is a sample of a result:
+## Example
+
+Executing a CRUD workload by inserting, reading, updating and deleting 100,000 records by using a connection of type "plocal" and 8 parallel threads:
+
+```
+cd bin
+./stresstester -m plocal -c 8 -w crud:C100000R100000U100000D100000
+```
+
+This is the result:
 
 ```
 OrientDB Stress Tool v.2.2.4-SNAPSHOT - Copyrights (c) 2016 OrientDB LTD
