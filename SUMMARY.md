@@ -236,6 +236,7 @@
     * [Events](OrientJS-Events.md)
   * [PyOrient](PyOrient.md)
     * [Client](PyOrient-Client.md)
+      * [Tokens](PyOrient-Client-Tokens.md) 
   * [Scala API](Scala-Language.md) 
   * [HTTP API](OrientDB-REST.md) 
   * [Binary Protocol](Network-Binary-Protocol.md) 
