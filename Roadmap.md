@@ -8,7 +8,7 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 
 ## Release 3.0
 ```
-- Development started on.: September 2015
+- Development started on.: June 2016
 - Expected first RC......: October 2016
 - Expected final GA......: December 2016
 ```
@@ -37,8 +37,8 @@ For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://git
 ## Release 3.1
 ```
 - Development started on.: -
-- Expected first RC......: June 2017
-- Expected final GA......: August 2017
+- Expected first RC......: TBD
+- Expected final GA......: TBD
 ```
 
 ### Status
