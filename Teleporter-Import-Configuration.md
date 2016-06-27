@@ -338,7 +338,7 @@ Employee ----[HasProject]-------> Project
 Employee <---[WorksAtProject]---- Project
 ```
 
-So remember to **be coherent with the underlying schema** during the mapping definition:
+So remember to **be coherent with the underlying physical schema** during the mapping definition:
 
 Mapping:
 ```
