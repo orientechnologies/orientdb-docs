@@ -295,7 +295,7 @@ Teleporter will **recognize the relationship** you want override on the basis of
 - **toTable**
 - **toColumns**
 
-**These values must to be coherent with the direction of the relationship defined in the db schema, otherwise Teleporter will interpret the relationship as a new one**.  
+**These values must to be coherent with the direction of the foreign key representing the above-mentioned Relationship. Otherwise Teleporter will interpret the relationship as a new one**.  
 So if for example we want override the Edge built starting from the relationship
 
 ```
