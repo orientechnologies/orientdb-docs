@@ -144,6 +144,7 @@ On drop class are dropped all the cluster owned by the class, and not just the d
 ### Configuration Changes
 Since 2.2 you can force to not ask for a root password setting `<isAfterFirstTime>true</isAfterFirstTime>` inside the `<orient-server>` element in the orientdb-server-config.xml file.
 
+The token is active by default, with the relative deprecation of `com.orientechnologies.orient.server.token.OrientTokenHandler` all the token configuration has been moved to orient global configuration with the properties: [network.token.secretyKey](http://orientdb.com/docs/last/Configuration.html#networktokensecretykey),  [network.token.encriptionAlgorithm](http://orientdb.com/docs/last/Configuration.html#networktokenencriptionalgorithm),  [network.token.expireTimeout](http://orientdb.com/docs/last/Configuration.html#networktokenexpiretimeout)
 
 ### SQL and Console commands Changes
 Strict SQL parsing is now applied also to statements for **Schema Manipulation** (CREATE CLASS, ALTER CLASS, CREATE PROPERTY, ALTER PROPERTY etc.)
