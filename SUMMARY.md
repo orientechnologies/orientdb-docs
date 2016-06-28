@@ -135,6 +135,7 @@
     * [Server Management](Studio-Server-Management.md) (Enterprise Edition)
     * [Cluster Management](Studio-Cluster-Management.md) (Enterprise Edition)
     * [Query Profiler](Studio-Query-Profiler.md) (Enterprise Edition)
+    * [Backup Management](Studio-Backup-Management.md) (Enterprise Edition)
     * [Studio Auditing](Studio-Auditing.md) (Enterprise Edition)
     * [Teleporter](Studio-Teleporter.md) (Enterprise Edition)
   * [Teleporter](Teleporter-Home.md) migration tool
