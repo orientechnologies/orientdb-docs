@@ -491,7 +491,7 @@ We can implicitly define the **direction** of the Edge by choosing:
 
 In our example we decided to express the relationship between Actors and Films through a "Performs" Edge starting from Actor vertices and ending into Film vertices. 
 
-Once again we can exploit the semantic of the `direction` key to reverse the final edge:
+Once again we can exploit the semantics of the `direction` key to reverse the final edge:
 
 ``` 
 {
@@ -538,7 +538,7 @@ In this field you have to specify:
 - **fromColumns**: the columns of the join table involved in the relationship with the "from-table".
 - **toColumns**: the columns of the join table involved in the relationship with the "to-table".
 
-**This info are essential** for Teleporter to infer all the single relationships between the records of the two external tables "ACTOR" and "FILM" and to build all the edges coherently, so if you don't declare any of these fields an **exception** will be thrown.
+**This info is essential** for Teleporter to infer all the single relationships between the records of the two external tables "ACTOR" and "FILM" and to build all the edges coherently, so if you don't declare any of these fields an **exception** will be thrown.
 
 Remember that this syntax offers a shortcut to configure relationships and aggregation choices, thus **you can use it only when you are executing the aggregation strategy**.  
 Performing your migration with a naive strategy using this syntax makes no sense, and here again an exception will be thrown.
