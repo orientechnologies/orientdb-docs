@@ -82,7 +82,7 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 | `CUSTOM` | String || Defines custom properties.  The syntax for custom properties is `<custom-name> = <custom-value>`, such as `stereotype = icon`. The custom name is an identifier, so it has to be back-tick quoted if it contains special characters (eg. dots); the value is a string, so it has to be quoted with single or double quotes.|
 | `DEFAULT` | || Defines the default value or function.  Feature introduced in version 2.1, (see the section above for examples).|
 
-When altering `NAME` or `TYPE` this command runs a data update that may take some time, depending on the amount of data.  Don't shut the database down during this migration.
+When altering `NAME` or `TYPE` this command runs a data update that may take some time, depending on the amount of data.  Don't shut the database down during this migration. When altering the property name, the old property value is copied to the new property name.
 
 
 
