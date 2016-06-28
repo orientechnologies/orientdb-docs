@@ -2,20 +2,20 @@
 
 **ODocument**
 
-`ODocument.field(name)` and `ODocument.field(name, value)` now do not interprete the field name as an expression. 
+New APIs `ODocument.getProperty(name)` and `ODocument.setProperty(name, value)`  do not interprete the field name as an expression. 
 Any character is allowed.
 
 eg.
 
 ```java
 ODocument doc = new ODocument();
-doc.field("foo.bar", 15); 
+doc.setProperty("foo.bar", 15); 
 
 ODocument foo = new ODocument();
-doc.field("foo", foo);
-foo.field("bar", 30);
+doc.setProperty("foo", foo);
+foo.setProperty("bar", 30);
 
-Integer thisIs15 = doc.field("foo.bar"); //this evaluates the field whose name is `foo.bar`
+Integer thisIs15 = doc.getProperty("foo.bar"); //this evaluates the field whose name is `foo.bar`
 Integer thisIs30 = doc.eval("foo.bar");  //this evaluates the expression `foo`.`bar`
 
 ```
