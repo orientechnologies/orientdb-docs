@@ -61,6 +61,7 @@ This documentation is also available in [PDF format](OrientDB-Manual.pdf).
 - [v1.7.8](http://orientdb.com/docs/1.7.8/)
 - [v2.0.x](http://orientdb.com/docs/2.0/)
 - [v2.1.x](http://orientdb.com/docs/2.1/)
+- [v2.2.x](http://orientdb.com/docs/2.2/)
 
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
