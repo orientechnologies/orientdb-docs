@@ -85,6 +85,9 @@ A spatial index on the *location* field s defined by
 CREATE INDEX Restaurant.location ON Restaurant(location) SPATIAL ENGINE LUCENE"
 ```
 
+## Spatial Reference System
+
+OrientDB supports only [EPSG:4326](http://spatialreference.org/ref/epsg/wgs-84/)  as Spatial Reference System
 
 ## Functions
 
