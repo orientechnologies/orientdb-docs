@@ -4,28 +4,37 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 ## Syntax
 	StressTester
 		-m [plocal|memory|remote|distributed] (mandatory)
-		-w <workload-name>:<workload-params>
+		-w <workload-name>:<workload-params>*
 		-c <concurrency level> (number of parallel threads)
 		-tx <operationsPerTransaction>
         -o <resultOutputFile>
         -d <plocalDirectory>
-		--root-password <rootPassword>
-		--remote-ip <remoteIpOrHost>
-		--remote-port <remotePort>
+        -chk true|false
+        -k true|false
+	--root-password <rootPassword>
+	--remote-ip <remoteIpOrHost>
+	--remote-port <remotePort>
 
 * the **m** parameter sets the type of database to be stressed (distributed is not yet implemented).
 * the **c** parameter sets the concurrency level, as the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
 * the **tx** parameter sets the number of operations to be included in a transaction. This value must be lesser than the number of creates divided by the threads number and the iterations number. If the **tx** parameter is not present, all the operations will be executed outside transactions.
-* the **w** parameter defines the workload. Workload are pluggable, the available ones are:
-	* CRUD, executed, in orderm (C)reate, (R)ead, (U)pdate and (D)elete operations. The `<workload-params>` must follow the format `C#R#U#D#`, where the '#' is a number:
+* the **w** parameter defines the workloads. To specify multipel workloads, use the comma (`,`) to separate them, but do not use any space. Workloads are pluggable, the available ones are:
+	* **CRUD**, executes, in order, (C)reate, (R)ead, (U)pdate and (D)elete operations. The `<workload-params>` must follow the format `C#R#U#D#`, where the '#' is a number:
 		* C1000 defines 1000 Create operations
 		* R1000 defines 1000 Read operations
 		* U1000 defines 1000 Update operations
 		* D1000 defines 1000 Delete operations
 		
    		So a valid set is C1000R1000U1000D1000. There is only one constraint: the number of reads, updates and deletes cannot be greater than the number of creates. If not present, it defaults to C5000R5000U5000D5000.
+	* **GINSERT**, Insert a graph where all the nodes are conected with each others. The `<workload-params>` must follow the format `V#F#`, where the '#' is a number:
+		* V1000 creates 1000 vertices
+		* F10 Each vertex has 10 edges
+	* **GSP**, Executes a shortest path between all the vertices against all the other vertices. The `<workload-params>` must follow the format `L#`, where the '#' is a number::
+		* L1000 set the limit to 1000 vertiecs only. Optional.
 * the **o** parameter sets the filename where the results are written in JSON format.
 * the **d** parameter sets the base directory for writing the plocal database
+* the **k** keeps the database at the end of workload. By default is `false`, so the database is dropped.
+* the **chk** Checks the database created by the workload at the end of the test. Default is `false`.
 * the **remote-ip** parameter defines the remote host (or IP) of the server to connect to. The StressTester will fail if this parameter is not specified and mode is **remote**.
 * the **remote-port** parameter defines the port of the server to connect to. If not specified, it defaults to 2424.
 * the **root-password** parameter sets the root password of the server to connect to. If not specified and if mode is **remote**, the root password will be asked at the start of the test.
