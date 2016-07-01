@@ -47,7 +47,7 @@ The stress tester tool creates a temporary database where needed (on memory / pl
 So, if the number of Creates is 1000 and the thread number is 4, every single thread will execute 250 Creates (1000/4).
 After the execution of the test (or any error) the temporary database is dropped.
 
-## Example
+## Example with CRUD workload
 
 Executing a CRUD workload by inserting, reading, updating and deleting 100,000 records by using a connection of type "plocal" and 8 parallel threads:
 
@@ -61,19 +61,22 @@ This is the result:
 ```
 OrientDB Stress Tool v.2.2.4-SNAPSHOT - Copyrights (c) 2016 OrientDB LTD
 WARNING: 'tx' option not found. Defaulting to 0.
-Created database [plocal:/var/folders/zc/y34429014c3bt**x1587qblth0000gn/T/stress-test-db-20160623**233800].
-Starting workload CRUD - concurrencyLevel=8...
-Stress test in progress 100% [Creates: 100% - Reads: 100% - Updates: 100% - Deletes: 100%]
-Total execution time: 33.629 secs
+Created database [plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_165901].
 
-Created 100000 records in 8.558 secs - Throughput: 11684.973/sec - Avg: 0.086ms/op (7th percentile) - 99th Perc: 3.577ms - 99.9th Perc: 8.148ms
-Read    100000 records in 3.397 secs - Throughput: 29437.738/sec - Avg: 0.034ms/op (0th percentile) - 99th perc: 3.400ms - 99.9th Perc: 15.435ms
-Updated 100000 records in 7.710 secs - Throughput: 12970.169/sec - Avg: 0.077ms/op (35th percentile) - 99th perc: 16.216ms - 99.9th Perc: 33.249ms
-Deleted 100000 records in 13.720 secs - Throughput: 7288.630/sec - Avg: 0.137ms/op (2th percentile) - 99th perc: 5.970ms - 99.9th Perc: 12.395ms
+Starting workload CRUD (concurrencyLevel=8)...
+- Workload in progress 100% [Creates: 100% - Reads: 100% - Updates: 100% - Deletes: 100%]
+- Total execution time: 27.602 secs
+- Created 1000000 records in 26.464 secs
+  - Throughput: 37787.184/sec - Avg: 0.026ms/op (0th percentile) - 99th Perc: 0.799ms - 99.9th Perc: 5.769ms
+- Read 1000 records in 0.096 secs
+  - Throughput: 10416.667/sec - Avg: 0.096ms/op (0th percentile) - 99th Perc: 2.597ms - 99.9th Perc: 6.860ms
+- Updated 1000 records in 0.043 secs
+  - Throughput: 23255.814/sec - Avg: 0.043ms/op (0th percentile) - 99th Perc: 1.404ms - 99.9th Perc: 3.505ms
+- Deleted 1000 records in 0.107 secs
+  - Throughput: 9345.794/sec - Avg: 0.107ms/op (0th percentile) - 99th Perc: 3.175ms - 99.9th Perc: 5.664ms
 
-Dropped database [plocal:/var/folders/zc/y34429014c3bt**x1587qblth0000gn/T/stress-test-db-20160623**233800].
+Dropped database [plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_165901].
 ```
-
 
 The first part of the result is updated as long as the test is running, to give the user an idea of how long it will last. It will be deleted as soon as the test successfully terminates.
 The second part shows the results of the test:
@@ -82,5 +85,64 @@ The second part shows the results of the test:
 
 The time is computed by summing up the times of execution of all the threads and dividing it by their number; the percentile value shows where the average result is located compared to all other results: if the average is a lot higher than 50%, it means that there are a few executions with higher times that lifted up the average (and you can expect better performance in general); a high percentile can happen when, for example, the OS or another process is doing something else (either CPU or I/O intensive) during the execution of the test.
 
-
 If you plan to use the results of the StressTester the **o** option is available for writing the results in JSON format on disk. 
+
+## Example with Graph workloads
+
+Insert 100 vertices with 10 edges each (all connected), then execute a shortest path between all of them and checks the database integrity at the end.
+
+```
+cd bin
+./stresstester -m plocal -c 16 -w GINSERT:V100F10,GSP -chk true
+```
+
+This is the result:
+
+```
+OrientDB Stress Tool v.2.2.4-SNAPSHOT - Copyrights (c) 2016 OrientDB LTD
+WARNING: 'tx' option not found. Defaulting to 0.
+Created database [plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_170356].
+
+Starting workload GINSERT (concurrencyLevel=16)...
+- Workload in progress 100% [Vertices: 100 - Edges: 84]
+- Total execution time: 0.068 secs
+- Created 100 vertices and 84 edges in 0.052 secs
+- Throughput: 1923.077/sec - Avg: 0.520ms/op (0th percentile) - 99th Perc: 15.900ms - 99.9th Perc: 15.900ms
+- Checking database...
+   - Repair of graph 'plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_170356' is started ...
+   - Scanning 99 edges...
+   - Scanning edges completed
+   - Scanning 100 vertices...
+   - Scanning vertices completed
+   - Repair of graph 'plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_170356' completed in 0 secs
+   -  scannedEdges.....: 99
+   -  removedEdges.....: 0
+   -  scannedVertices..: 100
+   -  scannedLinks.....: 198
+   -  removedLinks.....: 0
+   -  repairedVertices.: 0
+- Check completed
+
+Starting workload GSP (concurrencyLevel=16)...
+- Workload in progress 100% [Shortest paths blocks (block size=100) executed: 100/100]
+- Total execution time: 2.065 secs
+- Executed 100 shortest paths in 2.060 secs
+- Path depth: maximum 18, average 8.135, not connected 0
+- Throughput: 48.544/sec - Avg: 20.600ms/op (0th percentile) - 99th Perc: 650.284ms - 99.9th Perc: 650.284ms
+- Checking database...
+   - Repair of graph 'plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_170356' is started ...
+   - Scanning 99 edges...
+   - Scanning edges completed
+   - Scanning 100 vertices...
+   - Scanning vertices completed
+   - Repair of graph 'plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_170356' completed in 0 secs
+   -  scannedEdges.....: 99
+   -  removedEdges.....: 0
+   -  scannedVertices..: 100
+   -  scannedLinks.....: 198
+   -  removedLinks.....: 0
+   -  repairedVertices.: 0
+- Check completed
+
+Dropped database [plocal:/var/folders/zc/y34429014c3bt_x1587qblth0000gn/T/stress-test-db-20160701_170356].
+```
