@@ -16,8 +16,9 @@ MATCH
     [class: <className>], 
     [as: <alias>], 
     [where: (<whereCondition>)], 
-    [while: (<whileCondition>)]
-    [maxDepth: <number>]
+    [while: (<whileCondition>)],
+    [maxDepth: <number>],
+    [optional: (true | false)]
   }*
 RETURN <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
 LIMIT <number>
@@ -42,7 +43,8 @@ For out(), in(), both() also a shortened *arrow* syntax is supported:
   - `$paths` Indicating the full traversed paths.
   - `$elements` (since 2.2.1) Indicating that all the elements that would be returned by the $matches have to be returned flattened, without duplicates.
   - `$pathElements` (since 2.2.1) Indicating that all the elements that would be returned by the $paths have to be returned flattened, without duplicates.
-
+- **`optional`** (since 2.2.4) if set to true, allows to evaluate and return a pattern even if that particular node does not match the pattern itself (ie. there is no value for that node in the pattern). In current version, optional nodes are allowed only on right terminal nodes, eg. `{} --> {optional:true}` is allowed, `{optional:true} <-- {}` is not.
+ 
 **BNF Syntax**
 
 ```
