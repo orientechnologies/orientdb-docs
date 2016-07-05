@@ -15,8 +15,13 @@ Starting from OrientDB Enterprise Edition v2.2.4, you can define how your server
   },
 ```
 
+NOTE: _This feature is available only in [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
 
-NOTE: _This feature is available only in [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Packages](http://orientdb.com/support)_.
+## Write Quorum
+
+The most reason why defining data centers is a good idea is the definition of the consistency at data center level. A typical scenario is having a synchronous replication in the same data center where the coordinator server is located, and then propagate changes to other data centers in asynchronous way. In this way you can avoid the cost of the latency of servers located on different data centers. In order to activate this mode, set the global `"writeQuorum": "localDataCenter"` and then specify a writeQuorum per data center.
+
+For example if a write operation is executed by a server where its data center write quorum setting is `majority`, then the quorum used will be `majority` between only the servers locates in the same data center.
 
 Example about the configuration of 2 data centers, "rome" and "austin", with rispectively 3 and 2 servers.
 
@@ -36,15 +41,13 @@ Example about the configuration of 2 data centers, "rome" and "austin", with ris
       "servers": [ "usa-0", "usa-1" ]
     }
   },
-  "servers": {
-    "*": "master"
-  },
+  "servers": { "*": "master" },
   "clusters": {
     "internal": {},
-    "*": {
-      "servers": [ "<NEW_NODE>" ]
-    }
+    "*": { "servers": [ "<NEW_NODE>" ] }
   }
 }
 ```
+
+If a write operation is executed on server "europe-0", the quorum used will be `majority` between only the servers locates in the same data center, namely "europe-0" (the coordinator), "europe-1" and "europe-2". Since the coordinator writes in the database before to distribute the operation, the write operation succeed as soon as at least one of the "europe-1" and "europe-2" servers provide the same result as with "europe-0". The rest of the replication will be executed in background in asycnhronous way.
 
