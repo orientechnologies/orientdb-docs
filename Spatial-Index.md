@@ -151,6 +151,40 @@ Example
 select * from City where  ST_WITHIN(location,'POLYGON ((12.314015 41.8262816, 12.314015 41.963125, 12.6605063 41.963125, 12.6605063 41.8262816, 12.314015 41.8262816))') = true
 ```
 
+### ST_Distance
+
+Returns the 2D Cartesian distance between two geometries
+
+Syntax : ST_Distance(geom1,geom2)
+
+Example
+
+```SQL
+select ST_Distance(ST_GEOMFROMTEXT('POINT(12.4662748 41.8914114)'),ST_GEOMFROMTEXT('POINT(12.4664632 41.8904382)')) as distance
+
+distance
+--------
+0.0009912682785239528
+```
+
+### ST_Distance_Sphere
+
+Returns the distance between two geometries in meters using a spherical earth. Supports Only Points.
+This function will use an index if available (Only if the condition is < or <=).
+
+Example 
+
+```SQL
+SELECT ST_Distance_Sphere(ST_GeomFromText('POINT(12.4686519 41.890438)'), ST_GeomFromText('POINT(12.468933 41.890303)')) as distance
+
+```
+
+In where condition
+
+```SQL
+SELECT from Place where ST_Distance_Sphere(location, ST_GeomFromText('POINT(12.468933 41.890303)')) < 50
+```
+
 ### ST_DWithin
 
 Returns true if the geometries are within the specified distance of one another
