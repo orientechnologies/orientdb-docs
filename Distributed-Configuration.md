@@ -10,6 +10,7 @@ Main topics:
 - [Asynchronous replication mode](Distributed-Configuration.md#asynchronous-replication-mode)
 - [Return distributed configuration at run-time](Distributed-Runtime.md)
 - [Load Balancing](Distributed-Configuration.md#load-balancing) 
+- [Data Center support](Data-Centers.md)
 - [Cloud support](Distributed-Configuration.md#cloud-support)
 
 ## orientdb-server-config.xml
