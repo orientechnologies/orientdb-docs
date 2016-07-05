@@ -311,6 +311,7 @@
     * [Runtime Configuration](Distributed-Runtime.md) 
   * [Replication](Replication.md) 
   * [Sharding](Distributed-Sharding.md) 
+  * [Data Centers](Data-Centers.md) 
   * [Tuning](Distributed-Configuration-Tuning.md)
   * [HA SQL Commands](#)
     * [HA Remove Server](SQL-HA-Remove-Server.md)
