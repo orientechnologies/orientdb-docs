@@ -167,7 +167,7 @@ distance
 0.0009912682785239528
 ```
 
-### ST_Distance_Sphere
+### ST_Distance_Sphere (From OrientDB 2.2.4)
 
 Returns the distance between two geometries in meters using a spherical earth. Supports Only Points.
 This function will use an index if available (Only if the condition is < or <=).
