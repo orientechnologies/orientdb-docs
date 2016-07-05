@@ -16,7 +16,7 @@ Starting from OrientDB Enterprise Edition v2.2.4, you can define how your server
 ```
 
 
-NOTE: _This feature is available only in [OrientDB Enterprise Edition](/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Packages](/support)_.
+NOTE: _This feature is available only in [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Packages](http://orientdb.com/support)_.
 
 Example about the configuration of 2 data centers, "rome" and "austin", with rispectively 3 and 2 servers.
 
