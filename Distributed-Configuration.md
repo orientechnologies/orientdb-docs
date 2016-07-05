@@ -52,15 +52,23 @@ Default **default-distributed-db-config.json** file content:
     "readQuorum": 1,
     "writeQuorum": "majority",
     "readYourWrites": true,
+    "dataCenters": {
+      "rome": {
+        "writeQuorum": "majority",
+        "servers": [ "europe-0", "europe-1", "europe-2" ]
+      },
+      "denver": {
+        "writeQuorum": "majority",
+        "servers": [ "usa-0", "usa-1", "usa-2" ]
+      }
+    },
     "servers": {
         "*": "master"
     },
     "clusters": {
         "internal": {
         },
-        "*": {
-            "servers" : [ "<NEW_NODE>" ]
-        }
+        "*": { "servers" : [ "<NEW_NODE>" ] }
     }
 }
 ```
@@ -74,6 +82,7 @@ Where:
 |**readQuorum**|On "read" operation (record read, query and traverse) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
 |**writeQuorum**|On "write" operation (any write on database) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at write time. Suggested value is "majority", the default, that means N/2+1 where N is the number of available nodes. In this way the quorum is reached only if the majority of nodes are coherent. "all" means all the available nodes. Starting from v2.2, N represent the MASTER only servers. For more information look at [Server Roles](Distributed-Architecture.md#server-roles).|<code>"majority"</code>|
 |**readYourWrites**|Whether the write quorum is satisfied only when also the local node responded. This assures current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
+|**dataCenters**|(Since v2.2.4) Optional (and only availabe in the [Enterprise Edition](http://orientdb.com/orientdb-enterprise), contains the definition of the data centers. For more information look at [Data Centers](Data-Centers.md)|-|
 |**servers**|(Since v2.1) Optional, contains the map of server roles in the format <code>server-name</code> : <code>role</code>. <code>*</code> means any server. Available roles are "MASTER" (default) and "REPLICA". For more information look at [Server roles](Distributed-Architecture.md#server_roles)|-|
 |**clusters**|if the object containing the clusters' configuration as map <code>cluster-name</code> : <code>cluster-configuration</code>. <code>*</code> means all the clusters and is the cluster's default configuration|-|
 
@@ -217,7 +226,10 @@ Uses manual IP like explained in [Manual IP](Distributed-Configuration.md#manual
 
 ## Asynchronous replication mode
 
-In order to reduce the latency in WAN, the suggested configuration is to set `executionMode` to "asynchronous". In asynchronous mode any operation is executed on local node and then replicated. In this mode the client doesn't wait for the quorum across all the servers, but receives the response immediately after the local node answer. Example:
+If you are replication OrientDB database across multiple Data Centers, look at [Data Centers Configuration](Data-Centers.md) available only with the [Enterprise Edition](http://orientdb.com/orientdb-enterprise).
+
+If you are using the Community Edition or if you don't have multiple data centers, but just a network with high latency, in order to reduce the impact of the latency in the replication, the suggested configuration is to set `executionMode` to "asynchronous". In asynchronous mode any operation is executed on local node and then replicated. In this mode the client doesn't wait for the quorum across all the servers, but receives the response immediately after the local node answer. Example:
+
 ```json
 {
     "autoDeploy": true,
