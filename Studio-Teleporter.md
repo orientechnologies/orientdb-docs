@@ -2,6 +2,9 @@
 In Studio 2.2 Enterprise Edition you can configure the execution of the new Teleporter plugin, wich allows you to import your relational database into OrientDB in few simple steps.
 If you are interested in a detailed description of the tool, of its inner workings and features you can view the [Teleporter Documentation](Teleporter-Home.md).
 
+NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+
+
 After you typed the required parameters for the migration you can test the connection.
 The required parameters for the minimal import configuration are:
 - `Driver`, as the driver name of the DBMS from which you want to execute the import (it's not case sensitive)
