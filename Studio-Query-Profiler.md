@@ -3,6 +3,9 @@ Studio 2.2 Enterprise Edition includes a new functionality called [Auditing](Aud
 
 In the above section you can choose the server in order to investigate queries executed on it and manage the local cache.
 
+NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+
+
 ## Query
 This panel shows all the queries executed on a specific server grouped by the command content. For each query the following information are reported:
 - `Type`, as the query type
