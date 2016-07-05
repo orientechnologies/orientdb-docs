@@ -51,3 +51,26 @@ Example about the configuration of 2 data centers, "rome" and "austin", with ris
 
 If a write operation is executed on server "europe-0", the quorum used will be `majority` between only the servers locates in the same data center, namely "europe-0" (the coordinator), "europe-1" and "europe-2". Since the coordinator writes in the database before to distribute the operation, the write operation succeed as soon as at least one of the "europe-1" and "europe-2" servers provide the same result as with "europe-0". The rest of the replication will be executed in background in asycnhronous way.
 
+## Consistency
+
+Since multiple data centers can have a local quorum, it is possible to have an Eventual Consistency between them. It's always suggested to keep the number of servers odd, so you can, eventually, be always consistent. Example of 2 data centers with equal number of servers:
+
+```json
+  "dataCenters": {
+    "rome": {
+      "writeQuorum": "all",
+      "servers": [ "europe-0", "europe-1", "europe-2" ]
+    },
+    "austin": {
+      "writeQuorum": "all",
+      "servers": [ "usa-0", "usa-1", "usa-2" ]
+    }
+```
+
+In this case if an UPDATE operation is executed by the server "usa-0" (the coordinator), it will reach the quorum only if `all` the servers in the "austin" data center provide the same result. Let's say the result for all these 2 servers was `5` (in the UPDATE operation is the updated version of the record). But what happens if all the other 3 servers in "rome" return `6`? You have no majority in this case (3 against 3), so the coordinator cannot establish who is the winner.
+
+In order to automatically manage conflicts, the suggested configuration is always to keep an **odd number** of servers if you have or not data centers.
+
+## Conflict Resolution Policy
+
+In case of even number of servers, a Conflict Resolution Policy has to be defined. This is not yet available, but it's in our roadmap.
