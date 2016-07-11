@@ -84,8 +84,10 @@ Once you have initialized the `server` variable in your application, you can use
 Using the Server API you can list the current databases on the Server using the `server.list()` method.  This returns a list object, which you can store as a variable and use elsewhere, or you can pass it to the `console.log()` function to print the number of databases available on the server.
 
 ```js
-var dbs = server.list();
-console.log('There are ' + dbs.length + ' databases on the server.');
+server.list().then(function(dbs){
+   console.log('There are ' + dbs.length + ' databases on the server.');
+});
+
 ```
 
 Here, the database list is set to the variable `dbs`, which then uses the `.length` operator to find the number of entries in the list.  You might use the `server.list()` method in your application logic in determining whether you need to create a database before attempting to connect to one.
@@ -101,8 +103,10 @@ var db = server.create({
    name:    'BaseballStats',
    type:    'graph',
    storage: 'plocal'
+}).then(function(db){
+   console.log('Created a database called ' + db.name);
 });
-console.log('Created a database called ' + db.name);
+
 ```
 
 Using this code creates a database for baseball statistics on the OrientDB Server. Within your application, it also initializes a Database API variable called `db`.  Then it logs a message about what it did to the console.
