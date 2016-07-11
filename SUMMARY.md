@@ -147,6 +147,7 @@
       * [Single Table Inheritance](Teleporter-Single-Table-Inheritance.md)
       * [Table Per Class Inheritance](Teleporter-Table-Per-Class-Inheritance.md)
       * [Table Per Concrete Class Inheritance](Teleporter-Table-Per-Concrete-Class-Inheritance.md)
+    * [Import Configuration](Teleporter-Import-Configuration.md)
   * [Troubleshooting](Troubleshooting.md) 
     * [Java](Troubleshooting-Java.md) 
     * [Query Examples](Query-Examples.md) 
