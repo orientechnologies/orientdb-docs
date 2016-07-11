@@ -5,7 +5,9 @@ With OrientJS, you can access and manipulate properties on your OrientDB databas
 The examples below use a database of baseball statistics, assuming that you've already created a class for players and initialized it in your code.  For instance,
 
 ```js
-var Player = db.class.get('Player');
+db.class.get('Player').then(function(Player){
+   Player.property...
+});
 ```
 
 Methods that operate on properties use the `class.property` object, such as `Player.property.list()`.
@@ -18,9 +20,11 @@ In the event that you need to check the schema or are unfamiliar with the proper
 For instance, say you want a list of properties set for the class `Player`:
 
 ```js
-var properties = Player.property.list();
-console.log(Player.name + 'class has the following properties',
-   properties);
+var properties = Player.property.list().then(function(properties){
+   console.log(Player.name + 'class has the following properties',
+      properties);
+});
+
 ```
 
 ## Creating Properties
@@ -28,16 +32,18 @@ console.log(Player.name + 'class has the following properties',
 Using OrientJS, you can define a schema for the classes from within your application by creating properties on the class with the `class.property.create()` method.  For instance,
 
 ```js
-var name = Player.property.create({
+Player.property.create({
    name: 'name',
    type: 'String'
+}).then(function(p){
+   console.log('Property created:' + p);
 });
 ```
 
 This adds a property to the class where you can give the player's name when entering data.  This is fine if you only have a few properties to create, but in the case of the example, there are a large number of values you might assign to a given player, such as dates of birth and death, team, batting averages, and so on.  You can set multiple properties together by passing `class.property.create()` an array.
 
 ```js
-var properties = Player.property.create([
+Player.property.create([
    {name: 'dateBirth',
     type: 'Date'},
    {name: 'dateDeath',
@@ -46,7 +52,9 @@ var properties = Player.property.create([
     type: 'String'}
    {name: 'battingAverage',
     type: 'Float'}
-]);
+]).then(function(properties){
+   console.log('Properties created');
+});
 ```
 
 
@@ -55,7 +63,9 @@ var properties = Player.property.create([
 In the event that you find you have set a property on a class that you want to remove, you can do so from within your application using the `class.property.drop()` method.  For instance, sat that you decide that you want to handle teams as a distinct class rather than a field in `Player`.
 
 ```js
-Player.property.drop('team');
+Player.property.drop('team').then(function(){
+   console.log('Property dropped.');
+});
 ```
 
 
@@ -64,5 +74,7 @@ Player.property.drop('team');
 In the event that you want to rename a property through OrientJS, you can do so using the `class.property.rename()` method.
 
 ```js
-Player.property.rename('battingAverage', 'batAvg');
+Player.property.rename('battingAverage', 'batAvg').then(function(p){
+   console.log('Property renamed');
+});
 ```
