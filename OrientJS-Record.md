@@ -14,8 +14,10 @@ Methods tied to the Record API are accessible through the Database API: `db.reco
 Using the Record API, you can fetch records by their Record ID's using the `db.record.get()` method by their Record ID.  For instance,
 
 ```js
-var rec = db.record.get('#1:1');
-console.log('Loaded record: ', rec);
+db.record.get('#1:1').then(function(rec){
+  console.log('Loaded record: ', rec);
+});
+
 ```
 
 ### Deleting Records
@@ -23,7 +25,9 @@ console.log('Loaded record: ', rec);
 Using the Record API, you can delete records by their Record ID's using the `db.record.delete()` method.  For instance,
 
 ```js
-db.record.delete('#1:1');
+db.record.delete('#1:1').then(function(){
+  console.log("Record deleted");
+});
 ```
 
 ### Creating Raw Binary Records
@@ -39,8 +43,10 @@ binary_data['@type'] = 'b';
 binary_data['@class'] = 'Player';
 
 // Create Record
-var data = db.record.create(binary_data);
-console.log('Created Record ID: ', binary_data['@rid']);
+db.record.create(binary_data).then(function(data){
+  console.log('Created Record ID: ', data['@rid']);  
+});
+
 ```
 
 Here, you initialize the `binary_data` variable as a new `Buffer()` instance.  Then you set the type and cluster on which it's stored, (`@class` in this case refers to the cluster).  Finally, you create the record in OrientDB, printing its Record ID to the console.
