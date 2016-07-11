@@ -82,7 +82,7 @@ When working with development releases, it is advisable that you run tests after
 Testing PyOrient requires that you have Apache Ant and Nose installed on your system.  To run the test, first bootstrap OrientDB by running the following command from the `pyorient/` directory:
 
 <pre>
-$ <code class="lang-sh userinput">./ci/ci-start.sh</code>
+$ <code class="lang-sh userinput">./ci/start-ci.sh</code>
 </pre>
 
 Running this command downloads the latest version of OrientDB into a local directory then makes some changes to its configuration file and installs a database for use in the test.  Once it's done, you can run the test:
