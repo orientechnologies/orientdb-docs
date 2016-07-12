@@ -1,5 +1,25 @@
 # Using Functions
 
+## Call Functions via SQL
+
+All the database functions are automatically registered in the SQL Engine. 
+
+**Examples**
+
+- Calling the sum function from SQL with static parameters:
+
+  ```sql
+  SELECT SUM(3,4)
+  ```
+  
+- Calling the sum function from SQL with parameters taken from database:
+
+  ```sql
+  SELECT SUM(salary,bonus) AS total FROM Employee
+  ```
+
+  In this case the function SUM is invoked for each record in the Employee class by passing the value of the fields `salary` and `bonus`.
+
 ## Functions using the Java API
 
 Using OrientDB functions from the Java API is relatively straightforward:
