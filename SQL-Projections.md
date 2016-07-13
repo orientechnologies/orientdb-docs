@@ -65,6 +65,8 @@ will return  `[{"@rid": "-2:0", "name":"bar"}]`
 
 *IMPORTANT - the result of the query can be further unwinded using the UNWIND operator*
 
+*IMPORTANT: `expand()` cannot be used together with `GROUP BY`*
+
 ### Aliases
 
 The alias is the field name that a projection will have in the result-set.
