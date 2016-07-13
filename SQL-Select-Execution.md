@@ -122,5 +122,8 @@ The typical execution plan is made of the following steps:
 
 Obviously, a simple query like `SELECT FROM Person` will have a very simple execution plan made of a single step (the fetch from `Person` class), while a complex query will have an execution plan made of multiple steps
 
+To display the execution plan of a query, without executing it, you can just execute the query prefixing it with `EXPLAIN`, eg.
 
-
+```sql
+EXPLAIN SELECT FROM Person 
+```
