@@ -29,8 +29,11 @@ var player = db.create('VERTEX', 'Player')
       deathDate: '1961-7-17',
       batted:    'left',
       threw:     'right'
-   }).one();
-console.log('Created Vertex: ' +  player.name)
+   }).one().then(
+      function(player){
+         console.log('Created Vertex: ' + player.name);
+      }
+   );
 ```
 
 ### Creating Edges

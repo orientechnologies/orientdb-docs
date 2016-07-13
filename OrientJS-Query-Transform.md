@@ -22,8 +22,12 @@ var user = db.select('name').from('OUser')
       status: function(status){
          return status.toLowerCase();
       }
-   }).limit(1).one();
-console.log('User Status: ', user.status);
+   }).limit(1).one()
+   .then(
+      function(select){
+         console.log('User Status Transformed:', select.status);
+      }
+   );
 ```
 
 In the `transform()` method, the `toLowerCase()` method operates on the return status to convert `ACTIVE` to `active`.
@@ -41,11 +45,13 @@ var user = db.select('name').from('OUser')
       function(record){
          return new User(record);
       }
-   ).limit(1).one();
-console.log('Is the user an instance of User?',
-   (user.instanceof User));
+   ).limit(1).one()
+   .then(
+      function(select){
+         console.loog(
+            'Is the user an instance of User?',
+            (user.instanceof User)
+         );
+      }
+   );
 ```
-
-
-
-

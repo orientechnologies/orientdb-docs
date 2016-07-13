@@ -15,8 +15,12 @@ Use the `select()` method to fetch records from the database.  For instance, say
 var hitters = db.select().from('Player')
    .where({
       ba: 0.3
-   }).all();
-console.log('Hitters:', hitters);
+   }).all()
+   .then(
+      function(select){
+         console.log('Hitters:', select);
+      }
+   );
 ```
 
 ### Searching Records
@@ -27,8 +31,12 @@ Using the `containsText()` method, you can search records for specific strings. 
 var results = db.select().from('Player')
    .containsText({
       name: 'Ty'
-   }).all();
-console.log('Found Players:', results);
+   }).all()
+   .then(
+      function(select){
+         console.log('Found Players:', select);
+      }
+   );
 ```
 
 
@@ -43,8 +51,12 @@ var count = db.select('count(*)').from('Player')
    .where({
       threw:  'right',
       batted: 'left'
-   }).scalar();
-console.log('Total:', count);
+   }).scalar()
+   .then(
+      function(select){
+         console.log('Total:', select);
+      }
+   );
 ```
 
 ### Returning Specific Fields
@@ -53,8 +65,12 @@ Similar to expressions, by passing arguments to the method you can define a spec
 
 ```js
 var teams = db.select('name')
-   .from('Teams').all();
-console.log('Loading Teams:', teams);
+   .from('Teams').all()
+   .then(
+      function(select){
+         console.log('Loading Teams:', select);
+      }
+   );
 ```
 
 ### Specifying Default Values
@@ -70,6 +86,3 @@ var player = db.select('name').from('Player')
       bats: 'Unknown'
     }).all();
 ```
-
-
-

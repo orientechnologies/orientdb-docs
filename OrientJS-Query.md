@@ -14,7 +14,6 @@ var hitters = db.query(
    'SELECT name, ba FROM Player '
    + 'WHERE ba >= 0.3 AND team = "Red Sox"'
 );
-console.log(hitters);
 ```
 
 ### Using Parameters
@@ -30,7 +29,6 @@ var hitters = db.query(
       team: targetTeam
    }, limit: 20
 );
-console.log(hitters);
 ```
 
 ### Using Fetching Strategies

@@ -14,11 +14,15 @@ Consider the case where you want to update player data after a game.  For instan
 
 
 ```js
-var update = db.update('#12:97')
+db.update('#12:97')
    .set({
       ba: newBA
-   }).one();
-console.log('Updated ', update);
+   }).one()
+   .then(
+      function(update){
+         console.log('Records Updated:', update);
+      }
+   );
 ```
 
 ### Putting in Map Entries
@@ -26,13 +30,15 @@ console.log('Updated ', update);
 When working with map fields, you sometimes need to put entries into map properties.  In the OrientDB Console, you can do this with the `PUT` clause, in OrientJS you can do so through the `put()` method.
 
 ```js
-var total = db.update('#1:1')
+db.update('#1:1')
    .put('mapProperty', {
       key: 'value',
       foo: 'bar'
    })
-   .scalar();
-console.log('Updated', total, 'records');
+   .scalar()
+   .then(
+      function(update){
+         console.log('Records Updated:', update);
+      } 
+   );
 ```
-
-

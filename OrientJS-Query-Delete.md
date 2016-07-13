@@ -17,9 +17,13 @@ With Graph Databases, deleting vertices is a little more complicated than the no
 For instance, you find that you have two entries made for the player Shoeless Joe Jackson, #12:24 and #12:84 you decide to remove the extra instance within your application.
 
 ```js
-var count = db.delete('VERTEX')
-   .where('@rid = #12:84').one;
-console.log('Deleted ' + count + ' vertices.');
+db.delete('VERTEX')
+   .where('@rid = #12:84').one()
+   .then(
+      function(del){
+         console.log('Records Deleted: ' + del);
+      }   
+   );
 ```
 
 ### Deleting Edges
@@ -27,10 +31,14 @@ console.log('Deleted ' + count + ' vertices.');
 When deleting edges, you need to define the vertices that the edge connects.  For instance, consider the case where you have a bad entry on the `playsFor` edge, where you have Ty Cobb assigned to the Chicago Cubs.  Ty Cobb has a Record ID of #12:12, the Chicago Cubs #12:54.
 
 ```js
-var count = db.delete('EDGE', 'PlaysFor')
+db.delete('EDGE', 'PlaysFor')
    .from('#12:12').to('#12:54')
-   .scalar();
-console.log('Deleted ' + count + ' edges');
+   .scalar()
+   .then(
+      function(del){
+         console.log('Records Deleted: ' + del);
+      }
+   );
 ```
 
 ### Deleting Records
@@ -38,8 +46,11 @@ console.log('Deleted ' + count + ' edges');
 In order to delete records in a given class, you need to define a conditional value that tells OrientDB the specific records in the class that you want to delete.  When working from the Console, you would use the [`WHERE`](SQL-Where.md) clause.  In OrientJS, set the `where()` method.
 
 ```js
-var count = db.delete().from('Player')
-   .where('@rid = #12:84').limit(1).scalar();
-console.log('Deleted', count, 'records');
+db.delete().from('Player')
+   .where('@rid = #12:84').limit(1).scalar()
+   .then(
+      function(del){
+         console.log('Records Deleted: ' + del);
+      }
+   );
 ```
-

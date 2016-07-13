@@ -87,8 +87,12 @@ db.liveQuery('LIVE SELECT rid, name, ba FROM Player`)
       db.update(player.rid)
          .set({
             ba: newBa
-         }).one();
-      console.log("Updated BA:", player.name);
+         }).one()
+         then(
+            function(update){
+               console.log("Updated BA: " update.name);
+            }
+         );
    });
 ```  
 

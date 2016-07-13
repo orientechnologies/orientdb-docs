@@ -43,8 +43,12 @@ var trx = db.let('player', function(p){
             endYear:   '1926'
          })
    })
-   .commit().return('$edge').all();
-console.log(trx);
+   .commit().return('$edge').all()
+   .then(
+      function(transaction){
+         console.log(transaction);
+      }
+    );
 ```
 
 ## Working with Batch Scripts
@@ -60,6 +64,3 @@ db.query('begin;'
    });
 
 ```
-
-
-

@@ -12,8 +12,12 @@ In order to work with an OrientDB database in your Node.js application, you need
 For instance, with an existing database,
 
 ```js
-var db = server.use('BaseballStats');
-console.log('Using database: ' + db.name);
+var db = server.use('BaseballStats')
+   .then(
+      function(db){
+         console.log('Using Database:'  + db.name);
+      }
+   );
 ```
 
 Using this code, your application would attempt to connect to the `BaseballStats` database.  When it succeeds, it logs a message to the console to tell the user which database they're on.
@@ -139,8 +143,11 @@ var hitters = db.query(
       ba: targetAvg,
       team: targetTeam
     },limit: 20 }
+).then(
+   function(players){
+      console.log(players);
+   }
 );
-console.log(hitters);
 ```
 
 Here, the variables `targetAvg` and `targetTeam` are defined at the start, then the query is run against the `Player` class for Red Sox players with batting averages greater than or equal to .300, printing the return value to the console.
@@ -192,5 +199,3 @@ When you initialize a database instance, OrientDB begins to reserve system resou
 ```js
 db.close();
 ```
-
-

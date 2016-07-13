@@ -13,8 +13,12 @@ var Player = db.class.get('Player');
 With the Class API, you can retrieve all records on the current class into an array using the `db.class.list()` method.  You might do this in operating on records or in collecting them for display in a web application.
 
 ```js
-var records = Player.list();
-console.log('Found: ' + records.length);
+Player.list()
+   .then(
+      function(player){
+         console.log('Records Found: ' + records.length());
+      }
+   );
 ```
 
 Here, the current list of players in the database are set to the variable `records`, which in turn uses the `length` operator to find the number of entries in the database.
@@ -25,14 +29,17 @@ Here, the current list of players in the database are set to the variable `recor
 You can also create records on OrientDB through the `db.class.create()` method.  This creates the class in the database and then retrieves it into a variable for further operations.
 
 ```js
-var cobb = Player.create({
+Player.create({
    name:      "Ty Cobb",
    birthDate: "1886-12-18",
    deathDate: "1961-7-17",
    batted:    "left",
    threw:     "right"
-});
-console.log("Created Record: " + cobb.name);
+}).then(
+   function(player){
+      console.log('Created Record: ' player.name);
+   }
+);
 ```
 
 Here, you create an entry for the player Ty Cobb, including information on his dates of birth and death, and the sides he used when batting and throwing, which you might later collate with other players to show say the difference in batting averages and RBI's between left-side batters right-side throwers and left-side batters left-side throwers between the years 1910 and 1920.
