@@ -244,6 +244,7 @@
       * [db_open()](PyOrient-Client-DB-Open.md)
       * [db_size()](PyOrient-Client-DB-Size.md)
       * [get_session_token()](PyOrient-Client-Get-Session-Token.md)
+      * [query()](PyOrient-Client-Query.md)
       * [record_create()](PyOrient-Client-Record-Create.md)
       * [record_load()](PyOrient-Client-Record-Load.md)
       * [record_update()](PyOrient-Client-Record-Update.md)
