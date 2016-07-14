@@ -283,7 +283,8 @@ Once a client is connected to any server node, it retrieves the list of availabl
 To setup the strategy using the Java Document API:
 ```java
 final ODatabaseDocumentTx db = new ODatabaseDocumentTx("remote:localhost/demo");
-db.setProperty(OStorageRemote.PARAM_CONNECTION_STRATEGY, OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT);
+db.setProperty(OStorageRemote.PARAM_CONNECTION_STRATEGY,
+      OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT.toString());
 db.open(user, password);
 ```
 
@@ -291,7 +292,7 @@ To setup the strategy using the Java Graph API:
 
 ```java
 final OrientGraphFactory factory = new OrientGraphFactory("remote:localhost/demo");
-factory.setConnectionStrategy(OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT);
+factory.setConnectionStrategy(OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_CONNECT.toString());
 OrientGraphNoTx graph = factory.getNoTx();
 ```
 
