@@ -60,12 +60,13 @@
           "text": "Version 2.0.x"
         },
         {
-          "value": "http://orientdb.com/docs/2.1",
+          "value": "http://orientdb.com/docs/2.1.x",
           "text": "Version 2.1.x"
         },
         {
           "value": "http://orientdb.com/docs/2.2.x",
-          "text": "Version 2.2.x"
+          "text": "Version 2.2.x",
+	  "selected": true
         },
         {
           "value": "http://orientdb.com/docs/master",
