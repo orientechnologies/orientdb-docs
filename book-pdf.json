@@ -2,8 +2,8 @@
     "title": "OrientDB Manual",
     "description": "OrientDB Documentation",
     "links": {
-        "home": "http://www.orientechnologies.com",
-        "about": "http://www.orientechnologies.com",
+        "home": "http://www.orientdb.com",
+        "about": "http://www.orientdb.com",
         "issues": "https://github.com/orientechnologies/orientdb/issues",
         "contribute": "http://www.orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
         "sharing": {
