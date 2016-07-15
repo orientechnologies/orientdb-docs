@@ -42,7 +42,7 @@ EXPORT DATABASE <output-file>
 - **`-excludeCluster`** Export excludes certain clusters, specifically those defined by a space-separated list.
 - **`-includeInfo`** Defines whether the export includes database information.
 - **`-includeClusterDefinitions`** Defines whether the export includes cluster definitions.
-- **`-includeSchmea`** Defines whether the export includes the database schema.
+- **`-includeSchema`** Defines whether the export includes the database schema.
 - **`-includeSecurity`** Defines whether the export includes database security parameters.
 - **`-includeRecords`** Defines whether the export includes record contents.
 - **`-includeIndexDefinitions`** Defines whether the export includes the database index definitions.
@@ -89,7 +89,7 @@ EXPORT DATABASE <output-file>
 - Alternatively, you can simplify the above by excluding all, then including only those features that you need.  For instance, export the current database, including only the schema:
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>EXPORT DATABASE schema.gz -excludeALL -includeSchmea=TRUE</code>
+  orientdb> <code class='lang-sql userinput'>EXPORT DATABASE schema.gz -excludeALL -includeSchema=TRUE</code>
   </pre>
 
 
