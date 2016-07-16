@@ -36,7 +36,7 @@ EXPORT DATABASE <output-file>
 
 - **`<output-file>`** Defines the path to the output file.
 - **`-excludeAll`** Sets the export to exclude everything not otherwise included through command options
-- **`-includeClass`** Export includes certain classes, specifically those defined by a space-separated list.
+- **`-includeClass`** Export includes certain classes, specifically those defined by a space-separated list.In case you specify multiple class names, you have to wrap the list between quotes, eg. `-includeClass="Foo Bar Baz"`
 - **`-excludeClass`** Export excludes certain classes, specifically those defined by a space-separated list.
 - **`-includeCluster`** Export includes certain clusters, specifically those defined by a space-separated list.
 - **`-excludeCluster`** Export excludes certain clusters, specifically those defined by a space-separated list.
