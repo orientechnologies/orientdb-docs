@@ -88,6 +88,11 @@ Current database is: remote:localhost/mydb
 You can perform an incremental restore via the Java API too.
 To create a database from an incremental backup you can call from Java `ODatabase#create(path-to-incremental-backup-directory)`.
 
+### Incremental Restore in Distributed Architecture
+The incremental restore affects only the local node where the restore command is executed. 
+Let's suppose we have 3 nodes and we execute an *incremental restore on node1*. If we execute an incremental restore on node1 a new fresh database is created on all the 3 nodes, but only on node1 the restore procedure is performed. Thus we obtain the database correctly restored on node1 but an empty database on node2 and node 3. 
+You can overcome this inconsistency by executing a shutdown on all the nodes of the cluster not involved in the restore procedure (node2 and node3 in our example), so once restarted they will get the full database from node1.
+
 ## Distributed Architecture
 
 The incremental backup is used in the [Distributed Architecture](Distributed-Architecture.md) when a server node restarts. This avoids having to backup and tranfer the entire database across the network.
