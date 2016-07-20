@@ -105,9 +105,80 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 
 #### Concurrency Level
 
-In order to guarantee atomicity and consistency, OrientDB uses an exclusive lock on the storage during transaction commits.  This means that transactions are serialized.
+Before v2.2.4, transactions acquire an exclusive lock on the storage, so no matter if you have 1 or 100 cores, the execution was always serialized. With 2.2.4 and further, transactions are executed in parallel only if they involve different [clusters](Concepts.md#cluster) and indexes.
 
-Given this limitation, developers with OrientDB are working on improving parallelism to achieve better scalability on multi-core machines, by optimizing internal structure to avoid exclusive locking.
+In order to use the transaction parallelism, the domain has to be slightly changed by using the OrientDB inheritance by creating a base class and multiple sub-classes, one per core. Example of creating the class Log with 4 sub-classes (4 cores) and the indexed property 'id':
+
+```sql
+CREATE CLASS Log ABSTRACT
+
+CREATE CLASS Log_1 EXTENDS Log
+CREATE PROPERTY Log_1.id STRING
+CREATE INDEX Log1Id ON Log_1(id) UNIQUE_HASHINDEX
+
+CREATE CLASS Log_2 EXTENDS Log
+CREATE PROPERTY Log_2.id STRING
+CREATE INDEX Log1Id ON Log_2(id) UNIQUE_HASHINDEX
+
+CREATE CLASS Log_3 EXTENDS Log
+CREATE PROPERTY Log_3.id STRING
+CREATE INDEX Log1Id ON Log_3(id) UNIQUE_HASHINDEX
+
+CREATE CLASS Log_4 EXTENDS Log
+CREATE PROPERTY Log_4.id STRING
+CREATE INDEX Log1Id ON Log_4(id) UNIQUE_HASHINDEX
+```
+
+After creating multiple sub-classes, you should bind your threads/client (it depends, respectively, if you are working in embedded mode or client/server) to a different sub-class. For example with 4 cores, you have 4 sub-classes (like above) and this could be the binding for the class "Log":
+- Thread/Client 1 -> Class **Log_1**
+- Thread/Client 2 -> Class **Log_2**
+- Thread/Client 3 -> Class **Log_3**
+- Thread/Client 4 -> Class **Log_4**
+
+If you are working with graphs, it's a good practice to apply the same rule to both vertex and edge classes. In this example we have 4 cores, so 4 clusters per vertex class and 4 clusters per edge class:
+
+- Thread/Client 1 -> Classes **User_1** and **City_1** for vertices and Class **Born_1** for edges
+- Thread/Client 2 -> Classes **User_2** and **City_2** for vertices and Class **Born_2** for edges
+- Thread/Client 3 -> Classes **User_3** and **City_3** for vertices and Class **Born_3** for edges
+- Thread/Client 4 -> Classes **User_4** and **City_4** for vertices and Class **Born_4** for edges
+
+Now look at these 2 SQL scripts:
+
+Client 1:
+
+```sql
+BEGIN
+LET v1 = CREATE VERTEX User_1 SET name = 'Luca'
+LET v2 = CREATE VERTEX City_1 SET name = 'Rome'
+CREATE EDGE Born_1 FROM $v1 TO $v2
+COMMIT RETRY 10
+```
+
+Client 2:
+
+```sql
+BEGIN
+LET v1 = CREATE VERTEX User_2 SET name = 'Luca'
+LET v2 = CREATE VERTEX City_2 SET name = 'Rome'
+CREATE EDGE Born_2 FROM $v1 TO $v2
+COMMIT RETRY 10
+```
+
+In this case the two transactions go in parallel with no conflict, because they work on different classes and indexes.
+
+Thanks to the OrientDB polymorphism, sub-classes are `instance of` the abstract class, so you can still execute queries by using the base class as target and OrientDB will consider all the sub-classes, so your model remains clean at application level. Example:
+
+```sql
+SELECT * FROM User WHERE name = 'Luca'
+```
+
+But if you already know that Luca if exists is in the 2nd partition of the User class (User_2 sub class), you can also execute:
+
+```sql
+SELECT * FROM User_2 WHERE name = 'Luca'
+```
+
+When it's possible to pre-determine there the record is saved, using the sub-class as target has better performance.
 
 
 ## Concurrency when Adding Edges
