@@ -34,5 +34,23 @@ client.shutdown('root', 'root_passwd')
 
 Within your application, once you have initialized the PyOrient Client this object provides you with an interface in working databases on the OrientDB Server.
 
-- [**Session Tokens**](PyOrient-Client-Tokens.md) Provides a guide to retrieving session tokens from the client and how you can use them to reconnect to later existing sessions.
+- [**`command()`**](PyOrient-Client-Command.md) This method issues SQL commands.
+- [**`db_count_records()`**](PyOrient-Client-DB-Count-Records.md) This method counts records on a database.
+- [**`db_create()`**](PyOrient-Client-DB-Create.md) This method creates databases.
+- [**`db_drop()`**](PyOrient-Client-DB-Drop.md) This method removes databases.
+- [**`db_exists()`**](PyOrient-Client-DB-Exists.md) This method determines if a database exists.
+- [**`db_list()`**](PyOrient-Client-DB-List.md) This method lists databases on the server.
+- [**`db_open()`**](PyOrient-Client-DB-Open.md) This method opens a database on the server.
+- [**`db_size()`**](PyOrient-Client-DB-Size.md) This method returns the size of the database.
+- [**`get_session_token()`**`](PyOrient-Client-Get-Session-Token.md) This method returns the client session token.
+- [**`query()`**](PyOrient-Client-Query.md) This method issues synchronous queries to the database.
+- [**`query_async()`**](PyOrient-Client-Query-Async.md) This method issues asynchronous queries to the database.
+- [**`record_create()`**](PyOrient-Client-Record-Create.md) This method creates records on the database.
+- [**`record_delete()`**](PyOrient-Client-Record-Delete.md) This method removes records from the database.
+- [**`record_load()`**](PyOrient-Client-Record-Load.md) This method retrieves records from the database.
+- [**`record_update()`**](PyOrient-Client-Record-Update.md) This method updates records on the database.
+- [**`set_session_token()`**](PyOrient-Client-Set-Session-Token.md) This method enables and loads a token for the client session.
+
+
+
 
