@@ -22,15 +22,15 @@ Example:
 ```json
   "dataCenters": {
     "usa": {
-      "writeQuorum": "<data-center1-quorum>",
+      "writeQuorum": "majority",
       "servers": [ "<austin>", "<paloalto>", "<newyork>" ]
     },
     "europe": {
-      "writeQuorum": "<data-center1-quorum>",
+      "writeQuorum": "majority",
       "servers": [ "<rome>", "<dublin>", "<london>" ]
     },
     "asia": {
-      "writeQuorum": "<data-center1-quorum>",
+      "writeQuorum": "majority",
       "servers": [ "<tokio>", "<singapore>", "<hongkong>" ]
     }
   },
