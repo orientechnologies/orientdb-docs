@@ -1,6 +1,6 @@
 # PyOrient Client - `record_update()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `record_update()`, which allows you to update records in OrientDB.
+This method updates the given Record ID with data from a dict argument.
 
 >**Warning**: Prior to version 2.0 of OrientDB, some users encountered issues with `record_update()` and [`record_create()`](PyOrient-Client-Record-Create.md) in PyOrient.  When developing applications for older versions of OrientDB, it is recommended that you avoid these methods.
 

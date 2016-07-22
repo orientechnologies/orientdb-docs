@@ -1,6 +1,6 @@
 # PyOrient Client - `command()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `command()`, which allows you to issue queries and statements in SQL to the OrientDB Server.
+This method allows you to issue SQL commands to an open OrientDB database.
 
 ## Sending Commands
 

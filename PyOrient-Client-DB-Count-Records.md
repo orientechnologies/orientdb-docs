@@ -1,6 +1,6 @@
 # PyOrient Client - `db_count_records()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `db_count_records()`, which returns the number of records in the opened database on OrientDB.
+This method allows you to get the number of records in an opened OrientDB database.
 
 ## Counting Records
 

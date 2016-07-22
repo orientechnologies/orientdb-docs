@@ -1,6 +1,6 @@
 # PyOrient Client - `db_exists()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `db_exists()`, which checks that a database exists on the OrientDB Server.
+This method checks whether or not the given database exists on the connected OrientDB Server.  In the event that you need the database to exist and be of a specific storage type, you can pass a second argument to check this as well.
 
 
 ## Checking Database Existence
@@ -10,11 +10,11 @@ There are two methods available in determining whether a database exists on the 
 **Syntax**
 
 ```
-client.db_exists(<name>[, <storage-type>])
+client.db_exists(<name>, <storage-type>)
 ```
 
 - **`<name>`** Defines the database you want to find.
-- **`<storage-type>`** Defines the storage type you want to find.
+- **`<storage-type>`** Defines the storage type you want to find, (optional):
   - *`pyorient.STORAGE_TYPE_PLOCAL`* Checks for PLocal database.
   - *`pyorient.STORAGE_TYPE_MEMORY`* Checks for Memory database.
 

@@ -1,6 +1,7 @@
 # PyOrient Client - `record_load()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `record_load()`, which allows you to fetch records by their Record ID from OrientDB.
+This method retrieves the given Record ID from an open OrientDB database.
+
 
 ## Loading Records
 
@@ -9,7 +10,7 @@ In PyOrient, a record load is similar to a [`query()`](PyOrient-Client-Query.md)
 **Syntax**
 
 ```
-client.record_load(<rid>i[, <fetch-plan>, <callback>])
+client.record_load(<rid>, <fetch-plan>, <callback>)
 ```
 
 - **`<rid>`** Defines the Record ID of the record you want to load.

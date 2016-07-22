@@ -1,6 +1,6 @@
 # PyOrient Client - `db_list()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `db_list()`, which allows you to list databases on the OrientDB Server.
+This method lists the databases available on the connected OrientDB Server.
 
 
 ## Listing Databases

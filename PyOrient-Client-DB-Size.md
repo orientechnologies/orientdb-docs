@@ -1,6 +1,7 @@
 # PyOrient Client - `db_size()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `db_size()`, which allows you to determine the size of the database on the OrientDB Server.
+This method returns the size of the open database.
+
 
 ## Getting the Database Size
 

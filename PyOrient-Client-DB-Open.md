@@ -1,6 +1,6 @@
 # PyOrient Client - `db_open()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `db_open()`, which allows you to open databases in OrientDB.
+This method opens a database on the OrientDB Server.
 
 ## Opening Databases
 
@@ -9,16 +9,16 @@ When you have the name of the database that you want to use, as well as the rele
 **Syntax**
 
 ```
-client.db_open(<name>, <username>, <user-passwd>[, <db-type>, <client-id>])
+client.db_open(<name>, <username>, <user-passwd>, <db-type>, <client-id>)
 ```
 
 - **`<name>`** Defines the database you want to open.
 - **`<username>`** Defines the database user name.
 - **`<user-passwd>`** Defines the database user password.
-- **`<db-type>`** Defines the database type.
+- **`<db-type>`** Defines the database type, (optional).
   - *`pyorient.DB_TYPE_DOCUMENT`* Opens it as a Document Database.
   - *`pyorient.DB_TYPE_GRAPH`* Opens it as a Graph Database.
-- **`<client-id>`** In distributed deployments, use this argument to define the distributed node.
+- **`<client-id>`** With distributed deployments, use this argument to define the distributed node.
 
 **Example**
 

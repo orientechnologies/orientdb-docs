@@ -1,6 +1,7 @@
 # PyOrient Client - `db_create()`
 
-The PyOrient Client provides you with an interface for working with the OrientDB Server.  With the client initialized you can begin to operate on the server from within your Python operation.  The client provides a number of methods to accomplish this, including `db_create()`, which allows you to create databases in OrientDB.
+Creates a database on the connected OrientDB Server.
+
 
 ## Creating Databases
 
@@ -9,14 +10,14 @@ In the event that a database does not exist already, you can create one from wit
 **Syntax**
 
 ```
-client.db_create(<name>[, <database-type>, <storage-type>])
+client.db_create(<name>, <database-type>, <storage-type>)
 ```
 
 - **`<name>`** Defines the database name.
-- **`<database-type>`** Defines the database type:
+- **`<database-type>`** Defines the database type, (optional):
   - *`pyorient.DB_TYPE_DOCUMENT`* Creates a Document Database.
   - *`pyorient.DB_TYPE_GRAPH`* Creates a Graph Database.
-- **`<storage-type>`** Defines the storage type:
+- **`<storage-type>`** Defines the storage type (optional):
   - *`pyorient.STORAGE_TYPE_PLOCAL`* Uses PLocal storage type.
   - *`pyorient.STORAGE_TYPE_MEMORY`* Uses Memory storage type.
 
