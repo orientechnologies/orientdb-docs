@@ -5,11 +5,13 @@
 **Syntax**
 
 ```
-HA STATUS [-servers] [-db] [-all] [-output=text]
+HA STATUS [-servers] [-db] [-latency] [-messages] [-all] [-output=text]
 ```
 
 - **`-servers`** Dumps the configuration of servers
 - **`-db`** Dumps the configuration of the database
+- **`-latency`** Dumps the replication latency between servers (since v2.2.6)
+- **`-messages`** Dumps the replication messages between servers (since v2.2.6)
 - **`-all`** Dumps all the information
 - **`-output=text`** Write the output as text formatted in readable tables
 
@@ -68,7 +70,41 @@ HA STATUS [-servers] [-db] [-all] [-output=text]
   +-----------+-----------+----------+-------+-------+
   ' in 0.050000 sec(s).
   </pre>
+  
+- Display the replication latency between servers (Since v2.2.6)
 
+  <pre>
+  orientdb> <code class='lang-sql userinput'>HA STATUS -latency -output=text</code>
+
+  Executed '
+  REPLICATION LATENCY AVERAGE (in milliseconds)
+  +-------+-----+------+-----+
+  |Servers|node1|node2*|node3|
+  +-------+-----+------+-----+
+  |node1  |     |  0.60| 0.43|
+  |node2* | 0.39|      | 0.38|
+  |node3  | 0.35|  0.53|     |
+  +-------+-----+------+-----+  
+  ' in 0.023000 sec(s).
+  </pre>
+  
+- Display the replication messages between servers (Since v2.2.6)
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>HA STATUS -messages -output=text</code>
+
+  Executed '
+  REPLICATION MESSAGES
+  +-------+------+------+------+
+  |Servers| node1|node2*| node3|
+  +-------+------+------+------+
+  |node1  |      |     9|     5|
+  |node2* |64,476|      |53,593|
+  |node3  |     5|     5|      |
+  +-------+------+------+------+
+  ' in 0.005000 sec(s).
+  </pre>  
+  
 >For more information, see
 >- [Distributed Architecture](Distributed-Architecture.md)
 >- [SQL Commands](SQL.md)
