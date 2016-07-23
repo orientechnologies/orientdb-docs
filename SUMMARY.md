@@ -238,6 +238,7 @@
     * [Client](PyOrient-Client.md)
       * [command()](PyOrient-Client-Command.md)
       * [data_cluster_add()](PyOrient-Client-Data-Cluster-Add.md)
+      * [data_cluster_data_range()](PyOrient-Client-Data-Cluster-Data-Range.md)
       * [db_count_records()](PyOrient-Client-DB-Count-Records.md)
       * [db_create()](PyOrient-Client-DB-Create.md)
       * [db_drop()](PyOrient-Client-DB-Drop.md)
