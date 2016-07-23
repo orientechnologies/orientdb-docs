@@ -5,7 +5,7 @@
 **Syntax**
 
 ```
-HA STATUS [-servers] [-db] [-all] [-output=text]
+HA STATUS [-servers] [-db] [-latency] [-messages] [-all] [-output=text]
 ```
 
 - **`-servers`** Dumps the configuration of servers
