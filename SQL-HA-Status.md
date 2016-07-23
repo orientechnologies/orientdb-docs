@@ -11,7 +11,7 @@ HA STATUS [-servers] [-db] [-latency] [-messages] [-all] [-output=text]
 - **`-servers`** Dumps the configuration of servers
 - **`-db`** Dumps the configuration of the database
 - **`-latency`** Dumps the replication latency between servers (since v2.2.6)
-- **`-messages`** Dumps the replication messages between servers (since v2.2.6)
+- **`-messages`** Dumps the statistics about replication messages between servers (since v2.2.6)
 - **`-all`** Dumps all the information
 - **`-output=text`** Write the output as text formatted in readable tables
 
@@ -88,13 +88,13 @@ HA STATUS [-servers] [-db] [-latency] [-messages] [-all] [-output=text]
   ' in 0.023000 sec(s).
   </pre>
   
-- Display the replication messages between servers (Since v2.2.6)
+- Display the statistics about replication messages between servers (Since v2.2.6)
 
   <pre>
   orientdb> <code class='lang-sql userinput'>HA STATUS -messages -output=text</code>
 
   Executed '
-  REPLICATION MESSAGES
+  REPLICATION MESSAGE COUNTERS
   +-------+------+------+------+
   |Servers| node1|node2*| node3|
   +-------+------+------+------+
@@ -102,6 +102,14 @@ HA STATUS [-servers] [-db] [-latency] [-messages] [-all] [-output=text]
   |node2* |64,476|      |53,593|
   |node3  |     5|     5|      |
   +-------+------+------+------+
+    
+  REPLICATION MESSAGE COORDINATOR STATS
+  +-------+------+---------+------------+---------------+
+  |Servers|tx    |heartbeat|tx-completed|deploy_delta_db|
+  +-------+------+---------+------------+---------------+
+  |node1  |2     |28       |1           |               |
+  |node3* |56,379|20       |56,379      |2              |
+  +-------+------+---------+------------+---------------+  
   ' in 0.005000 sec(s).
   </pre>  
   
