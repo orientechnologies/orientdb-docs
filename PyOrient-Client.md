@@ -36,8 +36,10 @@ Within your application, once you have initialized the PyOrient Client this obje
 
 - [**`command()`**](PyOrient-Client-Command.md) This method issues SQL commands.
 - [**`data_cluster_add()`**](PyOrient-Client-Data-Cluster-Add.md) This method creates new clusters on the database.
+- [**`data_cluster_count()`**](PyOrient-Client-Data-Cluster-Count.md) This method counts the numbers of records in an array of clusters.
 - [**`data_cluster_data_range()`**](PyOrient-Client-Data-Cluster-Data-Range.md) This method retrieves all records in the given cluster.
-- [**`db_count_records()`**](PyOrient-Client-DB-Count-Records.md) This method counts records on a database.
+- [**`data_cluster_drop()`**](PyOrient-Client-Data-Cluster-Drop.md) This method removes a cluster from the database.
+- [**`db_count_records()`**](PyOrient-Client-DB-Count-Records.md) This method counts the number of records on a database.
 - [**`db_create()`**](PyOrient-Client-DB-Create.md) This method creates databases.
 - [**`db_drop()`**](PyOrient-Client-DB-Drop.md) This method removes databases.
 - [**`db_exists()`**](PyOrient-Client-DB-Exists.md) This method determines if a database exists.
