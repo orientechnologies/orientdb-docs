@@ -965,11 +965,11 @@ _NOTE: Every single new database has the default manual index called "dictionary
 
 Retrieve a record looking into the index.
 
-Syntax: `http://<server>:[<port>]/index/<index-name>/<key>`
+Syntax: `http://<server>:[<port>]/index/<database>/<index-name>/<key>`
 
 #### Example ###
 
-HTTP GET request: `http://localhost:2480/dictionary/test`
+HTTP GET request: `http://localhost:2480/index/demo/dictionary/test`
 HTTP response:
 ```json
 {
@@ -982,11 +982,11 @@ HTTP response:
 
 Create or modify an index entry.
 
-Syntax: `http://<server>:[<port>]/index/<index-name>/<key>`
+Syntax: `http://<server>:[<port>]/index/<database>/<index-name>/<key>`
 
 #### Example ###
 
-HTTP PUT request: `http://localhost:2480/dictionary/test`
+HTTP PUT request: `http://localhost:2480/index/demo/dictionary/test`
 content:
 `{
   "name" : "Jay",
@@ -999,11 +999,11 @@ HTTP response: No response.
 
 Remove an index entry.
 
-Syntax: `http://<server>:[<port>]/index/<index-name>/<key>`
+Syntax: `http://<server>:[<port>]/index/<database>/<index-name>/<key>`
 
 #### Example ###
 
-HTTP DELETE request: `http://localhost:2480/dictionary/test`
+HTTP DELETE request: `http://localhost:2480/index/demo/dictionary/test`
 HTTP response: No response.
 
 ## Query ##
