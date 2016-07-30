@@ -51,7 +51,7 @@
 - [Who is using OrientDB?](http://orientdb.com/customers) - Clients using OrientDB in production.
 
 ## Questions or Need Help?
-Check out our [Get in Touch](Get-in-Touch.md) page for different ways of getting in touch with us.
+Check out our [Get in Touch](Get-in-Touch.md) page for different ways of getting in touch with us. 
 
 
 ## PDF
