@@ -1,123 +1,52 @@
-# CLI
+# OrientJS Command-line Interface
 
-An extremely minimalist command line interface is provided to allow
-databases to created and migrations to be applied via the terminal.
+Under certain conditions, you may need to operate OrientJS from the command-line, such as when creating databases or handling migrations through the terminal.  OrientJS provides a minimalistic CLI application for interacting with the OrientDB Server.
 
-To be useful, OrientJS requires some arguments to authenticate against the server. All operations require the `password` argument unless the user is configured with an empty password. For operations that involve a specific db, include the `dbname` argument (with `dbuser` and `dbpassword` if they are set to something other than the default).
+## Configuring `orientjs`
 
-You can get a list of the supported arguments using `orientjs --help`.
+Using the OrientJS CLI application requires that you pass some arguments and options to the interface.  All operations require that you use the `--password` option, except in cases where the user is configured with an empty password.  
 
-```sh
+For operations that involve a specific database, you need to pass `--dbname` with `--dbuser` and `--dbpassword` if they're set to something other than the defaults.
+
+You can get a complete less of the supported options at any time, by passing it the `--help` flag.
+
+<pre>
+$ <code class="lang-sh userinput">orientjs --help</code>
+Usage: orientjs [OPTIONS] [db|migrate]
+
+Options:
   -d, --cwd         The working directory to use.
-  -h, --host        The server hostname or IP address.
+  -h, --host        The server hostname or IP address
   -p, --port        The server port.
   -u, --user        The server username.
   -s, --password    The server password.
   -n, --dbname      The name of the database to use.
   -U, --dbuser      The database username.
-  -P, --dbpassword  The database password.
+  -P, --dbpassword  The database user password.
   -?, --help        Show the help screen.
-```
+</pre>
 
-If it's too tedious to type these options in every time, you can also create an `orientjs.opts` file containing them. OrientJS will search for this file in the working directory and apply any arguments it contains.
-For an example of such a file, see [test/fixtures/orientjs.opts](./test/fixtures/orientjs.opts).
+### Using an Options File
 
+In the event that you find yourself calling `orientjs` with the same options set every time, you can set these defaults in the `orientjs.opts` options file.  When the OrientJS CLI application launches, it looks for this file in the current working directory and applies any arguments it contains.
 
-> Note: For brevity, all these examples assume you've installed OrientJS globally (`npm install -g orientjs`) and have set up an orientjs.opts file with your server and database credentials.
+For instance,
 
-## Database CLI Commands.
+<pre>
+$ <code class="lang-sh userinput">cat orientjs.opts</code>
 
-### Listing all the databases on the server.
-
-```sh
-orientjs db list
-```
-
-### Creating a new database
-
-```sh
-orientjs db create mydb graph plocal
-```
-
-### Destroying an existing database
-
-```sh
-orientjs db drop mydb
-```
-
-## Migrations
-
-OrientJS supports a simple database migration system. This makes it easy to keep track of changes to your orientdb database structure between multiple environments and distributed teams.
-
-When you run a migration command, OrientJS first looks for an orient class called `Migration`. If this class doesn't exist it will be created.
-This class is used to keep track of the migrations that have been applied.
-
-OrientJS then looks for migrations that have not yet been applied in a folder called `migrations`. Each migration consists of a simple node.js module which exports two methods - `up()` and `down()`. Each method receives the currently selected database instance as an argument.
-
-The `up()` method should perform the migration and the `down()` method should undo it.
-
-> Note: Migrations can incur data loss! Make sure you back up your database before migrating up and down.
-
-In addition to the command line options outlined below, it's also possible to use the migration API programatically:
-
-```js
-var db = server.use('mydb');
-
-var manager = new OrientDB.Migration.Manager({
-  db: db,
-  dir: __dirname + '/migrations'
-});
-
-manager.up(1)
-.then(function () {
-  console.log('migrated up by one!')
-});
-```
+--host=localhost
+--port=2424
+--password=root_passwd
+</pre>
 
 
-### Listing the available migrations
+## Working with `orientjs`
 
-To list all the unapplied migrations:
+When you call the OrientJS CLI application, there are two commands available to you: 
 
-```sh
-orientjs migrate list
-```
-
-### Creating a new migration
-
-```sh
-orientjs migrate create my new migration
-```
-
-creates a file called something like `m20140318_200948_my_new_migration` which you should edit to specify the migration up and down methods.
+- **`db`** command, for interacting with the database.
+- **`migration`** command, for migrating databases.
 
 
-### Migrating up fully
 
-To apply all the migrations:
-
-```sh
-orientjs migrate up
-```
-
-### Migrating up by 1
-
-To apply only the first migration:
-
-```sh
-orientjs migrate up 1
-```
-
-### Migrating down fully
-
-To revert all migrations:
-
-```sh
-orientjs migrate down
-```
-
-### Migrating down by 1
-
-```sh
-orientjs migrate down 1
-```

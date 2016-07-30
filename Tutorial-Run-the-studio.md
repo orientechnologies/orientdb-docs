@@ -14,7 +14,7 @@ $ <code class="lang-sh userinput">firefox http://localhost:2480</code>
 
 From here you can create a new database, connect to or drop an existing database, import a public database and navigate to the Server management interface.
 
->For more information on the OrientDB Studio, see [Studio](Home-page.md).
+>For more information on the OrientDB Studio, see [Studio](Studio-Home-page.md).
 
 
 

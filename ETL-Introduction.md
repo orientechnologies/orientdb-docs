@@ -38,13 +38,7 @@ You can modify this pipeline, allowing the transformation and loading phases to 
 
 ## Installation
 
-Beginning with version 2.0, OrientDB bundles the ETL module with the official release.  Follow these steps to use the module:
-- Clone the repository on your computer, by executing:
- - ```git clone https://github.com/orientechnologies/orientdb-etl.git```
-- Compile the module, by executing:
- - ```mvn clean install```
-- Copy ```script/oetl.sh``` (or .bat under Windows) to $ORIENTDB_HOME/bin
-- Copy ```target/orientdb-etl-2.0-SNAPSHOT.jar``` to $ORIENTDB_HOME/lib
+Since version 2.0, OrientDB bundles the ETL module with the official release. 
 
 ## Usage
 
@@ -58,19 +52,6 @@ $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json
 |    |    |
 |----|----|
 | ![NOTE](images/warning.png) | _NOTE: If you are importing data for use in a distributed database, then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` for the ETL process to avoid replication errors, when the database is updated online._ |
-
-### Run-time Configuration
-
-When you run the ETL module, you can define its configuration variables by passing it a JSON file, which the ETL module resolves at run-time by passing them as it starts up.
-
-You could also define the values for these variables through command-line options.  For example, you could assign the database URL as `${databaseURL}`, then pass the relevant argument through the command-line:
-
-<pre>
-$ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json \
-      -databaseURL=plocal:/tmp/mydb</code>
-</pre>
-
-When the ETL module initializes, it pulls `/tmp/mydb` from the command-line to define this variable in the configuration file.
 
 ## Available Components
 

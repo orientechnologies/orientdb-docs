@@ -2,7 +2,7 @@
 
 Restores a database from a backup.  It must be done against a new database.  It does not support restores that merge with an existing database.  If you need to backup and restore to an existing database, use the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md) commands.
 
-[OrientDB Enterprise Edition](Enterprise-Edition.md) version 2.2 and major, support incremental backup.
+[OrientDB Enterprise Edition](Enterprise-Edition.md) version 2.2 and major, support [incremental backup](Incremental-Backup-And-Restore.md).
 
 To create a backup file to restore from, use the [`BACKUP DATABASE`](Console-Command-Backup.md) command.
 

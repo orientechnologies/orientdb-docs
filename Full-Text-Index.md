@@ -35,6 +35,21 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) 
           {"analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer"}</code>
 </pre>
 
+**(from 2.1.16)**
+
+From version 2.1.16 it is possible to provide a set of stopwords to the analyzer to override the default set of the analyzer:
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
+          {
+          "analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer",
+          "analyzer_stopwords": ["a", "an", "and", "are", "as", "at", "be", "but", "by" ]
+          }
+          
+          </code>
+</pre>
+
+
 **(from 2.2)**
 
 Starting from 2.2 it is possible to configure different analyzers for indexing and querying.
@@ -42,8 +57,8 @@ Starting from 2.2 it is possible to configure different analyzers for indexing a
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
           {
-          "index_analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer",
-          "query_analyzer": "org.apache.lucene.analysis.standard.StandardAnalyzer"
+          "index": "org.apache.lucene.analysis.en.EnglishAnalyzer",
+          "query": "org.apache.lucene.analysis.standard.StandardAnalyzer"
           }</code>
 </pre>
 
@@ -52,17 +67,33 @@ EnglishAnalyzer will be used to analyze text while indexing and the StandardAnal
 It is posssbile to configure analyzers at field level
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, description) FULLTEXT ENGINE LUCENE METADATA
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, lyrics, title,author, description) FULLTEXT ENGINE LUCENE METADATA
           {
-          "index_analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer",
-          "query_analyzer": "org.apache.lucene.analysis.standard.StandardAnalyzer",
-          "name_index_analyzer": "org.apache.lucene.analysis.standard.StandardAnalyzer",
-          "name_query_analyzer": "org.apache.lucene.analysis.core.KeywordAnalyzer"
+            "default": "org.apache.lucene.analysis.standard.StandardAnalyzer",
+            "index": "org.apache.lucene.analysis.core.KeywordAnalyzer",
+            "query": "org.apache.lucene.analysis.standard.StandardAnalyzer",
+            "name_index": "org.apache.lucene.analysis.standard.StandardAnalyzer",
+            "name_query": "org.apache.lucene.analysis.core.KeywordAnalyzer",
+            "lyrics_index": "org.apache.lucene.analysis.en.EnglishAnalyzer",
+            "title_index": "org.apache.lucene.analysis.en.EnglishAnalyzer",
+            "title_query": "org.apache.lucene.analysis.en.EnglishAnalyzer",
+            "author_query": "org.apache.lucene.analysis.core.KeywordAnalyzer",
+            "description_index": "org.apache.lucene.analysis.standard.StandardAnalyzer",
+            "description_index_stopwords": [
+              "the",
+              "is"
+            ]
+
           }</code>
 </pre>
 
-With this configuration **name** will be indexed with StandardAnalyzer and query will be analyzed with the KeywordAnalyzer: **description** hasn't a custom configuration, so default analyzers for indexing an querying will be used.
+With this configuration, the underlying Lucene index will works in different way on each field:
 
+* *name*: indexed with StandardAnalyzer, searched with KeywordAnalyzer (it's a strange choice, but possible)
+* *lyrics*: indexed with EnglishAnalyzer, searched with default query analyzer StandardAnalyzer
+* *title*:  indexed and searched with EnglishAnalyzer
+* *author*: indexed and searched with KeywordhAnalyzer
+* *description*: indexed with StandardAnalyzer with a given set of stopwords
 
 You can also use the FullText Index with the Lucene Engine through the Java API.
 
@@ -73,9 +104,91 @@ oClass.createProperty("name", OType.STRING);
 oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
 ```
 
+## Query parser
+
+It is possible to configure some behavior of the Lucene [query parser](https://lucene.apache.org/core/5_3_2/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+
+### Allow Leading Wildcard
+
+Lucene by default doesn't support leading wildcard: [Lucene wildcard support](https://wiki.apache.org/lucene-java/LuceneFAQ#What_wildcard_search_support_is_available_from_Lucene.3F)
+
+It is possible to override this behavior with a dedicated flag on meta-data:
+
+```json
+{
+  "allowLeadingWildcard": true
+}
+```
+
+Use this flag carefully, as stated in the Lucene FAQ: 
+> Note that this can be an expensive operation: it requires scanning the list of tokens in the index in its entirety to look for those that match the pattern.
+
+### Disable lower case on terms
+
+Lucene's QueryParser applies a lower case filter on expanded queries by default. It is possible to override this behavior with a dedicated flag on meta-data:
+
+```json
+{
+  "lowercaseExpandedTerms": false
+}
+```
+
+It is useful when used in pair with keyword analyzer:
+
+```json
+{
+  "lowercaseExpandedTerms": false,
+  "default" : "org.apache.lucene.analysis.core.KeywordAnalyzer"
+}
+```
+
+With *lowercaseExpandedTerms* set to false, these two queries will return different results:
+
+<pre>
+<code class="lang-sql userinput">SELECT from Person WHERE name LUCENE "NAME"
+
+SELECT from Person WHERE name LUCENE "name"
+
+</code>
+</pre>
+
+
+## Lucene Writer fine tuning (expert)
+
+It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter 
+
+<pre>
+<code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
+{
+  "directory_type": "nio",
+  "use_compound_file": false,
+  "ram_buffer_MB": "16",
+  "max_buffered_docs": "-1",
+  "max_buffered_delete_terms": "-1",
+  "ram_per_thread_MB": "1024",
+  "default": "org.apache.lucene.analysis.standard.StandardAnalyzer"
+}
+</code>
+</pre>
+
+* *directory_type*: configure the acces type to the Lucene's index
+    * *nio* (_default)_: the index is opened with *NIOFSDirectory*
+    * *mmap*:  the index is opened with *MMapDirectory*
+    * *ram*: index will be created in memory with *RAMDirectory*
+* *use_compound_file*: default is false
+* *ram_buffer_MB*: size of the document's buffer in MB, default value is 16 MB (which means flush when buffered docs consume approximately 16 MB RAM)
+* *max_buffered_docs*: size of the document's buffer in number of docs, disabled by default (because IndexWriter flushes by RAM usage by default) 
+* *max_buffered_delete_terms*: disabled by default (because IndexWriter flushes by RAM usage by default).
+* *ram_per_thread_MB*: default value is 1945
+
+For a detailed explanation of config parameters and IndexWriter behaviour
+
+* indexWriterConfig : https://lucene.apache.org/core/5_0_0/core/org/apache/lucene/index/IndexWriterConfig.html
+* indexWriter: https://lucene.apache.org/core/5_0_0/core/org/apache/lucene/index/IndexWriter.html
+
 ## Querying Lucene FullText Indexes
 
-You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Synta]x(http://lucene.apache.org/core/5_4_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
+You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Syntax](http://lucene.apache.org/core/5_4_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
 
 <pre>
 orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
@@ -130,3 +243,12 @@ You can then query the index through [`SELECT...FROM INDEX:`](SQL-Query.md):
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:Manual WHERE key LUCENE "Enrico"</code>
 </pre>
 
+Manual indexes could be created programmatically using the Java API
+
+```java
+ODocument meta = new ODocument().field("analyzer", StandardAnalyzer.class.getName());
+OIndex<?> index = databaseDocumentTx.getMetadata().getIndexManager()
+        .createIndex("apiManual", OClass.INDEX_TYPE.FULLTEXT.toString(),
+            new OSimpleKeyIndexDefinition(1, OType.STRING, OType.STRING), null, null, meta, OLuceneIndexFactory.LUCENE_ALGORITHM);
+
+```

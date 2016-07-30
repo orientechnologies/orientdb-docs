@@ -85,7 +85,7 @@ Transactions are client-side only until the commit. This means that if you're us
 
 ![Transaction in Remote context](http://www.orientdb.org/images/transaction-remote.png)
 
-In this scenario you can have different isolation levels with commands.
+In this scenario you can have different isolation levels with commands. This issue will be solved with OrientDB v3.0 where the transaction will be flushed to the server before to execute the command.
 
 ### Durability
 "Durability means that once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors. In a relational database, for instance, once a group of SQL statements execute, the results need to be stored permanently (even if the database crashes immediately thereafter). To defend against power loss, transactions (or their effects) must be recorded in a non-volatile memory." - [WikiPedia](http://en.wikipedia.org/wiki/ACID)

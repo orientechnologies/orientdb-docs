@@ -128,4 +128,14 @@ INFO OrientDB Server v1.6.1-SNAPSHOT is active. [OServer]
 
 What these messages mean is that the database `GratefulDeadConcerts` was correctly installed from the first node, that is `node1383734730415` through the network.
 
+## Migrating from standalone server to a cluster
+If you have a standalone instance of OrientDB and you want to move to a cluster you should follow these steps:
+* Install OrientDB on all the servers of the cluster and configure it (according to the sections above)
+* Stop the standalone server
+* Copy the specific database directories under `$ORIENTDB_HOME/database` to all the servers of the cluster
+* Start all the servers in the cluster using the script `dserver.sh` (or  `dserver.bat` if on Windows)
+
+If the standalone server will be part of the cluster, you can use the existing installation of OrientDB; you don't need to copy the database directories since they're already in place and you just have to start it before all the other servers with `dserver.sh`.
+
+
 

@@ -4,6 +4,7 @@ OrientDB supports four index algorithms:
 
 - [**SB-Tree Index**](SB-Tree-index.md) Provides a good mix of features available from other index types, good for general use.  It is durable, transactional and supports range queries.  It is the default index type.
 - [**Hash Index**](Hash-Index.md) Provides fast lookup and is very light on disk usage.  It is durable and transactional, but does not support range queries.  It works like a HashMap, which makes it faster on punctual lookups and it consumes less resources than other index types.
+- [**Auto Sharding Index**](Auto-Sharding-Index.md) Provides an implementation of a [DHT](https://en.wikipedia.org/wiki/Distributed_hash_table).  It is durable and transactional, but does not support range queries.  (Since v2.2)
 - [**Lucene Full Text Index**](Full-Text-Index.md) Provides good full-text indexes, but cannot be used to index other types.  It is durable, transactional and supports range queries.
 - [**Lucene Spatial Index**](Spatial-Index.md) Provides good spatial indexes, but cannot be used to index other types.  It is durable, transactional and supports range queries.
 
@@ -40,7 +41,10 @@ through plugins.
   - `NOTUNIQUE_HASH_INDEX` These indexes allow duplicate keys.  Available since version 1.5.x.
   - `FULLTEXT_HASH_INDEX` These indexes are based on any single word of text.  You can use them in queries through the `CONTAINSTEXT` operator.  Available since version 1.5.x.
   - `DICTIONARY_HASH_INDEX` These indexes are similar to those that use `UNIQUE_HASH_INDEX`, but in cases of duplicate keys, they replaces the existing record with the new record.  Available since version 1.5.x.
-- **Lucene Engine**
+- **HashIndex Algorithm** (Since v2.2)
+  - `UNIQUE_HASH_INDEX` These indexes do not allow duplicate keys.  For composite indexes, this refers to the uniqueness of the composite keys.
+  - `NOTUNIQUE_HASH_INDEX` These indexes allow duplicate keys.
+- - **Lucene Engine**
   - `FULLTEXT` These indexes use the Lucene engine to index string content.  You can use them in queries with the `LUCENE` operator.
   - `SPATIAL` These indexes use the Lucene engine to index geospatial coordinates.
 
@@ -49,18 +53,24 @@ Every database has a default manual index type `DICTIONARY`, which uses strings 
 
 ### Indexes and Null Values
 
-By default, indexes do not support null values.  Queries made against `NULL` values that use indexes fail with the `Null keys are not supported` exception.
+Starting from v2.2, Indexes do not ignore NULL values, but they are indexes as any other values. This means that if you have a UNIQUE index, you cannot have multiple NULL keys. This applies only to the new indexes, opening a database with indexes previously created, will all ignore NULL by default.
 
-In the event that you want to index null values, you must set `{ignoreNullValues: false}` in the metadata.  For instance,
+To create an index that expressly ignore nulls (like the default with v2.1 and earlier), look at the following examples by using SQL or Java API.
 
+SQL:
 <pre>
-orientdb> <code class='lang-sql userinput'>CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: false}</code>
+orientdb> <code class='lang-sql userinput'>CREATE INDEX addresses ON Employee (address) NOTUNIQUE METADATA {ignoreNullValues: true}
+</code>
 </pre>
 
+And Java API:
+```
+schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
+```
 
 ### Indexes and Composite Keys
 
-Operations that work with indexes also work with indexes formed from composite keys.  By its nature, a composite key is  acollection of values, so, syntactically, it is a collection.
+Operations that work with indexes also work with indexes formed from composite keys.  By its nature, a composite key is  a collection of values, so, syntactically, it is a collection.
 
 For example, consider a case where you have a class `Book`, indexed by three fields: `author`, `title` and `publicationYear`.  You might use the following query to look up an individual book:
 
@@ -96,7 +106,7 @@ In the event that you also don't know the title of the work you want, you can fu
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = ["Donald Knuth"]</code>
 </pre>
 
-Or, the equivalent,
+Or, the equal,
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = "Donald Knuth"</code>
@@ -110,7 +120,7 @@ orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = "
 
 ### Range Queries
 
-In the case of range queries, the field subject to the range must be the last one, (that is, the one on the far right).  For example,
+Not all the indexes support range queries (check above). In the case of range queries, the field subject to the range must be the last one, (that is, the one on the far right).  For example,
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key BETWEEN ["Donald Knuth", "The Art of 
@@ -141,7 +151,7 @@ CREATE INDEX <name> [ON <class-name> (prop-names)] <type> [<key-type>]
 
   Bear in mind that this means case index names cannot contain the period (`.`) symbol, as OrientDB would interpret the text after as a property.
 
-- `<class-name>` Provides the name of the class that you are creating the automatic index to index.  Thisclass must already exist in the database.
+- `<class-name>` Provides the name of the class that you are creating the automatic index to index.  This class must already exist in the database.
 
 - `<prop-names>` Provides a comma-separated list of properties, which you want the automatic index to index.  These properties must already exist in the schema.
 

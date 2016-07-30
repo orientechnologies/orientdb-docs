@@ -3,17 +3,20 @@
 
 OrientDB is available in two editions:
 
-- **[Community Edition](http://www.orientechnologies.com/orientdb/)** This edition is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
+- **[Community Edition](http://orientdb.com/orientdb/)** is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
 
-- **[[Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/)](http://www.orientechnologies.com/enterprise.htm)** OrientDB Enterprise Edition is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition, providing Enterprise features, such as:
+- **[Enterprise Edition](http://orientdb.com/orientdb-enterprise/)**  is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition, providing Enterprise features, such as:
 
+    - Non-Stop Backup and Restore
+    - Scheduled FULL and Incremental Backups
     - Query Profiler
     - Distributed Clustering configuration
     - Metrics Recording
     - Live Monitoring with configurable Alerts
 
 
-The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://www.orientechnologies.com/support/) purchases.
+The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://orientdb.com/support/) purchases.
+
 
 **Prerequisites**
 
@@ -31,28 +34,33 @@ OrientDB requires [Java](http://www.java.com/en/download), version 1.7 or higher
 
 >**Note**: In OSGi containers, OrientDB uses a `ConcurrentLinkedHashMap` implementation provided by [concurrentlinkedhashmap](https://code.google.com/p/concurrentlinkedhashmap/) to create the LRU based cache. This library actively uses the sun.misc package which is usually not exposed as a system package. To overcome this limitation you should add property `org.osgi.framework.system.packages.extra` with value `sun.misc` to your list of framework properties.
 >
->It may be as simple as passing an argument to the VM starting the platform: 
+>It may be as simple as passing an argument to the VM starting the platform:
 >
 >```sh
 >$ java -Dorg.osgi.framework.system.packages.extra=sun.misc
 >```
 
-## Installing OrientDB
+## Use Docker
 
-There are two methods available to install OrientDB, with some variations on each depending on your operating system. The first method is to download a binary package from OrientDB. The other method is to compile the package from the source code.
+If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
+
+    $ docker run -d –-name orientdb -p 2424:2424 -p 2480:2480
+       -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
+
+Where instead of "root", type the root's password you want to use.
 
 
 ### Binary Installation
 
-OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://www.orientechnologies.com/download/) and select the package that best suits your system.
+OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
 
 On server installations, you can use the `wget` utility:
 
 ```sh
-$ wget https://orientdb.com/download.php?file=orientdb-community-2.1.2.tar.gz
+$ wget https://orientdb.com/download.php?file=orientdb-community-2.2.0.tar.gz
 ```
 
-Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.1.2` with relevant files and scripts, which you will need to run OrientDB on your system.
+Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.2.0` with relevant files and scripts, which you will need to run OrientDB on your system.
 
 ### Source Code Installation
 
@@ -76,25 +84,45 @@ The develop branch contains code for the next version of OrientDB. Stable versio
 For each maintained version OrientDB has its own `hotfix` branch.
 As the time of writing this notes, the state of branches is:
 
-* develop: work in progress for next 2.2.x release (2.2.0-SNAPSHOT)
-* 2.1.x: hot fix for next 2.1.x stable release (2.1.10-SNAPSHOT)
-* 2.0.x: hot fix for next 2.0.x stable release (2.0.17-SNAPSHOT)
-* last tag on master is 2.1.9  
+* develop: work in progress for next 3.0.x release (3.0.x-SNAPSHOT)
+* 2.2.x: hot fix for next 2.2.x stable release (2.2.x-SNAPSHOT)
+* 2.1.x: hot fix for next 2.1.x stable release (2.1.x-SNAPSHOT)
+* 2.0.x: hot fix for next 2.0.x stable release (2.0.x-SNAPSHOT)
+* last tag on master is 2.2.0
 
-The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch 2.1.x gave: 
+The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch 2.1.x gave:
 ```sh
 $ls -l distribution/target/
 total 199920
     1088 26 Jan 09:57 archive-tmp
      102 26 Jan 09:57 databases
-     102 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.dir
-48814386 26 Jan 09:57 orientdb-community-2.1.10-SNAPSHOT.tar.gz
-53542231 26 Jan 09:58 orientdb-community-2.1.10-SNAPSHOT.zip
+     102 26 Jan 09:57 orientdb-community-3.0.0-SNAPSHOT.dir
+48814386 26 Jan 09:57 orientdb-community-3.0.0-SNAPSHOT.tar.gz
+53542231 26 Jan 09:58 orientdb-community-3.0.0-SNAPSHOT.zip
 $
 ```
-The directory `orientdb-community-2.1.10-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
+The directory `orientdb-community-3.0.0-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
 Take a look to [Contribute to OrientDB](Contribute-to-OrientDB.md) if you want to be involved.
 
+Each distribution package contains a sample database called *GratefulDeadConcerts*. It is possible to generate the database:
+```sh
+$ cd distribution/
+$ mvn  prepare-package
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OrientDB Community Distribution ...
+...
+Importing GRAPHML database from ../graphdb/src/test/resources/graph-example-2.xml with options ()...
+Done: imported 809 vertices and 8049 edges
+Imported in 1141ms. Vertexes: 809
+```
+
+The database is created inside the target directory
+```sh
+$ ls target/databases/
+GratefulDeadConcerts/
+```
 
 #### Update Permissions
 
@@ -128,12 +156,15 @@ $ mvn clean install
 Bear in mind that when you build from source, you can switch branches to build different versions of OrientDB using Git.  For example,
 
 ```sh
-$ git checkout 2.1.x
+$ git checkout 2.2.x
 $ mvn clean install
 ```
 
-builds the `2.1.x` branch, instead of `master`.
+builds the `2.2.x` branch, instead of `master`.
 
+## Building a single executable jar with OrientDB
+
+OrientDB for internal components like engines, operators, factories uses Java SPI [Service Provider Interface](https://docs.oracle.com/javase/tutorial/ext/basics/spi.html). That means that the jars of OrientDB are shipped with files in `META-INF/services` that contains the implementation of components. Bear in mind that when building a single executable jar, you have to concatenate the content of files with the same name in different orientdb-*.jar . If you are using [Maven Shade Plugin](https://maven.apache.org/plugins/maven-shade-plugin/) you can use [Service Resource Transformer](https://maven.apache.org/plugins/maven-shade-plugin/examples/resource-transformers.html#ServicesResourceTransformer) to do that.
 
 ## Other Resources
 

@@ -1,4 +1,4 @@
-#OrientDB Manual - version 2.1.x
+#OrientDB Manual - version 3.0.x
 
 ![image](http://www.orientdb.com/images/orientdb_logo_mid.png)
 
@@ -32,7 +32,7 @@
 
 ### Quick References
 - [Console](Console-Commands.md)
-- [Studio](Home-page.md) web tool
+- [Studio](Studio-Home-page.md) web tool
 - [Workbench](http://orientdb.com/enterprise/last/introduction.html) (Enterprise Edition) 
 - [OrientDB Server](DB-Server.md)
 - [Network-Binary-Protocol](Network-Binary-Protocol.md) 
@@ -60,8 +60,10 @@ This documentation is also available in [PDF format](OrientDB-Manual.pdf).
 ## Past releases
 - [v1.7.8](http://orientdb.com/docs/1.7.8/)
 - [v2.0.x](http://orientdb.com/docs/2.0/)
+- [v2.1.x](http://orientdb.com/docs/2.1/)
+- [v2.2.x](http://orientdb.com/docs/2.2/)
 
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
->Every effort has been made to ensure the accuracy of this manual. However, Orient Technologies, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.
+>Every effort has been made to ensure the accuracy of this manual. However, OrientDB, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.

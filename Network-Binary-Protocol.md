@@ -262,6 +262,7 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_INDEX_GET<td>120</td><td>Lookup in an index by key</td><td>no</td><td>2.1rc4</td></tr>
 <tr><td>REQUEST_INDEX_PUT<td>121</td><td>Create or update an entry in an index</td><td>no</td><td>2.1rc4</td></tr>
 <tr><td>REQUEST_INDEX_REMOVE<td>122</td><td>Remove an entry in an index by key</td><td>no</td><td>2.1rc4</td></tr>
+<tr><td>REQUEST_INCREMENTAL_RESTORE</td><td> Incremental restore </td><td>no</td><td>2.2-rc1</td></tr>
 </table>
 
 # Response
@@ -279,7 +280,7 @@ A push request is a message sent by the server without any request from the clie
 - **1 byte**: Success status has value 3 in case of push request
 - **4 bytes**: [Session-Id](#session-id) has everytime MIN_INTEGER value (-2^31)
 - **1 byte**: Push command id
-- **N bytes**: Message content depending on the push massage, this is written ass a `(content:bytes)` having inside the details of the specific message.
+- **N bytes**: Message content depending on the push massage, this is written as a `(content:bytes)` having inside the details of the specific message.
 
 
 ## Statuses
@@ -332,20 +333,22 @@ Typically the credentials are those of the OrientDB server administrator. This i
 This is the first operation requested by the client when it needs to work with the server instance. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls.
 
 ```
-Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(user-name:string)(user-password:string)
+Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(support-push)(collect-stats)(user-name:string)(user-password:string)
 Response: (session-id:int)(token:bytes)
 ```
 
 #### Request
 
-- client's **driver-name** - the name of the client driver. Example: "OrientDB Java client".
+- client's **driver-name** - the name of the client driver. Example: "OrientDB Java client"
 - client's **driver-version** - the version of the client driver. Example: "1.0rc8-SNAPSHOT"
-- client's **protocol-version** - the version of the protocol the client wants to use. Example: 30.
-- client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480".
-- client's **serialization-impl** - the [serialization format](#record-format) required by the client.
-- **token-session** - true if the client wants to use a token-based session, false otherwise.
-- **user-name** - the username of the user on the server. Example: "root".
-- **user-password** - the password of the user on the server. Example: "37aed6392".
+- client's **protocol-version** - the version of the protocol the client wants to use. Example: 30
+- client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480"
+- client's **serialization-impl** - the [serialization format](#record-format) required by the client
+- **token-session** - true if the client wants to use a token-based session, false otherwise
+- **support-push** - supports push messages from the server (starting from v34)
+- **collect-stats** - collects statistics for the connection (starting from v34)
+- **user-name** - the username of the user on the server. Example: "root"
+- **user-password** - the password of the user on the server. Example: "37aed6392"
 
 Typically the credentials are those of the OrientDB server administrator. This is not the same as the *admin* user for individual databases.
 
@@ -361,7 +364,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
 
 ```
-Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(database-name:string)(user-name:string)(user-password:string)
+Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(support-push:boolean)(collect-stats:boolean)(database-name:string)(user-name:string)(user-password:string)
 Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:string)(cluster-id:short)](cluster-config:bytes)(orientdb-release:string)
 ```
 
@@ -373,6 +376,8 @@ Response: (session-id:int)(token:bytes)(num-of-clusters:short)[(cluster-name:str
 - client's **client-id** - can be null for clients. In clustered configurations it's the distributed node ID as TCP `host:port`. Example: "10.10.10.10:2480".
 - client's **serialization-impl** - the [serialization format](#record-format) required by the client.
 - **token-session** - true if the client wants to use a token-based session, false otherwise.
+- **support-push** - true if the client support push request
+- **collect-stats** - true if this connection is to be counted on the server stats, normal client should use true
 - **database-name** - the name of the database to connect to. Example: "demo".
 - **user-name** - the username of the user on the server. Example: "root".
 - **user-password** - the password of the user on the server. Example: "37aed6392".
@@ -401,7 +406,7 @@ Response:(session-id:int)
 Creates a database in the remote OrientDB server instance.
 
 ```
-Request: (database-name:string)(database-type:string)(storage-type:string)
+Request: (database-name:string)(database-type:string)(storage-type:string)(backup-path)
 Response: empty
 ```
 
@@ -412,6 +417,7 @@ Response: empty
 - **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
+- **backup-path** - path of the backup file to restore located on the server's file system (since version 36). This is used when a database is created starting from a previous backup
 
 **Note**: it doesn't make sense to use `remote` in this context.
 
@@ -751,7 +757,7 @@ Response is different for synchronous and asynchronous request:
        - '0' a record in the next bytes
        - '-2' no record and is considered as a null record
        - '-3' only a recordId in the next bytes
- - 'a', serialized result, a byte[] is sent
+ - 'w', is a simple result wrapped inside a single record, deserialize the record as the `r` option and unwrap the real result reading the field `result` of the record.
  - 'i', iterable of records
    - the result records will be streamed, no size as start is given, each entry has a flag at the start(same as **asynch-result-type**)
      - 0: no record remain to be fetched
@@ -1001,8 +1007,30 @@ Where:
 
 The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. To compute it: 39 bytes + 10 * PAGE-SIZE bytes. For a page-size = 16 you'll have 39 + 160 = 199 bytes.
 
+### REQUEST_PUSH_DISTRIB_CONFIG 
+
+```
+(configuration:document)
+```
+
+where:
+**configuration** is and oriendb document serialized with the network [Record Format](#record-format), that contain the distributed configuration.
+
 
 ### REQUEST_PUSH_LIVE_QUERY
+
+```
+(message-type:byte)(message-body)
+```
+where:  
+**message-type** is the type of message and can have as a value  
+  - *RECORD* = 'r'
+  - *UNSUBSCRIBE* = 'u'  
+
+**message-body** is one for each type of message
+
+
+##### Record Message Body:
 
 ```
 (operation:byte)(query_token:int)(record-type:byte)(record-version:int)(cluster-id:short)(cluster-position:long)(record-content:bytes)
@@ -1021,7 +1049,34 @@ where:
 **cluster-position** record cluster postion  
 **record-content** record content  
 
+##### Usubscribe Message Body:
+
+```
+(query_token:int)
+```
+
+**query_token** the token for identify the query that has been usubscribed.
+
 # History
+
+## version 36
+
+add support for REQUEST_INCREMENTAL_RESTORE
+
+## version 35
+
+command result review:
+add support for "wrapped types" on command result set, removed support for "simple types".
+
+is now possible a new option `w` over the one already existent `r`,`s`,`l`,`i`
+it consist in a document serialized in the same way of `r` that wrap the result in a field called `result`.
+
+the old options `a` for simple results is now removed.
+
+
+## version 34
+
+Add flags `support-push` and `collect-stats` on  REQUEST_DB_OPEN.
 
 ## version 33
 
@@ -1128,6 +1183,9 @@ Removed double serialization of commands parameters, now the parameters are dire
 # Compatibility
 
 Current release of OrientDB server supports older client versions.
+- version 35: 100% compatible 2.2-SNAPSHOT
+- version 34: 100% compatible 2.2-SNAPSHOT
+- version 34: 100% compatible 2.2-SNAPSHOT
 - version 33: 100% compatible 2.2-SNAPSHOT
 - version 32: 100% compatible 2.1-SNAPSHOT
 - version 31: 100% compatible 2.1-SNAPSHOT

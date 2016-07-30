@@ -17,8 +17,18 @@ SQL Batch supports all the OrientDB [SQL commands](SQL.md), plus the following:
 - ```return``` <value>, where value can be:
  - any value. Example: ```return 3```
  - any variable with $ as prefix. Example: ```return $a```
- - arrays. Example: ```return [ $a, $b ]```
- - maps. Example: ```return { 'first' : $a, 'second' : $b }```
+ - arrays (HTTP protocol only, see below). Example: ```return [ $a, $b ]```
+ - maps (HTTP protocol only, see below). Example: ```return { 'first' : $a, 'second' : $b }```
+ - a query. Example: ```return (SELECT FROM Foo)```  
+ 
+ NOTE: to return arrays and maps (eg. Java or Node.js driver) it's strongly recommended to use a RETURN SELECT, eg.  
+
+```
+return (SELECT $a as first, $b as second)
+```
+
+This will work on any protocol and driver.
+
 
 ## See also
 - [Javascript-Command](Javascript-Command.md)
@@ -31,9 +41,9 @@ Example to create a new vertex in a [Transaction](Transactions.md) and attach it
 begin
 let account = create vertex Account set name = 'Luke'
 let city = select from City where name = 'London'
-let edge = create edge Lives from $account to $city
+let e = create edge Lives from $account to $city
 commit retry 100
-return $edge
+return $e
 ```
 
 Note the usage of $account and $city in further SQL commands.
@@ -46,9 +56,9 @@ This script above used an Optimistic approach: in case of conflict it retries up
 BEGIN
 let account = CREATE VERTEX Account SET name = 'Luke'
 let city = SELECT FROM City WHERE name = 'London' LOCK RECORD
-let edge = CREATE EDGE Lives FROM $account TO $city
+let e = CREATE EDGE Lives FROM $account TO $city
 COMMIT
-return $edge
+return $e
 ```
 
 Note the "lock record" after the select. This means the returning records will be locked until commit (or rollback). In this way concurrent updates against London will wait for this [transaction](Transactions.md) to complete.

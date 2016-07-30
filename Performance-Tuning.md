@@ -178,29 +178,15 @@ Moreover, because of partial match searching, this index will be used for optimi
 SELECT * FROM testClass WHERE prop1 = ?
 ```
 
-For deep understanding of query optimization look at the unit test:
-http://code.google.com/p/orient/source/browse/trunk/tests/src/test/java/com/orientechnologies/orient/test/database/auto/SQLSelectIndexReuseTest.java
+For deep understanding of query optimization look at [the unit test](https://github.com/orientechnologies/orientdb/blob/master/tests/src/test/java/com/orientechnologies/orient/test/database/auto/SQLSelectIndexReuseTest.java).
 
-### Avoid use of @rid in WHERE conditions (not actual from 1.3 version)
 
-Using **@rid** in where conditions slow down queries. Much better to use the [RecordID](Concepts.md#recordid) as target. Example:
+### Parallel queries
 
-Change this:
-```sql
-SELECT FROM Profile WHERE @rid = #10:44
-```
-With this:
-```sql
-SELECT FROM #10:44
-```
-Also
-```sql
-SELECT FROM Profile WHERE @rid IN [#10:44, #10:45]
-```
-With this:
-```sql
-SELECT FROM [#10:44, #10:45]
-```
+Starting from v2.2, the OrientDB SQL executor will decide if execute or not a query in parallel. To tune parallel query execution these are the new settings:
+- `query.parallelAuto` enable automatic parallel query, if requirements are met. By default is true if your system has more than 2 CPUs/Cores.
+- `query.parallelMinimumRecords` is the minimum number of records to activate parallel query automatically. Default is 300,000.
+- `query.parallelResultQueueSize` is the size of the queue that holds results on parallel execution. The queue is blocking, so in case the queue is full, the query threads will be in a wait state. Default is 20,000 results.
 
 ## Massive Insertion
 

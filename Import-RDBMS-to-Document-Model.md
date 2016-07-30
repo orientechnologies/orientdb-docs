@@ -1,7 +1,7 @@
 # Import from a Relational Database
 
 Relational databases typically query and manipulate data with SQL.  Given that OrientDB supports a subset of SQL, it is relatively straightfoward to import data from a Relational databases to OrientDB.
-You can manage imports using the Java API, [OrientDB Studio](Home-page.md) or the [OrientDB Console](Console-Commands.md).  The examples below use the Console.
+You can manage imports using the Java API, [OrientDB Studio](Studio-Home-page.md) or the [OrientDB Console](Console-Commands.md).  The examples below use the Console.
 
 >This guide covers importing into the Document Model.  Beginning with version 2.0, you can import into the Graph Model using the [ETL Module](Import-from-DBMS.md).  From version 1.7.x you can still use ETL by installing it as a separate module
 

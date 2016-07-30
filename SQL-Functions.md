@@ -12,32 +12,34 @@
 |[out()](SQL-Functions.md#out)    | [eval()](SQL-Functions.md#eval) | [set()](SQL-Functions.md#set)             | [date()](SQL-Functions.md#date)
 |[in()](SQL-Functions.md#in)      | [min()](SQL-Functions.md#min) | [map()](SQL-Functions.md#map)               | [sysdate()](SQL-Functions.md#sysdate)
 |[both()](SQL-Functions.md#both)  | [max()](SQL-Functions.md#max) | [list()](SQL-Functions.md#list)             | [format()](SQL-Functions.md#format)
-|[outE()](SQL-Functions.md#outE)  | [sum()](SQL-Functions.md#sum) | [difference()](SQL-Functions.md#difference) | [distance()](SQL-Functions.md#distance)
-|[inE()](SQL-Functions.md#inE)    | [abs()](SQL-Functions.md#abs) | [first()](SQL-Functions.md#first)           | [ifnull()](SQL-Functions.md#ifnull)
-|[bothE()](SQL-Functions.md#bothE)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalesce()](SQL-Functions.md#coalesce)
-|[outV()](SQL-Functions.md#outV)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
-|[inV()](SQL-Functions.md#inV)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
-|[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|
-|[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|
-|[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)|
-|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricDifference)|
-|[dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)| |
+|[outE()](SQL-Functions.md#oute)  | [sum()](SQL-Functions.md#sum) | [difference()](SQL-Functions.md#difference) | [distance()](SQL-Functions.md#distance)
+|[inE()](SQL-Functions.md#ine)    | [abs()](SQL-Functions.md#abs) | [first()](SQL-Functions.md#first)           | [ifnull()](SQL-Functions.md#ifnull)
+|[bothE()](SQL-Functions.md#bothe)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalesce()](SQL-Functions.md#coalesce)
+|[outV()](SQL-Functions.md#outv)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
+|[inV()](SQL-Functions.md#inv)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
+|[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|  |
+|[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|  |
+|[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)| |
+|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricDifference)|-|
+|[dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)|  |  |
+|[astar()](SQL-Functions.md#astar) |  |  |  |
 
 ### Functions by name
 
 |       |       |       |       |       |
 |-------|-------|-------|-------|-------|
-|[abs()](SQL-Functions.md#abs)|[avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) | [bothE()](SQL-Functions.md#bothE)|
-|[coalesce()](SQL-Functions.md#coalesce) |[count()](SQL-Functions.md#count)|[date()](SQL-Functions.md#date) | [difference()](SQL-Functions.md#difference)| 
-|[dijkstra()](SQL-Functions.md#dijkstra) |[distance()](SQL-Functions.md#distance) | [distinct()](SQL-Functions.md#distinct) | [eval()](SQL-Functions.md#eval)| 
-|[expand()](SQL-Functions.md#expand) |[format()](SQL-Functions.md#format) | [first()](SQL-Functions.md#first) | [flatten()](SQL-Functions.md#flatten)|
-|[if()](SQL-Functions.md#if) | [ifnull()](SQL-Functions.md#ifnull) |[in()](SQL-Functions.md#in) | [inE()](SQL-Functions.md#inE)|
-|[inV()](SQL-Functions.md#inV) | [intersect()](SQL-Functions.md#intersect) |[list()](SQL-Functions.md#list) | [map()](SQL-Functions.md#map)|
-|[min()](SQL-Functions.md#min) | [max()](SQL-Functions.md#max) | [median()](SQL-Functions.md#median) | [mode()](SQL-Functions.md#mode)|
-|[out()](SQL-Functions.md#out) |[outE()](SQL-Functions.md#outE) | [outV()](SQL-Functions.md#outV) | [percentile()](SQL-Functions.md#percentile)|
-|[set()](SQL-Functions.md#set) | [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|[sum()](SQL-Functions.md#sum)|
-|[symmetricDifference()](SQL-Functions.md#symmetricDifference) |[sysdate()](SQL-Functions.md#sysdate)|  [traversedElement()](SQL-Functions.md#traversedelement) | [traversedEdge()](SQL-Functions.md#traversededge)| 
-|[traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid)| [variance()](SQL-Functions.md#variance)|
+|[abs()](SQL-Functions.md#abs)| [astar()](SQL-Functions.md#astar) | [avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) |
+| [bothE()](SQL-Functions.md#bothe)|[coalesce()](SQL-Functions.md#coalesce) |[count()](SQL-Functions.md#count)|[date()](SQL-Functions.md#date) | 
+| [difference()](SQL-Functions.md#difference) |[dijkstra()](SQL-Functions.md#dijkstra) |[distance()](SQL-Functions.md#distance) | [distinct()](SQL-Functions.md#distinct) | 
+| [eval()](SQL-Functions.md#eval)|[expand()](SQL-Functions.md#expand) |[format()](SQL-Functions.md#format) | [first()](SQL-Functions.md#first) |
+| [flatten()](SQL-Functions.md#flatten)|[if()](SQL-Functions.md#if) | [ifnull()](SQL-Functions.md#ifnull) |[in()](SQL-Functions.md#in) |
+| [inE()](SQL-Functions.md#ine)|[inv()](SQL-Functions.md#inv) | [intersect()](SQL-Functions.md#intersect) |[list()](SQL-Functions.md#list) |
+| [map()](SQL-Functions.md#map)|[min()](SQL-Functions.md#min) | [max()](SQL-Functions.md#max) | [median()](SQL-Functions.md#median) |
+| [mode()](SQL-Functions.md#mode)|[out()](SQL-Functions.md#out) |[outE()](SQL-Functions.md#oute) | [outV()](SQL-Functions.md#outv) |
+| [percentile()](SQL-Functions.md#percentile)|[set()](SQL-Functions.md#set) | [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|
+|[sum()](SQL-Functions.md#sum)|[symmetricDifference()](SQL-Functions.md#symmetricDifference) |[sysdate()](SQL-Functions.md#sysdate)|  [traversedElement()](SQL-Functions.md#traversedelement) | 
+| [traversedEdge()](SQL-Functions.md#traversededge)|[traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid)|
+| [variance()](SQL-Functions.md#variance) | | | |
 
 SQL Functions are all the functions bundled with OrientDB [SQL engine](SQL.md). You can create your own [Database Functions](Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
 
@@ -286,11 +288,11 @@ SELECT if(eval("name = 'John'"), "My name is John", "My name is not John") FROM 
 
 ### ifnull()
 
-Returns the passed field/value (or optional parameter return_value_if_not_null). If field/value is not null, otherwise it returns return_value_if_null.
+Returns the passed field/value (or optional parameter *return_value_if_not_null*). If field/value is not null, otherwise it returns *return_value_if_null*.
 
 Syntax:
 ```java
-ifnull(&lt;field&#124;value&gt;, &lt;return_value_if_null&gt; [,&lt;return_value_if_not_null&gt;](,&lt;field&.md#124;value&gt;]*)
+ifnull(<field/value>, <return_value_if_null>)
 ```
 
 Available since: 1.3.0
@@ -392,7 +394,7 @@ SELECT COUNT(*) FROM Account
 ---
 ### min()
 
-Returns the minimum value. If invoked with more than one parameters, the function doesn't aggregate, but returns the minimum value between all the arguments.
+Returns the minimum value. If invoked with more than one parameter, the function doesn't aggregate but returns the minimum value between all the arguments.
 
 Syntax: ```min(<field> [, <field-n>]* )```
 
@@ -411,7 +413,7 @@ SELECT min(salary1, salary2, salary3) FROM Account
 ---
 ### max()
 
-Returns the maximum value. If invoked with more than one parameters, the function doesn't aggregate, but returns the maximum value between all the arguments.
+Returns the maximum value. If invoked with more than one parameter, the function doesn't aggregate, but returns the maximum value between all the arguments.
 
 Syntax: ```max(<field> [, <field-n>]* )```
 
@@ -492,7 +494,7 @@ SELECT FROM Account WHERE created <= date('2012-07-02', 'yyyy-MM-dd')
 ---
 ### sysdate()
 
-Returns the current date time. To know more about it, look at [Managing Dates](Managing-Dates.md).
+Returns the current date time. If executed with no parameters, it returns a Date object, otherwise a string with the requested format/timezone. To know more about it, look at [Managing Dates](Managing-Dates.md).
 
 Syntax: ```sysdate( [<format>] [,<timezone>] )```
 
@@ -516,6 +518,37 @@ Available since: 0.9.25
 
 ```sql
 SELECT format("%d - Mr. %s %s (%s)", id, name, surname, address) FROM Account
+```
+---
+
+### astar()
+
+A*'s algorithm describes how to find the cheapest path from one node to another node in a directed weighted graph with husrestic function.
+
+The first parameter is source record. The second parameter is destination record. The third parameter is a name of property that
+represents 'weight' and fourth represnts the map of options.
+
+If property is not defined in edge or is null, distance between vertexes are 0 .
+
+Syntax: ```astar(<sourceVertex>, <destinationVertex>, <weightEdgeFieldName>, [<options>]) ```
+
+options: 
+```
+{
+  direction:"OUT", //the edge direction (OUT, IN, BOTH)
+  edgeTypeNames:[],  
+  vertexAxisNames:[], 
+  parallel : false, 
+  tieBreaker:true,
+  maxDepth:99999,
+  dFactor:1.0,
+  customHeuristicFormula:'custom_Function_Name_here'  // (MANHATAN, MAXAXIS, DIAGONAL, EUCLIDEAN, EUCLIDEANNOSQR, CUSTOM)
+}
+```
+#### Example
+
+```sql
+SELECT astar($current, #8:10, 'weight') FROM V
 ```
 ---
 ### dijkstra()
@@ -605,7 +638,7 @@ SELECT distinct(name) FROM City
 
 Syntax: ```unionall(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed then aggregates, otherwise executes and returns a UNION of all the collections received as parameters. Also works also with no collection values.
+Works as aggregate or inline. If only one argument is passed then aggregates, otherwise executes and returns a UNION of all the collections received as parameters. Also works with no collection values.
 
 Available since: 1.7
 
@@ -623,7 +656,7 @@ select unionall(inEdges, outEdges) from OGraphVertex where label = 'test'
 
 Syntax: ```intersect(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed than aggregates, otherwise executes, and returns, the INTERSECTION of the collections received as parameters.
+Works as aggregate or inline. If only one argument is passed then it aggregates, otherwise executes and returns the INTERSECTION of the collections received as parameters.
 
 Available since: 1.0rc2
 
@@ -641,7 +674,7 @@ SELECT intersect(inEdges, outEdges) FROM OGraphVertex
 
 Syntax: ```difference(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed than aggregates, otherwise executes, and returns, the DIFFERENCE between the collections received as parameters.
+Works as aggregate or inline. If only one argument is passed then it aggregates, otherwise it executes and returns the DIFFERENCE between the collections received as parameters.
 
 Available since: 1.0rc2
 
@@ -660,7 +693,7 @@ SELECT difference(inEdges, outEdges) FROM OGraphVertex
 
 Syntax: ```symmetricDifference(<field> [,<field-n>]*)```
 
-Works as aggregate or inline. If only one argument is passed than aggregates, otherwise executes, and returns, the SYMMETRIC DIFFERENCE between the collections received as parameters.
+Works as aggregate or inline. If only one argument is passed then it aggregates, otherwise executes and returns the SYMMETRIC DIFFERENCE between the collections received as parameters.
 
 Available since: 2.0.7
 
@@ -929,3 +962,4 @@ List<ODocument> result = database.command(
   new OSQLSynchQuery<ODocument>("SELECT FROM Account WHERE bigger( salary, 10 ) > 10") )
   .execute();
 ```
+    

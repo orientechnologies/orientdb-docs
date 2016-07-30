@@ -11,6 +11,7 @@ With [`EXPORT`](Console-Command-Export.md), this command allows you to migrate b
 
 ```sql
 IMPORT DATABASE <input-file> [-preserveClusterIDs = <true|false>]
+                             [-deleteRIDMapping = <true|false>]
                              [-merge = <true|false>]
                              [-migrateLinks = <true|false>]
                              [-rebuildIndexes = <true|false>]
@@ -18,6 +19,7 @@ IMPORT DATABASE <input-file> [-preserveClusterIDs = <true|false>]
 
 - **`<inputy-file>`** Defines the path to the file you want to import.
 - **`-preserveClusterIDs`** Defines whether you want to preserve cluster ID's during the import.  When turned off, the import creates temporary cluster ID's, which can sometimes fail.  This option is only valid with PLocal storage.
+- **`-deleteRIDMapping`** Defines whether you want to preserve the dictionary index used by the import to map old RIDs to new RIDs. The index name is `___exportImportRIDMap` and you could use in your application.  By default the index is removed after the import.
 - **`-merge`** Defines whether you want to merge the import with the data already in the current database.  When turned off, the default, the import overwrites current data, with the exception of security classes, (`ORole`, `OUser`, `OIdentity`), which it always preserves.  This feature was introduced in version 1.6.1.
 - **`-migrateLinks`** Defines whether you want to migrate links after the import.  When enabled, this updates all references from the old links to the new Record ID's.  By default, it is enabled.  Advisable that you only turn it off when merging and you're certain no other existent records link to those you're importing.  This feature was introduced in version 1.6.1.
 - **`-rebuildIndexes`** Defines whether you want to rebuild indexes after the import.  By default, it does.  You can set it to false to speed up the import, but do so only when you're certain the import doesn't affect indexes.  This feature was introduced in version 1.6.1.

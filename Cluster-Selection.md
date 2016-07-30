@@ -34,7 +34,8 @@ In addition to the cluster selection strategies listed above, you can also devel
          final int[] clusters = iClass.getClusterIds();
 
          // RETURN A RANDOM CLUSTER ID IN THE LIST
-         return new Random().nextInt(clusters.length);
+         int r = new Random().nextInt(clusters.length);
+		   return clusters[r];
       }
 
       public String getName(){ return "random"; }

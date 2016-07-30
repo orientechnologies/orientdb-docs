@@ -105,7 +105,7 @@ OTraverse gets any Iterable, Iterator and Single/Multi OIdentifiable. There's al
 ```java
 for (OIdentifiable id : new OTraverse()
               .target(new ORecordId("#6:0"), new ORecordId("#6:1"))
-              .fields("out", "int")
+              .fields("out", "in")
               .limit(100)
               .predicate( new OSQLPredicate("$depth <= 10"))) {
 

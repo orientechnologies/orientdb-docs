@@ -18,7 +18,7 @@ If you're looking for drivers or JDBC connector go to  [Programming-Language-Bin
 
 ------
 
-<a href="https://github.com/PhantomYdn/wicket-orientdb"><img src="http://www.thebuzzmedia.com/wp-content/uploads/2010/02/apache-wicket-web-framework-logo.png" width="300"></a><br>
+<a href="https://github.com/PhantomYdn/wicket-orientdb"><img src="http://wicket.apache.org/img/logo-apachewicket-white.svg" width="300"></a><br>
  
 With proper mark-up/logic separation, a POJO data model, and a refreshing lack of XML, Apache Wicket makes developing web-apps simple and enjoyable again. Swap the boilerplate, complex debugging and brittle code for powerful, reusable components written with plain Java and HTML.
 
@@ -62,7 +62,7 @@ Vert.x is a lightweight, high performance application platform for the JVM that'
 [OrientDB session store](https://github.com/ffissore/connect-orientdb) for Connect
 ------
 
-<a href="http://forge.puppetlabs.com"><img width="100" align="left" src="http://puppetlabs.com/sites/default/files/PL_logo_horizontal_RGB_0.svg" /></a>
+<a href="http://forge.puppetlabs.com"/>
 <br>
 [Puppet module](https://github.com/example42/puppet-orientdb)
 
@@ -84,7 +84,7 @@ Vert.x is a lightweight, high performance application platform for the JVM that'
 
 ------
 
-<a href="http://media.xircles.codehaus.org"><img width="100" align="left" src="http://media.xircles.codehaus.org/_projects/griffon/_logos/medium.png" /></a><br>
+<a href="http://media.xircles.codehaus.org"><img width="100" align="left" src="http://griffon-framework.org/img/griffon-icon-32x32.png" /></a><br>
 
 [Griffon plugin](https://github.com/griffon/griffon-orientdb-plugin), Apache 2 license
 
@@ -112,7 +112,7 @@ Accessing OrientDB using Slick
 
 ------
 
-<a href="https://github.com/eiswind/jackrabbit-orient"><img width="100" align="left" src="http://jackrabbit.apache.org/style/jlogo.gif" /></a><br>
+<a href="https://github.com/eiswind/jackrabbit-orient"><img width="100" align="left" src="http://jackrabbit.apache.org/jcr/images/logos/jlogo.gif" /></a><br>
 
 Jackrabbit module to use OrientDB as backend.
 

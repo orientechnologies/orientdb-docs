@@ -29,10 +29,10 @@ This is the default configuration contained in ```config/hazelcast.xml``` file. 
 ```
 
 If multicast is not available (typical on Cloud environments), you can use:
-- [Direct IPs](http://www.hazelcast.org/docs/latest/manual/html-single/hazelcast-documentation.html#configuring-tcpip-cluster)
-- [Amazon EC2 Discovering](http://www.hazelcast.org/docs/latest/manual/html-single/hazelcast-documentation.html#ec2-auto-discovery)
+- [Direct IPs](http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#discovering-members-by-tcp)
+- [Amazon EC2 Discovering](http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#discovering-members-within-ec2-cloud)
 
-For more information look at [Hazelcast documentation about configuring network](http://www.hazelcast.org/docs/latest/manual/html-single/hazelcast-documentation.html#network-configuration).
+For more information look at [Hazelcast documentation about configuring network](http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#network-configuration).
 
 ### Security
 
@@ -76,7 +76,7 @@ All the nodes in the distributed cluster must have the same settings.
 
 ![image](http://www.orientdb.org/images/cluster-security.png)
 
-For more information look at: [Hazelcast Encryption](http://www.hazelcast.org/docs/latest/manual/html-single/hazelcast-documentation.html#encryption).
+For more information look at: [Hazelcast Encryption](http://docs.hazelcast.org/docs/3.6/manual/html-single/index.html#encryption).
 
 ### Join to an existent cluster
 

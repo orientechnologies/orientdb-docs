@@ -45,7 +45,7 @@ This section tells the OrientDB server to read the file at `$ORIENTDB_HOME/confi
   - *`false`* Disables automatic backups.  This is the default setting.
 - **`"mode"`** Defines the backup mode.  The supported values are:
   - *`"FULL_BACKUP"`* Executes a full backup.  Prior to version 2.2, this was the only mode available.  This operation blocks the database.
-  - *`"INCREMENTAL_BACKUP"`* Executes an incremental backup.  Uses one directory per database.  This operation doesn't block the database.
+  - *`"INCREMENTAL_BACKUP"`* Executes an [incremental backup](Incremental-Backup-And-Restore.md).  This is available only in the [Enterprise Edition](Enterprise-Edition.md).  It uses one directory per database.  This operation doesn't block the database.
   - *`"EXPORT"`* Executes an database export, using gziped JSON format. This operation is not blocking.
 - **`"exportOptions"`** Defines export options to use with that mode.  This feature was introduced in version 2.2.
 - **`"delay"`** Defines the delay time for each backup.  Supports the following suffixes:

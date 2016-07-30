@@ -1,6 +1,6 @@
 # OrientDB Server
 
-OrientDB Server (DB-Server from now) is a multi-threaded Java application that listens to remote commands and executes them against the Orient databases. OrientDB Server supports both [binary](Network-Binary-Protocol.md) and [HTTP](OrientDB-REST.md) protocols. The first one is used by the Orient native client and the Orient Console. The second one can be used by any languages since it's based on [HTTP RESTful API](OrientDB-REST.md). The HTTP protocol is used also by the [OrientDB Studio application](Home-page.md).
+OrientDB Server (DB-Server from now) is a multi-threaded Java application that listens to remote commands and executes them against the Orient databases. OrientDB Server supports both [binary](Network-Binary-Protocol.md) and [HTTP](OrientDB-REST.md) protocols. The first one is used by the Orient native client and the Orient Console. The second one can be used by any languages since it's based on [HTTP RESTful API](OrientDB-REST.md). The HTTP protocol is used also by the [OrientDB Studio application](Studio-Home-page.md).
 
 Starting from v1.7 OrientDB support [protected SSL connections](Using-SSL-with-OrientDB.md).
 
@@ -30,51 +30,51 @@ To stop a running server, press CTRL+C in the open shell that runs the Server in
 The OrientDB distribution provides the [Orient Console](Console-Commands.md) tool as a console Java application that uses the binary protocol to work with the database.
 
 ### By OrientDB Studio
-Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](Home-page.md), a client-side web app that uses the HTTP protocol to work with the database.
+Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](Studio-Home-page.md), a client-side web app that uses the HTTP protocol to work with the database.
 
 ### By your application
-Consider the [native APIs](Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB-REST.md).
+	Consider the [native APIs](Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB-REST.md).
 
-## Distributed servers
+	## Distributed servers
 
-To setup a distributed configuration look at: [Distributed-Architecture](Distributed-Architecture.md).
+	To setup a distributed configuration look at: [Distributed-Architecture](Distributed-Architecture.md).
 
-## Change the Server's database directory
+	## Change the Server's database directory
 
-By default OrientDB server manages the database under the directory "$ORIENTDB_HOME/databases" where $ORIENTDB_HOME is the OrientDB installation directory. By setting the configuration parameter <code>"server.database.path"</code> in server orientdb-server-config.xml you can specify a custom path. Example:
+	By default OrientDB server manages the database under the directory "$ORIENTDB_HOME/databases" where $ORIENTDB_HOME is the OrientDB installation directory. By setting the configuration parameter <code>"server.database.path"</code> in server orientdb-server-config.xml you can specify a custom path. Example:
 
-```xml
-<orient-server>
-  ...
-  <properties>
-    <entry value="C:/temp/databases" name="server.database.path" />
-  </properties>
-</orient-server>
-```
+	```xml
+	<orient-server>
+	  ...
+	  <properties>
+	    <entry value="C:/temp/databases" name="server.database.path" />
+	  </properties>
+	</orient-server>
+	```
 
-## Configuration
+	## Configuration
 
 
-### Plugins
+	### Plugins
 
-Plug-ins (old name "Handler") are the way the OrientDB Server can be extended.
+	Plug-ins (old name "Handler") are the way the OrientDB Server can be extended.
 
-To write your own plug-in read below [Extend the server](Extend-Server.md).
+	To write your own plug-in read below [Extend the server](Extend-Server.md).
 
-Available plugins:
-- [Automatic-Backup](Automatic-Backup.md)
-- [EMail Plugin](Mail-Plugin.md)
-- [JMX Plugin](JMX-Plugin.md)
-- [Distributed-Server-Manager](Distributed-Server-Manager.md)
-- [Server-side script interpreter](Javascript-Command.md#enable_server_side_scripting)
-- [Write your own](Extend-Server.md)
+	Available plugins:
+	- [Automatic-Backup](Automatic-Backup.md)
+	- [EMail Plugin](Mail-Plugin.md)
+	- [JMX Plugin](JMX-Plugin.md)
+	- [Distributed-Server-Manager](Distributed-Server-Manager.md)
+	- [Server-side script interpreter](Javascript-Command.md#enable_server_side_scripting)
+	- [Write your own](Extend-Server.md)
 
-### Protocols
+	### Protocols
 
-Contains the list of protocols used by the [listeners section](#Listeners).
-The protocols supported today are:
-- **binary**: the Raw binary protocol used by OrientDB clients and console application.
-- **http**: the HTTP RESTful protocol used by [OrientDB Studio](Home-page.md) and direct raw access from any language and browsers.
+	Contains the list of protocols used by the [listeners section](#Listeners).
+	The protocols supported today are:
+	- **binary**: the Raw binary protocol used by OrientDB clients and console application.
+	- **http**: the HTTP RESTful protocol used by [OrientDB Studio](Studio-Home-page.md) and direct raw access from any language and browsers.
 
 ### Listeners
 

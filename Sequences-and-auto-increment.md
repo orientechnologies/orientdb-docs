@@ -10,7 +10,7 @@ To manipulate sequences you can use the Java API or SQL commands.
 ### Create a sequence with Java API
 ```java
 OSequenceLibrary sequenceLibrary = database.getMetadata().getSequenceLibrary();
-OSequence seq = sequenceLibrary.createSequence("idseq", SEQUENCE_TYPE.ORDERED, new OSequence.CreateParams().setStart(0));
+OSequence seq = sequenceLibrary.createSequence("idseq", SEQUENCE_TYPE.ORDERED, new OSequence.CreateParams().setStart(0).setIncrement(1));
 ```
 
 ### SQL CREATE SEQUENCE

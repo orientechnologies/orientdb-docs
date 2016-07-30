@@ -128,7 +128,7 @@ Where rules determine what users belonging to certain roles can do on the databa
 
 #### Operations
 
-The supported operations are the classic CRUD operations.  That is, **C**reate, **R**ead, **U**pdate, **D**elete.  Roles can have none of these permissions or all of them.  OrientDB represents each permission internally by a 4-digit bitmask flask.
+The supported operations are the classic CRUD operations.  That is, **C**reate, **R**ead, **U**pdate, **D**elete.  Roles can have none of these permissions or all of them.  OrientDB represents each permission internally by a 4-digit bitmask flag.
 
 ```
 NONE:   #0000 - 0
@@ -142,9 +142,9 @@ ALL:    #1111 - 15
 In addition to these base permissions, you can also combine them to create new permissions.  For instance, say you want to allow only the Read and Update permissions:
 
 ```
-READ:               #0010 - 1
+READ:               #0010 - 2
 UPDATE:             #0100 - 4
-Permission to use:  #0110 - 5
+Permission to use:  #0110 - 6
 ```
 
 ### Resources
@@ -255,7 +255,7 @@ In addition to managing record-level security features through the OrientDB cons
 
 ### Customize on Creation
 
-By default, whenever you create a restricted record, (that is, create a class that extends the class `ORestricted`), OrientDB inserts the current suer into the `_allow` field.  You can change this using custom properties in the class schema:
+By default, whenever you create a restricted record, (that is, create a class that extends the class `ORestricted`), OrientDB inserts the current user into the `_allow` field.  You can change this using custom properties in the class schema:
 - `onCreate.fields` Specifies the names of the fields it sets.  By default, these are `_allow`, but you can also specify `_allowRead`, `_allowUpdate`, `_allowDelete` or a combination of them as an alternative.  Use commas to separate multiple fields.
 - `onCreate.identityType` Specifies whether to insert the user's object or its role (the first one).  By default, it is set to `user`, but you can also set it to use its `role`.
 

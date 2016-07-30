@@ -19,8 +19,8 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
     [ NOCACHE ]
 ```
 
-- **[`<Projections>`](SQL-Query.md#projections)** Indicates the data you want to extract from the query as the result-set.  Note: In OrientDB, this variable is optional.  
-- **`FROM`** Designates the object to query.  This can be a class, cluster, single [Recprd ID](Concepts.md#recordid), set of [Record ID's](Concepts.md#recordid), or (beginning in version 1.7.7) index values sorted by ascending or descending key order.
+- **[`<Projections>`](SQL-Query.md#projections)** Indicates the data you want to extract from the query as the result-set.  Note: In OrientDB, this variable is optional.  In the projections you can define aliases for single fields, using the `AS` keyword; in current release aliases cannot be used in the WHERE condition, GROUP BY and ORDER BY (they will be evaluated to null)
+- **`FROM`** Designates the object to query.  This can be a class, cluster, single [Record ID](Concepts.md#recordid), set of [Record ID's](Concepts.md#recordid), or (beginning in version 1.7.7) index values sorted by ascending or descending key order.
    - When querying a class, for `<target>` use the class name.
    - When querying a cluster, for `<target>` use `CLUSTER:<cluster-name>`.  This causes the query to execute only on records in that cluster. 
    - When querying record ID's, you can specific one or a small set of records to query.  This is useful when you need to specify a starting point in navigating graphs.
@@ -29,7 +29,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
      - `INDEXVALUESDESC:<index>` sorts the values into a descending order of index keys.
 - **[`WHERE`](SQL-Where.md)** Designates conditions to filter the result-set.
 - **[`LET`](SQL-Query.md#let-block)** Binds context variables to use in projections, conditions or sub-queries.
-- **`GROUP BY`** Designates field on which to group the result-set.  In the current release, you can only group on one field. 
+- **`GROUP BY`** Designates field on which to group the result-set. 
 - **`ORDER BY`** Designates the field with which to order the result-set.  Use the optional `ASC` and `DESC` operators to define the direction of the order.  The default is ascending.  Additionally, if you are using a [projection](SQL-Query.md#projections), you need to include the `ORDER BY` field in the projection. Note that ORDER BY works only on projection fields (fields that are returned in the result set) not on LET variables.
 - **[`UNWIND`](SQL-Query.md#unwind)** Designates the field on which to unwind the collection.  Introduced in version 2.1.
 - **`SKIP`** Defines the number of records you want to skip from the start of the result-set.  You may find this useful in [pagination](Pagination.md), when using it in conjunction with `LIMIT`.
@@ -84,7 +84,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 
 - Return any record at any level that has the word `danger`:
 
-  DEPRECIATED SYNTAX
+  DEPRECATED SYNTAX
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM Profile WHERE ANY() TRAVERSE( ANY() LIKE '%danger%' )</code>
   </pre>
@@ -136,6 +136,12 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM Profile ORDER BY @rid DESC</code>
+  </pre>
+  
+- Return value of `email` which is stored in a JSON field `data` (type EMBEDDED)  of the class `Person`, where the name starts with `Luk`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT data.email FROM Person WHERE name LIKE 'Luk%'</code>
   </pre>
 
   Beginning in version 1.7.7, OrientDB can open an inverse cursor against clusters.  This is very fast and doesn't require the classic ordering resources, CPU and RAM.
