@@ -98,8 +98,8 @@ SELECT FROM CLUSTER:client_china
 
 In this case the local node (USA) is used, because `client_china` is hosted on local node.
 
-## Map-Reduce
-OrientDB supports [Map/Reduce](http://en.wikipedia.org/wiki/MapReduce) by using the OrientDB [SQL](SQL.md). The Map/Reduce operation is totally transparent to the developer. When a query involve multiple shards (clusters), OrientDB executes the query against all the involved server nodes (Map operation) and then merge the results (Reduce operation). Example:
+## MapReduce
+OrientDB supports [MapReduce](http://en.wikipedia.org/wiki/MapReduce) without Hadoop or external framework like Spark (even if there is a connector), but rather by using the OrientDB [SQL](SQL.md). The MapReduce operation is totally transparent to the developer. When a query involve multiple shards (clusters), OrientDB executes the query against all the involved server nodes (Map operation) and then merge the results (Reduce operation). Example:
 
 ```sql
 SELECT MAX(amount), COUNT(*), SUM(amount) FROM Client
