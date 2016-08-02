@@ -29,29 +29,29 @@ In order to keep things simple, the entire OrientDB Distributed Configuration is
 
 ```json
 {
-"autoDeploy": true,
-"hotAlignment": false,
-"readQuorum": 1,
-"writeQuorum": 2,
-"failureAvailableNodesLessQuorum": false,
-"readYourWrites": true,
-"clusters": {
-"internal": {
-},
-"index": {
-},
-"client_usa": {
-"servers" : [ "usa", "europe" ]
-},
-"client_europe": {
-"servers" : [ "europe" ]
-},
-"client_china": {
-"servers" : [ "china", "usa", "europe" ]
-},
-"*": {
-"servers" : [ "<NEW_NODE>" ]
-}
+ "autoDeploy": true,
+ "hotAlignment": false,
+ "readQuorum": 1,
+ "writeQuorum": 2,
+ "failureAvailableNodesLessQuorum": false,
+ "readYourWrites": true,
+ "clusters": {
+  "internal": {
+ },
+ "index": {
+ },
+ "client_usa": {
+  "servers" : [ "usa", "europe" ]
+ },
+ "client_europe": {
+  "servers" : [ "europe" ]
+ },
+ "client_china": {
+  "servers" : [ "china", "usa", "europe" ]
+ },
+ "*": {
+  "servers" : [ "<NEW_NODE>" ]
+ }
 }
 }
 ```
