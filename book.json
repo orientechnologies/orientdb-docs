@@ -82,7 +82,7 @@
       "url": "https://github.com/orientechnologies/orientdb"
     },
     "search": {
-      "maxIndexSize": 2000000
+      "maxIndexSize": 2500000
     }
   }
 }
