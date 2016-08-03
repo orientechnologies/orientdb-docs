@@ -86,6 +86,7 @@ OrientDB guarantees strong consistency if it's configured to have a `writeQuorum
 
 ## Limitations
 OrientDB v2.2.x has some limitations you should notice when you work in Distributed Mode:
+- in memory database is not supported
 - Creation of a database on multiple nodes could cause synchronization problems when clusters are automatically created. Please create the databases before to run in distributed mode
 - Constraints with distributed databases could cause problems because some operations are executed at 2 steps: create + update. For example in some circumstance edges could be first created, then updated, but constraints like MANDATORY and NOTNULL against fields would fail at the first step making the creation of edges not possible on distributed mode.
 - Auto-Sharding is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application. This will be addressed by next releases
