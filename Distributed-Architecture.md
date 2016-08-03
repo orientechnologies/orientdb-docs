@@ -45,6 +45,7 @@ OrientDB guarantees strong consistency if it's configured to have a `writeQuorum
 
 ## Limitations
 OrientDB v2.1.x has some limitations you should notice when you work in Distributed Mode:
+- in memory database is not supported
 - `hotAlignment:true` could bring the database status as inconsistent. Please set it always to 'false', the default
 - Creation of a database on multiple nodes could cause synchronization problems when clusters are automatically created. Please create the databases before to run in distributed mode
 - If an error happen during CREATE RECORD, the operation is fixed across the entire cluster, but some node could have a wrong RID upper bound (the created record, then deleted as fix operation). In this case a new database deploy operation must be executed
