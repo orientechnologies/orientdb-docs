@@ -51,7 +51,7 @@ When only one parameter is passed, the function aggregates the result in only on
 ```sql
 SELECT SUM(salary) FROM employee
 ```
-This will always return 1 record with the sum of salary field.
+This will always return one record: the sum of salary fields across every employee record.
 
 ## Inline mode
 
@@ -104,7 +104,7 @@ Available since: 1.4.0
 
 #### Example
 
-Get all the incoming vertices from all the Vehicle vertices:
+Get all the incoming vertices from all the V vertices:
 
 ```sql
 SELECT in() FROM V
@@ -134,7 +134,7 @@ Get all the incoming and outgoing vertices from vertex with rid #13:33:
 SELECT both() FROM #13:33
 ```
 
-Get all the incoming and outgoing vertices connected with edges with label (class) "Friend" and "Brother":
+Get all the incoming and outgoing vertices connected by edges with label (class) "Friend" and "Brother":
 
 ```sql
 SELECT both('Friend','Brother') FROM V
@@ -195,15 +195,16 @@ Syntax: ```bothE([<label1>][,<label-n>]*)```
 Available since: 1.4.0
 
 #### Example
+
 Get both incoming and outgoing edges from all the vertices:
 ```sql
 SELECT bothE() FROM V
 ```
 
-Get all the incoming and outgoing edges of type "Friend" from the Profile with nick 'Jay'
+Get all the incoming and outgoing edges of type "Friend" from the Profiles with nickname 'Jay'
 
 ```sql
-SELECT bothE('Friend') FROM Profile WHERE nick = 'Jay'
+SELECT bothE('Friend') FROM Profile WHERE nickname = 'Jay'
 ```
 
 ### outV()
@@ -219,6 +220,7 @@ Available since: 1.4.0
 
 #### Example
 
+Get outgoing vertices from all edges
 ```sql
 SELECT outV() FROM E
 ```
@@ -236,6 +238,7 @@ Available since: 1.4.0
 
 #### Example
 
+Get incoming vertices from all edges
 ```sql
 SELECT inV() FROM E
 ```
@@ -278,7 +281,7 @@ Syntax:
 if(<expression>, <result-if-true>, <result-if-false>)
 ```
 
-Evaluates a condition (first parameters) and returns the second parameter if the condition is true, the third one otherwise
+Evaluates a condition (first parameters) and returns the second parameter if the condition is true, and the third parameter otherwise.
 
 #### Example: 
 ```
