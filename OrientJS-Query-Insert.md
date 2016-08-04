@@ -8,10 +8,34 @@ In OrientJS, inserting data into the database uses the `insert()` method.  For i
 
 
 ```js
-var data = db.insert().into('Player')
+db.insert().into('Player')
    .set({
      ba:  0.367,
      r:   2246,
      rbi: 1938
-   }).where('name = "Ty Cobb"').one();
+   }).where('name = "Ty Cobb"').one().then(function(player){
+      console.log(player)
+   });
+```
+
+
+## Raw Expressions
+
+with set
+```js
+db.insert().into('Player')
+   .set({
+     uuid : db.rawExpression("format('%s',uuid())"),
+     ba:  0.367,
+     r:   2246,
+     rbi: 1938
+   }).where('name = "Ty Cobb"').one().then(function(player){
+      console.log(player)
+   });
+```
+
+Generated query
+
+```sql
+INSERT INTO Player SET uuid = format('%s',uuid()), ba = 0.367, r = 2246, rbi = 1938
 ```

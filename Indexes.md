@@ -79,7 +79,7 @@ orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = [
           Programming", 1968]</code>
 </pre>
 
-Alternatively, you can look a public up through the field `publicationYear`:
+Alternatively, you can look for books over a range of years with the field `publicationYear`:
 
 <pre>
 orientdb> <code class='lang-sql userinput'>SELECT FROM INDEX:books WHERE key BETWEEN ["Donald Knuth", "The Art of 
@@ -111,12 +111,6 @@ Or, the equal,
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:books WHERE key = "Donald Knuth"</code>
 </pre>
-
-#### Insertion for Composite Indexes
-
-|||
-|-|-|
-|![](images/warning.png)| Direct insertion for composite indexes is not yet supported in OrientDB.|
 
 ### Range Queries
 

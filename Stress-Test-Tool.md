@@ -14,6 +14,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 	--root-password <rootPassword>
 	--remote-ip <remoteIpOrHost>
 	--remote-port <remotePort>
+	--ha-metrics true|false
 
 * the **m** parameter sets the type of database to be stressed (distributed is not yet implemented).
 * the **c** parameter sets the concurrency level, as the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
@@ -38,6 +39,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 * the **remote-ip** parameter defines the remote host (or IP) of the server to connect to. The StressTester will fail if this parameter is not specified and mode is **remote**.
 * the **remote-port** parameter defines the port of the server to connect to. If not specified, it defaults to 2424.
 * the **root-password** parameter sets the root password of the server to connect to. If not specified and if mode is **remote**, the root password will be asked at the start of the test.
+* the **ha-metrics** (since v2.2.7) setting dumps the HA metrics at the end of each workload
 
 
 If the StressTester is launched without parameters, it fails because the **-m** parameter is mandatory.
