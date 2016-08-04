@@ -1,6 +1,7 @@
 # Enterprise Edition
 
-### This documentation is referring to v2.1. In [v2.2 the Enterprise Edition](http://orientdb.com/docs/2.2/Enterprise-Edition.html#) is completely new.
+### This documentation is referring to v2.1. In [v2.2 the Enterprise Edition](http://orientdb.com/docs/2.2/Enterprise-Edition.html#) has been completely revisited.
+
 
 This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more information look at [OrientDB Enterprise Edition](http://orientdb.com/enterprise.htm).
 
