@@ -1,8 +1,10 @@
 # Enterprise Edition
 
+### This documentation is referring to v2.1. In [v2.2 the Enterprise Edition](http://orientdb.com/docs/2.2/Enterprise-Edition.html#) is completely new.
+
 This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more information look at [OrientDB Enterprise Edition](http://orientdb.com/enterprise.htm).
 
-Enterprise Edition is in Beta stage, ask for a Trial by writing to: info@orientdb.com.
+To try Enterprise Edition ask for a Trial by writing to: info@orientdb.com.
 
 OrientDB Enterprise Edition is composed by 2 modules:
 - Enterprise **Agent**
