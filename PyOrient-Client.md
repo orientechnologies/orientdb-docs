@@ -35,6 +35,7 @@ client.shutdown('root', 'root_passwd')
 Within your application, once you have initialized the PyOrient Client this object provides you with an interface in working databases on the OrientDB Server.
 
 - [**`command()`**](PyOrient-Client-Command.md) This method issues SQL commands.
+- [**`batch()`**](PyOrient-Client-Batch.md) This method issues batch commands.
 - [**`data_cluster_add()`**](PyOrient-Client-Data-Cluster-Add.md) This method creates new clusters on the database.
 - [**`data_cluster_count()`**](PyOrient-Client-Data-Cluster-Count.md) This method counts the numbers of records in an array of clusters.
 - [**`data_cluster_data_range()`**](PyOrient-Client-Data-Cluster-Data-Range.md) This method retrieves all records in the given cluster.
@@ -55,7 +56,7 @@ Within your application, once you have initialized the PyOrient Client this obje
 - [**`record_load()`**](PyOrient-Client-Record-Load.md) This method retrieves records from the database.
 - [**`record_update()`**](PyOrient-Client-Record-Update.md) This method updates records on the database.
 - [**`set_session_token()`**](PyOrient-Client-Set-Session-Token.md) This method enables and loads a token for the client session.
-
+- [**`tx_commit()`**](PyOrient-Client-Tx-Commit.md) THis method initializes a control object for transactions.
 
 
 
