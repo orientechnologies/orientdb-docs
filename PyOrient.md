@@ -102,7 +102,7 @@ Once you have PyOrient installed you can begin to use it in your applications.  
   import pyorient
   ```
 
-- **PyOrient OGM** The Object-Graph Mapper for PyOrient provides a higher-level Object Oriented Pythonic interface for Graph Databases in OrientDB.  To use it, add the following line to your application:
+- [**PyOrient OGM**](PyOrient-OGM.md) The Object-Graph Mapper for PyOrient provides a higher-level Object Oriented Pythonic interface for Graph Databases in OrientDB.  To use it, add the following line to your application:
 
   ```py
   import pyorient.ogm
