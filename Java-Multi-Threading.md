@@ -1,6 +1,6 @@
 # Multi-Threading
 
-OrientDB supports multi-threads access to the database. `ODatabase*` and `OrientGraph*` instances are not thread-safe, so you've to get *an instance per thread* and each database instance can be used *only in one thread per time*. For more information about how concurrency is managed by OrientDB look at [Concurrency](Concurrency.md).
+OrientDB supports multi-threads access to the database. `ODatabase*` and `OrientGraph*` instances are not thread-safe, so you've to get *an instance per thread* and each database instance can be used *only in one thread per time*. The `ODocument`, `OrientVertex` and `OrientEdge` classes are non thread-safe too, so if you share them across threads you can have unexpected errors hard to recognize. For more information about how concurrency is managed by OrientDB look at [Concurrency](Concurrency.md).
 
 |![](images/warning.png)|Since v2.1 OrientDB doesn't allow implicit usage of multiple database instances from the same thread. Any attempt to manage multiple instances in the same thread must explicitly call the method `db.activateOnCurrentThread()` against the database instance BEFORE you use it.|
 |---|---|
