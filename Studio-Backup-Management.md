@@ -87,7 +87,7 @@ Let's analyse in which way the two modes are combined. Suppose we decided to exe
 
 Thus we will obtain that **every 5 minutes** a new directory with a **full backup** will be added in the specified path, then **in the following 4 minutes** only **incremental backups** will be performed. As we set 1 minute for the incremental backup, we will have 4 incremental backups after the first full backup.
 After 5 minutes a new full backup in another folder will be performed, and the following incrementals will be executed according to the delta relative to this second full backup and they will put in this second folder.
-That's all, after another 5 minutes we will have a third directory with an initial full backup that will be followed by 4 incremental backups, ans so on.
+That's all, after another 5 minutes we will have a third directory with an initial full backup that will be followed by 4 incremental backups, and so on.
 
 ```
 /tmp/backup/full-incremental
