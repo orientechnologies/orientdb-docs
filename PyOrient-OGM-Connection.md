@@ -45,5 +45,20 @@ For instance, say that you have a smart home system written in Python that uses 
 
 ```py
 # Connect to Database
-Config.from_url('plocal://localhost:2424/smarthome')
+Config.from_url(
+   'plocal://localhost:2424/smarthome',
+   'root', 'root_passwd')
 ```
+
+### Connecting with Graph Object
+
+In addition to basic connection described above, you can also pass the connection configuration when you initialize the `Graph` object.  For instance,
+
+```py
+graph = Graph(
+      Config.from_url(
+         'localhost/smarthome',
+	 'root', 'root_passwd'))
+```
+
+This initializes a `graph` instance of the `pyorient.ogm.Graph` class and defines how you want the OGM to connect to OrientDB.  You can then use `graph` in your applications to access further PyOrient OGM methods.

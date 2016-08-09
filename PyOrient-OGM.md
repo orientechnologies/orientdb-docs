@@ -18,9 +18,10 @@ What the OGM does is that it maps Python objects to classes and properties in Or
 
 ## Using the OGM
 
-- Initializing OGM
-- Working with Schemas
-  - Autogenerating Classes
+- [**Database Connections**](PyOrient-OGM-Connection.md)
+- [**Working with Schemas**](PyOrient-OGM-Schemas.md)
+
+
 - Working with Brokers
   - Properties
 - Working with Queries
