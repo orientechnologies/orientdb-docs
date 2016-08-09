@@ -38,11 +38,11 @@ Below are reported last driver tested versions with some useful information for 
        
 | Driver     | Last Tested Version |  Path pattern | Path Example | Link for download |
 |------------|---------------------|--------------|--------------|-------------------|
-| Oracle     | 12c | jdbc:oracle:thin:@\<HOST\>:\<PORT\>:\<SID\> | jdbc:oracle:thin:@localhost:1521:orcl | http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html |
-| SQLServer  | SQLServer 2014 | jdbc:sqlserver://\<HOST\>:\<PORT\>;databaseName=\<DB\> | jdbc:sqlserver://localhost:1433;databaseName=testdb; **(\*)**| http://www.java2s.com/Code/JarDownload/sqljdbc4/sqljdbc4-2.0.jar.zip |
-| MySQL      | 5.1.35   | jdbc:mysql://\<HOST\>:\<PORT\>/\<DB\> | jdbc:mysql://localhost:3306/testdb | http://dev.mysql.com/downloads/connector/j/ |
-| PostgreSQL | 9.4-1201 | jdbc:postgresql://\<HOST\>:\<PORT\>/\<DB\> | jdbc:postgresql://localhost:5432/testdb | https://jdbc.postgresql.org/download.html |
-| HyperSQL   | 2.3.2 | jdbc:hsqldb:hsql://\<HOST\>:\<PORT\>/\<DB\> OR jdbc:hsqldb:file:\<filepath\> | jdbc:hsqldb:hsql://localhost:9500/testdb OR jdbc:hsqldb:file:testdb | http://central.maven.org/maven2/org/hsqldb/hsqldb/2.3.3/hsqldb-2.3.3.jar |
+| Oracle     | 12c | jdbc:oracle:thin:@HOST:PORT:SID | jdbc:oracle:thin:@localhost:1521:orcl | http://www.oracle.com/technetwork/database/features/jdbc/default-2280470.html |
+| SQLServer  | SQLServer 2014 | jdbc:sqlserver://HOST:PORT;databaseName=DB | jdbc:sqlserver://localhost:1433;databaseName=testdb; **(\*)**| http://www.java2s.com/Code/JarDownload/sqljdbc4/sqljdbc4-2.0.jar.zip |
+| MySQL      | 5.1.35   | jdbc:mysql://HOST:PORT/DB | jdbc:mysql://localhost:3306/testdb | http://dev.mysql.com/downloads/connector/j/ |
+| PostgreSQL | 9.4-1201 | jdbc:postgresql://HOST:PORT/DB | jdbc:postgresql://localhost:5432/testdb | https://jdbc.postgresql.org/download.html |
+| HyperSQL   | 2.3.2 | jdbc:hsqldb:hsql://HOST:PORT/DB OR jdbc:hsqldb:file:\<filepath\> | jdbc:hsqldb:hsql://localhost:9500/testdb OR jdbc:hsqldb:file:testdb | http://central.maven.org/maven2/org/hsqldb/hsqldb/2.3.3/hsqldb-2.3.3.jar |
 
 **(\*)**  If the source database contains spaces in the name you have to use a URL like this:
 
