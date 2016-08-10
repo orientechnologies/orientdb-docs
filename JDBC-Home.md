@@ -1,14 +1,16 @@
 # JDBC Driver
 
-[OrientDB](http://www.orientechnologies.com) is a NoSQL DBMS that support a subset of SQL ad query language.
+The JDBC driver for OrientDB allows to connect to a remote server using the standard and consolidated way of interacting with database in the Java world.
 
 ## Include in your projects
+
+To be used inside your project, simply add the dependency to your pom:
 
 ```xml
 <dependency>
   <groupId>com.orientechnologies</groupId>
   <artifactId>orientdb-jdbc</artifactId>
-  <version>2.1.16</version>
+  <version>ORIENTDB_VERSION</version>
 </dependency>
 ```
 _NOTE: to use SNAPSHOT version remember to add the Snapshot repository to your ```pom.xml```._
@@ -69,4 +71,23 @@ info.put("db.pool.min", "3");   // MINIMUM POOL SIZE
 info.put("db.pool.max", "30");  // MAXIMUM POOL SIZE
 
 Connection conn = (OrientJdbcConnection) DriverManager.getConnection("jdbc:orient:remote:localhost/test", info);
+```
+
+### Spark compatibility
+
+[Apache Spark](http://spark.apache.org/) allows reading and writing of DataFrames from JDBC data sources. 
+The driver offers a compatibility mode to enable load of data frame from an OrientDb's class or query. 
+
+```java
+Map<String, String> options = new HashMap<String, String>() {{
+    put("url", "jdbc:orient:remote:localhost/sparkTest");
+    put("user", "admin");
+    put("password", "admin");
+    put("spark", "true"); // ENABLE Spark compatibility
+    put("dbtable", "Item");
+}};
+
+SQLContext sqlCtx = new SQLContext(ctx);
+
+DataFrame jdbcDF = sqlCtx.read().format("jdbc").options(options).load();
 ```
