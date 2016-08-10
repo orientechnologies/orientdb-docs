@@ -4,7 +4,7 @@ By definition, an OGM maps objects in your application to classes in a Graph Dat
 
 ## Building Schemas from Classes
 
-PyOrient only maps classes to the database schema that belong to the registry on your PyOrient `Graph` object.  There are two types of registeries, one indicating a vertex, (or node), and the other an edge, (or relationation).  Adding Python classes to the registries is handled through subclassing.  For instance, 
+PyOrient only maps classes to the database schema that belong to the registry on your PyOrient `Graph` object.  There are two types of registries, one indicating a vertex, (or node), and the other an edge, (or relationship).  Adding Python classes to the registries is handled through subclassing.  For instance, 
 
 ```py
 from pyorient.ogm import declarative
