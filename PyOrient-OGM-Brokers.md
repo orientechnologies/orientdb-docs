@@ -43,6 +43,12 @@ Sensor.objects.create(
 
 When you create vertex classes without `element_plural` attribute or edge classes without the `label` attribute, PyOrient does not create a broker.  Meaning, in such cases, the first method shown above won't work.
 
+You can then query the results using the `query()` method:
+
+```py
+results = graph.query(Sensor, name = 'smokeAlarm')
+```
+
 ### Manual Vertex and Edge Creation
 
 The `create()` method show above hides whether you are creating a vertex or an edge in OrientDB.  Using the manual create methods `create_vertex()` and `create_edge()`, you can optionally make your application more explicit.  For instance,
@@ -53,3 +59,21 @@ graph.create_vertex(
    name = 'smokeAlarm', 
    zone = 'kitchen')
 ```
+
+
+## Working with Properties
+
+In the example above, when the OGM maps the Python `Sensor` class to OrientDB, attributes on that class map to properties on the vertex, (that is, `name` and `zone`).  OrientDB and PyOrient support a range of property types.  Some basic examples are,
+
+| Numeric Types | Other |
+|---|---|
+| Boolean | String |
+| Byte | Date |
+| Integer | DateTime |
+| Short | Binary |
+| Long | Embedded |
+| Float |  |
+| Double | |
+| Decimal| |
+
+>For more information on types supported by OrientDB, see [Types](Types.md).
