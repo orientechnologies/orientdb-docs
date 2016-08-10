@@ -73,7 +73,7 @@ info.put("db.pool.max", "30");  // MAXIMUM POOL SIZE
 Connection conn = (OrientJdbcConnection) DriverManager.getConnection("jdbc:orient:remote:localhost/test", info);
 ```
 
-### Spark compatibility
+### Spark compatibility (from 2.2.7)
 
 [Apache Spark](http://spark.apache.org/) allows reading and writing of DataFrames from JDBC data sources. 
 The driver offers a compatibility mode to enable load of data frame from an OrientDb's class or query. 
