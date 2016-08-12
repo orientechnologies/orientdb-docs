@@ -268,6 +268,7 @@
       * [Connection](PyOrient-OGM-Connection.md)
       * [Schemas](PyOrient-OGM-Schemas.md)
       * [Brokers](PyOrient-OGM-Brokers.md)
+      * [Batch](PyOrient-OGM-Batch.md)
   * [Scala API](Scala-Language.md) 
   * [HTTP API](OrientDB-REST.md) 
   * [Binary Protocol](Network-Binary-Protocol.md) 
