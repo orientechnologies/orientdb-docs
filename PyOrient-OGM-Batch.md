@@ -49,7 +49,8 @@ class SensorPosition(Relationship):
    label = 'position'
 ```
 
-Here, you create three classes: two vertex classes for sensors and zones in the house, and an edge class for to position the sensors in particular zones.  
+Here, you create three classes: two vertex classes for sensors and zones in the house, and an edge class for to position the sensors in particular zones.  The special attribute `element_type` is redundant here, but it allows you to tell the mapper what name to use for the corresponding schema class.
+
 
 #### Creating Vertices
 
