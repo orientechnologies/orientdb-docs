@@ -68,6 +68,13 @@ Default **default-distributed-db-config.json** file content:
     "clusters": {
         "internal": {
         },
+        "product": {
+          "servers": ["usa", "china"]
+        },
+        "employee_usa": {
+          "owner": "usa",
+          "servers": ["usa", "<NEW_NODE>"]
+        },
         "*": { "servers" : [ "<NEW_NODE>" ] }
     }
 }
@@ -93,6 +100,7 @@ The **cluster** configuration inherits database configuration, so if you declare
 |**readQuorum**|On "read" operation (record read, query and traverse) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
 |**writeQuorum**|On "write" operation (any write on database) is the number of responses to be coherent before to send the response to the client. Set to 1 if you don't want this check at write time. Suggested value is "majority", the default, that means N/2+1 where N is the number of available nodes. In this way the quorum is reached only if the majority of nodes are coherent. "all" means all the available nodes. Starting from v2.2, N represent the MASTER only servers. For more information look at [Server Roles](Distributed-Architecture.md#server-roles).|<code>"majority"</code>|
 |**readYourWrites**|The write quorum is satisfied only when also the local node responded. This assure current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
+|**owner**|By default the cluster owner is assigned at run-time and it's placed as first server in the `servers` list. If `owner` field is defined, the server owner is statically assigned to that server, no matter if the server is available or not.||
 |**servers**|Is the array of servers where to store the records of cluster|empty for internal and index clusters and ```[ "<NEW_NODE>" ]``` for cluster * representing any cluster|
 
 ```"<NEW_NODE>"``` is a special tag that put any new joining node name in the array.
