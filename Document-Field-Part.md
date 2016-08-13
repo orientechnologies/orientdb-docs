@@ -16,7 +16,7 @@ The expression tags[0] will return 'Smart'.
 
 Inside square brackets put the items separated by comma ",".
 
-Following the tags example above, the expression tags[0,2] will return a list with [Smart, 'Cool'].
+Following the tags example above, the expression tags[0,2] will return a list with ['Smart', 'Cool'].
 
 ### Range items
 

@@ -1,34 +1,55 @@
 <!-- proofread 2015-11-26 SAM -->
+<!-- length of non-skewed text code in my browser -Matt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
 # Classes
 
 
-Multi-model support in the OrientDB engine provides a number of ways in approaching and understanding its basic concepts.  These concepts are clearest when viewed from the perspective of the Document Database API. Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API, records always use the [Document](Concepts.md#document) type.  Documents are formed by a set of key/value pairs, referred to as fields and properties, and can belong to a class.
+Classes provide a means for structuring data in Orient DB. The [Class](Concepts.md#class) is a concept drawn from the [Object-oriented programming](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming) paradigm. In OrientDB a class is a data model that allows you to define certain rules for records that belong together.
 
-The [Class](Concepts.md#class) is a concept drawn from the Object-oriented programming paradigm. It is a type of data model that allows you to define certain rules for records that belong to it. In the traditional Document database model, it is comparable to the collection, while in the Relational database model it is comparable to the table.
+For example, a class 'Person' can store information about people. You can structure your class such that a record in the class must have certain properties (i.e. Name, Birthdate, Favorite Number, etc...).
 
->For more information on classes in general, see [Wikipedia](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming).
+![PersonClass](images/PersonClass.png)
 
-To list all the configured classes on your system, use the [`CLASSES`](Console-Command-Classes.md) command in the console:
+In the traditional Document database model classes are comparable to collections, while in the Relational database model (R-DBMS) they are comparable to tables. Classes are not tables though. Classes provide efficient means for storage of schemaless data (In terms of RDBMS). We'll see more about this later. 
+
+Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API records always use the [Document](Concepts.md#document) type.  A documents are is formed by a set of key/value pairs. A document can belong to a class.                                       
+
+In the example above, there are two documents. One document contains information for Sharah and anothoer for Abdul. The keys 15:0 and 15:1 refer to each document respectively. 
+
+To list all the configured classes on your system, use the [`LIST CLASSES`](Console-Command-Classes.md) command in the console:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CLASSES</code>
+orientdb> <code class="lang-sql userinput">LIST CLASSES</code>
+orientdb {db=playingwithClasses}> LIST CLASSES
 
-CLASSES:
--------------------+------------+----------+-----------+
- NAME              | SUPERCLASS |CLUSTERS  | RECORDS   |
--------------------+------------+----------+-----------+
- AbstractPerson    |            | -1       |         0 |
- Account           |            | 11       |      1126 |
- Actor             |            | 91       |         3 |
- Address           |            | 19       |       166 |
- Animal            |            | 17       |         0 |
- ....              | ....       | ....     |      .... |
- Whiz              |            | 14       |      1001 |
--------------------+------------+----------+-----------+
- TOTAL                                           22775 |
--------------------------------------------------------+
+
+CLASSES
++----+-----------+-------------+-----------------+-----+
+|#   |NAME       |SUPER-CLASSES|CLUSTERS         |COUNT|
++----+-----------+-------------+-----------------+-----+
+|0   |_studio    |             |_studio(13)      |    1|
+|1   |Blue       |[Color]      |blue(19)         |    0|
+|2   |Color      |[V]          |-                |    0|
+|3   |E          |             |e(11),e_1(12)    |    0|
+|4   |OFunction  |             |ofunction(6)     |    0|
+|5   |OIdentity  |             |-                |    0|
+|6   |ORestricted|             |-                |    0|
+|7   |ORole      |[OIdentity]  |orole(4)         |    3|
+|8   |OSchedule  |             |oschedule(8)     |    0|
+|9   |OSequence  |             |osequence(7)     |    0|
+|10  |OTriggered |             |-                |    0|
+|11  |OUser      |[OIdentity]  |ouser(5)         |    3|
+|12  |Person     |[V]          |person(15)       |    0|
+|13  |Red        |[Color]      |red(17),red_1(18)|    0|
+|14  |V          |             |v(9),v_1(10)     |    0|
++----+-----------+-------------+-----------------+-----+
+|    |TOTAL      |             |                 |    7|
++----+-----------+-------------+-----------------+-----+
+
+
 </pre>
 
+Here we can see that there are 14 classes in the database. Class 12 refers to person. There is also a class Color which is the super-class of Red and Blue. Color and Person both have super-classes called V. The class V is important for using the graph model. We'll see more about Superclasses and V later in the tutorial. Let's move on now to working with classes. 
 
 
 ## Working with Classes
