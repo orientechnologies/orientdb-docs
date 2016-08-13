@@ -49,7 +49,7 @@ The server node "usa" is the owner for cluster `client_usa`, so "usa" is the onl
 
 #### Static Owner
 
-Starting from v2.2, you can stick a node as owner, no matter the runtime configuration. We call this "static owner". For this purpose use the `"owner":"<NODE_NAME>"`. Example:
+Starting from v2.2, you can stick a node as owner, no matter the runtime configuration. We call this "static owner". For this purpose use the `"owner" : "<NODE_NAME>"`. Example:
 
 ```json
 "client_usa": {
