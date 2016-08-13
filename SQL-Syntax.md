@@ -248,16 +248,14 @@ OrientDB can store five different types of numbers
 
 When an integer is saved to a schemaful property of another numerical type, it is automatically converted. 
 
-**Longs** are represented in SQL as numbers with `L` suffix, eg. `123L` (L can be uppercase or lowercase). Plain numbers (withot L prefix) that exceed the Integer range are also automatically converted to Long. If the number represented exceeds the Long maximum size (see Java java.lang.Long `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a BigDecimal. 
+**Longs** are represented in SQL as numbers with `L` suffix, eg. `123L` (L can be uppercase or lowercase). Plain numbers (withot L prefix) that exceed the Integer range are also automatically converted to Long. If the number represented exceeds the Long maximum size (see Java java.lang.Long `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`;
 
 **Float** numbers are represented in SQL as `[-][<number>].<number>`, eg. valid Float values are `1.5`, `-1567.0`, `.556767`. If the number represented exceeds the Float maximum size (see Java java.lang.Float `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Double. 
 
-**Double** numbers are represented in SQL as `[-][<number>].<number>D` (D can be uppercase or lowercase), eg. valid Float values are `1.5d`, `-1567.0D`, `.556767D`. If the number represented exceeds the Double maximum size (see Java java.lang.Double `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a BigDecimal. 
+**Double** numbers are represented in SQL as `[-][<number>].<number>D` (D can be uppercase or lowercase), eg. valid Float values are `1.5d`, `-1567.0D`, `.556767D`. If the number represented exceeds the Double maximum size (see Java java.lang.Double `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`
 
 **BigDecimal** in OrientDB is represented as a Java BigDecimal. 
-The instantiation of BigDecimal can be done in two ways:
-- implicit, at query parsing, when the number representation (number of digits) exceeds the allowed precision of other numeric types
-- explicit, using the `bigDecimal(<number> | <string>)` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+The instantiation of BigDecimal can be done explicitly, using the `bigDecimal(<number> | <string>)` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
 
 
 
@@ -279,9 +277,7 @@ Eg.
 
 the overflow follows Java rules.
 
-The conversion of a number to BigDecimal can be done in two ways:
-- implicit, at query parsing, when the number representation (number of digits) exceeds the allowed precision of other numeric types
-- explicit, using the `bigDecimal()` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+The conversion of a number to BigDecimal can be done explicitly, using the `bigDecimal()` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
 
 ###Collections
 
