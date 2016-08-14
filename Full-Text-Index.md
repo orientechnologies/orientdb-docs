@@ -214,6 +214,14 @@ orientdb> <code class="lang-sql userinput">SELECT FROM CLass WHERE [prop1, prop2
 
 Here, hte engine parses the query using the [QueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
 
+### Retrieve the Score
+
+When the lucene index is used in a query, the results set carries a context variable for each record rappresenting the score.
+To display the score add `$score` in projections.
+
+```
+SELECT *,$score FROM V WHERE name LUCENE "test*"
+```
 
 ## Creating a Manual Lucene Index
 

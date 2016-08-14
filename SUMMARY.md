@@ -136,6 +136,7 @@
     * [Cluster Management](Studio-Cluster-Management.md) (Enterprise Edition)
     * [Query Profiler](Studio-Query-Profiler.md) (Enterprise Edition)
     * [Studio Auditing](Studio-Auditing.md) (Enterprise Edition)
+    * [Studio](Studio-Backup-Management.md) (Enterprise Edition)
     * [Teleporter](Studio-Teleporter.md) (Enterprise Edition)
   * [Teleporter](Teleporter-Home.md) migration tool
     * [Installation and configuration](Teleporter-Installation-and-Configuration.md)
