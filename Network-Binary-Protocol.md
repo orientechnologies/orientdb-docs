@@ -424,7 +424,7 @@ Response: empty
 
 ## REQUEST_DB_CLOSE
 
-Closes the database and the network connection to the OrientDB server instance. No response is expected. The TCP socket is also closed.
+Closes the database and the network connection to the OrientDB server instance. No response is expected.
 
 ```
 Request: empty
