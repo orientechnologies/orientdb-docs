@@ -53,6 +53,19 @@ $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json
 |----|----|
 | ![NOTE](images/warning.png) | _NOTE: If you are importing data for use in a distributed database, then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` for the ETL process to avoid replication errors, when the database is updated online._ |
 
+### Run-time Configuration
+
+When you run the ETL module, you can define its configuration variables by passing it a JSON file, which the ETL module resolves at run-time by passing them as it starts up.
+
+You could also define the values for these variables through command-line options.  For example, you could assign the database URL as `${databaseURL}`, then pass the relevant argument through the command-line:
+
+<pre>
+$ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json \
+      -databaseURL=plocal:/tmp/mydb</code>
+</pre>
+
+When the ETL module initializes, it pulls `/tmp/mydb` from the command-line to define this variable in the configuration file.
+
 ## Available Components
 
 - [Blocks](Block.md)
