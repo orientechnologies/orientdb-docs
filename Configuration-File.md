@@ -203,14 +203,14 @@ $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh commonConfig.json p
 
 In the configuration file for the ETL module, you can define variables that the module resolves at run-time by passing them as command-line options.  Values passed in this manner *override* the values defined in the `"config"` section, even when you use multiple configuration files.
 
-For instance, you might set the configuration variable in the file to `${databaseUrl}`, then define it through the command-line using:
+For instance, you might set the configuration variable in the file to `${databaseURL}`, then define it through the command-line using:
 
 <pre>
 $ <code class="lang-sh userinput">$ORIENTDB_HOME/bin/oetl.sh config-dbpedia.json \
-      -databaseUrl=plocal:/tmp/mydb</code>
+      -databaseURL=plocal:/tmp/mydb</code>
 </pre>
 
-In this case, the `databaseUrl` parameter is set in the `"config"` section to `/tmp/mydb`, overriding any value given the file.
+In this case, the `databaseURL` parameter is set in the `"config"` section to `/tmp/mydb`, overriding any value given the file.
 
 ```json
 {
