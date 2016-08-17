@@ -36,4 +36,4 @@ pollen_chart = graph.gremlin('compile_data', 'pollen')
 
 This runs the `compile_data()` function, passing the string `pollen` to it, to indicate that you would like to compile data from pollen sensors.  It then returns the results to the `pollen_chart` variable.
 
->**NOTE**: In the event that you need namespacing, both the `add()` and `gremlin()` methods allow you to set `namespace` arguments, allowing you to separate different functions with the same name.
+>**NOTE**: In the event that you need namespacing, both the `add()` and `gremlin()` methods allow you to set `namespace` arguments.  Using this, you can separate different functions with the same name.

@@ -32,7 +32,7 @@ Config.from_url(
 
 For the database URL, you have the option of using one of several supported formats:
 
-- Connecting to a Plocal database:
+- Connecting to a PLocal database:
   - `localhost/<database-name>`
   - `plocal://localhost:<port>/<database-name>`
 - Connecting to a Memory database:

@@ -41,7 +41,7 @@ Sensor.objects.create(
    zone = 'kitchen')
 ```
 
-When you create vertex classes without `element_plural` attribute or edge classes without the `label` attribute, PyOrient does not create a broker.  Meaning, in such cases, the first method shown above won't work.
+Creating vertex classes without `element_plural` attribute or edge classes without the `label` attribute, cause PyOrient to not create a broker.  Meaning, in such cases, the first method shown above won't work.
 
 You can then query the results using the `query()` method:
 

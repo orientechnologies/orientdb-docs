@@ -23,7 +23,7 @@ Once you've initialized the control object through the `batch()` method, you can
 In situations like this, database initialization can prove difficult, since it would involve multiple network requests to OrientDB.  Instead you can group this process into a batch transaction handled through a single network operation.
 
 
-#### Initializes Classes
+#### Initialize Classes
 
 In preparing a batch operation to initialize the database, you might start by initializing the classes that you want to create:
 
