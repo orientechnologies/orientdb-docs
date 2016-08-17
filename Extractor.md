@@ -51,7 +51,8 @@ When the ETL module runs the CSV Extractor, it parses a file formated to [Apache
 | `"columnsOnFirstLine"` | Defines whether the first line contains column descriptors. | boolean | | `true` |
 | `"columns"` | Defines array for names and (optionally) types to write. | string array | | |
 | `"nullValue"` | Defines the null value in the file. | string | | `NULL` |
-| `"dateFormat"` | Defines the format to use in parsing dates from file. | string | | `yyyy-mm-dd` |
+| `"dateFormat"` | Defines the format to use in parsing dates from file. | string | | `yyyy-MM-dd` |
+| `"dateTimeFormat"` | Defines the format to use in parsing dates with time from file. | string | | `yyyy-MM-dd HH:mm` |
 | `"quote"` | Defines string character delimiter. | char | | `"`|
 | `"skipFrom"` | Defines the line number you want to skip from. | integer | | |
 | `"skipTo"` | Defines the line number you want to skip to. | integer | | |
@@ -91,11 +92,24 @@ When the ETL module runs the CSV Extractor, it parses a file formated to [Apache
   { "csv": 
       {  "predefinedFormat": "DEFAULT",
          "nullValue" : "N/A",
-         "dateFormat" : "dd-mm-yyyy HH:MM"
+         "dateFormat" : "dd-MM-yyyy",
+         "dateTimeFormat" : "dd-MM-yyyy HH:mm"
       }
   }
   ```
 
+- Extract lines from a CSV with the default formatting, using `N/A` as the null value, a custom date format, a custom dateTime format and columns type mapping :
+
+  ```json
+  { "csv": 
+      {  "predefinedFormat": "DEFAULT",
+         "nullValue" : "N/A",
+         "dateFormat" : "dd-MM-yyyy",
+         "dateTimeFormat" : "dd-MM-yyyy HH:mm",
+         "columns": ["name:string","createdAt:date","updatedAt:dateTime"]
+      }
+  }
+  ```
 
 ## JDBC Extractor
 
