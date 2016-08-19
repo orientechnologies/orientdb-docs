@@ -60,10 +60,13 @@ Starting OrientDB server daemon...
 
 Most newer releases of Linux, especially among the RPM-based distributions like Red Hat, Fedora and CentOS, as well as future releases of Debian and Ubuntu use systemd for these processes.  These are the systems that manage such processes using the `systemctl` command.
 
-Installing OrientDB on a systemd-based Linux distribution requires that you write a service file set to use the `orientdb.sh` script in launching the database server.  Place this file in the systemd configuration directory, (for instance, `/etc/systemd/`:
-
+The OrientDB's  package  contains a service descriptor file for systemd based distros. The  `orientdb.service` is places in the `bin` directory. To install OrientDB  copy the `orientdb.service` to`/etc/systemd/system`  directory (check this, may depend on distro). Edite the file: 
 <pre>
 # <code class="lang-sh userinput">vi /etc/systemd/system/orientdb.service</code>
+
+#
+# Copyright (c) OrientDB LTD (http://http://orientdb.com/)
+#
 
 [Unit]
 Description=OrientDB Server
@@ -74,13 +77,13 @@ After=syslog.target
 WantedBy=multi-user.target
 
 [Service]
-Type=forking
-ExecStart=$ORIENTDB_HOME/bin/orientdb.sh start
-ExecStop=$ORIENTDB_HOME/bin/orientdb.sh stop
-ExecStatus=$ORIENTDB_HOME/bin/orientdb.sh status
+User=ORIENTDB_USER
+Group=ORIENTDB_GROUP
+ExecStart=$ORIENTDB_HOME/bin/server.sh start
+
 </pre>
 
-You may want to use the absolute path instead of the environmental variable `$ORIENTDB_HOME`.  Once this file is saved, you can start and stop the OrientDB server using the `systemctl` command:
+Set the right user and group. You may want to use the absolute path instead of the environmental variable `$ORIENTDB_HOME`.  Once this file is saved, you can start and stop the OrientDB server using the `systemctl` command:
 
 <pre>
 # <code class="lang-sh userinput">systemctl start orientdb.service</code>
@@ -97,6 +100,8 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/orientdb.servic
 
 
 ### Installing for Mac OS X
+
+#### Manual install
 
 For Mac OS X, create an alias to OrientDB system daemon script and the console.
 
@@ -120,6 +125,14 @@ OrientDB console v.1.6 www.orientechnologies.com
 Type 'HELP' to display all the commands supported.
 
 orientdb>
+</pre>
+
+#### Brew
+
+OrientDB is available through [brew](http://brew.sh/). 
+
+<pre>
+$ <code class="lang-sh userinput">brew install orientdb</code>
 </pre>
 
 
