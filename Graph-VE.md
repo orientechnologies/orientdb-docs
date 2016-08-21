@@ -24,6 +24,16 @@ for (Vertex v : graph.getVertices()) {
 }
 ```
 
+To lookup vertices by a key, call the `getVertices()` method by passing the field name and the value to match. Remember that in order to use indexes, you should use the "class" dot (.) "property name" as field name. Example:
+
+```java
+for( Vertex v : graph.getVertices("Account.id", "23876JS2") ) {
+  System.out.println("Found vertex: " + v );
+}
+```
+
+To know more about how to define indexes look at: [Using Graph Indexes](http://orientdb.com/docs/last/Performance-Tuning-Graph.html#use-indexes-to-lookup-vertices-by-an-id).
+
 ### Removing Vertices
 
 To remove a vertex from the current Graph Database, call the [`OrientGraph.removeVertex(Vertex vertex)`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#removeVertex(Vertex) method.  This disconnects the vertex from the graph database and then removes it.  Disconnection deletes all vertex edges as well.
