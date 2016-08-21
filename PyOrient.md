@@ -79,7 +79,7 @@ $ <code class="lang-sh userinput">python3 setup.py install --user</code>
 
 When working with development releases, it is advisable that you run tests after installing PyOrient.  If you would like to contribute code to the project, it's required that you also develop tests for your contributions, to avoid issues in future development.
 
-Testing PyOrient requires that you have Apache Ant and Nose installed on your system.  To run the test, first bootstrap OrientDB by running the following command from the `pyorient/` directory:
+Testing PyOrient requires that you have Apache Maven and Nose installed on your system.  To run the test, first bootstrap OrientDB by running the following command from the `pyorient/` directory:
 
 <pre>
 $ <code class="lang-sh userinput">./ci/start-ci.sh</code>
