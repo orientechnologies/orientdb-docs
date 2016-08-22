@@ -336,6 +336,7 @@
 * [Indexing](Indexes.md) 
   * [SB-Tree](SB-Tree-index.md) 
   * [Hash](Hash-Index.md) 
+  * [Auto-Sharding](Auto-Sharding-Index.md) 
   * [Full Text](FullTextIndex.md) 
   * [Lucene Full Text](Full-Text-Index.md) 
   * [Lucene Spatial Index](Spatial-Index.md) 
