@@ -138,3 +138,8 @@ In the event that something happens and you drop the class `OUser` or the user `
 
 The user `admin` is now active again on your database.
 
+## Restoring the Server's User root 
+
+1. Open the `config/orientdb-server-config.xml` file and remove the "root" user entry
+2. Remove the tag `<isAfterFirstTime>true</isAfterFirstTime>` at the end of the file
+3. On next restart of the server, a new root password is asked again
