@@ -10,13 +10,17 @@ With [`EXPORT`](Console-Command-Export.md), this command allows you to migrate b
 **Syntax**
 
 ```sql
-IMPORT DATABASE <input-file> [-preserveClusterIDs = <true|false>]
+IMPORT DATABASE <input-file> [-format = <format>]
+                             [-preserveClusterIDs = <true|false>]
                              [-deleteRIDMapping = <true|false>]
                              [-merge = <true|false>]
                              [-migrateLinks = <true|false>]
                              [-rebuildIndexes = <true|false>]
 ```
-
+- **`<format>`** Is the input file format. If not specified, OrientDB tries to recognize it. The available formats are:
+ - **orientdb**, the [OrientDB export file format](Console-Command-Export.md)
+ - **graphml**, for [Graph XML](https://en.wikipedia.org/wiki/GraphML)
+ - **graphson**, for [Graph JSON](https://github.com/tinkerpop/blueprints/wiki/GraphSON-Reader-and-Writer-Library)
 - **`<inputy-file>`** Defines the path to the file you want to import.
 - **`-preserveClusterIDs`** Defines whether you want to preserve cluster ID's during the import.  When turned off, the import creates temporary cluster ID's, which can sometimes fail.  This option is only valid with PLocal storage.
 - **`-deleteRIDMapping`** Defines whether you want to preserve the dictionary index used by the import to map old RIDs to new RIDs. The index name is `___exportImportRIDMap` and you could use in your application.  By default the index is removed after the import.
