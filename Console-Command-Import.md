@@ -17,7 +17,7 @@ IMPORT DATABASE <input-file> [-format = <format>]
                              [-migrateLinks = <true|false>]
                              [-rebuildIndexes = <true|false>]
 ```
-- **`<format>`** Is the input file format. If not specified, OrientDB tries to recognize it. The available formats are:
+- **`<format>`** Is the input file format. If not specified, OrientDB tries to recognize it. The available formats are (since v2.2.8):
  - **orientdb**, the [OrientDB export file format](Console-Command-Export.md)
  - **graphml**, for [Graph XML](https://en.wikipedia.org/wiki/GraphML)
  - **graphson**, for [Graph JSON](https://github.com/tinkerpop/blueprints/wiki/GraphSON-Reader-and-Writer-Library)
