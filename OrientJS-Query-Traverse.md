@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'query', 'traverse']
+---
+
 # OrientJS - `traverse()`
 
 Traversal queries in OrientJS are those used to traverse records, crossing relationships.  This works in both Graph and Document Databases.  The method is comparable to the [`TRAVERSE`](SQL-Traverse.md) command in the OrientDB Console.

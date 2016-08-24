@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Index API', 'index', 'indices', 'create index']
+---
+
 # OrientJS Index API
 
 Once you have initialized a database instance, you can create and fetch indices from OrientDB, using the OrientJS Index API.  This allows you to work with and take advantage of indexing features in OrientDB directly from within your application.

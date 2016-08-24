@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Class API', 'class', 'properties', 'property', 'list property', 'create property', 'delete property', 'rename property']
+---
+
 # Working with Properties
 
 With OrientJS, you can access and manipulate properties on your OrientDB database, through the Class API.  This allows you to perform various operations on the classes directly from within your Node.js application.

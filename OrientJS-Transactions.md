@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'transactions']
+---
+
 # Transactions in OrientJS
 
 Rather than writing out SQL commands to manage transactions, you can use the OrientJS Transaction Builder to construction transactions using a series of methods connected through the Database API.

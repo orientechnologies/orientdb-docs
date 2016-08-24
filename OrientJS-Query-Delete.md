@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'query', 'delete', 'delete vertex', 'delete edge']
+---
+
 # OrientJS - `delete()`
 
 Deletion queries in OrientJS are those used in removing records from the database.  It can also account for edges between vertices, updating the graph to maintain its consistency.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'query', 'transform']
+---
+
 # OrientJS - `transform()`
 
 When working with queries in OrientJS, you may sometimes need to operate on data before setting it to the variable.  For instance, in cases where the data stored in the database is not in a format that suits your needs.  Transformation allows you to define functions within your application to update or alter the data as it comes in from the database.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Server API', 'connection', 'token', 'distributed deployment']
+---
+
 # OrientJS Server API
 
 With OrientJS installed on your system, you can now begin to develop applications around it.  In your code, this starts with initializing the client connection between your application and the OrientDB Server, which is managed through the OrientJS Server API.

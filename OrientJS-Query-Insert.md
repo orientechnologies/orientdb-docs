@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'query', 'insert']
+---
+
 # OrientJS - `insert()`
 
 Insertion queries in OrientJS are those that add records of a given class into the database.  The insertion query method is comparable to the [`INSERT`](SQL-Insert.md) commands on the OrientDB Console.

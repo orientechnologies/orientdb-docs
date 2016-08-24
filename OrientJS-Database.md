@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Database API']
+---
+
 # OrientJS Database API
 
 Once you have initialized the [Server API](OrientJS-Server.md), you can begin to interact with the databases on the OrientDB Server.  In your code, this starts with initializing a database instance for your application, which is managed through the OrientJS Database API.
