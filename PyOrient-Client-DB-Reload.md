@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'reload database']
+---
+
 # PyOrient Client - `db_reload()`
 
 This method reloads the open database, refreshing cluster information from OrientDB.

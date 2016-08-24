@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'open database']
+---
+
 # PyOrient Client - `db_open()`
 
 This method opens a database on the OrientDB Server.

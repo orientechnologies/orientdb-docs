@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mappers', 'OGM', 'schema']
+---
+
 # PyOrient OGM - Schemas
 
 By definition, an OGM maps objects in your application to classes in a Graph Database.  In doing so, it defines a schema in the database to match classes and sub-classes in the application.

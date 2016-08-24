@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction', 'begin']
+---
+
 # PyOrient Transactions - `begin()`
 
 This method initiates a transaction.

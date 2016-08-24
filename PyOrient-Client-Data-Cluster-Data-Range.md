@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'cluster', 'get range']
+---
+
 # PyOrient Client - `data_cluster_data_range()`
 
 This method returns a range of Record ID's for the given cluster.

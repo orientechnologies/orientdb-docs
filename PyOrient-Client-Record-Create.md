@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'create record']
+---
+
 # PyOrient Client - `record_create()`
 
 This method creates a record on the open OrientDB database, using the given dict.

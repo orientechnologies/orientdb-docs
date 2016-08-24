@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'list databases']
+---
+
 # PyOrient Client - `db_list()`
 
 This method lists the databases available on the connected OrientDB Server.

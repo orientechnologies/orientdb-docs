@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'drop database', 'client']
+---
+
 # PyOrient Client - `db_drop()`
 
 This method removes a database from the connected OrientDB server.

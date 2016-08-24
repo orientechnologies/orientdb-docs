@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['PyOrient', 'Client', 'query', 'callback']
+---
+
+
 # PyOrient Client - `query_async()`
 
 This method is runs queries against the open OrientDB database, and runs the given callback function for each record the query returns.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction']
+---
+
 # PyOrient Client - `tx_commit()`
 
 This method initializes a transaction control object.

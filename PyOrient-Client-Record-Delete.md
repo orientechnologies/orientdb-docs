@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'delete record']
+---
+
 # PyOrient Client - `record_delete()`
 
 This method removes records from the open OrientDB database.

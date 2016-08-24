@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'database exists']
+---
+
 # PyOrient Client - `db_exists()`
 
 This method checks whether or not the given database exists on the connected OrientDB Server.  In the event that you need the database to exist and be of a specific storage type, you can pass a second argument to check this as well.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'create database', 'client']
+---
+
 # PyOrient Client - `db_create()`
 
 Creates a database on the connected OrientDB Server.

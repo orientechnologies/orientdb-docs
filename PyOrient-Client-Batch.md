@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'batch']
+---
+
 # PyOrient Client - `batch()`
 
 This methods allows you to execute a series of SQL commands as a [batch](SQL-batch.md) operation.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'database size']
+---
+
 # PyOrient Client - `db_size()`
 
 This method returns the size of the open database.

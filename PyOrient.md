@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Python', 'PyOrient', 'Python API']
+---
+
 # PyOrient
 
 OrientDB supports all JVM languages for server-side scripting.  Using the PyOrient module, you can develop database applications for OrientDB using the Python language.

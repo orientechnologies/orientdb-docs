@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction', 'attach']
+---
+
 # PyOrient Transactions - `attach()`
 
 This method attaches operations to particular transactions.

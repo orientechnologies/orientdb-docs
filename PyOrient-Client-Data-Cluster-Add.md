@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'cluster', 'create cluster']
+---
+
 # PyOrient Client - `data_cluster_add()`
 
 This method creates new clusters on the connected OrientDB Server.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'update record']
+---
+
 # PyOrient Client - `record_update()`
 
 This method updates the given Record ID with data from a dict argument.

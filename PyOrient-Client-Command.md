@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'command']
+---
+
 # PyOrient Client - `command()`
 
 This method allows you to issue SQL commands to an open OrientDB database.

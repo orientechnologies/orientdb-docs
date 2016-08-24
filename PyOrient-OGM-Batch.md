@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM', 'batch']
+---
+
 # PyOrient OGM - Batch Operations
 
 The Object-Graph Mapper provides basic support for transactions.  This allows you to group several operations together and execute them in a batch on the OrientDB database.  You may find this useful in ensuring concurrency as well as reducing the round-trip time on the given operation.

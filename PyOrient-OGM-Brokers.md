@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM', 'broker', 'create vertex', 'create edge']
+---
+
 # PyOrient OGM - Brokers
 
 The mapping that the PyOrient OGM creates between Python classes and the OrientDB database schema happens on a few different levels.  In [Schemas](PyOrient-OGM-Schemas.md) you can see how it forms connections between classes in your application and database.  Brokers handle the mapping between objects in a given Python class and the specific vertices and edges in the OrientDB database.

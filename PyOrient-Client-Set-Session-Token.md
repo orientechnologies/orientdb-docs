@@ -1,4 +1,9 @@
-# PyOrient Client - `get_session_token()`
+---
+search:
+   keyword: ['PyOrient', 'client', 'token', 'set token']
+---
+
+# PyOrient Client - `set_session_token()`
 
 In certain use cases, you may want to maintain a client connection across several sessions.  For instance, in a web application you might set an identifier for a shopping cart or use sessions to maintain a local history of the user's interactions with the site.
 

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'count', 'count records']
+---
+
 # PyOrient Client - `db_count_records()`
 
 This method allows you to get the number of records in an opened OrientDB database.

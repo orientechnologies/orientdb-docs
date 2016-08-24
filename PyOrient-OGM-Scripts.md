@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM', 'scripts']
+---
+
 # PyOrient OGM - Scripts
 
 In addition to the [Client](PyOrient-Client.md) and the standard OGM methods shown above, you can also operate on the OrientDB database.  This provides you with basic support for [Gremlin](Gremlin.md) graph traversal, through Groovy scripts.

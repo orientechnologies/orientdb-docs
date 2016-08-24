@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM', 'connection']
+---
+
 # PyOrient OGM - Connection
 
 In order to use the Object-Graph Mapper with your application, you first need to connect to a running OrientDB Server.  In PyOrient, there are two interface classes used in this process and you can access them through an `import` statement:

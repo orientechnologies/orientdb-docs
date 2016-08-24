@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'load records']
+---
+
 # PyOrient Client - `record_load()`
 
 This method retrieves the given Record ID from an open OrientDB database.

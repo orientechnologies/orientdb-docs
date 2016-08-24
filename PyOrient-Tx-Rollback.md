@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction', 'rollback']
+---
+
 # PyOrient Transactions = `rollback()`
 
 This method rolls the database back to an earlier state, removing any changes made on the open transaction.

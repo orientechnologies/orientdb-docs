@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'query']
+---
+
 # PyOrient Client - `query()`
 
 This method issues a synchronous query to the open OrientDB database.  

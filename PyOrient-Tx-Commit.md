@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction', 'commit']
+---
+
 # PyOrient Transactions - `commit()`
 
 This method commits the open transaction.
