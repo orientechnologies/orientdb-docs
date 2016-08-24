@@ -3,8 +3,8 @@ The OrientDB development team is very active so if you've started learning Orien
 
 |Release |Status|Suggested for|Maven Repository|GIT branch|
 |--------|-----|-------|------|----------|----|----|
-|2.0-SNAPSHOT|[Development](https://github.com/orientechnologies/orientdb/issues?milestone=3&page=1&state=open)|Development| [Snapshot](https://oss.sonatype.org/content/repositories/snapshots/com/orientechnologies/orientdb-community/2.0-SNAPSHOT/) - [pom.xml](https://github.com/orientechnologies/orientdb/wiki/Download#last-snapshot-compiles-and-pass-all-the-test-cases)|[develop](https://github.com/orientechnologies/orientdb/tree/develop)
-|1.7.6|[Production](https://github.com/orientechnologies/orientdb/issues?milestone=23&state=closed)|Production|  [pom.xml](https://github.com/orientechnologies/orientdb/wiki/Download#last-stable)|[master](https://github.com/orientechnologies/orientdb)
+| 2.0-SNAPSHOT|[Development](https://github.com/orientechnologies/orientdb/issues?milestone=3&page=1&state=open) | Development | [Snapshot](https://oss.sonatype.org/content/repositories/snapshots/com/orientechnologies/orientdb-community/2.0-SNAPSHOT/) - [pom.xml](https://github.com/orientechnologies/orientdb/wiki/Download#last-snapshot-compiles-and-pass-all-the-test-cases)|[develop](https://github.com/orientechnologies/orientdb/tree/develop)
+| 1.7.6 | [Production](https://github.com/orientechnologies/orientdb/issues?milestone=23&state=closed) | Production |  [pom.xml](https://github.com/orientechnologies/orientdb/wiki/Download#last-stable) | [master](https://github.com/orientechnologies/orientdb)
 
 
 For older release or more information go to the official [download page](http://orientdb.com/download/).

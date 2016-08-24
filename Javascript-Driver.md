@@ -157,7 +157,7 @@ Method that executes the query, it returns query results in JSON format.
 
 Syntax: <code>&lt;databaseInstance&gt;.query(&lt;queryText&gt;, [limit], [fetchPlan])</code>
 
-Limit and [fetchPlan ](Fetching-Strategies.md) are optional.
+Limit and [fetchPlan](Fetching-Strategies.md) are optional.
 
 Simple Example:
 ```javascript
