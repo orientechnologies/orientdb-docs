@@ -86,10 +86,11 @@ OrientDB guarantees strong consistency if it's configured to have a `writeQuorum
 
 ## Limitations
 OrientDB v2.2.x has some limitations you should notice when you work in Distributed Mode:
-- in memory database is not supported
-- Creation of a database on multiple nodes could cause synchronization problems when clusters are automatically created. Please create the databases before to run in distributed mode
+- In memory database is not supported.
+- Importing a database while running distributed is not supported. Import the database in non-distributed mode and then run the OrientDB in distributed mode.
+- With releases < v2.2.6 the creation of a database on multiple nodes could cause synchronization problems when clusters are automatically created. Please create the databases before to run in distributed mode.
 - Constraints with distributed databases could cause problems because some operations are executed at 2 steps: create + update. For example in some circumstance edges could be first created, then updated, but constraints like MANDATORY and NOTNULL against fields would fail at the first step making the creation of edges not possible on distributed mode.
-- Auto-Sharding is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application. This will be addressed by next releases
-- Sharded Indexes are not supported yet
-- Hot change of distributed configuration is available only in Enterprise Edition (commercial licensed)
-- Not complete merging of results for all the projections when running on sharder configuration. Some functions like AVG() doesn’t work on map/reduce
+- Auto-Sharding is not supported in the common meaning of Distributed Hash Table (DHT). Selecting the right shard (cluster) is up to the application. This will be addressed by next releases.
+- Sharded Indexes are not supported yet, so creating a UNIQUE index against a sharded class doesn't guarantee a key to be unique. This will be addressed with Auto-sharding in the further releases.
+- Hot change of distributed configuration is available only in Enterprise Edition (commercial licensed).
+- Not complete merging of results for all the projections when running on sharder configuration. Some functions like AVG() doesn’t work on map/reduce.
