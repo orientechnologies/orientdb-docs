@@ -9,36 +9,36 @@
 
 | Graph | Math  | Collections | Misc  |
 |-------|-------|-------------|-------|
-|[out()](SQL-Functions.md#out)    | [eval()](SQL-Functions.md#eval) | [set()](SQL-Functions.md#set)             | [date()](SQL-Functions.md#date)
-|[in()](SQL-Functions.md#in)      | [min()](SQL-Functions.md#min) | [map()](SQL-Functions.md#map)               | [sysdate()](SQL-Functions.md#sysdate)
-|[both()](SQL-Functions.md#both)  | [max()](SQL-Functions.md#max) | [list()](SQL-Functions.md#list)             | [format()](SQL-Functions.md#format)
-|[outE()](SQL-Functions.md#oute)  | [sum()](SQL-Functions.md#sum) | [difference()](SQL-Functions.md#difference) | [distance()](SQL-Functions.md#distance)
-|[inE()](SQL-Functions.md#ine)    | [abs()](SQL-Functions.md#abs) | [first()](SQL-Functions.md#first)           | [ifnull()](SQL-Functions.md#ifnull)
-|[bothE()](SQL-Functions.md#bothe)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalesce()](SQL-Functions.md#coalesce)
-|[outV()](SQL-Functions.md#outv)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
-|[inV()](SQL-Functions.md#inv)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
-|[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|  |
-|[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|  |
-|[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)| |
-|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricDifference)|-|
-|[dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)|  |  |
-|[astar()](SQL-Functions.md#astar) |  |  |  |
+| [out()](SQL-Functions.md#out)    | [eval()](SQL-Functions.md#eval) | [set()](SQL-Functions.md#set)             | [date()](SQL-Functions.md#date)
+| [in()](SQL-Functions.md#in)      | [min()](SQL-Functions.md#min) | [map()](SQL-Functions.md#map)               | [sysdate()](SQL-Functions.md#sysdate)
+| [both()](SQL-Functions.md#both)  | [max()](SQL-Functions.md#max) | [list()](SQL-Functions.md#list)             | [format()](SQL-Functions.md#format)
+| [outE()](SQL-Functions.md#oute)  | [sum()](SQL-Functions.md#sum) | [difference()](SQL-Functions.md#difference) | [distance()](SQL-Functions.md#distance)
+| [inE()](SQL-Functions.md#ine)    | [abs()](SQL-Functions.md#abs) | [first()](SQL-Functions.md#first)           | [ifnull()](SQL-Functions.md#ifnull)
+| [bothE()](SQL-Functions.md#bothe)|                               | [intersect()](SQL-Functions.md#intersect)   | [coalesce()](SQL-Functions.md#coalesce)
+| [outV()](SQL-Functions.md#outv)  | [avg()](SQL-Functions.md#avg) | [distinct()](SQL-Functions.md#distinct)     | [uuid()](SQL-Functions.md#uuid)|
+| [inV()](SQL-Functions.md#inv)    | [count()](SQL-Functions.md#count) | [expand()](SQL-Functions.md#expand)|  [if()](SQL-Functions.md#if)
+| [traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|  |
+| [traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|  |
+| [traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)| |
+| [shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](#symmetricdifference)|-|
+| [dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)|  |  |
+| [astar()](SQL-Functions.md#astar) |  |  |  |
 
 ### Functions by name
 
 |       |       |       |       |       |
 |-------|-------|-------|-------|-------|
-|[abs()](SQL-Functions.md#abs)| [astar()](SQL-Functions.md#astar) | [avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) |
-| [bothE()](SQL-Functions.md#bothe)|[coalesce()](SQL-Functions.md#coalesce) |[count()](SQL-Functions.md#count)|[date()](SQL-Functions.md#date) | 
+| [abs()](SQL-Functions.md#abs)| [astar()](SQL-Functions.md#astar) | [avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) |
+| [bothE()](SQL-Functions.md#bothe) | [coalesce()](SQL-Functions.md#coalesce) | [count()](SQL-Functions.md#count) | [date()](SQL-Functions.md#date) | 
 | [difference()](SQL-Functions.md#difference) |[dijkstra()](SQL-Functions.md#dijkstra) |[distance()](SQL-Functions.md#distance) | [distinct()](SQL-Functions.md#distinct) | 
-| [eval()](SQL-Functions.md#eval)|[expand()](SQL-Functions.md#expand) |[format()](SQL-Functions.md#format) | [first()](SQL-Functions.md#first) |
-| [flatten()](SQL-Functions.md#flatten)|[if()](SQL-Functions.md#if) | [ifnull()](SQL-Functions.md#ifnull) |[in()](SQL-Functions.md#in) |
-| [inE()](SQL-Functions.md#ine)|[inv()](SQL-Functions.md#inv) | [intersect()](SQL-Functions.md#intersect) |[list()](SQL-Functions.md#list) |
-| [map()](SQL-Functions.md#map)|[min()](SQL-Functions.md#min) | [max()](SQL-Functions.md#max) | [median()](SQL-Functions.md#median) |
-| [mode()](SQL-Functions.md#mode)|[out()](SQL-Functions.md#out) |[outE()](SQL-Functions.md#oute) | [outV()](SQL-Functions.md#outv) |
-| [percentile()](SQL-Functions.md#percentile)|[set()](SQL-Functions.md#set) | [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|
-|[sum()](SQL-Functions.md#sum)|[symmetricDifference()](SQL-Functions.md#symmetricDifference) |[sysdate()](SQL-Functions.md#sysdate)|  [traversedElement()](SQL-Functions.md#traversedelement) | 
-| [traversedEdge()](SQL-Functions.md#traversededge)|[traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid)|
+| [eval()](SQL-Functions.md#eval) | [expand()](SQL-Functions.md#expand) | [format()](SQL-Functions.md#format) | [first()](SQL-Functions.md#first) |
+| [flatten()](SQL-Functions.md#flatten) | [if()](SQL-Functions.md#if) | [ifnull()](SQL-Functions.md#ifnull) | [in()](SQL-Functions.md#in) |
+| [inE()](SQL-Functions.md#ine) | [inv()](SQL-Functions.md#inv) | [intersect()](SQL-Functions.md#intersect) | [list()](SQL-Functions.md#list) |
+| [map()](SQL-Functions.md#map) | [min()](SQL-Functions.md#min) | [max()](SQL-Functions.md#max) | [median()](SQL-Functions.md#median) |
+| [mode()](SQL-Functions.md#mode) | [out()](SQL-Functions.md#out) | [outE()](SQL-Functions.md#oute) | [outV()](SQL-Functions.md#outv) |
+| [percentile()](SQL-Functions.md#percentile) | [set()](SQL-Functions.md#set) | [shortestPath()](SQL-Functions.md#shortestpath) | [stddev()](SQL-Functions.md#stddev) |
+| [sum()](SQL-Functions.md#sum) | [symmetricDifference()](#symmetricdifference) | [sysdate()](SQL-Functions.md#sysdate) |  [traversedElement()](SQL-Functions.md#traversedelement) | 
+| [traversedEdge()](SQL-Functions.md#traversededge) | [traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid) |
 | [variance()](SQL-Functions.md#variance) | | | |
 
 SQL Functions are all the functions bundled with OrientDB [SQL engine](SQL.md). You can create your own [Database Functions](Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).

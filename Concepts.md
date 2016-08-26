@@ -2,7 +2,7 @@
 # Basic Concepts
 
 
-### The Record
+### Record
 
 The smallest unit that you can load from and store in the database.  Records come in four types:
 
@@ -15,7 +15,7 @@ The smallest unit that you can load from and store in the database.  Records com
 
 A **Record** is the smallest unit that can be loaded from and stored into the database. A record can be a Document, a RecordBytes record (BLOB) a Vertex or even an Edge.
 
-### Documents
+### Document
 
 The Document is the most flexible record type available in OrientDB.  Documents are softly typed and are defined by schema classes with defined constraints, but you can also use them in a schema-less mode too.
 

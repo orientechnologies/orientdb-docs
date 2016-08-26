@@ -14,18 +14,18 @@ OrientDB supports several types natively. Below is the complete table.
 |6|Datetime|Any date with the precision up to milliseconds. To know more about it, look at [Managing Dates](Managing-Dates.md)|<code>java.util.Date</code>|-<br>1002020303|Date, Long, String|
 |7|String|Any string as alphanumeric sequence of chars|<code>java.lang.String</code>|-<br>-|-|
 |8|Binary|Can contain any value as byte array|<code>byte[]</code>|0<br>2,147,483,647|String|
-|9|Embedded|The Record is contained inside the owner. The contained Record has no [RecordId](Concepts.md#recordid)|<code>ORecord</code>|-<br>-|ORecord|
-|10|Embedded list|The Records are contained inside the owner. The contained records have no [RecordIds](Concepts.md#recordid) and are reachable only by navigating the owner record|<code>List&lt;Object&gt;</code>|0<br>41,000,000 items|String|
-|11|Embedded set|The Records are contained inside the owner. The contained Records have no [RecordId](Concepts.md#recordid) and are reachable only by navigating the owner record|<code>Set&lt;Object&gt;</code>|0<br>41,000,000 items|String|
-|12|Embedded map|The Records are contained inside the owner as values of the entries, while the keys can only be Strings. The contained ords e no [RecordId](Concepts.md#recordid)s and are reachable only by navigating the owner Record|<code>Map&lt;String, ORecord&gt;</code>|0<br>41,000,000 items|<code>Collection&lt;? extends ORecord&lt;?&gt;&gt;</code>, <code>String</code>|
+|9|Embedded|The Record is contained inside the owner. The contained Record has no [Record ID](Concepts.md#record-id)|<code>ORecord</code>|-<br>-|ORecord|
+|10|Embedded list|The Records are contained inside the owner. The contained records have no [Record ID's](Concepts.md#record-id) and are reachable only by navigating the owner record|<code>List&lt;Object&gt;</code>|0<br>41,000,000 items|String|
+|11|Embedded set|The Records are contained inside the owner. The contained Records have no [Record ID](Concepts.md#record-id) and are reachable only by navigating the owner record|<code>Set&lt;Object&gt;</code>|0<br>41,000,000 items|String|
+|12|Embedded map|The Records are contained inside the owner as values of the entries, while the keys can only be Strings. The contained ords e no [Record ID](Concepts.md#record-id)s and are reachable only by navigating the owner Record|<code>Map&lt;String, ORecord&gt;</code>|0<br>41,000,000 items|<code>Collection&lt;? extends ORecord&lt;?&gt;&gt;</code>, <code>String</code>|
 |13|Link|Link to another Record. It's a common [one-to-one relationship](Concepts.md#1-1-and-n-1-referenced-relationships)|<code>ORID</code>, <code>&lt;? extends ORecord&gt;</code>|1:-1<br>32767:2^63-1|String|
-|14|Link list|Links to other Records. It's a common [one-to-many relationship](Concepts.md#1-n-and-n-m-embedded-relationships) where only the [RecordId](Concepts.md#recordid)s are stored|<code>List&lt;? extends ORecord</code>|0<br>41,000,000 items|String|
+|14|Link list|Links to other Records. It's a common [one-to-many relationship](Concepts.md#1-n-and-n-m-embedded-relationships) where only the [Record ID](Concepts.md#record-id)s are stored|<code>List&lt;? extends ORecord</code>|0<br>41,000,000 items|String|
 |15|Link set|Links to other Records. It's a common [one-to-many relationship](Concepts.md#1-n-and-n-m-embedded-relationships)|<code>Set&lt;? extends ORecord&gt;</code>|0<br>41,000,000 items|<code>Collection&lt;? extends ORecord&gt;</code>, <code>String</code>|
-|16|Link map|Links to other Records as value of the entries, while keys can only be Strings. It's a common [One-to-Many Relationship](Concepts.md#1-n-and-n-m-embedded-relationships). Only the [RecordId](Concepts.md#recordid)s are stored|<code>Map&lt;String,<br>&nbsp;&nbsp;&nbsp;&nbsp;? extends Record&gt;</code>|0<br>41,000,000 items|String|
+|16|Link map|Links to other Records as value of the entries, while keys can only be Strings. It's a common [One-to-Many Relationship](Concepts.md#1-n-and-n-m-embedded-relationships). Only the [Record ID](Concepts.md#record-id)s are stored|<code>Map&lt;String,<br>&nbsp;&nbsp;&nbsp;&nbsp;? extends Record&gt;</code>|0<br>41,000,000 items|String|
 |17|Byte|Single byte. Useful to store small 8-bit signed integers|<code>java.lang.Byte</code> or <code>byte</code>|-128<br>+127|Any Number, String|
 |18|Transient|Any value not stored on database||||
 |19|Date|Any date as year, month and day. To know more about it, look at [Managing Dates](Managing-Dates.md)|<code>java.util.Date</code>|-<bonetomanyr>-|Date, Long, String|
 |20|Custom|used to store a custom type providing the marshall and unmarshall methods|<code>OSerializableStream</code>|0<br>X|-|
 |21|Decimal|Decimal numbers without rounding|<code>java.math.BigDecimal</code>|?<br>?|Any Number, String|
-|22|LinkBag| List of [RecordId](Concepts.md#recordid)s as spec [RidBag](RidBag.md) | <code>ORidBag</code> | ?<br>? | - |
+|22|LinkBag| List of [Record ID](Concepts.md#record-id)s as spec [RidBag](RidBag.md) | <code>ORidBag</code> | ?<br>? | - |
 |23|Any|Not determinated type, used to specify Collections of mixed type, and null | - | - | - |

@@ -120,8 +120,8 @@ When you've multiple threads could be a bottleneck since a lot of time is spent 
 
 The configurations is very simple, just 2 parameters:
 
-- **minPool**, is the initial size of the connection pool. The default value is configured as global parameters "client.channel.minPool" (see [parameters](#Parameters))
-- **maxPool**, is the maximum size the connection pool can reach. The default value is configured as global parameters "client.channel.maxPool" (see [parameters](#Parameters))
+- **minPool**, is the initial size of the connection pool. The default value is configured as global parameters "client.channel.minPool" (see [parameters](Configuration.md#parameters))
+- **maxPool**, is the maximum size the connection pool can reach. The default value is configured as global parameters "client.channel.maxPool" (see [parameters](Configuration.md#parameters))
 
 At first connection the **minPool** is used to pre-create network connections against the server. When a client thread is asking for a connection and all the pool is busy, then it tries to create a new connection until **maxPool** is reached.
 

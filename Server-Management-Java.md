@@ -19,7 +19,7 @@ OServerAdmin serverAdmin = new OServerAdmin("remote:localhost:2480/GratefulDeadC
 OServerAdmin serverAdmin = new OServerAdmin("remote:localhost:2480").connect("admin", "admin");
 ```
 
-User and password are not the database accounts but the server users configured in [orientdb-server-config.xml](DB-Server.md#configuration) file.
+User and password are not the database accounts but the server users configured in `orientdb-server-config.xml` file.
 
 When finished call the <code>OServerAdmin.close()</code> method to release the network connection.
 

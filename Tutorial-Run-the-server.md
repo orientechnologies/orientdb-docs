@@ -5,7 +5,7 @@ When you finish installing OrientDB, whether you build it from source or downloa
 
 >**Note**: If you would like to run OrientDB as a service on your system, there are some additional steps that you need to take.  This provides alternate methods for starting the server and allows you to launch it as a daemon when your system boots.  For more information on this process see:
 >
->- [Install OrientDB as a Service on Unix, Linux and Mac OS X ](Unix-Service.md)
+>- [Install OrientDB as a Service on Unix, Linux and Mac OS X](Unix-Service.md)
 >- [Install OrientDB as a Service on Microsoft Windows](Windows-Service.md)
 
 
