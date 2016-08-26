@@ -142,7 +142,7 @@ CLASS=Invoice                 CLASS=Customer
 
 Here, record `A` contains the reference to record `B` in the property `customer`.  Note that both records are reachable by other records, given that they have a [Record ID](Concepts.md#record-id).
 
-With the Graph API, [Edges](Concepts.md#edges) are represented with two links stored on both vertices to handle the bidirectional relationship.
+With the Graph API, [Edges](Concepts.md#edge) are represented with two links stored on both vertices to handle the bidirectional relationship.
 
 #### 1:1 and 1:*n* Referenced Relationships
 

@@ -102,7 +102,7 @@ gremlin> g.stopTransaction(SUCCESS)
 
 # Retrieve a vertex
 
-To retrieve a vertex by its ID, use the **v(id)** method passing the [RecordId](Concepts.md#recordid) as an argument (with or without the prefix '#'). This example retrieves the first vertex created in the above example.
+To retrieve a vertex by its ID, use the **v(id)** method passing the [RecordId](Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first vertex created in the above example.
 ```java
 gremlin> g.v('5:0')
 ==>v[#5:0]
@@ -119,7 +119,7 @@ gremlin> g.V
 
 # Retrieve an edge
 
-Retrieving an edge is very similar to retrieving a vertex.  Use the *e(id)* method passing the [RecordId](Concepts.md#recordid) as an argument (with or without the prefix '#'). This example retrieves the first edge created in the previous example.
+Retrieving an edge is very similar to retrieving a vertex.  Use the *e(id)* method passing the [RecordId](Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first edge created in the previous example.
 ```java
 gremlin> g.e('6:0')
 ==>e[#6:0][#5:0-friend->#5:1]

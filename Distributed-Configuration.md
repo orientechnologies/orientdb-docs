@@ -3,7 +3,7 @@
 The distributed configuration consists of 3 files under the **config/** directory:
 - [orientdb-server-config.xml](Distributed-Configuration.md#orientdb-server-configxml)
 - [default-distributed-db-config.json](Distributed-Configuration.md#default-distributed-db-configjson)
-- [hazelcast.xml](Distributed-Configuration.md#hazelcastxml)
+- [hazelcast.xml](#hazelcastxml)
 
 Main topics:
 - [Replication](Replication.md)

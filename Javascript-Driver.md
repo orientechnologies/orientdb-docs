@@ -35,7 +35,7 @@ var orientServer = new ODatabase('http://localhost:2480/demo');
 ```
 
 Once created database instance is ready to be used. Every method return the operation result when it succeeded, null elsewhere. <br/>
-In case of null result the database instance will have the error message obtainable by the [getErrorMessage()](#Errors) method.
+In case of null result the database instance will have the error message obtainable by the [getErrorMessage()](#errors) method.
 
 ### Open
 
@@ -384,8 +384,9 @@ Return Example:
 
 ### Server Information
 
-Method that retrieves server informations, it returns the server informations in JSON format.<br/>
-*Note: Server information needs [root](Security.md#orientdb_server_security) username and password.*
+Method that retrieves server informations, it returns the server informations in JSON format.
+
+>**Note**: Server information needs the root username and password.  For more information, see [OrientDB Server Security](Server-Security.md). 
 
 Syntax: <code>&lt;databaseInstance&gt;.serverInfo()</code>
 
@@ -600,7 +601,7 @@ orientServer.close();
 ### Change server URL
 
 Method that changes server URL in the database instance.<br/>
-You'll need to call the [open](#Open) method to reconnect to the new server.
+You'll need to call the [open](#open) method to reconnect to the new server.
 
 Syntax: <code>&lt;databaseInstance&gt;.setDatabaseUrl(&lt;newDatabaseUrl&gt;)</code>
 
@@ -612,7 +613,7 @@ orientServer.setDatabaseUrl('http://localhost:3040')
 ### Change database name
 
 Method that changes database name in the database instance.<br/>
-You'll need to call the [open](#Open) method to reconnect to the new database.
+You'll need to call the [open](#open) method to reconnect to the new database.
 
 Syntax: <code>&lt;databaseInstance&gt;.setDatabaseName(&lt;newDatabaseName&gt;)</code>
 

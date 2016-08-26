@@ -102,7 +102,7 @@ Response:
   "surname" : "Miner"
 }]
 ```
-Note that an array is always returned in case multiple records are associated to the same key (if NOTUNIQUE index is used). Look also at the document has been created with [RID](Concepts.md#RID) #3:477. You can load it directly if you know the [RID](Concepts.md#RID). Remember to remove the # character. Example:
+Note that an array is always returned in case multiple records are associated to the same key (if NOTUNIQUE index is used). Look also at the document has been created with [RID](Concepts.md#record-id) #3:477. You can load it directly if you know the [RID](Concepts.md#record-id). Remember to remove the # character. Example:
 
 ```
 > curl --basic -u admin:admin localhost:2480/document/demo/3:477

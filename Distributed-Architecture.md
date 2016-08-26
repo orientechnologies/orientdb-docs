@@ -28,12 +28,12 @@ Starting from v2.2, the biggest advantage of having many REPLICA servers is that
 
 ### Cluster Ownership
 
-When new records (documents, vertices and edges) are created in distributed mode, the [RID](Concepts.md#rid) is assigned by following the "cluster locality", where every server defines a "own" record cluster where it is able to create records. If you have the class `Customer` and 3 server nodes (node1, node2, node3), you'll have these clusters (names can be different):
+When new records (documents, vertices and edges) are created in distributed mode, the [RID](Concepts.md#record-id) is assigned by following the "cluster locality", where every server defines a "own" record cluster where it is able to create records. If you have the class `Customer` and 3 server nodes (node1, node2, node3), you'll have these clusters (names can be different):
 - `customer` with id=#15 (this is the default one, assigned to node1)
 - `customer_node2` with id=#16
 - `customer_node3` with id=#17
 
-So if you create a new Customer on node1, it will get the [RID](Concepts.md#rid) with cluster-id of "customer" cluster: #15. The same operation on node2 will generate a [RID](Concepts.md#rid) with cluster-id=16 and 17 on node3. In this way [RID](Concepts.md#rid) never collides and each node can be a master on insertion without any conflicts, because each node manages own [RIDs](Concepts.md#rid). Starting from v2.2, if a node has more than one cluster per class, a round robin strategy is used to balance the assignment between all the available local clusters.
+So if you create a new Customer on node1, it will get the [RID](Concepts.md#record-id) with cluster-id of "customer" cluster: #15. The same operation on node2 will generate a [RID](Concepts.md#record-id) with cluster-id=16 and 17 on node3. In this way [RID](Concepts.md#record-id) never collides and each node can be a master on insertion without any conflicts, because each node manages own [RIDs](Concepts.md#record-id). Starting from v2.2, if a node has more than one cluster per class, a round robin strategy is used to balance the assignment between all the available local clusters.
 
 Ownership configuration is stored in the [default-distributed-db-config.json](Distributed-Configuration.md#default-distributed-db-configjson) file. By default the server owner of the cluster is the first in the list of servers. For example with this configuration:
 ```json

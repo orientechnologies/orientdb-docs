@@ -1,6 +1,6 @@
 # Binary Protocol
 
-Current protocol version for 2.1.x: **32**. Look at [compatibility](#Compatibility) for retro-compatibility.
+Current protocol version for 2.1.x: **32**. Look at [Compatibility](#compatibility) for retro-compatibility.
 
 # Table of content
 - [Introduction](#introduction)
@@ -1000,10 +1000,10 @@ Where:
 - *TREE SIZE* as signed integer (4 bytes) containing the size of the tree. Only the root node has this value updated, so to know the size of the collection you need to load the root node and get this field. other nodes can contain not updated values because upon rotation of pieces of the tree (made during tree rebalancing) the root can change and the old root will have the "old" size as dirty.
 - *NODE SIZE* as signed integer (4 bytes) containing number of entries in this node. It's always <= to the page-size defined at the tree level and equals for all the nodes. By default page-size is 16 items
 - *COLOR* as 1 byte containing 1=Black, 0=Red. To know more about the meaning of this look at [Red-Black Trees](http://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-- **PARENT RID** as [RID](Concepts.md#RecordID) (10 bytes) of the parent node record
-- **LEFT RID** as [RID](Concepts.md#RecordID) (10 bytes) of the left node record
-- **RIGHT RID** as [RID](Concepts.md#RecordID) (10 bytes) of the right node record
-- **RID LIST** as the list of [RIDs](Concepts.md#RecordID) containing the references to the records. This is pre-allocated to the configured page-size. Since each [RID](Concepts.md#RecordID) takes 10 bytes, a page-size of 16 means 16 x 10bytes = 160bytes
+- **PARENT RID** as [RID](Concepts.md#record-id) (10 bytes) of the parent node record
+- **LEFT RID** as [RID](Concepts.md#record-id) (10 bytes) of the left node record
+- **RIGHT RID** as [RID](Concepts.md#record-id) (10 bytes) of the right node record
+- **RID LIST** as the list of [RIDs](Concepts.md#record-id) containing the references to the records. This is pre-allocated to the configured page-size. Since each [RID](Concepts.md#record-id) takes 10 bytes, a page-size of 16 means 16 x 10bytes = 160bytes
 
 The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. To compute it: 39 bytes + 10 * PAGE-SIZE bytes. For a page-size = 16 you'll have 39 + 160 = 199 bytes.
 

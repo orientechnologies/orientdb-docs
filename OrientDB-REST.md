@@ -7,11 +7,11 @@ OrientDB RESTful HTTP protocol allows to talk with a [OrientDB Server instance](
 | [allocation](OrientDB-REST.md#allocation)<br>DB's defragmentation| [batch](OrientDB-REST.md#batch)<br>Batch of commands | [class](OrientDB-REST.md#class)<br>Operations on schema classes | **[cluster](OrientDB-REST.md#cluster)**<br>Operations on clusters |
 |:--------:|:---------:|:-----:|:-----:|
 | **[command](OrientDB-REST.md#command)**<br>Executes commands | **[connect](OrientDB-REST.md#connect)**<br>Create the session | **[database](OrientDB-REST.md#database)**<br>Information about database | **[disconnect](OrientDB-REST.md#disconnect)**<br>Disconnect session |
-| **[document](OrientDB-REST.md#document)**<br>Operations on documents by RID<br>[GET](OrientDB-REST.md#get---document) - [HEAD](OrientDB-REST.md#head---document) - [POST](OrientDB-REST.md#post---document) - [PUT](OrientDB-REST.md#put---document) - [DELETE](OrientDB-REST.md#delete---document) - [PATCH](OrientDB-REST.md#patch---document)| **[documentbyclass](OrientDB-REST.md#document-by-class)**<br>Operations on documents by Class | **[export](OrientDB-REST.md#export)**<br>Exports a database | **[function](OrientDB-REST.md#function)**<br>Executes a server-side function
+| **[document](OrientDB-REST.md#document)**<br>Operations on documents by RID<br>[GET](#get---document) - [HEAD](#head---document) - [POST](OrientDB-REST.md#post---document) - [PUT](OrientDB-REST.md#put---document) - [DELETE](OrientDB-REST.md#delete---document) - [PATCH](OrientDB-REST.md#patch---document)| **[documentbyclass](OrientDB-REST.md#document-by-class)**<br>Operations on documents by Class | **[export](OrientDB-REST.md#export)**<br>Exports a database | **[function](OrientDB-REST.md#function)**<br>Executes a server-side function
 | **[index](OrientDB-REST.md#index)**<br>Operations on indexes | **[listDatabases](OrientDB-REST.md#list-databases)**<br>Available databases | **[property](OrientDB-REST.md#property)**<br>Operations on schema properties | **[query](OrientDB-REST.md#query)**<br>Query |
 |**[server](OrientDB-REST.md#server)**<br>Information about the server
 
-## HTTP Methods ##
+## HTTP Methods
 
 This protocol uses the four methods of the HTTP protocol:
 
@@ -25,7 +25,7 @@ When using POST and PUT the following are important when preparing the contents 
 - Where data or data structure is involved the content is in JSON format
 - For OrientDB SQL or Gremlin the content itself is just text
 
-## Headers ##
+## Headers
 All the requests must have these 2 headers:
 ```
 'Accept-Encoding': 'gzip,deflate'
@@ -34,7 +34,7 @@ All the requests must have these 2 headers:
 
 Where the `<content-length>` is the length of the request's body.
 
-## Syntax ##
+## Syntax 
 
 The REST API is very flexible, with the following features:
 - Data returned is in JSON format
@@ -71,7 +71,7 @@ Commands are divided in two main categories:
 - Server commands, such as to know server statistics and to create a new database
 - Database commands, all the commands against a database
 
-## Authentication and security ##
+## Authentication and security
 
 All the commands (but the [Disconnect](#disconnect) need a valid authentication before to get executed. The OrientDB Server checks if the Authorization HTTP header is present, otherwise answers with a request of authentication (HTTP error code: 401).
 
@@ -81,7 +81,7 @@ Server commands use the realm "OrientDB Server", while the database commands use
 
 On first call (or when the session is expired and a new authentication is required), OrientDB returns the OSESSIONID parameter in response's HTTP header. On further calls the client should pass this OSESSIONID header in the requests and OrientDB will skip the authentication because a session is alive. By default sessions expire after 300 seconds (5 minutes), but you can change this configuration by setting the global setting: ```network.http.sessionExpireTimeout```
 
-## JSON data type handling and Schema-less mode ##
+## JSON data type handling and Schema-less mode
 
 Since OrientDB supports also schema-less/hybrid modes how to manage types? JSON doesn't support all the types OrientDB has, so how can I pass the right type when it's not defined in the schema?
 
@@ -112,23 +112,23 @@ The supported special types are:
 
 *Attention*: OrientDB HTTP API utilizes [Keep-Alive](http://en.wikipedia.org/wiki/HTTP_persistent_connection) feature for better performance: the TCP/IP socket is kept open avoiding the creation of a new one for each command. If you need to re-authenticate, open a new connection avoiding to reuse the already open one. To force closing put "Connection: close" in the request header.
 
-# HTTP commands #
+# HTTP commands
 
-## Connect ##
+## Connect
 
-### GET - Connect ###
+### GET - Connect
 Connect to a remote server using basic authentication.
 
 Syntax: `http://<server>:[<port>]/connect/<database>`
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/connect/demo`
 HTTP response: 204 if ok, otherwise 401.
 
-## Database ##
+## Database
 
-### GET - Database ###
+### GET - Database
 HTTP GET request: `http://localhost:2480/database/demo`
 HTTP response:
 ```json
@@ -144,7 +144,7 @@ HTTP response:
   ...
 }
 ```
-### POST - Database ###
+### POST - Database
 
 Create a new database.
 
@@ -154,9 +154,9 @@ HTTP POST request: `http://localhost:2480/database/demo/plocal`
 
 HTTP response: `{ "classes" : [], "clusters": [], "users": [], "roles": [], "config":[], "properties":{} }`
 
-## Class ##
+## Class
 
-### GET - Class ###
+### GET - Class
 
 Gets informations about requested class.
 
@@ -180,7 +180,7 @@ HTTP response:
 ```
 For more information about properties look at the [supported types](Types.md), or see the [SQL Create property](SQL-Create-Property.md) page for text values to be used when getting or posting class commands
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/class/demo/OFunction`
 HTTP response:
@@ -251,9 +251,9 @@ HTTP response:
   ]
 }
 ```
-### POST - Class ###
+### POST - Class
 
-Create a new class where the schema of the vertexes or edges is known. OrientDB allows (encourages) classes to be derived from other class definitions – this is achieved by using the [COMMAND](#postCommand) call with an OrientDB SQL command.
+Create a new class where the schema of the vertexes or edges is known. OrientDB allows (encourages) classes to be derived from other class definitions – this is achieved by using the [COMMAND](#post---command) call with an OrientDB SQL command.
 Returns the id of the new class created.
 
 Syntax: `http://<server>:[<port>]/class/<database>/<class-name>`
@@ -261,19 +261,19 @@ Syntax: `http://<server>:[<port>]/class/<database>/<class-name>`
 HTTP POST request: `http://localhost:2480/class/demo/Address2`
 HTTP response: `9`
 
-## Property ##
+## Property
 
-### POST - Property ###
+### POST - Property
 
 Create one or more properties into a given class. Returns the number of properties of the class.
 
-#### Single property creation ####
+#### Single property creation
 
 Syntax: `http://<server>:[<port>]/property/<database>/<class-name>/<property-name>/[<property-type>]`
 
 Creates a property named `<property-name>` in `<class-name>`. If `<property-type>` is not specified the property will be created as STRING.
 
-#### Multiple property creation ####
+#### Multiple property creation
 
 Syntax: `http://<server>:[<port>]/property/<database>/<class-name>/`
 
@@ -298,7 +298,7 @@ Syntax: `http://<server>:[<port>]/property/<database>/<class-name>/`
 }
 ```
 
-#### Example ##
+#### Example
 
 *Single property*:
 
@@ -347,9 +347,9 @@ HTTP POST content:
 ```
 HTTP response: `6`
 
-## Cluster ##
+## Cluster
 
-### GET - Cluster ###
+### GET - Cluster
 
 Where the primary usage is a document db, or where the developer wants to optimise retrieval using the clustering of the database, use the CLUSTER command to browse the records of the requested cluster.
 
@@ -357,7 +357,7 @@ Syntax: `http://<server>:[<port>]/cluster/<database>/<cluster-name>/`
 
 Where `<limit>` is optional and tells the maximum of records to load. Default is 20.
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/cluster/demo/Address`
 
@@ -378,8 +378,8 @@ HTTP response:
 ...
 ```
 
-## Command ##
-### POST - Command ###
+## Command
+### POST - Command
 
 Execute a command against the database. Returns the records affected or the list of records for queries. Command executed via POST can be non-idempotent (look at [Query](#query)).
 
@@ -422,7 +422,7 @@ Execute a query passing parameters by position:
 
 Read the [SQL section](SQL.md) or the [Gremlin introduction](Gremlin.md) for the type of commands.
 
-#### Example ###
+#### Example
 
 HTTP POST request: `http://localhost:2480/command/demo/sql`
 content: `update Profile set online = false`
@@ -440,8 +440,8 @@ HTTP response: `10`
 curl --user admin:admin --header "Accept: text/csv" -d "select from ouser" "http://localhost:2480/command/GratefulDeadConcerts/sql"
 ```
 
-## Batch ##
-### POST - Batch ###
+## Batch
+### POST - Batch
 
 Executes a batch of operations in a single call. This is useful to reduce network latency issuing multiple commands as multiple requests. Batch command supports transactions as well.
 
@@ -463,7 +463,7 @@ Where:
  - 'language', between the language installed in the JVM. Javascript is the default one, but you can also use SQL (see below)
  - 'script' as the text of the script to execute
 
-#### Example ###
+#### Example
 ```json
 { "transaction" : true,
   "operations" : [
@@ -513,9 +513,9 @@ Where:
 }
 ```
 
-## Function ##
+## Function
 
-### POST and GET - Function ###
+### POST and GET - Function
 
 Executes a server-side function against the database. Returns the result of the function that can be a string or a JSON containing the document(s) returned.
 
@@ -529,22 +529,22 @@ Where
 
 Creation of functions, when not using the Java API, can be done through the Studio in either Orient DB SQL or Java – see the [OrientDB Functions page](Functions.md).
 
-#### Example ###
+#### Example
 
 HTTP POST request: `http://localhost:2480/function/demo/sum/3/5`
 
 HTTP response: `8.0`
 
 
-## Database ##
+## Database
 
-### GET - Database ###
+### GET - Database
 
 Retrieve all the information about a database.
 
 Syntax: `http://<server>:[<port>]/database/<database>`
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/database/demo`
 
@@ -564,7 +564,7 @@ HTTP response:
   {
 ...
 ```
-### POST - Database ###
+### POST - Database
 
 Create a new database. Requires additional authentication to the server.
 
@@ -574,7 +574,7 @@ Syntax for the url `http://<server>:
 - 'memory' for in memory only database.
 - *type*, is optional, and can be document or graph. By default is a document.
 
-#### Example ###
+#### Example
 
 HTTP POST request: `http://localhost:2480/database/demo2/local`
 HTTP response:
@@ -593,7 +593,7 @@ HTTP response:
   {
 ...
 ```
-### DELETE - Database ###
+### DELETE - Database
 
 Drop a database. Requires additional authentication to the server.
 
@@ -602,14 +602,14 @@ Syntax: `http://<server>:[<port>]/database/<databaseName>`
 Where:
 - **databaseName** is the name of database
 
-#### Example ###
+#### Example
 
 HTTP DELETE request: `http://localhost:2480/database/demo2`
 HTTP response code 204
 
-## Export ##
+## Export
 
-### GET - Export ###
+### GET - Export
 
 Exports a gzip file that contains the database JSON export.
 
@@ -619,9 +619,9 @@ HTTP GET request: `http://localhost:2480/export/demo2`
 HTTP response: demo2.gzip file
 
 
-## Import ##
+## Import
 
-### POST - Import ###
+### POST - Import
 
 Imports a database from an uploaded JSON text file.
 
@@ -631,7 +631,7 @@ The body of the HTTP call has to be the JSON of an exported DB (plain text).
 Multipart is not supported.
 
 **Important**: Connect required: the connection with the selected database must be already established
-#### Example ###
+#### Example
 
 HTTP POST request: `http://localhost:2480/import/`
 HTTP response: returns a JSON object containing the result text
@@ -665,7 +665,7 @@ For more details see [Server Resources](Security.md#serverResources)
 Example of configuration of "guest" server user:
 a15b5e6bb7d06bd5d6c35db97e51400b
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/listDatabases`
 HTTP response:
@@ -678,18 +678,18 @@ HTTP response:
 
 ## Disconnect
 
-### GET - Disconnect ###
+### GET - Disconnect
 
 Syntax: `http://<server>:[<port>]/disconnect`
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/disconnect`
 HTTP response: empty.
 
-## Document ##
+## Document
 
-### GET - Document ###
+### GET - Document
 
 This is a key way to retrieve data from the database, especially when combined with a `<fetchplan>`. Where a single result is required then the RID can be used to retrieve that single document.
 
@@ -699,7 +699,7 @@ Where:
 - `<record-id>` [See Concepts: RecordID](Concepts.md#recordID)
 - `<fetchPlan>` Optional, is the fetch plan used. 0 means the root record, -1 infinite depth, positive numbers is the depth level. Look at [Fetching Strategies](Fetching-Strategies.md) for more information.
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/document/demo/9:0`
 
@@ -727,7 +727,7 @@ The example above can be extended to return all the edges and vertices beneath #
 
 HTTP GET request: `http://localhost:2480/document/demo/9:0/*:-1`
 
-### HEAD - Document ###
+### HEAD - Document
 
 Check if a document exists
 
@@ -736,7 +736,7 @@ Syntax: `http://<server>:[<port>]/document/<database>/<record-id>`
 Where:
 - `<record-id>` [See Concepts: RecordID](Concepts.md#recordID)
 
-#### Example ###
+#### Example
 
 HTTP HEAD request: `http://localhost:2480/document/demo/9:0`
 
@@ -744,7 +744,7 @@ HTTP response can be:
 - HTTP Code 204, if the document exists
 - HTTP Code 404, if the document was not found
 
-### POST - Document ###
+### POST - Document
 
 Create a new document. Returns the document with the new @rid assigned. Before 1.4.x the return was the @rid content only.
 
@@ -768,7 +768,7 @@ HTTP POST request: `http://localhost:2480/document/demo`
     "online": true
   }
 ```
-HTTP response, as the document created with the assigned [RecordID](Concepts.md#recordID) as @rid:
+HTTP response, as the document created with the assigned [RecordID](Concepts.md#record-id) as @rid:
 ```
 {
   "@rid": "#11:4456",
@@ -785,7 +785,7 @@ HTTP response, as the document created with the assigned [RecordID](Concepts.md#
 }
 ```
 
-### PUT - Document ###
+### PUT - Document
 
 Update a document. Remember to always pass the version to update. This prevent to update documents changed by other users (MVCC).
 
@@ -822,7 +822,7 @@ content:
 }
 ```
 
-### PATCH - Document ###
+### PATCH - Document
 
 Update a document with only the difference to apply. Remember to always pass the version to update. This prevent to update documents changed by other users (MVCC).
 
@@ -863,21 +863,21 @@ content:
 }
 ```
 
-### DELETE - Document ###
+### DELETE - Document
 
 Delete a document.
 
 Syntax: `http://<server>:[<port>]/document/<database>/<record-id>`
 
-#### Example ###
+#### Example
 
 HTTP DELETE request: `http://localhost:2480/document/demo/9:0`
 
 HTTP response: empty
 
-## Document By Class ##
+## Document By Class
 
-### GET Document by Class ###
+### GET Document by Class
 
 Retrieve a document by cluster name and record position.
 
@@ -912,7 +912,7 @@ HTTP response:
 ```
 
 
-### HEAD - Document by Class ###
+### HEAD - Document by Class
 
 Check if a document exists
 
@@ -922,7 +922,7 @@ Where:
 - `<class-name>` is the name of the document's class
 - `<record-position>` is the absolute position of the record inside the class' default cluster
 
-#### Example ###
+#### Example
 
 HTTP HEAD request: `http://localhost:2480/documentbyclass/demo/Profile/0`
 
@@ -930,15 +930,15 @@ HTTP response can be:
 - HTTP Code 204, if the document exists
 - HTTP Code 404, if the document was not found
 
-## Allocation ##
+## Allocation
 
-### GET - Allocation ###
+### GET - Allocation
 
 Retrieve information about the storage space of a disk-based database.
 
 Syntax: `http://<server>:[<port>]/allocation/<database>`
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/allocation/demo`
 
@@ -957,17 +957,17 @@ HTTP response:
   "holesSizePercent": 24
 }`
 
-## Index ##
+## Index
 
 _NOTE: Every single new database has the default manual index called "dictionary"._
 
-### GET - Index ###
+### GET - Index
 
 Retrieve a record looking into the index.
 
 Syntax: `http://<server>:[<port>]/index/<database>/<index-name>/<key>`
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/index/demo/dictionary/test`
 HTTP response:
@@ -978,13 +978,13 @@ HTTP response:
 }
 ```
 
-### PUT - Index ###
+### PUT - Index
 
 Create or modify an index entry.
 
 Syntax: `http://<server>:[<port>]/index/<database>/<index-name>/<key>`
 
-#### Example ###
+#### Example
 
 HTTP PUT request: `http://localhost:2480/index/demo/dictionary/test`
 content:
@@ -995,20 +995,20 @@ content:
 
 HTTP response: No response.
 
-### DELETE - Index ###
+### DELETE - Index
 
 Remove an index entry.
 
 Syntax: `http://<server>:[<port>]/index/<database>/<index-name>/<key>`
 
-#### Example ###
+#### Example
 
 HTTP DELETE request: `http://localhost:2480/index/demo/dictionary/test`
 HTTP response: No response.
 
-## Query ##
+## Query
 
-### GET - Query ###
+### GET - Query
 
 Execute a query against the database. Query means only idempotent commands like SQL SELECT and TRAVERSE. Idempotent means the command is read-only and can't change the database. Remember that in IE6 the URL can be maximum of 2,083 characters. Other browsers supports longer URLs, but if you want to stay compatible with all limit to 2,083 characters.
 
@@ -1021,11 +1021,11 @@ Where:
 - *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
 
 Other key points:
-- To use commands that change the database (non-idempotent), see the [POST – Command section](#postCommand)
+- To use commands that change the database (non-idempotent), see the [POST – Command section](#post---command)
 - The command-text included in the URL must be encoded as per a normal URL
 - See the [SQL section](SQL.md) for the type of queries that can be sent
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/query/demo/sql/select from Profile`
 
@@ -1054,15 +1054,15 @@ The same query with the limit to maximum 20 results using the fetch plan *:-1 th
 
 HTTP GET request: `http://localhost:2480/query/demo/sql/select from Profile/20/*:-1`
 
-## Server ##
+## Server
 
-### GET - Server ###
+### GET - Server
 
 Retrieve information about the connected OrientDB Server. Requires additional authentication to the server.
 
 Syntax: `http://<server>:[<port>]/server`
 
-#### Example ###
+#### Example
 
 HTTP GET request: `http://localhost:2480/server`
 HTTP response:
@@ -1092,7 +1092,7 @@ Changes server configuration. Supported configuration are:
 
 Syntax: `http://<server>:[<port>]/server/<setting-name>/<setting-value>`
 
-#### Example ###
+#### Example
 
 ### Example on changing the server log level to FINEST
     localhost:2480/server/log.console/FINEST
@@ -1100,7 +1100,7 @@ Syntax: `http://<server>:[<port>]/server/<setting-name>/<setting-value>`
 ### Example on changing the default timeout for query to 10 seconds
     localhost:2480/server/configuration.command.timeout/10000
 
-## Connection ##
+## Connection
 
 ### POST - Connection
 Syntax: `http://<server>:[<port>]/connection/<command>/<id>`

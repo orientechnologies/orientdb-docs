@@ -4,8 +4,8 @@ The Document Database in OrientDB is the foundation of higher level implementati
 
 - [Multi-thread Access](#Multi-threading)
 - [Transactions](Transactions.md)
-- [Queries](#Query)
-- [Traverse](#Traverse)
+- [Queries](Document-API-Documents.md#retrieving-documents)
+- [Traverse](Document-API-Documents.md#traversing-documents)
 
 
 It is also very flexible and can be used in schema-full, schema-less or mixed schema modes.

@@ -1,6 +1,6 @@
 # Distributed Architecture Lifecycle
 
-In OrientDB Distributed Architecture all the nodes are masters (Multi-Master), while in most DBMS the replication works in Master-Slave mode where there is only one Master node and N Slaves that are use only for reads or when the Master is down. Starting from OrientDB v2.1, you can also assign the role of [REPLICA](Distributed-Architecture.md#server_roles) to some nodes.
+In OrientDB Distributed Architecture all the nodes are masters (Multi-Master), while in most DBMS the replication works in Master-Slave mode where there is only one Master node and N Slaves that are use only for reads or when the Master is down. Starting from OrientDB v2.1, you can also assign the role of [REPLICA](Distributed-Architecture.md#server-roles) to some nodes.
 
 When start a OrientDB server in distributed mode (```bin/dserver.sh```) it looks for an existent cluster. If exists the starting node joins the cluster, otherwise creates a new one. You can have [multiple clusters](Distributed-Architecture-Lifecycle.md#multiple-clusters) in your network, each cluster with a different "group name".
 
