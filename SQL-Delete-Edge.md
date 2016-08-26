@@ -29,6 +29,18 @@ DELETE EDGE
 
 **Examples**
 
+- Delete an edge by its RID:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>DELETE EDGE #22:38482</code>
+  </pre>
+
+- Delete edges by RIDs:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>DELETE EDGE [#22:38482,#23:232,#33:2332]</code>
+  </pre>
+
 - Delete edges where the data is a property that might exist in one or more edges between two vertices:
 
   <pre>
