@@ -12,3 +12,5 @@ Below are the limitations of the OrientDB engine:
 - **Indexes** can be up to 2 Billion per database. There are no limitations regarding the number of indexes per class
 - **Queries** can return a maximum of 2 Billion rows, no matter the number of the properties per record
 - **Concurrency level**: in order to guarantee atomicity and consistency, OrientDB acquire an exclusive lock on the storage during transaction commit. This means transactions are serialized. Giving this limitation, _the OrientDB team is already working on improving parallelism to achieve better scalability on multi-core machines by optimizing internal structure to avoid exclusive locking._
+
+Look also at the [limitations with distributed setup](Distributed-Architecture.md#limitations).
