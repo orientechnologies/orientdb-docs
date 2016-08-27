@@ -71,7 +71,7 @@ $ <code class='lang-sh userinput'>vim commands.txt</code>
 
 ### Enabling Date in prompt
 
-To enable the date in the prompt, set the variable `promptDateFormat` with the date format following the [SimpleDateFormat specs](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html).
+Starting from v2.2.9, to enable the date in the prompt, set the variable `promptDateFormat` with the date format following the [SimpleDateFormat specs](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html).
 
 <pre>
 <code class='lang-sh userinput'>
