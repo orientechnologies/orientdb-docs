@@ -69,7 +69,17 @@ $ <code class='lang-sh userinput'>vim commands.txt</code>
 </code>
 </pre>
 
+### Enabling Date in prompt
 
+To enable the date in the prompt, set the variable `promptDateFormat` with the date format following the [SimpleDateFormat specs](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html).
+
+<pre>
+<code class='lang-sh userinput'>
+orientdb {db=test1}> set promptDateFormat "yyy-MM-dd hh:mm:ss.sss"
+
+orientdb {db=test1 (2016-08-26 09:34:12.012)}> 
+</code>
+</pre>
 
 ## Console commands
 
