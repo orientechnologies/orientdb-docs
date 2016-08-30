@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "Java API"]
+---
+
 # Java API Tutorial
 
 In the event that you have only used Relational database systems, you may find much of OrientDB very unfamiliar.  Given that OrientDB supports Document, Graph and Object Oriented modes, it requires that you use different Java API's, but there are some similarities between them.

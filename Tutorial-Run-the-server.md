@@ -1,4 +1,9 @@
 <!-- proofread 2015-11-26 SAM -->
+---
+search:
+   keywords: ["tutorial", "server"]
+---
+
 # Running the OrientDB Server
 
 When you finish installing OrientDB, whether you build it from source or download the binary package, you are ready to launch the database server.  You can either start it through the system daemon or through the provided server script.  This article only covers the latter.

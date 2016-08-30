@@ -1,4 +1,9 @@
 <!-- proofread 2015-11-26 SAM -->
+---
+search:
+   keywords: ["tutorial", "relationship", "edge"]
+---
+
 # Relationships
 
 One of the most important features of Graph databases lies in how they manage relationships.  Many users come to OrientDB from MongoDB due to OrientDB having more efficient support for relationships.

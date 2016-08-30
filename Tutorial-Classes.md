@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "class"]
+---
+
 <!-- Last updated 2016-08-18 Matt -->
 <!-- length of non-skewed text code in my browser -Matt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
@@ -21,8 +26,6 @@ To list all the configured classes on your system, use the [`LIST CLASSES`](Cons
 orientdb> <code class="lang-sql userinput">LIST CLASSES</code>
 orientdb {db=playingwithClasses}> LIST CLASSES
 
->If you are using studio, then you can see the same information by clicking on the 'schema' tab. 
-
 CLASSES
 +----+-----------+-------------+-----------------+-----+
 |#   |NAME       |SUPER-CLASSES|CLUSTERS         |COUNT|
@@ -45,9 +48,9 @@ CLASSES
 +----+-----------+-------------+-----------------+-----+
 |    |TOTAL      |             |                 |    7|
 +----+-----------+-------------+-----------------+-----+
-
-
 </pre>
+
+>If you are using studio, then you can see the same information by clicking on the 'schema' tab. 
 
 Here we can see that there are 14 classes in the database. Class 12 refers to person. There is also a class Color which is the super-class of Red and Blue. Color and Person both have super-classes called V. The class V is important for using OrientDB’s graph model. We'll see more about Superclasses and V later in the tutorial. Let's move on now to working with classes. 
 

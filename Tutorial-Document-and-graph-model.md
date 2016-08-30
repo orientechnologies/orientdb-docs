@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "multi-model", "multimodel", "document model", "graph model"]
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Multi-Model
 

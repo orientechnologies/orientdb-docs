@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "distributed database", "graph"]
+---
+
 # Working with Distributed Graphs
 
 When OrientDB joins a distributed cluster, all clients connecting to the server node are constantly notified about this state.  This ensures that, in the event that server node fails, the clients can switch transparently to the next available server.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "studio"]
+---
+
 # Run the Studio
 
 If you're more comfortable interacting with database systems through a graphical interface then you can accomplish the most common database tasks with OrientDB Studio, the web interface.
