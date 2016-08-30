@@ -224,7 +224,7 @@ DOCUMENT @class:OUser @rid:#5:0 @version:1
    status | ACTIVE                                     |
     roles | [#4:0=#4:0]                                |
 ----------+--------------------------------------------+
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 </pre>
 
 Bear in mind that this command references the last call of [`BROWSE CLASS`](Console-Command-Browse-Class.md).  You can continue to display other records, but you cannot display records from another class until you browse that particular class.

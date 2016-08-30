@@ -4,6 +4,8 @@
 
 The [Cluster](Concepts.md#cluster) is a place where a group of records are stored. Like the [Class](Concepts.md#class), it is comparable with the collection in traditional document databases, and in relational databases with the table.  However, this is a loose comparison given that unlike a table, clusters allow you to store the data of a class in different physical locations.
 
+In this tutorial you will learn what clusters are and how to use them in your database.
+
 To list all the configured clusters on your system, use the [`CLUSTERS`](Console-Command-Clusters.md) command in the console:
 
 <pre>
@@ -27,39 +29,39 @@ CLUSTERS:
 
 ## Understanding Clusters
 
-By default, OrientDB creates one cluster for each [Class](Concepts.md#class).  Starting from v2.2, OrientDB automatically creates multiple clusters per each class (the number of clusters created is equals to the number of CPU's cores available on the server) to improve using of parallelism.  All records of a class are stored in the same cluster, which has the same name as the class. You can create up to 32,767 (or, 2<sup>15</sup> - 1) clusters in a database. Understanding the concepts of classes and clusters allows you to take advantage of the power of clusters in designing new databases.
+Starting from v2.2, OrientDB automatically may create multiple clusters per each [Class](Concepts.md#class) to improve the performance of parallelism. The number of clusters created per class is equal to the number of CPU cores available on the server. You can also have more clusters per class. The limit on the number of clusters in a database is 32,767 (or, 2<sup>15</sup> - 1). Understanding classes and clusters will allow you to take advantage their unique powers in designing new databases.
 
-While the default strategy is that each class maps to one cluster, a class can rely on multiple clusters. For instance, you can spawn records physically in multiple locations, thereby creating multiple clusters.
+While the default strategy is that each class maps to one cluster for each CPU core available, a class can rely on fewer or more clusters. For instance, in a distributed server environment you can spawn records physically in multiple locations, thereby creating multiple clusters.
 
-![Class-Custer](http://www.orientdb.org/images/class-clusters.png)
+One key feature about clusters is 'Cluster Selection'. This features specifies to which cluster any new recorded added will be added. Cluster Selection can be 'round robin', 'default', 'balanced', or 'local'.
 
-Here, you have a class `Customer` that relies on two clusters:
+Suppose you have a class `Customer` that relies on two clusters:
 
 - `USA_customers`, which is a cluster that contains all customers in the United States.
 
 - `China_customers`, which is a cluster that contains all customers in China.
 
-In this deployment, the default cluster is `USA_customers`. Whenever commands are run on the `Customer` class, such as [`INSERT`](SQL-Insert.md) statements, OrientDB assigns this new data to the default cluster.
+![Class-Custer](http://www.orientdb.org/images/class-clusters.png)
+
+In ths deployment, the default cluster is `USA_customers`. Therefore, when 'Cluster Selection' is set to 'default' records added with the [`INSERT`](SQL-Insert.md) statement belong to 'USA_customers' unless specified otherwise. If the selection strategy is 'default' then inserting data into a non-default cluster would require that you specify the cluster you want to insert the data into in your `INSERT` statement.
 
 ![Class-Cluster](http://www.orientdb.org/images/class-newrecord.png)
 
-The new entry from the [`INSERT`](SQL-Insert.md) statement is added to the `USA_customers` cluster, given that it's the default.  Inserting data into a non-default cluster would require that you specify the cluster you want to insert the data into in your statement.
+If we have different remote servers servicing customers in China and the USA, then it might also make sense to have 'Cluster Selection' set to 'local'. This will result in modifications of the customer class to take place on the cluster associated with the server making the modification.
 
-When you run a query on the `Customer` class, such as  [`SELECT`](SQL-Query.md) queries, for instance:
+When you run a query on the `Customer` class, such as  [`SELECT`](SQL-Query.md), for instance:
 
 ![Class-Cluster](http://www.orientdb.org/images/class-query.png)
 
-OrientDB scans all clusters associated with the class in looking for matches.
+OrientDB scans all clusters associated with the class looking for matches.
 
-In the event that you know the cluster in which the data is stored, you can query that cluster directly to avoid scanning all others and optimize the query.
+In the event that you know the cluster in which the data you seek is stored, you can optimize the query by querying that cluster directly and thus avoid scanning all the others clusters.
 
 ![Class-Cluster](http://www.orientdb.org/images/class-query-cluster.png)
 
-Here, OrientDB only scans the `China_customers` cluster of the `Customer` class in looking for matches
+Here, OrientDB only scans the `China_customers` cluster of the `Customer` class in looking for matches.
 
 >**Note**: The method OrientDB uses to select the cluster, where it inserts new records, is configurable and extensible.  For more information, see [Cluster Selection](Cluster-Selection.md).
-
-
 
 ## Working with Clusters
 
@@ -82,7 +84,7 @@ You may also find it beneficial to locate different clusters on different server
 
 ### Adding Clusters
 
-When you create a class, OrientDB creates a default cluster of the same name.  In order for you to take advantage of the power of clusters, you need to create additional clusters on the class.  This is done with the [`ALTER CLASS`](SQL-Alter-Class.md) statement in conjunction with the `ADDCLUSTER` parameter.
+When you create a class, OrientDB creates a set of default clusters of the same name.  In order for you to take advantage of the power of clusters, you need to create additional clusters on the class.  This is done with the [`ALTER CLASS`](SQL-Alter-Class.md) statement in conjunction with the `ADDCLUSTER` parameter.
 
 To add a cluster to the `Customer` class, use an [`ALTER CLASS`](SQL-Alter-Class.md) statement in the console:
 
@@ -132,17 +134,19 @@ To show the first record browsed from the `ouser` cluster, run the [`DISPLAY REC
 <pre>
 orientdb> <code class="lang-sql userinput">DISPLAY RECORD 0</code>
 
-------------------------------------------------------------------------------+
- Document - @class: OUser                      @rid: #5:0      @version: 1    |
-----------+-------------------------------------------------------------------+
-     Name | Value                                                             |
-----------+-------------------------------------------------------------------+
-     name | admin                                                             |
- password | {SHA-256}8C6976E5B5410415BDE908BD4DEE15DFB167A9C873F8A81F6F2AB... |
-   status | ACTIVE                                                            |
-    roles | [#4:0=#4:0]                                                       |
-----------+-------------------------------------------------------------------+
+DOCUMENT @class:OUser @rid:#5:0 @version:1
+----------+--------------------------------------------+
+     Name | Value                                      |
+----------+--------------------------------------------+
+     name | admin                                      |
+ password | {SHA-256}8C6976E5B5410415BDE908BD4DEE15... |
+   status | ACTIVE                                     |
+    roles | [#4:0=#4:0]                                |
+----------+--------------------------------------------+
 </pre>
 
 Bear in mind that this command references the last call of [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md). You can continue to display other records, but you cannot display records from another cluster until you browse that particular cluster.
 
+## Congratulations
+
+You now know how to use clusters to parse records of a class, and how to alter a class to add new clusters to it in your database. It's important to know about the clusters associated with a class for the next part of the tutorial. Now that you know a little bit more about clusters we can move on to Record IDs. 
