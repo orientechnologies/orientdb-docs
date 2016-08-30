@@ -7,6 +7,8 @@ node("master") {
     checkout scm
     //git url: 'https://github.com/orientechnologies/orientdb-docs.git', branch: "${env.BRANCH_NAME}"
 
+    echo "branch is:: " ${env.BRANCH_NAME}
+
     docker.image("orientdb/jenkins-slave-gitbook:20160511").inside() {
         sh "rm -rf _/book/*"
         sh "gitbook install . "
