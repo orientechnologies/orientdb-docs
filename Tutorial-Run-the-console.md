@@ -1,12 +1,13 @@
 <!-- proofread 2015-11-26 SAM -->
 # Running the OrientDB Console
 
-There are various methods you can use to connect to your database server and the individual databases, once the server is running, such as the [Network Binary](Network-Binary-Protocol.md) and [HTTP/REST](OrientDB-REST.d) protocols.  In addition to these, OrientDB provides a command-line interface for connecting to and working with the database server.
+Once the server is running there are various methods you can use to connect to your database server to an individual databases.  Two such methods are the [Network Binary](Network-Binary-Protocol.md) and [HTTP/REST](OrientDB-REST.d) protocols.  In addition to these OrientDB provides a command-line interface for connecting to and working with the database server.
 
+![consoleOverview](images/runConsole-connectToDatabase.png)
 
 ## Starting the OrientDB Console
 
-In the OrientDB installation directory, (that is, `$ORIENTDB_HOME`, where you installed the database), under `bin`, there is a file called `console.sh` on Unix-based systems and on Windows `console.bat`.
+In the OrientDB installation directory (that is, `$ORIENTDB_HOME`, where you installed the database) under `bin`, there is a file called `console.sh` for Unix-based systems or `console.bat` for Windows users.
 
 To launch the OrientDB console, run the following command after you start the database server:
 
@@ -52,7 +53,7 @@ WHERE:
 
 ## Connecting to Server Instances
 
-There are some console commands, such as `LIST DATABASES` or `CREATE DATABASE`, which you can run while only connected to the server instance.  For other commands, however, you must also connect to a database, before they run without error.
+There are some console commands, such as `LIST DATABASES` or `CREATE DATABASE`, which you can only run while connected to a server instance.  For other commands, however, you must also connect to a database, before they run without error.
 
 >Before you can connect to a fresh server instance and fully control it, you need to know the [root password](Security.md#orientdb-server-security) for the database.  The root password is located in the configuration file at `config/orientdb-server-config.xml`.  You can find it by searching for the `<users>` element.  If you want to change it, edit the configuration file and restart the server.
 

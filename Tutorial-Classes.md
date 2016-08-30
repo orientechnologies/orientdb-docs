@@ -1,39 +1,62 @@
-<!-- proofread 2015-11-26 SAM -->
+<!-- Last updated 2016-08-18 Matt -->
+<!-- length of non-skewed text code in my browser -Matt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
 # Classes
 
+Here we will learn about how classes structure data in OrientDB. A class in OrientDB is similar to a table in a relational database with some key differences. In this section you will learn how to see all of the classes in your database and how to create classes of your own. You'll also learn how to provide schema on top of classes by defining constraints for a class's properties. Finally you'll learn how to access the records stored within your classes. 
 
-Multi-model support in the OrientDB engine provides a number of ways in approaching and understanding its basic concepts.  These concepts are clearest when viewed from the perspective of the Document Database API. Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API, records always use the [Document](Concepts.md#document) type.  Documents are formed by a set of key/value pairs, referred to as fields and properties, and can belong to a class.
+The [Class](Concepts.md#class) is a concept drawn from the [Object-oriented programming](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming) paradigm. In OrientDB a class is a data model that allows you to define certain rules for records that belong together. For example, a class 'Person' can store information about people. You can structure your class such that a record in the class must have certain properties (i.e. Name, Birthdate, Favorite Number, etc...). 
 
-The [Class](Concepts.md#class) is a concept drawn from the Object-oriented programming paradigm. It is a type of data model that allows you to define certain rules for records that belong to it. In the traditional Document database model, it is comparable to the collection, while in the Relational database model it is comparable to the table.
+![PersonClass](images/PersonClass.png)
 
->For more information on classes in general, see [Wikipedia](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming).
+In the traditional document database model classes are comparable to collections, while in the Relational database model (R-DBMS) they are comparable to tables. Classes are not tables though. Classes provide efficient means for storage of schema-less data. We'll see more about schema-less, schema-full, and schema-mixed data models later (See 'Adding Properties to a Class' below). 
 
-To list all the configured classes on your system, use the [`CLASSES`](Console-Command-Classes.md) command in the console:
+Like many database management systems, OrientDB uses the [Record](Concepts.md#record) as an element of storage.  There are many types of records, but with the Document Database API records always use the [Document](Concepts.md#document) type.  A document is formed by a set of key/value pairs. A document can belong to a class.
+
+In the example above, there are two documents. One document contains information for Sarah and another for Abdul. The keys 15:0 and 15:1 refer to each document respectively. 
+
+To list all the configured classes on your system, use the [`LIST CLASSES`](Console-Command-Classes.md) command in the console:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CLASSES</code>
+orientdb> <code class="lang-sql userinput">LIST CLASSES</code>
+orientdb {db=playingwithClasses}> LIST CLASSES
 
-CLASSES:
--------------------+------------+----------+-----------+
- NAME              | SUPERCLASS |CLUSTERS  | RECORDS   |
--------------------+------------+----------+-----------+
- AbstractPerson    |            | -1       |         0 |
- Account           |            | 11       |      1126 |
- Actor             |            | 91       |         3 |
- Address           |            | 19       |       166 |
- Animal            |            | 17       |         0 |
- ....              | ....       | ....     |      .... |
- Whiz              |            | 14       |      1001 |
--------------------+------------+----------+-----------+
- TOTAL                                           22775 |
--------------------------------------------------------+
+>If you are using studio, then you can see the same information by clicking on the 'schema' tab. 
+
+CLASSES
++----+-----------+-------------+-----------------+-----+
+|#   |NAME       |SUPER-CLASSES|CLUSTERS         |COUNT|
++----+-----------+-------------+-----------------+-----+
+|0   |_studio    |             |_studio(13)      |    1|
+|1   |Blue       |[Color]      |blue(19)         |    0|
+|2   |Color      |[V]          |-                |    0|
+|3   |E          |             |e(11),e_1(12)    |    0|
+|4   |OFunction  |             |ofunction(6)     |    0|
+|5   |OIdentity  |             |-                |    0|
+|6   |ORestricted|             |-                |    0|
+|7   |ORole      |[OIdentity]  |orole(4)         |    3|
+|8   |OSchedule  |             |oschedule(8)     |    0|
+|9   |OSequence  |             |osequence(7)     |    0|
+|10  |OTriggered |             |-                |    0|
+|11  |OUser      |[OIdentity]  |ouser(5)         |    3|
+|12  |Person     |[V]          |person(15)       |    0|
+|13  |Red        |[Color]      |red(17),red_1(18)|    0|
+|14  |V          |             |v(9),v_1(10)     |    0|
++----+-----------+-------------+-----------------+-----+
+|    |TOTAL      |             |                 |    7|
++----+-----------+-------------+-----------------+-----+
+
+
 </pre>
 
+Here we can see that there are 14 classes in the database. Class 12 refers to person. There is also a class Color which is the super-class of Red and Blue. Color and Person both have super-classes called V. The class V is important for using OrientDB’s graph model. We'll see more about Superclasses and V later in the tutorial. Let's move on now to working with classes. 
 
 
 ## Working with Classes
 
-In order to start using classes with your own applications, you need to understand how to create and configure them for use.  As a concept, the class in OrientDB has the closest relationship with the table in relational databases, but (unlike tables) classes can be schema-less, schema-full or mixed. Classes can inherit from other classes, creating trees of classes.  Each class has its own cluster or clusters, (created by default, if none are defined).
+In order to start using classes with your own applications, you need to understand how to create and configure a class for use.  The class in OrientDB is similar to the table in relational databases, but unlike tables, classes can be schema-less, schema-full or mixed. A class can inherit properties from other classes thereby creating trees of classes (though the super-class relationship).
+
+Each class has its own cluster or clusters, (created by default, if none are defined). For now we should know that a cluster is a place where a group of records are stored. We'll soon see how [`clustering`](Tutorial-Clusters.md) improves performance of querying the database. 
 
 >For more information on classes in OrientDB, see [Class](Concepts.md#class).
 
@@ -42,18 +65,17 @@ To create a new class, use the [`CREATE CLASS`](SQL-Create-Class.md) command:
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE CLASS Student</code>
 
-Class created successfully. Total classes in database now: 92
+Class created successfully. Total classes in database now: 15
 </pre>
 
-This creates a class called `Student`.  Given that no cluster was defined in the [`CREATE CLASS`](SQL-Create-Class.md) command, OrientDB creates a default cluster called `student`, to contain records assigned to this class. For the moment, the class has no records or properties tied to it.  It is now displayed in the [`CLASSES`](Console-Command-Classes.md) listings.
-
+This creates a class called `Student`.  Given that no cluster was defined in the [`CREATE CLASS`](SQL-Create-Class.md) command, OrientDB creates a default cluster called `student`, to contain records assigned to this class. For the moment, the class has no records or properties tied to it.  It is now displayed in the [`CLASSES`](Console-Command-Classes.md) listing and in the schema manager of Studio.
 
 
 ### Adding Properties to a Class
 
-As mentioned above, OrientDB does allow you to work in a schema-less mode.  That is, it allows you to create classes without defining their properties. However, in the event that you would like to define indexes or constraints for your class, properties are mandatory. Following the comparison to relational databases, if classes in OrientDB are similar to tables, properties are the columns on those tables.
+As mentioned above, OrientDB allows you to work in a schema-less mode.  That is, it allows you to create classes without defining their properties. However, properties are mandatory if you would like to define indexes or constraints for a class. Let's follow OrientDB's comparison to relational databases again... If classes in OrientDB are similar to tables, then properties are the columns on those tables.
 
-To create new properties on `Student`, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command in the console:
+To create new properties on `Student`, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command in the console or in the browse window of studio:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.name STRING</code>
@@ -71,13 +93,13 @@ orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.birthDate DAT
 Property created successfully with id=3
 </pre>
 
-These commands create three new properties on the `Student` class to provide you with areas to define the individual student's name, surname and date of birth.
+These commands create three new properties on the `Student` class. The properties provide you with areas to define an individual student's name, surname, and date of birth.
 
 
 
 ### Displaying Class Information
 
-On occasion, you may need to reference a particular class to see what clusters it belongs to and any properties configured for its use.  Using the [`INFO CLASS`](Console-Command-Info-Class.md) command, you can display information on the current  configuration and properties of a class.
+Occasionally you may need to reference a particular class to see what clusters it belongs to, or any properties configured for the class's use.  Use the [`INFO CLASS`](Console-Command-Info-Class.md) command to display information about the current configuration and properties of a class.
 
 To display information on the class `Student`, use the [`INFO CLASS`](Console-Command-Info-Class.md) command:
 
@@ -96,15 +118,18 @@ Properties:
  name      | STRING | null         | false     | false    | false    |     |     |
  surname   | STRING | null         | false     | false    | false    |     |     |
 -----------+--------+--------------+-----------+----------+----------+-----+-----+
+
 </pre>
 
 ### Adding Constraints to Properties
 
 Constraints create limits on the data values assigned to properties.  For instance, the type, the minimum or maximum size of, whether or not a value is mandatory or if null values are permitted to the property.
 
-To add a constraint, use the [`ALTER PROPERTY`](SQL-Alter-Property.md) command:
+Constraints create limits on the data values assigned to properties.  For instance, if 'MANDATORY' is set to true for name in student, then every record in the student class must have a name. If we set 'MIN' to three, then every name must also be at least three characters long. 
 
+>The only two properties required when using the 'create a property' command for a class are 'NAME' and 'TYPE'.
 
+To add a constraint to an existing property, use the [`ALTER PROPERTY`](SQL-Alter-Property.md) command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MIN 3</code>
@@ -112,14 +137,24 @@ orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MIN 3</co
 Property updated successfully
 </pre>
 
-This command adds a constraint to `Student` on the `name` property.  It sets it so that any value given to this class and property must have a minimum of three characters.
+This command adds a constraint to `Student` on the `name` property. After running this command, Student will allow any record to be stored unless the record has a property called 'Name'. If the records has such a property then 'Student' will reject the record if the value in 'Name' is less then three characters. 
 
+By setting property, 'MANDATORY', to true for Student's Name we can also guarantee that every record added to student has a name. 
+
+<pre>
+orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MANDATORY true</code>
+
+There are many ways to use constraints on properties. They can allow you to build a data-model that tells a story about your own use case. Constraints can also help ensure that you're database communicates with other components of a larger application by only allowing storage of values that another application is able to recognize.
 
 ## Viewing Records in a Class
 
-Classes contain and define records in OrientDB.  You can view all records that belong to a class using the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command and data belonging to a particular record with the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command.
+Classes contain and define records in OrientDB.  You can view all records that belong to a class using the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command. You can also see data belonging to a particular record with the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command. 
 
-In the above examples, you created a `Student` class and defined the schema for records that belong to that class, but you did not create these records or add any data.  As a result, running these commands on the `Student` class returns no results.  Instead, for the examples below, consider the `OUser` class.
+>Note: you cannot display a record unless you have recently received a query result with records to browse (select statement, 'browse class x', etc...).
+
+Earlier we created a `Student` class and defined some schema for records belonging to that class, but we didn't create any records or add any data. Thus, running 'BROWSE CLASS' on the `Student` class returns no results. Luckily OrientDB has a few preconfigured classes and records that we can query.
+
+Let's take the class OUser for example.
 
 <pre>
 orientdb> <code class="lang-sql userinput">INFO CLASS OUser</code>
@@ -152,7 +187,7 @@ INDEXES (1 altogether)
 
 </pre>
 
-OrientDB ships with a number of default classes, which it uses in configuration and in managing data on your system, (the classes with the `O` prefix shown in the [`CLASSES`](Console-Command-Classes.md) command output).  The `OUser` class defines the users on your database.
+The `OUser` class defines the users on your database.
 
 To see records assigned to the `OUser` class, run the [`BROWSE CLASS`](Console-Command-Browse-Class.md) command:
 
@@ -180,17 +215,35 @@ To show the first record browsed from the `OUser` class, run the [`DISPLAY RECOR
 <pre>
 orientdb> <code class="lang-sql userinput">DISPLAY RECORD 0</code>
 
-------------------------------------------------------------------------------+
- Document - @class: OUser                      @rid: #5:0      @version: 1    |
-----------+-------------------------------------------------------------------+
-     Name | Value                                                             |
-----------+-------------------------------------------------------------------+
-     name | admin                                                             |
- password | {SHA-256}8C6976E5B5410415BDE908BD4DEE15DFB167A9C873F8A81F6F2AB... |
-   status | ACTIVE                                                            |
-    roles | [#4:0=#4:0]                                                       |
-----------+-------------------------------------------------------------------+
+DOCUMENT @class:OUser @rid:#5:0 @version:1
+----------+--------------------------------------------+
+     Name | Value                                      |
+----------+--------------------------------------------+
+     name | admin                                      |
+ password | {SHA-256}8C6976E5B5410415BDE908BD4DEE15... |
+   status | ACTIVE                                     |
+    roles | [#4:0=#4:0]                                |
+----------+--------------------------------------------+
+
 </pre>
 
 Bear in mind that this command references the last call of [`BROWSE CLASS`](Console-Command-Browse-Class.md).  You can continue to display other records, but you cannot display records from another class until you browse that particular class.
 
+## Class Review
+
+Here are a couple key things to remember about classes... 
+	1) A class in OrientDB is similar to a table in a relational database with some key differences. Among those differences we see tables are schema-full, and classes can be schema-full, schema-less, or mixed.
+	
+	2) You can see all of the classes in your database by running 'LIST CLASSES' in console or by visiting the 'Schema Manager' in Studio.
+	
+	3) You can create a class by running the 'create class <class-name> command in console, or by running the same command in the 'Browse' window of studio. 
+	
+	4) You can use the commands, 'Create property <property-name> [constraints]' and 'Create property <property-name> [constraints]' to give schema to a class.
+	
+	5) To see properties and constraints associated with a class you can run 'info class <class-name>'.
+	
+	6) To see information about a the records within a class run 'Browse class <class-name>. 
+	
+	7) To see information about a specific record of a class use the command 'Display record <record-number>'. Note: You must have recently queried a class for it's records before using this command. '<record-number>' references the number in the left-most column of the previous query's result.
+	
+Congratulations! You are now familiar with classes in OrientDB. If you're ready to explore clusters then let's move on to the [`clustering`](Tutorial-Clusters.md.) section of this tutorial.

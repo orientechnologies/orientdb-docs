@@ -8,6 +8,7 @@
 
 pre code.userinput {
     font-size: inherit !important;
+    overflow-x: scroll;
 }
 
 section.normal p,
