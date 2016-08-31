@@ -1,8 +1,9 @@
-<!-- proofread 2015-11-26 SAM -->
 ---
 search:
    keywords: ["tutorial", "server"]
 ---
+
+<!-- proofread 2015-11-26 SAM -->
 
 # Running the OrientDB Server
 

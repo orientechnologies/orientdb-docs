@@ -1,8 +1,9 @@
-<!-- proofread 2015-11-26 SAM -->
 ---
 search:
    keywords: ["tutorial", "relationship", "edge"]
 ---
+
+<!-- proofread 2015-11-26 SAM -->
 
 # Relationships
 
