@@ -123,6 +123,17 @@ orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:invoice2012</code
 
 Due to the optimization, this query runs significantly faster, because OrientDB can narrow the search to the targeted cluster.
 
+
+## Cluster
+
+Where classes in provide you with a logical framework for organizing data, clusters provide physical or in-memory space in which OrientDB actually stores the data.  It is comparable to the collection in Document databases and the table in Relational databases.
+
+When you create a new class, the [`CREATE CLASS`](SQL-Create-Class.md) process also creates a physical cluster that serves as the default location in which to store data for that class.  OrientDB forms the cluster name using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
+
+>For more information, see the [Clusters Tutorial](Tutorial-Clusters.md).
+
+
+
 ## Relationships
 
 OrientDB supports two kinds of relationships: **referenced** and **embedded**.  It can manage relationships in a schema-full or schema-less scenario.
