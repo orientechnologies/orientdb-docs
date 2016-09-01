@@ -22,13 +22,41 @@ OrientGraph-2------+
 ```
 
 Database instances share the following objects:
-- schema
-- index manager
-- security
+- Schema
+- Index Manager
+- Security
 
 These objects are synchronized for concurrent contexts by storing the current database in the [ThreadLocal](http://download.oracle.com/javase/6/docs/api/java/lang/ThreadLocal.html) variable. Every time you create, open or acquire a database connection, the database instance is **automatically** set into the current [ThreadLocal](http://download.oracle.com/javase/6/docs/api/java/lang/ThreadLocal.html) space, so in normal use this is hidden from the developer.
 
 The current database is always reset for all common operations like load, save, etc.
+
+## Working with databases
+
+The simplest way to work with multiple threads on the same database/graph is creating a new database/graph instance in the thread's `run()` method scope. In this way OrientDB will set the new database/graph automatically in the ThreadLocal for further usage.
+
+Example:
+
+```java
+OrientGraphFactory factory = new OrientGraphFactory("remote:localhost/mydb").setupPool(10, 20);
+
+new Thread( new Runnable() {
+  public void run(){
+    OrientBaseGraph graph = factory.getTx();
+    try{
+      // OPERATION WITH THE GRAPH INSTANCE
+      graph.addVertex("class:Account", "name", "Amiga Corporation");
+    } finally {
+      graph.shutdown();
+    }
+  }
+} ).start();
+```
+
+If you are using a database/graph instance created in another thread, make sure you activate the instance before using it. The API is `graph.makeActive()` for the Graph API and `database.activateOnCurrentThread()` for the Document API.
+
+## Using multiple databases
+
+When multiple database instances are used by the same thread, it's necessary to explicitely set the database/graph instance before to use it.
 
 Example of using two database in the same thread:
 ```java
