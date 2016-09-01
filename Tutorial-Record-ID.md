@@ -74,7 +74,7 @@ The [`LOAD RECORD`](Console-Command-Load-Record.md) command returns some useful 
 
 - The field `addresses` has been `NOT LOADED`. It is also a `LINK` to another record, `#31:0`.  This is a relationship. For more information on this concept, see [Relationships](Tutorial-Relationships.md).  
 
-### Studio
+### Studio Load
 
 OrientDB studio does not support the `LOAD RECORD` command. You will use SQL syntax in order to retrieve the a record by record ID when using Studio. We haven't gotten to OrientDB's SQL yet but for now you should just know that OrientDB does support it's own flavor of SQL. In it you do not have to you the `*` to project all columns of a record. 
 
@@ -88,7 +88,7 @@ Then press the green 'run' button, to see the record you selected.
 
 This code tells OrientDB to project all attributes and values of the record whose ID is passed in. 
 
-![selectFromRecordID](imiges/tutorial-select-from-rid.png)
+![selectFromRecordID](images/tutorial-select-from-rid.png)
 
 ## Congratulations
 
