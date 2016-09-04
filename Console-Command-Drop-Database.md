@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['console', 'command', 'drop', 'delete', 'database', 'DROP DATABASE']
+---
+
+
 # Console - `DROP DATABASE`
 
 Removes a database completely.  If the database is open and a database name not given, it removes the current database.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'freeze', 'database', 'FREEZE DATABASE']
+---
+
 # Console - `FREEZE DATABASE`
 
 Flushes all cached content to disk and restricts permitted operations to read commands.  With the exception of reads, none of the commands made on a frozen database execute.  It remains in this state until you run the [`RELEASE`](Console-Command-Release-Db.md) command.

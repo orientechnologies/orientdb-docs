@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'gremlin', 'GREMLIN', 'Gremlin language']
+---
+
 # Console - `GREMLIN`
 
 Executes commands in the Gremlin language from the Console.

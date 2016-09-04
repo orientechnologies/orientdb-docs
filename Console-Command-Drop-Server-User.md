@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'drop', 'delete', 'server user', 'user', 'DROP SERVER USER']
+---
+
 # Console - `DROP SERVER USER`
 
 Removes a user from the server.  In order to do so, the current system user running the Console, must have permissions to write to the `$ORIENTDB_HOME/config/orientdb-server-config.xmL` configuration file.

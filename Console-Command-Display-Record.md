@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'display', 'record', 'DISPLAY RECORD']
+---
+
 # Console - DISPLAYS RECORD
 
 Displays details on the given record from the last returned result-set. 
