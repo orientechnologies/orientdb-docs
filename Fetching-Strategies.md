@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concept', 'fetch', 'fetching', 'fetch plan', 'fetching strategy', 'fetching strategies']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Fetching Strategies
 

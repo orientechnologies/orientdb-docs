@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concept', 'use cases', 'use-cases']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Use Cases
 

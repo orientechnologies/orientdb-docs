@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['use case', 'use-case', 'time series']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Time Series Use Case
 

@@ -1,7 +1,11 @@
+---
+search:
+   keywords: ['admin', 'administration']
+---
+
 <!-- proofread 2015-01-06 SAM -->
 
 ### Administration
-_____
 
 OrientDB has a number of tools to make administration of the database easier. There is the [console](Tutorial-Run-the-console.md), which allows you to run a large number of [commands](Console-Commands.md).
 

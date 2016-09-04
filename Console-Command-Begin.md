@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'console command', 'BEGIN']
+---
+
 <!-- proofread 2015-01-06 SAM -->
 
 # Console - `BEGIN`

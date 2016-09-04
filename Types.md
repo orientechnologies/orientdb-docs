@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['concepts', 'types']
+---
+
+
 <!-- proofread 2015-11-26 SAM -->
 # Supported Types
 

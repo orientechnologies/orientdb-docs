@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concept', 'schema', 'class', 'property', 'relationship', 'edge', 'vertex']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Schema
 
