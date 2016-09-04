@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'connection', 'disconnect', 'DISCONNECT']
+---
+
 # Console - DISCONNECT
 
 Closes the currently opened database.
