@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'cluster', 'create', 'CREATE CLUSTER']
+---
+
 <!-- proofread 2015-01-07 SAM -->
 
 # Console - `CREATE CLUSTER`

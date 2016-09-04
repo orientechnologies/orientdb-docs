@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'configuration', 'CONFIG SET']
+---
+
 <!-- proofread 2015-01-07 SAM -->
 
 # Console - `CONFIG SET`

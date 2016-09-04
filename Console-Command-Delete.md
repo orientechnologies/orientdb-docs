@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'delete', 'DELETE']
+---
+
 <!-- proofread 2015-01-07 SAM -->
 
 # Console - DELETE

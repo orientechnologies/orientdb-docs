@@ -1,3 +1,8 @@
+---
+search: 
+   keywords: ['console', 'command', 'BROWSE CLUSTER', 'browse', 'cluster']
+---
+
 <!-- proofread 2015-01-07 SAM -->
 
 # Console - `BROWSE CLUSTER`

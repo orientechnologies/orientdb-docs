@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'create', 'property', 'CREATE PROPERTY']
+---
+
 <!-- proofread 2015-01-07 SAM -->
 
 # Console - `CREATE PROPERTY`
