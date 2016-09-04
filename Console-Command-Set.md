@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'set', 'SET']
+---
+
 # Console - `SET`
 
 Changes the value of a property.

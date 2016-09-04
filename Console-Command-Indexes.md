@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'index', 'indexes', 'indices', 'INDEXES']
+---
+
 # Console - `INDEXES`
 
 Displays all indexes in the current database.

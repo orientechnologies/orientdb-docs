@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['console', 'command', 'import', 'IMPORT DATABASE', 'backup', 'restore', 'export']
+---
+
+
 # Console - `IMPORT`
 
 Imports an exported database into the current one open.

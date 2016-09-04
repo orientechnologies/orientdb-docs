@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'javascript', 'js', 'JS']
+---
+
 # Console - `JS`
 
 Executes commands in the Javascript language from the Console. Look also [Javascript Command](Javascript-Command.md).

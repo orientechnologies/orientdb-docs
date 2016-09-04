@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'rollback', 'transaction', 'ROLLBACK']
+---
+
 # Console - `ROLLBACK`
 
 Aborts a transaction, rolling the database back to its save point.

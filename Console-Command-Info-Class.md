@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'info', 'class', 'INFO CLASS']
+---
+
 # Console - `INFO CLASS`
 
 Displays all information on givne class.

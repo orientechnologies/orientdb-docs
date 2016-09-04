@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'insert', 'INSERT']
+---
+
 # Console -  `INSERT`
 
 Inserts a new record into the current database.  Remember, OrientDB can work in schema-less mode, meaning that you can create any field on the fly.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'property', 'list', 'PROPERTIES']
+---
+
 # Console - `PROPERTIES`
 
 Displays all configured properties.
