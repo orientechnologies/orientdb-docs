@@ -49,4 +49,21 @@ db.record.create(binary_data).then(function(data){
 
 ```
 
+### Updating a record
+
+Using the Record API, you can updated records using previusly fetched objects wit db.record.update() method. 
+For instance,
+
+```js
+
+db.record.get('#5:0')
+	.then(function(record){
+      record.surname = 'updated'
+      db.record.update(record)
+         .then(function(){
+          console.log("Updated");
+      })
+   })
+```
+
 Here, you initialize the `binary_data` variable as a new `Buffer()` instance.  Then you set the type and cluster on which it's stored, (`@class` in this case refers to the cluster).  Finally, you create the record in OrientDB, printing its Record ID to the console.
