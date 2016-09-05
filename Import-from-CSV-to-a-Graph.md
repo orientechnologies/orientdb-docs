@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'ETL example', 'import from CSV']
+---
+
 <!-- proofread 2015-12-11 SAM -->
 # Import from a CSV file to a Graph
 

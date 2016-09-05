@@ -1,5 +1,10 @@
+---
+search:
+   keywords: ['upgrade', 'upgrading']
+---
+
+
 # Upgrading
-_____
 
 OrientDB uses the Semantic Versioning System (http://semver.org), where the version numbers follow this format MAJOR.MINOR.PATCH,
 Here are the meanings of the increments:

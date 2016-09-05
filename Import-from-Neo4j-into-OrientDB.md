@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['import', 'export', 'Neo4j', 'migration']
+---
+
 # Import from Neo4j
 
 Neo4j is an open-source graph database that queries and manipulates data using its own Cypher Query Language and can export in GraphML, an XML-based file format for graphs.  Given that OrientDB can read GraphML, it is relatively straightforward to import data from Neo4j into OrientDB.  You can manage the imports using the Console or the Java API.

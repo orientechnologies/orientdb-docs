@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'database', 'Database Management']
+---
+
 # Database Management
 This is the panel containing all the information about the current database.
 

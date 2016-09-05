@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'ETL example', 'import from JSON']
+---
+
+
 <!-- proofread 2015-12-11 SAM -->
 # Import form JSON
 

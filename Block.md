@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'block']
+---
+
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Blocks
 

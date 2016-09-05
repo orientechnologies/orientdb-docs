@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['backup', 'restore', 'incremental']
+---
+
 # Incremental Backup and Restore
 
 (Since v2.2 - Enteprise Edition only)

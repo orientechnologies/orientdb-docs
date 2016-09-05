@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'ETL example', 'import from RDBMS']
+---
+
 # ETL - Import from RDBMS
 
 Most of DBMSs support [JDBC](http://en.wikipedia.org/wiki/JDBC_driver) driver. All you need is to gather the JDBC driver and put it in classpath or simply in the $ORIENTDB_HOME/lib directory.

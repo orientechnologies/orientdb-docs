@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['Studio', 'server', 'server management']
+---
+
+
 # Server Management
 This is the section (available only for the Enterprise Edition) to work with OrientDB Server as DBA/DevOps. This control panel coming from OrientDB 2.1 Studio has been enriched with several new features for the new [Enterprise Edition](http://orientdb.com/enterprise/).
 

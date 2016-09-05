@@ -1,5 +1,9 @@
+---
+search:
+   keywords: ['upgrade', 'migration']
+---
+
 # Migration from 1.7.x to 2.0.x
-_____
 
 Databases created with release 1.7.x are compatible with 2.0, so you don't have to export/import the database like in the previous releases. Check your database directory: if you have a file *.wal, delete it before migration.
 

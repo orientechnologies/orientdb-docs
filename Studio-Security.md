@@ -1,4 +1,9 @@
-#Security
+---
+search:
+   keywords: ['Studio', 'security']
+---
+
+# Security
 
 Studio 2.0 includes the new Security Management where you can manage Users and Roles in a graphical way.
 For detailed information about Security in OrientDB, visit [here](Security.md)

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'class', 'property']
+---
+
 # Class Edit
 
 ![Class](images/class.png)

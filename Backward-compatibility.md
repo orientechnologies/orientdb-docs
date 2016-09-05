@@ -1,5 +1,9 @@
-#Backward Compatibility
-____
+---
+search:
+   keywords: ['upgrade', 'compatibility', 'backwards compatibility']
+---
+
+# Backward Compatibility
 
 OrientDB supports binary compatibility between previous releases and latest release.
 Binary compatibility is supported at least between last 2 minor versions.
