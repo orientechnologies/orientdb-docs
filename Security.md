@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['security']
+---
+
 # Security
 
 OrientDB is the NoSQL implementation with the greatest focus on security.

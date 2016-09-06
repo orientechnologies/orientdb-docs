@@ -1,4 +1,9 @@
-# New Security Features - Code Changes #
+---
+search:
+   keywords: ['security', 'new features']
+---
+
+# New Security Features - Code Changes
 
 The motivation behind creating a new security layer for OrientDB was to meet the requirements of several customers who needed external authentication (specifically Kerberos and SPNEGO support), the ability to import users from specific groups via LDAP, password validation, and new auditing capabilities.
 
