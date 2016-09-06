@@ -1,4 +1,7 @@
-<!-- proofread 2015-11-26 SAM -->
+---
+search:
+   keywords: ['server management', 'service', 'Unix', 'Linux', 'init', 'systemd']
+---
 
 # Install as Service on Unix/Linux
 

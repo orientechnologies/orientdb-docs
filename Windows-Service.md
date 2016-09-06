@@ -1,4 +1,7 @@
-<!-- proofread 2015-11-26 SAM -->
+---
+search:
+   keywords: ['server management', 'service', 'Windows']
+---
 
 # Install as a Service on Windows
 

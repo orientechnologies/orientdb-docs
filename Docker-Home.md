@@ -1,4 +1,8 @@
-<!-- proofread 2015-11-26 SAM -->
+---
+search:
+   keywords: ['server management', 'Docker']
+---
+
 # Installing in a Docker Container
 
 If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
