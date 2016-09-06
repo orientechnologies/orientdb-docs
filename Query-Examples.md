@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['troubleshooting', 'query', 'queries', 'query example']
+---
+
 # Query Examples
 
 This pages collects example of query from users. Feel free to add your own use case and query to help further users.

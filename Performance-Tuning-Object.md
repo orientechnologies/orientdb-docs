@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['performance', 'performance tuning', 'Object API', 'object']
+---
+
 # Tuning the Object API
 
 This guide is specific for the Object Database. Please be sure to read the generic guide to the [Performance-Tuning](Performance-Tuning.md).

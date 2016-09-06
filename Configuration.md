@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['performance', 'performance tuning', 'configuration', 'global configuration']
+---
+
 # Global Configuration
 
 OrientDB can be configured in several ways. To know the current settings use the console with the [config command](Console-Command-Config.md).

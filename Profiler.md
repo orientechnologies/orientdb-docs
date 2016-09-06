@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['performance', 'performance tuning', 'profiler']
+---
+
 # Profiler
 
 [OrientDB Enterprise Edition](Enterprise-Edition.md) comes with a profiler that collects all the metrics about the engine and the system where is running.

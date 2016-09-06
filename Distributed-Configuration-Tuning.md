@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['performance', 'performance tuning', 'distributed', 'distributed deployment', 'distributed configuration']
+---
+
+
 # Distributed Configuration Tuning
 
 When you run [distributed](Distributed-Architecture.md) on multiple servers, you could face on a drop of performance you got with single node. While it's normal that replication has a cost, there are many ways to improve performance on distributed configuration:

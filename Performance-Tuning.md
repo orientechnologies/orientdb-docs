@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['performance', 'performance tuning']
+---
+
 # Performance Tuning
 
 This guide contains the general tips to optimize your application that use the OrientDB. Below you can find links for the specific guides different per database type used. Look at the specific guides based on the database type you're using:

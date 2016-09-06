@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['performance', 'performance tuning', 'Document API', 'document']
+---
+
 # Tuning the Document API
 
 This guide is specific for the Document Database. Please be sure to read the generic guide to the [Performance-Tuning](Performance-Tuning.md).

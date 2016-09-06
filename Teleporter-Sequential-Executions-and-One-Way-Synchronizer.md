@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['teleporter', 'sequential execution', 'one-way synchronizer', '1-way synchronizer']
+---
+
 # Sequential Executions and One-Way Synchronizer
 Teleporter is conceived to support many sequential executions from the same source DB to the same graph DB of OrientDB, in this way you can:
 

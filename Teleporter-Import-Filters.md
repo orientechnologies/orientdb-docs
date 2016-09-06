@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['teleporter', 'import filter']
+---
+
 # Import Filters
 
 It's possible to apply filters to the import process through the **include** and **exclude** arguments.     

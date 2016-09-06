@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['teleporter', 'inheritance', 'single table', 'single-table']
+---
+
 # Single Table Inheritance
 
 Single Table strategy is the simplest and typically the best performing solution. By this inheritance strategy, we can map the whole hierarchy through a single table. The table will have a column for every attribute of every class in the hierarchy and an extra column (also known as **discriminator** column) is created in the table to identify the class.    
