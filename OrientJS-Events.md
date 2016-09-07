@@ -23,20 +23,21 @@ var query = db.select('name, status').from('OUser')
 
 The function in `beginQuery` event receives an object that contains data on the query it's executing, this is similar to the data set on the `obj` variable below:
 
+
 ```js
 var obj = {
-   {
-      "err": errObj,
-      "result": resultObj,
-      "perf": {
-         "query": timeInMs
-      },
-      "input" : inputObj
+   query: 'SELECT name, status FROM OUser'
+           + 'WHERE status = :paramstatus0 LIMIT 1',
+   mode: 'a',
+   fetchPlan: 'role:1',
+   limit: -1,
+   params: {
+      params: {
+         paramstatus0: 'active'
+      }
    }
 }
 ```
-
-Where `inputObj` is the data used for the `beginQuery` event.
 
 For instance, say that there is something wrong with your application and for the purposes of debugging, you want to log all queries made to the database.
 
@@ -59,10 +60,14 @@ var obj = {
       "result": resultObj,
       "perf": {
          "query": timeInMs
-      }
+      },
+      "input" : inputObj
    }
 }
 ```
+
+Where `inputObj` is the data used for the `beginQuery` event.
+
 
 For instance, when debugging you might use this event to log errors and performance data to the console:
 
