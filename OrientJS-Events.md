@@ -25,18 +25,18 @@ The function in `beginQuery` event receives an object that contains data on the 
 
 ```js
 var obj = {
-   query: 'SELECT name, status FROM OUser'
-           + 'WHERE status = :paramstatus0 LIMIT 1',
-   mode: 'a',
-   fetchPlan: 'role:1',
-   limit: -1,
-   params: {
-      params: {
-         paramstatus0: 'active'
-      }
+   {
+      "err": errObj,
+      "result": resultObj,
+      "perf": {
+         "query": timeInMs
+      },
+      "input" : inputObj
    }
 }
 ```
+
+Where `inputObj` is the data used for the `beginQuery` event.
 
 For instance, say that there is something wrong with your application and for the purposes of debugging, you want to log all queries made to the database.
 
