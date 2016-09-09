@@ -1,4 +1,7 @@
-<!-- proofread 2015-12-10 SAM -->
+---
+search:
+   keywords: ['index', 'SB-Tree', 'UNIQUE', 'NOTUNIQUE', 'FULLTEXT', 'DICTIONARY']
+---
 
 # SB-Tree Index Algorithm
 
