@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'limits']
+---
+
 # Limits
 
 Below are the limitations of the OrientDB engine:

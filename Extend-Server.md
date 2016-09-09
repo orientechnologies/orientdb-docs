@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'server', 'plugin', 'extension']
+---
+
 # OrientDB Plugins
 
 The OrientDB Server is a customizable platform to build powerful server component and applications.

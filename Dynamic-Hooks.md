@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'hook', 'dynamic', 'dynamic hook']
+---
+
 # Dynamic Hooks
 Dynamic [Hooks](Hook.md) are more flexible than [Java Hooks](Java-Hooks.md), because they can be changed at run-time and can run per document if needed, but are slower than [Java Hooks](Java-Hooks.md). Look at [Hooks](Hook.md) for more information.
 

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'parser', 'syntax']
+---
+
 # SQL parser syntax
 
 [BNF](https://en.wikipedia.org/wiki/Backus-Naur_Form) token specification

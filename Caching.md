@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'cache', 'caching']
+---
+
 # Caching
 
 OrientDB has several caching mechanisms that act at different levels. Look at this picture:
