@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'batch insert']
+---
+
 # Graph Batch Insert
 
 Creating big graphs in OrientDB is a common operation, so OrientDB provides some APIs to make it fast and easy.

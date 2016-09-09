@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'Java', 'partition', 'partitioned graphs']
+---
+
 # Partitioned Graphs
 
 Beginning in version 1.2.0 of OrientDB, you can partition graphs using the [Record-level Security](Security.md#record_level_security) feature.  This allows you to separate database records as sandboxes, where "restricted" records are inaccessible to unauthorized users.

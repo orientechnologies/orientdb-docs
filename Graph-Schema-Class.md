@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Java', 'Graph API', 'class']
+---
+
 # Classes in the Graph Database
 
 Classes are a concept drawn from the Object-Oriented Programming paradigm.  OrientDB defines it as a record-type.  In the Relational Model, it is nearest the concept of the table.  Classes can be schema-less, schema-full or mixed.  Classes can inherit from another class, shaping a tree of classes.  Due to inheritance, the subclass extends the parent class, inheriting all the attributes as though they were its own.
