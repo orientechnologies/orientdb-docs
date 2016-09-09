@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['function', 'server', 'server-side']
+---
+
 # Server-side Functions
 
 In OrientDB, you can replace the use of Servlets with server-side functions.  For more information on how to call server-side functions, see [Functions using the HTTP REST API](Functions-Use.md#functions-using-the-http-rest-api).

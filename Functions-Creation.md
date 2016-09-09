@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['functions', 'create', 'creation', 'javascript']
+---
+
 # Creating Functions
 
 In addition to the functions provided in OrientDB by default, you can also create your own functions.

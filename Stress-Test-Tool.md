@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['stress test tool']
+---
+
 ### OrientDB Stress Test Tool ###
 The OrientDB Stress Test Tool is an utility for very basic benchmarking of OrientDB.
 

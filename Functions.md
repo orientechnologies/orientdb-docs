@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['API', 'function']
+---
+
 # Functions
 
 A **Function** is an executable unit of code that can take parameters and return a result. Using Functions you can perform [Functional programming](http://en.wikipedia.org/wiki/Functional_programming) where logic and data are all together in a central place. Functions are similar to the [Stored Procedures](http://en.wikipedia.org/wiki/Stored_procedure) of RDBMS.
