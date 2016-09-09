@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['server', 'plugin', 'Gephi', 'Gephi Visual Tool']
+---
+
 # Gephi Visual Tool
 
 ![image](https://gephi.github.io/images/screenshots/preview4.png)

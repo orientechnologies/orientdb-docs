@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['server', 'plugin', 'automatic backup', 'backup']
+---
+
 # Automatic Backup Server Plugin
 
 Using this server plugin, OrientDB executes regular backups on the databases.  It implements the Java class:
