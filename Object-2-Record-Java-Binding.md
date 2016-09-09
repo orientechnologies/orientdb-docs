@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Object API', 'object binding']
+---
+
 # Object Binding
 
 The ObjectDatabase implementation makes things easier for the Java developer since the binding between Objects to Records is transparent.

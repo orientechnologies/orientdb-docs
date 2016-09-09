@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Java API', 'JPA']
+---
+
 # JPA
 
 There are two ways to configure OrientDB JPA

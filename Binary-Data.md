@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Java API', 'binary data']
+---
+
 # Binary Data
 
 OrientDB natively handles binary data, namely BLOB. However, there are some considerations to take into account based on the type of binary data, the size, the kind of usage, etc.
