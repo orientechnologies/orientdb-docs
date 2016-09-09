@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'sharding']
+---
+
 # Sharding
 
 _NOTE: Sharding is a new feature with some [limitations](Distributed-Sharding.md#limitation). Please read them before using it._

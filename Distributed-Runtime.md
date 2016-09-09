@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'runtime', 'run-time']
+---
+
 # Distributed runtime
 _NOTE: available only in Enteprise Edition_
 

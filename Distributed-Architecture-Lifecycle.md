@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'lifecycle', 'distributed architecture']
+---
+
 # Distributed Architecture Lifecycle
 
 In OrientDB Distributed Architecture all the nodes are masters (Multi-Master), while in most DBMS the replication works in Master-Slave mode where there is only one Master node and N Slaves that are use only for reads or when the Master is down. Starting from OrientDB v2.1, you can also assign the role of [REPLICA](Distributed-Architecture.md#server-roles) to some nodes.

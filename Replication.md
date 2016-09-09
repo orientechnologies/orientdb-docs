@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'replication']
+---
+
 # Replication
 
 OrientDB supports the [Multi Master replication](http://en.wikipedia.org/wiki/Multi-master_replication). This means that all the nodes in the cluster are Master and are able to read and write to the database. This allows to scale up horizontally without bottlenecks like most of any other RDBMS and NoSQL solution do.

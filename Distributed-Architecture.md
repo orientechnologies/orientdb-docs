@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'distributed architecture']
+---
+
 # Distributed Architecture
 
 OrientDB can be distributed across different servers and used in different ways to achieve the maximum of performance, scalability and robustness.

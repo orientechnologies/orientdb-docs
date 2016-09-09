@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'configuration']
+---
+
 # Distributed Configuration
 
 The distributed configuration consists of 3 files under the **config/** directory:
