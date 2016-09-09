@@ -64,10 +64,13 @@ var obj = {
       "result": resultObj,
       "perf": {
          "query": timeInMs
-      }
+      },
+      "input" : inputObj
    }
 }
 ```
+
+Where `inputObj` is the data used for the `beginQuery` event.
 
 For instance, when debugging you might use this event to log errors and performance data to the console:
 
