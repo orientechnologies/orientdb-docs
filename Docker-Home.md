@@ -4,7 +4,7 @@
 If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
 
 ```
-$ docker run -d –name orientdb -p 2424:2424 -p 2480:2480
+$ docker run -d --name orientdb -p 2424:2424 -p 2480:2480
    -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
 ```
 
