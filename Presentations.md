@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['tutorial', 'presentation', 'video cast']
+---
+
 # Presentations
 
 ## Videos and Presentations in English

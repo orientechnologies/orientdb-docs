@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['contribute', 'contribution', 'hackathon']
+---
+
 # Hackaton
 
 Hackatons are the appointement where OrientDB old and new committers and contributors work together in few hours, on the same spot, or connected online.

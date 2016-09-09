@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['contribute', 'contribution', 'contribute to OrientDB']
+---
+
 # Contribute to OrientDB
 
 In order to contribute issues and pull requests, please sign OrientDB's [Contributor License Agreement](https://www.clahub.com/agreements/orientechnologies/orientdb). The purpose of this agreement is to protect users of this codebase by ensuring that all code is free to use under the stipulations of the [Apache2 license](http://www.apache.org/licenses/LICENSE-2.0.html).

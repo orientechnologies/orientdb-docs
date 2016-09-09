@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['roadmap', 'road map']
+---
+
 # Roadmap
 
 This page contains the roadmap with the main enhancements for the OrientDB product. 

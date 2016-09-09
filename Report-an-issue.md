@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['contribute', 'contribution', 'report', 'issue', 'report an issue']
+---
+
 # Report an Issue
 
 Very often when a new issue is open it lacks some fundamental information. This slows down the entire process because the first question from the OrientDB team is always "What release of OrientDB are you using?" and every time a Ferret dies in the world.
