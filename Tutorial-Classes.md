@@ -146,6 +146,7 @@ By setting property, 'MANDATORY', to true for Student's Name we can also guarant
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MANDATORY true</code>
+</pre>
 
 There are many ways to use constraints on properties. They can allow you to build a data-model that tells a story about your own use case. Constraints can also help ensure that you're database communicates with other components of a larger application by only allowing storage of values that another application is able to recognize.
 
@@ -234,19 +235,20 @@ Bear in mind that this command references the last call of [`BROWSE CLASS`](Cons
 
 ## Class Review
 
-Here are a couple key things to remember about classes... 
-	1) A class in OrientDB is similar to a table in a relational database with some key differences. Among those differences we see tables are schema-full, and classes can be schema-full, schema-less, or mixed.
+Here are some key things to remember about classes:
+
+1) A class in OrientDB is similar to a table in a relational database with some key differences. Among those differences we see tables are schema-full, and classes can be schema-full, schema-less, or mixed.
 	
-	2) You can see all of the classes in your database by running 'LIST CLASSES' in console or by visiting the 'Schema Manager' in Studio.
+2) You can see all of the classes in your database by running 'LIST CLASSES' in console or by visiting the 'Schema Manager' in Studio.
 	
-	3) You can create a class by running the 'create class <class-name> command in console, or by running the same command in the 'Browse' window of studio. 
+3) You can create a class by running the 'create class <class-name>' command in console, or by running the same command in the 'Browse' window of studio. 
 	
-	4) You can use the commands, 'Create property <property-name> [constraints]' and 'Create property <property-name> [constraints]' to give schema to a class.
+4) You can use the commands, 'Create property <property-name> [constraints]' and 'Create property <property-name> [constraints]' to give schema to a class.
 	
-	5) To see properties and constraints associated with a class you can run 'info class <class-name>'.
+5) To see properties and constraints associated with a class you can run 'info class <class-name>'.
 	
-	6) To see information about a the records within a class run 'Browse class <class-name>. 
+6) To see information about a the records within a class run 'Browse class <class-name>'. 
 	
-	7) To see information about a specific record of a class use the command 'Display record <record-number>'. Note: You must have recently queried a class for it's records before using this command. '<record-number>' references the number in the left-most column of the previous query's result.
+7) To see information about a specific record of a class use the command 'Display record <record-number>'. Note: You must have recently queried a class for it's records before using this command. '<record-number>' references the number in the left-most column of the previous query's result.
 	
 Congratulations! You are now familiar with classes in OrientDB. If you're ready to explore clusters then let's move on to the [`clustering`](Tutorial-Clusters.md.) section of this tutorial.
