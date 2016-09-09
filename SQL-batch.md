@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'BATCH']
+---
+
 # SQL Batch
 
 OrientDB allows execution of arbitrary scripts written in Javascript or any scripting language installed in the JVM. OrientDB supports a minimal SQL engine to allow a batch of commands.

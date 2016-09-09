@@ -1,3 +1,10 @@
+---
+search:
+   keywords: ['SQL', 'pagination']
+---
+
+# Pagination
+
 OrientDB supports pagination natively. Pagination doesn't consume server side resources because no cursors are used. Only [Record ID's](Concepts.md#record-id) are used as pointers to the physical position in the cluster. 
 
 There are 2 ways to achieve pagination:

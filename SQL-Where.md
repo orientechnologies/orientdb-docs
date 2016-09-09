@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'WHERE', 'filter', 'filtering']
+---
+
 # SQL - Filtering
 
 The Where condition is shared among many SQL commands.
