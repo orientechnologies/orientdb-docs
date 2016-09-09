@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'HA SYNC CLUSTER', 'HA', 'high availability', 'sync', 'cluster', 'sync cluster']
+---
+
 # SQL - `HA SYNC CLUSTER`
 
 (Since v2.2) Asks for a re-synchronization of a cluster when running in HA. OrientDB will select the best server to provide the cluster.

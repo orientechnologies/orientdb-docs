@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'edge', 'CREATE EDGE']
+---
+
 # SQL - `CREATE EDGE`
 
 Creates a new edge in the database.

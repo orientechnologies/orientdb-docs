@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'DROP CLUSTER', 'drop', 'cluster', 'delete']
+---
+
 # SQL - `DROP CLUSTER`
 
 Removes the cluster and all of its content.  This operation is permanent and cannot be rolled back.

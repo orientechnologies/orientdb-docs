@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'Commands']
+---
+
 # SQL Commands
 
 

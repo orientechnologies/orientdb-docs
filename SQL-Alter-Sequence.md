@@ -1,4 +1,9 @@
-# SQL - ALTER `SEQUENCE` 
+---
+search:
+   keywords: ['SQL', 'command', 'alter', 'sequence', 'ALTER SEQUENCE']
+---
+
+# SQL - `ALTER SEQUENCE` 
 
 Changes the sequence.  Using this parameter you can change all sequence options, except for the sequence type.
 

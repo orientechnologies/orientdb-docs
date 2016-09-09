@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'HA SYNC DATABASE', 'HA', 'sync', 'database', 'sync database']
+---
+
 # SQL - `HA SYNC DATABASE`
 
 (Since v2.2) Asks for a re-synchronization of the current database when running in HA. OrientDB will select the best server where to synchronize the database.

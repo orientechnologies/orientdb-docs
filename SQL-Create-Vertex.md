@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['SQL', 'CREATE VERTEX', 'command', 'create', 'vertex', 'vertices']
+---
+
+
 # SQL - `CREATE VERTEX`
 
 Creates a new vertex in the database.

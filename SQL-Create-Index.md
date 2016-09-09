@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'index', 'CREATE INDEX']
+---
+
 # SQL - `CREATE INDEX`
 
 Creates a new index.  Indexes can be

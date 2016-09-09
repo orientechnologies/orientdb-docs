@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'property', 'CREATE PROPERTY']
+---
+
 # SQL - `CREATE PROPERTY`
 
 Creates a new property in the schema.  It requires that the class for the property already exist on the database.

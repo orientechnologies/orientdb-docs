@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['REST', 'REST API', 'HTTP Protocol']
+---
+
 # HTTP Protocol
 
 OrientDB RESTful HTTP protocol allows to talk with a [OrientDB Server instance](DB-Server.md) using the [HTTP protocol](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) and [JSON](http://en.wikipedia.org/wiki/JSON). OrientDB supports also a highly optimized [Binary protocol](Network-Binary-Protocol.md) for superior performances.

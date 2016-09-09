@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'link', 'CREATE LINK']
+---
+
 # SQL - `CREATE LINK`
 
 Creates a link between two simple values.

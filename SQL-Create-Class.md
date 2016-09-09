@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL, 'command', 'create', 'class', 'CREATE CLASS']
+---
+
 # SQL - `CREATE CLASS`
 
 Creates a new class in the schema.

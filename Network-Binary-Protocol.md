@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Network Binary Protocol', 'binary protocol']
+---
+
 # Binary Protocol
 
 Current protocol version for 2.1.x: **32**. Look at [Compatibility](#compatibility) for retro-compatibility.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Gremlin API', 'Gremlin', 'javascript']
+---
+
 # Gremlin API
 
 [Gremlin](http://gremlindocs.com) is a language specialized to work with [Property Graphs](https://github.com/tinkerpop/gremlin/wiki/Defining-a-Property-Graph). [Gremlin](http://gremlindocs.com) is part of [TinkerPop](http://www.tinkerpop.com) Open Source products. For more information:

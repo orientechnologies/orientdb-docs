@@ -1,4 +1,9 @@
-# `LIVE UNSUBSCRIBE`
+---
+search:
+   keywords: ['SQL', 'LIVE UNSUBSCRIBE', 'live', 'unsubscribe', 'command']
+---
+
+# SQL - `LIVE UNSUBSCRIBE`
 
 Disables a Live Query token so that it no longer receives updates from OrientDB.  To enable Live Queries, use [`LIVE SELECT`](SQL-Live-Select.md).  This feature was introduced in version 2.1 of OrientDB.
 

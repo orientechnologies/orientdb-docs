@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL, 'command', 'create', 'cluster', 'CREATE CLUSTER']
+---
+
 # SQL - `CREATE CLUSTER`
 
 Creates a new cluster in the database.  Once created, you can use the cluster to save records by specifying its name during saves.  If you want to add the new cluster to a class, follow its creation with the [`ALTER CLASS`](SQL-Alter-Class.md) command, using the `ADDCLUSTER` option.

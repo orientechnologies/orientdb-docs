@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'DELETE VERTEX', 'command', 'delete', 'vertex', 'vertices', 'drop']
+---
+
 # SQL - `DELETE VERTEX`
 
 Removes vertices from the database.  This is the equivalent of the [`DELETE`](SQL-Delete.md) command, with the addition of checking and maintaining consistency with edges, removing all cross-references to the deleted vertex in all edges involved.

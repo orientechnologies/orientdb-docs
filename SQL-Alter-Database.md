@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'alter', 'database', 'ALTER DATABASE']
+---
+
 # SQL - `ALTER DATABASE`
 
 Updates attributes on the current database.

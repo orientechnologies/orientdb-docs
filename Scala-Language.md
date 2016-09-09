@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Scala', 'Scala API']
+---
+
 # Scala API
 
 There's no specific API written in Scala for OrientDB, but since there's a Java API it's easy to use that one to access OrientDB from Scala, and if needed to write wrappers around it for making a more Scala-like API.

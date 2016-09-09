@@ -1,5 +1,9 @@
-<!-- proofread 2015-11-26 SAM -->
-# `DELETE`
+---
+search:
+   keywords: ['SQL', 'command', 'DELETE', 'delete', 'drop']
+---
+
+# SQL - `DELETE`
 
 Removes one or more records from the database.  You can refine the set of records that it removes using the [`WHERE`](SQL-Where.md) clause.
 

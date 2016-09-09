@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'DELETE EDGE', 'command', 'delete', 'edge', 'drop']
+---
+
 # SQL - `DELETE EDGE`
 
 Removes edges from the database.  This is the equivalent of the [`DELETE`](SQL-Delete.md) command, with the addition of checking and maintaining consistency with vertices by removing all cross-references to the edge from both the `in` and `out` vertex properties.

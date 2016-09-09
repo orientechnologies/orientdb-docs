@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'user', 'CREATE USER']
+---
+
 # SQL - `CREATE USER `
 
 Creates a user in the current database, using the specified password and an optional role.  When the role is unspecified, it defaults to `writer`.  

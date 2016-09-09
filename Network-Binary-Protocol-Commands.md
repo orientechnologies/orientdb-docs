@@ -1,4 +1,9 @@
-## Network Binary Protocol Commands
+---
+search:
+   keywords: ['binary protocol', 'command']
+---
+
+# Network Binary Protocol Commands
 
 This is the guide to the commands you can send through the binary protocol.
 

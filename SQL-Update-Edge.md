@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'UPDATE EDGE', 'update', 'edge']
+---
+
 # SQL - `UPDATE EDGE`
 
 Updates edge records in the current database.  This is the equivalent of the [`UPDATE`](SQL-Update.md) command, with the addition of checking and maintaining graph consistency with vertices, in the event that you update the `out` and `in` properties.

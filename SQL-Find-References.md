@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'FIND REFERENCES', 'command', 'find', 'reference']
+---
+
 # SQL - `FIND REFERENCES`
 
 Searches records in the database that contain links to the given Record ID in the database or a subset of the specified class and cluster, returning the matching Record ID's.

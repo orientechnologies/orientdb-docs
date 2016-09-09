@@ -1,4 +1,9 @@
-# `INSERT`
+---
+search:
+   keywords: ['SQL', 'INSERT', 'command', 'insert']
+---
+
+# SQL - `INSERT`
 
 The [`INSERT`](SQL-Insert.md) command creates a new record in the database.  Records can be schema-less or follow rules specified in your model.
 

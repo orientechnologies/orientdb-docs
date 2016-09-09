@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'MATCH', 'command', 'match']
+---
+
 # SQL - `MATCH`
 
 Queries the database in a declarative manner, using pattern matching.  This feature was introduced in version 2.2.

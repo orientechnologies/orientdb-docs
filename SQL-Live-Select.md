@@ -1,4 +1,9 @@
-# `LIVE SELECT`
+---
+search:
+   keywords: ['SQL', 'LIVE SELECT', 'live', 'select']
+---
+
+# SQL - `LIVE SELECT`
 
 Enables a Live Query, returning a unique identifier token.  Through this token, your application can receive updates whenever [`INSERT`](SQL-Insert.md), [`DELETE`](SQL-Delete.md), or [`UPDATE`](SQL-Update.md) commands are issued against the given records.  This feature was introduced in version 2.1 of OrientDB.
 

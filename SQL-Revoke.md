@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'REVOKE', 'revoke']
+---
+
 # SQL - `REVOKE`
 
 Changes permissions of a role, revoking access to one or more resources.  To give access to a resource to the role, see the [`GRANT`](SQL-Grant.md) command.

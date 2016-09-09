@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'DROP SEQUENCE', 'command', 'drop', 'delete', 'sequence']
+---
+
 # SQL - `DROP SEQUENCE`
 
 Removes a sequence.  This feature was introduced in version 2.2.

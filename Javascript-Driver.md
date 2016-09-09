@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['JavaScript', 'JavaScript API', 'JavaScript Driver']
+---
+
 # Javascript API
 
 This driver wraps the most common use cases in database usage. All parameters required by methods or constructor are Strings. This library works on top of [HTTP RESTful protocol](OrientDB-REST.md).

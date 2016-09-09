@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'OPTIMIZE DATABASE', 'command', 'optimize', 'database']
+---
+
 # SQL - `OPTIMIZE DATABASE`
 
 Optimizes the database for particular operations. 

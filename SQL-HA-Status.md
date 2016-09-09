@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'HA SATUS', 'HA', 'high availability', 'status']
+---
+
 # SQL - `HA STATUS`
 
 (Since v2.2) Retrieves information about HA.
