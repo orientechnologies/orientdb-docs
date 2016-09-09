@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['storage', 'PLocal', 'disk cache', 'disk', 'cache']
+---
+
 # PLocal Disk-Cache
 
 OrientDB Disk cache consists of two separate cache components that work together:

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'storage']
+---
+
 # Storages
 
 Any OrientDB database relies on a Storage. OrientDB supports 4 storage types:

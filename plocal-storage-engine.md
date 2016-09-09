@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['storage', 'PLocal', 'engine']
+---
+
 # PLocal Engine
 
 Paginated Local storage engine, also called as **"plocal"**, is intended to be used as durable replacement of the previous [local storage](Local-Storage.md).

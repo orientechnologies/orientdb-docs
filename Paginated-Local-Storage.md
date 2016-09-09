@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['storage', 'paginated local storage', 'PLocal']
+---
+
 # PLocal Storage
 
 The Paginated Local Storage, "**plocal**" from now, is a disk based storage which works with data using page model.
