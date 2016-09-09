@@ -70,7 +70,7 @@ Solution:
 select v.name, sum(count) as cnt from (
   select if(eval("in=#17:0"),out,in) as v,count from E where (
     in=#17:0 or out=#17:0)
-  ) order by cnt desc group by v
+  ) group by v order by cnt desc 
 ```
 
 This was discussed in the google groups over here: "https://groups.google.com/forum/#!topic/orient-database/CRR-simpmLg". Thanks to Andrey for posing the problem.
