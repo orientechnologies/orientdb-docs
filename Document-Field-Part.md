@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Document API', 'field']
+---
+
 # Working with Fields
 
 OrientDB has a powerful way to extract parts of a Document field. This applies to the Java API, SQL Where conditions, and SQL projections.

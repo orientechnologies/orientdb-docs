@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Document API', 'document database']
+---
+
 # Working with Document Databases
 
 Before you can execute any operation on a Document Database, you first need to open an instance in your application.  You can do so by either opening an existing instance or creating a new one.  Bear in mind that database instances are not thread-safe, so only use one database per thread.

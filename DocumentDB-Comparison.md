@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Document API', 'Document Database', 'comparison']
+---
+
 # Document Database Comparison
 
 This is a comparison page between OrientDB and other DocumentDB projects . To know more about the comparison of OrientDB against GraphDBs look at this [comparison](GraphDB-Comparison.md).

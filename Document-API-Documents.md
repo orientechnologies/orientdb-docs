@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Document API', 'documents']
+---
+
 # Working with Documents
 
 When you have data ready in your database, you need a way to access it in order to manipulate it through your application.  There are three ways to do this:

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Java', 'Document API']
+---
+
 # Document API
 
 The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Graph Database](Graph-Database-Tinkerpop.md).  The Document API supports:

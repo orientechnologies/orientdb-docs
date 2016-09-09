@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Document API', 'schema']
+---
+
 # Schema
 
 While you can use OrientDB in schema-less mode, there are times in which you need to enforce your own data model using a schema.  OrientDB supports schema-full, schema-less and schema hybrid modes.
