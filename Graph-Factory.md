@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'TinkerPop', 'Blueprint', 'Graph Factory']
+---
+
 # Graph Factory
 
 The [TinkerPop Blueprints](https://github.com/tinkerpop/blueprints/wiki) standard does not implement a proper "factory" method for creating and pooling Graph Database instances.  In applications based on OrientDB, you may occasionally encounter [legacy workarounds](#legacy-workarounds) that attempt to implement this feature by mixing the Graph and Document API's.

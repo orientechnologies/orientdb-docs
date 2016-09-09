@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'TinkerPop', 'Blueprints Extension', 'blueprint']
+---
+
 # Using the Blueprints Extensions
 
 OrientDB is a graph database that merges graph, document and object-oriented worlds together.  Below are some of the features exclusive to OrientDB through the Blueprints Extensions.

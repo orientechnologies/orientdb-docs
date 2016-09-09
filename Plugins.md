@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['plugins', 'API']
+---
+
 # Plugins
 
 If you're looking for drivers or JDBC connector go to  [Programming-Language-Bindings](Programming-Language-Bindings.md).
