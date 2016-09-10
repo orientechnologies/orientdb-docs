@@ -1,5 +1,0 @@
-# Functions
-
-![](images/functions.png)
-
-

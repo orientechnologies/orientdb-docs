@@ -1,0 +1,30 @@
+{
+    "title": "OrientDB Manual",
+    "description": "OrientDB Documentation",
+    "links": {
+        "home": "http://www.orientdb.com",
+        "about": "http://www.orientdb.com",
+        "issues": "https://github.com/orientechnologies/orientdb/issues",
+        "contribute": "http://www.orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
+        "sharing": {
+            "google": "https://plus.google.com/108716918285358206552/posts",
+            "facebook": "https://www.facebook.com/groups/orientdb/",
+            "twitter": "https://twitter.com/OrientDB",
+            "gitter": "https://gitter.im/orientechnologies/orientdb",
+            "all": "http://www.orientdb.com"
+        }
+    },
+    "pdf": {
+        "toc": true,
+        "pageNumbers": true,
+        "fontSize": 12,
+        "paperSize": "a4",
+        "margin": {
+            "right": 62,
+            "left": 62,
+            "top": 36,
+            "bottom": 36
+        },
+        "footerTemplate": "Copyright (c) OrientDB LTD"
+    }
+}

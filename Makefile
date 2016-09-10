@@ -1,19 +1,35 @@
 # Makefile for OrientDB Documentation Builds
 OUT = deploy
-WEB = $(OUT)/latest
+WEB = $(OUT)/last
 PDF = $(OUT)/pdf
-SRC = source
+SRC = .e
 
-MODULES = node_modules/gitbook-plugin-ga node_modules/gitbook-plugin-anchors node_modules/gitbook-plugin-addcssjs node_modules/gitbook-plugin-reveal node_modules/gitbook-plugin-highlight
+NODEMOD = node_modules
+GITPLUG = gitbook-plugin
+NODEGIT = $(NODEMOD)/$(GITPLUG)
+NPM = npm install
+
+MODULES = $(NODEGIT)-ga $(NODEGIT)-anchors $(NODEGIT)-addcssjs $(NODEGIT)-reveal $(NODEGIT)-highlight $(NODEGIT)-versions $(NODEGIT)-collapsible-menu $(NODEGIT)-edit-link
+
+NODECALL = node --stack-size=32000
+MAC_GITBOOK = /usr/local/bin/gitbook 
+LINUX_GITBOOK = /usr/bin/gitbook
+PLATFORM = "$(shell uname)"
+ifeq ($(PLATFORM), "Darwin")
+	GITBOOK = $(MAC_GITBOOK)
+endif
+ifeq ($(PLATFORM), "Linux")
+	GITBOOK = $(LINUX_GITBOOK)
+endif
 
 
 # Build Local Website
-create: clean install
-	gitbook build $(SRC) --output=$(WEB)
+create: clean $(MODULES)
+	$(NODECALL) $(GITBOOK) build $(SRC) --output=$(WEB)
 
 # Build PDF
-pdf: clean install
-	gitbook pdf $(SRC) --output=$(PDF)
+pdf: clean $(MODULES)
+	$(NODECALL) $(GITBOOK) pdf $(SRC) --output=$(PDF)
 
 # Pull Updates
 pull:
@@ -23,7 +39,7 @@ check:
 	ls -al $(BLD)/*/*.md | grep -v Footer.md | grep -v Home.md
 
 # Run All Builds
-all: clean install create
+all: clean $(MODULES) create
 
 clean:
 	rm -rf $(WEB)/*
@@ -32,13 +48,19 @@ clean:
 # GitBook Plugin Installation
 install: $(MODULES)
 
-node_modules/gitbook-plugin-ga:
-	npm install gitbook-plugin-ga
-node_modules/gitbook-plugin-anchors: 
-	npm install gitbook-plugin-anchors
-node_modules/gitbook-plugin-addcssjs: 
-	npm install gitbook-plugin-addcssjs
-node_modules/gitbook-plugin-reveal: 
-	npm install gitbook-plugin-reveal
-node_modules/gitbook-plugin-highlight: 
-	npm install gitbook-plugin-highlight
+$(NODEGIT)-ga:
+	$(NPM) $(GITPLUG)-ga
+$(NODEGIT)-anchors: 
+	$(NPM) $(GITPLUG)-anchors
+$(NODEGIT)-addcssjs: 
+	$(NPM) $(GITPLUG)-addcssjs
+$(NODEGIT)-reveal: 
+	$(NPM) $(GITPLUG)-reveal
+$(NODEGIT)-highlight: 
+	$(NPM) $(GITPLUG)-highlight
+$(NODEGIT)-collapsible-menu:
+	$(NPM) $(GITPLUG)-collapsible-menu
+$(NODEGIT)-edit-link:
+	$(NPM) $(GITPLUG)-edit-link
+$(NODEGIT)-versions:
+	$(NPM) $(GITPLUG)-versions

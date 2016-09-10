@@ -1,0 +1,61 @@
+# Roadmap
+
+This page contains the roadmap with the main enhancements for the OrientDB product. 
+
+### Terms
+- **RC**: [Release Candidate](https://en.wikipedia.org/wiki/Software_release_life_cycle#Release_candidate), is a beta version with potential to be a final product, which is ready to release unless significant bugs emerge. In this stage of product stabilization, all product features have been designed, coded and tested through one or more beta cycles with no known showstopper-class bug. A release is called code complete when the development team agrees that no entirely new source code will be added to this release. There could still be source code changes to fix defects, changes to documentation and data files, and peripheral code for test cases or utilities. Beta testers, if privately selected, will often be credited for using the release candidate as though it were a finished product. Beta testing is conducted in a client's or customer's location and to test the software from a user's perspective.
+- **GA**: [General Availability](https://en.wikipedia.org/wiki/Software_release_life_cycle#General_availability_.28GA.29), is the stage where the software has "gone live" for usage in production. Users in production are suggested to plan a migration for the current GA evaluating pros and cons of the upgrade.
+
+## Release 3.0
+```
+- Development started on.: June 2016
+- Expected first RC......: October 2016
+- Expected final GA......: December 2016
+```
+
+### Status
+Last update: April 12, 2016
+
+For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://github.com/orientechnologies/orientdb/issues/6005).
+
+| Module | Feature | Status                     |
+|--------|---------|----------------------------|
+| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% |
+| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% |
+| Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
+| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  |
+| Core | Indexing of embedded properties | 0% |
+| Core | Index per cluster | 0% |
+| Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
+| SQL | Distributed SQL Executor | 0% |
+| SQL | Multi-line queries in batch scripts | 0% |
+| Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
+| Distributed | Replication of in-memory databases | 0% |
+| Distributed | Auto-Sharding | 0% |
+
+
+## Release 3.1
+```
+- Development started on.: -
+- Expected first RC......: TBD
+- Expected final GA......: TBD
+```
+
+### Status
+Last update: April 12, 2015
+
+| Module | Feature | Status                     |
+|--------|---------|----------------------------|
+| Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 0%|
+| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
+| Core | Override of properties | 0% |
+| Core | [Auto close storages](https://github.com/orientechnologies/orientdb/issues/3055) | 0% |
+| Core | Enhance isolation level also for remote commands| 0% |
+| Distributed | Optimized replication for cross Data Center | 0% |
+| Lucene | Faceted search | 20% |
+| Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 0% |
+| Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
+| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
+| SQL | New functions (strings, maths) | 40% |
