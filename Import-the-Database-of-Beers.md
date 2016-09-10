@@ -34,6 +34,7 @@ The Open Beer Database can be downloaded in CSV format from [https://openbeerdb.
 
 ## Preliminary Steps
 
+First, please create a new folder somewhere in your hard drive, and move into it. For this test we'll assume `/temp/openbeer`:
 
 ```
 $ mkdir /temp/openbeer
@@ -75,6 +76,7 @@ For more information on how to install OrientDB, please refer to the [Installati
 
 Before starting the ETL process it's important to understand how the Open Beer Database can be modeled as a graph. 
 
+The relational model of the Open Beer Database can be easily converted to a _graph_ model, as shown below:
 
 ![](images/etl/openbeerdb/Beer_Data_Model-Graph.png)
 
@@ -127,6 +129,7 @@ In order to import this file in OrientDB, we have to create the following file a
 }
 ```
 
+To import it into OrientDB, please move into the "bin" directory of the OrientDB distribution:
 
 ```
 $ cd orientdb-community-2.2.8/bin
@@ -145,6 +148,7 @@ END ETL PROCESSOR
 
 
 ### Import Beer Styles
+Now let's import the Beer Styles. These are the first two lines of the `styles.csv` file:
 
 ```
 "id","cat_id","style_name","last_mod"
@@ -191,6 +195,7 @@ END ETL PROCESSOR
 
 
 ### Import Breweries
+Now it's time for the Breweries. These are the first two lines of the `breweries.csv` file:
 
 ```
 "id","name","address1","address2","city","state","code","country","phone","website","filepath","descript","last_mod"
