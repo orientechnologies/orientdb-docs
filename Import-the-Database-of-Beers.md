@@ -34,7 +34,7 @@ The Open Beer Database can be downloaded in CSV format from [https://openbeerdb.
 
 ## Preliminary Steps
 
-First, please create a new folder somewhere in your hard drive, and move into it. For this test we'll assume `/temp/openbeer`:
+First, please create a new folder somewhere in your hard drive, and move into it. For this test we will assume `/temp/openbeer`:
 
 ```
 $ mkdir /temp/openbeer
@@ -44,7 +44,7 @@ $ cd /temp/openbeer
 
 ### Download the Open Beer Database in CSV format
 
-Download the Open Beer Database in CSV format and estract the archive:
+Download the Open Beer Database in CSV format and extract the archive:
 
 ```
 $ curl http://openbeerdb.com/files/openbeerdb_csv.zip > openbeerdb_csv.zip
@@ -155,7 +155,7 @@ Now let's import the Beer Styles. These are the first two lines of the `styles.c
 "1","1","Classic English-Style Pale Ale","2010-10-24 13:53:31"
 ```
  
-In this case we'll correlate the Style with the Category created earlier.
+In this case we will correlate the Style with the Category created earlier.
 
 This is the `styles.json` to use with OrientDB ETL for the next step:
 
@@ -305,7 +305,7 @@ The following are some ways we can use to access the newly imported `OpenBeer` d
 
 - [Console](Console-Commands.md)
 - [Gremlin Console](Gremlin.md)
-- [Studio](Studio-Home-page)
+- [Studio](Studio-Home-page.md)
 - [APIs & Drivers](Programming-Language-Bindings.md)
 - some external tools, like [Gephy](Gephi.md)
 - some external visualization libraries for graph rendering
@@ -320,7 +320,7 @@ The following is the visualization we can create using the Studio's [Graph Edito
 
 ![](images/etl/openbeerdb/studio_graph_beer_class_category.png)
 
-If we want to find all nodes directly connected to a specific beer (e.g. to *Petrus Dubbel Bruin Ale*) with either an incoming or outgoing relationship, we can use a query like the following:
+If we want to find all nodes directly connected to a specific beer (e.g. the beer *Petrus Dubbel Bruin Ale*) with either an incoming or outgoing relationship, we can use a query like the following:
 
 ```
 SELECT EXPAND( BOTH() ) FROM Beer WHERE name = 'Petrus Dubbel Bruin Ale'
@@ -330,10 +330,10 @@ If we execute this query in the [Browse](Query.md) tab of Studio we get the foll
 
 ![](images/etl/openbeerdb/studio_browse_expand_beer.png)
 
-Same result can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](Graph-Database-Tinkerpop.md):
+The same result can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](Graph-Database-Tinkerpop.md):
 
 ![](images/etl/openbeerdb/library_visjs_expand_beer.png)
 
-We can also query bigger portions of the graph. The following image shows all beer *Category* nodes and for each of them all the linked *Style* nodes (the visualization has been created using the library [vis.js](http://visjs.org)):
+We can also query bigger portions of the graph. For example, the following image shows all beer *Category* nodes and for each of them all the connected *Style* nodes (the visualization has been created using the library [vis.js](http://visjs.org)):
 
 ![](images/etl/openbeerdb/library_visjs_class_category_and_style.png)
