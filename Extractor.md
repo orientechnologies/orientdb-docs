@@ -61,7 +61,7 @@ When the ETL module runs the CSV Extractor, it parses a file formated to [Apache
 
 - For the `"columns"` parameter, specify the type by postfixing it to the value.  Specifying types guarantees better performance.  
 
-- For the `"predefinedFormat"` parameter, the available formats are: `DEFAULT`, `EXCEL`, `MYSQL`, `RFC4180`, `TDF`.
+- For the `"predefinedFormat"` parameter, the available formats are: `Default`, `Excel`, `MySQL`, `RFC4180`, `TDF`.
 
 **Examples**
 
@@ -82,7 +82,7 @@ When the ETL module runs the CSV Extractor, it parses a file formated to [Apache
 
   ```json
   { "csv": 
-      {  "predefinedFormat": "MYSQL"}
+      {  "predefinedFormat": "MySQL"}
   }
   ```
 
@@ -90,7 +90,7 @@ When the ETL module runs the CSV Extractor, it parses a file formated to [Apache
 
   ```json
   { "csv": 
-      {  "predefinedFormat": "DEFAULT",
+      {  "predefinedFormat": "Default",
          "nullValue" : "N/A",
          "dateFormat" : "dd-MM-yyyy",
          "dateTimeFormat" : "dd-MM-yyyy HH:mm"
@@ -102,7 +102,7 @@ When the ETL module runs the CSV Extractor, it parses a file formated to [Apache
 
   ```json
   { "csv": 
-      {  "predefinedFormat": "DEFAULT",
+      {  "predefinedFormat": "Default",
          "nullValue" : "N/A",
          "dateFormat" : "dd-MM-yyyy",
          "dateTimeFormat" : "dd-MM-yyyy HH:mm",
