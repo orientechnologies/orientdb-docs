@@ -78,7 +78,7 @@ OrientDB saves the password in a hash format.  The trigger `OUserTrigger` encryp
 To disable a user, use [`UPDATE`](SQL-Update.md) to switch its status from `ACTIVE` to `SUSPENDED`.  For instance, if you wanted to disable all users except for `admin`:
 
 <pre>
-orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED' WHERE name <> 'admin'</code>
+orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED' WHERE name &lt;&gt; 'admin'</code>
 </pre>
 
 >**NOTE**: In the event that, due to accident or database corruption, you lose the user `admin` and need to restore it on the database, see [Restoring the admin User`](Server-Security.md#restoring-the-admin-user).

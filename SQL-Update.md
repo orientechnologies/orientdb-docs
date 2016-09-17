@@ -23,6 +23,7 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
 - **`INCREMENT`** Increments the field by the value.
 
   For instance, record at `10` with `INCREMENT value = 3` sets the new value to `13`.  You may find this useful in atomic updates of counters.  Use negative numbers to decrement.  Additionally, you can use `INCREMENT` to implement [sequences and auto-increment](Sequences-and-auto-increment.md).
+
 - **`ADD`** Adds a new item in collection fields.
 - **`REMOVE`** Removes an item in collection and map fields.
 - **`PUT`** Puts an entry into a map field.
