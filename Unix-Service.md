@@ -82,7 +82,7 @@ WantedBy=multi-user.target
 [Service]
 User=ORIENTDB_USER
 Group=ORIENTDB_GROUP
-ExecStart=$ORIENTDB_HOME/bin/server.sh start
+ExecStart=$ORIENTDB_HOME/bin/server.sh
 
 </pre>
 

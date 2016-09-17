@@ -51,20 +51,3 @@ To remove all the records in Local cache you can invoke the <code>invalidate()</
 ```java
 db.getLocalCache().invalidate();
 ```
-
-### Disable Local cache
-
-Disabling of local cache may lead to situation when 2 different instances of the same record will be loaded
-and `OConcurrentModificationException` may be thrown during record update even in single-thread mode.
-
-To disable it use the system property <code>cache.local.enabled</code> by setting it at startup:
-
-```java
-java ... -Dcache.local.enabled=false ...
-```
-
-or via code before to open the database:
-
-```java
-OGlobalConfiguration.CACHE_LOCAL_ENABLED.setValue(false);
-```

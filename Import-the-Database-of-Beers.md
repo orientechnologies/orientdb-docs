@@ -4,34 +4,102 @@ search:
 ---
 
 <!-- proofread 2015-12-11 SAM -->
-# Import Database of Beers in OrientDB
+# ETL Example: Importing the Open Beer Database into OrientDB
 
 ![](images/beers.jpg)
 
-First, create a new folder somewhere on your hard drive. For this test we'll assume `/temp/openbeer`.
+In this tutorial we will use the OrientDB's [ETL](ETL-Introduction.md) module to import, as a graph, the [Open Beer Database](https://openbeerdb.com/).
+
+_Note_: You can access directly the converted database, result of this ETL tutorial, in the following ways:
+
+- **Studio**: in the login page press the "Cloud" button, put server's credential and press the download button from the "OpenBeer" row;
+
+- **Direct Download**: download the database from http://orientdb.com/public-databases/OpenBeer.zip and unzip it in a OpenBeer folder inside OrientDB's server "databases" directory.
+
+
+## Table of Contents
+
+- [The Open Beer Database](#the-open-beer-database)
+- [Preliminary Steps](#preliminary-steps)
+- [ETL Process](#etl-process)
+- [Some Queries and Visualizations](#some-queries-and-visualizations)
+
+
+## The Open Beer Database
+
+The Open Beer Database can be downloaded in CSV format from [https://openbeerdb.com/](https://openbeerdb.com/). The following image shows its _relational_ model:
+
+![](images/etl/openbeerdb/Beer_Data_Model-Relational.png)
+
+
+## Preliminary Steps
+
+First, please create a new folder somewhere in your hard drive, and move into it. For this test we will assume `/temp/openbeer`:
 
 ```
 $ mkdir /temp/openbeer
+$ cd /temp/openbeer
 ```
 
-## Download Beers Database in CSV format
+
+### Download the Open Beer Database in CSV format
+
+Download the Open Beer Database in CSV format and extract the archive:
 
 ```
-$ curl http://openbeerdb.com/data_files/openbeerdb_csv.zip > openbeerdb_csv.zip
+$ curl http://openbeerdb.com/files/openbeerdb_csv.zip > openbeerdb_csv.zip
 $ unzip openbeerdb_csv.zip
 ```
 
-## Install OrientDB
+The archive consists of the following files:
+
+- `beers.csv:` contains the beer records
+- `breweries.csv:` contains the breweries records
+- `breweries_geocode.csv`: contains the geocodes of the breweries. This file is not used in this Tutorial
+- `categories.csv`: contains the beer categories
+- `styles.csv`: contains the beer styles
+
+
+### Install OrientDB
+
+Download and install OrientDB:
 
 ```
-$ curl "http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.0.9.zip&os=multi" > orientdb-community-2.0.9.zip
-$ unzip orientdb-community-2.0.9.zip
+$ curl "http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.2.8.zip&os=multi" > orientdb-community-2.2.8.zip
+$ unzip orientdb-community-2.2.8.zip
 ```
 
+For more information on how to install OrientDB, please refer to the [Installation](Tutorial-Installation.md) section.
 
-## Import Beer Categories
 
-These are the first 2 lines of `categories.csv` file:
+### Graph Data Model
+
+Before starting the ETL process it's important to understand how the Open Beer Database can be modeled as a graph. 
+
+The relational model of the Open Beer Database can be easily converted to a _graph_ model, as shown below:
+
+![](images/etl/openbeerdb/Beer_Data_Model-Graph.png)
+
+The model above consists of the following nodes (or vertices) and relationships (or edges):
+
+- **Nodes**: Beer, Category, Style, Brewery;
+- **Relationships**: HasCategory, HasStyle, HasBrewery.
+
+For more informations on the Graph Model in OrientDB, please refer to the [Graph Model](Tutorial-Document-and-graph-model.md#the-graph-model) section.
+
+
+## ETL Process
+
+The ETL module for OrientDB provides support for moving data to and from OrientDB databases using Extract, Transform and Load processes.
+
+The ETL module consists of a script, `oetl.sh`, that takes in input a single JSON configuration file.
+
+For more information on the ETL module, please refer to the [ETL](ETL-Introduction.md) section.
+
+
+### Import Beer Categories
+
+The following are the first two lines of the `categories.csv` file:
 
 ```
 "id","cat_name","last_mod"
@@ -61,13 +129,13 @@ In order to import this file in OrientDB, we have to create the following file a
 }
 ```
 
-Now to import it into OrientDB, move into the "bin" directory of OrientDB distribution.
+To import it into OrientDB, please move into the "bin" directory of the OrientDB distribution:
 
 ```
-$ cd orientdb-community-2.0.9/bin
+$ cd orientdb-community-2.2.8/bin
 ```
 
-And run OrientDB ETL.
+and run OrientDB ETL:
 
 ```
 $ ./oetl.sh /temp/openbeer/categories.json
@@ -79,15 +147,17 @@ END ETL PROCESSOR
 ```
 
 
-## Import Beer Styles
-Now let's import the Beer Styles. These are the first 2 lines of the `styles.csv` file.
+### Import Beer Styles
+Now let's import the Beer Styles. These are the first two lines of the `styles.csv` file:
 
 ```
 "id","cat_id","style_name","last_mod"
 "1","1","Classic English-Style Pale Ale","2010-10-24 13:53:31"
 ```
+ 
+In this case we will correlate the Style with the Category created earlier.
 
-In this case, we'll correlate the Style with the Category created earlier. This is the `styles.json` to use with OrientDB ETL for the next step.
+This is the `styles.json` to use with OrientDB ETL for the next step:
 
 ```json
 {
@@ -112,7 +182,7 @@ In this case, we'll correlate the Style with the Category created earlier. This 
 }
 ```
 
-Now import the styles.
+Now, to import the styles, please execute the following command:
 
 ```
 $ ./oetl.sh /temp/openbeer/styles.json
@@ -124,15 +194,17 @@ END ETL PROCESSOR
 ```
 
 
-## Import Breweries
-Now it's time for the Breweries. These are the first 2 lines of the `breweries.csv` file.
+### Import Breweries
+Now it's time for the Breweries. These are the first two lines of the `breweries.csv` file:
 
 ```
 "id","name","address1","address2","city","state","code","country","phone","website","filepath","descript","last_mod"
 "1","(512) Brewing Company","407 Radam, F200",,"Austin","Texas","78745","United States","512.707.2337","http://512brewing.com/",,"(512) Brewing Company is a microbrewery located in the heart of Austin that brews for the community using as many local, domestic and organic ingredients as possible.","2010-07-22 20:00:20"
 ```
 
-Breweries have no outgoing relations with other entities, so this is a plain import similar to categories. This is the `breweries.json` to use with OrientDB ETL for the next step.
+Breweries have no outgoing relations with other entities, so this is a plain import similar to the one we did for the categories. 
+
+This is the `breweries.json` to use with OrientDB ETL for the next step:
 
 ```json
 {
@@ -155,7 +227,7 @@ Breweries have no outgoing relations with other entities, so this is a plain imp
 }
 ```
 
-Run the import for breweries.
+Run the import for breweries:
 
 ```
 $ ./oetl.sh /temp/openbeer/breweries.json
@@ -166,8 +238,8 @@ END ETL PROCESSOR
 + extracted 1.395 rows (0 rows/sec) - 1.395 rows -> loaded 1.394 vertices (0 vertices/sec) Total time: 830ms [0 warnings, 0 errors]
 ```
 
-## Import Beers
-Now it's time for the last and most important file: the Beers! These are the first 2 lines of the `beers.csv` file.
+### Import Beers
+Now it's time for the last and most important file: the Beers! These are the first two lines of the `beers.csv` file:
 
 ```
 "id","brewery_id","name","cat_id","style_id","abv","ibu","srm","upc","filepath","descript","last_mod",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -179,8 +251,7 @@ As you can see each beer is connected to other entities through the following fi
 - `cat_id` -> **Category**
 - `style_id` -> **Style**
 
-
-This is the `breweries.json` to use with OrientDB ETL for the next step.
+This is the `beers.json` to use with OrientDB ETL for the next step:
 
 ```json
 {
@@ -211,7 +282,7 @@ This is the `breweries.json` to use with OrientDB ETL for the next step.
 }
 ```
 
-Run the final import for beers.
+Run the final import for beers:
 
 ```
 $ ./oetl.sh /temp/openbeer/beers.json
@@ -223,8 +294,46 @@ BEGIN ETL PROCESSOR
 END ETL PROCESSOR
 ```
 
-_Note: 27 errors are due to the 27 wrong content lines that have no id.
+_Note_: the 27 errors are due to the 27 wrong content lines that have no id.
 
-This database is available online. Install it with:
-- Studio: in the login page press the "Cloud" button, put server's credential and press on download button on "OpenBeer" line
-- Download it manually from http://orientdb.com/public-databases/OpenBeer.zip and unzip it in a OpenBeer folder inside OrientDB's server "databases" directory
+
+## Some Queries and Visualizations
+
+Now that the database has been imported we can execute some queries and create some visualizations.
+
+The following are some ways we can use to access the newly imported `OpenBeer` database:
+
+- [Console](Console-Commands.md)
+- [Gremlin Console](Gremlin.md)
+- [Studio](Studio-Home-page.md)
+- [APIs & Drivers](Programming-Language-Bindings.md)
+- some external tools, like [Gephy](Gephi.md)
+- some external visualization libraries for graph rendering
+
+If we want to query all *Category* vertices we can execute the following query:
+
+```
+SELECT * FROM Category
+```
+
+The following is the visualization we can create using the Studio's [Graph Editor](Graph-Editor.md):
+
+![](images/etl/openbeerdb/studio_graph_beer_class_category.png)
+
+If we want to find all nodes directly connected to a specific beer (e.g. the beer *Petrus Dubbel Bruin Ale*) with either an incoming or outgoing relationship, we can use a query like the following:
+
+```
+SELECT EXPAND( BOTH() ) FROM Beer WHERE name = 'Petrus Dubbel Bruin Ale'
+```
+
+If we execute this query in the [Browse](Query.md) tab of Studio we get the following result, from where we can see that there are three nodes connected to this beer, having *@rid* *11:4*, *14:262* and *12:59*:
+
+![](images/etl/openbeerdb/studio_browse_expand_beer.png)
+
+The same result can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](Graph-Database-Tinkerpop.md):
+
+![](images/etl/openbeerdb/library_visjs_expand_beer.png)
+
+We can also query bigger portions of the graph. For example, the following image shows all beer *Category* nodes and for each of them all the connected *Style* nodes (the visualization has been created using the library [vis.js](http://visjs.org)):
+
+![](images/etl/openbeerdb/library_visjs_class_category_and_style.png)
