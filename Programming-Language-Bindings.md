@@ -30,9 +30,9 @@ This is the list of the known drivers to use OrientDB through different language
     <td>For legacy and reporting/Business Intelligence applications and <a href="https://github.com/kirpi4ik/orientdb-jca">JCA&nbsp;integration</a> for J2EE containers</td>
 </tr>
 <tr>
-    <td><a href="http://projects.spring.io/spring-data/">Spring Data</a></td>
+    <td><a href="https://github.com/orientechnologies/spring-data-orientdb">OrientDB Spring Data</a></td>
     <td>Native</td>
-    <td><a href="https://github.com/orientechnologies/spring-data-orientdb">Spring Data Plugin</a></td>
+    <td>Official <a href="http://projects.spring.io/spring-data/">Spring Data Plugin</a> for both Graph and Document APIs</td>
 </tr>
 
 <tr>
