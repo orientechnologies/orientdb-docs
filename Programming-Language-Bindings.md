@@ -17,7 +17,7 @@ This is the list of the known drivers to use OrientDB through different language
     <th>Description</th>
 </tr>
 <tr>
-    <td rowspan="2">
+    <td rowspan="3">
       <center><a href="https://en.wikipedia.org/wiki/Java_%28programming_language%29"><img src="http://orientdb.com/wp-content/uploads/2016/09/java.jpeg" alt="JAVA" height="50px"/></a></center>
     </td>
     <td><a href="Java-API.html">Java&nbsp;(native)&nbsp;API</a></td>
@@ -28,6 +28,11 @@ This is the list of the known drivers to use OrientDB through different language
     <td><a href="JDBC-Home.html">JDBC driver</a></td>
     <td>Native</td>
     <td>For legacy and reporting/Business Intelligence applications and <a href="https://github.com/kirpi4ik/orientdb-jca">JCA&nbsp;integration</a> for J2EE containers</td>
+</tr>
+<tr>
+    <td><a href="http://projects.spring.io/spring-data/">Spring Data</a></td>
+    <td>Native</td>
+    <td><a href="https://github.com/orientechnologies/spring-data-orientdb">Spring Data Plugin</a></td>
 </tr>
 
 <tr>
