@@ -96,7 +96,7 @@ This is the list of the known drivers to use OrientDB through different language
 </tr>
 
 <tr>
-    <td rowspan="2">
+    <td rowspan="1">
         <center><a href="https://golang.org/"><img src="http://orientdb.com/wp-content/uploads/2016/09/golang.png" alt="Go-Lang" height="50px"/></a></center>
     </td>
     <td><a href="https://github.com/istreamdata/orientgo">OrientGO</a></td>
