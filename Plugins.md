@@ -58,10 +58,15 @@ Vert.x is a lightweight, high performance application platform for the JVM that'
 ------
 
 <a href="http://www.springsource.org"><img width="100" align="left" src="http://www.springsource.org/files/imagefield_default_images/placeholder_video_spring_projects.png" /></a>
+<br> 
+[OrientDB Spring Data](https://github.com/orientechnologies/spring-data-orientdb) is the official <a href="http://projects.spring.io/spring-data/">Spring Data Plugin</a> for both Graph and Document APIs
+
 <br>
 &nbsp;
 <br> 
 [spring-orientdb](https://github.com/megadix/orientdb-spring) is an attempt to provide a PlatformTransactionManager for OrientDB usable with the Spring Framework, in particular with @Transactional annotation. Apache 2 license
+
+
 
 ------
 [OrientDB session store](https://github.com/ffissore/connect-orientdb) for Connect
