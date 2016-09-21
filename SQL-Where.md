@@ -104,6 +104,7 @@ OrientDB supports variables managed in the context of the command/query. By defa
 |Name    |Description    |Command(s) |Since|
 |--------|---------------|-----------|-----|
 |$parent|Get the parent context from a sub-query. Example: select from V let $type = ( traverse * from $parent.$current.children )|[SELECT](SQL-Query.md) and [TRAVERSE](SQL-Traverse.md)|1.2.0|
+|$root|Get the root context from a sub-query. Example: select from V let $type = ( traverse * from $root.$current.children )|[SELECT](SQL-Query.md) and [TRAVERSE](SQL-Traverse.md)|1.2.0|
 |$current|Current record to use in sub-queries to refer from the parent's variable|[SELECT](SQL-Query.md) and [TRAVERSE](SQL-Traverse.md)|1.2.0|
 |$depth|The current depth of nesting|[TRAVERSE](SQL-Traverse.md)|1.1.0|
 |$path|The string representation of the current path. Example:  #6:0.in.#5:0#.out. You can also display it with -> select $path from (traverse * from V)|[TRAVERSE](SQL-Traverse.md)|1.1.0|
