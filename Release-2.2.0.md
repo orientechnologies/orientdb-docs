@@ -2,6 +2,8 @@
 
 ## What's new?
 
+*NOTE: Release 2.2.6 introduced a change in the internal distributed protocol that does not allow for a cluster of OrientDB Servers with version between 2.2.0 and 2.2.5 to be hot migrated to a release 2.2.6 or major. The solutions to hot migration are: a) stop the entire cluster before the upgrade or b) start a parallel cluster made of new OrientDB servers, then change the role of all the masters in REPLICA only to avoid any update and then switch your application traffic to the new cluster of OrientDB server*
+
 
 ### Spatial Module
 
