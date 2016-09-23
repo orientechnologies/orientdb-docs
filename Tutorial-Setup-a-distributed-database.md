@@ -1,6 +1,6 @@
 # Setting up a Distributed Graph Database
 
-In addition to the standard deployment architecture, where it runs as a single, standalone database instance, you can also deploy OrientDB using [Distributed Architecutre](Distributed-Architecture.md).  In this environment, it shares the database across multiple server instances.
+In addition to the standard deployment architecture, where it runs as a single, standalone database instance, you can also deploy OrientDB using [Distributed Architecture](Distributed-Architecture.md).  In this environment, it shares the database across multiple server instances.
 
 ## Launching Distributed Server Cluster
 
@@ -75,36 +75,6 @@ INFO [node1384014656983] added node configuration id=Member [192.168.1.179]:2435
      name=node1384015873680, now 2 nodes are configured [OHazelcastPlugin]
 INFO [node1384014656983] update configuration db=GratefulDeadConcerts
      from=node1384015873680 [OHazelcastPlugin]
-INFO updated distributed configuration for database: GratefulDeadConcerts:
-----------
-<code class="lang-json">{
-   "replication": true,
-   "autoDeploy": true,
-   "hotAlignment": true,
-   "resyncEvery": 15,
-   "clusters": {
-      "internal": {
-         "replication": false
-      },
-      "index": {
-         "replication": false
-      },
-      "*": {
-         "replication": true,
-         "readQuorum": 1,
-         "writeQuorum": 2,
-         "failureAvailableNodesLessQuorum": false,
-         "readYourWrites": true,
-		 "partitioning":{
-            "strategy": "round-robin",
-            "default":0,
-            "partitions": ["<NEW_NODE>","node1383734730415","node1384015873680"]("<NEW_NODE>","node1383734730415","node1384015873680".md)
-         }
-      }
-   },
-   "version": 1
-}</code>
----------- [OHazelcastPlugin]
 WARN [node1383734730415]->[node1384015873680] deploying database
      GratefulDeadConcerts...[ODeployDatabaseTask]
 WARN [node1383734730415]->[node1384015873680] sending the compressed database
@@ -122,7 +92,7 @@ WARN [node1384015873680] installed database GratefulDeadConcerts in
      databases/GratefulDeadConcerts, setting it online... [OHazelcastPlugin]
 WARN [node1384015873680] database GratefulDeadConcerts is online [OHazelcastPlugin]
 WARN [node1384015873680] updated node status to 'ONLINE' [OHazelcastPlugin]
-INFO OrientDB Server v1.6.1-SNAPSHOT is active. [OServer]
+INFO OrientDB Server v2.2.11-SNAPSHOT is active. [OServer]
 ```
 
 
