@@ -106,6 +106,14 @@ Where:
 #### Customing the Message
 - The variable `${command}` will be substituted in the specified message, if command auditing is enabled.
 
+Example:
+If you want to get all commands regarding update query, you can use standard Java regular expressions ([see documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html)):
+- Regex: ```^update.*```
+- Message: ```Following update: ${command} executed.```
+
+
+under "Command Auditing" section.
+
 ### "schema"
 Where:
 - `onCreateClassEnabled`: If `true`, enables auditing of class creation events. The default is `false`.
