@@ -36,6 +36,15 @@ db.command( new OCommandScript("Javascript", "print('hello world')") ).execute()
 JavaScript code can be executed on the client-side, the console, or server-side:
 - Use [<code>js</code>](Console-Command-Js.md) to execute the script on the **client-side** running it in the console
 - use [<code>jss</code>](Console-Command-Jss.md) to execute the script on the **server-side**. This feature is disabled by default. To enable it look at [Enable Server side scripting](#Enable_Server_side_scripting).
+ 
+Note: if you want to call a server-side Javascript function that was previously created in studio remember to add `commit()` after your insert or update operations. For example if you want to execute this function:
+
+<pre><code>var g = orient.getGraph();
+g.command('sql', 'insert into Person(name) values ("Luca")');
+g.commit();</code></pre>
+
+you can than use this command in console:
+`select functionName`
 
 Since the semi-colon <code>;</code> character is used in both console and JavaScript languages to separate statements, how can we execute multiple commands on the console and with JavaScript?
 
