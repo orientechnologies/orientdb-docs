@@ -44,7 +44,7 @@ g.command('sql', 'insert into Person(name) values ("Luca")');
 g.commit();</code></pre>
 
 you can than use this command in console:
-`select functionName`
+`select functionName()`
 
 Since the semi-colon <code>;</code> character is used in both console and JavaScript languages to separate statements, how can we execute multiple commands on the console and with JavaScript?
 
