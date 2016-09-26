@@ -8,14 +8,28 @@ search:
 If you're looking for drivers or JDBC connector go to  [Programming-Language-Bindings](Programming-Language-Bindings.md).
 
 ------
-<a href="http://www.playframework.org"><img width="100" align="left" src="https://www.playframework.com/assets/images/logos/play_full_color.png" /></a>
-&nbsp;<br>
+
+<a href="http://www.springsource.org"><img width="100" align="left" src="http://www.springsource.org/files/imagefield_default_images/placeholder_video_spring_projects.png" /></a>
+<br>
+&nbsp;
 <br>
 
-[Play Framework 2.1 PLAY-WITH-ORIENTDB plugin](https://github.com/ratcashdev/play-with-orientdb)<br/>
-[Play Framework 2.1 ORIGAMI plugin](https://github.com/sgougi/play21-origami-plugin)<br/>
-[Play Framework 1.x ORIENTDB plugin](http://www.playframework.org/modules/orientdb)<br/>
-[Frames-OrientDB Plugin Play Framework 2.x](https://github.com/sgougi/play21-frames-orientdb-plugin) Frames-OrientDB plugin is a Java O/G mapper for the OrientDB with the Play! framework 2. It is used with the TinkerPop Frames for O/G mapping.
+- [OrientDB Spring Data](https://github.com/orientechnologies/spring-data-orientdb) is the official <a href="http://projects.spring.io/spring-data/">Spring Data Plugin</a> for both Graph and Document APIs
+- [spring-orientdb](https://github.com/megadix/orientdb-spring) is an attempt to provide a PlatformTransactionManager for OrientDB usable with the Spring Framework, in particular with @Transactional annotation. Apache 2 license
+<br> 
+- [Spring Session OrientDB](https://github.com/maseev/spring-session-orientdb) is a Spring Session extension for OrientDB.
+
+------
+
+<a href="http://www.playframework.org"><img width="100" align="left" src="https://www.playframework.com/assets/images/logos/play_full_color.png" /></a>
+<br>
+&nbsp;
+<br>
+
+- [Play Framework 2.1 PLAY-WITH-ORIENTDB plugin](https://github.com/ratcashdev/play-with-orientdb)
+- [Play Framework 2.1 ORIGAMI plugin](https://github.com/sgougi/play21-origami-plugin)
+- [Play Framework 1.x ORIENTDB plugin](http://www.playframework.org/modules/orientdb)
+- [Frames-OrientDB Plugin Play Framework 2.x](https://github.com/sgougi/play21-frames-orientdb-plugin) Frames-OrientDB plugin is a Java O/G mapper for the OrientDB with the Play! framework 2. It is used with the TinkerPop Frames for O/G mapping.
 
 ------
 
@@ -29,8 +43,11 @@ With proper mark-up/logic separation, a POJO data model, and a refreshing lack o
 
 ------
 
-<a href="https://github.com/google/guice"><img src="http://www.jaritimonen.com/wp-content/uploads/2012/06/Guice.jpg"</img></a><br>
- 
+<a href="https://github.com/google/guice"><img src="http://www.jaritimonen.com/wp-content/uploads/2012/06/Guice.jpg"/></a>
+<br>
+&nbsp;
+<br>
+
 Guice (pronounced 'juice') is a lightweight dependency injection framework for Java 6 and above, brought to you by Google.
 [OrientDB Guice plugin](https://github.com/xvik/guice-persist-orient) allows to integrate OrientDB inside Guice. Features:
 - Integration through guice-persist (UnitOfWork, PersistService, @Transactional, dynamic finders supported)
@@ -54,19 +71,6 @@ Vert.x is a lightweight, high performance application platform for the JVM that'
 <a href="https://gephi.org"><img width="100" align="left" src="http://gephi.github.io/images/logo.png" /></a><br>
  
 [Gephi Visual tool](Gephi.md) usage with OrientDB and the [Blueprints importer](https://github.com/datablend/gephi-blueprints-plugin/wiki)
-
-------
-
-<a href="http://www.springsource.org"><img width="100" align="left" src="http://www.springsource.org/files/imagefield_default_images/placeholder_video_spring_projects.png" /></a>
-<br> 
-[OrientDB Spring Data](https://github.com/orientechnologies/spring-data-orientdb) is the official <a href="http://projects.spring.io/spring-data/">Spring Data Plugin</a> for both Graph and Document APIs
-
-<br>
-&nbsp;
-<br> 
-[spring-orientdb](https://github.com/megadix/orientdb-spring) is an attempt to provide a PlatformTransactionManager for OrientDB usable with the Spring Framework, in particular with @Transactional annotation. Apache 2 license
-
-
 
 ------
 [OrientDB session store](https://github.com/ffissore/connect-orientdb) for Connect
