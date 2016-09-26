@@ -152,3 +152,11 @@ The Server automatically installs the log formatter.  To disable it, use `orient
 <pre>
 $ <code class="lang-sh userinput">java -Dorientdb.installCustomFormatter=false</code>
 </pre>
+
+## Debugging Logger
+
+Java Logging Framework runtime has a known problem with logging from shutdown hooks, sometimes log entries may be lost. OrientDB uses shutdown hooks to properly shutdown its internals, so it also may be affected by this problem, something may go wrong silently on shutdown. To workaround this problem OrientDB provides a special logger – the debugging logger. To activate it provide following command line argument to your JVM:
+
+    -Djava.util.logging.manager=com.orientechnologies.common.log.OLogManager$DebugLogManager
+
+> Use this logger for debugging and troubleshooting purposes only, since it may interfere with your production logging configuration.
