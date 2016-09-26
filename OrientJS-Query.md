@@ -15,10 +15,12 @@ There are two methods available in issuing queries to the database.  You can que
 When querying the database directly, you prepare a string containing OrientDB [SQL](SQL.md), the pass it to either the `db.query()` or `db.exec()` methods.  For instance, going back to the baseball database, say that you want a list of players with a batting average of at least .300 that played for the Red Sox.
 
 ```js
-var hitters = db.query(
+db.query(
    'SELECT name, ba FROM Player '
    + 'WHERE ba >= 0.3 AND team = "Red Sox"'
-);
+).then(function(hitters){
+   console.log(hitters)
+});
 ```
 
 ### Using Parameters
@@ -26,14 +28,16 @@ var hitters = db.query(
 In the event that you want to query other teams and batting averages, such as the case where you want your application to serve a website, you can use previously defined variables, (here, `targetBA` and `targetTeam`), to set these parameters.  You can also add a limit to minimize the amount of data your application needs to parse.
 
 ```js
-var hitters = db.query(
+db.query(
    'SELECT name, ba FROM Player '
    + 'WHERE ba >= :ba AND team = ":team"',
    {params:
       ba: targetBA,
       team: targetTeam
    }, limit: 20
-);
+).then(function(hitters){
+   console.log(hitters)
+});
 ```
 
 ### Using Fetching Strategies
@@ -50,9 +54,12 @@ orientdb> <code class="lang-sql userinput">SELECT name, OUT("hasCard") AS cards
 This would return a result-set with the player's name in one colmn and an array from the `Card` class with all properties on that class, (as expected).  If instead, you passed this query in OrientJS through the `query()` method, you would meet with different results:
 
 ```js
-var results = db.query(
+db.query(
    'SELECT name, OUT("hasCard") AS cards '
-   + 'FROM Player FETCHPLAN *:1');
+   + 'FROM Player FETCHPLAN *:1')
+   .then(function(results){
+   console.log(results)
+})
 ```
 
 Using this code, instead of fetching and unpacking the relationship connecting the `Player` and `Card` class, the `card` column would only contain an array of Record ID's, ignoring the Fetch Plan.  The reason is that it expects to parse Fetch Plans as part of a parameter option, rather than with the query itself.  To use Fetching Strategies with OrientJS, pass it as a parameter:
@@ -61,7 +68,10 @@ Using this code, instead of fetching and unpacking the relationship connecting t
 var results = db.query(
    'SELECT name, OUT("hasCard") AS cards '
    + 'FROM Player',
-   {fetchPlan: 'hasCard:1'});
+   {fetchPlan: 'hasCard:1'})
+    .then(function(results){
+   console.log(results)
+})
 ```
 
 ## Query Builder
