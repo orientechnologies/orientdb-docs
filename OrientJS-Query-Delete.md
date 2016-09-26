@@ -22,7 +22,7 @@ With Graph Databases, deleting vertices is a little more complicated than the no
 For instance, you find that you have two entries made for the player Shoeless Joe Jackson, #12:24 and #12:84 you decide to remove the extra instance within your application.
 
 ```js
-db.delete('VERTEX')
+db.delete('VERTEX','Player')
    .where('@rid = #12:84').one()
    .then(
       function(del){
