@@ -10,7 +10,9 @@ With OrientJS, you can access and manipulate properties on your OrientDB databas
 The examples below use a database of baseball statistics, assuming that you've already created a class for players and initialized it in your code.  For instance,
 
 ```js
-var Player = db.class.get('Player');
+db.class.get('Player').then(function(Player){
+   Player.property...
+});
 ```
 
 Methods that operate on properties use the `class.property` object, such as `Player.property.list()`.
