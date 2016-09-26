@@ -76,7 +76,9 @@ Player.property.create([
 In the event that you find you have set a property on a class that you want to remove, you can do so from within your application using the `class.property.drop()` method.  For instance, sat that you decide that you want to handle teams as a distinct class rather than a field in `Player`.
 
 ```js
-Player.property.drop('team');
+Player.property.drop('team').then(function(){
+   console.log('Property dropped.');
+});
 ```
 
 
@@ -85,5 +87,7 @@ Player.property.drop('team');
 In the event that you want to rename a property through OrientJS, you can do so using the `class.property.rename()` method.
 
 ```js
-Player.property.rename('battingAverage', 'batAvg');
+Player.property.rename('battingAverage', 'batAvg').then(function(p){
+   console.log('Property renamed');
+});
 ```
