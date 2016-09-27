@@ -157,6 +157,7 @@
     * [Document API](Performance-Tuning-Document.md) 
     * [Object API](Performance-Tuning-Object.md) 
     * [Profiler](Profiler.md) 
+    * [Leak Detector](Leak-Detector.md) 
     * [Distributed tuning](Distributed-Configuration-Tuning.md) 
   * [Security](Security.md) 
     * [Database security](Database-Security.md) 
