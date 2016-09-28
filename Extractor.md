@@ -62,6 +62,7 @@ When the ETL module runs the CSV Extractor, it parses a file formated to [Apache
 | `"skipFrom"` | Defines the line number you want to skip from. | integer | | |
 | `"skipTo"` | Defines the line number you want to skip to. | integer | | |
 | `"ignoreEmptyLines"` | Defines whether it should ignore empty lines. | boolean | | `false` |
+| `"ignoreMissingColumns"` | Defines whether it should ignore empty columns. | boolean | | `false` |
 | `"predefinedFormat"` | Defines the CSV format you want to use. | string | | |
 
 - For the `"columns"` parameter, specify the type by postfixing it to the value.  Specifying types guarantees better performance.  
