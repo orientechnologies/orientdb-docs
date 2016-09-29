@@ -10,7 +10,10 @@ Repairs the database.
 **Syntax**
 
 ```sql
-REPAIR DATABASE [--fix-graph [-skipVertices=<vertices>] [-skipEdges=<edges>]] [--fix-links] [-v]] [--fix-ridbags] [--fix-bonsai]
+REPAIR DATABASE [--fix-graph [-skipVertices=<vertices>] [-skipEdges=<edges>]]
+                [--fix-links] [-v]]
+                [--fix-ridbags]
+                [--fix-bonsai]
 ```
 
 - **`[--fix-graph]`** Fixes the database as graph. All broken edges are removed and all corrupted vertices repaired. This mode takes the following optional parameters:
@@ -24,8 +27,8 @@ REPAIR DATABASE [--fix-graph [-skipVertices=<vertices>] [-skipEdges=<edges>]] [-
 
 - Repair a graph database:
 
-  <pre>
-  orientdb> <code class='lang-sql userinput'>REPAIR DATABASE --fix-graph</code>
+```
+  orientdb> REPAIR DATABASE --fix-graph
 
   Repair of graph 'plocal:/temp/demo' is started ...
   Scanning 26632523 edges (skipEdges=0)...
@@ -51,6 +54,6 @@ REPAIR DATABASE [--fix-graph [-skipVertices=<vertices>] [-skipEdges=<edges>]] [-
    scannedLinks.....: 53264852
    removedLinks.....: 64
    repairedVertices.: 47
-  </pre>
+```
 
 >For more information on other commands, see [Console Commands](Console-Commands.md).
