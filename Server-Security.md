@@ -45,16 +45,28 @@ Beginning with version 2.2, the OrientDB console provides a series of commands f
 
 ## Server Resources
 
-Each user can declare which resources have access.  The wildcard `*` grants access to any resource.  By default, the user `root` has all privileges, so it can access all the managed databases.
 
+Each user can declare which resources have access.  The wildcard `*` grants access to any resource.  By default, the user `root` has all privileges (`*`), so it can access all the managed databases and operations.
 
-| Resources | Description |
+| Resources | Permission to |
 |-----------|-------------|
-|`server.info`|Retrieves server information and statistics.|
-|`server.listDatabases`|Lists available databases on the server.|
-|`database.create`|Creates a new database in the server|
-|`database.drop`|Drops a database|
-|`database.passthrough`|Allows access to all managed databases.|
+|`database.create`|Create a new database in the server|
+|`database.drop`|Drop a database|
+|`database.exists`|Check the existence of a database|
+|`database.freeze`|Freeze the access to a database|
+|`database.release`|Release a frozen database|
+|`database.passthrough`|Allow access to all managed databases|
+|`server.config.get`|Retrieve server's setting|
+|`server.config.set`|Update server's setting|
+|`server.connect`|Connect to a server|
+|`server.info`|Retrieve server's information and statistics|
+|`server.listDatabases`|Enlist available databases on the server|
+|`server.listDatabases.system`|Include the OSystem database in the list of databases|
+|`server.replication`|Execute a replication command from another server|
+|`server.replication.start`|Start the replication of a database|
+|`server.replication.stop`|Stop the replication of a database|
+|`server.replication.config`|Update the replication configuration|
+|`server.shutdown`|Shutdown a server|
 
 For example,
 
