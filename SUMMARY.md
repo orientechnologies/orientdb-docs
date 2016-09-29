@@ -83,6 +83,7 @@
     * [Properties](Console-Command-Properties.md) 
     * [Release DB](Console-Command-Release-Db.md) 
     * [Reload Record](Console-Command-Reload-Record.md) 
+    * [Repair Database](Console-Command-Repair-Database.md) 
     * [Restore](Console-Command-Restore.md) 
     * [Rollback](Console-Command-Rollback.md) 
     * [Set](Console-Command-Set.md) 
