@@ -1,93 +1,154 @@
 ---
 search:
-   keywords: ['Document API', 'field']
+   keywords: ['Document API', 'field', 'extract']
 ---
 
 # Working with Fields
 
-OrientDB has a powerful way to extract parts of a Document field. This applies to the Java API, SQL Where conditions, and SQL projections.
+When you query OrientDB it normally returns complete fields.  In the event that you would like to only retrieve certain parts of the Document field, you can extract them through the Java API, ['WHERE'](SQL-Where.md) conditions and SQL projections.
 
-To extract parts you have to use the square brackets.
+To extract parts, use the brackets.
 
-## Extract punctual items
 
-### Single item
+## Extracting Punctual Items
 
-Example: tags is an EMBEDDEDSET of Strings containing the values ['Smart', 'Geek', 'Cool'].
+Under normal operations, when you issue a query to OrientDB the return value contains complete fields.  That is, if you issue [`SELECT`](SQL-Query.md) against a certain property, what you receive is the complete value on that property.  For instance,
 
-The expression tags[0] will return 'Smart'.
+<pre>
+orientdb> <code class="userinput lang-sql">SELECT tags FROM BlogEntry</code>
 
-### Single items
++--------+-----------------------------------+
+| @rid   | tags                              |
++--------+-----------------------------------+
+| #10:34 | ['vim', 'vimscript', 'NERD Tree'] |
+| #10:35 | ['sed', 'awk', 'bash', 'grep']    |
+| #10:36 | ['Emacs', 'Elisp', 'org-mode']    |
++--------+-----------------------------------+
+</pre>
 
-Inside square brackets put the items separated by comma ",".
+Here we have a series of blog entries on editing text in unix-like environemnts.  The query returns the tags for each entry, which is an `EMBEDDEDSET` of strings.  Normally, you would need to add logic at the application layer to only extract portions of this list.  But, using brackets, you can do so from within the query.
 
-Following the tags example above, the expression tags[0,2] will return a list with ['Smart', 'Cool'].
+- **Single Extraction**: When querying a sequenced proeprty, you can retrieve a specific entry by using an integer in the brackets.  For instance, `tag[0]`.
 
-### Range items
+  <pre>
+  orientdb> <code class="userinput lang-sql">SELECT tags[0] FROM BlogEntry</code>
 
-Inside square brackets put the lower and upper bounds of an item, separated by "-".
+  +--------+-----------+
+  | @rid   | tags      |
+  +--------+-----------+
+  | #10:34 | ['vim']   |
+  | #10:35 | ['sed']   |
+  | #10:36 | ['Emacs'] |
+  +--------+-----------+
+  </pre>
 
-Following the tags example above, the expression tags[1-2] returns ['Geek', 'Cool'].
+- **Group Extraction**: When querying a sequenced property, you can retrieve groups of entries by separating them by a comma.  For instance, `tag[0,2]`.
 
-### Usage in SQL query
+  <pre>
+  orientdb> <code class="userinput lang-sql">SELECT tags[0,2] FROM BlogEntry</code>
 
-Example:
-```sql
-SELECT * FROM profile WHERE phones['home'] LIKE '+39%'
+  +--------+-----------------------+
+  | @rid   | tags                  |
+  +--------+-----------------------+
+  | #10:34 | ['vim', 'NERD Tree']  |
+  | #10:35 | ['sed', 'bash']       |
+  | #10:36 | ['Emacs', 'org-mode'] |
+  +--------+-----------------------+
+  </pre>
+
+- **Range Extraction**: When querying a sequenced property, you can retrieve a range of entries by separating the lower and upper bounds by a hyphen.  For instance, `tag[1-2]`.
+
+  <pre>
+  orientdb> <code class="userinput lang-sql">SELECT tags[1-2] FROM BlogEntry</code>
+
+  +--------+----------------------------+
+  | @rid   | tags                       |
+  +--------+----------------------------+
+  | #10:34 | ['vimscript', 'NERD Tree'] |
+  | #10:35 | ['awk', 'bash']            |
+  | #10:36 | ['Elisp', 'org-mode']      |
+  +--------+----------------------------+
+  </pre>
+
+- **Map Extraction**: When querying a mapped property, you can retrieve a specific entry from the map by passing the key.  For instance, `phone['home']`.
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM BlogEntry 
+            WHERE author['group'] LIKE 'Club Linux'</code> 
+  </pre>
+
+- **Conditional Extraction** In addition to positional and map values, you can also perform extraction based on conditions.  For instance,
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">SELECT FROM BlogEntry
+            WHERE author[group = 'Club Linux']</code>
+  </pre>
+
+  For more information, see [Conditional Extraction](#using-condition-extraction).
+
+### Using Extraction in SQL
+
+You can use brackets to extract specific parts from the Document field.  For instance, consider an address book database that maps phone numbers to types of phone numbers, (such as their home number or mobile).
+
+For instance, say you want to query the address book for the home numbers of users living in Italy:
+
+<pre>
+orientdb> <code class="userinput lang-sql">SELECT name, phones FROM Profile
+          WHERE phones['home'] LIKE '+39%'</code>
+</pre>
+
+You can chain maps together, such as in cases where a property is a map of a map.
+
+<pre>
+orientdb> <code class="userinput lang-sql">SELECT name, contacts FROM Profile
+          WHERE contacts[phones][home] LIKE '+39%'</code>
+</pre>
+
+
+### Using Conditional Extraction
+
+In addition to sequential positions and map values, you can also use conditional statements in extraction.  For instance,
+
 ```
-Works the same with double quotes.
-
-You can go in a chain (contacts is a map of map):
-```sql
-SELECT * FROM profile WHERE contacts[phones][home] LIKE '+39%'
-```
-With lists and arrays you can pick an item element from a range:
-```sql
-SELECT * FROM profile WHERE tags[0] = 'smart'
-```
-and single items:
-```sql
-SELECT * FROM profile WHERE tags[0,3,5] CONTAINSALL ['smart', 'new', 'crazy']
-```
-and a range of items:
-```sql
-SELECT * FROM profile WHERE tags[0-5] CONTAINSALL ['smart', 'new', 'crazy']
-```
-
-### Condition
-
-Inside the square brackets you can specify a condition. Today only the equals condition is supported.
-
-Example:
-```sql
 employees[label = 'Ferrari']
 ```
 
-#### Use in graphs
+>Currently, only the equals condition is supported.
 
-You can cross a graph using a projection. This an example of traversing all the retrieved nodes with name "Tom". "out" is outEdges and it's a collection. Previously, a collection couldn't be traversed with the . notation. Example:
-```sql
-SELECT out.in FROM v WHERE name = 'Tom'
-```
-This retrieves all the vertices connected to the outgoing edges from the Vertex with name = 'Tom'.
+Consider the example of a Graph Database.  You can cross a graph using a projection, such as traversing all retrieved nodes with the name "Tom" and viewing their outgoing edges, (here, a collection field called `out`).  
 
-A collection can be filtered with the equals operator. This an example of traversing all the retrieved nodes with name "Tom". The traversal crosses the out edges but only where the linked (in) Vertex has the label "Ferrari" and then forward to the:
-```sql
-SELECT out[in.label = 'Ferrari'] FROM v WHERE name = 'Tom'
-```
-Or selecting vertex nodes based on class:
-```sql
-SELECT out[in.@class = 'Car'] FROM v WHERE name = 'Tom'
-```
-Or both:
-```sql
-SELECT out[label='drives'][in.@class = 'Car'] FROM v WHERE name = 'Tom'
-```
-As you can see where brackets ([]) follow brackets, the result set is filtered in each step like a Pipeline.
+Without extraction, you would do this using dot notation.  For instance,
 
-NOTE: This doesn't replace the support of GREMLIN. GREMLIN is much more powerful because it does thousands of things more, but it's a simple and, at the same time, powerful tool to traverse relationships.
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT out.in FROM Person WHERE name = 'Tom'</code>
+</pre>
 
-### Future directions
+You can filter collections using the equals operator.  For instance, you might want to find out how many Toms in the database own Ferraris.  You could do this by performing extraction on the `out` property, so that it matches the incoming edge to the label "Ferrari":
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT out[in.label = 'Ferrari'] FROM Person
+          WHERE name = 'Tom'</code>
+</pre>
+
+You might want a more generic return and only match by class the incoming edges that are cars.
+
+<pre>
+orientdb> <code class="userinput lang-sql">SELECT out[in.@class = 'Car'] FROM Person
+          WHERE name = 'Tom'</code>
+</pre>
+
+Alternatively, you could use both together:
+
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT out[label = 'drives'][in.@class = 'Car']
+          FROM Person WHERE name = 'Tom'</code>
+</pre>
+
+Where brackets follow brackets, OrientDB filters the result-set in steps as in a pipeline.
+
+>Bear in mind, this does not replace [Gremlin](Gremlin.md) support.  There's a lot more that you can do with Gremlin than you can through extraction, but extraction is a simpler tool for traversing relationships.  
+
+## Future directions
 
 In the future you will be able to use the full expression of the OrientDB SQL language inside the square brackets [], like:
 ```sql
