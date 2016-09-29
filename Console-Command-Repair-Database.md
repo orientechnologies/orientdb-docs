@@ -47,7 +47,7 @@ REPAIR DATABASE [--fix-graph [-skipVertices=<vertices>] [-skipEdges=<edges>]]
   + vertices: scanned 32100000, repaired 47 (estimated remaining time 2 secs)
   ...
   Scanning vertices completed
-  Repair of graph 'plocal:/temp/test' completed in 2106 secs
+  Repair of graph 'plocal:/temp/demo' completed in 2106 secs
    scannedEdges.....: 1632523
    removedEdges.....: 129
    scannedVertices..: 32151775
