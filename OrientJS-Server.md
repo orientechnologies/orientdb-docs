@@ -127,11 +127,8 @@ In the event that the database already exists on your server, you can set an ins
 
 ```js
 var db = server.use('BaseballStats')
-   .then(
-      function(database){
-         console.log('Using Database:', database.name);
-      }
-   );
+console.log('Using Database:', db.name);
+   
 ```
 
 Using this code initializes an instance of the `BaseballStats` database within your application called `db`.  You can now use this instance to work with that database.

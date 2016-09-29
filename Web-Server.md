@@ -11,6 +11,25 @@ search:
 
 Global settings can be set at JVM startup (`java ... -D<setting>="<value>"`) or in `orientdb-server-config.xml` file under "properties" XML tag.
 
+## Avoid exposing OrientDB Server to a public network
+
+By default, OrientDB listens to all the network interfaces (`0.0.0.0`). It's strongly suggested to do not open OrientDB server on public networks. To force OrientDB to bind only one network, please edit the file `config/orientdb-server-config.xml` file and replace `"0.0.0.0` with `127.0.0.1` if you want only locally clients can access to the server, or any other valid IP you want to publish OrientDB. This is the default configuration:
+
+```xml
+<listeners>
+  <listener protocol="binary" socket="default" port-range="2424-2430" ip-address="0.0.0.0"/>
+  <listener protocol="http" socket="default" port-range="2480-2490" ip-address="0.0.0.0">
+</listeners>
+```
+
+To bind OrientDB server only to the local server, change it into:
+
+```xml
+<listeners>
+  <listener protocol="binary" socket="default" port-range="2424-2430" ip-address="127.0.0.1"/>
+  <listener protocol="http" socket="default" port-range="2480-2490" ip-address="127.0.0.1">
+</listeners>
+```
 
 ## Maximum content length
 

@@ -5,6 +5,8 @@ search:
 
 # Release 2.2.x
 
+*NOTE: Release 2.2.6 introduced a change in the internal distributed protocol that does not allow for a cluster of OrientDB Servers, with version between 2.2.0 and 2.2.5, to be hot migrated to a release 2.2.6 or major. The solution is to stop the entire cluster and then execute the upgrade.*
+
 ## What's new?
 
 

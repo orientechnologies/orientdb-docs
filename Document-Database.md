@@ -189,14 +189,14 @@ For instance,
 
 ```java
 ODatabaseDocumentTx db = new ODatabaseDocumentTx(url);
-db.open("admin", "admin_passwd
+db.open("admin", "admin_passwd");
 
+db.begin();
 try {
-   db.begin();
-   // YOUR CODE
-   db.commit();
+  // YOUR CODE
+  db.commit();
 } finally {
-   db.close();
+  db.close();
 }
 ```
 
