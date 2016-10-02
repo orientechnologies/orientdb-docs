@@ -83,6 +83,9 @@
     },
     "search": {
       "maxIndexSize": 250000000
+    },
+    "lunr": {
+      "maxIndexSize": 250000000
     }
   }
 }
