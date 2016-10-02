@@ -36,7 +36,7 @@ Example:
   },
 ```
 
-![DC](http://orientdb.com/wp-content/uploads/2016/07/orientdb-dc.png)
+![DC](http://orientdb.com/wp-content/uploads/2016/07/orientdb-dc1.png)
 
 ## Write Quorum
 
