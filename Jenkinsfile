@@ -8,9 +8,9 @@ node("master") {
 
     docker.image("orientdb/jenkins-slave-gitbook:20160511").inside() {
         sh "rm -rf _/book/*"
-        sh "gitbook install . "
-        sh "gitbook build ."
-        sh "gitbook pdf . _book/OrientDB-Manual.pdf"
+        sh "gitbook install --gitbook 3.1.1 . "
+        sh "gitbook build --gitbook 3.1.1 ."
+        sh "gitbook pdf --gitbook 3.1.1 . _book/OrientDB-Manual.pdf"
     }
 
     if (!env.BRANCH_NAME.startsWith("PR-")) {
