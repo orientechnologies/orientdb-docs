@@ -1,6 +1,6 @@
 # Data Centers
 
-Starting from OrientDB Enterprise Edition v2.2.4, you can define how your servers are deployed in multiple **Data Centers**. All you need is using the tag `"dataCenters"` in your [`default-distributed-config.json`](Distributed-Configuration.md#default-distributed-db-configjson) configuration file. This is the format:
+Starting from OrientDB Enterprise Edition v2.2.4, you can define how your servers are deployed in multiple **Data Centers**. All you need is using the tag `"dataCenters"` in your [`default-distributed-config.json`](Distributed-Configuration.html#default-distributed-db-configjson) configuration file. This is the format:
 
 ```json
   "dataCenters": {
@@ -16,6 +16,27 @@ Starting from OrientDB Enterprise Edition v2.2.4, you can define how your server
 ```
 
 NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+
+Example:
+
+```json
+  "dataCenters": {
+    "usa": {
+      "writeQuorum": "majority",
+      "servers": [ "<austin>", "<paloalto>", "<newyork>" ]
+    },
+    "europe": {
+      "writeQuorum": "majority",
+      "servers": [ "<rome>", "<dublin>", "<london>" ]
+    },
+    "asia": {
+      "writeQuorum": "majority",
+      "servers": [ "<tokio>", "<singapore>", "<hongkong>" ]
+    }
+  },
+```
+
+![DC](http://orientdb.com/wp-content/uploads/2016/07/orientdb-dc1.png)
 
 ## Write Quorum
 

@@ -76,7 +76,7 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 | `LINKEDCLASS` | String | | Defines the linked class name.  Use `NULL` to remove an existing value.|
 | `LINKEDTYPE` | String | | Defines the [link type](Types.md).  Use `NULL` to remove an existing value.|
 | `MIN` | Integer | | Defines the minimum value as a constraint.  Use `NULL` to remove an existing constraint.  On String attributes, it defines the minimum length of the string.  On Integer attributes, it defines the minimum value for the number.  On Date attributes, the earliest date accepted.  For multi-value attributes (lists, sets and maps), it defines the fewest number of entries.|
-| `MANDATORY` | Boolean | | Defines whether the proprety requires a value. |
+| `MANDATORY` | Boolean | | Defines whether the property requires a value. |
 | `MAX` | Integer | | Defines the maximum value as a constraint.  Use `NULL` to remove an existing constraint.  On String attributes, it defines the greatest length of the string.  On Integer attributes, it defines the maximum value for the number.  On Date attributes, the last date accepted.  For multi-value attributes (lists, sets and maps), it defines the highest number of entries.|
 | `NAME` | String || Defines the property name.|
 | `NOTNULL` | Boolean || Defines whether the property can have a null value. |

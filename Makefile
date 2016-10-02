@@ -25,11 +25,11 @@ endif
 
 # Build Local Website
 create: clean $(MODULES)
-	$(NODECALL) $(GITBOOK) build $(SRC) --output=$(WEB)
+	$(NODECALL) $(GITBOOK) build --gitbook 3.1.1 $(SRC) --output=$(WEB)
 
 # Build PDF
 pdf: clean $(MODULES)
-	$(NODECALL) $(GITBOOK) pdf $(SRC) --output=$(PDF)
+	$(NODECALL) $(GITBOOK) pdf --gitbook 3.1.1 $(SRC) --output=$(PDF)
 
 # Pull Updates
 pull:

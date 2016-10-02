@@ -5,7 +5,7 @@ search:
 
 # Install as Service on Unix/Linux
 
-Following the installation guide above, whether you chose to download binaries or build from source, does not install OrientDB at a system-level.  There are a few additional steps you need to take in order to manage the database system as a service.
+Following the installation guide above, whether you choose to download binaries or build from source, does not install OrientDB at a system-level.  There are a few additional steps you need to take in order to manage the database system as a service.
 
 OrientDB ships with a script, which allows you to manage the database server as a system-level daemon.  You can find it in the `bin/` path of your installation directory, (that is, at `$ORIENTDB_HOME/bin/orientdb.sh`.  
 
@@ -43,7 +43,7 @@ Different operating systems and Linux distributions have different procedures wh
 
 ### Installing for init
 
-Many Unix-like operating systems such as FreeBSD, most older distributions of Linux as well as current releases of Debian, Ubuntu and their derivatives use variations on SysV-style init for these processes.  These are typically the systems that manage such processes using the `service` command.
+Many Unix-like operating systems such as FreeBSD, most older distributions of Linux, as well as current releases of Debian, Ubuntu and their derivatives use variations on SysV-style init for these processes.  These are typically the systems that manage such processes using the `service` command.
 
 To install OrientDB as a service on an init-based unix or Linux system, copy the modified `orientdb.sh` file from `$ORIENTDB_HOME/bin` into `/etc/init.d/`:
 
@@ -61,9 +61,9 @@ Starting OrientDB server daemon...
 
 ### Installing for systemd
 
-Most newer releases of Linux, especially among the RPM-based distributions like Red Hat, Fedora and CentOS, as well as future releases of Debian and Ubuntu use systemd for these processes.  These are the systems that manage such processes using the `systemctl` command.
+Most newer releases of Linux, especially among the RPM-based distributions like Red Hat, Fedora, and CentOS, as well as future releases of Debian and Ubuntu use systemd for these processes.  These are the systems that manage such processes using the `systemctl` command.
 
-The OrientDB's  package  contains a service descriptor file for systemd based distros. The  `orientdb.service` is places in the `bin` directory. To install OrientDB  copy the `orientdb.service` to`/etc/systemd/system`  directory (check this, may depend on distro). Edite the file: 
+The OrientDB's  package  contains a service descriptor file for systemd based distros. The  `orientdb.service` is placed in the `bin` directory. To install OrientDB copy the `orientdb.service` to`/etc/systemd/system`  directory (check this, may depend on distro). Edit the file: 
 <pre>
 # <code class="lang-sh userinput">vi /etc/systemd/system/orientdb.service</code>
 
@@ -82,11 +82,11 @@ WantedBy=multi-user.target
 [Service]
 User=ORIENTDB_USER
 Group=ORIENTDB_GROUP
-ExecStart=$ORIENTDB_HOME/bin/server.sh start
+ExecStart=$ORIENTDB_HOME/bin/server.sh
 
 </pre>
 
-Set the right user and group. You may want to use the absolute path instead of the environmental variable `$ORIENTDB_HOME`.  Once this file is saved, you can start and stop the OrientDB server using the `systemctl` command:
+Set the right user and group. You may want to use the absolute path instead of the environment variable `$ORIENTDB_HOME`.  Once this file is saved, you can start and stop the OrientDB server using the `systemctl` command:
 
 <pre>
 # <code class="lang-sh userinput">systemctl start orientdb.service</code>
@@ -106,7 +106,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/orientdb.servic
 
 #### Manual install
 
-For Mac OS X, create an alias to OrientDB system daemon script and the console.
+For Mac OS X, create an alias to the OrientDB system daemon script and the console.
 
 ```sh
 $ alias orientdb-server=/path/to/$ORIENTDB_HOME/bin/orientdb.sh

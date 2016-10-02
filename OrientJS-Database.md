@@ -18,11 +18,7 @@ For instance, with an existing database,
 
 ```js
 var db = server.use('BaseballStats')
-   .then(
-      function(db){
-         console.log('Using Database:'  + db.name);
-      }
-   );
+console.log('Using Database:'  + db.name);
 ```
 
 Using this code, your application would attempt to connect to the `BaseballStats` database.  When it succeeds, it logs a message to the console to tell the user which database they're on.

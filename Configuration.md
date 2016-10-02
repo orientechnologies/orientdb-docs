@@ -148,7 +148,7 @@ Set at run-time: false
 
 ##### memory.directMemory.trackMode
 
-If 'track mode' is switched on then following steps are performed: 1. direct memory JMX bean is registered. 2. You may check amount of allocated direct memory as property of JMX bean. 3. If memory leak is detected then JMX event will be fired. This mode provides big overhead and may be used only for testing purpose.
+Enables/disables [the leak detector](Leak-Detector.md).
 
 ```
 Setting name...: memory.directMemory.trackMode

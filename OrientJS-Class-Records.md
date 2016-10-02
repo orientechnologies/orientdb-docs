@@ -10,7 +10,9 @@ With OrientJS you can access and manipulate records on your OrientDB database, t
 The examples below use a database of baseball statistics, assuming that you've already created a class for players and initialized it in your code.  For instance,
 
 ```js
-var Player = db.class.get('Player');
+db.class.get('Player').then(function(Player){
+   Player...
+});
 ```
 
 ## Listing Records
