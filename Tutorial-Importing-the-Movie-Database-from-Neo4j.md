@@ -14,7 +14,7 @@ We will also provide some examples of queries using the OrientDB's [MATCH](SQL-M
 ## Table of Contents
 
 - [Exporting from Neo4j](#exporting-from-neo4j)
-- [Importing into OrientDB](#importing-from-neo4j)
+- [Importing into OrientDB](#importing-into-orientdb)
 - [Query Comparison](#query-comparison)
 
 
@@ -39,7 +39,7 @@ In the example above the exported *movie* graph is stored under `D:\movie.graphm
 
 In this tutorial we will import in OrientDB the file `movie.graphml` using the OrientDB's [Console](Console-Commands.md). For other import methods, please refer to the section [Importing GraphML](Import-from-Neo4j-into-OrientDB.md#importing-graphml).
 
-The import output is similar to the following (note that first we create a *movie* database using the command `CREATE DATABASE`, and the we do the import using the command `IMPORT DATABASE`):
+The OrientDB's Console output generated during the import process is similar to the following (note that first we create a *movie* database using the command `CREATE DATABASE`, and then we do the actual import using the command `IMPORT DATABASE`):
 
 ```
 D:\orientdb\orientdb-enterprise-2.2.8\bin>console.bat
@@ -68,9 +68,9 @@ For more tips and tricks related to the import process, please refer to [this](I
 
 ## Query Comparison
 
-Once the *movie* database has been imported, you may use several ways in OrientDB to access its data.
+Once the *movie* database has been imported into OrientDB, you may use several ways to access its data.
 
-The `MATCH` [syntax](SQL-Match.md) and the tool [Studio](Studio-Home-page.md) can be used, for instance, in a similar way to the Neo4j Cypher and the Neo4j Browser.
+The `MATCH` [syntax](SQL-Match.md) and the tool [Studio](Studio-Home-page.md) can be used, for instance, in a similar way to the Neo4j's Cypher and Browser.
 
 The following table includes a comparison of the Neo4j's Cypher and OrientDB's `MATCH` syntax for some queries that you can execute against the *movie* database:
 
@@ -83,124 +83,124 @@ The following table includes a comparison of the Neo4j's Cypher and OrientDB's `
 <tr>
 <td>Find the actor named "Tom Hanks"</td>
 <td>
-```
+<pre>
 MATCH (tom:Person {name: "Tom Hanks"}) 
 RETURN tom
-```
+</pre>
 </td>
 <td>
-```
+<pre>
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')} 
 RETURN $pathElements
-```
+</pre>
 </td>
 </tr>
 <tr>
 <td>Find the movie with title "Cloud Atlas"</td>
 <td>
-```
+<pre>
 MATCH (cloudAtlas:Movie {title: "Cloud Atlas"}) 
 RETURN cloudAtlas
-```
+</pre>
 </td>
 <td>
-```
+<pre>
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')} 
 RETURN $pathElements
-```
+</pre>
 </td>
 </tr>
 <tr>
 <td>Find 10 people</td>
 <td>
-```
+<pre>
 MATCH (people:Person) 
 RETURN people.name 
 LIMIT 10
-```
+</pre>
 </td>
 <td>
-```
+<pre>
 MATCH {class: Person, as: people} 
 RETURN $pathElements
 LIMIT 10
-```
+</pre>
 </td>
 </tr>
 <tr>
 <td>Find the movies released in the 1990s</td>
 <td>
-```
+<pre>
 MATCH (nineties:Movie) 
 WHERE nineties.released > 1990 AND nineties.released < 2000 
 RETURN nineties.title
-```
+</pre>
 </td>
 <td>
-```
+<pre>
 MATCH {class: Movie, as: nineties, WHERE: (released > 1990 AND released < 2000 )} 
 RETURN $pathElements
-```
+</pre>
 </td>
 </tr>
 <tr>
 <td>List all Tom Hanks movies</td>
 <td>
-```
+<pre>
 MATCH (tom:Person {name: "Tom Hanks"})-[:ACTED_IN]->(tomHanksMovies) 
 RETURN tom, tomHanksMovies
-```
+</pre>
 </td>
 <td>
-```
+<pre>
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: tomHanksMovies}
 RETURN $pathElements
-```
+</pre>
 </td>
 </tr>
 <tr>
 <td>Find out who directed "Cloud Atlas"</td>
 <td>
-```
+<pre>
 MATCH (cloudAtlas {title: "Cloud Atlas"})<-[:DIRECTED]-(directors) 
 RETURN directors.name
-```
+</pre>
 </td>
 <td>
-```
+</pre>
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')}<-DIRECTED-{as: directors}
 RETURN $pathElements
-```
+</pre>
 </td>
 </tr>
 <tr>
 <td>Find Tom Hanks' co-actors</td>
 <td>
-```
+<pre>
 MATCH (tom:Person {name:"Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) 
 RETURN DISTINCT coActors.name
-```
+</pre>
 </td>
 <td>
-```
+<pre>
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: m}<-ACTED_IN-{class: Person,as: coActors}
 RETURN coActors.name
-```
+</pre>
 </td>
 </tr>
 <tr>
 <td>Find how people are related to "Cloud Atlas"</td>
 <td>
-```
+<pre>
 MATCH (people:Person)-[relatedTo]-(:Movie {title: "Cloud Atlas"}) 
 RETURN people.name, Type(relatedTo), relatedTo
-```
+</pre>
 </td>
 <td>
-```
+<pre>
 MATCH {class: Person, as: people}--{as: m, where: (title = 'Cloud Atlas')}
 RETURN $pathElements
-```
+</pre>
 </td>
 </tr>
 </table>
