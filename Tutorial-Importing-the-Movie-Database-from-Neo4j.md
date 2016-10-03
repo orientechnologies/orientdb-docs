@@ -78,8 +78,8 @@ The following tables include a comparison of the Neo4j's Cypher and OrientDB's `
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
@@ -102,8 +102,8 @@ RETURN $pathElements
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
@@ -125,8 +125,8 @@ RETURN $pathElements
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
@@ -151,8 +151,8 @@ LIMIT 10
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
@@ -176,8 +176,8 @@ RETURN $pathElements
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
@@ -200,8 +200,8 @@ RETURN $pathElements
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
@@ -223,8 +223,8 @@ RETURN $pathElements
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
@@ -246,8 +246,8 @@ RETURN coActors.name
 
 <table>
 <tr>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>
