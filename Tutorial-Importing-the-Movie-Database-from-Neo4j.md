@@ -96,11 +96,6 @@ RETURN $pathElements
 </td>
 </tr>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
-</tr>
-<tr>
 <td>Find the movie with title "Cloud Atlas"</td>
 <td>
 <pre>
@@ -114,11 +109,6 @@ MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')}
 RETURN $pathElements
 </pre>
 </td>
-</tr>
-<tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>Find 10 people</td>
@@ -138,11 +128,6 @@ LIMIT 10
 </td>
 </tr>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
-</tr>
-<tr>
 <td>Find the movies released in the 1990s</td>
 <td>
 <pre>
@@ -157,11 +142,6 @@ MATCH {class: Movie, as: nineties, WHERE: (released > 1990 AND released < 2000 )
 RETURN $pathElements
 </pre>
 </td>
-</tr>
-<tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>List all Tom Hanks movies</td>
@@ -179,11 +159,6 @@ RETURN $pathElements
 </td>
 </tr>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
-</tr>
-<tr>
 <td>Find out who directed "Cloud Atlas"</td>
 <td>
 <pre>
@@ -199,11 +174,6 @@ RETURN $pathElements
 </td>
 </tr>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
-</tr>
-<tr>
 <td>Find Tom Hanks' co-actors</td>
 <td>
 <pre>
@@ -217,11 +187,6 @@ MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: m}<-A
 RETURN coActors.name
 </pre>
 </td>
-</tr>
-<tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
 </tr>
 <tr>
 <td>Find how people are related to "Cloud Atlas"</td>
