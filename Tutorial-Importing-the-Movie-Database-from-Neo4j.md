@@ -202,7 +202,7 @@ RETURN directors.name
 </pre>
 </td>
 <td>
-</pre>
+<pre>
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')}<-DIRECTED-{as: directors}
 RETURN $pathElements
 </pre>
