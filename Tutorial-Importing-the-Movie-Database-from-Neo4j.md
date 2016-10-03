@@ -95,8 +95,6 @@ RETURN $pathElements
 </pre>
 </td>
 </tr>
-</table>
-<table>
 <tr>
 	<th>Objective</th>
     <th>Neo4j's Cypher</th>
@@ -117,8 +115,6 @@ RETURN $pathElements
 </pre>
 </td>
 </tr>
-</table>
-<table>
 <tr>
 	<th>Objective</th>
     <th>Neo4j's Cypher</th>
@@ -141,8 +137,6 @@ LIMIT 10
 </pre>
 </td>
 </tr>
-</table>
-<table>
 <tr>
 	<th>Objective</th>
     <th>Neo4j's Cypher</th>
@@ -164,8 +158,6 @@ RETURN $pathElements
 </pre>
 </td>
 </tr>
-</table>
-<table>
 <tr>
 	<th>Objective</th>
     <th>Neo4j's Cypher</th>
@@ -186,8 +178,6 @@ RETURN $pathElements
 </pre>
 </td>
 </tr>
-</table>
-<table>
 <tr>
 	<th>Objective</th>
     <th>Neo4j's Cypher</th>
@@ -208,8 +198,6 @@ RETURN $pathElements
 </pre>
 </td>
 </tr>
-</table>
-<table>
 <tr>
 	<th>Objective</th>
     <th>Neo4j's Cypher</th>
@@ -230,8 +218,6 @@ RETURN coActors.name
 </pre>
 </td>
 </tr>
-</table>
-<table>
 <tr>
 	<th>Objective</th>
     <th>Neo4j's Cypher</th>
