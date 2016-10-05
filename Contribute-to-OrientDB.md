@@ -7,7 +7,7 @@ OrientDB uses different branches to support the development and release process.
 The `develop` branch contains code under development for which there's not a stable release yet. 
 When a stable version is released, a branch for the hotfix is created. 
 Each stable release is merged on master branch and tagged there.
-As the time of writing this notes, the state of branches is:
+At the time of writing these notes, the state of branches is:
 
 * develop: work in progress for next 2.2.x release (2.2.0-SNAPSHOT)
 * 2.1.x: hot fix for next 2.1.x stable release (2.1.10-SNAPSHOT)

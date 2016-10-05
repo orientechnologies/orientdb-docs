@@ -34,6 +34,6 @@ Through the box above you can change in real time the current cluster configurat
 - `Failure Available Nodes Less Quorum`
 - `Server Roles`, roles may be "Master" or "Replica"
 
-If you want know more about these configuration parameters you can view the [Distributed Configuration](https://github.com/orientechnologies/orientdb-docs/blob/master/Distributed-Configuration.md) page.
+To learn more about these configuration parameters please visit the [Distributed Configuration](Distributed-Configuration.md) section.
 
 ![Databases](images/studio-cluster-management-databases.png)
