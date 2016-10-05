@@ -17,7 +17,7 @@ The ETL module receives a backup file from another database, it then converts th
 EXTRACTOR => TRANSFORMERS[] => LOADER
 ```
 
-For example, consider the process for a CSV file.  Using the ETL module, OrientDB loads the file, applies whatever changes it needs, then stores the reocrd as a document into the current OrientDB database.
+For example, consider the process for a CSV file.  Using the ETL module, OrientDB loads the file, applies whatever changes it needs, then stores the record as a document into the current OrientDB database.
 
 ```
 +-----------+-----------------------+-----------+
