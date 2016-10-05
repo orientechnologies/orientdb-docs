@@ -139,7 +139,7 @@ LIMIT 10
 <td>
 <pre>
 MATCH {class: Person, as: people} 
-RETURN $pathElements
+RETURN people.name
 LIMIT 10
 </pre>
 </td>
@@ -165,7 +165,7 @@ RETURN nineties.title
 <td>
 <pre>
 MATCH {class: Movie, as: nineties, WHERE: (released > 1990 AND released < 2000 )} 
-RETURN $pathElements
+RETURN nineties.title
 </pre>
 </td>
 </tr>
@@ -213,7 +213,7 @@ RETURN directors.name
 <td>
 <pre>
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')}<-DIRECTED-{as: directors}
-RETURN $pathElements
+RETURN directors.name
 </pre>
 </td>
 </tr>
