@@ -74,14 +74,14 @@ The `MATCH` [syntax](SQL-Match.md) and the tool [Studio](Studio-Home-page.md) ca
 
 The following tables include a comparison of the Neo4j's Cypher and OrientDB's `MATCH` syntax for some queries that you can execute against the *movie* database:
 
+### Find the actor named "Tom Hanks"
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>Find the actor named "Tom Hanks"</td>
 <td>
 <pre>
 MATCH (tom:Person {name: "Tom Hanks"}) 
@@ -96,14 +96,16 @@ RETURN $pathElements
 </td>
 </tr>
 </table>
+
+
+### Find the movie with title "Cloud Atlas"
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>Find the movie with title "Cloud Atlas"</td>
 <td>
 <pre>
 MATCH (cloudAtlas:Movie {title: "Cloud Atlas"}) 
@@ -118,14 +120,15 @@ RETURN $pathElements
 </td>
 </tr>
 </table>
+
+### Find 10 people
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>Find 10 people</td>
 <td>
 <pre>
 MATCH (people:Person) 
@@ -142,14 +145,16 @@ LIMIT 10
 </td>
 </tr>
 </table>
+
+
+### Find the movies released in the 1990s
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>Find the movies released in the 1990s</td>
 <td>
 <pre>
 MATCH (nineties:Movie) 
@@ -165,14 +170,16 @@ RETURN $pathElements
 </td>
 </tr>
 </table>
+
+### List all Tom Hanks movies
+
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>List all Tom Hanks movies</td>
 <td>
 <pre>
 MATCH (tom:Person {name: "Tom Hanks"})-[:ACTED_IN]->(tomHanksMovies) 
@@ -187,14 +194,16 @@ RETURN $pathElements
 </td>
 </tr>
 </table>
+
+
+### Find out who directed "Cloud Atlas"
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>Find out who directed "Cloud Atlas"</td>
 <td>
 <pre>
 MATCH (cloudAtlas {title: "Cloud Atlas"})<-[:DIRECTED]-(directors) 
@@ -209,14 +218,15 @@ RETURN $pathElements
 </td>
 </tr>
 </table>
+
+### Find Tom Hanks' co-actors
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>Find Tom Hanks' co-actors</td>
 <td>
 <pre>
 MATCH (tom:Person {name:"Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) 
@@ -231,14 +241,15 @@ RETURN coActors.name
 </td>
 </tr>
 </table>
+
+### Find how people are related to "Cloud Atlas"
+
 <table>
 <tr>
-	<th>Objective</th>
-    <th>Neo4j's Cypher</th>
-    <th>OrientDB's MATCH</th>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's MATCH</th>
 </tr>
 <tr>
-<td>Find how people are related to "Cloud Atlas"</td>
 <td>
 <pre>
 MATCH (people:Person)-[relatedTo]-(:Movie {title: "Cloud Atlas"}) 
