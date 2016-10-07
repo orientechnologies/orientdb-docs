@@ -31,10 +31,12 @@ In the event that you want to query other teams and batting averages, such as th
 db.query(
    'SELECT name, ba FROM Player '
    + 'WHERE ba >= :ba AND team = ":team"',
-   {params:
-      ba: targetBA,
-      team: targetTeam
-   }, limit: 20
+   {params:{
+            ba: targetBA,
+            team: targetTeam
+           },
+    limit: 20
+   }
 ).then(function(hitters){
    console.log(hitters)
 });
