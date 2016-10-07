@@ -34,7 +34,8 @@
     "versions",
     "edit-link",
     "addcssjs",
-    "search"
+    "search",
+	"page-toc"
   ],
   "pluginsConfig": {
     "ga": {
