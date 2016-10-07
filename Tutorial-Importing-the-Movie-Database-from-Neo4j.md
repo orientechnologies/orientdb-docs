@@ -11,13 +11,6 @@ We will also provide some examples of queries using the OrientDB's [MATCH](SQL-M
 
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
-## Table of Contents
-
-- [Exporting from Neo4j](#exporting-from-neo4j)
-- [Importing into OrientDB](#importing-into-orientdb)
-- [Query Comparison](#query-comparison)
-
-
 ## Exporting from Neo4j
 
 Assuming you have already downloaded and unpacked the [Neo4j Shell Tools](https://github.com/jexp/neo4j-shell-tools), and restarted the Neo4j Server, as described in the Section [Exporting GraphML](Import-from-Neo4j-into-OrientDB.md#exporting-graphml), you can export the *movie* database using `neo4j-shell` with a command like the following one:
