@@ -17,14 +17,6 @@ _Note_: You can access directly the converted database, result of this ETL tutor
 - **Direct Download**: download the database from http://orientdb.com/public-databases/OpenBeer.zip and unzip it in a OpenBeer folder inside OrientDB's server "databases" directory.
 
 
-## Table of Contents
-
-- [The Open Beer Database](#the-open-beer-database)
-- [Preliminary Steps](#preliminary-steps)
-- [ETL Process](#etl-process)
-- [Some Queries and Visualizations](#some-queries-and-visualizations)
-
-
 ## The Open Beer Database
 
 The Open Beer Database can be downloaded in CSV format from [https://openbeerdb.com/](https://openbeerdb.com/). The following image shows its _relational_ model:
