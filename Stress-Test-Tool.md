@@ -3,7 +3,8 @@ search:
    keywords: ['stress test tool']
 ---
 
-### OrientDB Stress Test Tool ###
+# OrientDB Stress Test Tool
+
 The OrientDB Stress Test Tool is an utility for very basic benchmarking of OrientDB.
 
 ## Syntax
@@ -50,6 +51,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 If the StressTester is launched without parameters, it fails because the **-m** parameter is mandatory.
 
 ## How it works
+
 The stress tester tool creates a temporary database where needed (on memory / plocal / remote) and then creates a pool of N threads (where N is the threadsNumber parameter) that - all together - execute the number of operations defined in the OperationSet.
 So, if the number of Creates is 1000 and the thread number is 4, every single thread will execute 250 Creates (1000/4).
 After the execution of the test (or any error) the temporary database is dropped.
