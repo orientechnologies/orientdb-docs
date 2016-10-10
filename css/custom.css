@@ -36,6 +36,6 @@ section.normal li {
     font-size: 1.1em;
 }
 
-.page-toc{z-index: 1; position:relative;}
+.page-toc{z-index:1; position:relative; margin-left: 20px;}
 
 
