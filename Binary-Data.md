@@ -108,6 +108,9 @@ Pros:
 Cons:
 - Slightly complex management
 
+| ![NOTE](images/warning.png) | While running in distributed mode ORecordBytes is not supported yet. See https://github.com/orientechnologies/orientdb/issues/3762 for more information. |
+|----|:----|
+
 ## Large content: split in multiple ORecordBytes
 
 OrientDB can store up to 2Gb as record content. But there are other limitations on network buffers and file sizes you should tune to reach the 2GB barrier.
@@ -160,6 +163,9 @@ Pros:
 
 Cons:
 - More complex management
+
+| ![NOTE](images/warning.png) | While running in distributed mode ORecordBytes is not supported yet. See https://github.com/orientechnologies/orientdb/issues/3762 for more information. |
+|----|:----|
 
 
 # Conclusion
