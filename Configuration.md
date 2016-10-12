@@ -55,40 +55,6 @@ To know more look at the Java enumeration: [OGlobalConfiguration.java](https://g
 
 ##### environment.dumpCfgAtStartup
 
-Dumps the configuration at application startup.
-
-```
-Setting name...: environment.dumpCfgAtStartup
-Default value..: false
-Set at run-time: false
-```
-
-##### environment.concurrent
-
-Specifies if running in multi-thread environment. Setting this to false turns off the internal lock management.
-
-```
-Setting name...: environment.concurrent
-Default value..: true
-Set at run-time: false
-```
-
-##### environment.allowJVMShutdown
-
-Allows to shutdown the JVM if needed/requested.
-
-```
-Setting name...: environment.allowJVMShutdown
-Default value..: true
-Set at run-time: true
-```
-----
-
-### Environment
-
-
-##### environment.dumpCfgAtStartup
-
 Dumps the configuration during application startup.
 
 ```
@@ -2446,7 +2412,6 @@ Setting name...: mvrbtree.ridNodeSaveMemory
 Default value..: false
 Set at run-time: false
 ```
-
 
 *NOTE: On 64-bit systems you have not the limitation of 32-bit systems with memory.*
 
