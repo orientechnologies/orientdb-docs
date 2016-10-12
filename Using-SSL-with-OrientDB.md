@@ -1,6 +1,8 @@
-# SSL
+# SSL/TLS
 
-Beginning with version 1.7, OrientDB provides support for securing its HTTP and BINARY protocols through SSL.  For distributed SSL, see the HazelCast documentation.
+Beginning with version 1.7, OrientDB provides support for securing its HTTP and BINARY protocols through SSL.  TLS has been the default since OrientDB 2.0.  Where the term SSL is used, please note that TLS is actually used (since 2.0).
+
+For distributed (prior to OrientDB 2.2) SSL/TLS, see the HazelCast documentation.
 
 For more information on securing OrientDB, see the following pages:
 - [Database security](Database-Security.md)
@@ -21,7 +23,7 @@ To create key and trust stores that reference a self-signed certificate, use the
         -keyalg RSA -keysize 2048 -validity 3650</code>
    </pre>
 
-1. Export the server certificate to share it with client:
+1. Export the server certificate to share it with the client:
 
    <pre>
    # <code class="lang-sh userinput">keytool -export -alias server -keystore orientdb.ks \
@@ -44,17 +46,17 @@ To create key and trust stores that reference a self-signed certificate, use the
 
    This establishes that the client trusts the server.
 
-You now have a self-signed certificate to use with OrientDB.  Bear in mind that for each remote client JVM you want to connect to the server, you need to repeat steps three and four.  Remember to change the alias, keystore and trust-store filenames accordingly.
+You now have a self-signed certificate to use with OrientDB.  Bear in mind that for each remote client JVM you want to connect to the server, you need to repeat steps three and four.  Remember to change the alias, keystore, and trust-store filenames accordingly.
 
 
-## Configuring OrientDB for SSL
+## Configuring OrientDB for SSL/TLS
 
 
 ### Server Configuration
 
-The server configuration file, `$ORIENTDB_HOME/config/orientdb-server-config.xml`, does not use SSL by default.  To enable SSL on a protocol listener, you must change the `socket` attribute to the `<listener>` value from `default` to one of your configured `<socket>` definitions.
+The server configuration file, `$ORIENTDB_HOME/config/orientdb-server-config.xml`, does not use TLS by default.  To enable TLS on a protocol listener, you must change the `socket` attribute to the `<listener>` value from `default` to one of your configured `<socket>` definitions.
 
-There are two default definitions available: `ssl` and `https`.  For most use cases this is sufficient, however you can define more if you want to secure different listeners with their own certificates or would like to use a custom factory implementations. When using the `ssl` implementation, bear in mind that the default port for OrientDB SSL is `2434`.  You need to change your port range to `2434-2440`.
+There are two default definitions available: `ssl` and `https`.  (Note that `ssl` is used for the name but TLS is used internally.)  For most use cases this is sufficient, however you can define more if you want to secure different listeners with their own certificates or would like to use a custom factory implementation.  When using the `ssl` implementation, bear in mind that the default port for OrientDB SSL is `2434`.  You need to change your port range to `2434-2440`.
 
 By default, the OrientDB server looks for its keys and trust-stores in `$ORIENTDB_HOME/config/cert`.  You can configure it using the `<socket>` parameters.  Be sure that all the key and trust-stores created in the previous setup are in the correct directory and that the passwords used are correct.
 
@@ -62,7 +64,7 @@ By default, the OrientDB server looks for its keys and trust-stores in `$ORIENTD
 
 ```xml
 <sockets>
-  <socket implementation="com.orientechnologies.orient.server.network.OServerSSLSocketFactory" name="ssl">
+  <socket implementation="com.orientechnologies.orient.server.network.OServerTLSSocketFactory" name="ssl">
     <parameters>
       <parameter value="false" name="network.ssl.clientAuth"/>
       <parameter value="config/cert/orientdb.ks" name="network.ssl.keyStore"/>
@@ -99,16 +101,16 @@ To configure remote clients, use the standard Java system property patterns:
 - `javax.net.ssl.trustStore`: Defines the path to the trust-store.
 - `javax.net.ssl.trustStorePassword`: Defines the password to the trust-store.
 
-Use the third and fourth steps from [Setting up the Key and Trust Stores](Using-SSL-with-OrientDB.md#setting-up-the-key-and-trust-stores) section above to create the client certificates and server trust.  The paths to the stores are client specific, but do not need to be the same as the server.
+Use the third and fourth steps from [Setting up the Key and Trust Stores](Using-SSL-with-OrientDB.md#setting-up-the-key-and-trust-stores) section above to create the client certificates and server trust.  The paths to the stores are client specific but do not need to be the same as the server.
 
-Note, if you would like to use key and/ore trust-stores other than that of the default JVN, you need to define the following variables as well:
+Note, if you would like to use key and/or trust-stores other than that of the default JVM, you need to define the following variables as well:
 
 - `client.ssl.keyStore`: Defines the path to the keystore.
 - `client.ssl.keyStorePass`: Defines the keystore password.
 - `client.ssl.trustStore`: Defines the path to the trust-store.
 - `client.ssl.trustStorePass`: Defines the password to the trust-store.
 
-Consider the following example, configuring SSL from the command-line through Java:
+Consider the following example, configuring TLS from the command-line through Java:
 
 <pre>
 $ <code class="lang-sh userinput">java -Dclient.ssl.enabled=false \
