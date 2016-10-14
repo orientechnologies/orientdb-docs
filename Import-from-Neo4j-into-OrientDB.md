@@ -159,7 +159,7 @@ Beginning in version 2.1, OrientDB allows you to modify the import process throu
 Defines attributes to ignore.
 - `com.orientechnologies.orient.graph.graphml.ORenameGraphMLImportStrategy` Defines attributes to rename.
 
-**Exammples**
+**Examples**
 
 - Ignore the vertex attribute `type`:
 
