@@ -19,9 +19,9 @@ Example:
 - get the default value of the setting `USE_WAL`: ```OGlobalConfiguration.USE_WAL.getDefValue();```
 - get the current value of the setting `USE_WAL`: ```OGlobalConfiguration.USE_WAL.getValue());```
 
-### From the Console:
+### From the Console
 
-To retrieve the full list of current settings from the [Console](Console-Commands.md) you can use the [CONFIG](Console-Command-Config.md) command:
+To retrieve the full list of current settings from the [Console](Console-Commands.md) you can use the [`CONFIG`](Console-Command-Config.md) command:
 
 ```
 orientdb> CONFIG
@@ -42,7 +42,7 @@ LOCAL SERVER CONFIGURATION
 +----+----------------------------------------------+--------------+
 ```
 
-To retrieve the value of a specific setting, you can use the [CONFIG GET](Console-Command-Config-Get.md) command. 
+To retrieve the value of a specific setting, you can use the [`CONFIG GET`](Console-Command-Config-Get.md) command. 
 
 Example:
 
@@ -65,7 +65,9 @@ java -Dcache.size=10000 -Dstorage.keepOpen=true ...
 
 ### By server configuration
 
-Put in the <code>&lt;properties&gt;</code> section of the file **orientdb-server-config.xml** (or orientdb-dserver-config.xml) the entries to configure. Example:
+Put in the <code>&lt;properties&gt;</code> section of the file **orientdb-server-config.xml** (or orientdb-dserver-config.xml) the entries to configure. 
+
+Example:
 
 ```xml
   ...
