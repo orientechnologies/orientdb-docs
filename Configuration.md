@@ -1,23 +1,72 @@
 ---
 search:
-   keywords: ['performance', 'performance tuning', 'configuration', 'global configuration']
+   keywords: ['performance', 'performance tuning', 'configuration', 'global configuration', 'config', 'options']
 ---
 
 # Global Configuration
 
-OrientDB can be configured in several ways. To know the current settings use the console with the [config command](Console-Command-Config.md).
+OrientDB can be configured in several ways.
 
-## Change settings
+
+## Getting settings
+
+### From Java
+
+To retrieve the default or current value of a setting you can use the methods `getDefValue()` and `getValue()` of the java enumerator `OGlobalConfiguration`.
+
+Example:
+
+- get the default value of the setting `USE_WAL`: ```OGlobalConfiguration.USE_WAL.getDefValue();```
+- get the current value of the setting `USE_WAL`: ```OGlobalConfiguration.USE_WAL.getValue());```
+
+### From the Console:
+
+To retrieve the full list of current settings from the [Console](Console-Commands.md) you can use the [CONFIG](Console-Command-Config.md) command:
+
+```
+orientdb> CONFIG
+
+LOCAL SERVER CONFIGURATION
++----+----------------------------------------------+--------------+
+|#   |NAME                                          |VALUE         |
++----+----------------------------------------------+--------------+
+|0   |environment.dumpCfgAtStartup                  |false         |
+|1   |environment.concurrent                        |true          |
+|2   |environment.lockManager.concurrency.level     |32            |
+|3   |environment.allowJVMShutdown                  |true          |
+|4   |script.pool.maxSize                           |20            |
+...
+|219 |client.channel.minPool                        |1             |
+|220 |storage.keepOpen                              |true          |
+|221 |cache.local.enabled                           |true          |
++----+----------------------------------------------+--------------+
+```
+
+To retrieve the value of a specific setting, you can use the [CONFIG GET](Console-Command-Config-Get.md) command. 
+
+Example:
+
+```
+orientdb> CONFIG GET tx.log.fileType
+
+Remote configuration: tx.log.fileType = classic
+```
+
+
+## Changing settings
 
 ### By command line
-You can pass settings via command line when the JVM is launched. This is typically stored inside server.sh (or server.bat on Windows):
+
+You can pass settings via command line when the JVM is launched. This is typically stored inside `server.sh` (or `server.bat` on Windows):
+
 ```
 java -Dcache.size=10000 -Dstorage.keepOpen=true ...
 ```
 
-### By server configuration
+### By server configuration
 
 Put in the <code>&lt;properties&gt;</code> section of the file **orientdb-server-config.xml** (or orientdb-dserver-config.xml) the entries to configure. Example:
+
 ```xml
   ...
   <properties>
@@ -26,13 +75,33 @@ Put in the <code>&lt;properties&gt;</code> section of the file **orientdb-server
   </properties>
   ...
 ```
+
 ### At run-time
+
+Some settings can be changed at run-time.
+
+#### From Java
+
+To change at run-time a setting from java you can use the `setValue()` method of the java enumerator `OGlobalConfiguration`.
+
+Example: 
 
 ```java
 OGlobalConfiguration.MVRBTREE_NODE_PAGE_SIZE.setValue(2048);
 ```
 
+#### From the Console
+
+To change at run-time a setting from the [Console](Console-Commands.md) you can use the [`CONFIG SET`](Console-Command-Config-Set.md) command.
+
+Example:
+
+```
+orientdb> CONFIG SET tx.autoRetry 5
+```
+
 ## Dump the configuration
+
 To dump the OrientDB configuration you can set a parameter at JVM launch:
 ```
 java -Denvironment.dumpCfgAtStartup=true ...
@@ -2438,3 +2507,8 @@ To change the default settings for new clusters get the file template object. In
 After changes call <code>OStorageConfiguration.update()</code>:
 
     cfg.update();
+
+
+## Distributed Configuration
+
+For information about the Distributed Configuration, please refer to the section [Distributed Configuration](Distributed-Configuration.md).
