@@ -34,7 +34,8 @@
     "versions",
     "edit-link",
     "addcssjs",
-    "search"
+    "search",
+	"page-toc"
   ],
   "pluginsConfig": {
     "ga": {
@@ -82,7 +83,10 @@
       "url": "https://github.com/orientechnologies/orientdb"
     },
     "search": {
-      "maxIndexSize": 250000000
+      "maxIndexSize": 25000000
+    },
+    "lunr": {
+      "maxIndexSize": 25000000
     }
   }
 }

@@ -90,7 +90,7 @@ database.command(
 ```
 
 When OrientDB executes an asynchronous query, it only needs to allocate memory for each of the individual callbacks as it encounters them.  You may find this a huge benefit in cases where you need to work with large result-sets.
-
+Asynchronous Query are not designed for data manipulation, avoid executed update or transaction inside the listener code.
 
 #### Non-Blocking Queries
 
