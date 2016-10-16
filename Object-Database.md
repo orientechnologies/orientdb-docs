@@ -5,7 +5,7 @@ search:
 
 # Object API
 
-The Object Database in OrientDB operates on top of the [Document API](Document-Database.md).  The Object API uses Java Reflection to register the calsses and the [Javassist](http://www.jboss.org/javassist) tool to manage the object-to-document conversion.
+The Object Database in OrientDB operates on top of the [Document API](Document-Database.md).  The Object API uses Java Reflection to register the classes and the [Javassist](http://www.jboss.org/javassist) tool to manage the object-to-document conversion.
 
 In modern Java virtual machines, Java Reflection works really fast and metadata discovery is only done on the first run.  Future implementations may also include byte-code enhancement techniques.
 

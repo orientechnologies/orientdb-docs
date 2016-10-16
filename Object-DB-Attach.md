@@ -45,7 +45,7 @@ animal = database.detach(animal,true);
 
 this example does the same as before but in this case the detach will return a non proxied instance.
 
-Since version 1.2 there's also the `detachAll(Object, boolean)` method that detaches recursively the entire object tree. This may throw a `StackOverflowError` with big trees. To avoid it increase the stack size with `-Xss` java option. The boolean parameter works the same as with the `detach()` method.
+Since version 1.2 there's also the `detachAll(Object, boolean)` method that detaches recursively the entire object tree. This may throw a `StackOverflowError` with big trees. To avoid it increase the stack size with `-Xss` Java option. The boolean parameter works the same as with the `detach()` method.
 
 ```java
 Animal animal = database.load(rid);
@@ -56,7 +56,7 @@ animal = database.detachAll(animal,true);
 
 When calling `detachAll(object, true)` on a large object tree, the call may become slow, especially when working with remote connections.  This occurs because it recurses through every link in the tree and loads all dependencies.
 
-Beginning in version 2.2, you can set the Object API to only load parts of the object tree, by addinging `@OneToOne(fetch=FetchType.LAZY)` annotation.  For instance,
+Beginning in version 2.2, you can set the Object API to only load parts of the object tree, by adding `@OneToOne(fetch=FetchType.LAZY)` annotation.  For instance,
 
 ```java
 public class LazyParent {
