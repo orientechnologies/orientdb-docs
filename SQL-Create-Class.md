@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['SQL, 'command', 'create', 'class', 'CREATE CLASS']
+   keywords: ['SQL', 'command', 'create', 'class', 'CREATE CLASS']
 ---
 
 # SQL - `CREATE CLASS`
