@@ -9,7 +9,7 @@ Individual OrientDB servers can manage multiple databases at a time and each dat
 
 |   |   |
 |---|---|
-|![](images/warning.png)| While OrientDB can function as a regular Web Server, it is not recommended that you expose it directly to the internet or to public networks.  Instead, always hide the OrientDB server within a private network.|
+| ![](images/warning.png) | While OrientDB can function as a regular Web Server, it is not recommended that you expose it directly to the internet or to public networks.  Instead, always hide the OrientDB server within a private network. |
 
 Server users are stored in the `config/orientdb-server-config.xml` configuration file, in the `<users>` element.
 
