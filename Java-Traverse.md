@@ -5,7 +5,7 @@ search:
 
 # Traverse
 
-OrientDB is a Graph database.  This means that its focal point is on releationships, (that is, links), and on managing them. The standard SQL language is not sufficient to work with trees or graphs, as it lacks the concept of recursion.  For this reason, the OrientDB subset of SQL implements a dedicated command for tree traversal: [`TRAVERSE`](SQL-Traverse.md).
+OrientDB is a Graph database.  This means that its focal point is on relationships, (that is, links), and on managing them. The standard SQL language is not sufficient to work with trees or graphs, as it lacks the concept of recursion.  For this reason, the OrientDB subset of SQL implements a dedicated command for tree traversal: [`TRAVERSE`](SQL-Traverse.md).
 
 Traversal operations cross relationships between records, (that is, documents, vertices, nodes, and so on).  This operation runs much faster than the Relational database solution of executing a `JOIN`.
 
@@ -68,9 +68,9 @@ The following sections describe various traversal methods.
 
 ### SQL Traverse
 
-The simplest method available in executing a travesal is to use the SQL [`TRAVERSE`](SQL-Traverse.md) command.
+The simplest method available in executing a traversal is to use the SQL [`TRAVERSE`](SQL-Traverse.md) command.
 
-For example, say that you have a `Movie` class and you want to retrieve all connected `from` and `to` records up to the fifth level in depeth.  You might use something like this,
+For example, say that you have a `Movie` class and you want to retrieve all connected `from` and `to` records up to the fifth level in depth.  You might use something like this,
 
 ```java
 for (OIdentifiable id : 
@@ -91,7 +91,7 @@ The Native API supports fluent execution, which guarantees a compact and readabl
 | Method | Description |
 |---|---|
 | `target(<iter:Iterable<OIdentifiable>>)` | Specifies the target as any iterable object, such as collections or arrays of `OIdentifiable` objects. |
-| `target(<iter:Iterator<OIdentifiable>>)` | Specifies the target as any iterator object.  To specifiy a class, use `database.browseClass(<class-name>).iterator()`. |
+| `target(<iter:Iterator<OIdentifiable>>)` | Specifies the target as any iterator object.  To specify a class, use `database.browseClass(<class-name>).iterator()`. |
 | `target(<record:OIdentifiable>. <record:OIdentifiable>,...)` | Specifies the target as a variable array of `OIterable` objects. |
 | `field(<field-name:string>)` | Specifies the document field to traverse.  To add multiple fields, call this method in a chain.  For instance, `.field("in").field("out")`. |
 | `fields(<field-name:string>, <field-name:string>,...)` | Specifies multiple fields in on call, passing a variable array of strings. |
@@ -115,7 +115,7 @@ Into the traverse command context `iContext` you can read or put any variable.  
   - `OTraverseRecordSetProcess` Represents the first.  It's the base target of the traversal. 
   - `OTraverseRecordProcess` Represents a traversed record.
   - `OTraverseFieldProcess` Represents a traversal through a record's field.
-  - `OTRaverseMultiValueProcess` Represents fields that are multivalue: arrays, collections and maps.
+  - `OTRaverseMultiValueProcess` Represents fields that are multi-value: arrays, collections and maps.
 
 - **`$history`** Provides the set of records traversed as a `Set<RID>`. 
 
