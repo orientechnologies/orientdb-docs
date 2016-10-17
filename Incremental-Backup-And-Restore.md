@@ -11,6 +11,8 @@ An incremental backup generates smaller backup files by storing only the delta b
 
 NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
 
+NOTE: Lucene Indexes are not supported yet in the incremental backup/restore process. Once the incremental restore is finished the indexes rebuild is necessary see (here)[https://github.com/orientechnologies/orientdb/issues/5958] 
+
 ## See also
 - [Backup and Restore](Backup-and-Restore.md)
 - [BACKUP DATABASE console command](Console-Command-Backup.md)
