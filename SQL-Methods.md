@@ -674,9 +674,9 @@ SELECT FROM TreeItem WHERE children.size() > 0
 ---
 
 ### .subString()
-Returns a substring of the original cutting from 'begin' and getting 'length' characters. 'begin' starts from 0 to string length - 1.
+Returns a substring of the original cutting from 'begin' index up to 'end' index (not included).
 
-Syntax: ```<value>.subString(<begin> [,<length>] )```
+Syntax: ```<value>.subString(<begin> [,<end>] )```
 
 Applies to the following types:
 - string
@@ -687,6 +687,13 @@ Get all the items where the name begins with an "L":
 ```sql
 SELECT name.substring( 0, 1 ) = 'L' FROM StockItems
 ```
+
+Substring of `OrientDB`
+```sql
+SELECT "OrientDB".substring(0,6)
+```
+returns `Orient`
+
 #### History
 - 0.9.7: First version
 
