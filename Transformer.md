@@ -509,7 +509,7 @@ Component description.
 
   ```json
   { "command" : 
-    { "command" : "SELECT FROM E WHERE id = ${edgeid}",
+    { "command" : "SELECT FROM E WHERE id = ${input.edgeid}",
       "output" : "edge"
     }
   }
