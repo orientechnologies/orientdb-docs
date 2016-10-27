@@ -4,7 +4,7 @@ There are at least two ways to build multi-tenant applications on top of OrientD
 
 ## One database per tenant
 
-
+With this solution, each tenant is a database. The OrientDB server allows to host multiple databases.
 
 Pros:
 - Easy to use: to create/drop a new tenant, simply create/drop the database
