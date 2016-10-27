@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['tenant', 'multi tenant', 'partition', 'partitioned graphs']
+---
+
 # Multi Tenant
 
 There are at many ways to build multi-tenant applications on top of OrientDB, in this page we are going to analyze pros and cons of three of the most used approaches.
