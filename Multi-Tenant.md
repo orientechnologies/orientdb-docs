@@ -15,7 +15,9 @@ Cons:
 
 ## Specific clusters per tenant
 
-With this solution, each tenant is stored in one or more clusters of the same database. For example, the class `Product` could have the following clusters: `Product_ClientA`, `Product_ClientB`, `Product_ClientC`. In this way a query against a specific cluster will be used to retrieve data from one tenant only. Example: `select * from cluster:Product_ClientC where date >= '2016-01-01' order by date desc`. Instead, a query against the class `Product` will return a cross-tenant result. Example: `select * from Product where date >= '2016-01-01' order by date desc`
+With this solution, each tenant is stored in one or more clusters of the same database. For example, the class `Product` could have the following clusters: `Product_ClientA`, `Product_ClientB`, `Product_ClientC`. In this way a query against a specific cluster will be used to retrieve data from one tenant only. Example to retrieve all the products of 2016, ordered by the most recent, only for the tenant "ClientC": `select * from cluster:Product_ClientC where date >= '2016-01-01' order by date desc`. 
+
+Instead, a query against the class `Product` will return a cross-tenant result. Example: `select * from Product where date >= '2016-01-01' order by date desc`.
 
 Pros:
 - Easy to create reports and analytics cross tenant, because it's just one database
