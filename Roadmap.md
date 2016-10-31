@@ -14,27 +14,32 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 ## Release 3.0
 ```
 - Development started on.: June 2016
-- Expected first RC......: October 2016
-- Expected final GA......: December 2016
+- Expected first M1......: December 2016
+- Expected first M2......: January 2016
+- Expected first RC......: February 2017
+- Expected final GA......: March 2016
 ```
 
 ### Status
-Last update: April 12, 2016
+Last update: October 31, 2016
 
 For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://github.com/orientechnologies/orientdb/issues/6005).
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 0% |
-| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 0% |
+| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 30% |
+| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 15% |
 | Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
 | Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 0%  |
 | Core | Indexing of embedded properties | 0% |
 | Core | Index per cluster | 0% |
 | Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
-| SQL | Distributed SQL Executor | 0% |
-| SQL | Multi-line queries in batch scripts | 0% |
+| SQL | Distributed SQL Executor | 50% |
+| SQL | Multi-line queries in batch scripts | 90% |
+| Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
 | Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 30% |
+| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
+| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | Distributed | Replication of in-memory databases | 0% |
 | Distributed | Auto-Sharding | 0% |
 
@@ -52,15 +57,10 @@ Last update: April 12, 2015
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 0%|
-| Scheduler | [Improve scheduler](https://github.com/orientechnologies/orientdb/issues/2613) | 0% |
 | Core | Override of properties | 0% |
-| Core | [Auto close storages](https://github.com/orientechnologies/orientdb/issues/3055) | 0% |
 | Core | Enhance isolation level also for remote commands| 0% |
 | Distributed | Optimized replication for cross Data Center | 0% |
 | Lucene | Faceted search | 20% |
 | Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 0% |
-| Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
-| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
-| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | New functions (strings, maths) | 40% |
