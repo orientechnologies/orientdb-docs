@@ -22,8 +22,8 @@ _Note:_ The OrientDB's Neo4j Importer tool is currently in **beta**.
 
 Currently, the OrientDB's Neo4j Importer tool supports, and has been tested with, the following versions:
 
-- OrientDB: 2.2 or higher
-- Neo4j: 3.0.6 or higher
+- OrientDB: 2.2.x 
+- Neo4j: 3.0.x
 
 
 ## Limitations
@@ -42,9 +42,7 @@ The following limitations apply:
 
 The OrientDB's Neo4j Importer tool is provided as an external plugin, as a `zip` or `tar.gz` archive.
 
-To install it, please unpack the archive on your OrientDB server directory. 
-
-On Linux systems, to unpack the archive you can use a command similar to the following:
+To install it, please unpack the archive on your OrientDB server directory. On Linux systems, to unpack the archive you can use a command similar to the following:
 
 ```
 tar xfv orientdb-neo4j-importer-VERSION.tar.gz -C path_to_orientDB/ --strip-components=1 
@@ -55,7 +53,7 @@ tar xfv orientdb-neo4j-importer-VERSION.tar.gz -C path_to_orientDB/ --strip-comp
 
 A typical migration scenario consists of the following steps:
 
-- A copy of the Neo4j's database graph directory (typically `graph.db`) is made into a safe place
+- A copy of the Neo4j's database graph directory (typically `graph.db`) is created into a safe place
 - OrientDB is installed
 - The OrientDB's Neo4j Importer tool is installed
 - The migration process is started from the command line, passing to the OrientDB's Neo4j Importer tool the copy of the Neo4j's database directory created earlier
@@ -63,17 +61,17 @@ A typical migration scenario consists of the following steps:
 
 **Notes:** 
 
-* Since currently only exclusive, `local`, connections are allowed during the migration, there must be no running servers on the Neo4j's database directory and on the target OrientDB's import directory.
+* Since currently only exclusive, `local`, connections are allowed, during the migration there must be no running servers on the Neo4j's database directory and on the target OrientDB's import directory.
 
 * As an alternative of creating a copy of the Neo4j's database directory, and in case you can schedule a Neo4j shutdown, you can:
 	* Shutdown your Neo4j Server
-	* Start the migration by passing the original Neo4j's database directory to the OrientDB's Neo4j Importer tool 
+	* Start the migration by passing the original Neo4j's database directory to the OrientDB's Neo4j Importer tool (a good practice is to create a back-up first)
+ 
   
 ## Usage
 
-### Introduction
+After Installation, the OrientDB's Neo4j Importer tool can be launched using the provided `orientdb-neo4j-importer.sh` script (or `orientdb-neo4j-importer.bat` for Windows systems).
 
-After Installation, the OrientDB's Neo4j Importer tool can be launched using the provided `orientdb-neo4j-import.sh` script (or `orientdb-neo4j-importer.bat` for Windows systems).
 
 ### Syntax
 	OrientDB-Neo4j-Importer
@@ -84,11 +82,11 @@ After Installation, the OrientDB's Neo4j Importer tool can be launched using the
 
 Where:
 
-* **neo4jlibdir** (mandatory option) is the full path to the Neo4j lib directory (e.g. `D:\neo4j\neo4j-community-3.0.6\lib`). This parameter is mandatory. On Windows systems, it must be the first passed parameter. 
+* **neo4jlibdir** (mandatory option) is the full path to the Neo4j lib directory (e.g. `D:\neo4j\neo4j-community-3.0.6\lib`). On Windows systems, this parameter must be the first passed parameter. 
 
 * **neo4jdbdir** (mandatory option) is the full path to the Neo4j’s graph database directory (e.g. `D:\neo4j\neo4j-community-3.0.6\data\databases\graph.db`).
 
-* **odbdir** (optional) is the full path to a directory where the Neo4j database will be migrated. The directory will be created by the import tool. In case the directory exists already, the OrientDB's Neo4j Importer tool will behave accordingly to the value of the option `o` (see below). The default value of `odbdir` is `$ORIENTDB_HOME/database/neo4j_import`.  
+* **odbdir** (optional) is the full path to a directory where the Neo4j database will be migrated. The directory will be created by the import tool. In case the directory exists already, the OrientDB's Neo4j Importer tool will behave accordingly to the value of the option `o` (see below). The default value of `odbdir` is `$ORIENTDB_HOME/databases/neo4j_import`.  
 
 * **o** (optional). If `true` the `odbdir` directory will be overwritten, if it exists. If `false` and the `odbdir` directory exists, a warning will be printed and the program will exit.
 
@@ -114,14 +112,15 @@ orientdb-neo4j-importer.bat -neo4jlibdir="D:\neo4j\neo4j-community-3.0.6\lib" -n
 
 ## Migration Details
 
-Internally, the OrientDB's Neo4j Importer tool makes uses of the Neo4j's `java` API to read the graph database from Neo4j and of the OrientDB's `java` API to store the graph into OrientDB.
+Internally, the OrientDB's Neo4j Importer tool makes use of the Neo4j's `java` API to read the graph database from Neo4j and of the OrientDB's `java` API to store the graph into OrientDB.
 
-The import consists of five phases:
+The import consists of four phases:
 
 * **Phase 1:** Initialization of the Neo4j and OrientDB servers
 * **Phase 2:** Migration of nodes and relationships
 * **Phase 3:** Schema migration
 * **Phase 4:** Shutdown of the servers and summary info
+
 
 ### General Migration Details
 
@@ -131,7 +130,7 @@ The following are some general migration details that is good to keep in mind:
 
 * Original Neo4j `IDs` are stored as properties in the imported OrientDB vertices and edges (`Neo4jNodeID` for vertices and `Neo4jRelID` for edges). Such properties can be (manually) removed at the end of the import, if not needed.
  
-* During the import, an OrientDB index is created on the property `Neo4jNodeID` for all imported vertex `classes` (node Labels in Neo4j). This is to speed up vertices lookup during edge creation. The created indexes can be (manually) removed at the end of the import, if not needed.
+* During the import, an OrientDB index is created on the property `Neo4jNodeID` for all imported vertex `classes` (node's Labels in Neo4j). This is to speed up vertices lookup during edge creation. The created indexes can be (manually) removed at the end of the import, if not needed.
  
 * In case a Neo4j Relationship has the same name of a Neo4j Label, e.g. "RelationshipName", the OrientDB's Neo4j Importer tool will import that relationship into OrientDB in the class `E_RelationshipName` (i.e. prefixing the Neo4j's `RelationshipType` with an `E_`).
 
@@ -144,12 +143,13 @@ The following are some schema-specific migration details that is good to keep in
 
 * If in Neo4j there are no constraints or indices, the imported OrientDB database is schemaless.
 
-* If in Neo4j there are constraints or indices, the imported OrientDB database is schema-hybrid (with some properties defined). In particular, for any constraint and index: 
+* If in Neo4j there are constraints or indexes, the imported OrientDB database is schema-hybrid (with some properties defined). In particular, for any constraint and index: 
 
-	- The Neo4j property where the constraint or index is defined on is determined
-	- A corresponding property is created in OrientDB (hence the schema-hybrid mode)
-	 
-* If a Neo4j unique constraint is found, a corresponding unique index is created in OrientDB 
+	* The Neo4j property where the constraint or index is defined on, is determined
+	
+	* A corresponding property is created in OrientDB (hence the schema-hybrid mode)	 	
+
+* If a Neo4j unique constraint is found, a corresponding unique index is created in OrientDB
 
 * If a Neo4j index is found, a corresponding (not unique) OrientDB index is created
 
@@ -164,7 +164,7 @@ The log can be found at `path_to_orientDB/log/orientdb-neo4j-importer.log`.
 
 During the migration, for each imported Neo4j items (nodes, relationships, constraints and indexes) a completion percentage is written in the shell from where the import has been started, thus allowing to monitor progresses.
 
-For large imports, a best practice is to monitored also the produced import log, using a program like `tail`, e.g.
+For large imports, a best practice is to monitor also the produced import log, using a program like `tail`, e.g.
 
 ```
 tail -n 100 -f path_to_orientDB/log/orientdb-neo4j-importer.log
