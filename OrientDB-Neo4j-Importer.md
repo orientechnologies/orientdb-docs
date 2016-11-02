@@ -16,6 +16,7 @@ Imported Neo4j items are:
 
 _Note:_ The OrientDB's Neo4j Importer tool is currently in **beta**.
 
+>Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
 ## Supported Versions
 
@@ -34,7 +35,7 @@ The following limitations apply:
 	* In case a node in Neo4j has multiple labels, only the first label is imported into OrientDB	
 	* Neo4j Nodes with same Label but different case, e.g. LABEL and LAbel will be aggregated into a single OrientDB vertex `class`
 	* Neo4j Relationship with same name but different case, e.g. relaTIONship and RELATIONSHIP will be aggregated into a single OrientDB edge `class`  
-	* Migration of Neo4j's "existance" constraints (only available in the Neo4j's Enterprise Edition) is currently not implemented 
+	* Migration of Neo4j's "existence" constraints (only available in the Neo4j's Enterprise Edition) is currently not implemented 
 
 
 ## Installation
@@ -122,7 +123,7 @@ The import consists of five phases:
 * **Phase 3:** Schema migration
 * **Phase 4:** Shutdown of the servers and summary info
 
-### General Migration Details to Keep in Mind
+### General Migration Details
 
 The following are some general migration details that is good to keep in mind:
 
@@ -254,9 +255,3 @@ Import Summary:
 -- Time to Import Constraints and Indices                                  :  4 seconds (1,39 indices/sec)
 -- Time to create internal Indices (on vertex properties 'Neo4jNodeID')    :  8 seconds (0,62 indices/sec)
 ```
-
-
-
-
-
-
