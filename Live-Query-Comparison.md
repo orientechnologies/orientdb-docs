@@ -37,7 +37,7 @@ From a different client, the user inserts a new entry into the database.
 orientdb> <code class="lang-sql userinput">INSERT INTO Person SET surname = "Augustus"</code>
 </pre>
 
-By issuing the [`INSERT`](SQL-Insert.md) statement, the second client adds a new entry to the `Person` class.  However, OrinetDB has closed the initial selection query made by the first client.
+By issuing the [`INSERT`](SQL-Insert.md) statement, the second client adds a new entry to the `Person` class.  However, OrientDB has closed the initial selection query made by the first client.
 
 The first client remains unaware of the insertion until it reissues the [`SELECT`](SQL-Query.md) statement.
 

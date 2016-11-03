@@ -13,7 +13,7 @@ In order to implement the Live Query feature in your Java applications, you need
 
 ## Listener
 
-When developing a listener for your query, you must implement the `OLiveResultListener` class.  It must have a callback method that receives the Live Query token and the record that was modified with th eoperation that occurred, (that is, [`INSERT`](SQL-Insert.md), [`UPDATE`](SQL-Update.md), or [`DELETE`](SQL-Delete.md).
+When developing a listener for your query, you must implement the `OLiveResultListener` class.  It must have a callback method that receives the Live Query token and the record that was modified with the operation that occurred, (that is, [`INSERT`](SQL-Insert.md), [`UPDATE`](SQL-Update.md), or [`DELETE`](SQL-Delete.md).
 
 ```java
 class MyLiveQueryListener implements OLiveResultListener {
