@@ -126,6 +126,9 @@ The import consists of four phases:
 
 The following are some general migration details that is good to keep in mind:
 
+* During the import, OrientDB's [`WAL`](http://orientdb.com/docs/last/Configuration.html#storageusewal) and [`WAL_SYNC_ON_PAGE_FLUSH`](http://orientdb.com/docs/last/Configuration.html#storagewalsynconpageflush
+) are disabled, and OrientDB is prepared for massive inserts (_OIntentMassiveInsert_).
+
 * In case a node in Neo4j has no Label, it will be imported in OrientDB in the Class `GenericClassNeo4jConversion`.
 
 * Original Neo4j `IDs` are stored as properties in the imported OrientDB vertices and edges (`Neo4jNodeID` for vertices and `Neo4jRelID` for edges). Such properties can be (manually) removed at the end of the import, if not needed.
