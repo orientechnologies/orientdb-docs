@@ -11,7 +11,7 @@ Imported Neo4j items are:
 
 - nodes
 - relationships
-- constraints
+- unique constraints
 - indexes
 
 _Note:_ The OrientDB's Neo4j Importer tool is currently in **beta**.
@@ -88,7 +88,7 @@ Where:
 
 * **odbdir** (optional) is the full path to a directory where the Neo4j database will be migrated. The directory will be created by the import tool. In case the directory exists already, the OrientDB's Neo4j Importer tool will behave accordingly to the value of the option `o` (see below). The default value of `odbdir` is `$ORIENTDB_HOME/databases/neo4j_import`.  
 
-* **o** (optional). If `true` the `odbdir` directory will be overwritten, if it exists. If `false` and the `odbdir` directory exists, a warning will be printed and the program will exit.
+* **o** (optional). If `true` the `odbdir` directory will be overwritten, if it exists. If `false` and the `odbdir` directory exists, a warning will be printed and the program will exit. The default value of `o` is `false`.
 
 
 If the OrientDB's Neo4j Importer Tool is launched without parameters, it fails because **-neo4jlibdir** and **-neo4jdbdir** are mandatory.
