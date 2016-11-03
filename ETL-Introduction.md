@@ -34,17 +34,6 @@ For example, consider the process for a CSV file.  Using the ETL module, OrientD
 +-----------+-----------------------+-----------+
 ```
 
-You can modify this pipeline, allowing the transformation and loading phases to run in parallel by setting the configuration variable `"parallel"` to `true`.
-
-```json
-{"parallel": true}
-```
-
-
-## Installation
-
-Since version 2.0, OrientDB bundles the ETL module with the official release. 
-
 ## Usage
 
 To use the ETL module, run the `oetl.sh` script with the configuration file given as an argument.

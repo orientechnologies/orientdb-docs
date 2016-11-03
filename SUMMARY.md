@@ -107,6 +107,7 @@
      * [To Document Model](Import-RDBMS-to-Document-Model.md) 
      * [To Graph Model](Import-RDBMS-to-Graph-Model.md) 
     * [Import From Neo4j](Import-from-Neo4j-into-OrientDB.md) 
+     * [OrientDB's Neo4j Importer](OrientDB-Neo4j-Importer.md)
      * [Tutorial: Importing the *movie* Database from Neo4j](Tutorial-Importing-the-Movie-Database-from-Neo4j.md)
   * [ETL](ETL-Introduction.md) 
     * [Configuration](Configuration-File.md) 
