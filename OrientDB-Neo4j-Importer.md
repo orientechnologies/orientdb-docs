@@ -167,6 +167,7 @@ The log can be found at `path_to_orientDB/log/orientdb-neo4j-importer.log`.
 
 The parameter `-XX:MaxDirectMemorySize=4g` is hardcoded inside the start scripts `orientdb-neo4j-importer.sh` and `orientdb-neo4j-importer.bat`.
 
+Depending on the amount of available memory on your system, you may want to increase this value.
 
 # Migration Monitoring
 
