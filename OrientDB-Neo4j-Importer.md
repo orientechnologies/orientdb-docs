@@ -163,17 +163,22 @@ During the migration, a log file is created.
 
 The log can be found at `path_to_orientDB/log/orientdb-neo4j-importer.log`.
 
-# Monitoring Migration
+# Migration Tuning
+
+The parameter `-XX:MaxDirectMemorySize=4g` is hardcoded inside the start scripts `orientdb-neo4j-importer.sh` and `orientdb-neo4j-importer.bat`.
+
+
+# Migration Monitoring
 
 During the migration, for each imported Neo4j items (nodes, relationships, constraints and indexes) a completion percentage is written in the shell from where the import has been started, thus allowing to monitor progresses.
 
 For large imports, a best practice is to monitor also the produced import log, using a program like `tail`, e.g.
 
 ```
-tail -n 100 -f path_to_orientDB/log/orientdb-neo4j-importer.log
+tail -f -n 100 -f path_to_orientDB/log/orientdb-neo4j-importer.log
 ``` 
 
-# Troubleshooting Migration
+# Migration Troubleshooting
 
 In case of problems, the details of the occurred errors are written in the migration log file. Please use this file to troubleshoot the migration.
 
