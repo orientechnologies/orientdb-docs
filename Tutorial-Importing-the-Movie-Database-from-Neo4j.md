@@ -1,13 +1,15 @@
 ---
 search:
-   keywords: ['neo4j', 'import', 'movie', 'cypher', 'tutorial']
+   keywords: ['import', 'Neo4j', 'migration', 'GraphML', 'movie', 'cypher', 'tutorial']
 ---
 
 # Tutorial: Importing the *movie* Database from Neo4j
 
-In this tutorial we will follow the steps described in the [Import from Neo4j](Import-from-Neo4j-into-OrientDB.md) section to import the Neo4j's *movie* database into OrientDB.
+In this tutorial we will follow the steps described in the [Import from Neo4j using GraphML](Import-from-Neo4j-using-GraphML.md) section to import the Neo4j's *movie* example database into OrientDB.
 
 We will also provide some examples of queries using the OrientDB's [MATCH](SQL-Match.md) syntax, making a comparison with the corresponding Neo4j's Cypher query language.
+
+For general information on the possible Neo4j to OrientDB migration strategies, please refer to the [Import from Neo4j](Import-from-Neo4j-into-OrientDB.md) section. 
 
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
@@ -65,7 +67,7 @@ Once the *movie* database has been imported into OrientDB, you may use several w
 
 The `MATCH` [syntax](SQL-Match.md) and the tool [Studio](Studio-Home-page.md) can be used, for instance, in a similar way to the Neo4j's Cypher and Browser.
 
-The following tables include a comparison of the Neo4j's Cypher and OrientDB's `MATCH` syntax for some queries that you can execute against the *movie* database:
+The following sections include a comparison of the Neo4j's Cypher and OrientDB's `MATCH` syntax for some queries that you can execute against the *movie* database.
 
 ### Find the actor named "Tom Hanks"
 
@@ -165,7 +167,6 @@ RETURN nineties.title
 </table>
 
 ### List all Tom Hanks movies
-
 
 <table>
 <tr>
