@@ -27,8 +27,7 @@ Download and install the OrientDB's Neo4j Importer tool:
 ```
 wget http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/VERSION/orientdb-neo4j-importer-VERSION.tar.gz
 
-tar xvf orientdb-neo4j-importer-VERSION.tar.gz 
-   -C orientdb-community-VERSION --strip-components=1
+tar xvf orientdb-neo4j-importer-VERSION.tar.gz -C orientdb-community-VERSION --strip-components=1
 ```
 
 where _VERSION_ is equal or higher 2.2.12.
@@ -42,7 +41,7 @@ For further information on the OrientDB's Neo4j Importer installation, please re
 
 Assuming that:
 
-* `/home/santo/neo4j/neo4j-community-3.0.7/lib` is full path to the directory that includes the Neo4j's libraries
+* `/home/santo/neo4j/neo4j-community-3.0.7/lib` is the full path to the directory that includes the Neo4j's libraries
 
 * `/home/santo/data/graph.db_northwind` is the full path to the directory that contains the Neo4j's _northwind_ database
 
@@ -53,13 +52,13 @@ Assuming that:
 you can import the _northwind_ database with a command similar to the following:
 
 ```
-./orientdb-neo4j-importer.sh 
-  -neo4jlibdir /home/santo/neo4j/neo4j-community-3.0.7/lib 
-  -neo4jdbdir /home/santo/neo4j/data/graph.db_northwind 
+./orientdb-neo4j-importer.sh \
+  -neo4jlibdir /home/santo/neo4j/neo4j-community-3.0.7/lib \
+  -neo4jdbdir /home/santo/neo4j/data/graph.db_northwind \
   -odbdir /home/santo/orientdb/orientdb-community-2.2.12/databases/northwind_import
 ```
 
-For further information on how to use the OrientDB's Neo4j Importer, please refer to this [section]OrientDB-Neo4j-Importer.md#usage).
+For further information on how to use the OrientDB's Neo4j Importer, please refer to this [section](OrientDB-Neo4j-Importer.md#usage).
 
 
 ## Migration output
@@ -98,7 +97,7 @@ Getting all Relationships from Neo4j and creating corresponding Edges in OrientD
 Done
 
 Getting Constraints from Neo4j and creating corresponding ones in OrientDB...
-
+  0 OrientDB Indices have been created
 Done
 
 Getting Indices from Neo4j and creating corresponding ones in OrientDB...
@@ -146,6 +145,6 @@ General information on how to connect to a newly imported database can be found 
 
 The following is a partial visualization of the _northwind_ database done with the Graph Editor included in the OrientDB's [Studio](Studio-Home-page.md) tool:
 
-![](images/import_from_neo4j/northwind/northwind_graph_editor.png)
+![](images/import_from_neo4j/northwind/northwind_graph_editor.PNG)
 
 As you can see from the _Limit_ field, the visualization is limited to 200 vertices.
