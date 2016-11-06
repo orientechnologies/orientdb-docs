@@ -163,13 +163,15 @@ During the migration, a log file is created.
 
 The log can be found at `path_to_orientDB/log/orientdb-neo4j-importer.log`.
 
-# Migration Tuning
+
+## Migration Tuning
 
 The parameter `-XX:MaxDirectMemorySize=4g` is hardcoded inside the start scripts `orientdb-neo4j-importer.sh` and `orientdb-neo4j-importer.bat`.
 
 Depending on the amount of available memory on your system, you may want to increase this value.
 
-# Migration Monitoring
+
+## Migration Monitoring
 
 During the migration, for each imported Neo4j items (nodes, relationships, constraints and indexes) a completion percentage is written in the shell from where the import has been started, thus allowing to monitor progresses.
 
@@ -179,37 +181,46 @@ For large imports, a best practice is to monitor also the produced import log, u
 tail -f -n 100 -f path_to_orientDB/log/orientdb-neo4j-importer.log
 ``` 
 
-# Migration Troubleshooting
+## Migration Troubleshooting
 
 In case of problems, the details of the occurred errors are written in the migration log file. Please use this file to troubleshoot the migration.
 
 
-# Migration Example
+## Connecting to the newly imported Database
+
+After the migration process, you may start an OrientDB server using the `server.sh` or `server.bat` scripts.
+
+You can connect to the newly imported database through [Studio](Studio-Home-page.md) or the [Console](Console-Commands.md) using the OrientDB's default database users, e.g. using the user _admin_ and password _admin_.
+
+Please secure your database by removing the default users, if you don't need them, or by creating new users.
+
+For further information on using OrientDB, please refer to the [Getting Started Guide](Tutorial-Introduction-to-the-NoSQL-world.md).
+ 
+
+## Migration Example
 
 The following is the output that is written by the OrientDB's Neo4j Importer tool when migrating the example Neo4j's database `northwind`:
 
 ```
-./orientdb-neo4j-importer.sh -neo4jlibdir /mnt/d/neo4j/neo4j-community-3.0.6/lib -neo4jdbdir /mnt/d/neo4j/neo4j-community-3.0.6/data/databases/graph.db
+./orientdb-neo4j-importer.sh -neo4jlibdir ~/santo/neo4j/neo4j-community-3.0.7/lib -neo4jdbdir ~/santo/neo4j/data/graph.db_northwind -odbdir ~/santo/orientdb/orientdb-community-2.2.12/databases/northwind_import
 
 OrientDB's Neo4j Importer v.2.2.12-SNAPSHOT - Copyrights (c) 2016 OrientDB LTD
 
 WARNING: 'o' option not found. Defaulting to 'false'.
 
-WARNING: 'odbdir' option not found. Defaulting to '/mnt/d/orientdb/orientdb-community-2.2.12/databases/neo4j_import'.
-
 Please make sure that there are no running servers on:
-  '/mnt/d/neo4j/neo4j-community-3.0.6/data/databases/graph.db' (Neo4j)
+  '/home/toor/santo/neo4j/data/graph.db_northwind' (Neo4j)
 and:
-  '/mnt/d/orientdb/orientdb-community-2.2.12/databases/neo4j_import' (OrientDB)
+  '/home/toor/santo/orientdb/orientdb-community-2.2.12/databases/northwind_import' (OrientDB)
 
 Initializing Neo4j...Done
 
 Initializing OrientDB...Done
 
 Importing Neo4j database:
-  '/mnt/d/neo4j/neo4j-community-3.0.6/data/databases/graph.db'
+  '/home/toor/santo/neo4j/data/graph.db_northwind'
 into OrientDB database:
-  '/mnt/d/orientdb/orientdb-community-2.2.12/databases/neo4j_import'
+  '/home/toor/santo/orientdb/orientdb-community-2.2.12/databases/northwind_import'
 
 Getting all Nodes from Neo4j and creating corresponding Vertices in OrientDB...
   1035 OrientDB Vertices have been created (100% done)
@@ -257,10 +268,10 @@ Import Summary:
 
 - Additional created Indices (on vertex properties 'Neo4jNodeID')          : 5
 
-- Total Import time:                                                       : 127 seconds
--- Initialization time                                                     :  73 seconds
--- Time to Import Nodes                                                    :  14 seconds (71,8 nodes/sec)
--- Time to Import Relationships                                            :  23 seconds (136,73 rels/sec)
--- Time to Import Constraints and Indices                                  :  4 seconds (1,39 indices/sec)
--- Time to create internal Indices (on vertex properties 'Neo4jNodeID')    :  8 seconds (0,62 indices/sec)
+- Total Import time:                                                       : 29 seconds
+-- Initialization time                                                     :  7 seconds
+-- Time to Import Nodes                                                    :  6 seconds (181.67 nodes/sec)
+-- Time to Import Relationships                                            :  7 seconds (459.79 rels/sec)
+-- Time to Import Constraints and Indices                                  :  4 seconds (1.21 indices/sec)
+-- Time to create internal Indices (on vertex properties 'Neo4jNodeID')    :  4 seconds (1.22 indices/sec)
 ```
