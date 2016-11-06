@@ -58,7 +58,7 @@ orientdb {db=movie}>
 
 As you can see from the output above, as a result of the import 171 vertices and 253 edges have been created in OrientDB. This is exactly the same number of nodes and relationships exported from Neo4j.
 
-For more tips and tricks related to the import process, please refer to [this](Import-from-Neo4j-into-OrientDB.md#import-tips-and-tricks) section.
+For more tips and tricks related to the import process, please refer to [this](Import-from-Neo4j-using-GraphML.md#import-tips-and-tricks) section.
 
 
 ## Query Comparison
@@ -78,16 +78,16 @@ The following sections include a comparison of the Neo4j's Cypher and OrientDB's
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (tom:Person {name: "Tom Hanks"}) 
 RETURN tom
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')} 
 RETURN $pathElements
-</pre>
+```
 </td>
 </tr>
 </table>
@@ -102,16 +102,16 @@ RETURN $pathElements
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (cloudAtlas:Movie {title: "Cloud Atlas"}) 
 RETURN cloudAtlas
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')} 
 RETURN $pathElements
-</pre>
+```
 </td>
 </tr>
 </table>
@@ -125,18 +125,18 @@ RETURN $pathElements
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (people:Person) 
 RETURN people.name 
 LIMIT 10
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Person, as: people} 
 RETURN people.name
 LIMIT 10
-</pre>
+```
 </td>
 </tr>
 </table>
@@ -151,17 +151,17 @@ LIMIT 10
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (nineties:Movie) 
 WHERE nineties.released > 1990 AND nineties.released < 2000 
 RETURN nineties.title
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Movie, as: nineties, WHERE: (released > 1990 AND released < 2000 )} 
 RETURN nineties.title
-</pre>
+```
 </td>
 </tr>
 </table>
@@ -175,16 +175,16 @@ RETURN nineties.title
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (tom:Person {name: "Tom Hanks"})-[:ACTED_IN]->(tomHanksMovies) 
 RETURN tom, tomHanksMovies
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: tomHanksMovies}
 RETURN $pathElements
-</pre>
+```
 </td>
 </tr>
 </table>
@@ -199,16 +199,16 @@ RETURN $pathElements
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (cloudAtlas {title: "Cloud Atlas"})<-[:DIRECTED]-(directors) 
 RETURN directors.name
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')}<-DIRECTED-{as: directors}
 RETURN directors.name
-</pre>
+```
 </td>
 </tr>
 </table>
@@ -222,16 +222,16 @@ RETURN directors.name
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (tom:Person {name:"Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) 
 RETURN DISTINCT coActors.name
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: m}<-ACTED_IN-{class: Person,as: coActors}
 RETURN coActors.name
-</pre>
+```
 </td>
 </tr>
 </table>
@@ -245,16 +245,16 @@ RETURN coActors.name
 </tr>
 <tr>
 <td>
-<pre>
+```
 MATCH (people:Person)-[relatedTo]-(:Movie {title: "Cloud Atlas"}) 
 RETURN people.name, Type(relatedTo), relatedTo
-</pre>
+```
 </td>
 <td>
-<pre>
+```
 MATCH {class: Person, as: people}--{as: m, where: (title = 'Cloud Atlas')}
 RETURN $pathElements
-</pre>
+```
 </td>
 </tr>
 </table>
