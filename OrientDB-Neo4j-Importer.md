@@ -42,7 +42,15 @@ The following limitations apply:
 
 The OrientDB's Neo4j Importer tool is provided as an external plugin, as a `zip` or `tar.gz` archive.
 
-To install it, please unpack the archive on your OrientDB server directory. On Linux systems, to unpack the archive you can use a command similar to the following:
+Please download the plugin from maven central:
+
+```
+http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/VERSION/orientdb-neo4j-importer-VERSION.tar.gz
+```
+
+where _VERSION_ is your OrientDB version (≥ 2.2.12). Replace `tar.gz` with  `zip` for the `zip` archive.
+
+To install the plugin, please unpack the archive on your OrientDB server directory. On Linux systems, to unpack the archive you can use a command similar to the following:
 
 ```
 tar xfv orientdb-neo4j-importer-VERSION.tar.gz -C path_to_orientDB/ --strip-components=1 
