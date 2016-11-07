@@ -17,7 +17,7 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 - Expected first M1......: December 2016
 - Expected first M2......: January 2016
 - Expected first RC......: February 2017
-- Expected final GA......: March 2016
+- Expected final GA......: March 2017
 ```
 
 ### Status
@@ -52,7 +52,7 @@ For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://git
 ```
 
 ### Status
-Last update: April 12, 2015
+Last update: April 12, 2016
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
