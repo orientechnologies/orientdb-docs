@@ -136,6 +136,7 @@
     * [Dashboard](Studio-Dashboard.md) (Enterprise Edition)
     * [Server Management](Studio-Server-Management.md) (Enterprise Edition)
     * [Cluster Management](Studio-Cluster-Management.md) (Enterprise Edition)
+    * [Data Centers](Studio-Data-Centers.md) (Enterprise Edition)
     * [Query Profiler](Studio-Query-Profiler.md) (Enterprise Edition)
     * [Studio Auditing](Studio-Auditing.md) (Enterprise Edition)
     * [Studio](Studio-Backup-Management.md) (Enterprise Edition)
