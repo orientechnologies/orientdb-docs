@@ -34,7 +34,7 @@ What happens here is a `JOIN`. That is, the contents of two tables are joined to
 
 ### 1-to-Many Relationship
 
-Given that Relational databases have no concept of a collections, the `Customer` table cannot have multiple foreign keys. The only way to manage a 1-to-Many Relationship in databases of this kind is to move the Foreign Key to the `Address` table.
+Given that it is not possible to store multiple values in one field, a customer record cannot have multiple foreign keys which refers to different addresses. The only way to manage a 1-to-Many Relationship in databases of this kind is to move the Foreign Key to the `Address` table.
 
 ![RDBMS 1-to-N](http://www.orientdb.org/images/rdbms-1toN.jpg)
 
