@@ -1,6 +1,6 @@
 # Distributed Architecture Lifecycle
 
-In OrientDB Distributed Architecture all the nodes are masters (Multi-Master), while in most DBMS the replication works in Master-Slave mode where there is only one Master node and N Slaves that are use only for reads or when the Master is down. Starting from OrientDB v2.1, you can also assign the role of [REPLICA](Distributed-Architecture.md#server_roles) to some nodes.
+In OrientDB Distributed Architecture all the nodes are masters (Multi-Master), while in most DBMS the replication works in Master-Slave mode where there is only one Master node and N Slaves that are use only for reads or when the Master is down. Starting from OrientDB v2.1, you can also assign the role of [REPLICA](Distributed-Architecture.md#server-roles) to some nodes.
 
 When start a OrientDB server in distributed mode (```bin/dserver.sh```) it looks for an existent cluster. If exists the starting node joins the cluster, otherwise creates a new one. You can have [multiple clusters](Distributed-Architecture-Lifecycle.md#multiple-clusters) in your network, each cluster with a different "group name".
 
@@ -95,7 +95,7 @@ In this case Server #2 joins the existent cluster.
 
 ![image](http://www.orientdb.org/images/cluster-join.png)
 
-When a node joins an existent cluster, the most updated copy of the database is downloaded to the joining node. If any copy of database was already present, that is moved under `backup/databases` folder.
+When a node joins an existent cluster, the most updated copy of the database is downloaded to the joining node if the distributed configuration has `autoDeploy:true`. If the node is rejoining the cluster after a disconnection, a delta backup is requested first. If not available a full backup is sent to the joining server. If it has been configured a sharded configuration, the joining node will ask for separate parts of the database to multiple available servers to reconstruct the own database copy. If any copy of database was already present, that is moved under `backup/databases` folder.
 
 ### Multiple clusters
 
@@ -116,6 +116,10 @@ Every time a new Server Node joins or leaves the Cluster, the new Cluster config
 When a Server Node becomes unreachable (because it’s crashed, network problems, high load, etc.) the Cluster treats this event as if the Server Node left the cluster.
 
 ![image](http://www.orientdb.org/images/cluster-crash.png)
+
+Starting from v2.2.13, the unreachable server is removed from the [distributed configuration](Distributed-Configuration.md) only if it's dynamic, that means it hasn't registered under the [`servers`](Distributed-Configuration.md#default-distributed-db-configjson) configuration. Once removed it doesn't concur to the quorum anymore. Instead, if the server has been registered under [`servers`](Distributed-Configuration.md#default-distributed-db-configjson), it's kept in configuration waiting for a rejoining.
+
+The [`newNodeStrategy`](Distributed-Configuration.md#default-distributed-db-configjson) setting specifies if a new joining node is automatically registered as static or is managed as dynamic.
 
 ### Automatic switch of servers
 
