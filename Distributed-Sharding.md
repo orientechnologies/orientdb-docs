@@ -31,15 +31,16 @@ Example of [distributed database configuration](Distributed-Configuration.md#def
 ```json
 {
   "autoDeploy": true,
-  "hotAlignment": false,
   "readQuorum": 1,
-  "writeQuorum": 2,
-  "failureAvailableNodesLessQuorum": false,
+  "writeQuorum": "majority",
+  "executionMode": "undefined",
   "readYourWrites": true,
+  "newNodeStrategy": "dynamic",
+  "servers": {
+    "*": "master"
+  },
   "clusters": {
     "internal": {
-    },
-    "index": {
     },
     "client_usa": {
       "servers" : [ "usa", "europe" ]
