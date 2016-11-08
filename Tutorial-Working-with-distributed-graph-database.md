@@ -26,34 +26,12 @@ Current database: GratefulDeadConcerts (url=remote:localhost/GratefulDeadConcert
 For reference purposes, the server nodes in the example have the following configurations.  As you can see, it is a two node cluster running a single server host.  The first node listens on port `2481` while the second on port `2480`.
 
 ```json
-{
-   "members":[
-   { "name":"node1384015873680",
-    "listeners": [
-      { "protocol": "ONetworkProtocolBinary",
-	    "listen": "192.168.1.179:2425" },
-	  { "protocol": "ONetworkProtocolHttpDb",
-	    "listen": "192.168.1.179:2481"}
-    ],
-    "id": "3bba4280-b285-40ab-b4a0-38788691c4e7",
-    "startedOn": "2013-11-09 17:51:13",
-    "databases": []
-   },
-   { "name":"node1383734730415",
-     "listeners": [
-	    { "protocol":"ONetworkProtocolBinary",
-	      "listen":"192.168.1.179:2424" },
-	    { "protocol":"ONetworkProtocolHttpDb",
-		  "listen":"192.168.1.179:2480"}
-	  ],
-      "id": "5cb7972e-ccb1-4ede-bfda-c835b0c2e5da",
-      "startedOn": "2013-11-09 17:30:56",
-      "databases": []
-    }
-  ],
-  "localName": "_hzInstance_1_orientdb",
-  "localId": "5cb7972e-ccb1-4ede-bfda-c835b0c2e5da"
-}
++---------+------+-----------------------------------------+-----+---------+--------------+--------------+-----------------------+
+|Name     |Status|Databases                                |Conns|StartedOn|Binary        |HTTP          |UsedMemory             |
++---------+------+-----------------------------------------+-----+---------+--------------+--------------+-----------------------+
+|europe-0 |ONLINE|distributed-node-deadlock=ONLINE (MASTER)|5    |16:53:59 |127.0.0.1:2424|127.0.0.1:2480|269.32MB/3.56GB (7.40%)|
+|europe-1 |ONLINE|distributed-node-deadlock=ONLINE (MASTER)|4    |16:54:03 |127.0.0.1:2425|127.0.0.1:2481|268.89MB/3.56GB (7.38%)|
++---------+------+-----------------------------------------+-----+---------+--------------+--------------+-----------------------+
 ```
 
 ## Testing Distributed Architecture
@@ -98,16 +76,16 @@ This command kills the process on PID `1254`.  Now, check the log messages for t
 <pre>
 $ <code class="lang-sh userinput">less orientdb.log</code>
 
-INFO [192.168.1.179]:2435 [orientdb] Removing Member [192.168.1.179]:2434
+INFO [127.0.0.1]:2435 [orientdb] Removing Member [127.0.0.1]:2434
      [ClusterService]
-INFO [192.168.1.179]:2435 [orientdb]
+INFO [127.0.0.1]:2435 [orientdb]
 <code class="lang-json">Members [1] {
-	Member [192.168.1.179]:2435 this
+	Member [127.0.0.1]:2435 this
 }</code>
  [ClusterService]
-WARN [node1384015873680] node removed id=Member [192.168.1.179]:2434
-     name=node1384014656983 [OHazelcastPlugin]
-INFO [192.168.1.179]:2435 [orientdb] Partition balance is ok, no need to
+WARN [europe-0] node removed id=Member [127.0.0.1]:2434
+     name=europe-1 [OHazelcastPlugin]
+INFO [127.0.0.1]:2435 [orientdb] Partition balance is ok, no need to
      re-partition cluster data...  [PartitionService]
 </pre>
 
@@ -116,7 +94,7 @@ What the logs show you is that the second node is now aware that it cannot reach
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM V LIMIT 2</code>
 
-WARN Caught I/O errors from /192.168.1.179:2425 (local
+WARN Caught I/O errors from /127.0.0.1:2425 (local
      socket=0.0.0.0/0.0.0.0:51512), trying to reconnect (error:
 	 java.io.IOException: Stream closed) [OStorageRemote]
 WARN Connection re-acquired transparently after 30ms and 1 retries: no errors
