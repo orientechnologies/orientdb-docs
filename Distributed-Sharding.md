@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['distributed', 'architecture', 'sharding']
+   keywords: ['distributed', 'architecture', 'sharding', 'DHT']
 ---
 
 # Sharding
@@ -34,30 +34,31 @@ In order to keep things simple, the entire OrientDB Distributed Configuration is
 
 ```json
 {
- "autoDeploy": true,
- "hotAlignment": false,
- "readQuorum": 1,
- "writeQuorum": 2,
- "failureAvailableNodesLessQuorum": false,
- "readYourWrites": true,
- "clusters": {
-  "internal": {
- },
- "index": {
- },
- "client_usa": {
-  "servers" : [ "usa", "europe" ]
- },
- "client_europe": {
-  "servers" : [ "europe" ]
- },
- "client_china": {
-  "servers" : [ "china", "usa", "europe" ]
- },
- "*": {
-  "servers" : [ "<NEW_NODE>" ]
- }
-}
+  "autoDeploy": true,
+  "readQuorum": 1,
+  "writeQuorum": "majority",
+  "executionMode": "undefined",
+  "readYourWrites": true,
+  "newNodeStrategy": "dynamic",
+  "servers": {
+    "*": "master"
+  },
+  "clusters": {
+    "internal": {
+    },
+    "client_usa": {
+      "servers" : [ "usa", "europe" ]
+    },
+    "client_europe": {
+      "servers" : [ "europe" ]
+    },
+    "client_china": {
+      "servers" : [ "china", "usa", "europe" ]
+    },
+    "*": {
+      "servers" : [ "<NEW_NODE>" ]
+    }
+  }
 }
 ```
 
