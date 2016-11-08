@@ -2,7 +2,7 @@
 
 Starting from OrientDB Enterprise Edition v2.2.4, you can define how your servers are deployed in multiple **Data Centers**.
 
-![images/studio-data-centers.png]()
+![Studio-Data-Centers](images/studio-data-centers.png)
 
 All you need is using the tag `"dataCenters"` in your [`default-distributed-config.json`](Distributed-Configuration.html#default-distributed-db-configjson) configuration file. This is the format:
 
