@@ -57,6 +57,7 @@ Default **default-distributed-db-config.json** file content:
     "readQuorum": 1,
     "writeQuorum": "majority",
     "readYourWrites": true,
+    "newNodeStrategy": "static",
     "dataCenters": {
       "rome": {
         "writeQuorum": "majority",
@@ -94,6 +95,7 @@ Where:
 |**readQuorum**|On "read" operation (record read, query and traverse) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at read time|<code>1</code>|
 |**writeQuorum**|On "write" operation (any write on database) this is the number of responses to be coherent before sending the response to the client. Set to 1 if you don't want this check at write time. Suggested value is "majority", the default, that means N/2+1 where N is the number of available nodes. In this way the quorum is reached only if the majority of nodes are coherent. "all" means all the available nodes. Starting from v2.2, N represent the MASTER only servers. For more information look at [Server Roles](Distributed-Architecture.md#server-roles).|<code>"majority"</code>|
 |**readYourWrites**|Whether the write quorum is satisfied only when also the local node responded. This assures current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
+|**newNodeStrategy**|Strategy to use when a new node joins the cluster. Default is `static` that means the server is automatically registered under `servers` list in configuration. If it is `dynamic`, then the node is not registered. This affects the strategy when a node is unreachable. If it is not registered (dynamic), it is removed from the configuration, so it does not concur in the quorum. Available since v2.2.13|<code>static</code>|
 |**dataCenters**|(Since v2.2.4) Optional (and only availabe in the [Enterprise Edition](http://orientdb.com/orientdb-enterprise), contains the definition of the data centers. For more information look at [Data Centers](Data-Centers.md)|-|
 |**servers**|(Since v2.1) Optional, contains the map of server roles in the format <code>server-name</code> : <code>role</code>. <code>*</code> means any server. Available roles are "MASTER" (default) and "REPLICA". For more information look at [Server roles](Distributed-Architecture.md#server_roles)|-|
 |**clusters**|if the object containing the clusters' configuration as map <code>cluster-name</code> : <code>cluster-configuration</code>. <code>*</code> means all the clusters and is the cluster's default configuration|-|
@@ -250,6 +252,7 @@ If you are using the Community Edition or if you don't have multiple data center
     "readQuorum": 1,
     "writeQuorum": "majority",
     "readYourWrites": true,
+    "newNodeStrategy": "static",
     "servers": {
         "*": "master"
     },
@@ -310,7 +313,7 @@ OrientGraphNoTx graph = factory.getNoTx();
 ```
 
 ### Use multiple addresses
-If the server addresses are known, it's good practice to connect the clients to a set of URLs, instead of just one. You can separate hosts/addresses by using a semicolon (;). OrientDB client will try to connect to the addresses in order. Example: `remote:server1:2424;server2:8888;server3/mydb`. 
+If the server addresses are known, it is good practice to connect the clients to a set of URLs, instead of just one. You can separate hosts/addresses by using a semicolon (;). OrientDB client will try to connect to the addresses in order. Example: `remote:server1:2424;server2:8888;server3/mydb`. 
 
 ### Use the DNS
 
@@ -352,13 +355,16 @@ OrientDB will create the temporary database under the folder `/myfolder/server1/
 
 
 ## History
+
+### v2.2.13
+New setting `newNodeStrategy` to specify what happens when a new node joins. This affects the behaviour when a node is unreachable. If it is not present under the `servers` list, then it's removed from the configuration and it doesn't concur in the quorum anymore.
+
 ### v2.2
 The intra-node communication is not managed with Hazelcast Queues anymore, but rather through the OrientDB binary protocol. This assure better performance and avoid the problem of locality of the Hazelcast queues. Release v2.2 also supported the wildcard "majority" and "all" for the read and write quorums. Introduced also the concept of static cluster owner. Furthermore nodes are not removed by configuration when they are offline.
+
+Introduced Load balancing at client level. For more information look at [load balancing](Distributed-Configuration.md#load-balancing).
 
 ### v1.7
 Simplified configuration by moving. Removed some flags (replication:boolean, now it’s deducted by the presence of “servers” field) and settings now are global (autoDeploy, hotAlignment, offlineMsgQueueSize, readQuorum, writeQuorum, failureAvailableNodesLessQuorum, readYourWrites), but you can overwrite them per-cluster.
 
 For more information look at [News in 1.7](http://www.orientechnologies.com/distributed-architecture-sharding/).
-
-### v2.2
-Introduced Load balancing at client level. For more information look at [load balancing](Distributed-Configuration.md#load-balancing).
