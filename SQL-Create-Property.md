@@ -6,13 +6,16 @@ Creates a new property in the schema.  It requires that the class for the proper
 
 ```
 CREATE PROPERTY 
-<class>.<property> <type> 
+<class>.<property>
+[IF NOT EXISTS]
+<type> 
 [<link-type>|<link-class>] 
 ( <property constraint> [, <property-constraint>]* ) 
 [UNSAFE]
 ```
 
 - **`<class>`** Defines the class for the new property.
+- **`IF NOT EXISTS`** (since v 2.2.13) Creates the property only if it does not exist. If it does, the statement just does nothing.
 - **`<property>`** Defines the logical name for the property.
 - **`<type>`** Defines the property data type.  For supported types, see the table below.
 - **`<link-type>`** Defines the contained type for container property data types.  For supported link types, see the table below.
