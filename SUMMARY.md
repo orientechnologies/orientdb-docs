@@ -25,6 +25,7 @@
     * [Managing Dates](Managing-Dates.md) 
   * [Graph Consistency](Graph-Consistency.md) 
   * [Fetching Strategies](Fetching-Strategies.md) 
+  * [Multi Tenant](Multi-Tenant.md)
   * [Use Cases](Use-Cases.md) 
     * [Time Series](Time-series-use-case.md) 
     * [Chat](Chat-use-case.md) 
