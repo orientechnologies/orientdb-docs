@@ -78,16 +78,16 @@ The following sections include a comparison of the Neo4j's Cypher and OrientDB's
 </tr>
 <tr>
 <td>
-```
+
 MATCH (tom:Person {name: "Tom Hanks"}) 
 RETURN tom
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')} 
 RETURN $pathElements
-```
+
 </td>
 </tr>
 </table>
@@ -102,16 +102,16 @@ RETURN $pathElements
 </tr>
 <tr>
 <td>
-```
+
 MATCH (cloudAtlas:Movie {title: "Cloud Atlas"}) 
 RETURN cloudAtlas
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')} 
 RETURN $pathElements
-```
+
 </td>
 </tr>
 </table>
@@ -125,18 +125,18 @@ RETURN $pathElements
 </tr>
 <tr>
 <td>
-```
+
 MATCH (people:Person) 
 RETURN people.name 
 LIMIT 10
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Person, as: people} 
 RETURN people.name
 LIMIT 10
-```
+
 </td>
 </tr>
 </table>
@@ -151,17 +151,17 @@ LIMIT 10
 </tr>
 <tr>
 <td>
-```
+
 MATCH (nineties:Movie) 
 WHERE nineties.released > 1990 AND nineties.released < 2000 
 RETURN nineties.title
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Movie, as: nineties, WHERE: (released > 1990 AND released < 2000 )} 
 RETURN nineties.title
-```
+
 </td>
 </tr>
 </table>
@@ -175,16 +175,16 @@ RETURN nineties.title
 </tr>
 <tr>
 <td>
-```
+
 MATCH (tom:Person {name: "Tom Hanks"})-[:ACTED_IN]->(tomHanksMovies) 
 RETURN tom, tomHanksMovies
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: tomHanksMovies}
 RETURN $pathElements
-```
+
 </td>
 </tr>
 </table>
@@ -199,16 +199,16 @@ RETURN $pathElements
 </tr>
 <tr>
 <td>
-```
-MATCH (cloudAtlas {title: "Cloud Atlas"})<-[:DIRECTED]-(directors) 
+
+MATCH (cloudAtlas {title: "Cloud Atlas"})<-[:DIRECTED]-(directors)
 RETURN directors.name
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')}<-DIRECTED-{as: directors}
 RETURN directors.name
-```
+
 </td>
 </tr>
 </table>
@@ -222,16 +222,16 @@ RETURN directors.name
 </tr>
 <tr>
 <td>
-```
+
 MATCH (tom:Person {name:"Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) 
 RETURN DISTINCT coActors.name
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: m}<-ACTED_IN-{class: Person,as: coActors}
 RETURN coActors.name
-```
+
 </td>
 </tr>
 </table>
@@ -245,16 +245,16 @@ RETURN coActors.name
 </tr>
 <tr>
 <td>
-```
+
 MATCH (people:Person)-[relatedTo]-(:Movie {title: "Cloud Atlas"}) 
 RETURN people.name, Type(relatedTo), relatedTo
-```
+
 </td>
 <td>
-```
+
 MATCH {class: Person, as: people}--{as: m, where: (title = 'Cloud Atlas')}
 RETURN $pathElements
-```
+
 </td>
 </tr>
 </table>
