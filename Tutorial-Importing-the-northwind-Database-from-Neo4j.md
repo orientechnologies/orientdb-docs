@@ -1,11 +1,11 @@
 ---
 search:
-   keywords: ['import', 'Neo4j', 'migration', 'GraphML', 'northwind', 'cypher', 'tutorial']
+   keywords: ['neo4j to orientdb importer', 'import', 'Neo4j', 'migration', 'northwind', 'cypher', 'tutorial']
 ---
 
 # Tutorial: Importing the *northwind* Database from Neo4j
 
-In this tutorial we will use the [OrientDB's Neo4j Importer](OrientDB-Neo4j-Importer.md) tool to import the Neo4j's *northwind* example database into OrientDB.
+In this tutorial we will use the [_Neo4j to OrientDB Importer_](OrientDB-Neo4j-Importer.md) to import the Neo4j *northwind* example database into OrientDB.
 
 For general information on the possible Neo4j to OrientDB migration strategies, please refer to the [Import from Neo4j](Import-from-Neo4j-into-OrientDB.md) section. 
 
@@ -22,7 +22,7 @@ wget http://central.maven.org/maven2/com/orientechnologies/orientdb-community/VE
 tar xvf orientdb-community-VERSION.tar.gz
 ```
 
-Download and install the OrientDB's Neo4j Importer tool:
+Download and install the _Neo4j to OrientDB Importer_:
 
 ```
 wget http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/VERSION/orientdb-neo4j-importer-VERSION.tar.gz
@@ -34,7 +34,7 @@ where _VERSION_ is equal or higher 2.2.12.
 
 For further information on the OrientDB's installation, please refer to this [section](Tutorial-Installation.md).
 
-For further information on the OrientDB's Neo4j Importer installation, please refer to this [section](OrientDB-Neo4j-Importer.md#installation).
+For further information on the _Neo4j to OrientDB Importer_ installation, please refer to this [section](OrientDB-Neo4j-Importer.md#installation).
 
 
 ## Starting the migration
@@ -58,15 +58,15 @@ you can import the _northwind_ database with a command similar to the following:
   -odbdir /home/santo/orientdb/orientdb-community-2.2.12/databases/northwind_import
 ```
 
-For further information on how to use the OrientDB's Neo4j Importer, please refer to this [section](OrientDB-Neo4j-Importer.md#usage).
+For further information on how to use the _Neo4j to OrientDB Importer_, please refer to this [section](OrientDB-Neo4j-Importer.md#usage).
 
 
 ## Migration output
 
-The following is the output that is written by the OrientDB's Neo4j Importer tool during the `northwind` database migration:
+The following is the output that is written by the _Neo4j to OrientDB Importer_ during the `northwind` database migration:
 
 ```
-OrientDB's Neo4j Importer v.2.2.12-SNAPSHOT - Copyrights (c) 2016 OrientDB LTD
+Neo4j to OrientDB Importer v.2.2.12-SNAPSHOT - Copyrights (c) 2016 OrientDB LTD
 
 WARNING: 'o' option not found. Defaulting to 'false'.
 
