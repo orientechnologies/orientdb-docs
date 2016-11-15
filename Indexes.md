@@ -502,3 +502,25 @@ To access to the indexes, you can use [SQL](SQL.md#query-the-available-indexes).
 ## Create your index engine
 
 Here you can find a guide how to create a [custom index engine](Custom-Index-Engine.md).
+
+## Create a manual index in Java
+
+To create a manual index in Java, you can use the following method:
+
+```
+OIndexManager.createIndex(final String iName, final String iType, final OIndexDefinition indexDefinition, final int[] clusterIdsToIndex, final OProgressListener progressListener, final ODocument metadata)
+```
+
+- `iName`: the index name
+- `iType`: the index type (UNIQUE, NOTUNIQUE, HASH_INDEX ecc.)
+- `indexDefinition`: the definition of the key type. You can use OSimpleKeyIndexDefinition
+- `clusterIdsToIndex`: this has to be null, because you are creating a manual index
+- `progressListener`: a progress index for the index creation (it can be null)
+- `metadata`: the index metadata (Eg. the index engine). For basic unique and notunique indexes it can be null
+
+An example of its usage is following:
+```
+OIndexManager idxManager = db.getMetadata().getIndexManager();
+idxManager.createIndex("myManualIndex", "NOTUNIQUE", new OSimpleKeyIndexDefinition(-1, OType.STRING), null, null, null);
+```
+
