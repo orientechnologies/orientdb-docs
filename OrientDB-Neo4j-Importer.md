@@ -14,8 +14,6 @@ Imported Neo4j items are:
 - unique constraints
 - indexes
 
-_**Note:**_ The _Neo4j to OrientDB Importer_ is currently in **beta**.
-
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
 ## Supported Versions
