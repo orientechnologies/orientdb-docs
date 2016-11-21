@@ -89,7 +89,7 @@ DELETE EDGE
 
 ## Use Cases
 
-### Controling Vertex Version Increments
+### Controlling Vertex Version Increments
 
 Creating and deleting edges causes OrientDB to increment versions on the involved vertices.  You can prevent this operation by implementing the [Bonsai Structure](RidBag.md).
 

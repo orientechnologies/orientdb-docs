@@ -192,7 +192,7 @@ The following examples are based on this sample data-set from the class `People`
   In this case, the condition ``$depth < 6`` refers to traversing the block ``bothE('Friend')`` six times.
 
 
-- Find friends of my friends who are aslo my friends, using multiple paths:
+- Find friends of my friends who are also my friends, using multiple paths:
 
   <pre>
   orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person, where: (name = 'John' AND 
