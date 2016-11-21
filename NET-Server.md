@@ -56,12 +56,18 @@ With this `Server` class, you can use the `Connect()` method to retrieve a new i
 
 Once you have created an instance of `OServer` within your application, you can use its methods in performing various operations on databases, including,
 
-- [**`CreateDatabase()`**](NET-Server-CreateDatabase.md)
-- **`DatabaseExists()`**
-- **`DropDatabase()`**
-- **`ConfigGet()`**
-- **`ConfigSet()`**
-- **`Dictionary()`**
+| Method | Return Value | Description |
+|---|---|---|
+| [**`ConfigGet()`**](NET-Server-ConfigGet.md) | `string` | Retrieves a configuration value for the given variable.|
+| [**`ConfigList()`**](NET-Server-ConfigList.md) | `Dictionary<string, string>` | Retrieves the complete server configuration. |
+| [**`ConfigSet()`**](NET-Server-ConfigSet.md) | `bool` | Modifies the given configuration variable. |
+| [**`CreateDatabase()`**](NET-Server-CreateDatabase.md) | `bool` | Creates a database on the server. |
+| [**`Close()`**](#closing-oserver) | `void` | Disposes of the OServer connection. |
+| [**`DatabaseExists()`**](NET-Server-DatabaseExists.md) | `bool` | Checks that database exists on server. |
+| [**`Databases()`**](NET-Server-Databases.md) | `Dictionary<string, ODatabaseInfo>` | Returns information on all databases on server.|
+| [**`Dispose()`**](#closing-oserver) | `void` | Disposes of the OServer connection. |
+| [**`DropDatabase()`**](NET-Server-DropDatabase.md) | `void` | Removes the given database. |
+
 
 ### Closing OServer
 
