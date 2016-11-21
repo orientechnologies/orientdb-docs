@@ -54,7 +54,7 @@ Note that any Java object can be saved by calling the `db.save()` method.  If it
 
 ```java
 // REGISTER THE CLASS ONLY ONCE AFTER THE DB IS OPEN/CREATED
-db.getENtityManager().registerEntityClas(Animal.class);
+db.getENtityManager().registerEntityClass(Animal.class);
 
 Animal animal = new Animal();
 animal.setName("Gaudi");
@@ -182,7 +182,7 @@ This means that you can make these deletions by calling,
   database.delete(testClass);
   }
   ```
-Here, you also delete `JavaSimpleTextClass` instances contained in the `simpleClass` field and all otehr documents contained in `children`, `list`, and `test`.
+Here, you also delete `JavaSimpleTextClass` instances contained in the `simpleClass` field and all other documents contained in `children`, `list`, and `test`.
 
 ## Executing Queries
 
