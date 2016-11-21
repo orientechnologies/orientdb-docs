@@ -9,8 +9,6 @@ search:
 
 ### Functions by category
 
-
-
 | Graph | Math  | Collections | Misc  |
 |-------|-------|-------------|-------|
 | [out()](SQL-Functions.md#out)    | [eval()](SQL-Functions.md#eval) | [set()](SQL-Functions.md#set)             | [date()](SQL-Functions.md#date)
@@ -30,9 +28,9 @@ search:
 
 ### Functions by name
 
-|       |       |       |       |       |
-|-------|-------|-------|-------|-------|
-| [abs()](SQL-Functions.md#abs)| [astar()](SQL-Functions.md#astar) | [avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) |
+|       |       |       |       |
+|-------|-------|-------|-------|
+| [abs()](SQL-Functions.md#abs) | [astar()](SQL-Functions.md#astar) | [avg()](SQL-Functions.md#avg) | [both()](SQL-Functions.md#both) |
 | [bothE()](SQL-Functions.md#bothe) | [coalesce()](SQL-Functions.md#coalesce) | [count()](SQL-Functions.md#count) | [date()](SQL-Functions.md#date) | 
 | [difference()](SQL-Functions.md#difference) |[dijkstra()](SQL-Functions.md#dijkstra) |[distance()](SQL-Functions.md#distance) | [distinct()](SQL-Functions.md#distinct) | 
 | [eval()](SQL-Functions.md#eval) | [expand()](SQL-Functions.md#expand) | [format()](SQL-Functions.md#format) | [first()](SQL-Functions.md#first) |
