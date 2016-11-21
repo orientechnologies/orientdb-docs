@@ -33,7 +33,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 		* D1000 defines 1000 Delete operations
 		
    		So a valid set is C1000R1000U1000D1000. There is only one constraint: the number of reads, updates and deletes cannot be greater than the number of creates. If not present, it defaults to C5000R5000U5000D5000.
-	* **GINSERT**, Insert a graph where all the nodes are conected with each others. The `<workload-params>` must follow the format `V#F#`, where the '#' is a number:
+	* **GINSERT**, Insert a graph where all the nodes are connected with each others. The `<workload-params>` must follow the format `V#F#`, where the '#' is a number:
 		* V1000 creates 1000 vertices
 		* F10 Each vertex has 10 edges
 	* **GSP**, Executes a shortest path between all the vertices against all the other vertices. The `<workload-params>` must follow the format `L#`, where the '#' is a number::
