@@ -12,7 +12,7 @@ In order to interact with OrientDB from within your C#/.NET application, you nee
 
 With OrientDB-NET, the server interface is controled through the `OServer` class, which can be found in the `Innov8tive.API` library.
 
-**Syntax**
+### Syntax
 
 ```
 OServer(    string <hostname>, 
@@ -26,7 +26,7 @@ OServer(    string <hostname>,
 - **`<userName>`** Defines the Server user name.
 - **`<userPasswd>`** Defines the Server user password.
 
-**Example**
+### Example
 
 In the interest of abstraction, you might create a class with methods to handle common OrientDB Server operations.  For instance, say you want a method that creates and returns a new `OServer` instance,
 
