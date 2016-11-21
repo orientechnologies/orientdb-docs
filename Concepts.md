@@ -178,7 +178,7 @@ With the Graph API, [Edges](Concepts.md#edge) connect only two vertices.  This m
 
 When using Embedded relationships, OrientDB stores the relationship within the record that embeds it.  These relationships are stronger than Reference relationships.  You can represent it as a [UML Composition relationship](http://en.wikipedia.org/wiki/Class_diagram#Composition).
 
-Embedded records do not have thier own [Record ID](Concepts.md#record-id), given that you can't directly reference it through other records.  It is only accessible through the container record.
+Embedded records do not have their own [Record ID](Concepts.md#record-id), given that you can't directly reference it through other records.  It is only accessible through the container record.
 
 In the event that you delete the container record, the embedded record is also deleted.  For example,
 
