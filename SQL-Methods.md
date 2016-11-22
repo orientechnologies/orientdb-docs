@@ -637,7 +637,7 @@ SELECT name.replace('Mr.', 'Ms.') FROM User
 
 
 ### .right()
-Returns a substring of the original cutting from the end of the string 'lenght' characters.
+Returns a substring of the original cutting from the end of the string 'length' characters.
 
 Syntax: ```<value>.right(<length>)```
 

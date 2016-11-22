@@ -158,7 +158,7 @@ CREATE INDEX <name> [ON <class-name> (prop-names)] <type> [<key-type>]
   
 - `<type>` Provides the algorithm and type of index that you want to create.  For information on the supported index types, see [Index Types](Indexes.md#index-types).
 
-- `<key-type>` Provides the optional key type.  With automatic indexes, the key type OrientDB automatically determines the key type by reading teh target schema property where the index is created.  With manual indexes, if not specified, OrientDB automatically determines the key type at run-time, during the first insertion by reading the type of the class.
+- `<key-type>` Provides the optional key type.  With automatic indexes, the key type OrientDB automatically determines the key type by reading the target schema property where the index is created.  With manual indexes, if not specified, OrientDB automatically determines the key type at run-time, during the first insertion by reading the type of the class.
 
 - `<metadata>` Provides a JSON representation
 

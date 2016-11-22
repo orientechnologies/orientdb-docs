@@ -449,7 +449,7 @@ Response: (result:boolean)
 #### Request
 
 - **database-name** - the name of the target database. *Note* that this was empty before `1.0rc1`.
-- **storage-type** - specifies the storage type of the database to be checked for existance. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to be checked for existence. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
 
@@ -1041,7 +1041,7 @@ where:
 (operation:byte)(query_token:int)(record-type:byte)(record-version:int)(cluster-id:short)(cluster-position:long)(record-content:bytes)
 ```
 where:  
-**operation** the tipe of operation happend, possible values  
+**operation** the tipe of operation happened, possible values  
   - *LOADED* = 0
   - *UPDATED* = 1 
   - *DELETED* = 2
@@ -1051,7 +1051,7 @@ where:
 **record-type** type of the record ('d' or 'b')   
 **record-version**  record version  
 **cluster-id** record cluster id   
-**cluster-position** record cluster postion  
+**cluster-position** record cluster position  
 **record-content** record content  
 
 ##### Usubscribe Message Body:
