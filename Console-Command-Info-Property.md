@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'info', 'property', 'INFO PROPERTY']
+---
+
 # Console - `INFO PROPERTY`
 
 Displays all information on the given property.

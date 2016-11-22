@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['enterprise', 'enterprise edition']
+---
+
 # Enterprise Edition
 
 This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more information look at [OrientDB Enterprise Edition](http://orientdb.com/enterprise.htm).

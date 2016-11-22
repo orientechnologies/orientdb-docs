@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'profile', 'PROFILER']
+---
+
 # Console - `PROFILER`
 
 Controls the [Profiler](Profiler.md).

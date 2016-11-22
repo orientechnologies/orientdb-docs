@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concept', 'fetch', 'fetching', 'fetch plan', 'fetching strategy', 'fetching strategies']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Fetching Strategies
 
@@ -18,7 +23,7 @@ In boths scopes, the fetchplan syntax is the same.  In terms of their use, Fetch
    - *Level* The specific level on which to use the Fetch Plan.  For example, using the level `[0]` would apply only to the first level.
    - *Range* The range of levels on which to use the Fetch Plan.  For example, `[0-2]` means to use it on the first through third levels.  You can also use the partial range syntax: `[-3]` which means from the first to fourth levels, while `[4-]` means from the fifth level to infinity.
    - *Any* The wildcard variable indicates that you want to use the Fetch Plan on all levels.  For example, `[*]`.
-- **Field Path** Is the field name path, which OrientDB expects in dot notation.  The path begins from either the root record or the wildcard variable `*` to indicate any field.  You can also use the wildcard at the end of the path to specify all paths taht start for a name.
+- **Field Path** Is the field name path, which OrientDB expects in dot notation.  The path begins from either the root record or the wildcard variable `*` to indicate any field.  You can also use the wildcard at the end of the path to specify all paths that start for a name.
 - **Depth Level** Is the depth of the level requested.  The depth level variable uses the following syntax:
    - `0` Indicates to load the current record.
    - `1-N` Indicates to load the current record to the *n*th record.

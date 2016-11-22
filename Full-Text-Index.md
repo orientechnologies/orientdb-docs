@@ -1,4 +1,7 @@
-<!-- proofread 2015-12-10 SAM -->
+---
+search:
+   keywords: ['index', 'FULLTEXT', 'full text', 'Lucene']
+---
 
 # Lucene FullText Index
 

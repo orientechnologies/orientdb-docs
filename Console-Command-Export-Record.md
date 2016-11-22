@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['console', 'command', 'export', 'record', 'EXPORT RECORD']
+---
+
+
 # Console - `EXPORT RECORD`
 
 Exports the current record, using the requested format.  In the event that you give a format that OrientDB does not support, it provides a list of supported formats.

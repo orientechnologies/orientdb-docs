@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['get in touch', 'getting in touch', 'contact']
+---
+
 # Get in touch
 
 We want to make it super-easy for OrientDB users and contributors to talk to us and connect with each other, to share ideas, solve problems and help make OrientDB awesome. Here are the main channels we're running currently, we'd love to hear from you on one of them:

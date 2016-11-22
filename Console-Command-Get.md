@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'get', 'GET']
+---
+
 # Console - `GET`
 
 Returns the value of the requested property.

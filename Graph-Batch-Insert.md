@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'batch insert', 'bulk load', 'bulk insert', 'OGraphBatchInsertBasic', 'OGraphBatchInsert']
+---
+
 # Graph Batch Insert
 
 Creating big graphs in OrientDB is a common operation, so OrientDB provides some APIs to make it fast and easy.
@@ -15,8 +20,8 @@ OrientDB provides an API called OGraphBatchInsertBasic
 
 This API is designed for fast batch import of simple graphs, starting from an empty (or non existing) DB. 
 
-These limitations are intended to have best performance on a very simple use case. If there limitations don't fit your
-requirements you can rely on other implementations 
+These limitations are intended to have best performance on a very simple use case. If these limitations do not fit your requirements you can rely on other implementations. 
+
 
 ### Typical usage: 
 
@@ -37,14 +42,14 @@ There is no need to create vertices before connecting them:
    batch.createEdge(0L, 1L);
  ```
 
-is equivalent to (but less performing than)
+is equivalent to (but less performing than):
 
 
 ```
    batch.createEdge(0L, 1L);
 ```
 
-batch.createVertex() is needed only if you want to create unconnected vertices.
+`batch.createVertex()` is needed only if you want to create unconnected vertices.
 
 
 ## Slightly more complex use case
@@ -53,18 +58,19 @@ For a use case, where your graph fits in the following constraints:
 - a single vertex class
 - a single edge class
 - vertices are identified by a numeric (Long) id
-- WITH properties on edges and/or vertices
-OrientDB provides an API called OGraphBatchInsert
+- edges and/or vertices have properties 
 
+OrientDB provides an API called [OGraphBatchInsert](http://orientdb.com/javadoc/latest/com/orientechnologies/orient/graph/batch/OGraphBatchInsert.html).
 
 This API is designed for fast batch import of simple graphs, starting from an empty (or non existing) DB. 
 
 This batch insert procedure is made of four phases, that have to be executed in the correct order:
  
- - begin(): initializes the database
- - create edges (with or without properties) and vertices
- - set properties on vertices
- - end(): flushes data to db
+ 1. begin(): initializes the database
+ 2. create edges (with or without properties) and vertices
+ 3. set properties on vertices
+ 4. end(): flushes data to db
+
  
  ### Typical usage: 
 
@@ -75,7 +81,7 @@ OGraphBatchInsert batch = new OGraphBatchInsert("plocal:your/db", "admin", "admi
 batch.begin();
   
 //phase 2: create edges
-Map<String, Object> edgeProps = new HashMap<String, Object>;
+Map<String, Object> edgeProps = new HashMap<String, Object>();
 edgeProps.put("foo", "bar");
 batch.createEdge(0L, 1L, edgeProps);
 batch.createVertex(2L);
@@ -83,9 +89,9 @@ batch.createEdge(3L, 4L, null);
 ...
   
 //phase 3: set properties on vertices, THIS CAN BE DONE ONLY AFTER EDGE AND VERTEX CREATION
-Map<String, Object> vertexProps = new HashMap<String, Object>;
+Map<String, Object> vertexProps = new HashMap<String, Object>();
  vertexProps.put("foo", "bar");
-batch.setVertexProperties(0L, vertexProps)
+batch.setVertexProperties(0L, vertexProps);
 ...
   
 //phase 4: end
@@ -100,28 +106,31 @@ batch.end();
     batch.createEdge(0L, 1L, props);
 ```
  
-  is equivalent to (but less performing than)
+is equivalent to (but less performing than):
   
 ```
     batch.createEdge(0L, 1L, props);
 ```
 
- batch.createVertex(Long) is needed only if you want to create unconnected vertices
+`batch.createVertex(Long)` is needed only if you want to create unconnected vertices.
 
 
 
 ## Custom Batch Insert
 
-Creating graphs consists mainly in two operations:
+Creating graphs consists mainly of two operations:
+
 - creating vertices
 - connecting them with edges
 
-Adding a single edge to an existing database actually consists in three operations:
+Adding a single edge to an existing database actually consists of three operations:
+
 - creating the edge document
 - updating the left vertex to point to the edge 
 - updating the right vertex to point to the edge 
 
-and typically, at the low level, it's even more complex:
+and typically, at low level, it's even more complex:
+
 - load vertex1 by key (index lookup)
 - load vertex2 by key (index lookup)
 - create edge document setting out = vertex1.@rid and in = vertex2.@rid
@@ -132,26 +141,28 @@ As a result, the creation of an edge can be considered an expensive operation co
 
 In some circumstances, the batch graph creation can be made faster. 
 
-Taking into consideration that RIDs are assigned sequentially for clusters, that edges and vertices are just ODocuments and that `out_*` and `in_*` properties for vertices can be manually manipulated at document level, in some circumstances (based on your specific domain structure) you can write a custom piece of code that "predicts" RIDs that will be assigned to edge and vertex documents and do the edge creation as a single write operation.
+Taking into consideration that RIDs are assigned sequentially for clusters, that edges and vertices are just ODocuments and that `out_*` and `in_*` properties for vertices can be manually manipulated at document level, in some circumstances (based on your specific domain structure) you can write a custom piece of code that "predicts" RIDs that will be assigned to edge and vertex documents, and do the edge creation as a single write operation.
 
-Here is a simple example:
+Below a simple example.
 
-Consider that you have to create a graph like following:
+Suppose that you have to create a graph like the following:
 
 ```
 Vertex1 -Edge1-> Vertex2 -Edge2-> Vertex3
 ```
 
-Vertex class is `VertexClass` and edge class is `EdgeClass`
+Vertex class is `VertexClass` and edge class is `EdgeClass`.
 
-Let's suppose that vertices will be inserted in cluster `9 (cluster vertexclass)` and that edges will be inserted in cluster `10 (cluster edgeclass)`. Let's also consider that both clusters are empty and newly created.
+Let's suppose that vertices will be inserted in cluster `9 (cluster vertexclass)` and that edges will be inserted in cluster `10 (cluster edgeclass)`. Let's also suppose that both clusters are empty and newly created.
 
-If you insert all the vertices in the given order, you will be sure that 
+If you insert all the vertices in the given order, you will be sure that:
+ 
 - Vertex1 will have @RID = #9:0
 - Vertex2 will have @RID = #9:1
 - Vertex3 will have @RID = #9:2
 
-If you insert all the edges in the given order, you will be sure that 
+If you insert all the edges in the given order, you will be sure that:
+
 - Edge1 will have @RID = #10:0
 - Edge2 will have @RID = #10:1
 
@@ -210,7 +221,7 @@ edge2.field("in", ridVertex3);
 db.save(edge2, "edgeclass"); //make sure that you are saving on the right cluster
 ```
 
-As you can see, this batch insert consists of exactly five write (insert) operations, no loads and no updates.
+As you can see, this batch insert consists of exactly five write (insert) operations, and no load and update operations are made.
 
 Saving documents with links to other not (yet) existing documents is allowed, so saving a vertex that points 
 to a non existing edge will result in a correct operation. The graph consistency will be restored as soon as you create the edge.

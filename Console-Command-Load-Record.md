@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'load', 'record', 'LOAD RECORD']
+---
+
 # Console - `LOAD RECORD`
 
 Loads a record the given [Record ID](Concepts.md#record-id) from the current database.

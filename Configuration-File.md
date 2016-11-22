@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['ETL', 'etl', 'configuration']
+---
+
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Configuration
 

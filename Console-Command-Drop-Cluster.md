@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'cluster', 'drop', 'delete', 'DROP CLUSTER']
+---
+
 # Console - `DROP CLUSTER`
 
 Removes a cluster from the database completely, deleting it with all records and caches in the cluster.

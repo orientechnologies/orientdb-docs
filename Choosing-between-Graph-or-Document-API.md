@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concept', 'Graph API', 'Document API']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Graph or Document API?
 

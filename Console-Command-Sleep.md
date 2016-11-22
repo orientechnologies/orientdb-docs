@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'sleep', 'SLEEP']
+---
+
 # Console - `SLEEP`
 
 Pauses the console for the given amount a time.  You may find this command useful in working with batches or to simulate latency.

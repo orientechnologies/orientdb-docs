@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['performance', 'performance tuning', 'configuration', 'global configuration']
+   keywords: ['performance', 'performance tuning', 'configuration', 'global configuration', 'config', 'options']
 ---
 
 # Global Configuration

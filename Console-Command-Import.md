@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['console', 'command', 'import', 'IMPORT DATABASE', 'backup', 'restore', 'export']
+---
+
+
 # Console - `IMPORT`
 
 Imports an exported database into the current one open. Import process doesn't lock the database, so any concurrent operations are allowed, but they could interfer in the import process causing errors.

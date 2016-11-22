@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['admin', 'administration', 'console']
+---
+
 <!-- proofread 2015-01-05 SAM -->
 
 # Console

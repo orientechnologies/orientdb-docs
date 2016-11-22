@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'export', 'import', 'backup', 'restore']
+---
+
 # Console - `EXPORT`
 
 Exports the current database to a file.  OrientDB uses a JSON-based [Export Format](Export-Format.md).  By default, it compresses the file using the GZIP algorithm.  

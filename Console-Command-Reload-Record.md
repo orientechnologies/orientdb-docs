@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'reload', 'load', 'record', 'RELOAD RECORD']
+---
+
 # Console - `RELOAD RECORD`
 
 Reloads a record from the current database by its Record ID, ignoring the cache.

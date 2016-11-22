@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'edit vertex']
+---
+
 Edit Vertex
 
 

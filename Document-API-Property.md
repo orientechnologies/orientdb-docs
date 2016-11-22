@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Document API', 'schema', 'property']
+---
+
 # Properties in the Document Database
 
 Properties are the fields in a class.  Generally, you can consider properties as synonymous with fields.

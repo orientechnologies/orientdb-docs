@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['performance', 'performance tuning', 'distributed', 'distributed deployment', 'distributed configuration']
+---
+
+
 # Distributed Configuration Tuning
 
 When you run [distributed](Distributed-Architecture.md) on multiple servers, you could face on a drop of performance you got with single node. While it's normal that replication has a cost, there are many ways to improve performance on distributed configuration:
@@ -14,7 +20,7 @@ When you run [distributed](Distributed-Architecture.md) on multiple servers, you
 Active the [load balancing](Distributed-Configuration.md#load-balancing) to distribute the load across multiple nodes.
 
 ### Use transactions
-Even though when you update graphs you should always work in transactions, OrientDB allows also to work outside of them. Common cases are read-only queries or massive and non concurrent operations can be restored in case of failure. When you run on distributed configuration, using transactions helps to reduce latency. This is because the distributed operation happens only at commit time. Distributing one big operation is much efficient than transfering small multiple operations, because the latency.
+Even though when you update graphs you should always work in transactions, OrientDB allows also to work outside of them. Common cases are read-only queries or massive and non concurrent operations can be restored in case of failure. When you run on distributed configuration, using transactions helps to reduce latency. This is because the distributed operation happens only at commit time. Distributing one big operation is much efficient than transferring small multiple operations, because the latency.
 
 ### Replication vs Sharding
 OrientDB [distributed configuration](Distributed-Configuration.md) is set to full replication. Having multiple nodes with the very same copy of database is important for HA and scale reads. In facts, each server is independent on executing reads and queries. If you have 10 server nodes, the read throughput is 10x.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['contribute', 'contribution', 'contribute to OrientDB']
+---
+
 # Contribute to OrientDB
 
 In order to contribute issues and pull requests, please sign OrientDB's [Contributor License Agreement](https://www.clahub.com/agreements/orientechnologies/orientdb). The purpose of this agreement is to protect users of this codebase by ensuring that all code is free to use under the stipulations of the [Apache2 license](http://www.apache.org/licenses/LICENSE-2.0.html).
@@ -9,7 +14,8 @@ When a stable version is released, a branch for the hotfix is created.
 Each stable release is merged on master branch and tagged there.
 At the time of writing these notes, the state of branches is:
 
-* develop: work in progress for next 2.2.x release (2.2.0-SNAPSHOT)
+* develop: work in progress for next 3.0.x release (3.0.0-SNAPSHOT)
+* 2.2.x: hot fix for next 2.2.x release (2.2.14-SNAPSHOT)
 * 2.1.x: hot fix for next 2.1.x stable release (2.1.10-SNAPSHOT)
 * 2.0.x: hot fix for next 2.0.x stable release (2.0.17-SNAPSHOT)
 * last tag on master is 2.1.9  

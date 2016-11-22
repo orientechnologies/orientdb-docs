@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['admin', 'administration']
+---
+
 <!-- proofread 2015-01-06 SAM -->
 
 ### Administration

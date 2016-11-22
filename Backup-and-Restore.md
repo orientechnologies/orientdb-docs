@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['backup', 'restore']
+---
+
+
 # Backup & Restore
 
 OrientDB supports backup and and restore operations, like any database management system.

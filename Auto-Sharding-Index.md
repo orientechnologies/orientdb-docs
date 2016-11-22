@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['index', 'auto sharding index']
+---
+
 # Auto Sharding Index Algorithm
 
 (Since v2.2)

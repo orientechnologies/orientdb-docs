@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'block']
+---
+
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Blocks
 
@@ -45,7 +50,7 @@ In a `"let"` block, you can define variables to the ETL process context.
   }
 ```
 
-## Code Block
+## Code Blocks
 
 In the `"code"` block, you can configure code snippets to execute in any JVM-supported languages.  The default language is JavaScript.
 

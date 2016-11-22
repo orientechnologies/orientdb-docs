@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'list', 'database', 'LIST DATABASES']
+---
+
 # Console - `LIST DATABASES`
 
 Displays all databases hosted on the current server.  Note that this command requires you connect to the OrientDB Server.

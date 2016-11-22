@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['function', 'access', 'database access']
+---
+
 # Accessing the Database from a Function
 
 When you create a function for OrientDB, it always binds the special variable `orient` to allow you to use OrientDB services from within the function.  The most important methods are:

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'create', 'index', 'CREATE INDEX']
+---
+
 <!-- proofread 2015-01-07 SAM -->
 
 # Console - `CREATE INDEX`

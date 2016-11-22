@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed architecture', 'data center']
+---
+
 # Data Centers
 
 Starting from OrientDB Enterprise Edition v2.2.4, you can define how your servers are deployed in multiple **Data Centers**.

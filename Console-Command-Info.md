@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'info', 'INFO']
+---
+
 # Console - `INFO`
 
 Displays all information on the current database.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'clusters']
+---
+
 # Clusters
 
 OrientDB uses **clusters** to store links to the data. A cluster is a generic way to group records. It is a concept that does not exist in the Relational world, so it is something that readers from the relational world should pay particular attention to.

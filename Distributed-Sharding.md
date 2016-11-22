@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'sharding', 'DHT']
+---
+
 # Sharding
 
 _NOTE: Sharding is a new feature with some [limitations](Distributed-Sharding.md#limitation). Please read them before using it._
@@ -15,12 +20,12 @@ This means that OrientDB will consider any record/document/graph element in any 
 Shards, based on clusters, work against indexed and non-indexed class/clusters.
 
 ## Multiple servers per cluster
-You can assign each [cluster](Concepts.md#cluster) to one or more servers. If more servers are enlisted the records will be copied in all the servers. This is similar to what [RAID](http://en.wikipedia.org/wiki/RAID) stands for Disks. The first server in the list will be the **master server** for that cluster.
+You can assign each [cluster](Concepts.md#cluster) to one or more servers. If more servers are enlisted then records will be copied across all of the servers. This is similar to what [RAID](http://en.wikipedia.org/wiki/RAID) does for Disks. The first server in the list will be the **master server** for that cluster.
 
-This is an example of configuration where the Client [class](Concepts.md#class) has been split in the 3 [clusters](Concepts.md#cluster) client_usa, client_europe and client_china, each one with different configuration:
-- `client_usa`, will be managed by "usa" and "europe" nodes
-- `client_europe`, will be managed only by "europe" node
-- `client_china`, will be managed by all the nodes (it would be equivalent as writing `“<NEW_NODE>”`, see cluster "*", the default one)
+For example, consider a configuration where the Client [class](Concepts.md#class) has been split in the 3 [clusters](Concepts.md#cluster) client_usa, client_europe and client_china. Each cluster might have a different configuration:
+- `client_usa`, will be managed by the ”usa" and "europe" nodes
+- `client_europe`, will be managed only by the node, ”europe"
+- `client_china`, will be managed by all of the nodes (it would be equivalent as writing `“<NEW_NODE>”`, see cluster "*", the default one)
 
 ![image](http://www.orientdb.org/images/distributed-sharding-replica-class.png)
 

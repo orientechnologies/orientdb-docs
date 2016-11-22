@@ -6,7 +6,7 @@ Share a database with another server in the cluster. This command works only ins
 
 ![image](http://www.orientechnologies.com/images/share-database.png)
 
-To execute this command you need to be connected to the remote server instance where the database resides, in the picture the **Server #1**. The server user must to have the permission to the resource "database.share". The *root* user has this priviledge.
+To execute this command you need to be connected to the remote server instance where the database resides, in the picture the **Server #1**. The server user must to have the permission to the resource "database.share". The *root* user has this privilege.
 
 ## Syntax
 

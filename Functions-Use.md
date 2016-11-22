@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['function', 'use', 'javascript', 'sql']
+---
+
 # Using Functions
 
 ## Call Functions via SQL

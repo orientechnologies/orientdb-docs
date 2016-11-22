@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'dictionary', 'keys', 'DICTIONARY KEYS']
+---
+
 # Console - `DICTIONARY KEYS`
 
 Displays all the keys stored in the database dictionary.

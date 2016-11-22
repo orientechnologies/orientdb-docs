@@ -1,3 +1,8 @@
+---
+search: 
+   keywords: ['export', 'import']
+---
+
 # Export and Import
 
 OrientDB supports export and import operations, like any database management system.

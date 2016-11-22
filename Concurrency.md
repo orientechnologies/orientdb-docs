@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concept', 'concurrency']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Concurrency
 

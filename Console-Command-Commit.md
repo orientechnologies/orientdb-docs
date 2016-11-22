@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'commit', 'COMMIT', 'transaction']
+---
+
 <!-- proofread 2015-01-07 SAM -->
 
 # Console - COMMIT

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'javascript', 'js', 'JSS']
+---
+
 # Console - `JSS`
 
 Executes commands on OrientDB Server in the Javascript language from the Console. Look also [Javascript Command](Javascript-Command.md).

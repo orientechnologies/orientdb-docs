@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concepts', 'cluster', 'cluster selection']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Cluster Selection
 

@@ -1,8 +1,13 @@
+---
+search:
+   keywords: ['concepts']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Basic Concepts
 
 
-### The Record
+### Record
 
 The smallest unit that you can load from and store in the database.  Records come in four types:
 
@@ -15,7 +20,7 @@ The smallest unit that you can load from and store in the database.  Records com
 
 A **Record** is the smallest unit that can be loaded from and stored into the database. A record can be a Document, a RecordBytes record (BLOB) a Vertex or even an Edge.
 
-### Documents
+### Document
 
 The Document is the most flexible record type available in OrientDB.  Documents are softly typed and are defined by schema classes with defined constraints, but you can also use them in a schema-less mode too.
 
@@ -123,6 +128,17 @@ orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:invoice2012</code
 
 Due to the optimization, this query runs significantly faster, because OrientDB can narrow the search to the targeted cluster.
 
+
+## Cluster
+
+Where classes in provide you with a logical framework for organizing data, clusters provide physical or in-memory space in which OrientDB actually stores the data.  It is comparable to the collection in Document databases and the table in Relational databases.
+
+When you create a new class, the [`CREATE CLASS`](SQL-Create-Class.md) process also creates a physical cluster that serves as the default location in which to store data for that class.  OrientDB forms the cluster name using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
+
+>For more information, see the [Clusters Tutorial](Tutorial-Clusters.md).
+
+
+
 ## Relationships
 
 OrientDB supports two kinds of relationships: **referenced** and **embedded**.  It can manage relationships in a schema-full or schema-less scenario.
@@ -142,7 +158,7 @@ CLASS=Invoice                 CLASS=Customer
 
 Here, record `A` contains the reference to record `B` in the property `customer`.  Note that both records are reachable by other records, given that they have a [Record ID](Concepts.md#record-id).
 
-With the Graph API, [Edges](Concepts.md#edges) are represented with two links stored on both vertices to handle the bidirectional relationship.
+With the Graph API, [Edges](Concepts.md#edge) are represented with two links stored on both vertices to handle the bidirectional relationship.
 
 #### 1:1 and 1:*n* Referenced Relationships
 
@@ -162,7 +178,7 @@ With the Graph API, [Edges](Concepts.md#edge) connect only two vertices.  This m
 
 When using Embedded relationships, OrientDB stores the relationship within the record that embeds it.  These relationships are stronger than Reference relationships.  You can represent it as a [UML Composition relationship](http://en.wikipedia.org/wiki/Class_diagram#Composition).
 
-Embedded records do not have thier own [Record ID](Concepts.md#record-id), given that you can't directly reference it through other records.  It is only accessible through the container record.
+Embedded records do not have their own [Record ID](Concepts.md#record-id), given that you can't directly reference it through other records.  It is only accessible through the container record.
 
 In the event that you delete the container record, the embedded record is also deleted.  For example,
 

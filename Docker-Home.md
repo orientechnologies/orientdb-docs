@@ -1,4 +1,8 @@
-<!-- proofread 2015-11-26 SAM -->
+---
+search:
+   keywords: ['server management', 'Docker']
+---
+
 # Installing in a Docker Container
 
 If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
@@ -18,14 +22,14 @@ Dockerfiles are available on a dedicated [repository](https://github.com/oriente
    ```
    git clone https://github.com/orientechnologies/orientdb-docker.git
    ```
-2. Build the image for 2.1.x:
+2. Build the image for 2.2.x:
    ```
-   cd 2.1
-   docker build -t <YOUR_DOCKER_HUB_USER>/orientdb:2.1.16 .
+   cd 2.2
+   docker build -t <YOUR_DOCKER_HUB_USER>/orientdb:2.2.11 .
    ```
 3. Push it to your Docker Hub repository (it will ask for your login credentials):
    ```
-   docker push <YOUR_DOCKER_HUB_USER>/orientdb:2.1.16
+   docker push <YOUR_DOCKER_HUB_USER>/orientdb:2.2.11
    ```
 
 

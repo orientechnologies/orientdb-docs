@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'server', 'embedded', 'embedded server']
+---
+
 # Embed the Server
 
 Embedding an OrientDB Server inside a Java application has several advantages and interesting features:

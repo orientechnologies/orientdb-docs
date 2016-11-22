@@ -1,3 +1,8 @@
+---
+search: 
+   keywords: ['console', 'command', 'release', 'database', 'RELEASE DATABASE', 'freeze']
+---
+
 # Console - `RELEASE DATABASE`
 
 Releases database from a frozen state, from where it only allows read operations back to normal mode.  Execution requires server administration rights.

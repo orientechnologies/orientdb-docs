@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['security', 'encryption', 'database encryption']
+---
+
 # Database Encryption
 
 Beginning with version 2.2, OrientDB can encrypt records on disk.  This prevents unauthorized users from accessing database content or even from bypassing OrientDB security.  OrientDB does not save the encryption key to the database.  You must provide it at run-time.  In the event that you lose the encryption key, the database, (or at least the parts of the database you have encrypted), you lose access to its content.  

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Document API', 'schema', 'class']
+---
+
 # Classes in the Document Database
 
 The Class is a concept taken from the Object-Oriented Programming paradigm.  In OrientDB, classes define types of records.  Conceptually, it's closest to the table in Relational Databases.  You can make classes schema-less, schema-full or schema-hybrid.

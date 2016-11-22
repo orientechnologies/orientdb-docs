@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'plugin', 'server manager']
+---
+
 # Distributed Architecture Plugin
 
 Java class: <code>com.orientechnologies.orient.server.hazelcast.OHazelcastPlugin</code>

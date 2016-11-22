@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'repair', 'repair database']
+---
+
 # Console - `REPAIR DATABASE`
 
 Repairs the database.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['console', 'command', 'list', 'connection', 'LIST CONNECTIONS'] 
+---
+
 # Console - `LIST CONNECTIONS`
 
 Displays all active connections to the OrientDB Server.  Command introduced in version 2.2. The connections as per server, so you should connect to the server, not to the database.
