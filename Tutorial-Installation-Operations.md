@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "installation"]
+---
+
 # Installation
 
 OrientDB is available in two editions:

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'ETL example', 'database of beers']
+---
+
 <!-- proofread 2015-12-11 SAM -->
 # ETL Example: Importing the Open Beer Database into OrientDB
 

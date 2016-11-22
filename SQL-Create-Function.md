@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'function', 'CREATE FUNCTION']
+---
+
 # SQL - `CREATE FUNCTION`
 
 Creates a new Server-side function.  You can execute [Functions](Functions.md) from SQL, HTTP and Java.

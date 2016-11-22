@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "SQL"]
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # SQL
 

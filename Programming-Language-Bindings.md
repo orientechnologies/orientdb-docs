@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['API', 'Application Programming Interface', 'Programming Language Bindings']
+---
+
 # API
 
 OrientDB supports 3 kinds of drivers:

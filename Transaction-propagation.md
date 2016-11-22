@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Java API', 'transaction', 'transaction propagation']
+---
+
 # Transaction Propagation
 
 During application development there are situations when a [transaction](Transactions.md) started in one method should be propagated to other method.

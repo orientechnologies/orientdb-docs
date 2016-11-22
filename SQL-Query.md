@@ -1,4 +1,9 @@
-# `SELECT`
+---
+search:
+   keywords: ['SQL', 'SELECT', 'query']
+---
+
+# SQL - `SELECT`
 
 OrientDB supports the SQL language to execute queries against the database engine.  For more information, see [operators](SQL-Where.md#operators) and [functions](SQL-Where.md#functions).  For more information on the differences between this implementation and the SQL-92 standard, see [OrientDB SQL](SQL.md).
 

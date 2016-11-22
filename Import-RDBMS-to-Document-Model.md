@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['import', 'export', 'migration', 'RDBMS', 'document model']
+---
+
 # Import from a Relational Database
 
 Relational databases typically query and manipulate data with SQL.  Given that OrientDB supports a subset of SQL, it is relatively straightfoward to import data from a Relational databases to OrientDB.

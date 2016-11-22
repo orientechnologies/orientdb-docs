@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Java API', 'JDBC', 'JDBC driver']
+---
+
 # JDBC Driver
 
 The JDBC driver for OrientDB allows to connect to a remote server using the standard and consolidated way of interacting with database in the Java world.

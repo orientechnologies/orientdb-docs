@@ -1,8 +1,13 @@
+---
+search:
+    keywords: ['Java', 'Document API', 'Graph API', 'Object API']
+---
+
 # Java API
 
 OrientDB is written completely in the Java language.  This means that you can use its Java API's without needing to install any additional drivers or adapters.
 
->For more information, see the [OrientDB Java Documentation](http://www.orientechnologies.com/javadoc/2.2.x/)
+>For more information, see the [OrientDB Java Documentation](http://www.orientdb.com/javadoc/2.2.x/)
 
 
 ## Component Architecture 

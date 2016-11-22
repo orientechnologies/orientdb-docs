@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'schema', 'schema manager']
+---
+
 # Schema Manager
 
 OrientDB can work in schema-less mode, schema mode or a mix of both. Here we'll discuss the schema mode. To know more about schema in OrientDB go [here](Schema.md)

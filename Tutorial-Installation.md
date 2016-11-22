@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "install", "installation", "docker", "binary installation", "source installation"]
+---
+
 <!-- proofread 2015-12-10 SAM -->
 # Installation
 
@@ -21,7 +26,7 @@ The Community Edition is available as a binary package for download or as source
 
 If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
 
-    $ docker run -d –name orientdb -p 2424:2424 -p 2480:2480
+    $ docker run -d --name orientdb -p 2424:2424 -p 2480:2480
        -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
 
 Where instead of "root", type the root's password you want to use.
@@ -84,7 +89,8 @@ The develop branch contains code for the next version of OrientDB. Stable versio
 For each maintained version OrientDB has its own `hotfix` branch.
 As the time of writing this notes, the state of branches is:
 
-* develop: work in progress for next 2.2.x release (2.2.1-SNAPSHOT)
+* develop: work in progress for next 3.0.x release (3.0.x-SNAPSHOT)
+* 2.2.x: hot fix for next 2.2.x stable release (2.2.x-SNAPSHOT)
 * 2.1.x: hot fix for next 2.1.x stable release (2.1.x-SNAPSHOT)
 * 2.0.x: hot fix for next 2.0.x stable release (2.0.x-SNAPSHOT)
 * last tag on master is 2.2.0
@@ -136,11 +142,11 @@ $ mvn clean install
 Bear in mind that when you build from source, you can switch branches to build different versions of OrientDB using Git.  For example,
 
 ```sh
-$ git checkout 2.1.x
+$ git checkout 2.2.x
 $ mvn clean install
 ```
 
-builds the `2.1.x` branch, instead of `master`.
+builds the `2.2.x` branch, instead of `master`.
 
 ## Building a single executable jar with OrientDB
 

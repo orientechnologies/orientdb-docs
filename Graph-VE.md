@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'vertex', 'vertices', 'edge']
+---
+
 # Vertices and Edges
 
 Similar to the Console interface, you can also create, manage and control vertices and edges through the Graph API.

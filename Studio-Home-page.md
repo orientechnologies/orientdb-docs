@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'home page']
+---
+
 # Studio Home page
 
 Studio is a web interface for the administration of OrientDB that comes in bundle with the OrientDB distribution. 

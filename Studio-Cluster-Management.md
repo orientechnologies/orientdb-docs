@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'cluster', 'cluster management']
+---
+
 # Cluster Management
 This is the section (available only for the Enterprise Edition) to work with OrientDB Cluster as DBA/DevOps.
 

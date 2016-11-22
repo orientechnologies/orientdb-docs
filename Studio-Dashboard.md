@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'dashboard']
+---
+
 # Dashboard
 
 Studio 2.2 Enterprise Edition includes a new easy to read and single-page Dashboard with costantly updated reports.

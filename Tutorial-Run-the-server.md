@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "server"]
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Running the OrientDB Server
 
@@ -98,7 +103,7 @@ Following the masthead, the database server begins to print log messages to stan
 
    >For more information on this step, see [OrientDB Server](DB-Server.md).
 
-1. The database server loads the `temp` database into memory.  You can use this database in storing temporary data.
+1. The database server loads the `temp` database into memory.  You can use this database for storing temporary data.
 
 1. The database server begins listening for binary connections on port `2424` for all configured networks, (`0.0.0.0`).
 

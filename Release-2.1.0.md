@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['upgrade', 'release notes']
+---
+
 # Release 2.1.x
 ____
 

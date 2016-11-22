@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['troubleshooting', 'best practices']
+---
+
 # Troubleshooting
 
 This page aims to link all the guides to Problems and Troubleshooting.

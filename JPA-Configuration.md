@@ -1,10 +1,15 @@
+---
+search:
+   keywords: ['Java API', 'JPA']
+---
+
 # JPA
 
 There are two ways to configure OrientDB JPA
 
 ## Configuration
 The first - do it through /META-INF/persistence.xml
-Folowing OrientDB properties are supported as for now:
+Following OrientDB properties are supported as for now:
 
 *javax.persistence.jdbc.url, javax.persistence.jdbc.user, javax.persistence.jdbc.password, com.orientdb.entityClasses*
 

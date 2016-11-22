@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'backup', 'enterprise']
+---
+
 #Backup Management (Enterprise Only)
 
 Studio 2.2 Enterprise Edition includes a **Backup Manager** that allows you to schedule and perform your backups and easily execute and manage restores you may need.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['teleporter', 'execution', 'execution strategy']
+---
+
 # Execution Strategies
 Teleporter provides two different import strategies:
 - **naive** strategy

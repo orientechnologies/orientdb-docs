@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['server', 'plugin', 'rexster']
+---
+
 # Rexster
 
 [Rexster](https://github.com/tinkerpop/rexster/wiki/) provides a RESTful shell to any Blueprints-complaint graph database. This HTTP web service provides: a set of standard low-level GET, POST, and DELETE methods, a flexible extension model which allows plug-in like development for external services (such as ad-hoc graph queries through Gremlin), and a browser-based interface called The Dog House.

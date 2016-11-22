@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['Studio', 'server', 'server management']
+---
+
+
 # Server Management
 This is the section (available only for the Enterprise Edition) to work with OrientDB Server as DBA/DevOps. This control panel coming from OrientDB 2.1 Studio has been enriched with several new features for the new [Enterprise Edition](http://orientdb.com/enterprise/).
 
@@ -38,7 +44,7 @@ It displays all the active connections to the server. For each connection report
 ![Connections](images/studio-server-management-connections.png)
 
 ## Metrics
-This panel shows all the metric in 4 different tabs. To know more about metrics you can view the [Profiler](Profiler.md) page on the [OrientDB Manual](http://orientdb.com/docs/last/index.html).
+This panel shows all the metrics in 4 different tabs. To learn more about the available metrics please refer to the [Profiler](Profiler.md) section.
 
 - `Chronos`
 

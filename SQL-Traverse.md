@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'TRAVERSE']
+---
+
 # SQL - `TRAVERSE`
 
 Retrieves connected records crossing relationships.  This works with both the Document and Graph API's, meaning that you can traverse relationships between say invoices and customers on a graph, without the need to model the domain using the Graph API.

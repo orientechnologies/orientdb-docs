@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ["tutorial", "schema"]
+---
+
+
 <!-- proofread 2015-11-26 SAM -->
 # Using Schema with Graphs
 

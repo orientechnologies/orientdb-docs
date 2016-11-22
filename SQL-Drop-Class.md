@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'DROP CLASS', 'delete', 'drop', 'class']
+---
+
 # SQL - `DROP CLASS`
 
 Removes a class from the schema.

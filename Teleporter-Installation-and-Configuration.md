@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['teleporter', 'installation', 'configuration']
+---
+
 # Installation and Configuration
 
 ## Installation

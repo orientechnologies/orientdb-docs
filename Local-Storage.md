@@ -1,4 +1,11 @@
-# Local Storage (Not more available since 2.0)
+---
+search:
+   keywords: ['storage', 'Local']
+---
+
+# Local Storage
+
+>**NOTE**: Local storage is no longer available as of Version 2.0.
 
 Local storage is the first version of disk-based storage engine, but has been replaced by [plocal](Paginated-Local-Storage.md). Don't create new databases using **local**, but rather [plocal](Paginated-Local-Storage.md). Local storage has been kept only for compatibility purpose.
 

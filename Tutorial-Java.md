@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "Java API"]
+---
+
 # Java API Tutorial
 
 In the event that you have only used Relational database systems, you may find much of OrientDB very unfamiliar.  Given that OrientDB supports Document, Graph and Object Oriented modes, it requires that you use different Java API's, but there are some similarities between them.
@@ -39,8 +44,8 @@ When your application runs, these lines initialize the `graph` object to your Or
 While you can work with the generic vertex class `V`, you gain much more power by defining custom types for vertices.  For instance,
 
 ```java
-odb.createVertexType("Person");
-odb.createVertexType("Address");
+graph.createVertexType("Person");
+graph.createVertexType("Address");
 ```
 
 The Blueprint adapter for OrientDB is thread-safe and where necessary automatically creates transactions.  That is, it creates a transaction at the first operation, in the event that you have not yet explicitly started one.  You have to specify where these transactions end, for commits or rollbacks.

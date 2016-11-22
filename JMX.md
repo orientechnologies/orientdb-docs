@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['JMX', 'JMX API']
+---
+
 # JMX
 
 ## Read Cache

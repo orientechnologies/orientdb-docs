@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'TRUNCATE CLASS', 'truncate', 'class']
+---
+
 # SQL - `TRUNCATE CLASS`
 
 Deletes records of all clusters defined as part of the class.  

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'HA REMOVE SERVER', 'HA', 'high availability', 'remove', 'server', 'remove server']
+---
+
 # SQL - `HA REMOVE SERVER`
 
 (Since v2.2) Removes a server from distributed configuration. It returns `true` if the server was found, otherwise `false`.

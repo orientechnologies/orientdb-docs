@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Class API', 'class', 'create class', 'extend class', 'update class']
+---
+
 # Working with Classes
 
 With OrientJS, you can access and manipulate classes on your OrientDB database, through the Class API.  This allows you to perform various operations on the classes directly from within your Node.js application.

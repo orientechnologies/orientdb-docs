@@ -1,8 +1,11 @@
-<!-- proofread 2015-11-26 SAM -->
+---
+search:
+   keywords: ['server management', 'service', 'Unix', 'Linux', 'init', 'systemd']
+---
 
 # Install as Service on Unix/Linux
 
-Following the installation guide above, whether you chose to download binaries or build from source, does not install OrientDB at a system-level.  There are a few additional steps you need to take in order to manage the database system as a service.
+Following the installation guide above, whether you choose to download binaries or build from source, does not install OrientDB at a system-level.  There are a few additional steps you need to take in order to manage the database system as a service.
 
 OrientDB ships with a script, which allows you to manage the database server as a system-level daemon.  You can find it in the `bin/` path of your installation directory, (that is, at `$ORIENTDB_HOME/bin/orientdb.sh`.  
 
@@ -40,7 +43,7 @@ Different operating systems and Linux distributions have different procedures wh
 
 ### Installing for init
 
-Many Unix-like operating systems such as FreeBSD, most older distributions of Linux as well as current releases of Debian, Ubuntu and their derivatives use variations on SysV-style init for these processes.  These are typically the systems that manage such processes using the `service` command.
+Many Unix-like operating systems such as FreeBSD, most older distributions of Linux, as well as current releases of Debian, Ubuntu and their derivatives use variations on SysV-style init for these processes.  These are typically the systems that manage such processes using the `service` command.
 
 To install OrientDB as a service on an init-based unix or Linux system, copy the modified `orientdb.sh` file from `$ORIENTDB_HOME/bin` into `/etc/init.d/`:
 
@@ -83,7 +86,7 @@ ExecStart=$ORIENTDB_HOME/bin/server.sh
 
 </pre>
 
-Set the right user and group. You may want to use the absolute path instead of the environmental variable `$ORIENTDB_HOME`.  Once this file is saved, you can start and stop the OrientDB server using the `systemctl` command:
+Set the right user and group. You may want to use the absolute path instead of the environment variable `$ORIENTDB_HOME`.  Once this file is saved, you can start and stop the OrientDB server using the `systemctl` command:
 
 <pre>
 # <code class="lang-sh userinput">systemctl start orientdb.service</code>

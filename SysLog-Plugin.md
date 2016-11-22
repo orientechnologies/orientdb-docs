@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['server', 'plugin', 'syslog', 'syslog plugin']
+---
+
 # SysLog Plugin
 
 Java class implementation:

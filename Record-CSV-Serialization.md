@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['binary protocol', 'CSV serialization']
+---
+
 # CSV Serialization
 
 The CSV serialzation is the format how record are serialized in the orientdb 0.*  and 1.* version.

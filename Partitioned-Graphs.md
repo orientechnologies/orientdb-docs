@@ -1,6 +1,11 @@
+---
+search:
+   keywords: ['Graph API', 'Java', 'partition', 'partitioned graphs', 'tenant', 'multi tenant']
+---
+
 # Partitioned Graphs
 
-Beginning in version 1.2.0 of OrientDB, you can partition graphs using the [Record-level Security](Security.md#record_level_security) feature.  This allows you to separate database records as sandboxes, where "restricted" records are inaccessible to unauthorized users. For more information about other solution for Multi-Tenant applications, look at [Multi-Tenant](Multi-Tenant.md).
+You can partition graphs using the [Record-level Security](Security.md#record_level_security) feature.  This allows you to separate database records as sandboxes, where "restricted" records are inaccessible to unauthorized users. For more information about other solution for Multi-Tenant applications, look at [Multi-Tenant](Multi-Tenant.md).
 
 This tutorial provides a demonstration of sandboxing with the Graph API and the [TinkerPop](Graph-Database-Tinkerpop.md) stack.  Partitioned Graph Databases allow you to build [Multi-tenant](http://en.wikipedia.org/wiki/Multitenancy) applications.
 

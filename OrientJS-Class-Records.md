@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Class API', 'class', 'list records', 'create records']
+---
+
 # Working with Records
 
 With OrientJS you can access and manipulate records on your OrientDB database, through the Class API.  This allows you to perform various operations on the data in a given class directly from within your Node.js application.

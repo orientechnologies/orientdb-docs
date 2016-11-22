@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'method']
+---
+
 # SQL Methods
 
 SQL Methods are similar to [SQL functions](SQL-Functions.md) but they apply to values. In Object Oriented paradigm they are called "methods", as functions related to a class. So what's the difference between a function and a method?

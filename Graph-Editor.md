@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Studio', 'graph', 'Graph Editor']
+---
+
 #Graph Editor
 
 Since Studio 2.0 we have a new brand graph editor.  Not only you can visualize your data in a graph way

@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['Studio', 'query']
+---
+
+
 # Execute a query
 
 Studio supports auto recognition of the language you're using between those supported: [SQL](SQL.md) and [Gremlin](Gremlin.md). 

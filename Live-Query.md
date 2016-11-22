@@ -1,3 +1,8 @@
+---
+search:
+  keywords: ['Java API', 'Live Query']
+---
+
 # Live Query
 
 _(Since 2.1)_

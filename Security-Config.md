@@ -1,4 +1,9 @@
-# OrientDB Security Configuration #
+---
+search:
+   keywords: ['security', 'configuration']
+---
+
+# OrientDB Security Configuration
 The new OrientDB security system uses a JSON configuration file that's located by default in the *config* directory.  The default name of the file is *security.json*, but it can be overridden by setting the "server.security.file" property in *orientdb-server-config.xml* or by setting the global server property, "server.security.file".
 
 The security.json configuration file may contain up to eight global properties: "enabled", "debug", "server", "authentication", "passwordValidator", "ldapImporter" and "auditing".

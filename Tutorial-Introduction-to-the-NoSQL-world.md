@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "getting started", "NoSQL"]
+---
+
 <!-- proofread 2015-11-26 SAM -->
 
 # Getting Started

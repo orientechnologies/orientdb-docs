@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL']
+---
+
 # SQL
 
 When it comes to query languages, SQL is the mostly widely recognized standard. The majority of developers have experience and are comfortable with SQL. For this reason Orient DB uses SQL as it's query language and adds some extensions to enable graph functionality. There are a few differences between the standard SQL syntax and that supported by OrientDB, but for the most part, it should feel very natural. The differences are covered in the [OrientDB SQL dialect](#orientdb-sql-dialect) section of this page.

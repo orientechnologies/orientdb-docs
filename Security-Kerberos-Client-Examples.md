@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['security', 'Kerberos']
+---
+
 # OrientDB Kerberos Client Examples
 
 The Java API client is dependent on the *KRB5_CONFIG* and *KRB5CCNAME* environment variables being set.  Alternatively, you can pass them to the Java program via `-Dclient.krb5.config=…` and `-Dclient.krb5.ccname=…`, respectively.  You can also set them in your Java client program by calling `System.setProperty("client.krb5.config", "…./krb5.conf")`.

@@ -1,4 +1,8 @@
-<!-- proofread 2015-12-09 SAM -->
+---
+search:
+   keywords: ['SQL', 'function']
+---
+
 # SQL - Functions
 
 ## Bundled functions

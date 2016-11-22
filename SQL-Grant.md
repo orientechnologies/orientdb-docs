@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'GRANT', 'command', 'grant']
+---
+
 # SQL - `GRANT`
 
 Changes the permission of a role, granting it access to one or more resources.  To remove access to a resource from the role, see the [`REVOKE`](SQL-Revoke.md) command.

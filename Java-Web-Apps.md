@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Java API', 'web app', 'web application']
+---
+
 # Web Applications
 
 The database instances are not thread-safe, so each thread needs a own instance. All the database instances will share the same connection to the storage for the same URL. For more information look at [Java Multi threads and databases](Java-Multi-Threading.md).

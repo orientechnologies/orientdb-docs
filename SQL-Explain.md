@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'EXPLAIN', 'command', 'explain']
+---
+
 # SQL - `EXPLAIN`
 
 Profiles any command and returns a JSON data on the result of its execution.  You may find this useful to see why queries are running slow.  Use it as a keyword before any command that you want to profile.

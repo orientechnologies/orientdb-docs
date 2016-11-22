@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['server', 'plugin', 'JMX', 'JMX plugin']
+---
+
 # JMX plugin
 
 Java class implementation:

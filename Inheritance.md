@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concepts', 'inheritance', 'class']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 
 # Inheritance

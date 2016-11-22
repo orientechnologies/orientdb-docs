@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['logging']
+---
+
 # Logging
 
 OrientDB handles logs using the Java Logging Framework, which is bundled with the JVM.  The specific format it uses derives from the `OLogFormatter` class, which defaults to:

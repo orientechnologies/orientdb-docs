@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'MOVE VERTEX', 'command', 'move', 'vertex', 'vertices']
+---
+
 # SQL - `MOVE VERTEX`
 
 Moves one or more vertices into a different class or cluster.  

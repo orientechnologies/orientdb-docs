@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'sequence', 'CREATE SEQUENCE']
+---
+
 # SQL - `CREATE SEQUENCE`
 
 Creates a new sequence.  Command introduced in version 2.2.

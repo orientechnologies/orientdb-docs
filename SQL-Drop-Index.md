@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'DROP INDEX', 'drop', 'delete', 'index']
+---
+
 # SQL - `DROP INDEX`
 
 Removes an index from a property defined in the schema.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['concept', 'schema', 'class', 'property', 'relationship', 'edge', 'vertex']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Schema
 
@@ -133,7 +138,7 @@ In the example, Record A contains the reference to Record B in the property `cus
 
 #### 1:1 and *n*:1 Reference Relationships
 
-In one to one and many to one relationships, the reference relationship is expressed using teh `LINK` type.  For instance.
+In one to one and many to one relationships, the reference relationship is expressed using the `LINK` type.  For instance.
 
 
 ```java

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'GraphDB']
+---
+
 # Graph Database Comparison
 
 This is a comparison page between GraphDB projects. To know more about the comparison of DocumentDBs look at this [comparison](DocumentDB-Comparison.md).

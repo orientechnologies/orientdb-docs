@@ -48,7 +48,7 @@ This panel shows the [storages](Concepts.md#storage) used by the server. Below t
 - `Name`, is the storage name
 - `Type`, where `OLocalPaginatedStorage` (plocal) means persstent and `ODirectMemoryStorage` (memory) is in memory only
 - `Path`, as the path on server's file system where the storage is located
-- `Active Users`. This infomation couldn't be updated with the real number of users that are using the database
+- `Active Users`. This information couldn't be updated with the real number of users that are using the database
 
 ![Storage](images/studio-dbs.png)
 

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'alter', 'class', 'ALTER CLASS']
+---
+
 # SQL - `ALTER CLASS`
 
 Updates attributes on an existing class in the schema.

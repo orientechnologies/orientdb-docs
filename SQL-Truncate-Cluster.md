@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'TRUNCATE CLUSTER', 'truncate', 'cluster'] 
+---
+
 # SQL - `TRUNCATE CLUSTER`
 
 Deletes all records of a cluster.  This command operates at a lower level than the standard [`DELETE`](SQL-Delete.md) command.

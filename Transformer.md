@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'transformer']
+---
+
 <!-- proofread 2015-12-11 SAM -->
 # ETL Transformers
 

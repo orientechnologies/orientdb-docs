@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'transactions']
+---
+
 # Transactions
 
 A transaction comprises a unit of work performed within a database management system (or similar system) against a database, and treated in a coherent and reliable way independent of other transactions. Transactions in a database environment have two main purposes:

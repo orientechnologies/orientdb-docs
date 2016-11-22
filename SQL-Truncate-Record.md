@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'TRUNCATE RECORD', 'truncate', 'record']
+---
+
 # SQL - `TRUNCATE RECORD`
 
 Deletes a record or records without loading them.  Useful in cases where the record is corrupted in a way that prevents OrientDB from correctly loading it.

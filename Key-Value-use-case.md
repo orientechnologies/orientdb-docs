@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['use case', 'use-case', 'key value', 'key/value', 'key-value']
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Key Value Use Case
 

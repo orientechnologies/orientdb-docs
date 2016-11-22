@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["tutorial", "class"]
+---
 <!-- proofread 2015-11-26 SAM -->
 # Classes
 
@@ -33,7 +37,9 @@ CLASSES:
 
 ## Working with Classes
 
-In order to start using classes with your own applications, you need to understand how to create and configure them for use.  As a concept, the class in OrientDB has the closest relationship with the table in relational databases, but (unlike tables) classes can be schema-less, schema-full or mixed. Classes can inherit from other classes, creating trees of classes.  Each class has its own cluster or clusters, (created by default, if none are defined).
+In order to start using classes with your own applications, you need to understand how to create and configure a class for use.  The class in OrientDB is similar to the table in relational databases, but unlike tables, classes can be schema-less, schema-full or mixed. A class can inherit properties from other classes thereby creating trees of classes (though the super-class relationship).
+
+Each class has its own cluster or clusters, (created by default, if none are defined). For now we should know that a cluster is a place where a group of records are stored. We'll soon see how [`clustering`](Tutorial-Clusters.md) improves performance of querying the database. 
 
 >For more information on classes in OrientDB, see [Class](Concepts.md#class).
 

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'command', 'alter', 'property', 'properties', 'ALTER PROPERTY']
+---
+
 # SQL - `ALTER PROPERTY`
 
 Updates attributes on the existing property and class in the schema.

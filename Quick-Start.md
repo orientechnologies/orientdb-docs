@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['tutorial', 'links']
+---
+
 # More on Tutorials
 
 <table>

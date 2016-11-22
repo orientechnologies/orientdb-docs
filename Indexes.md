@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['index', 'indices']
+---
+
 # Indexes
 
 OrientDB supports four index algorithms:

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['storage', 'PLocal', 'write ahead log', 'WAL', 'journal']
+---
+
 # PLocal WAL (Journal)
 
 Write Ahead Log, **WAL** form now, is operation log which is used to store data about operations which were performed on disk cache page. WAL is enabled by default.

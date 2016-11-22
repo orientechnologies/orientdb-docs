@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'RID Bag', 'RIDBag']
+---
+
 # RidBag
 
 **RidBag** is a data structure that manages multiple RIDs. It is a collection without an order that could contain duplication. Actually the bag (or multi-set) is similar to set, but could hold several instances of the same object.

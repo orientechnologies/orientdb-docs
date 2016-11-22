@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['security', 'server security']
+---
+
 # Server Security
 
 Individual OrientDB servers can manage multiple databases at a time and each database can have its own set of users.  When using OrientDB through the HTTP protocol, the OrientDB server uses one realm per database.

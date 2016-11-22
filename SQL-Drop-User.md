@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['SQL', 'DROP USER', 'command', 'drop', 'delete', 'user']
+---
+
 # SQL - `DROP USER`
 
 Removes a user from the current database.  This feature was introduced in version 2.2

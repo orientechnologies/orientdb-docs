@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Node.js', 'node']
+---
+
 # OrientJS Driver
 
 OrientDB supports all JVM languages for server-side scripting.  Using the OrientJS module, you can develop database applications for OrientDB using the Node.js language.  It is fast, lightweight and uses the binary protocol, with features including:

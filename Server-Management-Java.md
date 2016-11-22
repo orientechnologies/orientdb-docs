@@ -1,3 +1,9 @@
+---
+search:
+   keywords: ['server management', 'administration']
+---
+
+
 # Manage a remote Server instance
 
 ## Introduction

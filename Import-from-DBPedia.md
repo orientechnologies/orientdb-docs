@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'ETL example', 'import from DB-Pedia']
+---
+
 <!-- proofread 2015-12-11 SAM -->
 # Import from DB-Pedia
 

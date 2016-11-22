@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['JavaScript API']
+---
+
 # Javascript
 
 OrientDB supports server-side scripting. All the [JVM languages](http://en.wikipedia.org/wiki/List_of_JVM_languages) are supported. By default [JavaScript](http://en.wikipedia.org/wiki/JavaScript) is installed.

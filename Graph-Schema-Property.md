@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'Java', 'property', 'properties']
+---
+
 # Graph Database Properties
 
 Fields in classes are called properties.  In this guide, you can consider properties synonymous with fields.

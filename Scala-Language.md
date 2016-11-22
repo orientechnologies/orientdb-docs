@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Scala', 'Scala API']
+---
+
 # Scala API
 
 There's no specific API written in Scala for OrientDB, but since there's a Java API it'easy to use that one to access OrientDB from Scala, and if needed to write wrappers around it for making a more Scala-like API.
@@ -19,15 +24,10 @@ http://stackoverflow.com/questions/3856536/how-to-pass-a-string-scala-vararg-to-
 
 
 ## build.sbt
-Let's start defining the build.sbt. All we need are the library dependencies:
+Let's start defining the build.sbt. All we need is a library dependency:
 ```
 libraryDependencies ++= Seq(
-  "com.orientechnologies" % "orientdb-core" % "2.2.0",
-  "com.orientechnologies" % "orientdb-client" % "2.2.0",
-  "com.orientechnologies" % "orientdb-jdbc" % "2.2.0",
   "com.orientechnologies" % "orientdb-graphdb" % "2.2.0",
-  "com.orientechnologies" % "orientdb-distributed" % "2.2.0",
-  "com.tinkerpop.blueprints" % "blueprints-core" % "2.6.0"
 )
 ```
 

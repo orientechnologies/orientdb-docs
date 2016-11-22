@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'schema']
+---
+
 # Graph Schema
 
 In OrientDB you can use a Graph Database in schema-less mode, or you can enforce strict data model through a schema.  When using a schema, you can use it on all data or only define constraints on certain fields, allowing users to add custom fields to records.

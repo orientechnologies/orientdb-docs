@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['internals', 'web', 'web server', 'server']
+---
+
 # Web Server
 
 |   |   |

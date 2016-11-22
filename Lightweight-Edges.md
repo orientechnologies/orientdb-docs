@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['Graph API', 'Lightweight Edge', 'edge']
+---
+
 # Lightweight Edges
 
 In OrientDB Graph databases, there are two types of edges available: 

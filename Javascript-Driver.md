@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['JavaScript', 'JavaScript API', 'JavaScript Driver']
+---
+
 # Javascript API
 
 ### This API has been deprecated, please use HTTP calls from the browser by using the [HTTP RESTful protocol](OrientDB-REST.md).

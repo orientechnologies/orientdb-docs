@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Events']
+---
+
 # OrientJS Events
 
 On occasion, you may find the need to run additional code around queries outside of the standard query methods.  In OrientJS you can program events to run whenever queries begin and end.

@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['binary protocol', 'schemaless serialization']
+---
+
 # Schemaless Serialization
 
 The binary schemaless serialization is an attempt to define a serialization format that can serialize a document containing all the information about the structure and the data with support for partial serialization/deserialization.

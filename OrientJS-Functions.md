@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['OrientJS', 'Function API', 'functions', 'custom function']
+---
+
 # OrientJS Function API
 
 In certain use cases you may find yourself in a situation where the available functions and methods supplied by OrientJS are not sufficient to meet your needs.  To manage this, you can create your own, custom functions to use in your application.

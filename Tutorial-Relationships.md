@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ["tutorial", "relationship", "edge"]
+---
+
 <!-- proofread 2015-11-26 SAM -->
 # Relationships
 
@@ -48,7 +53,7 @@ The most complicated case is the Many-to-Many relationship.  To handle associati
 For example, consider a case where you want to return all address for the customer Luca, this is how you would query the table:
 
 <pre>
-mysql> <code class="lang-sql userinput">SELECT B.location FROM Customer A, CustomerAddress B, Address C
+mysql> <code class="lang-sql userinput">SELECT C.location FROM Customer A, CustomerAddress B, Address C
           WHERE A.name='Luca' AND B.id=A.id AND B.address=C.id;</code>
 </pre>
 
