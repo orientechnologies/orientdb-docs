@@ -84,7 +84,7 @@ At operation 7 the client 1 continues to read the same version of x read in oper
 
 At operation 7 the client 1 reads the version of y which was written at operation 6 by client 2. This is because it never reads y before.
 
-#### Breaking of ACID properties when using remote protocol and Commands (SQL, Gremlin, JS, etc)
+**Breaking of ACID properties when using remote protocol and Commands (SQL, Gremlin, JS, etc)**
 
 Transactions are client-side only until the commit. This means that if you're using the "remote" protocol the server can't see local changes.
 
