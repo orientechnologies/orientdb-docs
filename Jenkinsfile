@@ -1,6 +1,5 @@
-stage 'Generate docs for branch ${env.BRANCH_NAME}'
 node("master") {
-
+    stage 'Generate docs for branch ${env.BRANCH_NAME}'
 
     sh "rm -rf ./*"
 
