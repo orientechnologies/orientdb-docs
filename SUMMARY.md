@@ -119,7 +119,7 @@
     * [Extractors](Extractor.md) 
     * [Transformers](Transformer.md) 
     * [Loaders](Loader.md) 
-    * [Import the database of Beers](Import-the-Database-of-Beers.md) 
+    * [Tutorial: Importing the Open Beer Database into OrientDB](Import-the-Database-of-Beers.md) 
     * [Import from CSV to a Graph](Import-from-CSV-to-a-Graph.md) 
     * [Import a tree structure](Import-a-tree-structure.md) 
     * [Import from JSON](Import-from-JSON.md) 
@@ -407,5 +407,11 @@
     * [Presentations](Presentations.md) 
   * [Roadmap](Roadmap.md) 
 * [Enterprise Edition](Enterprise-Edition.md) 
-  * [Auditing](Auditing.md) 
- 
+  * [Auditing](Auditing.md)
+* [Tutorials](Tutorials.md)
+  * [Tutorial: Importing the Open Beer Database into OrientDB](Import-the-Database-of-Beers.md)
+  * [Tutorial: Importing the *movie* Database from Neo4j](Tutorial-Importing-the-Movie-Database-from-Neo4j.md)
+  * [Tutorial: Importing the *northwind* Database from Neo4j](Tutorial-Importing-the-northwind-Database-from-Neo4j.md) 
+  * [Java Hook Tutorial](Tutorial-Java-Hooks.md)
+
+  
