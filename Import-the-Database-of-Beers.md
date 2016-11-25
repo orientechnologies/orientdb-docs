@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['etl', 'ETL', 'ETL example', 'database of beers']
+   keywords: ['tutorial', 'etl', 'ETL', 'ETL example', 'database of beers','beer', 'visualization', 'match']
 ---
 
 <!-- proofread 2015-12-11 SAM -->
@@ -318,14 +318,38 @@ If we want to find all nodes directly connected to a specific beer (e.g. the bee
 SELECT EXPAND( BOTH() ) FROM Beer WHERE name = 'Petrus Dubbel Bruin Ale'
 ```
 
-If we execute this query in the [Browse](Query.md) tab of Studio we get the following result, from where we can see that there are three nodes connected to this beer, having *@rid* *11:4*, *14:262* and *12:59*:
+Alternatively, we can use the [MATCH](SQL-Match.md) syntax:
+
+```
+MATCH {class: Beer, where: (name = 'Petrus Dubbel Bruin Ale')}--{as: n} RETURN $pathelements
+```
+
+If we execute the first query in the [Browse](Query.md) tab of Studio we get the following result, from where we can see that there are three nodes connected to this beer, having *@rid* *11:4*, *14:262* and *12:59*:
 
 ![](images/etl/openbeerdb/studio_browse_expand_beer.png)
 
-The same result can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](Graph-Database-Tinkerpop.md):
+We can send the result of this `SELECT` query to the [Graph Editor](Graph-Editor.md) by clicking the icon "_Send to Graph_", or create a new visualization directly from the _Graph Editor_. 
+
+The following is the visualization of the `MATCH` query above, executed directly on the _Graph Editor_:
+
+![](images/etl/openbeerdb/studio_graph_specific_beer.png)
+
+The same resultset can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](Graph-Database-Tinkerpop.md):
 
 ![](images/etl/openbeerdb/library_visjs_expand_beer.png)
 
-We can also query bigger portions of the graph. For example, the following image shows all beer *Category* nodes and for each of them all the connected *Style* nodes (the visualization has been created using the library [vis.js](http://visjs.org)):
+We can also query bigger portions of the graph. For example, to query all beer *Category* nodes and for each of them all the connected *Style* nodes, we can use a [MATCH](SQL-Match.md) query like the following:
+
+```
+MATCH 
+{class: Category, as: category}-HasCategory-{class: Style, as: style}
+RETURN $elements
+```
+
+The following is the visualization of the `MATCH` query above in the [Graph Editor](Graph-Editor.md):
+
+![](images/etl/openbeerdb/studio_graph_class_category_and_style.png)
+
+while the following is a visualization created for the same recordset using the library [vis.js](http://visjs.org):
 
 ![](images/etl/openbeerdb/library_visjs_class_category_and_style.png)
