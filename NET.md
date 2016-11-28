@@ -1,10 +1,15 @@
+---
+search:
+   keywords: ['API', 'C#', 'NET']
+---
+
 # OrientDB-NET
 
-OrientDB provides support for a network binary protocol, allowing you to manage servers through various API's and drviers.  In the event that you would like to develop an application in the C#/.NET framework and runtime with OrientDB, you can so through the OrientDB-NET.binary driver.
+OrientDB provides support for a network binary protocol, allowing you to manage servers through various API's and drivers.  In the event that you would like to develop an application in the C#/.NET framework and runtime with OrientDB, you can so through the OrientDB-NET.binary driver.
 
 ## Installation
 
-In order to use OrientDB-NET, you need to install it on your system.  THere are two methods available to you in doing this: you can install the latest build from NuGet or you can download the latest source code from GitHub and build it on your local system.
+In order to use OrientDB-NET, you need to install it on your system.  There are two methods available to you in doing this: you can install the latest build from NuGet or you can download the latest source code from GitHub and build it on your local system.
 
 ### Installing from NuGet
 
@@ -18,7 +23,7 @@ The package name is [`OrientDB-Net.binary.Innov8tive`](https://www.nuget.org/pac
   PM> <code class="lang-powershell userinput">Install-Package OrientDB-Net.binary.Innov8tive</code>
   </pre>
 
-- Using the NuGet CLI application, run the following command from your project directory:
+- Using the NuGet command-line application, run the following command from your project directory:
 
   <pre>
   $ <code class="lang-sh userinput">nuget install OrientDB-Net-Innov8tive</code>

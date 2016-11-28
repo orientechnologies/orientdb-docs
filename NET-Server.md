@@ -10,7 +10,7 @@ In order to interact with OrientDB from within your C#/.NET application, you fir
 
 ## Initializing OServer
 
-With OrientDB-NET, the server interface is controled through the `OServer` class, which can be found in the `Innov8tive.API` library.
+With OrientDB-NET, the server interface is controlled through the `OServer` class, which can be found in the `Innov8tive.API` library.
 
 ### Syntax
 

@@ -5,7 +5,7 @@ search:
 
 # OrientDB-NET - `ConfigList()`
 
-This method returns a the current configuration of the OrientDB Server as a dictionary of key/value pairs.
+This method returns the current configuration of the OrientDB Server as a dictionary of key/value pairs.
 
 ## Retrieving Server Configuration
 
