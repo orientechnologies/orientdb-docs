@@ -22,7 +22,7 @@ For instance, this transaction adds vertices for Ty Cobb and the Detroit Tigers 
 
 ```js
 var trx = db.let('player', function(p){
-      p.create('VERTEX', 'Player')
+      p.create('vertex', 'Player')
          .set({
             name:      'Ty Cobb',
             birthDate: '1886-12-18',
@@ -32,7 +32,7 @@ var trx = db.let('player', function(p){
          })
    })
    .let('team', function(t){
-      t.create('VERTEX', 'Team')
+      t.create('vertex', 'Team')
          .set({
             name: 'Tigers',
             city: 'Detroit',
@@ -40,7 +40,7 @@ var trx = db.let('player', function(p){
          })
    })
    .let('career', function(c){
-      c.create('EDGE', 'playsFor')
+      c.create('edge', 'playsFor')
          .from('$player')
          .to('$team')
          .set({
@@ -50,8 +50,8 @@ var trx = db.let('player', function(p){
    })
    .commit().return('$edge').all()
    .then(
-      function(transaction){
-         console.log(transaction);
+      function(results){
+         console.log(results);
       }
     );
 ```
