@@ -5,7 +5,7 @@ search:
 
 # OrientDB-NET - `OServer`
 
-In order to interact with OrientDB from within your C#/.NET application, you need to create an instance of the `OServer` class.  This provides you with an interface to use when operating on the OrientDB Server.
+In order to interact with OrientDB from within your C#/.NET application, you first need to create an instance of the `OServer` class.  This provides you with an interface to use when operating on the OrientDB Server.
 
 
 ## Initializing OServer
