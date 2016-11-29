@@ -251,4 +251,4 @@ Here are some key things to remember about classes:
 	
 7) To see information about a specific record of a class use the command 'Display record <record-number>'. Note: You must have recently queried a class for it's records before using this command. '<record-number>' references the number in the left-most column of the previous query's result.
 	
-Congratulations! You are now familiar with classes in OrientDB. If you're ready to explore clusters then let's move on to the [`clustering`](Tutorial-Clusters.md.) section of this tutorial.
+Congratulations! You are now familiar with classes in OrientDB. If you're ready to explore clusters then let's move on to the [`clustering`](Tutorial-Clusters.md) section of this tutorial.
