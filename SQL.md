@@ -66,7 +66,7 @@ FROM Employee A, City B
 WHERE A.city = B.id
 AND B.name = 'Rome'
 ```
-In OrientDB an equivalent operation would be:
+In OrientDB, an equivalent operation would be:
 ```sql
 SELECT * FROM Employee WHERE city.name = 'Rome'
 ```
@@ -78,17 +78,17 @@ WHERE A.city = B.id
 AND B.country = C.id
 AND C.name = 'Italy'
 ```
-In OrientDB an equivalent operation would be:
+In OrientDB, an equivalent operation would be:
 ```sql
 SELECT * FROM Employee WHERE city.country.name = 'Italy'
 ```
 
 ## Projections
-In SQL projections are mandatory and you can use the star character `*` to include all of the fields. With OrientDB this type of projection is optional. Example: In SQL to select all of the columns of Customer you would write:
+In SQL, projections are mandatory and you can use the star character `*` to include all of the fields. With OrientDB this type of projection is optional. Example: In SQL to select all of the columns of Customer you would write:
 ```sql
 SELECT * FROM Customer
 ```
-In OrientDB the `*` is optional:
+In OrientDB, the `*` is optional:
 ```sql
 SELECT FROM Customer
 ```
@@ -98,7 +98,7 @@ In SQL, `DISTINCT` is a keyword but in OrientDB it is a function, so if your que
 ```sql
 SELECT DISTINCT name FROM City
 ```
-In OrientDB you would write:
+In OrientDB, you would write:
 ```sql
 SELECT DISTINCT(name) FROM City
 ```
