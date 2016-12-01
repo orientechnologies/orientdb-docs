@@ -34,7 +34,7 @@ Using the Graph API:
 
 ## Document API
 
-What about the remaining 20% of your database use cases? Should you need a Document Database (while retaining the additional OrientDB features, like LINKs) or you come from the Document Database world, using the Document API could be the right choice. 
+What about the remaining 20% of your database use cases? Should you need a Document Database (while retaining the additional OrientDB features, like LINKs) or come from the Document Database world, using the Document API could be the right choice. 
 
 These are the Pros and Cons of using the Document API:
 
