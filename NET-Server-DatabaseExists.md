@@ -20,14 +20,25 @@ bool OServer.DatabaseExists(
 ```
 
 - **`<name>`** Defines the name of the database you want.
-- **`<storage>`** Defnes the storage type you want, such as PLocal or Memory.
+- **`<storage>`** Defines the storage type you want, such as PLocal or Memory.
 
 The method returns a boolean value, indicating whether or not it found the requested database on the server.
 
 ### Example
 
-Consider the example of the microblog service.  You might combine this method with the [`CreateDatabase()`](NET-Server-CreateDatabase.md) method in a check.  That is, determine whether a database exists and create it if it doesn't exist. 
+Consider the example of a web application, where you have multiple instances of OrientDB Server and multiple clients attempting to connect to and operate on the databases.  You might have a line that checks whether a database exists on the server before attempting to create it.
 
+```csharp
+bool checkForDB = server.DatabaseExists(
+   "microblog",
+   OStorageType.PLocal);
 
-
-
+// CREATE DB WHEN NEEDED
+if (checkForDB == false)
+{
+   server.CreateDatabase(
+      "microblog",
+      ODatabaseType.Graph,
+      OStorageType.PLocal);
+}
+```

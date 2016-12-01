@@ -24,12 +24,13 @@ void OServer.DropDatabase(
 
 ### Example
 
-For instance, consider the example of a microblog service.  Consider the use case of a house keeping method.  In the event that your application encounters a critical issue you would like to remove the database entirely and start fresh from backups.
+Consider the use case of an application where you encounter a critical flaw in the database and need to remove it and restore its content from backups.
 
 ```csharp
-public void CriticalRemoval(OServer server)
+if (check == true)
 {
-   server.DropDatabase(server, OStorageType.Memory);
-   
+   void server.DropDatabase(
+      "microblog",
+      OStorageType.PLocal);
 }
 ```

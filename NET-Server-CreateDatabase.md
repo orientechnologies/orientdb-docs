@@ -37,5 +37,3 @@ server.CreateDatabase(
    ODatabaseType.Graph,
    OStorageType.Memory);
 ```
-
-
