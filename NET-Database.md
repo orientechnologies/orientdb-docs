@@ -43,11 +43,69 @@ ODatabase(  string <host>,
 
 ### Example
 
-connection
+In the example of a web application, you might open the database when the user connects to your server.  For instance,
 
-connection with pool
+```csharp
+ODatabase database = ODatabase(
+   "localhost",
+   2424,
+   "microblog",
+   ODatabaseType.PLocal,
+   "guestUser",
+   "guest_passwd");
+```
 
-connection with connection options
+Here, the `database` object because your interface for `ODatabase` methods for your application.
+
+#### Using a Connection Pool
+
+Normally, OrientDB-NET clients operate through a single network connection.  When working with web applications or any situation where network bottlenecks are a concern, it is common to pool these connections to ensure better performance.
+
+To use a connection pool pass a pool alias when you create the `ODatabase` interface.
+
+```csharp
+ODatabase database = ODatabase(
+   "localhost",
+   2424,
+   "microblog",
+   ODatabaseType.PLocal,
+   "guestUser",
+   "guest_passwd",
+   "pool123");
+```
+
+#### Using Connection Options
+
+In addition to configuring the database interface through arguments passed to the `ODatabase` class, you can also create a configuration object independent of the class, through the `ConnectionOptions` class.  You may find this useful when you need to initialize several database instances with similar configuration.
+
+The `ConnectionOptions` class has seven parameters:
+
+| Parameter | Type | Description |
+|---|---|---|
+| `HostName` | `string` | Defines the hostname or IP address of the server hosting OrientDB |
+| `UserName` | `string` | Defines the name of the database user |
+| `Password` | `string` | Defines the password for database user |
+| `Port` | `int` | Defines the port number for the connection |
+| `DatabaseName` | `string` | Defines the name of the database to use |
+| `DatabaseType` | `ODatabaseType` | Defnes the type of database, PLocal or Memory |
+| `PoolAlias` | `string` | Defines the connection pool to use. |
+
+If you initialize this object without defining the connection pool, it sets it to `Default`.
+
+```csharp
+// INITIALIZE CONNECTION OPTIONS
+ConnectionOptions opts = ConnectionOptions();
+
+opts.HostName = "localhost";
+opts.UserName = "admin";
+opts.Password = "admin_passwd";
+opts.Port = 2727;
+opts.DatabaseName = "microblog";
+opts.DatabaseType = ODatabaseType.PLocal
+
+// Initialize Database
+ODatabase database = ODatabase(opts);
+```
 
 
 ## Using ODatabase
