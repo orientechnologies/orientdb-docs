@@ -21,7 +21,7 @@ OrientDB Functions features:
 
 >The [OrientDB SQL](SQL.md) dialect supports many functions written in the native language.  To get better performance, you can write your own native functions in the Java language and register them to the engine. 
 >
->For more information, see [Custom Functions in Java](SQL-Functions.md#cutom-functions-in-java).
+>For more information, see [Custom Functions in Java](SQL-Functions.md#custom-functions-in-java).
 
 
 ## Compatibility
