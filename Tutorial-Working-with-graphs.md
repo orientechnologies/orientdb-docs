@@ -160,7 +160,7 @@ orientdb> <code class="lang-sql userinput">CREATE CLASS Friend EXTENDS E</code>
 The users Luca and Jay are friends. They have Record ID's of ``#12:0`` and ``#11:2``. Create an edge that connects them.
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE EDGE Friend FROM #12:0 TO #11:2</code>
+orientdb> <code class="lang-sql userinput">CREATE EDGE Friend FROM #11:0 TO #11:2</code>
 </pre>
 
 In the `Friend` relationship, orientation is not important. That is, if Luca is a friend of Jay's then Jay is a friend of Luca's. Therefore, you should use the `BOTH()` function.
@@ -171,7 +171,7 @@ orientdb> <code class="lang-sql userinput">SELECT EXPAND( BOTH( 'Friend' ) ) FRO
 -------+-------------+-------------+---------+-----------+
  @RID  | @CLASS      | Name        | out_Eat | in_Friend |
 -------+-------------+-------------+---------+-----------+
- #11:2 | Person      | Jay         | #12:1   | #12:0     |
+ #11:2 | Person      | Jay         | #12:1   | #11:0     |
 -------+-------------+-------------+---------+-----------+
 </pre>
 
