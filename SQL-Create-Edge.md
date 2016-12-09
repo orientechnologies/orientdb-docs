@@ -24,7 +24,8 @@ CREATE EDGE <class> [CLUSTER <cluster>] FROM <rid>|(<query>)|[<rid>]* TO <rid>|(
 
 Edges and Vertices form the main components of a Graph database.  OrientDB supports polymorphism on edges.  The base class for an edge is `E`. 
 
-Beginning with version 2.1, when no edges are created OrientDB throws a `OCommandExecutionException` error.  This makes it easier to integrate edge creation in transactions.  In such cases, if the source or target vertices don't exist, it rolls back the transaction.  (Prior to 2.1, no such error is thrown.)
+Beginning with version 2.1, when no edges are created OrientDB throws a `OComm
+andExecutionException` error.  This makes it easier to integrate edge creation in transactions.  In such cases, if the source or target vertices don't exist, it rolls back the transaction.  (Prior to 2.1, no such error is thrown.)
 
 
 **Examples**
@@ -99,7 +100,7 @@ OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 
 >For more information, see [Concurrency on Adding Edges](Concurrency.md#concurrency-on-adding-edges).
 
-| ![NOTE](images/warning.png) | When running a distributed database, edge creation can sometimes be done in two steps, (that is, create and update).  This can break some constraints defined in the Edge at the class-level.  To avoid such problems, disable the constraints in the Edge class.  Bear in mind that in distributed mode SB Tree index algorithm is not supported.  You must set `ridBag.embeddedToSbtreeBonsaiThreashold=Integer.Max\_VALUE` to avoid replication errrors|
+| ![NOTE](images/warning.png) | When running a distributed database, the SB Tree index algorithm is not supported.|
 |----|----|
 
 
