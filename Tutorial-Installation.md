@@ -22,16 +22,6 @@ OrientDB is available in two editions:
 
 The Community Edition is available as a binary package for download or as source code on GitHub.  The Enterprise Edition license is included with [Support](http://orientdb.com/support/) purchases.
 
-## Use Docker
-
-If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
-
-    $ docker run -d --name orientdb -p 2424:2424 -p 2480:2480
-       -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
-
-Where instead of "root", type the root's password you want to use.
-
-
 **Prerequisites**
 
 Both editions of OrientDB run on any operating system that implements the Java Virtual machine (JVM).  Examples of these include:
@@ -43,7 +33,7 @@ Both editions of OrientDB run on any operating system that implements the Java V
 - HP-UX
 - IBM AIX
 
-OrientDB requires [Java](http://www.java.com/en/download), version 1.7 or higher.
+OrientDB requires [Java](http://www.java.com/en/download), version 8 or higher.
 
 
 >**Note**: In OSGi containers, OrientDB uses a `ConcurrentLinkedHashMap` implementation provided by [concurrentlinkedhashmap](https://code.google.com/p/concurrentlinkedhashmap/) to create the LRU based cache. This library actively uses the sun.misc package which is usually not exposed as a system package. To overcome this limitation you should add property `org.osgi.framework.system.packages.extra` with value `sun.misc` to your list of framework properties.
@@ -62,7 +52,7 @@ OrientDB provides a pre-compiled binary package to install the database on your 
 On server installations, you can use the `wget` utility:
 
 ```sh
-$ wget https://orientdb.com/download.php?file=orientdb-community-2.2.0.tar.gz
+$ wget {{book.links.download}}
 ```
 
 Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.2.0` with relevant files and scripts, which you will need to run OrientDB on your system.
@@ -139,6 +129,16 @@ $ chmod -R 777 config
 ```
 
 These commands update the execute permissions on files in the `config/` directory and shell scripts in `bin/`, ensuring that you can run the scripts or programs that you've compiled.
+
+## Use Docker
+
+If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
+
+    $ docker run -d --name orientdb -p 2424:2424 -p 2480:2480
+       -e ORIENTDB_ROOT_PASSWORD=root orientdb:latest
+
+Where instead of "root", type the root's password you want to use.
+
 
 ## Post-installation Tasks
 
