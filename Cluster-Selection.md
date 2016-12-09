@@ -28,7 +28,7 @@ When you run this command, it updates the `Account` class to use the `round-robi
 
 ## Custom Cluster Selection Strategies
 
-In addition to the cluster selection strategies listed above, you can also develop your own select strategies through the Java API.  This ensures that it the strategies that are available by default do not meet your particular needs, you can develop one that does.
+In addition to the cluster selection strategies listed above, you can also develop your own select strategies through the Java API.  This ensures that if the strategies that are available by default do not meet your particular needs, you can develop one that does.
 
 1. Using your preferred text editor, create the implementation in Java.  In order to use a custom strategy, the class must implement the `OClusterSelectionStrategy` interface.
 

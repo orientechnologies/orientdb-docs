@@ -38,7 +38,7 @@ Starting from v2.2, OrientDB automatically may create multiple clusters per each
 
 While the default strategy is that each class maps to one cluster for each CPU core available, a class can rely on fewer or more clusters. For instance, in a distributed server environment you can spawn records physically in multiple locations, thereby creating multiple clusters.
 
-One key feature about clusters is 'Cluster Selection'. This features specifies to which cluster any new recorded added will be added. Cluster Selection can be 'round robin', 'default', 'balanced', or 'local'.
+One key feature about clusters is 'Cluster Selection'. This features specifies to which cluster any new record will be added. Cluster Selection can be 'round robin', 'default', 'balanced', or 'local'.
 
 Suppose you have a class `Customer` that relies on two clusters:
 
