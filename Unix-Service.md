@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['server management', 'service', 'Unix', 'Linux', 'init', 'systemd']
+   keywords: ['server management', 'service', 'Unix', 'Linux', 'init', 'systemd', 'mac', 'osx']
 ---
 
 # Install as Service on Unix/Linux
@@ -137,6 +137,23 @@ OrientDB is available through [brew](http://brew.sh/).
 <pre>
 $ <code class="lang-sh userinput">brew install orientdb</code>
 </pre>
+
+The installation process gives an output similar to the following one:
+
+```sh
+...
+==> Downloading https://orientdb.com/download.php?file=orientdb-community-<ORIENTDB_VERSION>.tar.gz
+==> /usr/bin/nohup  /usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/bin/server.sh &
+==> /usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/bin/shutdown.sh
+==> OrientDB installed, server's root user password is 'changeme'
+==> Please, follow the instruction on the link below to reset it
+==> http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+...
+```
+
+The installation process setups a default server's root user password that **must** be changed. 
+The `orientdb-server-config.xml` file is installed in `/usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/config/`. 
+Refer to [Server Security](Server-Security.html#restoring-the-servers-user-root) for the complete procedure.
 
 
 ## Other resources
