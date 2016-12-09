@@ -9,6 +9,8 @@ This method executes Gremlin scripts.  The return value is an `OCommandResult` o
 
 ## Executing Gremlin Scripts
 
+In cases where you have existing scripts or would prefer to oprate on OrientDB using the Gremlin language, you can do so through `ODatabase` interface, using the `Gremlin()` method.
+
 ### Syntax
 
 ```

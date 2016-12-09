@@ -9,6 +9,8 @@ This method returns the clusters on the connected OrientDB database.  The return
 
 ## Retrieving Clusters
 
+In cases where you need to operate on many, most or all clusters in a database, you may find it more efficient to retrieve all `OCluster` objects in a single call.  You can do so using the `GetClusters()` method.
+
 ### Syntax
 
 ```

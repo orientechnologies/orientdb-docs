@@ -9,6 +9,10 @@ This method issues SQL queries against the OrientDB database.  It returns a list
 
 ## Querying the Database
 
+In some cases you may find features in OrientDB that are not yet available through OrientDB-NET.  You can utelize these features by passing SQL statements for them through the `Query()` method.  It returns a list of `ODocument` objects that you can operate on further.
+
+It is comparable to the [`Command()`](NET-Database-Command.md) method.
+
 ### Syntax
 
 ```

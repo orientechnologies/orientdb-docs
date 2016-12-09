@@ -9,6 +9,8 @@ This method prepares JavaScript queries to execute on the OrientDB database.  Th
 
 ## Querying with JavaScript
 
+In cases where you have database operations scripted in JavaScript, you can execute these through OrientDB-NET using the `JavaScript()` method.
+
 ### Syntax
 
 ```
