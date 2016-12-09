@@ -48,10 +48,6 @@ database.command(new OCommandSQL("UPDATE Account REMOVE name").execute();
 
 ## Using Constraints
 
-| | |
-|----|-----|
-|![](images/warning.png)| Using constraints with a distributed database may cause unexpected results.  Some operations execute in two steps: create and update, such as when creating an edge and then updating the vertex.  Constraints like `MANDATORY` and `NOTNULL` against fields would fail on distributed databases during the creation phase.|
-
 OrientDB supports a number of constraints for each field:
 
 | Constraint | Method | Description |
