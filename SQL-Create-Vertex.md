@@ -22,9 +22,6 @@ CREATE VERTEX [<class>] [CLUSTER <cluster>] [SET <field> = <expression>[,]*]
 - **`<field>`** Defines the field you want to set.
 - **`<expression>`** Defines the express to set for the field.
 
-|----|----|
-| ![NOTE](images/warning.png) | **NOTE**: When using a distributed database, you can create vertexes through two steps (creation and update).  Doing so can break constraints defined at the class-level for vertices.  To avoid these issues, disable constraints in the vertex class.|
-
 **Examples**
 
 - Create a new vertex on the base class `V`:
