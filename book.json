@@ -1,7 +1,9 @@
 {
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
-  "download": "http://mkt.orientdb.com/CE-2213-OSX",
+  "variables": {
+    "download": "http://mkt.orientdb.com/CE-2213-OSX"
+  },
   "links": {
     "home": "http://orientdb.com",
     "about": "http://orientdb.com",
