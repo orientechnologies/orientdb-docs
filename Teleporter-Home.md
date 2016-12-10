@@ -35,7 +35,7 @@ Teleporter is a tool written in Java, but can be used as a tool thanks to the te
                 [-conf <configuration-file-location>]
 ```
 
-#### Arguments
+### Arguments
 - **-jdriver** is the driver name of the DBMS from which you want to execute the import (it's not case sensitive)
 - **-jurl** is the JDBC URL giving the location of the source database to import
 - **-ourl** is the URL for the destination OrientDB graph database
@@ -59,7 +59,7 @@ Teleporter is a tool written in Java, but can be used as a tool thanks to the te
 - **-inheritance (optional)** executes the import taking advantage of OrientDB's polymorphism 
 - **-config** allows you to define a custom configuration for your importing job
 
-#### Access Credentials
+## Access Credentials
 By convention three users are always created by default each time a new database is built. Passwords are the same as the user name. Default users are:
 
 - `admin`, with default password "`admin`", has access to all functions without limitation.
@@ -67,8 +67,10 @@ By convention three users are always created by default each time a new database
 - `writer`, with the default password "`writer`", is like the user reader but can also create, update, and delete records.
 
 For further informations about the Security of the OrientDB database [click here.](https://github.com/orientechnologies/orientdb-docs/blob/master/Database-Security.md)
+
+## Examples
    
-#### Example of "testdb" importing from PostgreSQL DBMS with default parameters
+### Importing "testdb" from PostgreSQL DBMS with default parameters
 
 Using plocal connection:
 ```
@@ -88,7 +90,7 @@ With these parameters it will be performed an import according to the default se
 - name resolver: **original name resolver**
 - level of verbosity: **INFO** (2nd level)
 
-#### Example of "testdb" importing from PostgreSQL DBMS with customized optional parameters
+### Importing "testdb" from PostgreSQL DBMS with customized optional parameters
 
 Using plocal connection:
 ```
@@ -109,7 +111,8 @@ With these parameters it will be performed an import according to the chosen set
 - name resolver: **java name resolver**
 - level of verbosity: **DEBUG** (1st level)
 
-#### Teleporter Execution
+
+## Teleporter Execution
 Teleporter execution consists of 4 steps:     
         
 1. **Source DB Schema Building:** the source database schema is built by querying the source DB metadata.      
