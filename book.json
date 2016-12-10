@@ -1,12 +1,12 @@
 {
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
+  "download": "http://mkt.orientdb.com/CE-2213-OSX",
   "links": {
     "home": "http://orientdb.com",
     "about": "http://orientdb.com",
     "issues": "https://github.com/orientechnologies/orientdb/issues",
     "contribute": "http://orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
-    "download": "http://mkt.orientdb.com/CE-2213-OSX",
     "sharing": {
       "google": "https://plus.google.com/108716918285358206552/posts",
       "facebook": "https://www.facebook.com/groups/orientdb/",
@@ -36,7 +36,7 @@
     "edit-link",
     "addcssjs",
     "search",
-	"page-toc"
+    "page-toc"
   ],
   "pluginsConfig": {
     "ga": {

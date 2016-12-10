@@ -51,9 +51,7 @@ OrientDB provides a pre-compiled binary package to install the database on your 
 
 On server installations, you can use the `wget` utility:
 
-```sh
-$ wget {{ book.links.download }}
-```
+<pre><code class="lang-sh">$ wget {{ book.download }}</pre>
 
 Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.2.0` with relevant files and scripts, which you will need to run OrientDB on your system.
 
