@@ -49,7 +49,7 @@ OrientDB requires [Java](http://www.java.com/en/download), version 8 or higher.
 
 OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
 
-On server installations, you can use the `wget` utility and link {{ book.download }}:
+On server installations, you can use the `wget` utility:
 
 <pre><code class="lang-sh">$ wget {{ book.download }}</pre>
 
