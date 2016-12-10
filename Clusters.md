@@ -19,11 +19,11 @@ A cluster can be local (physical) or in-memory.
 
 **Note: If you used an earlier version of OrientDB. The concept of "Logical Clusters" are not supported after the introduction of version 1.0.**
 
-## <a name="wiki-Local_Physical_Cluster">Persistent Cluster</a>
+## Persistent Cluster
 
 Also called Physical cluster, it stores data on disk.
 
-## <a name="wiki-In-Memory_cluster">In-Memory cluster</a>
+## In-Memory Cluster
 
 The information stored in "In-Memory clusters" is volatile (that is, it is never stored to disk). Use this cluster only to work with temporary data. If you need an In-Memory database, create it as an In-memory Database. In-memory databases have only In-memory clusters.
 
