@@ -15,7 +15,7 @@ To be used inside your project, simply add the dependency to your pom:
 <dependency>
   <groupId>com.orientechnologies</groupId>
   <artifactId>orientdb-jdbc</artifactId>
-  <version>ORIENTDB_VERSION</version>
+  <version>{{book.currentVersion}}</version>
 </dependency>
 ```
 _NOTE: to use SNAPSHOT version remember to add the Snapshot repository to your ```pom.xml```._
@@ -61,6 +61,19 @@ stmt.close();
 
 The driver retrieves OrientDB metadata (@rid,@class and @version) only on direct queries. Take a look at tests code to see more detailed examples.
 
+## Write queries advices
+
+The OrientDB JDBC Driver maps types returned by OrientDB itself gathering metadata at database and result set level. For better naming and type mapping, the suggestion is to always define aliases when aggregation functions are used.
+ 
+```
+stmt.execute("SELECT DISTINCT(published) AS pub FROM Item ")
+ 
+stmt.execute("SELECT SUM(score) AS totalScore FROM Item ")
+ 
+```
+
+Using aliases helps the driver in the name mapping phase, and it is a good practice anyway.
+
 ## Advanced features
 
 ### Connection pool
@@ -73,7 +86,6 @@ info.put("password", "admin");
 
 info.put("db.usePool", "true"); // USE THE POOL
 info.put("db.pool.min", "3");   // MINIMUM POOL SIZE
-info.put("db.pool.max", "30");  // MAXIMUM POOL SIZE
 
 Connection conn = (OrientJdbcConnection) DriverManager.getConnection("jdbc:orient:remote:localhost/test", info);
 ```
@@ -81,7 +93,9 @@ Connection conn = (OrientJdbcConnection) DriverManager.getConnection("jdbc:orien
 ### Spark compatibility
 
 [Apache Spark](http://spark.apache.org/) allows reading and writing of DataFrames from JDBC data sources. 
-The driver offers a compatibility mode to enable load of data frame from an OrientDb's class or query. 
+The driver can be used to load data from an OrientDB database, but is not able (yet) to write the DataFrame from Spark.
+ 
+The driver offers a compatibility mode to enable load of data frame from an OrientDB's class or query. 
 
 ```java
 Map<String, String> options = new HashMap<String, String>() {{

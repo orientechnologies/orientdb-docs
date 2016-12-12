@@ -1,4 +1,4 @@
-#OrientDB Manual - version 3.0.x
+#OrientDB Manual - version {{book.currentVersion}}
 
 ![image](http://www.orientdb.com/images/orientdb_logo_mid.png)
 

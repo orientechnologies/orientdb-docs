@@ -2,7 +2,11 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "variables": {
-    "download": "http://mkt.orientdb.com/CE-2213-OSX"
+    "download_osx": "http://mkt.orientdb.com/CE-2213-OSX",
+    "download_linux": "http://mkt.orientdb.com/CE-2213-linux",
+    "download_windows": "http://mkt.orientdb.com/CE-2213-windows",
+    "download_multiOS": "http://mkt.orientdb.com/CE-2213-multiOS",
+    "currentVersion": "3.0.0-SNAPSHOT"
   },
   "links": {
     "home": "http://orientdb.com",
