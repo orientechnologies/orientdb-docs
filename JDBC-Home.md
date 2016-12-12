@@ -11,13 +11,15 @@ The JDBC driver for OrientDB allows to connect to a remote server using the stan
 
 To be used inside your project, simply add the dependency to your pom:
 
-```xml
+<pre><code class="lang-xml">
 <dependency>
   <groupId>com.orientechnologies</groupId>
   <artifactId>orientdb-jdbc</artifactId>
   <version>{{book.currentVersion}}</version>
 </dependency>
-```
+</code>
+</pre>
+
 _NOTE: to use SNAPSHOT version remember to add the Snapshot repository to your ```pom.xml```._
 
 ## How can be used in my code?
