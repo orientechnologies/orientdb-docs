@@ -17,6 +17,7 @@ There are two ways to share a database across multiple server nodes:
 
 This tutorial assumes that you want to start a distributed database using the second method.
 
+_NOTE: When you run in distributed mode, OrientDB needs more RAM. The minimum is 2GB of heap, but we suggest to use at least 4GB of heap memory. To change the heap modify the Java memory settings in the file `bin/server.sh` (or server.bat on Windows)._
 
 ### Starting the First Server Node
 
