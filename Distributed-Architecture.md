@@ -9,6 +9,8 @@ OrientDB can be distributed across different servers and used in different ways 
 
 OrientDB uses the [Hazelcast Open Source project](http://www.hazelcast.com) for auto-discovering of nodes, storing the runtime cluster configuration and synchronize certain operations between nodes. Some of the references in this page are linked to the Hazelcast official documentation to get more information about such topic.
 
+_NOTE: When you run in distributed mode, OrientDB needs more RAM. The minimum is 2GB of heap, but we suggest to use at least 4GB of heap memory. To change the heap modify the Java memory settings in the file `bin/server.sh` (or server.bat on Windows)._
+
 ## Presentation 
 
 Below you can find a presentation of the OrientDB replication. _NOTE: Starting from v2.2, OrientDB uses internal binary protocol for replication and not Hazelcast queues anymore_.
