@@ -67,7 +67,7 @@ The driver retrieves OrientDB metadata (@rid,@class and @version) only on direct
 
 The OrientDB JDBC Driver maps types returned by OrientDB itself gathering metadata at database and result set level. For better naming and type mapping, the suggestion is to always define aliases when aggregation functions are used.
  
-```
+```java
 stmt.execute("SELECT DISTINCT(published) AS pub FROM Item ")
  
 stmt.execute("SELECT SUM(score) AS totalScore FROM Item ")
