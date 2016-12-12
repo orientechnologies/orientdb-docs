@@ -17,7 +17,6 @@ To be used inside your project, simply add the dependency to your pom:
   <artifactId>orientdb-jdbc</artifactId>
   <version>{{book.currentVersion}}</version>
 </dependency>
-</code>
 </pre>
 
 _NOTE: to use SNAPSHOT version remember to add the Snapshot repository to your ```pom.xml```._
