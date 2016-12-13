@@ -862,13 +862,15 @@ Returns the nth percentiles (the values that cut off the first n percent of the 
 
 Syntax: ```percentile(<field> [, <quantile-n>]*)```
 
+The quantiles have to be in the range 0-1
+
 Available since: 2.0-M1
 
 #### Examples
 
 ```sql
-SELECT percentile(salary, 95) FROM Account
-SELECT percentile(salary, 25, 75) AS IQR FROM Account
+SELECT percentile(salary, 0.95) FROM Account
+SELECT percentile(salary, 0.25, 0.75) AS IQR FROM Account
 ```
 ---
 ### variance()
