@@ -8,7 +8,7 @@ search:
 This method creates an `OSqlSelect` object, which you can use in querying the database.
 
 
-## Creating Selection Objects
+## Querying the Database
 
 ### Syntax
 
