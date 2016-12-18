@@ -144,6 +144,7 @@ The following are some general migration details that is good to keep in mind:
 * List of original Neo4j _Labels_ are stored as properties in the imported OrientDB vertices (property: _"Neo4jLabelList"_). 
 
 * During the import, a not unique index is created on the property _"Neo4jLabelList"_. This allows you to query by _Label_ even over nodes migrated into the single `Class` _"MultipleLabelNeo4jConversion"_, using queries like: 
+`SELECT FROM V WHERE Neo4jLabelList CONTAINS 'your_label_here'` or the equivalent with the [MATCH](SQL-Match.md) syntax: `MATCH {class: V, as: your_alias, where: (Neo4jLabelList CONTAINS 'your_label'} RETURN your_alias`.
 
 * Original Neo4j `IDs` are stored as properties in the imported OrientDB vertices and edges (`Neo4jNodeID` for vertices and `Neo4jRelID` for edges). Such properties can be (manually) removed at the end of the import, if not needed.
  
@@ -158,6 +159,7 @@ The following are some general migration details that is good to keep in mind:
 
 The following are some schema-specific migration details that is good to keep in mind:
 
+* If in Neo4j there are no constraints or indices, and if we exclude the properties and indices created for internal purposes (`Neo4jNodeID`, `Neo4jRelID`, `Neo4jLabelList` and corresponding indexes), the imported OrientDB database is schemaless.
 
 * If in Neo4j there are constraints or indexes, the imported OrientDB database is schema-hybrid (with some properties defined). In particular, for any constraint and index: 
 
@@ -167,6 +169,7 @@ The following are some schema-specific migration details that is good to keep in
 
 * If a Neo4j unique constraint is found, a corresponding unique index is created in OrientDB
 
+	* In case the creation of the unique index fails, a not unique index will be created. Note: this scenario can happen, by design, when migrating nodes that have multiple _Labels_ as they are imported into a single vertex `Class`). 
 
 * If a Neo4j index is found, a corresponding (not unique) OrientDB index is created
 
