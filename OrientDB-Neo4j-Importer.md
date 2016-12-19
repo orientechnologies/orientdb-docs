@@ -31,7 +31,7 @@ The following limitations apply:
 
 * Currently only `local` migrations are allowed.
 * Schema limitations:
-	* In case a node in Neo4j has multiple labels, it will be imported into a single OrientDB `Class` (_"MultipleLabelNeo4jConversion"_). 
+	* In case a node in Neo4j has multiple _Labels_, it will be imported into a single OrientDB `Class` (_"MultipleLabelNeo4jConversion"_). 
 		* Note that the information about the original set of Labels is not lost but stored into an internal property of the imported vertex (_"Neo4jLabelList"_). As a result it will be possible to query nodes with a specific Neo4j _Label_. Note also that the nodes imported into the single class _"MultipleLabelNeo4jConversion"_ can then be moved to other `Classes`, according to your specific needs, using the [MOVE VERTEX](SQL-Move-Vertex.md) command.
 	* Neo4j Nodes with same _Label_ but different case, e.g. _LABEL_ and _LAbel_ will be aggregated into a single OrientDB vertex `Class`.
 	* Neo4j Relationship with same name but different case, e.g. _relaTIONship_ and _RELATIONSHIP_ will be aggregated into a single OrientDB edge `Class`  
@@ -159,7 +159,7 @@ The following are some general migration details that is good to keep in mind:
 
 The following are some schema-specific migration details that is good to keep in mind:
 
-* If in Neo4j there are no constraints or indices, and if we exclude the properties and indices created for internal purposes (`Neo4jNodeID`, `Neo4jRelID`, `Neo4jLabelList` and corresponding indexes), the imported OrientDB database is schemaless.
+* If in Neo4j there are no constraints or indexes, and if we exclude the properties and indexes created for internal purposes (`Neo4jNodeID`, `Neo4jRelID`, `Neo4jLabelList` and corresponding indexes), the imported OrientDB database is schemaless.
 
 * If in Neo4j there are constraints or indexes, the imported OrientDB database is schema-hybrid (with some properties defined). In particular, for any constraint and index: 
 
@@ -169,9 +169,9 @@ The following are some schema-specific migration details that is good to keep in
 
 * If a Neo4j unique constraint is found, a corresponding unique index is created in OrientDB
 
-	* In case the creation of the unique index fails, a not unique index will be created. Note: this scenario can happen, by design, when migrating nodes that have multiple _Labels_ as they are imported into a single vertex `Class`). 
+	* In case the creation of the unique index fails, a not unique index will be created. Note: this scenario can happen, by design, when migrating nodes that have multiple _Labels_, as they are imported into a single vertex `Class`).
 
-* If a Neo4j index is found, a corresponding (not unique) OrientDB index is created
+* If a Neo4j index is found, a corresponding (not unique) OrientDB index is created.
 
 
 ## Migration Log
