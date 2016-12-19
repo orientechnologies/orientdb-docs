@@ -16,6 +16,7 @@ Imported Neo4j items are:
 
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
+
 ## Supported Versions
 
 Currently, the _Neo4j to OrientDB Importer_ supports, and has been tested with, the following versions:
@@ -28,17 +29,18 @@ Currently, the _Neo4j to OrientDB Importer_ supports, and has been tested with, 
 
 The following limitations apply:
 
-* Currently only `local` migrations are allowed
+* Currently only `local` migrations are allowed.
 * Schema limitations:
-	* In case a node in Neo4j has multiple labels, only the first label is imported into OrientDB	
-	* Neo4j Nodes with same Label but different case, e.g. LABEL and LAbel will be aggregated into a single OrientDB vertex `class`
-	* Neo4j Relationship with same name but different case, e.g. relaTIONship and RELATIONSHIP will be aggregated into a single OrientDB edge `class`  
-	* Migration of Neo4j's "existence" constraints (only available in the Neo4j's Enterprise Edition) is currently not implemented 
+	* In case a node in Neo4j has multiple _Labels_, it will be imported into a single OrientDB `Class` (_"MultipleLabelNeo4jConversion"_). 
+		* Note that the information about the original set of Labels is not lost but stored into an internal property of the imported vertex (_"Neo4jLabelList"_). As a result it will be possible to query nodes with a specific Neo4j _Label_. Note also that the nodes imported into the single class _"MultipleLabelNeo4jConversion"_ can then be moved to other `Classes`, according to your specific needs, using the [MOVE VERTEX](SQL-Move-Vertex.md) command.
+	* Neo4j Nodes with same _Label_ but different case, e.g. _LABEL_ and _LAbel_ will be aggregated into a single OrientDB vertex `Class`.
+	* Neo4j Relationship with same name but different case, e.g. _relaTIONship_ and _RELATIONSHIP_ will be aggregated into a single OrientDB edge `Class`  
+	* Migration of Neo4j's _"existence"_ constraints (only available in the Neo4j's Enterprise Edition) is currently not implemented. 
 
 
 ## Installation
 
-The _Neo4j to OrientDB Importer_ is provided as an external plugin, as a `zip` or `tar.gz` archive.
+The _Neo4j to OrientDB Importer_ is provided as an external plugin for the OrientDB Server, and is avaialbe as a `zip` or `tar.gz` archive.
 
 Please download the plugin from maven central:
 
@@ -83,19 +85,18 @@ After Installation, the _Neo4j to OrientDB Importer_ can be launched using the p
 	OrientDB-Neo4j-Importer
 		-neo4jlibdir <neo4jlibdir> (mandatory)
 		-neo4jdbdir <neo4jdbdir> (mandatory)
-		-odbdir <odbdir>
-        -o true|false
+		[-odbdir <odbdir>]
+        [-o true|false]
 
 Where:
 
-* **neo4jlibdir** (mandatory option) is the full path to the Neo4j lib directory (e.g. `D:\neo4j\neo4j-community-3.0.6\lib`). On Windows systems, this parameter must be the first passed parameter. 
+* **neo4jlibdir** (mandatory option) is the full path to the Neo4j lib directory (e.g. `D:\neo4j\neo4j-community-3.0.7\lib`). On Windows systems, this parameter must be the first passed parameter. 
 
-* **neo4jdbdir** (mandatory option) is the full path to the Neo4j’s graph database directory (e.g. `D:\neo4j\neo4j-community-3.0.6\data\databases\graph.db`).
+* **neo4jdbdir** (mandatory option) is the full path to the Neo4j’s graph database directory (e.g. `D:\neo4j\neo4j-community-3.0.7\data\databases\graph.db`).
 
 * **odbdir** (optional) is the full path to a directory where the Neo4j database will be migrated. The directory will be created by the import tool. In case the directory exists already, the _Neo4j to OrientDB Importer_ will behave accordingly to the value of the option `o` (see below). The default value of `odbdir` is `$ORIENTDB_HOME/databases/neo4j_import`.  
 
 * **o** (optional). If `true` the `odbdir` directory will be overwritten, if it exists. If `false` and the `odbdir` directory exists, a warning will be printed and the program will exit. The default value of `o` is `false`.
-
 
 If the _Neo4j to OrientDB Importer_ is launched without parameters, it fails because **-neo4jlibdir** and **-neo4jdbdir** are mandatory.
 
@@ -107,14 +108,15 @@ A typical import command looks like the following (please adapt the value of the
 **Windows:**
 
 ```
-orientdb-neo4j-importer.bat -neo4jlibdir="D:\neo4j\neo4j-community-3.0.6\lib" -neo4jdbdir="D:\neo4j\neo4j-community-3.0.6\data\databases\graph.db"
+orientdb-neo4j-importer.bat -neo4jlibdir="D:\neo4j\neo4j-community-3.0.7\lib" -neo4jdbdir="D:\neo4j\neo4j-community-3.0.7\data\databases\graph.db"
 ```
 
 **Linux / Mac:**
 
 ```
-./orientdb-neo4j-importer.sh -neo4jlibdir /mnt/d/neo4j/neo4j-community-3.0.6/lib -neo4jdbdir /mnt/d/neo4j/neo4j-community-3.0.6/data/databases/graph.db
+./orientdb-neo4j-importer.sh -neo4jlibdir /mnt/d/neo4j/neo4j-community-3.0.7/lib -neo4jdbdir /mnt/d/neo4j/neo4j-community-3.0.7/data/databases/graph.db
 ```
+
 
 ## Migration Details
 
@@ -135,13 +137,20 @@ The following are some general migration details that is good to keep in mind:
 * During the import, OrientDB's [`WAL`](http://orientdb.com/docs/last/Configuration.html#storageusewal) and [`WAL_SYNC_ON_PAGE_FLUSH`](http://orientdb.com/docs/last/Configuration.html#storagewalsynconpageflush
 ) are disabled, and OrientDB is prepared for massive inserts (_OIntentMassiveInsert_).
 
-* In case a node in Neo4j has no Label, it will be imported in OrientDB in the Class `GenericClassNeo4jConversion`.
+* In case a node in Neo4j has no _Label_, it will be imported in OrientDB into the Class _"GenericClassNeo4jConversion"_.
+
+* Starting from version 2.2.14, in case a node in Neo4j has multiple _Labels_, it will be imported into the `Class` _"MultipleLabelNeo4jConversion"_. Before 2.2.14, only the first _Label_ was imported.
+
+* List of original Neo4j _Labels_ are stored as properties in the imported OrientDB vertices (property: _"Neo4jLabelList"_). 
+
+* During the import, a not unique index is created on the property _"Neo4jLabelList"_. This allows you to query by _Label_ even over nodes migrated into the single `Class` _"MultipleLabelNeo4jConversion"_, using queries like: 
+`SELECT FROM V WHERE Neo4jLabelList CONTAINS 'your_label_here'` or the equivalent with the [MATCH](SQL-Match.md) syntax: `MATCH {class: V, as: your_alias, where: (Neo4jLabelList CONTAINS 'your_label'} RETURN your_alias`.
 
 * Original Neo4j `IDs` are stored as properties in the imported OrientDB vertices and edges (`Neo4jNodeID` for vertices and `Neo4jRelID` for edges). Such properties can be (manually) removed at the end of the import, if not needed.
  
-* During the import, an OrientDB index is created on the property `Neo4jNodeID` for all imported vertex `classes` (node's Labels in Neo4j). This is to speed up vertices lookup during edge creation. The created indexes can be (manually) removed at the end of the import, if not needed.
+* During the import, an OrientDB index is created on the property `Neo4jNodeID` for all imported vertex `classes` (node's _Labels_ in Neo4j). This is to speed up vertices lookup during edge creation. The created indexes can be (manually) removed at the end of the import, if not needed.
  
-* In case a Neo4j Relationship has the same name of a Neo4j Label, e.g. "RelationshipName", the _Neo4j to OrientDB Importer_ will import that relationship into OrientDB in the class `E_RelationshipName` (i.e. prefixing the Neo4j's `RelationshipType` with an `E_`).
+* In case a Neo4j Relationship has the same name of a Neo4j _Label_, e.g. _"RelationshipName"_, the _Neo4j to OrientDB Importer_ will import that relationship into OrientDB in the class `E_RelationshipName` (i.e. prefixing the Neo4j's `RelationshipType` with an `E_`).
 
 * During the creation of properties in OrientDB, Neo4j `Char` data type is mapped to a `String` data type.
 
@@ -150,17 +159,19 @@ The following are some general migration details that is good to keep in mind:
 
 The following are some schema-specific migration details that is good to keep in mind:
 
-* If in Neo4j there are no constraints or indices, the imported OrientDB database is schemaless.
+* If in Neo4j there are no constraints or indexes, and if we exclude the properties and indexes created for internal purposes (`Neo4jNodeID`, `Neo4jRelID`, `Neo4jLabelList` and corresponding indexes), the imported OrientDB database is schemaless.
 
 * If in Neo4j there are constraints or indexes, the imported OrientDB database is schema-hybrid (with some properties defined). In particular, for any constraint and index: 
 
-	* The Neo4j property where the constraint or index is defined on, is determined
+	* The Neo4j property where the constraint or index is defined on, is determined.
 	
-	* A corresponding property is created in OrientDB (hence the schema-hybrid mode)	 	
+	* A corresponding property is created in OrientDB (hence the schema-hybrid mode).	 	
 
 * If a Neo4j unique constraint is found, a corresponding unique index is created in OrientDB
 
-* If a Neo4j index is found, a corresponding (not unique) OrientDB index is created
+	* In case the creation of the unique index fails, a not unique index will be created. Note: this scenario can happen, by design, when migrating nodes that have multiple _Labels_, as they are imported into a single vertex `Class`).
+
+* If a Neo4j index is found, a corresponding (not unique) OrientDB index is created.
 
 
 ## Migration Log
