@@ -205,6 +205,25 @@ The `keyAlias` property is the alias name of the secret key in the KeyStore file
 ##### "keyPassword"
 The `keyPassword` property holds the password for the secret key in the KeyStore and is optional.
 
+
+### OSystemSymmetricKeyAuth
+*OSystemSymmetricKeyAuth* implements support for symmetric key authentication for system users.
+
+Here's an example:
+```
+"authenticators": [
+	{
+		"name": "OSystemSymmetricKey",
+		"class": "com.orientechnologies.agent.security.authenticator.OSystemSymmetricKeyAuth",
+		"enabled": true
+	}
+]
+```
+The authenticator class is "com.orientechnologies.agent.security.authenticator.OSystemSymmetricKeyAuth".
+
+Each system user will have an embedded-JSON "properties" field that supports the same sub-properties as the `OSecuritySymmetricKeyAuth` authenticator.
+
+
 ### OKerberosAuthenticator
 *OKerberosAuthenticator* provides support for Kerberos/SPNEGO authentication.  In addition to the usual "name", "class", and "enabled" properties, the *OKerberosAuthenticator* component also supports "debug", "krb5_config", "service", "spnego", and "client" properties.  All of these properties are defined in greater detail below.
 	
