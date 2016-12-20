@@ -20,7 +20,7 @@ All *authenticators* can be configured in the "authentication" section of the [s
 
 
 ### Current Implementations
-Currently, OrientDB provides a [Kerberos authenticator](#kerb-auth), a [password authenticator](#pw-auth) for authenticating users in the *security.json* file, and a [server config authenticator](#sc-auth) for authenticating users in the *orientdb-server-config.xml* file.  Additional *authenticators* may be provided in the future, and it's very easy to build new ones.
+Currently, OrientDB provides a [Kerberos authenticator](#kerb-auth), a [password authenticator](#pw-auth) for authenticating users in the *security.json* file, a [server config authenticator](#sc-auth) for authenticating users in the *orientdb-server-config.xml* file, and a [symmetric key authenticator](#sk-auth) (Enterprise-only).  Additional *authenticators* may be provided in the future, and it's very easy to build new ones.
 
 #### <a id="kerb-auth"></a>OKerberosAuthenticator
 This *authenticator* provides support for Kerberos authentication and full browser SPNEGO support.  See the [security configuration](Security-Config.md) page for full details on configuring this *authenticator* for Kerberos.
@@ -36,6 +36,10 @@ The `OServerConfigAuthenticator` is similar to `ODefaultPasswordAuthenticator` i
 #### <a id="su-auth"></a>OSystemUserAuthenticator
 The `OSystemUserAuthenticator` supports the new *system user* type that's stored in the system database.
 
+#### <a id="sk-auth"></a>Symmetric Key Authenticator
+The `Symmetric Key Authenticator` provides support for authenticating users via a shared symmetric key.
+
+There are two versions of the `Symmetric Key Authenticator`, one that enables authenticating server users and one that enables authenticating system users.
 
 ### Chaining *Authenticators*
 What's important to note is that the *authenticators* can be thought of as being chained together so that if the first *authenticator* in the list fails to authenticate a user, then the next *authenticator* in the chain is tried.  This continues until either a user is successfully authenticated or all *authenticators* are tried.  This "chaining of *authenticators*" is used for authentication, authorization, retrieving HTTP authentication headers, and several other security features.
