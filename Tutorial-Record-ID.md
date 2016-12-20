@@ -76,7 +76,7 @@ The [`LOAD RECORD`](Console-Command-Load-Record.md) command returns some useful 
 
 ### Studio Load
 
-OrientDB studio does not support the `LOAD RECORD` command. You will use SQL syntax in order to retrieve the a record by record ID when using Studio. We haven't gotten to OrientDB's SQL yet but for now you should just know that OrientDB does support it's own flavor of SQL. In it you do not have to you the `*` to project all columns of a record. 
+OrientDB studio does not support the `LOAD RECORD` command. You will use SQL syntax in order to retrieve the a record by record ID when using Studio. We haven't gotten to OrientDB's SQL yet but for now you should just know that OrientDB does support it's own flavor of SQL. In it you do not have to use the `*` to project all columns of a record. 
 
 To do a direct look-up by Record ID we simply go to the browser window in Studio and type the following into the query editor:
 
