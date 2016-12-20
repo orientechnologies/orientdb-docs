@@ -50,7 +50,7 @@ The [`BACKUP DATABASE`](Console-Command-Backup.md) command does create a consist
 Once you have exported your database, you can import it using the [`IMPORT DATABASE`](Console-Command-Import.md) command.
 
 <pre>
-orientdb> <code class='lang-sql userinput'>IMPORT DATABASE /temp/petshop.export -preserveClusterIDs=true</code>
+orientdb> <code class='lang-sql userinput'>IMPORT DATABASE /temp/petshop.export.gz -preserveClusterIDs=true</code>
 
 Importing records...
 - Imported records into the cluster 'internal': 5 records
