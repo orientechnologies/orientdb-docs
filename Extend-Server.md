@@ -397,9 +397,9 @@ public class DistributedRecordHook extends OServerHandlerAbstract implements ORe
 
 Custom commands are useful when you want to add behavior or business logic at the server side.
 
-A Server command is a class that implements the [OServerCommand](http://code.google.com/p/orient/source/browse/trunk/server/src/main/java/com/orientechnologies/orient/server/network/protocol/http/command/OServerCommand.java) interface or extends one of the following abstract classes:
-- [OServerCommandAuthenticatedDbAbstract](http://code.google.com/p/orient/source/browse/trunk/server/src/main/java/com/orientechnologies/orient/server/network/protocol/http/command/OServerCommandAuthenticatedDbAbstract.java) if the command requires an authentication at the database
-- [OServerCommandAuthenticatedServerAbstract](http://code.google.com/p/orient/source/browse/trunk/server/src/main/java/com/orientechnologies/orient/server/network/protocol/http/command/OServerCommandAuthenticatedServerAbstract.java) if the command requires an authentication at the server
+A Server command is a class that implements the [OServerCommand](https://github.com/orientechnologies/orientdb/blob/2.2.x/server/src/main/java/com/orientechnologies/orient/server/network/protocol/http/command/OServerCommand.java) interface or extends one of the following abstract classes:
+- [OServerCommandAuthenticatedDbAbstract](https://github.com/orientechnologies/orientdb/blob/2.2.x/server/src/main/java/com/orientechnologies/orient/server/network/protocol/http/command/OServerCommandAuthenticatedDbAbstract.java) if the command requires an authentication at the database
+- [OServerCommandAuthenticatedServerAbstract](https://github.com/orientechnologies/orientdb/blob/2.2.x/server/src/main/java/com/orientechnologies/orient/server/network/protocol/http/command/OServerCommandAuthenticatedServerAbstract.java) if the command requires an authentication at the server
 
 ## The Hello World Web
 
