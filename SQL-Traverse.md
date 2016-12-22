@@ -198,7 +198,7 @@ SELECT FROM <target> WHERE <field> TRAVERSE[(<minDeep> [,<maxDeep> [,<fields>]])
 - **`[<field>, <field>,...]`** Defines a list of fields to traverse.  Default is `any()`.
 - **`<conditions>`** Defines conditions to check on any traversed vertex.  
 
->For more information, see [SQL syntax](http://code.google.com/p/orient/wiki/SQLWhere).
+>For more information, see [SQL syntax](SQL-Where.md).
 
 **Examples**
 
