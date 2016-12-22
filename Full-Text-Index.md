@@ -9,9 +9,9 @@ In addition to the standard FullText Index, which uses the SB-Tree index algorit
 
 **Syntax**:
 
-```sql
-CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE
-```
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE</code>
+                                                                                                                  </pre>
 
 The following SQL statement will create a FullText index on the property `name` for the class `City`, using the Lucene Engine.
 
@@ -26,16 +26,18 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON
           FULLTEXT ENGINE LUCENE</code>
 </pre>
 
+The default analyzer used by OrientDB when a Lucene index is created id the [StandardAnalyzer](https://lucene.apache.org/core/5_3_2/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
 
 ### Analyzer 
 
-This creates a basic FullText Index with the Lucene Engine on the specified properties.  In the even that you do not specify the analyzer, OrientDB defaults to [StandardAnalyzer](http://lucene.apache.org/core/4_7_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
+In addition to the StandardAnalyzer, full text indexes can be configured to use different analyzer by the `METADATA` operator through [`CREATE INDEX`](SQL-Create-Index.md).
 
-In addition to the StandardAnalyzer, you can also create indexes that use different analyzer, using the `METADATA` operator through [`CREATE INDEX`](SQL-Create-Index.md).
-
+Configure the index on `City.name` to use the `EnglishAnalyzer`:
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
-          {"analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer"}</code>
+orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+            FULLTEXT ENGINE LUCENE METADATA {
+                "analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer"
+            }</code>
 </pre>
 
 **(from 2.1.16)**
@@ -67,7 +69,7 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) 
 
 EnglishAnalyzer will be used to analyze text while indexing and the StandardAnalyzer will be used to analyze query terms. 
 
-It is posssbile to configure analyzers at field level
+A very detailed configuration, on multi-field index configuration, could be:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, lyrics, title,author, description) FULLTEXT ENGINE LUCENE METADATA
@@ -98,14 +100,18 @@ With this configuration, the underlying Lucene index will works in different way
 * *author*: indexed and searched with KeywordhAnalyzer
 * *description*: indexed with StandardAnalyzer with a given set of stopwords
 
-You can also use the FullText Index with the Lucene Engine through the Java API.
 
-```java
+### Java API
+
+The FullText Index with the Lucene Engine is configurable through the Java API.
+
+<pre><code class="">
 OSchema schema = databaseDocumentTx.getMetadata().getSchema();
 OClass oClass = schema.createClass("Foo");
 oClass.createProperty("name", OType.STRING);
 oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
-```
+</code>
+</pre>
 
 ## Query parser
 
@@ -198,8 +204,14 @@ orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test
 </pre>
 
 This query searches for `test`, `tests`, `tester`, and so on from the property `name` of the class `V`.
+The query can use proximity operator _~_, the required (_+_) and prohibit (_-_) operators, phrase queries, regexp queries:
 
-### Working with Multiple Fields
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT FROM Article WHERE content LUCENE "(+graph -rdbms) AND +cloud"</code>
+</pre>
+
+
+### Working with multiple fields
 
 In addition to the standard Lucene query above, you can also query multiple fields.  For example,
 
@@ -207,19 +219,60 @@ In addition to the standard Lucene query above, you can also query multiple fiel
 orientdb> <code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
 </pre>
 
-In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
+In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/5_3_2/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
 
 To execute a more complex query on each field, surround your query with parentheses, which causes the query to address specific fields.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM CLass WHERE [prop1, prop2] LUCENE "(prop1:foo AND prop2:bar)"</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM Article WHERE [content, author] LUCENE "(content:graph AND author:john)"</code>
 </pre>
 
-Here, hte engine parses the query using the [QueryParser](http://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+Here, the engine parses the query using the [QueryParser](http://lucene.apache.org/core/5_3_2/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+
+### Numeric and date range queries (from **2.2.14**)
+
+If the index is defined over a numeric field (INTEGER, LONG, DOUBLE) or a date field (DATE, DATETIME), the engine supports [range queries](http://lucene.apache.org/core/5_3_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Range_Searches)
+Suppose to have a `City` class witha multi-field Lucene index defined:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+CREATE CLASS CITY EXTENDS V
+CREATE PROPERTY CITY.name STRING
+CREATE PROPERTY CITY.size INTEGER
+CREATE INDEX City.name ON City(name,size) FULLTEXT ENGINE LUCENE
+</code>
+</pre>
+
+Then query using ranges:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+SELECT FROM City WHERE [name,size] LUCENE 'name:cas* AND size:[15000 TO 20000]'
+</code>
+</pre>
+
+Ranges can be applied to DATE/DATETIME field as well. Create a Lucene index over a property:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+CREATE CLASS Article EXTENDS V
+CREATE PROPERTY Article.createdAt DATETIME
+CREATE INDEX Article.createdAt  ON Article(createdAt) FULLTEXT ENGINE LUCENE
+</code>
+</pre>
+
+Then query to retrieve articles published only in a given time range:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+SELECT FROM Article WHERE createdAt LUCENE '[201612221000 TO 201612221100]'</code>
+</pre>
+
+
 
 ### Retrieve the Score
 
-When the lucene index is used in a query, the results set carries a context variable for each record rappresenting the score.
+When the lucene index is used in a query, the results set carries a context variable for each record representing the score.
 To display the score add `$score` in projections.
 
 ```
@@ -228,7 +281,7 @@ SELECT *,$score FROM V WHERE name LUCENE "test*"
 
 ## Creating a Manual Lucene Index
 
-Beginning with version 2.1, the Lucene Engine supports index creation without the need for a class.
+The Lucene Engine supports index creation without the need for a class.
 
 **Syntax**:
 
