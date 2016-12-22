@@ -379,7 +379,7 @@ Since OrientDB doesn't know what object is changed in a tree of connected object
 db.setSaveOnlyDirty(true);
 ```
 
-or by setting a global parameter (see [Parameters](http://code.google.com/p/orient/wiki/PerformanceTuning#Parameters)):
+or by setting a global parameter (see [Parameters](Configuration.md)):
 ```java
 OGlobalConfiguration.OBJECT_SAVE_ONLY_DIRTY.setValue(true);
 ```
@@ -459,8 +459,8 @@ When OrientDB loads the record, it creates a new POJO by calling the empty const
 ### Callbacks
 
 You can define some methods in the POJO class that are called as callbacks before the record is read:
-- [@OBeforeDeserialization](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/annotation/OBeforeDeserialization.java) called just BEFORE unmarshalling the object from the source record
-- [@OAfterDeserialization](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/annotation/OAfterDeserialization.java) called just AFTER unmarshalling the object from the source record
+- [@OBeforeDeserialization](https://github.com/orientechnologies/orientdb/blob/2.2.x/core/src/main/java/com/orientechnologies/orient/core/annotation/OBeforeDeserialization.java) called just BEFORE unmarshalling the object from the source record
+- [@OAfterDeserialization](https://github.com/orientechnologies/orientdb/blob/2.2.x/core/src/main/java/com/orientechnologies/orient/core/annotation/OAfterDeserialization.java) called just AFTER unmarshalling the object from the source record
 
 Example:
 ```java
@@ -484,8 +484,8 @@ You can save a POJO to the database by calling the method <code>save(pojo)</code
 ### Callbacks
 
 You can define in the POJO class some methods called as callback before the record is written:
-- [@OBeforeSerialization](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/annotation/OBeforeSerialization.java) called just BEFORE marshalling the object to the record
-- [@OAfterSerialization](http://code.google.com/p/orient/source/browse/trunk/core/src/main/java/com/orientechnologies/orient/core/annotation/OAfterSerialization.java) called just AFTER marshalling the object to the record
+- [@OBeforeSerialization](https://github.com/orientechnologies/orientdb/blob/2.2.x/core/src/main/java/com/orientechnologies/orient/core/annotation/OBeforeSerialization.java) called just BEFORE marshalling the object to the record
+- [@OAfterSerialization](https://github.com/orientechnologies/orientdb/blob/2.2.x/core/src/main/java/com/orientechnologies/orient/core/annotation/OAfterSerialization.java) called just AFTER marshalling the object to the record
 
 Example:
 ```java

@@ -105,7 +105,7 @@ Example of configuration:
          loaded-at-startup="true" />
 ```
 
-To create a new database use the [CREATE DATABASE console command](http://code.google.com/p/orient/wiki/ConsoleCommandCreateDb) or create it dinamically using the [Java-API](Java-API.md).
+To create a new database use the [CREATE DATABASE console command](Console-Command-Create-Database.md) or create it dinamically using the [Java-API](Java-API.md).
 
 ### Users
 
