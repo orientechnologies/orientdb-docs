@@ -214,6 +214,148 @@ Please secure your database by removing the default users, if you don't need the
 For further information on using OrientDB, please refer to the [Getting Started Guide](Tutorial-Introduction-to-the-NoSQL-world.md).
  
 
+## Query Strategies
+
+This section includes a few strategies that you can use to query your data after the import.
+
+As first thing, please be aware that in OrientDB you can query your data using both [SQL](http://orientdb.com/docs/master/Commands.html) or pattern matching. In case your are familiar with Neo4j's Cypher query language, it may be more easy for you to use our pattern matching (see our [MATCH](http://orientdb.com/docs/master/SQL-Match.html) syntax for more details). However, keep in mind that depending on your specific use case, our SQL can be of great help.
+
+
+### Counting all nodes
+
+To count all nodes (vertices):
+
+<table>
+<tr>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's SQL</th>
+</tr>
+<tr>
+<td>
+<pre>
+MATCH (n) RETURN count(n)
+</pre>
+</td>
+<td>
+<pre>
+SELECT COUNT(*) FROM V
+</pre>
+</td>
+</tr>
+</table>
+ 
+
+### Counting all relationships
+
+To count all relationships (edges):
+
+<table>
+<tr>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's SQL</th>
+</tr>
+<tr>
+<td>
+<pre>
+MATCH ()-->() RETURN count(*)
+</pre>
+</td>
+<td>
+<pre>
+SELECT COUNT(*) FROM E 
+</pre>
+</td>
+</tr>
+</table>   
+
+
+### Querying nodes by original Neo4j ID
+
+If you would like to query nodes by their original Neo4j Node ID, you can use the property _Neo4jNodeID_, which is created automatically for you during the import, and indexed as well.
+
+To query a node that belongs to a specific `Class` with name _ClassName_, you can execute a query like:
+
+```
+SELECT FROM ClassName WHERE Neo4jNodeID = your_id_here
+```
+
+To query a node regardless of the `Class` where it has been included in, you can use a query like:
+
+```
+SELECT FROM V WHERE Neo4jNodeID = your_id_here
+```
+
+### Querying relationships by original Neo4j ID
+
+The strategy to query relationships by their original Neo4j Relationship ID, will be improved in the next hotfix (see GitHub [Issue #9](https://github.com/orientechnologies/orientdb-neo4j-importer/issues/9), which also includes a workaround).
+
+
+### Querying nodes by original Neo4j Labels
+
+In case the original nodes have just one _Label_, they will be migrated in OrientDB into a `Class` that has name equals to the Neo4j's _Label_ name. In this simple case, to query nodes by _Label_ you can execute a query like the following: 
+
+<table>
+<tr>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's SQL</th>
+</tr>
+<tr>
+<td>
+<pre>
+MATCH (n:LabelName) RETURN n
+</pre>
+</td>
+<td>
+<pre>
+SELECT FROM ClassName
+</pre>
+
+or using our MATCH syntax:
+
+<pre>
+MATCH {class: ClassName, as: n} RETURN n
+</pre>
+</td>
+</tr>
+</table>  
+
+More generally speaking, since the original Neo4j _Label_ is stored inside the property _Neo4jLabelList_, to query imported nodes (verticies) using their original Neo4j _Label_, you can use queries like the following:
+
+<table>
+<tr>
+    <th width="50%">Neo4j's Cypher</th>
+    <th width="50%">OrientDB's SQL</th>
+</tr>
+<tr>
+<td>
+<pre>
+MATCH (n:LabelName) RETURN n
+</pre>
+</td>
+<td>
+<pre>
+SELECT * FROM V WHERE Neo4jLabelList CONTAINS 'LabelName'
+</pre>
+
+or using our MATCH syntax:
+
+<pre>
+MATCH {class: V, as: n, where: (Neo4jLabelList CONTAINS 'LabelName')} RETURN n
+</pre>
+</td>
+</tr>
+</table>  
+
+This is, in particular, the strategy that has to be followed in case the original Neo4j's nodes have multiple _Labels_ (and are hence migrated into the single OrientDB `Class` _MultipleLabelNeo4jConversion_). 
+
+Note that the property _Neo4jLabelList_ has an index on it.
+
+
 ## Migration Example
 
 A complete example of a migration from Neo4j to OrientDB using the _Neo4j to OrientDB Importer_ can be found in the section [Tutorial: Importing the *northwind* Database from Neo4j](Tutorial-Importing-the-northwind-Database-from-Neo4j.md).
+
+
+## Roadmap
+
+A list of prioritized enhancements for the Neo4j to OrientDB Importer, along with some other project information can be found [here](https://github.com/orientechnologies/orientdb-neo4j-importer/projects/1).
