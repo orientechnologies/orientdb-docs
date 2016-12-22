@@ -348,7 +348,7 @@ MATCH {class: V, as: n, where: (Neo4jLabelList CONTAINS 'LabelName')} RETURN n
 
 This is, in particular, the strategy that has to be followed in case the original Neo4j's nodes have multiple _Labels_ (and are hence migrated into the single OrientDB `Class` _MultipleLabelNeo4jConversion_). 
 
-Note that the property _LabelName_ has an index on it.
+Note that the property _Neo4jLabelList_ has an index on it.
 
 
 ## Migration Example
