@@ -49,7 +49,7 @@ The Mac OS X, Linux, and UNIX based operating systems typically require you to c
     > chmod -R 777 config
 
 #### Use inside of OSGi container
-OrientDB uses a ConcurrentLinkedHashMap implementation provided by https://code.google.com/p/concurrentlinkedhashmap/ to create the LRU based cache. This library actively uses the sun.misc package which is usually not exposed as a system package. To overcome this limitation you should add property `org.osgi.framework.system.packages.extra` with value `sun.misc` to your list of framework properties. It may be as simple as passing an argument to the VM starting the platform: 
+OrientDB uses a ConcurrentLinkedHashMap implementation provided by https://github.com/ben-manes/concurrentlinkedhashmap to create the LRU based cache. This library actively uses the sun.misc package which is usually not exposed as a system package. To overcome this limitation you should add property `org.osgi.framework.system.packages.extra` with value `sun.misc` to your list of framework properties. It may be as simple as passing an argument to the VM starting the platform: 
 
     > java -Dorg.osgi.framework.system.packages.extra=sun.misc
 
