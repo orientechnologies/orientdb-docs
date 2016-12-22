@@ -287,12 +287,12 @@ SELECT FROM V WHERE Neo4jNodeID = your_id_here
 
 ### Querying relationships by original Neo4j ID
 
-The strategy to query relationships by their original Neo4j Relationship ID, will be improved in the next hotfix (see GitHub [Issue #8](), which also includes a workaround).
+The strategy to query relationships by their original Neo4j Relationship ID, will be improved in the next hotfix (see GitHub [Issue #9](https://github.com/orientechnologies/orientdb-neo4j-importer/issues/9), which also includes a workaround).
 
 
-# Querying nodes by original Neo4j Labels
+### Querying nodes by original Neo4j Labels
 
-In case the original nodes have just one _Label_, they will be migrated in OrientDB into a single `Class`. In this simple case, to query nodes by Label you can execute a query like the following: 
+In case the original nodes have just one _Label_, they will be migrated in OrientDB into a `Class` that has name equals to the Neo4j's _Label_ name. In this simple case, to query nodes by _Label_ you can execute a query like the following: 
 
 <table>
 <tr>
@@ -345,6 +345,8 @@ MATCH {class: V, as: n, where: (Neo4jLabelList CONTAINS 'LabelName')} RETURN n
 </td>
 </tr>
 </table>  
+
+This is, in particular, the strategy that has to be followed in case the original Neo4j's nodes have multiple _Labels_ (and are hence migrated into the single OrientDB `Class` _MultipleLabelNeo4jConversion_). 
 
 Note that the property _LabelName_ has an index on it.
 
