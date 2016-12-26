@@ -410,4 +410,3 @@ TO CLASS:YourNewClassHere BATCH 10000
 CREATE INDEX YourNewClassHere.Neo4jNodeID ON YourNewClassHere(Neo4jNodeID) UNIQUE
 CREATE INDEX YourNewClassHere.Neo4jLabelList ON YourNewClassHere(Neo4jLabelList) NOTUNIQUE
 ```
-
