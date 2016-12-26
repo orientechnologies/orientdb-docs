@@ -359,3 +359,54 @@ A complete example of a migration from Neo4j to OrientDB using the _Neo4j to Ori
 ## Roadmap
 
 A list of prioritized enhancements for the Neo4j to OrientDB Importer, along with some other project information can be found [here](https://github.com/orientechnologies/orientdb-neo4j-importer/projects/1).
+
+
+## FAQ
+
+**1. In case original nodes in Neo4j have multiple _Labels_, they are imported into a single OrientDB vertex Class. Depending on the specific use case, after the migration, it may be useful to manually move vertices to other Classes. How can this be done?**
+
+First, please note that there is an open [enhancement request](https://github.com/orientechnologies/orientdb-neo4j-importer/issues/8) about having a customized mapping between Neo4j _Labels_ and OrientDB `Classes`. Untill it is implemented, a possible strategy to quickly move vertices into other `Classes` is to use the [`MOVE VERTEX`](SQL-Move-Vertex.md) syntax. 
+
+The following are the steps to follow:
+
+**A** - Create the `Classes` where you want to move the vertices.
+
+When creating the `Classes`, please keep in mind the following:
+
+- Define the following properties: 
+	- _Neo4jNodeID_ of type _LONG_ 
+	- _Neo4jLabelList_ of type _EmbeddedList String_
+
+**Example:**
+
+```
+CREATE CLASS YourNewClassHere EXTENDS V
+CREATE PROPERTY YourNewClassHere.Neo4jNodeID LONG 
+CREATE PROPERTY YourNewClassHere.Neo4jLabelList EMBEDDEDLIST STRING 
+```
+
+**B** - Select all vertices that have a specific Neo4j _Label_, and then move them to your new `Class`. To do this you can use a query like:
+
+```
+MOVE VERTEX (
+  SELECT FROM MultipleLabelNeo4jConversion 
+    WHERE Neo4jLabelList CONTAINS 'Your Neo4j Label here'
+  ) 
+TO CLASS:YourNewClassHere BATCH 10000
+```
+
+(use a batch size appropriate to your specific case).
+
+**C** - Create the following indexes in your new `Classes`:
+
+- A unique index on the property _Neo4jNodeID_
+- A not unique index on the property _Neo4jLabelList_
+
+**Important:** creation of the indexes above is crucial in case you will want to query vertices using their original Neo4j node _IDs_ or _Labels_.
+
+**Example:**
+
+```
+CREATE INDEX YourNewClassHere.Neo4jNodeID ON YourNewClassHere(Neo4jNodeID) UNIQUE
+CREATE INDEX YourNewClassHere.Neo4jLabelList ON YourNewClassHere(Neo4jLabelList) NOTUNIQUE
+```
