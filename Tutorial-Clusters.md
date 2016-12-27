@@ -68,7 +68,7 @@ Here, OrientDB only scans the `China_customers` cluster of the `Customer` class 
 
 ## Working with Clusters
 
-When you run in HA configuration, the selection of the right cluster is based on the locality of it. For more information look at [HA: Cluster Ownership](Distributed-Architecture.md#cluster-ownership).
+While running in HA mode, upon the creation of a new record (document, vertex, edge, etc.) the coordinator server automatically assigns the cluster among the list of local clusters for the current server. For more information look at [HA: Cluster Ownership](Distributed-Architecture.md#cluster-ownership).
 
 You may also find it beneficial to locate different clusters on different servers, physically separating where you store records in your database.  The advantages of this include:
 
