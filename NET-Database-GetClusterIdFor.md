@@ -23,5 +23,11 @@ short GetClusterIdFor(  string <name>)
 
 ### Example
 
+- Retrieve cluster ID for a given class:
 
+  ```csharp
+  short clusterId;
+
+  clusterId = database.GetClusterIdFor("Account");
+  ```
 

@@ -20,7 +20,7 @@ It is comparable to the [`Command()`](NET-Database-Command.md) method.
 List<ODocument> Query(  string <SQL>)
 
 // QUERY DATABASE WITH FETCH PLAN
-LIst<ODocument> Query(  string <SQL>,
+List<ODocument> Query(  string <SQL>,
                         string <fetch-plan>)
 ```
 
@@ -29,6 +29,21 @@ LIst<ODocument> Query(  string <SQL>,
 
 ### Example
 
-queries
-queries with fetch plans
-prepared queries
+- Execute query against database:
+
+  ```csharp
+  List<ODocument> documents;
+  string query = "SELECT FROM Accounts"
+
+  documents = database.Query(query);
+  ```
+
+- Execute query with fetch plan:
+
+  ```csharp
+  List<ODocument> documents;
+  string query = "SELECT FROM Accounts"
+  string fetchPlan = "*:-1"
+
+  documents = database.Query(query, fetchPlan);
+  ``` 

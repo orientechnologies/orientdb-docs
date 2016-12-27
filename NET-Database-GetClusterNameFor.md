@@ -23,3 +23,10 @@ string GetClusterNameFor(short <cluster-id>)
 
 ### Example
 
+- Retrieve Cluster name for given ID:
+
+  ```csharp
+  string clusterName;
+
+  clusterName = database.GetClusterNameFor(12);
+  ```

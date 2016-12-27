@@ -303,7 +303,7 @@
       * [Command()](NET-Database-Command.md)
       * [GetClusterIdFor()](NET-Database-GetClusterIdFor.md)
       * [GetClusterNameFor()](NET-Database-GetClusterNameFor.md)
-      * [GetCluster()](NET-Database-GetCluster.md)
+      * [GetClusters()](NET-Database-GetClusters.md)
       * [Gremlin()](NET-Database-Gremlin.md)
       * [Insert()](NET-Database-Insert.md)
       * [JavaScript()](NET-Database-JS.md)

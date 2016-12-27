@@ -86,3 +86,18 @@ Using the above methods you can build the update that you want, however OrientDB
 
 ### Example
 
+For instance, say that you have an accounting application written in C#/.NET.  For your accounts, you have a region dedicated the Eastern United States.  However, business has been going so well that you want to break the Northeast off into its own region.  You build an array of states in the Northeast, then run the following update:
+
+```csharp
+foreach(string state in ne_states)
+{
+   int accountUpdate = database.Update()
+      .Class("Account")
+      .Set("region", "US-Northeast")
+      .Where("region").Equals("US-East")
+      .And("state").Equals(state)
+      .Run();
+}   
+```
+
+

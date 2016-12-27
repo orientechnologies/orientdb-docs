@@ -34,3 +34,33 @@ The above methods allow you to build the `IOInsert` object.  You can then execut
 - **`ToString()`** Executes the insertion on the database and returns a string of the added record.
 
 ### Example
+
+For instance, say that you are developing an accounting application in C# and want to support migration.  You receive a CSV file from a spreadsheet application and want to insert its records into OrientDB.
+
+```csharp
+using Orient.Client;
+using (TextFieldParser parser = new TexFieldParser("$HOME/2016-report.cs"))
+{
+   // INITIALIZE DATABASE
+   ODatabase database = ODatabase("localhost", 2424, "account-app",
+      ODatabaseType.PLocal, "user", "passwd");
+
+   // INITIALIZE PARSER
+   parser.TextFieldType = FieldType.Delmited;
+   parser.SetDelmiters(",");
+   
+   // MIGRATE DATA
+   while (!parser.EndOfData)
+   {
+      // INSERT ROW
+      string[] fields = parser.ReadFields();
+			ODocument test = database.Insert()
+			   .Into("Account")
+			   .Set("name", field[0])
+         .Set("contact", field[1])
+         .Set("status", field[2])
+         .Run();
+   }
+}
+```
+

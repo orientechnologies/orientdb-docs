@@ -14,9 +14,6 @@ This method prepares or executes a command on the OrientDB database.  The return
 ```
 // EXECUTING COMMANDS
 OCommandResult Command(     string <query>)
-
-// PREPARING COMMANDS
-PreparedCommand Command(    PreparedCommand <command>)
 ```
 
 - **`<query>`** Defines an SQL statement to execute.

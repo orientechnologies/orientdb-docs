@@ -34,29 +34,7 @@ string Select(params string[] <projections>)
 
 >Note that you can retrieve either a list of `ODocument` objects or a string value.  
 
-The base `Select()` method operates on an `OSqlSelect` object, which provides additional methods for conditional and grouping operations.  The available methods are,
-
-- `Where()`
-- `And()`
-- `Or()`
-- `Equals()`
-- `NotEquals()`
-- `Lesser()`
-- `LesserEquals()`
-- `Greater()`
-- `GreaterEqual()`
-- `Like()`
-- `Lucene()`
-- `IsNull()`
-- `Contains()`
-- `In()`
-- `Between()`
-- `OrderBy()`
-- `Ascending()`
-- `Descending()`
-- `Skip()`
-- `Limit()`
-
+The base `Select()` method operates on an `OSqlSelect` object, which provides additional methods for conditional and grouping operations. For more information on these additional methods, see [Queries](NET-Query.md) 
 
 ### Examples
 

@@ -20,3 +20,29 @@ OCommandQuery JavaScript(string <query>)
 - **`<query>`** Defines the query to execute.
 
 ### Example
+
+- Executing JavaScript operation:
+
+  ```csharp
+  OCommandQuery resultSet;
+  string script = "
+     var db = new ODatabase('http://localhost:2480/accounts');
+     dbInfo = db.open();
+     queryResult = db.query('SELECT FROM Account');
+     db.close()
+     return queryResult;
+
+  resultSet = database.JavaScript(script);
+  ```
+
+- Execute JavaScript from file:
+
+  ```csharp
+  OCommand resultSet;
+  string script = System.IO.ReadAllText("query.js");
+
+  resultSet = database.JavaScript(script);
+  ```
+
+
+

@@ -38,7 +38,8 @@ Consider the use case of a business application that stores account information 
 
 ```csharp
 // REGIONS
-params string[] regions = ["USEast", "USWest", "USSouth", "EuropeWest", "AsiaEast", "AsiaSouth"];
+params string[] regions = ["USEast", "USWest", "USSouth", 
+   "EuropeWest", "AsiaEast", "AsiaSouth"];
 
 // CREATE CLUSTERS
 long count = database

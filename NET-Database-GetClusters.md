@@ -22,3 +22,13 @@ List<OCluster> GetClusters(bool <reload>)
 
 ### Examples
 
+For instance, consider the use case of a business application that records data on various accounts, where the accounts are organized by region, with one cluster for each region.  In cases where you want to operate on each region cluster in the database individually, you might use something like this to retrieve them:
+
+```csharp
+List<OCluster> clusters;
+
+clusters = database.GetClusters(true);
+```
+
+From here you can loop over the `OCluster` objects to perform whatever operations you have in mind.
+
