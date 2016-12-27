@@ -70,12 +70,7 @@ Here, OrientDB only scans the `China_customers` cluster of the `Customer` class 
 
 ## Working with Clusters
 
-In OrientDB there are two types of clusters:
-
-- **Physical Cluster** (known as **local**) which is persistent because it writes directly to the file system
-- **Memory Cluster** where everything is volatile and will be lost on termination of the process or server if the database is remote
-
-For most cases, physical clusters are preferred because databases must be persistent.  OrientDB creates physical clusters by default.
+When you run in HA configuration, the selection of the right cluster is based on the locality of it. For more information look at [HA: Cluster Ownership](Distributed-Architecture.md#cluster-ownership).
 
 You may also find it beneficial to locate different clusters on different servers, physically separating where you store records in your database.  The advantages of this include:
 
@@ -83,9 +78,6 @@ You may also find it beneficial to locate different clusters on different server
 - **Indexes** With good partitioning, you can reduce or remove the use of indexes.
 - **Parallel Queries**: Queries can be run in parallel when made to data on multiple disks.
 - **Sharding**: You can shard large data-sets across multiple instances.
-
-
-
 
 ### Adding Clusters
 
