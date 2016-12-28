@@ -39,6 +39,7 @@ TOKENS
 | <AS: ("a" | "A") ("s" | "S")>
 | <DESC: ("d" | "D") ("e" | "E") ("s" | "S") ("c" | "C")>
 | <UNSAFE: ("u" | "U") ("n" | "N") ("s" | "S") ("a" | "A") ("f" | "F") ("e" | "E")>
+| <BATCH: ("b" | "B") ("a" | "A") ("t" | "T") ("c" | "C") ("h" | "H") >
 | <THIS: "@this">
 | <RECORD_ATTRIBUTE: <RID_ATTR> | <CLASS_ATTR> | <VERSION_ATTR> | <SIZE_ATTR> | <TYPE_ATTR>>
 | <#RID_ATTR: "@rid">
