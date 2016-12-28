@@ -16,8 +16,11 @@ Retrieves connected records crossing relationships.  This works with both the Do
 ```sql
 TRAVERSE <[class.]field>|*|any()|all()
          [FROM <target>]
-         [MAXDEPTH <number>]
-         WHILE <condition>
+         [
+           MAXDEPTH <number>
+           |
+           WHILE <condition> 
+         ]
          [LIMIT <max-records>]
          [STRATEGY <strategy>]
 ```
