@@ -117,6 +117,17 @@ For example,
 ### Log setting
 
 Most blocks, such [transformers](Transformer.md) and [blocks](Block.md), support the `"log"` setting.  Logs take one of the following logging levels, (which are case-insensitive),: `NONE`, `ERROR`, `INFO`, `DEBUG`.  By default, it uses the `INFO` level.
+ETL uses the [Java util logging](https://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html) and writes logs on the console and on a dedicated rolling file. A dedicated configuration file (`orientdb-etl-log.properties`) is present under the `config` directory of the OrientDB distribution.
+ETL logging levels are mapped to JUL levels:
+
+| ETL level | JUL level|
+|-----------|-------------|
+| `"NONE"` | `"OFF"` |
+| `"INFO"` | `"INFO"` |
+| `"DEBUG"` | `"FINE"` |
+| `"ERROR"` | `"SEVERE"` |
+
+
 
 Setting the log-level to `DEBUG` displays more information on execution.  It also slows down execution, so use it only for development and debugging purposes.
 
@@ -131,6 +142,7 @@ Setting the log-level to `DEBUG` displays more information on execution.  It als
   }
 }
 ```
+
 
 
 ### Configuration Variables
