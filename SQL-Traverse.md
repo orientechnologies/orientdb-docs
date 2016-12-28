@@ -34,6 +34,8 @@ TRAVERSE <[class.]field>|*|any()|all()
 
 >**NOTE**: The use of the [`WHERE`](SQL-Where.md) clause has been deprecated for this command.
 
+>**NOTE**: There is a difference between `MAXDEPTH N` and `WHILE DEPTH <= N`: the `MAXDEPTH` will evaluate exactly N levels, while the `WHILE` will evaluate N+1 levels and will discard the N+1th, so the `MAXDEPTH` in general has better performance.
+
 
 **Examples**
 
