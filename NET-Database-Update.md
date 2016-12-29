@@ -81,7 +81,7 @@ Using the above methods you can build the update that you want, however OrientDB
 
 - `Run()` Executes the update on the database and returns an integer.
 
-- `ToString()` Executes the update on th edatabase and returns a string.
+- `ToString()` Executes the update on the database and returns a string.
 
 
 ### Example
