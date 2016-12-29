@@ -32,7 +32,7 @@ The following limitations apply:
 * Currently only `local` migrations are allowed.
 * Schema limitations:
 	* In case a node in Neo4j has multiple _Labels_, it will be imported into a single OrientDB `Class` (_"MultipleLabelNeo4jConversion"_). 
-		* Note that the information about the original set of Labels is not lost but stored into an internal property of the imported vertex (_"Neo4jLabelList"_). As a result it will be possible to query nodes with a specific Neo4j _Label_. Note also that the nodes imported into the single class _"MultipleLabelNeo4jConversion"_ can then be moved to other `Classes`, according to your specific needs, using the [MOVE VERTEX](SQL-Move-Vertex.md) command.
+		* Note that the information about the original set of Labels is not lost but stored into an internal property of the imported vertex (_"Neo4jLabelList"_). As a result, it will be possible to query nodes with a specific Neo4j _Label_. Note also that the nodes imported into the single class _"MultipleLabelNeo4jConversion"_ can then be moved to other `Classes`, according to your specific needs, using the [MOVE VERTEX](SQL-Move-Vertex.md) command. For more information, please refer to [this](http://orientdb.com/docs/master/OrientDB-Neo4j-Importer.md#querying-nodes-by-original-neo4j-labels) Section.
 	* Neo4j Nodes with same _Label_ but different case, e.g. _LABEL_ and _LAbel_ will be aggregated into a single OrientDB vertex `Class`.
 	* Neo4j Relationship with same name but different case, e.g. _relaTIONship_ and _RELATIONSHIP_ will be aggregated into a single OrientDB edge `Class`  
 	* Migration of Neo4j's _"existence"_ constraints (only available in the Neo4j's Enterprise Edition) is currently not implemented. 
@@ -40,7 +40,7 @@ The following limitations apply:
 
 ## Installation
 
-The _Neo4j to OrientDB Importer_ is provided as an external plugin for the OrientDB Server, and is avaialbe as a `zip` or `tar.gz` archive.
+The _Neo4j to OrientDB Importer_ is provided as an external plugin for the OrientDB Server, and is available as a `zip` or `tar.gz` archive.
 
 Please download the plugin from maven central:
 
@@ -50,7 +50,7 @@ http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/VE
 
 where _VERSION_ is your OrientDB version (≥ 2.2.13). Replace `tar.gz` with  `zip` for the `zip` archive.
 
-To install the plugin, please unpack the archive on your OrientDB server directory. On Linux systems, to unpack the archive you can use a command similar to the following:
+To install the plugin, please unpack the archive on your OrientDB server directory. On Linux systems, to unpack the archive you can use a command like the following:
 
 ```
 tar xfv orientdb-neo4j-importer-VERSION.tar.gz -C path_to_orientDB/ --strip-components=1 
@@ -174,6 +174,19 @@ The following are some schema-specific migration details that is good to keep in
 * If a Neo4j index is found, a corresponding (not unique) OrientDB index is created.
 
 
+## Migration Best Practices
+
+Below some migration best practices.
+
+1. Check if you are using _Labels_ with same name but different case, e.g. _LABEL_ and _LAbel_ and if you really need them. If the correct _Label_ is _Label_, change _LABEL_ and _LAbel_ to _Label_ in the original Neo4j database before the import. If you really cannot change them, be aware that with the current version of the Neo4j to OrientDB Importer such nodes be aggregated into a single OrientDB vertex `Class`.
+
+2. Check if you are using relationships with same name but different case, e.g. _relaTIONship_ and _RELATIONSHIP_ and if you really need them. If the correct relationship is _Relationship_, change _relaTIONship_ and _RELATIONSHIP_ to _Relationship_ before the import. If you really cannot change them, be aware that with the current version of the Neo4j to OrientDB Importer such relationships be aggregated into a single OrientDB edge `Class`.
+
+3. Check your constraints and indexes before starting the import. Sometime you have more constraints or indexes than needed, e.g. old ones that you created on _Labels_ that you are not using anymore. These constraints will be migrated as well, so a best practice is to check that you have defined, in Neo4j, only those that you really want to import. To check constraints and indexes in Neo4j, you can type `:schema` in the Browser and then click on the "play" icon. Please delete the not needed items.
+
+4. Check if you are using nodes with multiple _Labels_, and if you really need more than one _Label_ on them. Be aware that with current version of the Neo4j to OrientDB Importer such nodes with multiple _Labels_ will be imported into a single OrientDB `Class` ("_MultipleLabelNeo4jConversion_").
+
+
 ## Migration Log
 
 During the migration, a log file is created.
@@ -218,7 +231,7 @@ For further information on using OrientDB, please refer to the [Getting Started 
 
 This section includes a few strategies that you can use to query your data after the import.
 
-As first thing, please be aware that in OrientDB you can query your data using both [SQL](http://orientdb.com/docs/master/Commands.html) or pattern matching. In case your are familiar with Neo4j's Cypher query language, it may be more easy for you to use our pattern matching (see our [MATCH](http://orientdb.com/docs/master/SQL-Match.html) syntax for more details). However, keep in mind that depending on your specific use case, our SQL can be of great help.
+As first thing, please be aware that in OrientDB you can query your data using both [SQL](http://orientdb.com/docs/master/Commands.html) or pattern matching. In case you are familiar with Neo4j's Cypher query language, it may be more easy for you to use our pattern matching (see our [MATCH](http://orientdb.com/docs/master/SQL-Match.html) syntax for more details). However, keep in mind that depending on your specific use case, our SQL can be of great help.
 
 
 ### Counting all nodes
@@ -319,7 +332,7 @@ MATCH {class: ClassName, as: n} RETURN n
 </tr>
 </table>  
 
-More generally speaking, since the original Neo4j _Label_ is stored inside the property _Neo4jLabelList_, to query imported nodes (verticies) using their original Neo4j _Label_, you can use queries like the following:
+More generally speaking, since the original Neo4j _Label_ is stored inside the property _Neo4jLabelList_, to query imported nodes (vertices) using their original Neo4j _Label_, you can use queries like the following:
 
 <table>
 <tr>
@@ -346,7 +359,7 @@ MATCH {class: V, as: n, where: (Neo4jLabelList CONTAINS 'LabelName')} RETURN n
 </tr>
 </table>  
 
-This is, in particular, the strategy that has to be followed in case the original Neo4j's nodes have multiple _Labels_ (and are hence migrated into the single OrientDB `Class` _MultipleLabelNeo4jConversion_). 
+This is, in particular, the strategy that must be followed in case the original Neo4j's nodes have multiple _Labels_ (and are hence migrated into the single OrientDB `Class` _MultipleLabelNeo4jConversion_). 
 
 Note that the property _Neo4jLabelList_ has an index on it.
 
@@ -365,7 +378,7 @@ A list of prioritized enhancements for the Neo4j to OrientDB Importer, along wit
 
 **1. In case original nodes in Neo4j have multiple _Labels_, they are imported into a single OrientDB vertex Class. Depending on the specific use case, after the migration, it may be useful to manually move vertices to other Classes. How can this be done?**
 
-First, please note that there is an open [enhancement request](https://github.com/orientechnologies/orientdb-neo4j-importer/issues/8) about having a customized mapping between Neo4j _Labels_ and OrientDB `Classes`. Untill it is implemented, a possible strategy to quickly move vertices into other `Classes` is to use the [`MOVE VERTEX`](SQL-Move-Vertex.md) syntax. 
+First, please note that there is an open [enhancement request](https://github.com/orientechnologies/orientdb-neo4j-importer/issues/8) about having a customized mapping between Neo4j _Labels_ and OrientDB `Classes`. Until it is implemented, a possible strategy to quickly move vertices into other `Classes` is to use the [`MOVE VERTEX`](SQL-Move-Vertex.md) syntax. 
 
 The following are the steps to follow:
 
@@ -410,3 +423,10 @@ TO CLASS:YourNewClassHere BATCH 10000
 CREATE INDEX YourNewClassHere.Neo4jNodeID ON YourNewClassHere(Neo4jNodeID) UNIQUE
 CREATE INDEX YourNewClassHere.Neo4jLabelList ON YourNewClassHere(Neo4jLabelList) NOTUNIQUE
 ```
+
+
+**2. Not all constraints have been imported. Why?**
+
+By design, there are certain cases where not all the constraints can be imported. It may be that you are in one of these cases. When nodes are aggregated into a single `Class` (either because that node has multiple _Labels_ or because there are _Labels_ with the same name but different case, e.g. _LABEL_ and _LAbel_) not all constraints can be imported: the creation of unique indices in OrientDB will probably fail; as a workaround the Importer will try to create not unique indexes, but when aggregating nodes into a single `Class`, number of created constraints will be probably less then number of constraints in Neo4j, even after the creation of not unique indexes. This in general may or may not be a problem depending on your specific case. Please feel free to open an [issue](https://github.com/orientechnologies/orientdb-neo4j-importer/issues) if you incurred into a problem.
+
+
