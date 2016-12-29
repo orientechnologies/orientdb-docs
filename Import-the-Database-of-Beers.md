@@ -56,10 +56,9 @@ The archive consists of the following files:
 
 Download and install OrientDB:
 
-```
-$ curl "http://orientdb.com/download.php?email=unknown@unknown.com&file=orientdb-community-2.2.8.zip&os=multi" > orientdb-community-2.2.8.zip
-$ unzip orientdb-community-2.2.8.zip
-```
+<pre><code class="lang-sh">$ wget {{ book.download_multiOS }} - O orientdb-community-{{book.lastGA}}.zip</code></pre>
+
+<pre><code class="lang-sh">$ unzip orientdb-community-{{book.lastGA}}</code></pre>
 
 For more information on how to install OrientDB, please refer to the [Installation](Tutorial-Installation.md) section.
 
