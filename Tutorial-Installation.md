@@ -32,7 +32,7 @@ If you have Docker installed in your computer, this is the easiest way to run Or
 Where instead of "root", type the root's password you want to use.
 
 
-**Prerequisites**
+## Prerequisites
 
 Both editions of OrientDB run on any operating system that implements the Java Virtual machine (JVM).  Examples of these include:
 
@@ -55,7 +55,7 @@ OrientDB requires [Java](http://www.java.com/en/download), version 1.7 or higher
 >```
 
 
-### Binary Installation
+## Binary Installation
 
 OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
 
@@ -65,7 +65,7 @@ On server installations, you can use the `wget` utility:
 
 Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called `orientdb-community-2.2.0` with relevant files and scripts, which you will need to run OrientDB on your system.
 
-### Source Code Installation
+## Source Code Installation
 
 In addition to downloading the binary packages, you also have the option of compiling OrientDB from the Community Edition source code, available on GitHub.  This process requires that you install [Git](http://www.git-scm.com/) and [Apache Maven](https://maven.apache.org/) on your system.
 
@@ -108,7 +108,7 @@ The directory `orientdb-community-2.2.1-SNAPSHOT.dir` contains the OrientDB dist
 Take a look to [Contribute to OrientDB](Contribute-to-OrientDB.md) if you want to be involved.
 
 
-#### Update Permissions
+### Update Permissions
 
 For Linux, Mac OS X and UNIX-based operating system, you need to change the permissions on  some of the files after compiling from source.
 
