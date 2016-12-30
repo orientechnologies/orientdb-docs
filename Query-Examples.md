@@ -53,14 +53,14 @@ How to apply built-in math functions on projections? For example, to use the sum
 
 --------
 
-Given the following schema: Vertices are connected with Edges of type RELATED which have property count.
+Given the following schema: Vertices are connected with Edges of type _RELATED_ which have property _count_.
 2 vertices can have connection in both ways at the same time.
 
 V1--RELATED(count=17)-->V2
 
 V2--RELATED(count=3)-->V1
 
-Need to build a query that, for a given vertex Vn, will find all vertices connected with RELATED edge to this Vn and also, for each pair [Vn, Vx] will calculate SUM of in_RELATED.count and out_RELATED.count.
+Need to build a query that, for a given vertex _Vn_, will find all vertices connected with _RELATED_ edge to this _Vn_ and also, for each pair _[Vn, Vx]_ will calculate _SUM_ of _in_RELATED.count_ and _out_RELATED.count_.
 
 For that simple example above, this query result for V1 would be
 
@@ -71,12 +71,19 @@ For that simple example above, this query result for V1 would be
 
 Solution:
 
-```sql
+```sql 
+
+insert into V (name) values ('V1'),('V2')
+create edge E from (select from V where name = 'V1') to (select from V where name = 'V2') set count = 17
+create edge E from (select from V where name = 'V2') to (select from V where name = 'V1') set count = 3
+
 select v.name, sum(count) as cnt from (
-  select if(eval("in=#17:0"),out,in) as v,count from E where (
-    in=#17:0 or out=#17:0)
-  ) order by cnt desc group by v
+  select if(eval("in=#9:0"),out,in) as v,count from E where (
+    in=#9:0 or out=#9:0)
+  ) group by v order by cnt desc     
 ```
+
+(replace `#9:0` in the select statement to fit your specific case).
 
 This was discussed in the google groups over here: "https://groups.google.com/forum/#!topic/orient-database/CRR-simpmLg". Thanks to Andrey for posing the problem.
 
