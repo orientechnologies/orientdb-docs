@@ -104,7 +104,7 @@ Each authenticator object supports at least three properties: "name", "class", a
 
 
 ### ODefaultPasswordAuthenticator 
-*ODefaultPasswordAuthenticator* supports an additional "users" property which contains an array of user objects.  Each user object must contain "user" and "resource" properties.  An optional "password" property is also permitted if authentication using a password is required.
+*ODefaultPasswordAuthenticator* supports an additional "users" property which contains an array of user objects.  Each user object must contain "username" and "resource" properties.  An optional "password" property is also permitted if authentication using a password is required.
 	
 Each user object can be used for authorization of the specified resources as well as authentication, if a password is present.
 	
