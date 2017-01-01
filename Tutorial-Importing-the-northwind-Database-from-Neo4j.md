@@ -16,21 +16,13 @@ For general information on the possible Neo4j to OrientDB migration strategies, 
 
 Please download and install OrientDB:
 
-```
-wget http://central.maven.org/maven2/com/orientechnologies/orientdb-community/VERSION/orientdb-community-VERSION.tar.gz
-
-tar xvf orientdb-community-VERSION.tar.gz
-```
+<pre><code class="lang-sh">$ wget {{ book.download_multiOS }} -O orientdb-community-{{book.lastGA}}.zip
+$ unzip orientdb-community-{{book.lastGA}}</code></pre>
 
 Download and install the _Neo4j to OrientDB Importer_:
 
-```
-wget http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/VERSION/orientdb-neo4j-importer-VERSION.tar.gz
-
-tar xvf orientdb-neo4j-importer-VERSION.tar.gz -C orientdb-community-VERSION --strip-components=1
-```
-
-where _VERSION_ is equal or higher 2.2.12.
+<pre><code class="lang-sh">$ wget http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/{{book.lastGA}}/orientdb-neo4j-importer-{{book.lastGA}}.tar.gz
+$ tar xfv orientdb-neo4j-importer-{{book.lastGA}}.tar.gz -C path_to_orientDB/ --strip-components=1 </code></pre>
 
 For further information on the OrientDB's installation, please refer to this [section](Tutorial-Installation.md).
 
