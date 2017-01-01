@@ -45,12 +45,12 @@ The _Neo4j to OrientDB Importer_ is provided as an external plugin for the Orien
 Please download the plugin from maven central:
 
 ```
-http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/VERSION/orientdb-neo4j-importer-VERSION.tar.gz
+http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/{{book.lastGA}}/orientdb-neo4j-importer-{{book.lastGA}}.tar.gz
 ```
 
-where _VERSION_ is your OrientDB version (≥ 2.2.13). Replace `tar.gz` with  `zip` for the `zip` archive.
+Replace `tar.gz` with  `zip` for the `zip` archive.
 
-To install the plugin, please unpack the archive on your OrientDB server directory. On Linux systems, to unpack the archive you can use a command like the following:
+To install the plugin, please unpack the archive on your OrientDB server directory (please make sure that the version of your OrientDB server and the version of the Neo4j to OrientDB Importer are the same. Upgrade your OrientDB server, if necessary). On Linux systems, to unpack the archive you can use a command like the following:
 
 ```
 tar xfv orientdb-neo4j-importer-VERSION.tar.gz -C path_to_orientDB/ --strip-components=1 
