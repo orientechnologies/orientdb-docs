@@ -42,8 +42,25 @@ GitBook does not include admonition boxes by default.  Use the following format 
 |![](images/warning.png)|YOUR MESSAGE|
 ```
 
+### Variables
+
+Variables can be defined into a "variables" tag in the documentation .json files (book.json and book-pdf.json), e.g:
+
+```
+"variables": {
+    "variable_name": "variable_value"
+  },
+```
+
+Then you can refer to them inside any documentation page, e.g. {{ book.variable_name }}
 
 
+#### Example
+
+To make sure the OrientDB download link points to the latest version, use inside your page the following code:
+
+<pre><code class="lang-sh">$ wget {{ book.download_multiOS }} -O orientdb-community-{{book.lastGA}}.zip
+$ unzip orientdb-community-{{book.lastGA}}</code></pre>
 
 
 
