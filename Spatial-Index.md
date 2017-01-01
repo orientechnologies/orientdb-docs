@@ -11,18 +11,17 @@ This module is provided as external plugin. You can find it bundled in the GeoSp
 
 ## Install
 
-Download the plugin jar from maven central
+Download the plugin jar from maven central:
 
-    http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/VERSION/orientdb-spatial-VERSION-dist.jar
+<pre><code class="lang-sh">http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/{{book.lastGA}}/orientdb-spatial-{{book.lastGA}}-dist.jar</code></pre>
 
-where **VERSION** must be the same of the OrientDB installation.
-After download, copy the jar to orient lib directory.
+After download, copy the jar to OrientDB lib directory (please make sure that the version of your OrientDB server and the version of the plugin are the same. Upgrade your OrientDB server, if necessary).
 On *nix system it could be done this way:
 
-```console
-wget  http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/VERSION/orientdb-spatial-VERSION-dist.jar
-cp orientdb-spatial-VERSION-dist.jar /PATH/orientdb-community-VERSION/lib/
-```
+<pre><code class="lang-sh">
+wget http://central.maven.org/maven2/com/orientechnologies/orientdb-spatial/{{book.lastGA}}/orientdb-spatial-{{book.lastGA}}-dist.jar
+cp orientdb-spatial-{{book.lastGA}}-dist.jar /PATH/orientdb-community-{{book.lastGA}}/lib/
+</code></pre>
 
 Orient db will load the spatial plugin on startup.
 
