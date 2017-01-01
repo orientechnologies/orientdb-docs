@@ -22,7 +22,7 @@ $ unzip orientdb-community-{{book.lastGA}}</code></pre>
 Download and install the _Neo4j to OrientDB Importer_:
 
 <pre><code class="lang-sh">$ wget http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/{{book.lastGA}}/orientdb-neo4j-importer-{{book.lastGA}}.tar.gz
-$ tar xfv orientdb-neo4j-importer-{{book.lastGA}}.tar.gz -C path_to_orientDB/ --strip-components=1 </code></pre>
+$ tar xfv orientdb-neo4j-importer-{{book.lastGA}}.tar.gz -C orientdb-community-{{book.lastGA}} --strip-components=1 </code></pre>
 
 For further information on the OrientDB's installation, please refer to this [section](Tutorial-Installation.md).
 
