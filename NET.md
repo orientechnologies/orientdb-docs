@@ -58,19 +58,6 @@ You can now install packages through NuGet.
 
 
 
-### Building from Source
-
-In the event that you would like to contribute to the [OrientDB-NET](https://github.com/orientechnologies/OrientDB-NET.binary) project or for whatever reason you would prefer to work with a development release of OrientDB-NET, you can clone the repository from GitHub and install on your system.
-
-<pre>
-$ <code class="lang-sh userinput">git clone https://github.com/orientechnologies/OrientDB-NET.binary</code>
-</pre>
-
-[TBD]
-
-#### Running Unit Tests
-
-[TBD]
 
 ## Using OrientDB-NET
 
