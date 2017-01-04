@@ -312,7 +312,7 @@
       * [SqlBatch()](NET-Database-SqlBatch.md)
       * [Update()](NET-Database-Update.md)
     * [Query](NET-Query.md)
-      * [Conditions](NET-Query-Conditions.md)
+      * [Conditionals](NET-Query-Conditions.md)
       * [Limiters](NET-Query-Limiter.md)
       * [Sort](NET-Query-Sort.md)
   * [Scala API](Scala-Language.md) 

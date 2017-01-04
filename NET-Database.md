@@ -9,7 +9,7 @@ In order to interact with an OrientDB database from within your C#/.NET applicat
 
 ## Initializing the Database
 
-With OrientDB-NET, the database interface is controlled through the `ODatabase` class, which can be found in the `Innov8tive.API` library.
+With OrientDB-NET, the database interface is controlled through the `ODatabase` class.
 
 ### Syntax
 
