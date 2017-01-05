@@ -105,11 +105,13 @@ In the event that the `ON` and `<key-type>` clauses both exist, the database val
 
 - Create an index that includes null values.  
 
-  By default, indexes ignore null values.  Queries against null values that use an index returns no entries.  To index null values, see `{ ignoreNullValues: false }` as metadata.
+  Before version 2.1 OrientDB indexes ignored null values by default.
+  In V 2.2 we changed this default, so now all the null values are indexed by default, that means that null values are also candidates for unique key checks.
+  To exclude indexing of null values, you can use `{ ignoreNullValues: true }` as metadata.
 
   <pre>
   orientdb> <code class="lang-sql userinput">CREATE INDEX addresses ON Employee (address) NOTUNIQUE
-             METADATA { ignoreNullValues : false }</code>
+             METADATA { ignoreNullValues : true }</code>
   </pre>
 
 
