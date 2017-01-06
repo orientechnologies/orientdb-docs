@@ -157,10 +157,10 @@ To begin, as before, create a new class that extends `E`:
 orientdb> <code class="lang-sql userinput">CREATE CLASS Friend EXTENDS E</code>
 </pre>
 
-The users Luca and Jay are friends. They have Record ID's of ``#12:0`` and ``#11:2``. Create an edge that connects them.
+The users Luca and Jay are friends. They have Record ID's of ``#11:0`` and ``#11:2``. Create an edge that connects them.
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE EDGE Friend FROM #12:0 TO #11:2</code>
+orientdb> <code class="lang-sql userinput">CREATE EDGE Friend FROM #11:0 TO #11:2</code>
 </pre>
 
 In the `Friend` relationship, orientation is not important. That is, if Luca is a friend of Jay's then Jay is a friend of Luca's. Therefore, you should use the `BOTH()` function.
@@ -171,11 +171,11 @@ orientdb> <code class="lang-sql userinput">SELECT EXPAND( BOTH( 'Friend' ) ) FRO
 -------+-------------+-------------+---------+-----------+
  @RID  | @CLASS      | Name        | out_Eat | in_Friend |
 -------+-------------+-------------+---------+-----------+
- #11:2 | Person      | Jay         | #12:1   | #12:0     |
+ #11:2 | Person      | Jay         | #12:1   | #11:0     |
 -------+-------------+-------------+---------+-----------+
 </pre>
 
-Here, the `BOTH()` function takes the edge class `Friend` as an argument, crossing only relationships of the Friend kind, (that is, it skips the `Eat` class, at this time). Note in the result-set that the relationship with Luca, with a Record ID of `#12:0` in the `in_` field.
+Here, the `BOTH()` function takes the edge class `Friend` as an argument, crossing only relationships of the Friend kind, (that is, it skips the `Eat` class, at this time). Note in the result-set that the relationship with Luca, with a Record ID of `#11:0` in the `in_` field.
 
 You can also now view all the restaurants patronized by friends of Luca.
 
