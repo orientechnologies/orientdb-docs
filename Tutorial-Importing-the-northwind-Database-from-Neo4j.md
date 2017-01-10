@@ -140,3 +140,17 @@ The following is a partial visualization of the _northwind_ database done with t
 ![](images/import_from_neo4j/northwind/northwind_graph_editor.PNG)
 
 As you can see from the _Limit_ field, the visualization is limited to 200 vertices.
+
+The following, instead, is the graph returned by the following [MATCH](SQL-Match.md) query (the query returns all nodes connected to the Order with `orderID` 10344):
+
+```sql
+MATCH {class: Order, where: (orderID = 10344)}--{as: n} RETURN $pathelements
+```
+
+![](images/import_from_neo4j/northwind/northwind_match_query.PNG)
+
+From Studio's [Schema Manager](Studio-Schema.md), you can check all imported Vertex Classes (node Labels in Neo4j), Edge Classes (Relationship Types in Neo4j), and Indexes:
+
+![](images/import_from_neo4j/northwind/northwind_schema_manager.PNG)
+
+`V` and `E` are special classes: they include all Vertices and all Edges.
