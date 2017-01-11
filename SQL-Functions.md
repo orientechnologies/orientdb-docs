@@ -325,12 +325,12 @@ Since version 2.1 the preferred operator to unwind collections is [UNWIND](SQL-Q
 
 on collectinos:
 ```sql
-SELECT EXPAND( addresses ) FROM Account. 
+SELECT EXPAND( addresses ) FROM Account  //where addresses is a link list
 ```
 
 on RIDs
 ```sql
-SELECT EXPAND( addresses ) FROM Account. 
+SELECT EXPAND( country ) FROM City //where country is a link
 ```
 This replaces the flatten() now deprecated
 
