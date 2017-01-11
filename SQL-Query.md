@@ -143,6 +143,17 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
   orientdb> <code class="lang-sql userinput">SELECT FROM Profile ORDER BY @rid DESC</code>
   </pre>
 
+- Querying an index
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">select from index:ouser.name where key = 'admin'</code>
+  
+  |   key   |  rid   |
+  | "admin" |  #5:0  |
+  </pre>
+  
+  A query on an index returns pairs of index keys and values. You can expand the values using a `select expand(rid) from...`
+
   Beginning in version 1.7.7, OrientDB can open an inverse cursor against clusters.  This is very fast and doesn't require the classic ordering resources, CPU and RAM.
 
 
