@@ -174,6 +174,7 @@
     * [Kerberos Example](Security-Kerberos-Client-Examples.md)
     * [Security v2.2 Code Changes](Security-New-Security-Features-Code-Changes.md)
     * [Security v2.2 New Features](Security-OrientDB-New-Security-Features.md)
+    * [Symmetric Key Authentication](Security-Symmetric-Key-Authentication.md)
   * [Server Management](Server-Management-Java.md) 
     * [Install as Service on Unix](Unix-Service.md) 
     * [Install as Service on Windows](Windows-Service.md) 
