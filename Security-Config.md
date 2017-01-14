@@ -1,12 +1,12 @@
 ---
 search:
-   keywords: ['security', 'configuration']
+   keywords: ['security', 'configuration', 'authentication', 'kerberos', 'password','key', 'symmetric']
 ---
 
 # OrientDB Security Configuration
 The new OrientDB security system uses a JSON configuration file that's located by default in the *config* directory.  The default name of the file is *security.json*, but it can be overridden by setting the "server.security.file" property in *orientdb-server-config.xml* or by setting the global server property, "server.security.file".
 
-The security.json configuration file may contain up to eight global properties: "enabled", "debug", "server", "authentication", "passwordValidator", "ldapImporter" and "auditing".
+The security.json configuration file may contain up to eight global properties: "enabled", "debug", "server", "authentication", "passwordValidator", "ldapImporter", and "auditing".
 
 Here's a description of each top-level property in the security.json file.
 
@@ -132,6 +132,97 @@ The full classpath for the "class" property is "com.orientechnologies.orient.ser
 *OSystemUserAuthenticator* implements authentication and authorization support for *system users* that reside in the OrientDB system database.  Beyond "name", "class", and "enabled", *OSystemUserAuthenticator* requires no additional properties.
 
 The full classpath for the "class" property is "com.orientechnologies.orient.server.security.authenticator.OSystemUserAuthenticator".
+
+### OSecuritySymmetricKeyAuth
+*OSecuritySymmetricKeyAuth* implements support for symmetric key authentication for server users.
+
+Here's an example:
+```
+"authenticators": [
+	{
+		"name": "SymmetricKey-Key",
+		"class": "com.orientechnologies.agent.security.authenticator.OSecuritySymmetricKeyAuth",
+		"enabled": true,
+		"users": [
+			{
+				"username": "sysadmin",
+				"resources": "*",
+				"properties" :
+				{
+					"key" : "8BC7LeGkFbmHEYNTz5GwDw==",
+					"keyAlgorithm" : "AES"
+				}
+			}
+		]
+	}
+]
+```
+
+The authenticator class is "com.orientechnologies.agent.security.authenticator.OSecuritySymmetricKeyAuth".
+
+Each `user` has a "properties" field that can specify an actual key, a path pointing to a file with the key inside, or a KeyStore containing the key.  Each is mutually exclusive.
+
+#### "key"
+The `key` property is a Base64-encoded string of a secret key.  The `keyAlgorithm` property must also be used with `key`.
+
+#### "keyFile"
+The `keyFile` property is a path to a file containing a Base64-encoded secret key string.  The `keyAlgorithm` property must also be used with `keyFile`.
+
+Here's an example:
+```
+"properties" :
+{
+	"keyFile" : "${ORIENTDB_HOME}/config/AES.key",
+	"keyAlgorithm" : "AES"
+}
+```
+
+#### "keyStore"
+The `keyStore` property is a JSON object that contains four sub-properties.
+
+Here's an example of the `keyStore` property and its sub-properties.
+
+"properties" :
+{
+	"keyStore" : 
+	{
+		"file" 			: "${ORIENTDB_HOME}/config/test.jks",
+		"password" 		: "password",
+		"keyAlias"		: "keyAlias",
+		"keyPassword"	: "password"
+	}
+}
+
+##### "file"
+The `file` property is a path to a Java KeyStore file that contains the secret key.  Note that the `JCEKS` KeyStore format must be used to hold secret keys.
+
+##### "password"
+The `password` property holds the password for the KeyStore file.  It is optional.
+
+##### "keyAlias"
+The `keyAlias` property is the alias name of the secret key in the KeyStore file.  It is required.
+
+##### "keyPassword"
+The `keyPassword` property holds the password for the secret key in the KeyStore and is optional.
+
+
+### OSystemSymmetricKeyAuth
+*OSystemSymmetricKeyAuth* implements support for symmetric key authentication for system users.
+
+Here's an example:
+```
+"authenticators": [
+	{
+		"name": "OSystemSymmetricKey",
+		"class": "com.orientechnologies.agent.security.authenticator.OSystemSymmetricKeyAuth",
+		"enabled": true
+	}
+]
+```
+The authenticator class is "com.orientechnologies.agent.security.authenticator.OSystemSymmetricKeyAuth".
+
+Each system user will have an embedded-JSON "properties" field that supports the same sub-properties as the `OSecuritySymmetricKeyAuth` authenticator.
+
 
 ### OKerberosAuthenticator
 *OKerberosAuthenticator* provides support for Kerberos/SPNEGO authentication.  In addition to the usual "name", "class", and "enabled" properties, the *OKerberosAuthenticator* component also supports "debug", "krb5_config", "service", "spnego", and "client" properties.  All of these properties are defined in greater detail below.
