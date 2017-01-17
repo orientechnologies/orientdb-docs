@@ -102,9 +102,9 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/orientdb.servic
 </pre>
 
 
-### Installing for Mac OS X
+## Installing for Mac OS X
 
-#### Manual install
+### Manual install
 
 For Mac OS X, create an alias to the OrientDB system daemon script and the console.
 
@@ -130,7 +130,7 @@ Type 'HELP' to display all the commands supported.
 orientdb>
 </pre>
 
-#### Brew
+### Brew
 
 OrientDB is available through [brew](http://brew.sh/). 
 
@@ -153,8 +153,13 @@ The installation process gives an output similar to the following one:
 
 The installation process setups a default server's root user password that **must** be changed. 
 The `orientdb-server-config.xml` file is installed in `/usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/config/`. 
-Refer to [Server Security](Server-Security.html#restoring-the-servers-user-root) for the complete procedure.
-
+Open the file and remove the "root" user entry.
+Remove the tag <isAfterFirstTime>true</isAfterFirstTime> at the end of the file.
+Start the server on interactive console:
+```sh
+/usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/bin/server.sh
+```
+The script asks for a new password for the database's root user.
 
 ## Other resources
 
