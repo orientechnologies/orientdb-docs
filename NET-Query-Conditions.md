@@ -24,8 +24,8 @@ For instance, say you want to retrieve blog entries from a database where the us
 ```csharp
 List<ODocument> blogEntries = database.Select()
    .From('Blog')
-   .Where('user-status').Equals('active')
-   .And('published').Equals(true)
+   .Where('user-status').Equals<string>('active')
+   .And('published').Equals<bool>(true)
    .ToList();
 ```
 
@@ -33,24 +33,24 @@ List<ODocument> blogEntries = database.Select()
 
 Once you have defined the field for a condition, the second method is the value you want to check on that field.  There are several methods available to use in checking the values.
 
-- **`Equals()`** Returns the record if the value of the field is equal to the given argument.
-- **`NotEquals()`** Returns the record if the value of the field is not equal to the given argument.
-- **`Lesser()`** Returns the record if the value of the field is less than the given argument.
-- **`LesserEqual()`** Returns the record if the value of the field is less than or equal to the given argument.
-- **`Greater()`** Returns the record if the value of the field is greater than the given argument.
-- **`GreaterEqual()`** Returns the record if the value of the field is greater than or equal to the given argument.
-- **`Like()`** Returns the record if the value of the field is similar to the given argument.
-- **`In()`** Returns the record if the value occurs in the given argument list.
-- **`Lucene()`** Returns true if the value occurs in the given argument, searched using the Lucene Engine.
+- **`Equals<T>()`** Returns the record if the value of the field is equal to the given argument.
+- **`NotEquals<T>()`** Returns the record if the value of the field is not equal to the given argument.
+- **`Lesser<T>()`** Returns the record if the value of the field is less than the given argument.
+- **`LesserEqual<T>()`** Returns the record if the value of the field is less than or equal to the given argument.
+- **`Greater<T>()`** Returns the record if the value of the field is greater than the given argument.
+- **`GreaterEqual<T>()`** Returns the record if the value of the field is greater than or equal to the given argument.
+- **`Like<T>()`** Returns the record if the value of the field is similar to the given argument.
+- **`In<T>()`** Returns the record if the value occurs in the given argument list.
+- **`Lucene<T>()`** Returns true if the value occurs in the given argument, searched using the Lucene Engine.
 - **`IsNull()`** Returns the record if the value of the field is `NULL`.
-- **`Contains()`** Returns the record if the value of the field contains the given argument.
+- **`Contains<T>()`** Returns the record if the value of the field contains the given argument.
 
 For instance, say you want to retrieve blog entries for active users that have not set their profile picture.
 
 ```csharp
 List<string, ODocument> blogEntries = database.Select()
    .From('Blog')
-   .Where('user-status').Equals('active')
+   .Where('user-status').Equals<string>('active')
    .And('profile-picture').IsNull()
    .ToList();
 ```
