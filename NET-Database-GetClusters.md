@@ -14,21 +14,39 @@ In cases where you need to operate on many, most or all clusters in a database, 
 ### Syntax
 
 ```
-List<OCluster> GetClusters(bool <reload>)
+List<OCluster> ODatabase.GetClusters(bool reload)
 ```
 
-- **`<reload>`** Defines whether you want to reload the `ODatabase` instance before retrieving the clusters.  Defaults to `false`.
+- **`reload`** Defines whether you want to reload the `ODatabase` instance before retrieving the clusters.  Defaults to `false`.
 
 
 ### Examples
 
-For instance, consider the use case of a business application that records data on various accounts, where the accounts are organized by region, with one cluster for each region.  In cases where you want to operate on each region cluster in the database individually, you might use something like this to retrieve them:
+For instance, as part of a logging operation, you might build a helper function to retrieve the available clusters from the database and to print their names to the console, before returning them for further operations.
 
 ```csharp
-List<OCluster> clusters;
+using Orient.Client;
+using System;
 
-clusters = database.GetClusters(true);
+public List<OCluster> FetchClusters(ODatabase database,
+    bool reload = false)
+{
+  // FETCH CLUSTERS
+  List<OCluster> clusters = database.GetClusters(reload);
+
+  // INITIALIZE CLUSTER NAMES LIST
+  List<string> clusterNames;
+  foreach(OCluster cluster in clusters)
+  {
+     // ADD CLUSTER NAME
+     clusterNames.Add(cluster.Name);
+  }
+
+  // LOG TO CONSOLE
+  Console.WriteLine("Retrieved Clusters: {0}",
+    String.Join(', ', clusterNames));
+
+  // RETURN CLUSTERS
+  return clusters;
+}
 ```
-
-From here you can loop over the `OCluster` objects to perform whatever operations you have in mind.
-

@@ -12,7 +12,7 @@ Use this interface in cases where you need to retrieve or modify server configur
 
 ## Initializing OServer
 
-When the file contains the `using` directive to set the `Orient.Client` namespace, you can create a server interface for your application by instantiating the `OServer` class.
+When you enable the `Orient.Client` namespace through the `using` directive, you can create a server interface for your application by instantiating the `OServer` class.
 
 ### Syntax
 

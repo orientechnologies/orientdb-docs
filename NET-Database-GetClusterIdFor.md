@@ -16,18 +16,41 @@ It is comparable to the [`GetClusterNameFor()`](NET-Database-GetClusterNameFor.m
 ### Syntax
 
 ```
-short GetClusterIdFor(  string <name>)
+short ODatabase.GetClusterIdFor(  string <name>)
 ```
 
 - **`<name>`** Defines the class name.
 
 ### Example
 
-- Retrieve cluster ID for a given class:
+For instance, if you prefer operating on clusters by their ID's rather than names, you may find it convenient to create a helper function to retrieve the Id's for a group of cluster names.
 
-  ```csharp
-  short clusterId;
+```csharp
+using Orient.Client;
+using System;
+...
 
-  clusterId = database.GetClusterIdFor("Account");
-  ```
+// FETCH CLUSTER ID'S
+public List<short> fetchClusterIds(ODatabase database, string[] clusterNames)
+{
+   // LOG OPERATION
+   Console.WriteLine("Retrieving ID's for clusters: {0}",
+      String.Join(", ", clusterNames));
 
+   // INITIALIZE RETURN VARIABLE
+   List<short> clusterIDs;
+
+   // LOOP OVER NAMES
+   foreach(string name in clusterNames)
+   {
+      // FETCH CLUSTER ID
+      short clusterID = database.GetClusterIdFor(name);
+
+      // APPEND ID TO RETURN VALUE
+      clusterIDs.Add(clusterID)
+   }
+
+   // RETURN CLUSTER ID'S
+   return clusterIDs;
+}
+```

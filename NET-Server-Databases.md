@@ -66,6 +66,9 @@ public void CleanServer(OServer server, string[] databaseNames,
  
          // RUN COMMAND
          database.Command(backupCommand);
+
+         // CLOSE DATABASE
+         database.Close();
       }
    }
 }

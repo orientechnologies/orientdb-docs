@@ -26,20 +26,32 @@ OCommandResult Command(     string <query>)
 
 ### Example
 
-For instance, say that you have a web application and you would like to initialize a series of records when adding new users to the site.  You might loop through a dictionary to add these values:
+For instance, consider the use case of making internal data persistent across multiple operations.  When your application is running, it operates a dictionary object.  When it closes, it uploads data from the dictionary to OrientDB, so that it will have it ready when you run the app again.
 
 ```csharp
-foreach(KeyValuePair<string, string> entry in insertDict)
-{
-   string sql = string.Format(
-      "INSERT INTO {0} SET {1}",
-      entry.Key,
-			entry.Value,);
+using Orient.Client;
+using System;
 
-   database.Command(sql);
+// SAVE DATA
+public void Save(ODatabase database, Dictionary<string, string> data)
+{
+   // LOG OPERATION
+   Console.WriteLine("Saving Data to OrientDB");
+
+   // LOOP OVER DATA
+   foreach(KeyValuePair<string, string> entry in data)
+   {
+      // LOG OPERATION
+      Console.WriteLine(" - Saving: {0}", entry.Key);
+
+      // BUILD QUERY
+      string sqlQuery = String.Format("UPDATE Save SET {0} = {1}",
+         entry.Key, entry.Value);
+
+      // RUN COMMAND
+      database.Command(sqlQuery);
+   }
 }
 ```
 
-Here, the application loops over a dictionary with class-names as keys and insertions as values.  The key and values are then used to format an SQL command that is passed to the database.
-
-
+Here, the application loops over the dictionary, running an [`UPDATE`](SQL-Update.md) statement for each variable in the data dictionary.

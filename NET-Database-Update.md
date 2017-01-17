@@ -5,15 +5,19 @@ search:
 
 # OrientDB-NET - `Update()`
 
+This method updates records on the database.
+
 This method creates an `OsqlUpdate` object, which you can use in modifying data on the database.
 
 ## Updating Records
+
+Using this method you can change or otherwise modify records on the database.  By itself, it initializes an `OSqlUpdate` object, which you can then operate on to further define the records you want to change and what changes you would like to make.
 
 ### Syntax
 
 ```
 // UPDATING RECORDS
-OSqlUpdate Update()
+OSqlUpdate ODatabase.Update()
 ```
 
 There are several methods available to the `OSqlUpdate` method.  These allow you to build and execute the update against your database.
@@ -26,26 +30,26 @@ When using this method, you can update by class, cluster or Record ID.
 - **Class Updates**
 
   ```
-  OSqlUpdate database.Update()
-     .Class(string <class-name>)
+  OSqlUpdate ODatabase.Update()
+     .Class(string className)
   ```
 
 - **Cluster Updates**
 
   ```
-  OSqlUpdate database.Update()
-     .Cluster(string <cluster-name>
+  OSqlUpdate ODatabase.Update()
+     .Cluster(string clusterName)
   ```
 
 - **Record Updates**
 
   ```
   // RECORD METHOD
-  OSqlUpdate database.Update()
-     .Record(ORID <record-id>)
+  OSqlUpdate ODatabase.Update()
+     .Record(ORID recordID)
 
   // RECORD ARGUMENT
-  OSqlUpdate database.Update(ORID <record-id>)
+  OSqlUpdate ODatabase.Update(ORID recordID)
   ```
 
 For the sake of simplicity, syntax cases shown hereafter assume that you're updating a class.
@@ -57,22 +61,22 @@ When using this method, you have a few options in defining the update that you w
 - **Setting Field**
 
   ```
-  OSqlUpdate database.Update(<rid>)
-     .Set(<field>, <value>)
+  OSqlUpdate ODatabase.Update(<rid>)
+     .Set(field, value)
   ```
 
 - **Adding Fields**
 
   ```
-  OSqlUpdate database.Update(<rid>)
-     .Add(<field>, <value>)
+  OSqlUpdate ODatabase.Update(<rid>)
+     .Add(field, value)
   ```
 
 - **Removing Fields**
 
   ```
-  OSqlUpdate database.Update(<rid>)
-     .Remove(<field>)
+  OSqlUpdate ODatabase.Update(<rid>)
+     .Remove(field)
   ```
 
 #### Executing Updates
@@ -86,18 +90,31 @@ Using the above methods you can build the update that you want, however OrientDB
 
 ### Example
 
-For instance, say that you have an accounting application written in C#/.NET.  For your accounts, you have a region dedicated the Eastern United States.  However, business has been going so well that you want to break the Northeast off into its own region.  You build an array of states in the Northeast, then run the following update:
+For instance, say that you routinely implement complicated updates on your database with various changes.  You might wnat to build a helper function that loops through common variables in defining the update.
 
 ```csharp
-foreach(string state in ne_states)
+using Orient.Client;
+using System;
+...
+
+// UPDATE OPERATION
+public ODocument UpdateDatabase(ODatabase database, string className,
+      Dictionary<string, string> changes)
 {
-   int accountUpdate = database.Update()
-      .Class("Account")
-      .Set("region", "US-Northeast")
-      .Where("region").Equals("US-East")
-      .And("state").Equals(state)
-      .Run();
-}   
+   // LOG OPERATION
+   Console.WriteLine("Updating Class: {0}", className);
+
+   // INITIALIZE UPDATE
+   OSqlUpdate update = database.Update().Class(classname);
+
+   // DEFINE CHANGES
+   foreach(KeyValuePair<string, string> setting in changes)
+   {
+      // APPLY CHANGES
+      update.Set(setting.Key, setting.Value);
+   }
+
+   // RUN AND RETURN ODOCUMENT
+   return update.Run();
+}
 ```
-
-

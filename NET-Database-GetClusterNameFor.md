@@ -16,17 +16,41 @@ It is comparable to the [`GetClusterIdFor()`](NET-Database-GetClusterIdFor.md) m
 ### Syntax
 
 ```
-string GetClusterNameFor(short <cluster-id>)
+string ODatabase.GetClusterNameFor(short <cluster-id>)
 ```
 
 - **`<cluster-id>`** Defines the Cluster ID you want to query.
 
 ### Example
 
-- Retrieve Cluster name for given ID:
+For instance, if you prefer operating on clusters by their ID's rather than names, you may find it convenient to create a helper function to retrieve cluster names from a list of cluster ID's.
 
-  ```csharp
-  string clusterName;
+```csharp
+using Orient.Client;
+using System;
+...
 
-  clusterName = database.GetClusterNameFor(12);
-  ```
+// FETCH CLUSTER NMAES
+public List<string> fetchClusterNames(ODatabase database, short[] clusterIDs)
+{
+   // LOG OPERATION
+   Console.WriteLine("Retrieve Names for Clusters: {0}",
+      String.Join(", ", clusterIDs));
+
+  // INITIALIZE RETRUN VALUE
+  List<string> clusterNames;
+
+  // LOOP OVER ID'S
+  foreach(short clusterID in clusterIDs)
+  {
+    // FETCH CLUSTER NAME
+    string clusterName = database.GetClusterNameFor(clusterID);
+
+    // APPEND NAME TO RETURN VALUE
+    clusterNames.Add(clusterName);
+  }
+
+  // RETURN CLUSTER NAMES
+  return clusterNames;
+}
+```

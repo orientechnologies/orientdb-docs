@@ -15,14 +15,14 @@ To create clusters on the database, you need to call the `Clusters()` method on 
 
 ```
 // CREATING CLUSTERS BY NAME
-OClusterQuery database.Clusters(params string[] <cluster-names>)
+OClusterQuery ODatabase.Clusters(params string[] clusterNames)
 
 // CREATING CLUSTERS BY ID
-OClusterQuery database.Clusters(<cluster-id>)
+OClusterQuery ODatabase.Clusters(params short[] clusterId)
 ```
-- **`<cluster-names>`** Defines a series of strings (`params string[]`) indicating the names of the clusters you want to create.
+- **`cluster-names`** Defines a series of strings (`params string[]`) indicating the names of the clusters you want to create.
 
-- **`<cluster-ids>`** Defines a series of numbers (`params short[]`) indicating the ID's of the clusters you want to create.
+- **`cluster-ids`** Defines a series of numbers (`params short[]`) indicating the ID's of the clusters you want to create.
 
 #### Additional Methods
 
@@ -34,22 +34,38 @@ When you use this method, the return value is an `OClusterQuery` object, which p
 
 ### Examples
 
-Consider the use case of a business application that stores account information on various clients.  In OrientDB, you have an `Account` class to hold this information, but you would like to use several clusters for different regions.  To initialize OrientDB, your C#/.NET application might use an operation like this:
+For instance, you might use this method in building a wrapper function to add clusters to the database.  Using the wrapper you can extend the method with additional logic to log information to the console or perform further operations on the newly created clusters.
 
 ```csharp
-// REGIONS
-params string[] regions = ["USEast", "USWest", "USSouth", 
-   "EuropeWest", "AsiaEast", "AsiaSouth"];
+using Orient.Client;
+using System;
+...
 
-// CREATE CLUSTERS
-long count = database
-   .Clusters(regions)
-   .Count();
+public void createCluster(ODatabase database, 
+      params string[] clusters)
+{
+   // LOG TO CONSOLE
+   Console.Write("Creating Clusters: {0}",
+      String.Join(", ", clusters));
+
+   // CREATE CLUSTERS
+   OClusterQuery clusterQuery = database.Clusters(clusters);
+
+   // FETCH COUNT
+   long count = clusterQuery.Count();
+
+   // LOG TO CONSOLE
+   Console.Write("Created {0} clusters", count);
+}
 ```
+
 Similarly, you might want to create an arbitrary range of clusters by passing a `param` of short values to the same method.
 
+
 ```csharp
+// INITIALIZE CLUSTER ID's
+params short[] clusterIds = [1, 2, 3, 4, 5]
+
 // CREATE CLUSTERS
-OClusterQuery query = database
-   .Clusters(1, 2, 3, 4, 5);
+OClusterQuery query = database.Clusters(clusterIds);
 ```

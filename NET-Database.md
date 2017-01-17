@@ -5,57 +5,71 @@ search:
 
 # OrientDB-NET - `ODatabase`
 
-In order to interact with an OrientDB database from within your C#/.NET application, you need to create an instance of the `ODatabase` class.  This provides you with an interface to use in operating on a given database.
+This class provides an interface and methods for when you need to operate on OrientDB databases from within your C#/.NET application.
+
+Use this interface in cases where you need to retrieve or manage clusters, operate on records or issue scripts, queries and commands to the database.  If you want to operate on the OrientDB Server as a whole or create or delete databases on the server, use the [`OServer`](NET-Server.md) interface.
+
 
 ## Initializing the Database
 
-With OrientDB-NET, the database interface is controlled through the `ODatabase` class.
+When you enable the `Orient.Client` namespace through the `using` directive, you can create a database interface for your application by instantiating the `ODatabase` class.
 
 ### Syntax
 
 ```
 // INITIALIZE DATABASE
-ODatabase(  string <host>, 
-            int <port>,
-            string <name>,
-            ODatabaseType <type>,
-            string <user>,
-            string <passwd>)
+ODatabase(  string host, 
+            int port,
+            string name,
+            ODatabaseType type,
+            string user,
+            string passwd)
 
 // INITIALIZE DATABASE USING CONNECTION POOL
-ODatabase(  string <host>,
-            int <port>,
-            string <name>,
-            ODatabaseType <type>,
-            string <user>,
-            string <passwd>,
-            string <poolAlias>)
+ODatabase(  string host,
+            int port,
+            string name,
+            ODatabaseType type,
+            string user,
+            string passwd,
+            string poolAlias)
 ```
 
-- **`<host>`** Defines the hostname or IP address of the OrientDB Server.
-- **`<port>`** Defines the port to use in connecting to the server.
-- **`<name>`** Defines the database name.
-- **`<type>`** Defines the database type, that is PLocal or Memory.
-- **`<user>`** Defines the user name.
-- **`<passwd>`** Defines the user password.
-- **`<poolAlias>`** Defines the alias to use for the connection pool.
+- **`host`** Defines the hostname or IP address of the OrientDB Server.
+- **`port`** Defines the port to use in connecting to the server.
+- **`name`** Defines the database name.
+- **`type`** Defines the database type, that is PLocal or Memory.
+- **`user`** Defines the user name.
+- **`passwd`** Defines the user password.
+- **`poolAlias`** Defines the alias to use for the connection pool.
 
 
 ### Example
 
-In the example of a web application, you might open the database when the user connects to your server.  For instance,
+In the interest of abstraction, you might create a method to handle common OrientDB database operations for your application.
 
 ```csharp
-ODatabase database = ODatabase(
-   "localhost",
-   2424,
-   "microblog",
-   ODatabaseType.PLocal,
-   "guestUser",
-   "guest_passwd");
+using Orient.Client;
+using System;
+...
+
+// OPEN DATABASE
+public ODatabase openDatabase(string _host, int _port,
+       string _dbName, string _user, string _passwd)
+{
+
+   // CONSOLE LOG
+   Console.WriteLine("Opening Database: {0}", _dbname);
+
+   // OPEN DATABASE
+   ODatabase database = ODatabase(_host, _port, _dbName, 
+       ODatabaseType.Graph, _user, _passwd);
+
+   // RETURN ODATABASE INSTANCE
+   return database;
+}
 ```
 
-Here, the `database` object because your interface for `ODatabase` methods for your application.
 
 #### Using a Connection Pool
 
@@ -64,13 +78,9 @@ Normally, OrientDB-NET clients operate through a single network connection.  Whe
 To use a connection pool pass a pool alias when you create the `ODatabase` interface.
 
 ```csharp
-ODatabase database = ODatabase(
-   "localhost",
-   2424,
-   "microblog",
-   ODatabaseType.PLocal,
-   "guestUser",
-   "guest_passwd",
+ODatabase database = ODatabase("localhost", 2424,
+   "microblog", ODatabaseType.PLocal, 
+   "guestUser", "guest_passwd",
    "pool123");
 ```
 
@@ -110,6 +120,7 @@ ODatabase database = ODatabase(opts);
 
 ## Using ODatabase
 
+Once you have instantiated the `ODatabase` class, you can begin to operate on a particular database from within your C#/.NET application.  OrientDB-NET supports a number of database-level operations that you can call through this interface. Additionally, you can issue queries, commands and scripts to the database for those operations that it does not support. 
 
 | Method | Return Value | Description |
 |---|---|---|
@@ -159,6 +170,4 @@ database.Close()
 
 ### Transactions
 
-OrientDB provides support for transactions.  The Insert(), Update() and Query() methods all provide support so that you can execute them as part of a transaction rather than on the database outright.  For more information, see Transactions.
-
-
+OrientDB provides support for transactions.  The Insert(), Update() and Query() methods all provide support so that you can execute them as part of a transaction rather than on the database outright.  For more information, see [`OTransaction`](NET-Transactions.md).

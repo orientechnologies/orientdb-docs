@@ -9,7 +9,7 @@ This method issues SQL queries against the OrientDB database.  It returns a list
 
 ## Querying the Database
 
-In some cases you may find features in OrientDB that are not yet available through OrientDB-NET.  You can utelize these features by passing SQL statements for them through the `Query()` method.  It returns a list of `ODocument` objects that you can operate on further.
+In some cases you may find features in OrientDB that are not yet available through OrientDB-NET.  You can utilize these features by passing SQL statements for them through the `Query()` method.  It returns a list of `ODocument` objects that you can operate on further.
 
 It is comparable to the [`Command()`](NET-Database-Command.md) method.
 
@@ -29,21 +29,66 @@ List<ODocument> Query(  string <SQL>,
 
 ### Example
 
-- Execute query against database:
+In situations where you execute the same or very similar queries with some frequency or in cases where you need to run a query that has no comparable function available in OrientDB-NET, you can issue the SQL statement manually through this menthod.
 
-  ```csharp
-  List<ODocument> documents;
-  string query = "SELECT FROM Accounts"
+```csharp
+using Orient.Client;
+using System;
+...
 
-  documents = database.Query(query);
-  ```
+// FETCH MATCHING DOCUMENTS FROM CLASS
+public List<ODocument> FetchRecords(ODatabase database,
+    string className, Dictionary<string, string> conditions)
+{
+  // LOG OPERATION
+  Console.WriteLine("Querying Class: {0}", className);
 
-- Execute query with fetch plan:
+  // BUILD QUERY
+  List<string> baseQuery = [
+    String.Format('SELECT FROM {0}', className)];
 
-  ```csharp
-  List<ODocument> documents;
-  string query = "SELECT FROM Accounts"
-  string fetchPlan = "*:-1"
+  // CHECK FOR CONDITIONAL VALUES
+  if(conditions.Count > 0)
+  {
+    // ADD WHERE
+    baseQuery.Add('WHERE');
 
-  documents = database.Query(query, fetchPlan);
-  ``` 
+    // ADD CONDITIONS
+    foreach(KeyValuePair<string, string> condition in conditions)
+    {
+      string entry = String.Format("{0}={1}",
+        condition.Key, condition.Value);
+
+      baseQuery.Add(entry);
+    }
+
+    // JOIN QUERY
+    string query = String.Join(' ', baseQuery);
+
+    // RUN QUERY
+    return database.Query(query);
+  }
+}
+```
+
+In the event that you would like to execute the query with a fetching strategy, you can do so through the second argument.
+
+```csharp
+using Orient.Client;
+using System;
+
+// FETCH ALL RECORDS WITH FETCHING STRATEGY
+public List<ODocument> FetchAll(ODatabase database,
+    string className, string fetchPlan)
+{
+  // LOG OPERATION
+  Console.WriteLine("Fetching All Records from {0}",
+    className);
+
+  // BUILD QUERY
+  string query = String.Format("SELECT FROM {0}", className);
+
+  // RUN QUERY
+  return database.Query(query, fetchPlan);
+}
+```

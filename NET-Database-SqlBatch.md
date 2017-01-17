@@ -14,10 +14,10 @@ OrientDB supports scripting arbitrary commands through a minimal SQL engine to b
 ### Syntax
 
 ```
-OCommandQuery SqlBatch(string <command>)
+OCommandQuery ODatabase.SqlBatch(string <command>)
 ```
 
-- **`<command>`** Defines the command you want to execute.
+- **`command`** Defines the command you want to execute.
 
 ### Example
 
@@ -26,8 +26,7 @@ For instance, say you have a business application that tracks accounts in differ
 ```csharp
 public AddToSales(ODatabase database, string name, string region)
 {
-   string query = string.Format("
-      begin
+   string query = string.Format("begin
       let region = select from Region where name = {0}
       let employee = create vertex Sales set name = '{1}'
       let e = create edge Assignment from $employee to $account
@@ -37,4 +36,3 @@ public AddToSales(ODatabase database, string name, string region)
    return database.SqlBatch(query);
 }
 ```
-
