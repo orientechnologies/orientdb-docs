@@ -9,15 +9,15 @@ This method retrieves information on the current databases available on the Orie
 
 ## Retrieving Database Information
 
-When your application connects to the OrientDB Server, 
+In certain situations you may need to operate on multiple databases on a given OrientDB Server, such as testing certain conditions on each database available.  When the given databases are arbitrary, (that is, the names are not fixed by variables within your application), you can retrieve all databases on the given [`OServer`](NET-Server.md) instance using this method. 
 
 ### Syntax
 
 ```
-Dictionary<string, ODatabaseInfo> Databases()
+Dictionary<string, ODatabaseInfo> OServer.Databases()
 ```
 
-This method takes no arguments.  The return value is a dictionary with string value keys and `ODatabaseInfo` object values.  This object has three variables:
+This method takes no arguments.  The return value is a dictionary with string value keys and `ODatabaseInfo` object values.  Each `ODatabaseInfo` object has three variables:
 
 | Variable | Type |Description |
 |---|---|---|
@@ -26,11 +26,47 @@ This method takes no arguments.  The return value is a dictionary with string va
 | `Path` | `string` | The database URL |
 
 
+
 ### Examples
 
-For instance, you might want to occasionally check the health of a server, performing routine checks on each database in the server.  Rather than calling them individually, you can use this method to retrieve information on all databases to then iterate over with your tests.
+Consider the use case of a long running OrientDB Server that has be utilized by several applications, including yours.  You intend to move your operation onto a fresh host, but want to back up those databases that were not part of your application.
 
 ```csharp
-// FETCH DB DICTIONARY
-Dictionary<string, ODatabaseInfo> dbDict = server.Databases();
+using Orient.Client;
+using System;
+...
+
+// CLEANUP SERVER
+public void CleanServer(OServer server, string[] databaseNames, 
+   string host, int, port, string user, string userPasswd, 
+   string backupPath)
+{
+   // REPORT OPERATION
+   Console.WriteLine("Cleaning OrientDB Server...");
+
+   // FETCH DATABASE INFORMATION
+   Dictionary<string, ODatabaseInfo> srvInfo = server.Databases();
+
+   // LOOP OVER EACH DATABASE INSTANCE
+   foreach(KeyValuePair<string, ODatabaseInfo> dbInfo in srvInfo)
+   {
+      string name = entry.Value.DataBaseName;
+
+      // TEST IF DBNAME IN DATABASENAMES
+      if(databaseNames.Contains(name))
+      {
+         // OPEN DATABASE
+         ODatabase database = ODatabase(host, port, name,
+            ODatabaseType.Graph, user, passwd);
+
+         // FORMAT BACKUP COMMAND 
+         string backupCommand = String.Format(
+            "BACKUP DATABASE {0}/{1}.zip -compressionLevel=2",
+            backupPath, name);
+ 
+         // RUN COMMAND
+         database.Command(backupCommand);
+      }
+   }
+}
 ```

@@ -9,31 +9,57 @@ This method creates a database on the connected OrientDB Server.  It then return
 
 ## Creating Databases
 
-In order to create a database using this method, you first need to create an [`OServer`](NET-Server.md) instance.
+When you initialize your C#/.NET application, you may find it useful to provision an OrientDB database as part of the installation process.  This ensures that you'll have a database ready when you first run the application.  You can create databases on the OrientDB Server by calling the `CreateDatabase()` method on the [`OServer`](NET-Server.md) interface.
+
 
 ### Syntax
 
 ```
 bool OServer.CreateDatabase(
-   string <name>,
-   ODatabaseType <type>,
-   OStorageType <storage>)
+   string name,
+   ODatabaseType type,
+   OStorageType storage)
 ```
 
-- **`<name>`** Defines the name of the database.
-- **`<type>`** Defines the type of database you want to create, that is a Graph, Document or Object Database.
-- **`<storage>`** Defines the type of storage you want to use. That is, physical or in-memory.
+- **`name`** Defines the name of the database.
+- **`type`** Defines the type of database you want to create, that is a Graph, Document or Object Database.
+- **`storage`** Defines the type of storage you want to use. That is, physical or in-memory.
 
 When the operation is complete, the method returns a boolean value indicated that the new database now exists.
 
 ### Examples
 
-Consider the use case of a microblog service that runs on bare metal servers in Docker containers.  In provisioning server, you might create an instance of `OServer` then use it to create an in-memory database on OrientDB.  For instance,
+For instance, imagine an application that utilizes a series of in-memory databases for various services that you want to provide.  You might construction a method such as this to use when provisioning new servers:
+
 
 ```c-sharp
-// Create Database
-server.CreateDatabase(
-   "microblog",
-   ODatabaseType.Graph,
-   OStorageType.Memory);
+using Orient.Client;
+using System;
+...
+
+// PROVISION ORIENTDB SERVER
+public void InitServer(OServer server, string[] names)
+{
+   // LOG OPERATION 
+   Console.WriteLine("Creating Databases:");
+
+   // LOOP OVER DATABASE NAMES
+   foreach(string name in names)
+   {
+      // CREATE DATABASE
+      bool dbCheck = server.CreateDatabase(name,
+         ODatabaseType.Graph,
+         OStorageType.Memory);
+
+      // REPORT CREATION 
+      if(dbCheck) 
+      {
+         Console.WriteLine(" - SUCCESS: {0}", name);
+      }
+      else
+      {
+         Console.WriteLine(" - FAILURE: {0}", name);
+      }
+   }
+}
 ```

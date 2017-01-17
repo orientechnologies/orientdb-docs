@@ -14,21 +14,45 @@ In situations where you need to check multiple configuration variables on a serv
 ### Syntax
 
 ```
-Dictionary<string, string> ConfigList()
+Dictionary<string, string> OServer.ConfigList()
 ```
 
-The return value is a Dictionary of configuration variables and their current values.
+The return value is a dictionary of configuration variables and their current values.
 
 ### Example
+
+When debugging your application, you may sometimes find it useful to consult the OrientDB Server configuration, to help in checking whether the server was set up properly for your usage.
+
 
 Consider the use-case where you are working with OrientDB in a distributed cluster with dozens of servers running in-memory.  Whenever you add servers to your infrastructure, you need to evaluate several configuration variables before moving it to production.
 
 ```csharp
-Dictionary<string, string> svrConfig = server.ConfigList();
+using Orient.Client;
+using System;
+...
+
+// WRITE SERVER CONFIGURATION TO CONSOLE
+public Dictionary<string, string> ReportConfig(OServer server)
+{
+   // FETCH SERVER CONFIGURATION
+   Dictionary<string, string> srvConfig = server.ConfigList();
+
+   // WRITE HEADER
+   Console.WriteLine("OrientDB Server Configuration");
+
+   // LOOP OVER EACH CONFIG ENTRY
+   foreach(KeyValuePair<string, string> entry in srvConfig)
+   {
+
+      // WRITE TO CONSOLE
+      Console.WriteLine(" - {0}: {1}",
+         entry.Key,
+         entry.Value);
+   }
+
+   // RETURN CONFIGURATION FOR ADDITIONAL TESTING
+   return srvConfig; 
+}
 ```
 
-Here, rather than multiple calls to [`ConfigGet()`](NET-Server-ConfigGet.md), which can prove time-consuming and wasteful in terms of network and resource usage, you can retrieve the entire server configuration in one call, then test it in full from within C#.
-
-
-
-
+Here, the function receives an [`OServer`](NET-Server.md) interface as an argument.  Using this interface, it retrieves the current server configuration and loops over it, printing each variable and value to the console.  When it's done it returns the configuration dictionary, which you can then use to perform additional tests instead of making multiple calls to [`ConfigGet()`](NET-Server-ConfigGet.md).

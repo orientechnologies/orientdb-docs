@@ -14,16 +14,16 @@ In certain situations you may want to retrieve values from various configuration
 ### Syntax
 
 ```
-string OServer.ConfigGet(string <key>)
+string OServer.ConfigGet(string key)
 ```
 
-- **`<key>`** Defines the configuration variable that you want to check.
+- **`key`** Defines the configuration variable that you want to check.
 
 This method returns a string of the current setting.
 
 ### Example
 
-For instance, say that you are developing a basic unittest to evaluate whether the filetype is properly set for the transaction log.  You want the filetype set to classic-mode, but are worried that some databases in your distributed cluster may have the wrong configuration.
+For instance, say that you are developing a basic unit test to evaluate whether the file-type is properly set for the transaction log.  You want the file-type set to classic-mode, but are worried that some databases in your distributed cluster may have the wrong configuration.
 
 ```csharp
 // FETCH TX.LOG FILETYPE

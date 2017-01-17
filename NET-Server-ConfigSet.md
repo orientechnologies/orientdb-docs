@@ -9,18 +9,18 @@ This method changes the value of the given configuration variable on the OrientD
 
 ## Setting Configuration Variables
 
-You may find that you want to change the values on various configuration variables on the OrientDB Server from within your application.  With this method you can do so through the OServer instance.
+You may find that you want to change the values on various configuration variables for the OrientDB Server from within your application.  With this method you can do so through the [`OServer`](NET-Server.md) instance.
 
 ### Syntax
 
 ```
 bool OServer.ConfigSet(
-   string <key>,
-   string <value>)
+   string key,
+   string value)
 ```
 
-- **`<key>`** Defines the configuration variable you want to change.
-- **`<value>`** Defines the value you want to set on the variable.
+- **`key`** Defines the configuration variable you want to change.
+- **`value`** Defines the value you want to set on the variable.
 
 This method returns a boolean value, indicating whether OrientDB applied your change.
 

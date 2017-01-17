@@ -5,26 +5,30 @@ search:
 
 # OrientDB-NET - `OServer`
 
-In order to interact with OrientDB from within your C#/.NET application, you first need to create an instance of the `OServer` class.  This provides you with an interface to use when operating on the OrientDB Server.
+This class provides an interface and methods for when you need to operate on the OrientDB Server from within your C#/.NET application.
+
+Use this interface in cases where you need to retrieve or modify server configuration, create or remove databases or fetch information about those databases available on the server.  If you want to operate on a specific database, use the [`ODatabase`](NET-Database.md) interface.
 
 
 ## Initializing OServer
 
-With OrientDB-NET, the server interface is controlled through the `OServer` class, which can be found in the `Innov8tive.API` library.
+When the file contains the `using` directive to set the `Orient.Client` namespace, you can create a server interface for your application by instantiating the `OServer` class.
 
 ### Syntax
 
 ```
-OServer(    string <hostname>, 
-            int <port>, 
-            string <userName>, 
-            <string userPasswd>)
+OServer(    string hostName, 
+            int port, 
+            string userName, 
+            string userPasswd)
 ```
 
-- **`<hostname>`** Defines the host that you want to connect to, such as `localhost` or the IP address on which OrientDB is running.
-- **`<port>`** Defines the port you want to connect to, such as 2424.
-- **`<userName>`** Defines the Server user name.
-- **`<userPasswd>`** Defines the Server user password.
+- **`hostname`** Defines the host that you want to connect to, such as `localhost` or the IP address on which OrientDB is running.
+- **`port`** Defines the port you want to connect to, such as 2424.
+- **`userName`** Defines the Server user name.
+- **`userPasswd`** Defines the Server user password.
+
+Once you have an instance of this class, you can begin to call methods on it to operate on the OrientDB Server.
 
 ### Example
 

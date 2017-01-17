@@ -24,13 +24,23 @@ void OServer.DropDatabase(
 
 ### Example
 
-Consider the use case of an application where you encounter a critical flaw in the database and need to remove it and restore its content from backups.
+For instance, say you have an application that requires you to periodically reset databases, removing all records then initializing a new instance.
 
 ```csharp
-if (check == true)
+public void cleanDatabases(OServer server, string[] databaseNames)
 {
-   void server.DropDatabase(
-      "microblog",
-      OStorageType.PLocal);
+   // LOOP OVER DATABASE NAMES ARRAY
+   foreach(string name in databaseNames)
+   {
+      // REMOVE EXISTING DATABASE
+      server.DropDatabase(name, OStorageType.Memory);
+
+      // CREATE NEW DATABASE
+      bool createdDb = server.CreateDatabase(name,
+         ODatabaseType.Graph, OStorageType.Memory);
+
+      // TEST
+      Assert.IsTrue(createDb);
+   }
 }
 ```

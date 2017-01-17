@@ -26,19 +26,42 @@ The method returns a boolean value, indicating whether or not it found the reque
 
 ### Example
 
-Consider the example of a web application, where you have multiple instances of OrientDB Server and multiple clients attempting to connect to and operate on the databases.  You might have a line that checks whether a database exists on the server before attempting to create it.
+For instance, say that you have a complex application that utilizes several databases in-memory on an OrientDB Server.  The in-memory storage type is volatile and is lost in the event that the server shuts down or the host crashes.  As such, you may want to create a basic test function to determine whether a series of databases exist on the server before you attempt operations.  If the database doesn't exist, you'll need to create it.
 
 ```csharp
-bool checkForDB = server.DatabaseExists(
-   "microblog",
-   OStorageType.PLocal);
+using Orient.Client;
+using System;
+...
 
-// CREATE DB WHEN NEEDED
-if (checkForDB == false)
+// CHECK THAT DATABASES EXIST
+public void checkDatabases(OServer server, string[] databases)
 {
-   server.CreateDatabase(
-      "microblog",
-      ODatabaseType.Graph,
-      OStorageType.PLocal);
+   Console.WriteLine("Checking that databases exists...");
+
+   // LOOP OVER EACH REQUIRED DATABASE
+   foreach(string database in databases)
+   {
+      // DETERMINE IF DATABASE EXISTS
+      bool dbExists = server.DatabaseExists(database,
+         OStorageType.Memory);
+
+      // CREATE DATABASE 
+      if(dbExists == false)
+      {
+         Console.WriteLine("Database {0} doesn't exist, creating...",
+            database);
+         // CREATE NONEXISTENT DATABASE
+         server.CreateDatabase(database,
+            ODatabaseType.Graph,
+            OStorageType.Memory);
+      }
+
+      // REPORT IF DATABASE EXISTS
+      else
+      {
+          Console.WriteLine("Database {0} exists already",
+             database);
+      }
+   }   
 }
 ```
