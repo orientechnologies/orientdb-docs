@@ -16,23 +16,23 @@ Eventually, you'll want to access the data that you're storing on OrientDB.  Thi
 
 ```
 // RETRIEVE LIST
-List<ODocument> ODatabase.Select(params string[] <projections>)
-   .From(<target>)
-   .ToList(string <fetchplan>)
+List<ODocument> ODatabase.Select(params string[] projections)
+   .From(target)
+   .ToList(string fetchplan)
 
 // RETRIEVE STRING
-string ODatabase.Select(params string[] <projections>)
-   .From(<target>)
+string ODatabase.Select(params string[] projections)
+   .From(target)
    .ToString()
 ```
 
-- **`<projections>`** Defines the columns you want returned.
-- **`<target>`** Defines the target you want to operate on.
-  - *`string <target>`* Where the target is a class or cluster.
-  - *`ORID <target>`* Where the target is a Record ID.
-  - *`OSqlSelect <target>`* Where the target is a nested `Select()` operation.
-  - *`ODocument <target>`* Where the target is the return value from another database operation.
-- **`<fetch-plan>`** Defines the [Fetching Strategy](Fetching-Strategies.md) you want to use.  If you want to issue the query without a fetching strategy, execute the method without passing it arguments.
+- **`projections`** Defines the columns you want returned.
+- **`target`** Defines the target you want to operate on.
+  - *`string target`* Where the target is a class or cluster.
+  - *`ORID target`* Where the target is a Record ID.
+  - *`OSqlSelect target`* Where the target is a nested `Select()` operation.
+  - *`ODocument target`* Where the target is the return value from another database operation.
+- **`fetch-plan`** Defines the [Fetching Strategy](Fetching-Strategies.md) you want to use.  If you want to issue the query without a fetching strategy, execute the method without passing it arguments.
 
 >Note that you can retrieve either a list of `ODocument` objects or a string value.  
 

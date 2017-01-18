@@ -69,11 +69,3 @@ public OCommandResult JSQuery(ODatabase database, string filename)
 
 }
 ```
-- Execute JavaScript from file:
-
-  ```csharp
-  OCommand resultSet;
-  string script = System.IO.ReadAllText("query.js");
-
-  resultSet = database.JavaScript(script);
-```

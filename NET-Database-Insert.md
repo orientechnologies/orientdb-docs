@@ -57,8 +57,8 @@ using (TextFieldParser parser = new TexFieldParser("$HOME/2016-report.csv"))
       // INSERT ROW
       string[] fields = parser.ReadFields();
 			ODocument test = database.Insert()
-			   .Into("Account")
-			   .Set("name", field[0])
+				 .Into("Account")
+				 .Set("name", field[0])
          .Set("contact", field[1])
          .Set("status", field[2])
          .Run();

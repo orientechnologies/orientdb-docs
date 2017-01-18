@@ -17,15 +17,15 @@ It is comparable to the [`Command()`](NET-Database-Command.md) method.
 
 ```
 // QUERY DATABASE
-List<ODocument> Query(  string <SQL>)
+List<ODocument> ODatabase.Query(string SQL)
 
 // QUERY DATABASE WITH FETCH PLAN
-List<ODocument> Query(  string <SQL>,
-                        string <fetch-plan>)
+List<ODocument> ODatabase.Query(string SQL,
+   string fetch-plan)
 ```
 
-- **`<SQL>`** Defines the SQL statement to use.
-- **`<fetch-plan>`** Defines the [Fetching Strategy](Fetching-Strategies.md) to use.
+- **`SQL`** Defines the SQL statement to use.
+- **`fetch-plan`** Defines the [Fetching Strategy](Fetching-Strategies.md) to use.
 
 ### Example
 

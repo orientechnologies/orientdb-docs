@@ -7,8 +7,6 @@ search:
 
 This method updates records on the database.
 
-This method creates an `OsqlUpdate` object, which you can use in modifying data on the database.
-
 ## Updating Records
 
 Using this method you can change or otherwise modify records on the database.  By itself, it initializes an `OSqlUpdate` object, which you can then operate on to further define the records you want to change and what changes you would like to make.

@@ -14,7 +14,7 @@ OrientDB supports scripting arbitrary commands through a minimal SQL engine to b
 ### Syntax
 
 ```
-OCommandQuery ODatabase.SqlBatch(string <command>)
+OCommandQuery ODatabase.SqlBatch(string command)
 ```
 
 - **`command`** Defines the command you want to execute.
