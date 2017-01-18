@@ -1,5 +1,13 @@
 ### API changes
 
+**OElement hierarchy**
+
+TODO
+
+**ODatabase hierarchy and factories**
+
+TODO
+
 **ODocument**
 
 New APIs `ODocument.getProperty(name)` and `ODocument.setProperty(name, value)`  do not interprete the field name as an expression. 
@@ -26,3 +34,9 @@ IMPORTANT: in the near future `ODocument.field()` methods will be deprecated and
 **OProperty**
 
 `OProperty.getFullName()` now returns ``` "`ClassName`.`propertyName`" ``` instead of ```"ClassName.propertyName"```
+
+
+**OrientBaseGraph**
+
+`setUseVertexFieldsForEdgeLabels(boolean)` is now deprecated and has no effect. All the edge labels are represented as edge classes.
+
