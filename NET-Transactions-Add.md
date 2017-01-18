@@ -14,20 +14,40 @@ In order to add records to the database, you need to initialize the objects and 
 ### Syntax
 
 ```
-trx.Add<T>(T typedObject)
+OTransaction.Add<T>(T typedObject)
 ```
 
 ### Example
 
-For instance, say that you have a business application that stores data on various accounts.  You might use something like this to add a new account to the database:
+For instance, if you find yourself often adding records with complex information or changes made to multiple fields, you may find it useful to implement a helper function to simplify these operations. 
 
 ```csharp
-// INITIALIZE NEW ACCOUNT
-ODocument newAccount = ODocument()
-   .SetField<string>("company_name", "Spam Productions, Ltd.")
-   .SetField<string>("city", "Boston")
-   .SetField<string>("state", "Massachusetts");
+using Orient.Client;
+using System; 
+...
 
-// ADD ACCOUNT TO TRANSACTION
-trx.Add<ODocument>(newAccount);
+// ADD RECORDS TO THE DATABASE
+public void AddRecords(OTransaction trx, List<Dictionary<string, string>>	records)
+{
+   // LOG OPERATION
+   Console.WriteLine("Adding Records to Transaction");
+
+   // LOOP OVER NEW RECORDS LIST
+   foreach(Dictionary<string, string> record in records)
+   {
+      // INITIALIZE RECORD
+      ODocument document = ODocument();
+
+      // DEFINE RECORD CONTENTS
+      foreach(KeyValuePair<string, string> field in record)
+      {
+         // DEFINE FIELD
+         document.SetField<string>(field.Key, field.Value);
+      }
+      
+      // ADD TO RECORD TO TRANSACTION
+      trx.Add<ODocument>(document);
+   }
+
+}
 ```

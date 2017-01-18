@@ -14,7 +14,7 @@ In certain situations you may want to programmatically remove records from Orien
 ### Syntax
 
 ```
-trx.Delete<T>(T typedObject)
+OTransaction.Delete<T>(T typedObject)
 ```
 - **`typedObject`** Defines the object you want to remove.  The object must be of the same type as defined in the `T` generic.
 
@@ -23,7 +23,7 @@ trx.Delete<T>(T typedObject)
 For instance, say that you want to create a function for removing records from the database.
 
 ```csharp
-public void removeDocument(ODocument document)
+public void removeDocument(OTransaction trx, ODocument document)
 {
    // REMOVE RECORD
    trx.Delete<ODocument>(document);

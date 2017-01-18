@@ -23,7 +23,7 @@ T trx.GetPendingObject<T>(ORID rid)
 For instance, say you want to retrieve a vertex from a transaction:
 
 ```csharp
-public OVertex fetchVertex(ORID rid)
+public OVertex fetchVertex(OTransaction trx, ORID rid)
 {
    // FETCH VERTEX
    OVertex target = trx.GetPendingObject<OVertex>(rid);

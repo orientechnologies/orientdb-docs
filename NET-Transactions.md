@@ -16,7 +16,7 @@ For more information, see [Transactions](Transactions.md).
 In order to initialize a transaction, you need to first create a transaction object to manage and identify the changes you are making.  This is handled through the database interface.
 
 ```csharp
-OTransaction trx = database.Transaction;
+OTransaction trx = ODatabase.Transaction;
 ```
 
 This initializes an `OTransaction` object that you can then use in further operations, building the transaction before you commit it to the database.
@@ -59,3 +59,5 @@ When you make changes on the database that you are not happy with, such as in ca
 // REVERT CHANGES ON TRANSACTION
 trx.Revert();
 ```
+
+All changes made on the transaction are removed.  The database reverts to its earlier state.

@@ -322,7 +322,7 @@
       * [AddOrUpdate<T>()](NET-Transactions-AddOrUpdate.md)
       * [Delete<T>()](NET-Transactions-Delete.md)
       * [GetPendingObject<T>()](NET-Transactions-GetPendingObject.md)
-      * [Update<T>()](NET-Transactions.Update.md)
+      * [Update<T>()](NET-Transactions-Update.md)
   * [Scala API](Scala-Language.md) 
   * [HTTP API](OrientDB-REST.md) 
   * [Binary Protocol](Network-Binary-Protocol.md) 

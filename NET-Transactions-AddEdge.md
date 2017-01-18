@@ -14,30 +14,41 @@ In order to add an edge to the database, you need to create an `OEdge` object, t
 ### Syntax
 
 ```
-trx.AddEdge( OEdge <edge>,
-             OVertex <fromVertex>,
-             OVertex <toVerte/>)
+OTransaction.AddEdge( OEdge edge,
+             OVertex fromVertex,
+             OVertex toVertex)
 ```
 
-- **`<edge>`** Defines the edge object you want to add.
-- **`<fromVertex>`** Defines the vertex the edge connects from.
-- **`<toVertex>`** Defines the vertex th eedge connects to.
+- **`edge`** Defines the edge object you want to add.
+- **`fromVertex`** Defines the vertex the edge connects from.
+- **`toVertex`** Defines the vertex th eedge connects to.
 
 
 ### Example
 
-For instance, say that you have a business application that records account information.  In the database for this application you have a vertex class for accounts and another for salespersons.  To assign an account to a salesperson, you create an edge.
+In cases where you have a class that connects to multiple edges, you may find it more convenient to use a helper function to quickly define and add edges to records.
+
 
 ```csharp
-// ASSIGN ACCOUNT TO EMPLOYEE
-public void assignAccount(account, employee)
-{
-   OEdge assignment = OLoadRecord(connection)
-      .ORID(#13:24).Run<OEdge>();
+using Orient.Client;
+using System;
+...
 
-   trx.AddEdge(assignment, account, employee);
+// CONNECT EDGES
+public void TrxConnectEdges(OTransaction trx, Dictionary<OEdge, Dictionary<string, OVertex>> edges)
+{
+   // LOG OPERATION
+   Console.WriteLine("Adding Edges");
+
+   // LOOP OVER EACH EDGE
+   foreach(KeyValuePair<OEdge, Dictionary<string, OVertex>> edge in edges)
+   {
+      // DEFINE VERTICES
+      OVertex from = edge.Value['from'];
+      OVertex to = edge.Value['to'];
+
+      // ADD VERTICES
+      trx.AddEdge(edge.Key, from, to);
+   }
 }
 ```
-
-
-

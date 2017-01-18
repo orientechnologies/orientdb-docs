@@ -21,12 +21,35 @@ void trx.Update<T>(T typedObject)
 
 ### Example
 
-For instance, you might create a method on a class to handle update functions, matching them to an open transaction managed by that class.
+For instance, if you find yourself often updating records with complex information or changes made to multiple fields, you may find it useful to implement a helper function to simplify this process.
 
 ```csharp
-public void updateAccount(ODocument document)
+using Orient.Client;
+using System;
+...
+
+// UPDATE RECORDS
+public void updateRecord(OTransaction trx, Dictionary<ODocument, Dictionary<string, string>> records)
 {
-   // UPDATE RECORD
-   trx.Update<ODocument>(document);
+   // LOG OPERATION
+   Console.WriteLine("Update Records");
+
+   // LOOP OVER DOCUMENTS
+   foreach(KeyValuePair<ODocument, Dictionary<string, string>> record in records)
+   {
+      // INITILAIZE VARIABLES
+      ODocument document = record.Key;
+      Dictionary<string, string> fields = record.Value;
+
+      // SET CHANGES
+      foreach(KeyValuePair<string, string> field in fields)
+      {
+          // SET FIELD
+          document.SetField<string>(field.Key, field.Value);
+      }
+
+      // APPLY CHANGES TO TRANSACTION
+      trx.Update<ODocument>(document);
+   }
 }
 ``` 

@@ -14,7 +14,7 @@ In deployments where there is the risk of the database changing while the transa
 ### Syntax
 
 ```
-trx.AddOrUpdate<T>(T target)
+OTranasction.AddOrUpdate<T>(T target)
 ```
 
 - **`target`** Defines the object you want to add or update on the database.  It is of the type defined by the generic.
@@ -22,19 +22,34 @@ trx.AddOrUpdate<T>(T target)
 
 ### Example
 
-For instance, say that you have a business application that stores data on various client accounts.  You might create a method to add new accounts to the database, which will update them in the event that the account exists already.
+For instance, if you find yourself often adding or updating records with complex, but routine, ifnromation, you may find it useful to implement a helper function to simplify these operations.
 
 ```csharp
-// ADD ACCOUNT TO DATABASE
-public void AddAccount(string name, string city, string state)
-{
-   // INITIALIZE DOCUMENT
-   ODocument company = ODocument()
-      .SetField<string>('name', name)
-      .SetField<string>('city', city)
-      .SetField<string>('state', state);
+using Orient.Client;
+using System;
+...
 
-   // ADD TO TRANSACTION
-   trx.AddOrUpdate<ODocument>(company);
+// ADD OR UPDATE TRANSACTION
+public void TrxUpdate(OTransaction trx, Dictionary<ORID, Dictionary<string, string>> records)
+{
+   // LOG OPERATION
+   Console.WriteLine("Updating Records in Transaction");
+
+   // LOOP OVER RECORDS
+   foreach(KeyValuePair<ORID, Dictionary<string, string>> record in records)
+   {
+      // LOAD RECORD
+      ODocument document = LoadRecord().ORID(record.Key);
+
+      // DEFINE FIELDS
+      foreach(KeyValuePair<string, string> field in record.Value)
+      {
+          // SET FIELD
+          document.SetField<string>(field.Key, field.Value);
+      }
+
+      // ADD OR UPDATE RECORD
+      trx.AddOrUpdate<ODocument>(document);
+   }
 }
 ```
