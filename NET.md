@@ -69,8 +69,8 @@ using Orient.Client;
 
 - [**Server**](NET-Server.md) Documents the `OServer` interface, used when operating on the OrientDB Server to manage server-level configuration as well as creating, removing and listing databases on the server. 
 - [**Database**](NET-Database.md) Documents the `ODatabase` interface, used when operating on particular OrientDB databases to manage clusters, operate on records and issue scripts, queries and commands.
-- [**Queries**](NET-Query.md)
-- [**Transaction**](NET-Transactions.md)
+- [**Queries**](NET-Query.md) Provides a guide to building queries.
+- [**Transaction**](NET-Transactions.md) Documents the `OTransaction` interface, used when operating on OrientDB databases through transactions.
 
 
 
