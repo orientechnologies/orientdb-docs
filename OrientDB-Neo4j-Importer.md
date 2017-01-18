@@ -316,13 +316,13 @@ MATCH (n:LabelName) RETURN n
 </td>
 <td>
 <pre>
-SELECT FROM ClassName
+SELECT FROM LabelName
 </pre>
 
 or using our MATCH syntax:
 
 <pre>
-MATCH {class: ClassName, as: n} RETURN n
+MATCH {class: LabelName, as: n} RETURN n
 </pre>
 </td>
 </tr>

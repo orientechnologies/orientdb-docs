@@ -37,7 +37,7 @@ In the above example, the Database API attempts to load the database using the d
 ```js
 var db = server.use({
    name:     'SmartHomeData',
-   user:     'smarthome_user',
+   username:     'smarthome_user',
    password: 'smarthome_passwd'
 });
 ```
