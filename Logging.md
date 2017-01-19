@@ -33,7 +33,7 @@ By default, OrientDB installs two loggers:
 
 ## Configuration File
 
-You can configure logging strategies and policies by creating a configuration file that follows the 
+You can configure logging strategies and policies by creating a configuration file that follows the
 Java [Logging Messages](http://www.javapractices.com/topic/TopicAction.do?Id=143) configuration syntax.  For example, consider the following from the `orientdb-server-log.properties` file:
 
 ```java
@@ -80,7 +80,7 @@ You can configure log level at startup through both the `orientdb-server-config.
 #### Using the Configuration File
 
 To configure log level from the configuration file, update the following elements in the `<properties>` section:
-  
+
 ```xml
 <properties>
    <entry value="info" name="log.console.level" />
@@ -92,7 +92,7 @@ To configure log level from the configuration file, update the following element
 #### Using the JVM
 
 To configure log level from the JVM before starting the server, run the `java` command to configure the `log.console.level` and `log.file.level` variables:
-  
+
 <pre>
 $ <code class="lang-sh userinput">java -Dlog.console.level=INFO -Dlog.file.level=FINE</code>
 </pre>
@@ -165,3 +165,5 @@ Java Logging Framework runtime has a known problem with logging from shutdown ho
     -Djava.util.logging.manager=com.orientechnologies.common.log.OLogManager$DebugLogManager
 
 > Use this logger for debugging and troubleshooting purposes only, since it may interfere with your production logging configuration.
+
+> Make sure `$DebugLogManager` part is not interpreted as a shell variable substitution. To avoid the substitution apply escaping specific to your shell environment.

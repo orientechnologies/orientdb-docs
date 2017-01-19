@@ -18,6 +18,7 @@ Leak detector uses logging facilities to report detected problems. To be sure yo
 
     -Djava.util.logging.manager=com.orientechnologies.common.log.OLogManager$DebugLogManager
 
+> Make sure `$DebugLogManager` part is not interpreted as a shell variable substitution. To avoid the substitution apply escaping specific to your shell environment.
 > Read more about debugging logger [here](Logging.md#debugging-logger).
 
 ## Inspecting for Leaks
