@@ -2,12 +2,12 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "variables": {
-    "download_osx": "http://mkt.orientdb.com/CE-2214-OSX",
-    "download_linux": "http://mkt.orientdb.com/CE-2214-linux",
-    "download_windows": "http://mkt.orientdb.com/CE-2214-windows",
-    "download_multiOS": "http://mkt.orientdb.com/CE-2214-multiOS",
-    "lastGA": "2.2.14",
-    "currentVersion": "2.2.14"
+    "download_osx": "http://mkt.orientdb.com/CE-2215-OSX",
+    "download_linux": "http://mkt.orientdb.com/CE-2215-linux",
+    "download_windows": "http://mkt.orientdb.com/CE-2215-windows",
+    "download_multiOS": "http://mkt.orientdb.com/CE-2215-multiOS",
+    "lastGA": "2.2.15",
+    "currentVersion": "2.2.15"
   },
   "links": {
     "home": "http://orientdb.com",
