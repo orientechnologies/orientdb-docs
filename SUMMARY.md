@@ -447,5 +447,5 @@
   * [Tutorial: Importing the *movie* Database from Neo4j](Tutorial-Importing-the-Movie-Database-from-Neo4j.md)
   * [Tutorial: Importing the *northwind* Database from Neo4j](Tutorial-Importing-the-northwind-Database-from-Neo4j.md) 
   * [Java Hook Tutorial](Tutorial-Java-Hooks.md)
-
+* [Release Notes](Release-Notes.md)
   
