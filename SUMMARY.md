@@ -402,4 +402,4 @@
   * [Roadmap](Roadmap.md) 
 * [Enterprise Edition](Enterprise-Edition.md) 
   * [Auditing](Auditing.md) 
- 
+* [Release Notes](Release-Notes.md) 
