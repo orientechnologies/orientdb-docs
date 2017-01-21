@@ -4,7 +4,7 @@ search:
 ---
 
 <!-- proofread 2015-12-11 SAM -->
-# ETL Example: Importing the Open Beer Database into OrientDB
+# Tutorial: Importing the Open Beer Database into OrientDB
 
 ![](images/beers.jpg)
 
