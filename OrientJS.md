@@ -17,7 +17,7 @@ This page provides basic information on setting up OrientJS on your system.  For
 - [Server API](OrientJS-Server.md)
 - [Database API](OrientJS-Database.md)
 - [Class API](OrientJS-Class.md)
-- [Index API](OrientjS-Index.md)
+- [Index API](OrientJS-Index.md)
 - [Function API](OrientJS-Functions.md)
 - [Queries](OrientJS-Query.md)
 - [Transactions](OrientJS-Transactions.md)
