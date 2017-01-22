@@ -32,7 +32,7 @@ Given this information, in order to implement this approach effectively, you nee
 In the new Live Query approach, the process is a little different.  Instead of issuing polling queries the database, the client subscribes to a query result-set.  Whenever changes occur in the records in this result set, OrientDB pushes these changes to the client as they happen.
 
 *Live Query Approach*
-![](imagesliveQuery.png)
+![](images/liveQuery.png)
 
 The most obvious advantages to this are that,
 
