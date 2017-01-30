@@ -130,7 +130,6 @@ In OrientDB SQL the following are reserved words
 - STRATEGY
 - TIMEOUT
 - TRAVERSE
-- UNDEFINED
 - UNSAFE
 - UNWIND
 - UPDATE
@@ -208,16 +207,6 @@ eg.
 #12:15
 ```
 
-A link in its basic form can be used in any expression (projections, WHERE conditions, LET assignments and so on), apart from in JSON notation. In JSON the following is not valid `{'my_link': #12:0}` and the following represents a String  `{'my_link': '#12:0'}`, so OrientDB has to adopt a particular convention for this speficic use case.
-
-To represent a link in a JSON snippet you have to use the following syntax: 
-```
-{
-   'my_link': {'@rid': '#12:0'} 
-}
-```
-
-
 
 - **null**: case insensitive (for consistency with IS NULL and IS NOT NULL conditions, that are case insensitive)
 
@@ -229,9 +218,6 @@ Null
 nUll
 ...
 ```
-
-- **UNDEFINED**: a non-value. It is used to reset fields to "non existing" state (eg. `UPDATE V set name = UNDEFINED`)
-
 
 ###Numbers
 
@@ -371,13 +357,13 @@ An expression that returns something different from a boolean value is always ev
 - **`*`  (multiplication)**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
 - **`/`  (division)**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
 - **`%`  (modulo)**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
-- **`>>`  (bitwise right shift)**
-- **`<<`  (bitwise right shift)**
-- **`&`  (bitwise AND)**
-- **`|`  (bitwise OR)**
-- **`^`  (bitwise XOR)**
-- **`~`  (bitwise NOT)**
-- **`||`**: array concatenation
+- **`>>`  (bitwise right shift)** (support will come after 3.0 M1)
+- **`<<`  (bitwise right shift)** (support will come after 3.0 M1)
+- **`&`  (bitwise AND)** (support will come after 3.0 M1)
+- **`|`  (bitwise OR)** (support will come after 3.0 M1)
+- **`^`  (bitwise XOR)** (support will come after 3.0 M1)
+- **`~`  (bitwise NOT)** (support will come after 3.0 M1)
+- **`||`**: array concatenation (support will come after 3.0 M1)
 
 ### Math + Assign operators
 
