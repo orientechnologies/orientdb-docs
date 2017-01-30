@@ -47,4 +47,4 @@ function dbOpenCreate($client, $dbname, $user, $passwd){
 }
 ```
 
-This function takes the client interface, database name and database login credentials.  Using [`dbExists()`](PHP-dbExists.md) it determines whether the database exists on the database and creates it if it doesn't exist.  Then it opens the given database, returning the cluster map.
+This function takes the client interface, database name and database login credentials as arguments.  Using [`dbExists()`](PHP-dbExists.md) it determines whether the database exists on the database and creates it if it doesn't exist.  Then it opens the given database, returning the cluster map.
