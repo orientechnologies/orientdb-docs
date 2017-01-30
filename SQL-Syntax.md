@@ -1,234 +1,428 @@
----
-search:
-   keywords: ['SQL', 'parser', 'syntax']
----
+# OrientDB SQL syntax
 
-# SQL parser syntax
+OrientDB Query Language is and SQL dialect.
 
-[BNF](https://en.wikipedia.org/wiki/Backus-Naur_Form) token specification
-```java
-DOCUMENT START
-TOKENS
-<DEFAULT> SKIP : {
-" "
-| "\t"
-| "\n"
-| "\r"
-}
+This page lists all the details about its syntax.
 
-/** reserved words **/<DEFAULT> TOKEN : {
-<SELECT: ("s" | "S") ("e" | "E") ("l" | "L") ("e" | "E") ("c" | "C") ("t" | "T")>
-| <INSERT: ("i" | "I") ("n" | "N") ("s" | "S") ("e" | "E") ("r" | "R") ("t" | "T")>
-| <UPDATE: ("u" | "U") ("p" | "P") ("d" | "D") ("a" | "A") ("t" | "T") ("e" | "E")>
-| <DELETE: ("d" | "D") ("e" | "E") ("l" | "L") ("e" | "E") ("t" | "T") ("e" | "E")>
-| <FROM: ("f" | "F") ("r" | "R") ("o" | "O") ("m" | "M")>
-| <WHERE: ("w" | "W") ("h" | "H") ("e" | "E") ("r" | "R") ("e" | "E")>
-| <INTO: ("i" | "I") ("n" | "N") ("t" | "T") ("o" | "O")>
-| <VALUES: ("v" | "V") ("a" | "A") ("l" | "L") ("u" | "U") ("e" | "E") ("s" | "S")>
-| <SET: ("s" | "S") ("e" | "E") ("t" | "T")>
-| <ADD: ("a" | "A") ("d" | "D") ("d" | "D")>
-| <REMOVE: ("r" | "R") ("e" | "E") ("m" | "M") ("o" | "O") ("v" | "V") ("e" | "E")>
-| <AND: ("a" | "A") ("n" | "N") ("d" | "D")>
-| <OR: ("o" | "O") ("r" | "R")>
-| <NULL: ("N" | "n") ("U" | "u") ("L" | "l") ("L" | "l")>
-| <ORDER: ("o" | "O") ("r" | "R") ("d" | "D") ("e" | "E") ("r" | "R")>
-| <BY: ("b" | "B") ("y" | "Y")>
-| <LIMIT: ("l" | "L") ("i" | "I") ("m" | "M") ("i" | "I") ("t" | "T")>
-| <RANGE: ("r" | "R") ("a" | "A") ("n" | "N") ("g" | "G") ("e" | "E")>
-| <ASC: ("a" | "A") ("s" | "S") ("c" | "C")>
-| <AS: ("a" | "A") ("s" | "S")>
-| <DESC: ("d" | "D") ("e" | "E") ("s" | "S") ("c" | "C")>
-| <UNSAFE: ("u" | "U") ("n" | "N") ("s" | "S") ("a" | "A") ("f" | "F") ("e" | "E")>
-| <THIS: "@this">
-| <RECORD_ATTRIBUTE: <RID_ATTR> | <CLASS_ATTR> | <VERSION_ATTR> | <SIZE_ATTR> | <TYPE_ATTR>>
-| <#RID_ATTR: "@rid">
-| <#CLASS_ATTR: "@class">
-| <#VERSION_ATTR: "@version">
-| <#SIZE_ATTR: "@size">
-| <#TYPE_ATTR: "@type">
-}
+### Identifiers
+An identifier is a name that identifies an entity in OrientDB schema. Identifiers can refer to
+- class names
+- property names
+- index names
+- aliases
+- cluster names
+- function names
+- method names
+- named parameters
+- variable names (LET)
 
-/** LITERALS **/<DEFAULT> TOKEN : {
-<INTEGER_LITERAL: <DECIMAL_LITERAL> ([| <HEX_LITERAL> (["l","L"]("l","L"].md)?))? | <OCTAL_LITERAL> ([| <#DECIMAL_LITERAL: ["1"-"9"]("l","L"].md)?>) ([| <#HEX_LITERAL: "0" ["x","X"]("0"-"9"].md)*>) ([| <#OCTAL_LITERAL: "0" (["0"-"7"]("0"-"9","a"-"f","A"-"F"].md)+>))**>
-| <FLOATING_POINT_LITERAL: <DECIMAL_FLOATING_POINT_LITERAL> | <HEXADECIMAL_FLOATING_POINT_LITERAL>>
-| <#DECIMAL_FLOATING_POINT_LITERAL: (["." (["0"-"9"]("0"-"9"].md)+))** (<DECIMAL_EXPONENT>)? ([| "." (["0"-"9"]("f","F","d","D"].md)?))+ (<DECIMAL_EXPONENT>)? ([| (["0"-"9"]("f","F","d","D"].md)?))+ <DECIMAL_EXPONENT> ([| (["0"-"9"]("f","F","d","D"].md)?))+ (<DECIMAL_EXPONENT>)? [| <#DECIMAL_EXPONENT: ["e","E"]("f","F","d","D"]>.md) ([(["0"-"9"]("+","-"].md)?))+>
-| <#HEXADECIMAL_FLOATING_POINT_LITERAL: "0" [(["0"-"9","a"-"f","A"-"F"]("x","X"].md))+ (".")? <HEXADECIMAL_EXPONENT> ([| "0" ["x","X"]("f","F","d","D"].md)?) (["." (["0"-"9","a"-"f","A"-"F"]("0"-"9","a"-"f","A"-"F"].md)*))+ <HEXADECIMAL_EXPONENT> ([| <#HEXADECIMAL_EXPONENT: ["p","P"]("f","F","d","D"].md)?>) ([(["0"-"9"]("+","-"].md)?))+>
-| <CHARACTER_LITERAL: "\'" (~[| "\\" (["n","t","b","r","f","\\","\'","\""]("\'","\\","\n","\r"].md) | [(["0"-"7"]("0"-"7"].md))? | ["0"-"7"]("0"-"7".md)"0"-"3"]) ["\'">
-| <STRING_LITERAL: "\"" (~["\"","\\","\n","\r"]("0"-"7"].md))) | "\\" ([| ["0"-"7"]("n","t","b","r","f","\\","\'","\""].md) ([| ["0"-"3"]("0"-"7"].md)?) ["0"-"7"]("0"-"7".md)"0"-"7"])))** "\"" | "\'" (~[| "\\" (["n","t","b","r","f","\\","\'","\""]("\'","\\","\n","\r"].md) | [(["0"-"7"]("0"-"7"].md))? | ["0"-"7"]("0"-"7".md)"0"-"3"]) ["\'">
-}
+An identifier is a sequence of characters delimited by back-ticks ``` ` ```. 
+Examples of valid identifiers are
+- ``` `surname` ```
+- ``` `name and surname` ```
+- ``` `foo.bar` ```
+- ``` `a + b` ```
+- ``` `select` ```
 
-/* SEPARATORS */<DEFAULT> TOKEN : {
-<LPAREN: "(">
-| <RPAREN: ")">
-| <LBRACE: "{">
-| <RBRACE: "}">
-| <LBRACKET: "[">
-| <RBRACKET: "]("0"-"7"].md))*)">
-| <SEMICOLON: ";">
-| <COMMA: ",">
-| <DOT: ".">
-| <AT: "@">
-}
+The back-tick character can be used as a valid character for identifiers, but it has to be escaped with a backslash, eg.
+- ``` `foo \` bar` ```
 
-/** OPERATORS **/<DEFAULT> TOKEN : {
-<EQ: "=">
-| <LT: "<">
-| <GT: ">">
-| <BANG: "!">
-| <TILDE: "~">
-| <HOOK: "?">
-| <COLON: ":">
-| <LE: "<=">
-| <GE: ">=">
-| <NE: "!=">
-| <NEQ: "<>">
-| <SC_OR: "||">
-| <SC_AND: "&&">
-| <INCR: "++">
-| <DECR: "--">
-| <PLUS: "+">
-| <MINUS: "-">
-| <STAR: "**">
-| <SLASH: "/">
-| <BIT_AND: "&">
-| <BIT_OR: "|">
-| <XOR: "^">
-| <REM: "%">
-| <LSHIFT: "<<">
-| <PLUSASSIGN: "+=">
-| <MINUSASSIGN: "-=">
-| <STARASSIGN: "**=">
-| <SLASHASSIGN: "/=">
-| <ANDASSIGN: "&=">
-| <ORASSIGN: "|=">
-| <XORASSIGN: "^=">
-| <REMASSIGN: "%=">
-| <LSHIFTASSIGN: "<<=">
-| <RSIGNEDSHIFTASSIGN: ">>=">
-| <RUNSIGNEDSHIFTASSIGN: ">>>=">
-| <ELLIPSIS: "...">
-| <NOT: ("N" | "n") ("O" | "o") ("T" | "t")>
-| <LIKE: ("L" | "l") ("I" | "i") ("K" | "k") ("E" | "e")>
-| <IS: "is" | "IS" | "Is" | "iS">
-| <IN: "in" | "IN" | "In" | "iN">
-| <BETWEEN: ("B" | "b") ("E" | "e") ("T" | "t") ("W" | "w") ("E" | "e") ("E" | "e") ("N" | "n")>
-| <CONTAINS: ("C" | "c") ("O" | "o") ("N" | "n") ("T" | "t") ("A" | "a") ("I" | "i") ("N" | "n") ("S" | "s")>
-| <CONTAINSALL: ("C" | "c") ("O" | "o") ("N" | "n") ("T" | "t") ("A" | "a") ("I" | "i") ("N" | "n") ("S" | "s") ("A" | "a") ("L" | "l") ("L" | "l")>
-| <CONTAINSKEY: ("C" | "c") ("O" | "o") ("N" | "n") ("T" | "t") ("A" | "a") ("I" | "i") ("N" | "n") ("S" | "s") ("K" | "k") ("E" | "e") ("Y" | "y")>
-| <CONTAINSVALUE: ("C" | "c") ("O" | "o") ("N" | "n") ("T" | "t") ("A" | "a") ("I" | "i") ("N" | "n") ("S" | "s") ("V" | "v") ("A" | "a") ("L" | "l") ("U" | "u") ("E" | "e")>
-| <CONTAINSTEXT: ("C" | "c") ("O" | "o") ("N" | "n") ("T" | "t") ("A" | "a") ("I" | "i") ("N" | "n") ("S" | "s") ("T" | "t") ("E" | "e") ("X" | "x") ("T" | "t")>
-| <MATCHES: ("M" | "m") ("A" | "a") ("T" | "t") ("C" | "c") ("H" | "h") ("E" | "e") ("S" | "s")>
-| <TRAVERSE: ("T" | "t") ("R" | "r") ("A" | "a") ("V" | "v") ("E" | "e") ("R" | "r") ("S" | "s") ("E" | "e")>
-}
+The following are reserved identifiers can NEVER be used (upper or lower case):
 
-<DEFAULT> TOKEN : {
-<IDENTIFIER: <LETTER> (<PART_LETTER>)**>
-| <#LETTER: [| <#PART_LETTER: ["0"-"9","A"-"Z","_","a"-"z"]("A"-"Z","_","a"-"z"]>.md)>
-}
+- ``` `@rid` ```
+- ``` `@class` ```
+- ``` `@version` ```
+- ``` `@type` ```
+- ``` `@fieldTypes` ```
 
-NON-TERMINALS
-	Rid	:=	"#" <INTEGER_LITERAL> <COLON> <INTEGER_LITERAL>
-		|	<INTEGER_LITERAL> <COLON> <INTEGER_LITERAL>
-/** Root production. **/	OrientGrammar	:=	Statement <EOF>
-	Statement	:=	( SelectStatement | DeleteStatement | InsertStatement | UpdateStatement )
-	SelectStatement	:=	<SELECT> ( Projection )? <FROM> FromClause ( <WHERE> WhereClause )? ( OrderBy )? ( Limit )? ( Range )?
-	DeleteStatement	:=	<DELETE> <FROM> <IDENTIFIER> ( <WHERE> WhereClause )?
-	UpdateStatement	:=	<UPDATE> ( <IDENTIFIER> | Cluster | IndexIdentifier ) ( ( <SET> UpdateItem ( "," UpdateItem )** ) ) ( <WHERE> WhereClause )?
-	UpdateItem	:=	<IDENTIFIER> <EQ> ( <NULL> | <STRING_LITERAL> | Rid | <INTEGER_LITERAL> | <FLOATING_POINT_LITERAL> | <CHARACTER_LITERAL> | <LBRACKET> Rid ( "," Rid )** <RBRACKET> )
-	UpdateAddItem	:=	<IDENTIFIER> <EQ> ( <STRING_LITERAL> | Rid | <INTEGER_LITERAL> | <FLOATING_POINT_LITERAL> | <CHARACTER_LITERAL> | <LBRACKET> Rid ( "," Rid )** <RBRACKET> )
-	InsertStatement	:=	<INSERT> <INTO> ( <IDENTIFIER> | Cluster ) <LPAREN> <IDENTIFIER> ( "," <IDENTIFIER> ) <RPAREN> <VALUES> <LPAREN> InsertExpression ( "," InsertExpression ) <RPAREN>
-	InsertExpression	:=	<NULL>
-		|	<STRING_LITERAL>
-		|	<INTEGER_LITERAL>
-		|	<FLOATING_POINT_LITERAL>
-		|	Rid
-		|	<CHARACTER_LITERAL>
-		|	<LBRACKET> Rid ( "," Rid )** <RBRACKET>
-	InputParameter	:=	"?"
-	Projection	:=	ProjectionItem ( "," ProjectionItem )**
-	ProjectionItem	:=	"**"
-		|	( ( <NULL> | <INTEGER_LITERAL> | <STRING_LITERAL> | <FLOATING_POINT_LITERAL> | <CHARACTER_LITERAL> | FunctionCall | DottedIdentifier | RecordAttribute | ThisOperation | InputParameter ) ( <AS> Alias )? )
-	FilterItem	:=	<NULL>
-		|	Any
-		|	All
-		|	<INTEGER_LITERAL>
-		|	<STRING_LITERAL>
-		|	<FLOATING_POINT_LITERAL>
-		|	<CHARACTER_LITERAL>
-		|	FunctionCall
-		|	DottedIdentifier
-		|	RecordAttribute
-		|	ThisOperation
-		|	InputParameter
-	Alias	:=	<IDENTIFIER>
-	Any	:=	"any()"
-	All	:=	"all()"
-	RecordAttribute	:=	<RECORD_ATTRIBUTE>
-	ThisOperation	:=	<THIS> ( FieldOperator )**
-	FunctionCall	:=	<IDENTIFIER> <LPAREN> ( "**" | ( FilterItem ( "," FilterItem )** ) ) <RPAREN> ( FieldOperator )**
-	FieldOperator	:=	( <DOT> <IDENTIFIER> <LPAREN> ( FilterItem ( "," FilterItem )** )? <RPAREN> )
-		|	( "[<STRING_LITERAL> "](".md)" )
-	DottedIdentifier	:=	<IDENTIFIER> ( "[WhereClause "](".md)" )+
-		|	<IDENTIFIER> ( FieldOperator )+
-		|	<IDENTIFIER> ( <DOT> DottedIdentifier )?
-	FromClause	:=	FromItem
-	FromItem	:=	Rid
-		|	<LBRACKET> Rid ( "," Rid )** <RBRACKET>
-		|	Cluster
-		|	IndexIdentifier
-		|	<IDENTIFIER>
-	Cluster	:=	"cluster:" <IDENTIFIER>
-	IndexIdentifier	:=	"index:" <IDENTIFIER>
-	WhereClause	:=	OrBlock
-	OrBlock	:=	AndBlock ( <OR> AndBlock )**
-	AndBlock	:=	( NotBlock ) ( <AND> ( NotBlock ) )**
-	NotBlock	:=	( <NOT> )? ( ConditionBlock | ParenthesisBlock )
-	ParenthesisBlock	:=	<LPAREN> OrBlock <RPAREN>
-	ConditionBlock	:=	TraverseCondition
-		|	IsNotNullCondition
-		|	IsNullCondition
-		|	BinaryCondition
-		|	BetweenCondition
-		|	ContainsCondition
-		|	ContainsTextCondition
-		|	MatchesCondition
-	CompareOperator	:=	EqualsCompareOperator
-		|	LtOperator
-		|	GtOperator
-		|	NeOperator
-		|	NeqOperator
-		|	GeOperator
-		|	LeOperator
-		|	InOperator
-		|	NotInOperator
-		|	LikeOperator
-		|	ContainsKeyOperator
-		|	ContainsValueOperator
-	LtOperator	:=	<LT>
-	GtOperator	:=	<GT>
-	NeOperator	:=	<NE>
-	NeqOperator	:=	<NEQ>
-	GeOperator	:=	<GE>
-	LeOperator	:=	<LE>
-	InOperator	:=	<IN>
-	NotInOperator	:=	<NOT> <IN>
-	LikeOperator	:=	<LIKE>
-	ContainsKeyOperator	:=	<CONTAINSKEY>
-	ContainsValueOperator	:=	<CONTAINSVALUE>
-	EqualsCompareOperator	:=	<EQ>
-	BinaryCondition	:=	FilterItem CompareOperator ( Rid | FilterItem )
-	BetweenCondition	:=	FilterItem <BETWEEN> FilterItem <AND> FilterItem
-	IsNullCondition	:=	FilterItem <IS> <NULL>
-	IsNotNullCondition	:=	FilterItem <IS> <NOT> <NULL>
-	ContainsCondition	:=	FilterItem <CONTAINS> <LPAREN> OrBlock <RPAREN>
-	ContainsAllCondition	:=	FilterItem <CONTAINSALL> <LPAREN> OrBlock <RPAREN>
-	ContainsTextCondition	:=	FilterItem <CONTAINSTEXT> ( <STRING_LITERAL> | DottedIdentifier )
-	MatchesCondition	:=	FilterItem <MATCHES> <STRING_LITERAL>
-	TraverseCondition	:=	<TRAVERSE> ( <LPAREN> <INTEGER_LITERAL> ( "," <INTEGER_LITERAL> ( "," TraverseFields )? )? <RPAREN> )? <LPAREN> OrBlock <RPAREN>
-	TraverseFields	:=	<STRING_LITERAL>
-	OrderBy	:=	<ORDER> <BY> <IDENTIFIER> ( "," <IDENTIFIER> )** ( <DESC> | <ASC> )?
-	Limit	:=	<LIMIT> <INTEGER_LITERAL>
-	Range	:=	<RANGE> Rid ( "," Rid )?
+**Simplified identifiers**
 
-DOCUMENT END
+Identifiers that start with a letter or with `$` and that contain only numbers, letters and underscores, can be written without back-tick quoting. Reserved words cannot be used as simplified identifiers. Valid simplified identifiers are
+- ```name```
+- ```name_and_surname```
+- ```$foo```
+- ```name_12```
+
+
+Examples of INVALID queries for wrong identifier syntax
+
+```SQL
+/* INVALID - `from` is a reserved keyword */
+SELECT from from from 
+/* CORRECT */
+SELECT `from` from `from` 
+
+/* INVALID - simplified identifiers cannot start with a number */
+SELECT name as 1name from Foo
+/* CORRECT */
+SELECT name as `1name` from Foo
+
+/* INVALID - simplified identifiers cannot contain `-` character, `and` is a reserved keyword */
+SELECT name-and-surname from Foo
+/* CORRECT 1 - `name-and-surname` is a single field name */
+SELECT `name-and-surname` from Foo
+/* CORRECT 2 - `name`, `and` and `surname` are numbers and the result is the subtraction */
+SELECT name-`and`-surname from Foo
+/* CORRECT 2 - with spaces  */
+SELECT name - `and` - surname from Foo
+
+/* INVALID - wrong back-tick escaping */
+SELECT `foo`bar` from Foo
+/* CORRECT */
+SELECT `foo\`bar` from Foo
+
 ```
+**Case sensitivity**
+
+*(draft, TBD)* All the identifiers are case sensitive.
+
+###Reserved words
+
+In OrientDB SQL the following are reserved words
+
+- AFTER
+- AND
+- AS
+- ASC
+- BATCH
+- BEFORE
+- BETWEEN
+- BREADTH_FIRST
+- BY
+- CLUSTER
+- CONTAINS
+- CONTAINSALL
+- CONTAINSKEY
+- CONTAINSTEXT
+- CONTAINSVALUE
+- CREATE
+- DEFAULT
+- DEFINED
+- DELETE
+- DEPTH_FIRST
+- DESC
+- DISTINCT
+- EDGE
+- FETCHPLAN
+- FROM
+- INCREMENT
+- INSERT
+- INSTANCEOF
+- INTO
+- IS
+- LET
+- LIKE
+- LIMIT
+- LOCK
+- MATCH
+- MATCHES
+- MAXDEPTH
+- NOCACHE
+- NOT
+- NULL
+- OR
+- PARALLEL
+- POLYMORPHIC
+- RETRY
+- RETURN
+- SELECT
+- SKIP
+- STRATEGY
+- TIMEOUT
+- TRAVERSE
+- UNSAFE
+- UNWIND
+- UPDATE
+- UPSERT
+- VERTEX
+- WAIT
+- WHERE
+- WHILE
+
+###Base types
+
+Accepted base types in OrientDB SQL are:
+- **integer numbers**: 
+
+Valid integers are
+```
+(32bit)
+1
+12345678
+-45
+
+(64bit)
+1L
+12345678L
+-45L
+```
+
+- **floating point numbers**: single or double precision
+
+Valid floating point numbers are:
+```
+(single precision)
+1.5
+12345678.65432
+-45.0
+
+(double precision)
+0.23D
+.23D
+```
+
+- **absolute precision, decimal numbers**: like BigDecimal in Java
+
+Use the `bigDecimal(<number>)` function to explicitly instantiate an absolute precision number.
+
+
+- **strings**: delimited by `'` or by `"`. Single quotes, double quotes and back-slash inside strings can escaped using a back-slash
+
+Valid strings are:
+```
+"foo bar"
+'foo bar'
+"foo \" bar"
+'foo \' bar'
+'foo \\ bar'
+```
+
+- **booleans**: boolean values are case sensitive
+
+Valid boolean values are
+```
+true
+false
+```
+
+- **links**: A link is a pointer to a document in the database
+
+In SQL a link is represented as follows:
+
+```
+#<cluster-id>:<cluster-position>
+```
+eg.
+```
+#12:15
+```
+
+
+- **null**: case insensitive (for consistency with IS NULL and IS NOT NULL conditions, that are case insensitive)
+
+Valid null expressions include
+```
+NULL
+null
+Null
+nUll
+...
+```
+
+###Numbers
+
+OrientDB can store five different types of numbers
+- Integer: 32bit signed
+- Long: 64bit signed
+- Float: decimal 32bit signed
+- Duoble: decimal 64bit signed
+- BigDecimal: absolute precision
+
+(TODO hex and oct, decimal exponent, hex exponent)
+
+**Integers** are represented in SQL as plain numbers, eg. `123`. If the number represented exceeds the Integer maximum size (see Java java.lang.Integer `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Long. 
+
+When an integer is saved to a schemaful property of another numerical type, it is automatically converted. 
+
+**Longs** are represented in SQL as numbers with `L` suffix, eg. `123L` (L can be uppercase or lowercase). Plain numbers (withot L prefix) that exceed the Integer range are also automatically converted to Long. If the number represented exceeds the Long maximum size (see Java java.lang.Long `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`;
+
+**Float** numbers are represented in SQL as `[-][<number>].<number>`, eg. valid Float values are `1.5`, `-1567.0`, `.556767`. If the number represented exceeds the Float maximum size (see Java java.lang.Float `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Double. 
+
+**Double** numbers are represented in SQL as `[-][<number>].<number>D` (D can be uppercase or lowercase), eg. valid Float values are `1.5d`, `-1567.0D`, `.556767D`. If the number represented exceeds the Double maximum size (see Java java.lang.Double `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`
+
+**BigDecimal** in OrientDB is represented as a Java BigDecimal. 
+The instantiation of BigDecimal can be done explicitly, using the `bigDecimal(<number> | <string>)` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+
+
+
+Mathematical operations with numbers follow these rules:
+- Operations are calculated from left to right, following the operand priority (see maths section)
+- When an operation involves two numbers of different type, both are converted to the higher precision type between the two. 
+
+Eg. 
+
+```
+15 + 20L = 15L + 20L     // the 15 is converted to 15L
+
+15L + 20 = 15L + 20L     // the 20 is converted to 20L
+
+15 + 20.3 = 15.0 + 20.3     // the 15 is converted to 15.0
+
+15.0 + 20.3D = 15.0D + 20.3D     // the 15.0 is converted to 15.0D
+```
+
+the overflow follows Java rules.
+
+The conversion of a number to BigDecimal can be done explicitly, using the `bigDecimal()` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+
+###Collections
+
+OrientDB supports two types of collections:
+- **Lists**: ordered, allow duplicates
+- **Sets**: not ordered (?), no duplicates
+ 
+The SQL notation allows to create `Lists` with square bracket notation, eg.
+```
+[1, 3, 2, 2, 4]
+```
+
+A `List` can be converted to a `Set` using the `.asSet()` method:
+
+```
+[1, 3, 2, 2, 4].asSet() = [1, 3, 2, 4] /*  the order of the elements in the resulting set is not guaranteed */
+```
+
+###Binary data
+OrientDB can store binary data (byte arrays) in document fields. There is no native representation of binary data in SQL syntax, insert/update a binary field you have to use `decode(<base64string>, "base64")` function.
+
+To obtain the base64 string representation of a byte array, you can use the function `encode(<byteArray>, "base64")`
+
+###Expressions
+
+Expressions can be used as:
+
+- single projections
+- operands in a condition
+- items in a GROUP BY 
+- items in an ORDER BY
+- right argument of a LET assignment
+
+Valid expressions are:
+- `<base type value>` (string, number, boolean)
+- `<field name>`
+- `<@attribute name>`
+- `<function invocation>`
+- `<expression> <binary operator> <expression>`: with Java precedence rules
+- `<unary operator> <expression>` 
+- `<expression> ? <expression> : <expression>`: ternary if-else operator
+- `( <expression> )`: expression between parenthesis, for precedences
+- `( <query> )`: query between parenthesis
+- `[ <expression> (, <expression>)* ]`: a list, an ordered collection that allows duplicates, eg. `["a", "b", "c"]`)
+- `{ <expression>: <expression> (, <expression>: <expression>)* }`: the result is an ODocument, with <field>:<value> values, eg. `{"a":1, "b": 1+2+3, "c": foo.bar.size() }`. The key name is converted to String if it's not.
+- `<expression> <modifier> ( <modifier> )*`: a chain of modifiers (see below)
+- `<json>`: It is translated to an ODocument. Nested JSON is allowed and is translated to nested ODocuments (TODO what about Maps?)
+- `<expression> IS NULL`: check for null value of an expression
+- `<expression> IS NOT NULL`: check for non null value of an expression
+
+#### Modifiers
+
+A modifier can be
+- a dot-separated field chain, eg. `foo.bar`.
+- a method invocation, eg. `foo.size()`.
+- a square bracket filter, eg. `foo[1]` or `foo[name = 'John']`
+
+
+#### Square bracket filters
+
+Square brackets can be used to filter collections or maps. 
+
+`field[ ( <expression> | <range> | <condition> ) ]`
+
+Based on what is between brackets, the square bracket filtering has different effects:
+
+- `<expression>`: If the expression returns an Integer or Long value (i), the result of the square bracket filtering
+is the i-th element of the collection/map. If the result of the expresson (K) is not a number, the filtering returns the value corresponding to the key K in the map field. If the field is not a collection/map, the square bracket filtering returns `null`.
+The result of this filtering is ALWAYS a single value.
+- `<range>`: A range is something like `M..N`  or `M...N` where M and N are integer/long numbers, eg. `fieldName[2..5]`. The result of range filtering is a collection that is a subet of the original field value, containing all the items from position M (included) to position N (excluded for `..`, included for `...`). Eg. if `fieldName = ['a', 'b', 'c', 'd', 'e']`, `fieldName[1..3] = ['b', 'c']`, `fieldName[1...3] = ['b', 'c', 'd']`. Ranges start from `0`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
+- `<condition>`: A normal SQL condition, that is applied to each element in the `fieldName` collection. The result is a sub-collection that contains only items that match the condition. Eg. `fieldName = [{foo = 1},{foo = 2},{foo = 5},{foo = 8}]`, `fieldName[foo > 4] = [{foo = 5},{foo = 8}]`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
+
+
+###Conditions
+
+A condition is an expression that returns a boolean value.
+
+An expression that returns something different from a boolean value is always evaluated to `false`.
+
+### Math Operators
+
+- **`=`  (equals)**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
+- **`!=` (not equals)**: inequality operator. (TODO type conversion)
+- **`<>` (not equals)**: same as `!=`
+- **`>`  (greater than)**
+- **`>=` (greater or equal)**
+- **`<`  (less than)**
+- **`<=` (less or equal)**
+- **`+`  (plus)**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'`. Plus can also be used as a unary operator (no effect)
+- **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). Minus can also be used as a unary operator, to invert the sign of a number
+- **`*`  (multiplication)**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
+- **`/`  (division)**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
+- **`%`  (modulo)**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
+- **`>>`  (bitwise right shift)** (support will come after 3.0 M1)
+- **`<<`  (bitwise right shift)** (support will come after 3.0 M1)
+- **`&`  (bitwise AND)** (support will come after 3.0 M1)
+- **`|`  (bitwise OR)** (support will come after 3.0 M1)
+- **`^`  (bitwise XOR)** (support will come after 3.0 M1)
+- **`~`  (bitwise NOT)** (support will come after 3.0 M1)
+- **`||`**: array concatenation (support will come after 3.0 M1)
+
+### Math + Assign operators
+
+- **`+=`  (add and assign)**: adds right operand to left operand and assigns the value to the left operand. Returns the final value of the left operand. If one of the operands is not a number, then this operator acts as a `concatenate string values and assign`
+- **`-=`  (subtract and assign)**: subtracts right operand from left operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`*=`  (multiply and assign)**: multiplies left operand and right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`/=`  (divide and assign)**: divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`%=`  (modulo and assign)**: calculates left operand modulo right operand and assigns the value to the left operand. Returns the final value of the left operand
+
+### Array concatenation
+
+The `||` operator concatenates two arrays.
+
+```
+[1, 2, 3] || [4, 5] = [1, 2, 3, 4, 5]
+```
+
+If one of the elements is not an array, then it's converted to an array of one element, before the concatenation operation is executed
+
+```
+[1, 2, 3] || 4 = [1, 2, 3, 4]
+
+1 || [2, 3, 4] = [1, 2, 3, 4]
+
+1 || 2 || 3 || 4 = [1, 2, 3, 4]
+```
+
+To add an array, you have to wrap the array element in another array:
+
+```
+[[1, 2], [3, 4]] || [5, 6] = [[1, 2], [3, 4], 5, 6]
+
+[[1, 2], [3, 4]] || [[5, 6]] = [[1, 2], [3, 4], [5, 6]]
+```
+
+The result of an array concatenation is always a List (ordered and with duplicates). The order of the elements in the list is the same as the order in the elements in the source arrays, in the order they appear in the original expression.
+
+To transform the result of an array concatenation in a Set (remove duplicates), just use the `.asSet()` method
+
+```
+[1, 2] || [2, 3] = [1, 2, 2, 3]
+
+([1, 2] || [2, 3]).asSet() = [1, 2, 3] 
+```
+
+
+### Boolean Operators
+
+- **`AND`**: logical AND
+- **`OR`**: logical OR
+- **`NOT`**: logical NOT
+- **`CONTAINS`**: checks if the left collection contains the right element. The left argument has to be a colleciton, otherwise it returns FALSE. It's NOT the check of colleciton intersections, so `['a', 'b', 'c'] CONTAINS ['a', 'b']` will return FALSE, while `['a', 'b', 'c'] CONTAINS 'a'` will return TRUE. 
+- **`IN`**: the same as CONTAINS, but with inverted operands.
+- **`CONTAINSKEY`**: for maps, the same as for CONTAINS, but checks on the map keys
+- **`CONTAINSVALUE`**: for maps, the same as for CONTAINS, but checks on the map values
+- **`LIKE`**: for strings, checks if a string contains another string. `%` is used as a wildcard, eg. `'foobar CONTAINS '%ooba%''`
+- **`IS DEFINED`** (unary): returns TRUE is a field is defined in a document
+- **`IS NOT DEFINED`** (unary): returns TRUE is a field is not defined in a document
+- **`BETWEEN - AND`** (ternary): returns TRUE is a value is between two values, eg. `5 BETWEEN 1 AND 10`
+- **`MATCHES`**: checks if a string matches a regular expression
+- **`INSTANCEOF`**: checks the type of a value, the right operand has to be the a String representing a class name, eg. `father INSTANCEOF 'Person'` (TODO consider identifiers as class names as well?)
+
