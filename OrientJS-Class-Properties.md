@@ -25,11 +25,15 @@ In the event that you need to check the schema or are unfamiliar with the proper
 For instance, say you want a list of properties set for the class `Player`:
 
 ```js
-var properties = Player.property.list().then(function(properties){
-   console.log(Player.name + 'class has the following properties',
-      properties);
-});
-
+Player.property.list()
+   .then(
+      function(properties){
+         console.log(
+            Player.name + 'class has the following properties: ',
+            properties
+         );
+      }
+   );
 ```
 
 ## Creating Properties
@@ -40,9 +44,11 @@ Using OrientJS, you can define a schema for the classes from within your applica
 Player.property.create({
    name: 'name',
    type: 'String'
-}).then(function(p){
-   console.log('Property created:' + p);
-});
+}).then(
+   function(property){
+      console.log("Created Property: " + property.name);
+   }
+);
 ```
 
 This adds a property to the class where you can give the player's name when entering data.  This is fine if you only have a few properties to create, but in the case of the example, there are a large number of values you might assign to a given player, such as dates of birth and death, team, batting averages, and so on.  You can set multiple properties together by passing `class.property.create()` an array.
@@ -57,9 +63,11 @@ Player.property.create([
     type: 'String'}
    {name: 'battingAverage',
     type: 'Float'}
-]).then(function(properties){
-   console.log('Properties created');
-});
+]).then(
+   function(property){
+      console.log("Created Property: " + property.name);
+   }
+);
 ```
 
 

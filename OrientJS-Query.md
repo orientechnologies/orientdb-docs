@@ -27,10 +27,15 @@ db.query(
 
 In the event that you want to query other teams and batting averages, such as the case where you want your application to serve a website, you can use previously defined variables, (here, `targetBA` and `targetTeam`), to set these parameters.  You can also add a limit to minimize the amount of data your application needs to parse.
 
+>Do not enclose param placeholders in single/double quotes in query string. Query parameters are properly encoded by their type. Given example below, the executed query will be `SELECT name, ba FROM Player WHERE ba >= 0.3 AND team = "Red Sox" LIMIT 20` 
+
 ```js
+var targetBA = 0.3;
+var targetTeam = 'Red Sox';
+
 db.query(
    'SELECT name, ba FROM Player '
-   + 'WHERE ba >= :ba AND team = ":team"',
+   + 'WHERE ba >= :ba AND team = :team',
    {params:{
             ba: targetBA,
             team: targetTeam

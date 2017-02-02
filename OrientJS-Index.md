@@ -22,8 +22,11 @@ Using the Index API, you create an index property on a given class through the `
 var indexName = db.index.create({
    name: 'Player.name',
    type: 'fulltext'
-});
-console.log('Created Index: ' + indexName.name);
+}).then(
+   function(index){
+      console.log('Created Index: ' + index.name);
+   }
+);
 ```
 
 In the baseball statistics database, you may find yourself often searching for players by name.  The above example creates a Full Text index on the `name` property of `Player` using the SB-Tree indexing algorithm.

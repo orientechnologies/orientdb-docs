@@ -17,8 +17,8 @@ In order to work with an OrientDB database in your Node.js application, you need
 For instance, with an existing database,
 
 ```js
-var db = server.use('BaseballStats');
-console.log('Using database: ' + db.name);
+var db = server.use('BaseballStats')
+console.log('Using Database:'  + db.name);
 ```
 
 Using this code, your application would attempt to connect to the `BaseballStats` database.  When it succeeds, it logs a message to the console to tell the user which database they're on.
@@ -82,9 +82,7 @@ Methods are tied to the variable you initialize the Database API to: `db.<method
 Methods tied to the Record API are called through the `db.record` object.  These methods allow you to access and manipulate records directly through the Record ID.  For instance, say you want to get the data from the record #1:1:
 
 ```js
-db.record.get('#1:1').then(function(rec){
-   console.log(rec);
-});
+var rec = db.record.get('#1:1');
 ```
 
 For more information on the Record API and other methods available, see [Record API](OrientJS-Record.md).
@@ -95,9 +93,7 @@ For more information on the Record API and other methods available, see [Record 
 Methods tied to the Class API are called through the `db.class` object.  These methods allow you to create, access and manipulate classes directly through their class names.  For instance, say you wanted to create a class in a baseball database for players,
 
 ```js
-db.class.create('Player', 'V').then(function(cls){
-   console.log("Created class: " + cls.name);
-});
+var Player = db.class.create('Player', 'V');
 ```
 
 For more information on the Class API and other methods available, see [Class API](OrientJS-Class.md).
@@ -108,11 +104,9 @@ For more information on the Class API and other methods available, see [Class AP
 Methods tied to the Index API are called through the `db.index` object.  These methods all you to create and fetch index properties for a given class.  For instance, say you want create an index on the `Player` class in your baseball database for the players' names,
 
 ```js
-db.index.create({
+var indexName = db.index.create({
    name: 'Player.name',
    type: 'fulltext'
-}).then(function(idx){
-   console.log("Created index: "  + idx);
 });
 ```
 
@@ -125,8 +119,6 @@ Using the Database API, you can access the Function API through the `db.createFn
 ```js
 db.createFn("batAvg", function(hits, atBats){
    return hits / atBats;
-}).then(function(count){
-   // Function created
 });
 ```
 
@@ -146,16 +138,17 @@ For instance, using the baseball database, say that you want to allow users to r
 var targetAvg = 0.3;
 var targetTeam = 'Red Sox';
 
-db.query(
+var hitters = db.query(
    'SELECT name, battavg FROM Player WHERE battavg >= :ba AND team = :team',
    {params: {
       ba: targetAvg,
       team: targetTeam
     },limit: 20 }
-).then(function(hitters){
-   console.log(hitters);
-});
-
+).then(
+   function(players){
+      console.log(players);
+   }
+);
 ```
 
 Here, the variables `targetAvg` and `targetTeam` are defined at the start, then the query is run against the `Player` class for Red Sox players with batting averages greater than or equal to .300, printing the return value to the console.
@@ -168,7 +161,7 @@ There are a number of more specialized query related methods supported by the Da
 The Database API supports transactions through the `db.let()` and `db.commit()` methods.  These allow you to string together a series of changes to the database and then commit them together.  For instance, here is a transaction to add the player Shoeless Joe Jackson to the database:
 
 ```js
-db.let('player',
+var trx = db.let('player',
    function(p){
       p.create('VERTEX', 'Player')
          .set({
@@ -179,9 +172,7 @@ db.let('player',
             threw:     'right'
          })
    }).commit()
-   .return('$player').all().then(function(players){
-      console.log(players);
-   });
+   .return('$player').all();
 ```
 
 For more information, see [Transactions](OrientJS-Transactions.md).
@@ -209,5 +200,3 @@ When you initialize a database instance, OrientDB begins to reserve system resou
 ```js
 db.close();
 ```
-
-

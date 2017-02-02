@@ -26,8 +26,12 @@ var users = db.select().from('OUser')
      status: 'ACTIVE'
    }).fetch({
       role: 5
-   }).all();
-console.log('Active Users', users);
+   }).all()
+   .then(
+      function(data){
+         console.log('Active Users: ' + users);
+      }
+   );
 ```
 
 

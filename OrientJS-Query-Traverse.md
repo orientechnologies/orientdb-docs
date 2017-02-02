@@ -21,7 +21,10 @@ The simplest use of the method is to traverse all records connected to a particu
 ```js
 var records = db.traverse()
    .where({name: 'Boston Red Sox'})
-   .all();
-console.log('Found Records', records);
+   .all()
+   .then(
+      function(trav){
+         console.log('Found Records:', trav);
+      }
+   );
 ```
-

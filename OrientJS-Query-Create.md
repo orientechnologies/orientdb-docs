@@ -5,7 +5,7 @@ search:
 
 # OrientJS - `create()`
 
-Creation queries in OrientJS are those used in creating vertex and edge records on a Graph Database.  Given the added complexity of regular or lightweight edges running between the vertices, adding records is a little more complicated than the [`insert()`](OrientJS-Query-Insert) method you might use otherwise.
+Creation queries in OrientJS are those used in creating vertex and edge records on a Graph Database.  Given the added complexity of regular or lightweight edges running between the vertices, adding records is a little more complicated than the [`insert()`](OrientJS-Query-Insert.md) method you might use otherwise.
 
 The creation query method is comparable to the [`CREATE VERTEX`](SQL-Create-Vertex.md) and [`CREATE EDGE`](SQL-Create-Edge.md) commands on the OrientDB Console.
 
@@ -34,8 +34,11 @@ var player = db.create('VERTEX', 'Player')
       deathDate: '1961-7-17',
       batted:    'left',
       threw:     'right'
-   }).one();
-console.log('Created Vertex: ' +  player.name)
+   }).one().then(
+      function(player){
+         console.log('Created Vertex: ' + player.name);
+      }
+   );
 ```
 
 ### Creating Edges

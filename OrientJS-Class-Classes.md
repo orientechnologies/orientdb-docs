@@ -13,11 +13,15 @@ With OrientJS, you can access and manipulate classes on your OrientDB database, 
 Using the Class API, you can retrieve all current classes on the database in a list.  You might do this in checking that the database has been set up or to otherwise ensure that it includes the classes your application requires to operate.
 
 ```js
-db.class.list().then(function(classes){
-   console.log('There are ' + classes.length + ' classes in the db:',
-   classes);
-});
-
+db.class.list()
+   .then(
+      function(classes){
+         console.log('There are ' 
+         + classes.length 
+         + ' classes in the db:',
+         classes);
+      }
+   );
 ```
 
 Here, the class list is set to the variable `classes`, which in turn uses the `length` operator to find the number of entries in the list.
@@ -28,10 +32,12 @@ Here, the class list is set to the variable `classes`, which in turn uses the `l
 You can also create classes through the Class API.  You may find this especially useful when setting up a schema on your database.  For instance, on the `BaseballStats` database, you might want to create a class to log statistical information on particular players.
 
 ```js
-db.class.create('Player').then(function(Player){
-   console.log('Created class: ' + Player.name);
-});
-
+db.class.create('Player')
+   .then(
+      function(player){
+         console.log('Craeted class: ' + player.name);
+      }
+   );
 ```
 
 This creates the class `Player` in the database and a cluster `player` in which to store the data.
@@ -45,10 +51,12 @@ Sometimes you may want to extend existing classes, such as ones that you've crea
 For instance, in the above example you created a class for storing data on players.  Consider the case where you want instances of `Player` to be vertices in a Graph Database.
 
 ```js
-db.class.create('Player', 'V').then(function(Player){
-   console.log('Created Vertex Class: ' + Player.name);
-});
-
+db.class.create('Player', 'V')
+   .then(
+      function(player){
+         console.log('Craeted Vertex Class: ' + player.name);
+      }
+   );
 ```
 
 This creates `Player` as an extension of the vertex class `V`.
@@ -59,10 +67,12 @@ This creates `Player` as an extension of the vertex class `V`.
 In order to work with the class, you may need to retrieve the class object from OrientDB.  With OrientJS this is handled by the `db.class.get()` method.
 
 ```js
-db.class.get('Player').then(function(Player){
-   console.log('Retrieved class: ' + Player.name);
-});
-
+var player = db.class.get('Player')
+   .then(
+      function(player){
+         console.log('Retrieved class: ' + player.name);
+      }
+   );
 ```
 
 ## Updating Classes
@@ -75,13 +85,12 @@ For instance, above there were two examples on how to create a class for basebal
 db.class.update({
    name: 'Player',
    superClass: 'V'
-}).then(function(){
-   console.log('Updated class: ' Player.name
-   + ' to extend '
-   + Player.superClass);
-});
-
+}).then(
+   function(player){
+      console.log(
+         'Updated Class: ' + player.name
+         + ' to extend ' + player.superClass
+      );
+   }
+);
 ```
-
-
-

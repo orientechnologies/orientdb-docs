@@ -28,7 +28,6 @@ var query = db.select('name, status').from('OUser')
 
 The function in `beginQuery` event receives an object that contains data on the query it's executing, this is similar to the data set on the `obj` variable below:
 
-
 ```js
 var obj = {
    query: 'SELECT name, status FROM OUser'
@@ -73,7 +72,6 @@ var obj = {
 
 Where `inputObj` is the data used for the `beginQuery` event.
 
-
 For instance, when debugging you might use this event to log errors and performance data to the console:
 
 ```js
@@ -81,3 +79,11 @@ db.on("endQuery", function(obj){
    console.log("DEBUG: ", obj);
 });
 ```
+
+### Running Events on Live Queries
+
+Beginning in version 2.1, OrientDB introduces Live Queries, which provides support for [`INSERT`](SQL-Insert.md), [`DELETE`](SQL-Delete.md), and [`UPDATE`](SQL-Update.md) events to OrientJS applications.
+
+Unlike other events, these are not set to the Database API itself, but rather through a [`LIVE SELECT`](SQL-Live-Select.md) query that determines what records you want the application to monitor.
+
+For more information and examples, see [`liveQuery()`](OrientJS-Query-Live-Query.md).
