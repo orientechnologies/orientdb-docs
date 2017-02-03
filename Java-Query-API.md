@@ -37,6 +37,83 @@ rs.close();
 
 ```
 
+
+### Query parameters
+
+Building SQL statements as a string concatenation is universally recognized as a dangerous practice.
+ 
+See an example:
+
+```java
+String name = ...
+String stm = "SELECT FROM V WHERE name = '"+name+"'";
+OResultSet rs = db.query(statement);
+```
+
+Apart from being hard to read, this query could also lead to SQL injection, based on the value of the `name` variable.
+
+OrientDB allows to avoid string concatenation for parameter values, using named or positional parameters.
+ 
+####Named Parameters
+
+A named parameter is defined as an identifier preceded by a colon, eg. `:parameter1`  
+
+An example is following:
+```java
+String stm = "SELECT FROM V WHERE name = :name and surname = :surname";
+```
+
+The named parameters have to passed to the query API (`command()` or `query()`) as a `Map<String, Object>`, where the key is the
+parameter name (without the colon) and the value is the parameter value, eg.
+
+```java
+Map<String, Object> params = new HashMap<>();
+params.put("name", "John");
+params.put("surname", "Smith");
+
+String stm = "SELECT FROM V WHERE name = :name and surname = :surname";
+OResultSet rs = db.query(stm, params);
+```
+
+The same named parameter can be used muliple times in the same statement, eg. the following is valid:
+
+```java
+Map<String, Object> params = new HashMap<>();
+params.put("name", "John");
+
+String stm = "SELECT FROM V WHERE name = :name and surname = :name";
+OResultSet rs = db.query(stm, params);
+```
+
+
+####Positional Parameters
+
+A positional parameter is identified by a `?`, eg.
+
+```java
+String stm = "SELECT FROM V WHERE name = ? and surname = ?";
+```
+
+Positional parameters are passed to the query API as an `Object[]` or simply as java varArgs, eg.
+ 
+```java
+String stm = "SELECT FROM V WHERE name = ? and surname = ?";
+OResultSet rs = db.query(stm, "John", "Smith");
+```
+
+The order of the parameters is defined as the exact order as they appear in the string.
+If you have subqueries, the order of the parameters is still defined by the order in the string, eg.
+
+```java
+String stm = "SELECT FROM V WHERE name = ? and city in (SELECT FROM CITY WHERE cityName = ?) and surname = ?";
+OResultSet rs = db.query(stm, "John", "London", "Smith");
+```
+
+In this query the first parameter refers to `name = ?`, the second one refers to `cityName = ?` and the third one refers to 
+`surname = ?`
+ 
+
+
 ### OResult
 
 The OResult interface represents a row in the result-set.
@@ -45,7 +122,7 @@ An OResult instance can represent an element with an identity (a document, a ver
 or a projection.
 
 
-The content (the properties) of an OResult can be retrieved using `getProperty()`. OResult also
+The content (the properties) of an OResult can be retrieved using `getProperty(String)`. OResult also
 provides a `getPropertyNames()` method that returns all the property names in current row.
 
 You can extract a persistent entity from an OResult (in case it actyally represents a vertex, an edge or a document)
@@ -64,7 +141,7 @@ OElement toElement()
 ``` 
 There is an important difference between `getElement()` and `toElement()`:
 - getElement() returns a non-empty Optional<OElement> only if the OResult represents a persistent entity
-- toElement() acts the same as getElement() when the result of getElement() is not empty. In case it's not true,
+- toElement() acts the same as getElement() (apart from the Optional) when the result of getElement() is not empty. In case it's not true,
 it returns a new (not yet persisted) OElement with the same properties as the OResult.
 
 
@@ -120,6 +197,8 @@ This is true both in remote and in embedded usage.
 You should always invoke OResultSet.close() at the end of the execution, to free resources.
 
 OResultSet instances are automatically closed when you close the ODatabase that returned them.
+
+It is important to always close result sets, even when they are converted to streams (after the stream is consumed).
 
 
 ###Legacy API
