@@ -100,3 +100,9 @@ you need explicit support for Apache TinkerPop API.
 V 3.0 also includes a new [query interface](Java-Query-API.md) that explicitly return elements that can be converted to the Multi-Model 
 interface hierarchy. 
 
+### Summary
+
+- [Database creation and connection](Java-MultiModel-Database-API.md)
+- [Manipulating data in Java](Java-MultiModel-Data-API.md)
+- [Manipulating data in Java](Java-Query-API.md)
+- [Defining Database Schema](Java-MultiModel-Schema-API.md)

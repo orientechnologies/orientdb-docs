@@ -36,14 +36,23 @@ Each Java API has its own pros and cons.  For more information on determining wh
 >In general, the cost of high-level abstraction is a speed penalty, but remember that OrientDB is orders of magnitude faster than the class Relational Database.  So, using the Object Database provides a high-level of abstraction with much less code to develop and maintain.
 
 
+### Document Graph API (Multi-Model)
+(since v 3.0)
 
-### Graph API
+With this Java API, you can use OrientDB as a Document-Graph Database, allowing you to work with Vertices, Edges or simple Documents.  
+
+API: [Muilti-Model, Document-Graph API](Java-MultiModel-API.md)
+
+Query API: [Query API](Java-Query-API.md)
+
+
+### Graph API (legacy)
 
 With this Java API, you can use OrientDB as a Graph Database, allowing you to work with Vertices and Edges.  The Graph API is compliant with the [TinkerPop](http://www.tinkerpop.com) standard.
 
 API: [Graph API](Graph-Database-Tinkerpop.md)
 
-### Document API
+### Document API (legacy)
 
 With this Java API, you can handle records and documents.  Documents are comprised of fields and fields can be any of the supported types.  You can use it with a schema, without, or in a mixed mode.
 
