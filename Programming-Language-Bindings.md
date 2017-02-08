@@ -148,7 +148,7 @@ This is the list of the known drivers to use OrientDB through different language
     </td>
     <td><a href="https://github.com/topofocus/active-orient">Active-Orient</a></td>
     <td>HTTP</td>
-    <td>Use OrientDB to persistently store dynamic Ruby-Objects and use database queries to manage even very large datasets.</td>
+    <td>Use OrientDB to persistently store dynamic Ruby-Objects and use database queries to manage even very large datasets. The gem is  rails 5 compatible.</td>
 </tr>
 <tr>
     <td><a href="https://github.com/aemadrid/orientdb-jruby">OrientDB-JRuby</a></td>
