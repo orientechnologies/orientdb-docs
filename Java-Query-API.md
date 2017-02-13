@@ -5,13 +5,17 @@
 
 ### Querying the database in SQL
 
-ODatabaseDocument provides four methods to query the database:
+ODatabaseDocument provides some methods interact with the database via SQL statements and scripts:
 
 ```java
   OResultSet query(String query, Object... positionalParamas)
   OResultSet query(String query, Map namedParams);
+
   OResultSet command(String query, Object... positionalParams);
   OResultSet command(String query, Map namedParams);
+  
+  OResultSet command(String language, String script, Object... positionalParams);
+  OResultSet command(String language, String script, Map namedParams);
 ```
 
 `query()` methods are inteded to execute idempotent statements only (eg. SELECT, MATCH, TRAVERSE).
@@ -199,6 +203,39 @@ You should always invoke OResultSet.close() at the end of the execution, to free
 OResultSet instances are automatically closed when you close the ODatabase that returned them.
 
 It is important to always close result sets, even when they are converted to streams (after the stream is consumed).
+
+
+
+### Batch Scripts
+
+The `db.execute()` API is intended to execute scripts (SQL by default, but it can be extended to other languages - like Gremiln - 
+with external plugins).
+ 
+Here is an example on how to run a SQL script from Java API:
+
+```java
+ODatabaseDocument db;
+...
+String script = 
+"BEGIN;"+
+"LET $a = CREATE VERTEX V SET name = 'a';"+
+"LET $b = CREATE VERTEX V SET name = 'b';"+
+"LET $edge = CREATE EDGE E from $a to $b;"+
+"COMMIT;"+
+"RETURN $edge;";
+
+OResultSet rs = db.execute("sql", script);
+while(rs.hasNext()){
+  OResult row = rs.next();
+  ...
+}
+rs.close();
+
+```
+
+> IMPORTANT: the semicolon (`;`) at the end of each SQL statement is **mandatory**  
+
+> IMPORTANT: if you are migrating from previous versions, please consider that until v 2.2 the newline was a valid delimiter for SQL statements in a script (the semicolon was not mandatory); in v 3.0 a single statement in a script can be split on multiple lines. 
 
 
 ###Legacy API
