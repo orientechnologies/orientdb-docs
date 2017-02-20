@@ -195,6 +195,9 @@ true
 false
 ```
 
+Boolean value constants are case insensitive, so also `TRUE`, `True` and so on are valid.
+
+
 - **links**: A link is a pointer to a document in the database
 
 In SQL a link is represented as follows:
