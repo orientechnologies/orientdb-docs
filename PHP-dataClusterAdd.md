@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - `dataClusterAdd()`
 
-This method creates a new clsuter on the database.
+This method creates a new cluster on the database.
 
 ## Adding Clusters
 
@@ -26,7 +26,7 @@ $client->dataClusterAdd(
 
 ### Example
 
-For instance, imagine you have an application that stores volatine data in-memory.  You might want a function to create a series of in-memory clusters as need.
+For instance, imagine you have an application that stores volatile data in-memory.  You might want a function to create a series of in-memory clusters as need.
 
 ```php
 // CREATE AD-HOC MEMORY CLUSTERS
