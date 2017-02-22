@@ -1,3 +1,11 @@
+# Release 3.0.x
+
+## What's new?
+
+### New Demo DB `Demo-DB-SocialTravelAgency`
+
+TODO
+
 ### API changes
 
 **OElement hierarchy**
@@ -40,3 +48,5 @@ IMPORTANT: in the near future `ODocument.field()` methods will be deprecated and
 
 `setUseVertexFieldsForEdgeLabels(boolean)` is now deprecated and has no effect. All the edge labels are represented as edge classes.
 
+
+## Migration from 2.2.x to 3.0.x
