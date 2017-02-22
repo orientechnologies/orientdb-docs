@@ -30,3 +30,26 @@ For instance, in the use case of web application, you might use something like t
 // CONNECT TO DATABASE
 $ClusterMap = $client->dbOpen('GratefulDeadConcerts', 'admin', 'admin_passwd');
 ```
+
+## Working with Database
+
+Once you have an open database on the client interface, a series of additional methods become available to you.  These methods handle common operations on the database, in terms of inserting and fetching records as well as manipulating clusters on the database.
+
+| Method | Description |
+|---|---|
+| [**`command()`**](PHP-Command.md) | Executes a command on the database. |
+| [**`dataClusterAdd()`**](PHP-dataClusterAdd.md) | Adds a cluster to the database. |
+| [**`dataClusterCount()`**](PHP-dataClusterCount.md) | Counts records in a cluster or clusters. |
+| [**`dataClusterDrop()`**](PHP-dataClusterDrop.md) | Removes a cluster from the database. |
+| [**`dataClusterDataRange()`**](PHP-dataClusterDataRange.md) | retrieves a range of Record ID's for the given cluster. |
+| [**`dbCountRecords()`**](PHP-dbCountRecords.md) | Counts records on a database. |
+| [**`dbReload()`**](PHP-dbReload.md) | Reloads the database on the client interface. |
+| [**`dbSize()`**](PHP-dbSize.md) | Returns the size of the database. |
+| [**`query()`**](PHP-Query.md) | Queries the database. |
+| [**`queryAsync()`**](PHP-queryAsync.md) | Queries the database with support for callback functions and Fetching Strategies. |
+| [**`recordCreate()`**](PHP-recordCreate.md) | Creates a record on database. |
+| [**`recordLoad()`**](PHP-recordLoad.md) | Loads a record from the database. |
+| [**`recordUpdate()`**](PHP-recordUpdate.md) | Updates a record on the database. |
+| [**`sqlBatch()`**](PHP-sqlBatch.md) | Executes an SQL batch command. |
+
+
