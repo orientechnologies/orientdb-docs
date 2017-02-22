@@ -2,6 +2,27 @@
 
 ## What's new?
 
+### New database administration API
+
+### New database access and pooling API
+
+### Graph-document concepts unification in core API
+
+### New execution plan based query engine
+
+### Support for query on remote transactions
+
+### Support straming of query result set
+
+### Integration with Tinker Pop 3.x
+
+### Integration with Tinker Pop 2.x
+
+### Externalization of object API
+
+### Improvements of storage caching for reduce latency
+
+
 ### New Demo DB `Demo-DB-SocialTravelAgency`
 
 TODO
