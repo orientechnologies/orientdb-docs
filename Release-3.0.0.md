@@ -27,7 +27,7 @@
 
 TODO
 
-### API changes
+## API Changes
 
 **OElement hierarchy**
 
@@ -69,5 +69,16 @@ IMPORTANT: in the near future `ODocument.field()` methods will be deprecated and
 
 `setUseVertexFieldsForEdgeLabels(boolean)` is now deprecated and has no effect. All the edge labels are represented as edge classes.
 
+
+## SQL Changes
+
+CREATE INDEX T.id UNIQUE won't work anymore --> CREATE INDEX T.id ON T(id) UNIQUE is needed
+
+batch
+
+statement1
+statement2
+
+wont' work anymore --> add ; after a statement
 
 ## Migration from 2.2.x to 3.0.x
