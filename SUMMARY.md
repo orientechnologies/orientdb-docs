@@ -1,6 +1,6 @@
 # Summary 
 
-* [Introduction](#)(#)
+* [Introduction](#)
   * [About This Manual](#)
   * [Overview of OrientDB](#)
     * [What is OrientDB?](#)
@@ -27,7 +27,7 @@
     * [Tutorial: Working with Graph](#)    
     * [Tutorial: Setting-up an OrientDB Cluster](#)
     * [Tutorial: Using Gremlin with OrientDB](#)
-    * [Import Tutorials]
+    * [Import Tutorials](#)
       * [Tutorial: Importing the Open Beer Database into OrientDB](#)
       * [Tutorial: Importing the *movie* Database from Neo4j](#)
       * [Tutorial: Importing the *northwind* Database from Neo4j](#) 
@@ -104,7 +104,7 @@
   * [Tutorial: Working with Graph](#)    
   * [Tutorial: Setting-up an OrientDB Cluster](#)
   * [Tutorial: Using Gremlin with OrientDB](#)
-  * [Import Tutorials]
+  * [Import Tutorials](#)
     * [Tutorial: Importing the Open Beer Database into OrientDB](#)
     * [Tutorial: Importing the *movie* Database from Neo4j](#)
     * [Tutorial: Importing the *northwind* Database from Neo4j](#) 
