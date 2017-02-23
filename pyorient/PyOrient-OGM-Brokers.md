@@ -81,4 +81,4 @@ In the example above, when the OGM maps the Python `Sensor` class to OrientDB, a
 | Double | |
 | Decimal| |
 
->For more information on types supported by OrientDB, see [Types](Types.md).
+>For more information on types supported by OrientDB, see [Types](../Types.md).

@@ -5,7 +5,7 @@ search:
 
 # PyOrient Client
 
-The base module in PyOrient provides a Python wrapper for the OrientDB [Binary Protocol](Network-Binary-Protocol.md).  Using this wrapper, you can initialize a client instance within your application, then operate on the OrientDB Server through this instance.
+The base module in PyOrient provides a Python wrapper for the OrientDB [Binary Protocol](../Network-Binary-Protocol.md).  Using this wrapper, you can initialize a client instance within your application, then operate on the OrientDB Server through this instance.
 
 In order to use the PyOrient Client, you need to import the base module into your application.  
 

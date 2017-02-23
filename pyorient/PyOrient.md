@@ -101,7 +101,7 @@ $ <code class="lang-sh userinput">nosetests</code>
 
 Once you have PyOrient installed you can begin to use it in your applications.  You can load it through the standard Python import system.  There are two modules available to you:
 
-- [**PyOrient Client**](PyOrient-Client.md) The base module provides a Python wrapper to the OrientDB [Binary Protocol](Network-Binary-Protocol.md).  To use it, add the following line to your application:
+- [**PyOrient Client**](PyOrient-Client.md) The base module provides a Python wrapper to the OrientDB [Binary Protocol](../Network-Binary-Protocol.md).  To use it, add the following line to your application:
 
   ```py
   import pyorient
