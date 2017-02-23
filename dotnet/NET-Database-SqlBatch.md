@@ -5,7 +5,7 @@ search:
 
 # OrientDB-NET - `SqlBatch()`
 
-This method prepares a [`Batch`](SQL-batch.md) command.  The return value is an `OCommandQuery` object.
+This method prepares a [`Batch`](../SQL-batch.md) command.  The return value is an `OCommandQuery` object.
 
 ## Executing Batch Commands
 

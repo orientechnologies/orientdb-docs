@@ -5,7 +5,7 @@ search:
 
 # OrientDB-NET - `Gremlin()`
 
-This method executes [Gremlin](Gremlin.md) scripts.  The return value is an `OCommandResult` object.
+This method executes [Gremlin](../Gremlin.md) scripts.  The return value is an `OCommandResult` object.
 
 ## Executing Gremlin Scripts
 

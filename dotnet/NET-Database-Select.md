@@ -32,7 +32,7 @@ string ODatabase.Select(params string[] projections)
   - *`ORID target`* Where the target is a Record ID.
   - *`OSqlSelect target`* Where the target is a nested `Select()` operation.
   - *`ODocument target`* Where the target is the return value from another database operation.
-- **`fetch-plan`** Defines the [Fetching Strategy](Fetching-Strategies.md) you want to use.  If you want to issue the query without a fetching strategy, execute the method without passing it arguments.
+- **`fetch-plan`** Defines the [Fetching Strategy](../Fetching-Strategies.md) you want to use.  If you want to issue the query without a fetching strategy, execute the method without passing it arguments.
 
 >Note that you can retrieve either a list of `ODocument` objects or a string value.  
 

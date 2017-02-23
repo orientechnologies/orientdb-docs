@@ -25,7 +25,7 @@ List<ODocument> ODatabase.Query(string SQL,
 ```
 
 - **`SQL`** Defines the SQL statement to use.
-- **`fetch-plan`** Defines the [Fetching Strategy](Fetching-Strategies.md) to use.
+- **`fetch-plan`** Defines the [Fetching Strategy](../Fetching-Strategies.md) to use.
 
 ### Example
 

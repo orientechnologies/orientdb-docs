@@ -5,7 +5,7 @@ search:
 
 # OrientDB-NET - Conditionals
 
-In SQL, the [`WHERE`](SQL-Where.md) clause defines conditions for returning data.  When building queries in OrientDB-NET on [`ODatabase`](NET-Database.md) objects, there are a series of methods available in setting conditions on the query result-set.
+In SQL, the [`WHERE`](../SQL-Where.md) clause defines conditions for returning data.  When building queries in OrientDB-NET on [`ODatabase`](NET-Database.md) objects, there are a series of methods available in setting conditions on the query result-set.
 
 There are two parts to a conditional statement, the field you want to set the condition on and the value you want from that field.
 
