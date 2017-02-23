@@ -5,7 +5,7 @@ search:
 
 # Class Edit
 
-![Class](images/class.png)
+![Class](../images/class.png)
 
 
 ## Property
@@ -13,10 +13,10 @@ search:
 
 ### Add Property
 
-![Property](images/newProperty.png)
+![Property](../images/newProperty.png)
 
 ## Indexes
 
 ### Create new index
 
-![Property](images/newIndex.png)
+![Property](../images/newIndex.png)

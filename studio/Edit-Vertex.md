@@ -6,4 +6,4 @@ search:
 Edit Vertex
 
 
-![Edit Document](images/editVertex.png)
+![Edit Document](../images/editVertex.png)

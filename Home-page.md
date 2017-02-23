@@ -19,7 +19,7 @@ From here, you can :
 * Drop an existing database
 * Create a new database
 * Import a public database
-* Go to the [Server Management UI](Studio-Server-Management.md)
+* Go to the [Server Management UI](studio/Studio-Server-Management.md)
 
 
 ## Connect to an existing database

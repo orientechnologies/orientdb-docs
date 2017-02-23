@@ -295,7 +295,7 @@ The following are some ways we can use to access the newly imported `OpenBeer` d
 
 - [Console](Console-Commands.md)
 - [Gremlin Console](Gremlin.md)
-- [Studio](Studio-Home-page.md)
+- [Studio](studio/Studio-Home-page.md)
 - [APIs & Drivers](Programming-Language-Bindings.md)
 - some external tools, like [Gephy](Gephi.md)
 - some external visualization libraries for graph rendering
@@ -306,7 +306,7 @@ If we want to query all *Category* vertices we can execute the following query:
 SELECT * FROM Category
 ```
 
-The following is the visualization we can create using the Studio's [Graph Editor](Graph-Editor.md):
+The following is the visualization we can create using the Studio's [Graph Editor](studio/Graph-Editor.md):
 
 ![](images/etl/openbeerdb/studio_graph_beer_class_category.png)
 
@@ -322,11 +322,11 @@ Alternatively, we can use the [MATCH](SQL-Match.md) syntax:
 MATCH {class: Beer, where: (name = 'Petrus Dubbel Bruin Ale')}--{as: n} RETURN $pathelements
 ```
 
-If we execute the first query in the [Browse](Query.md) tab of Studio we get the following result, from where we can see that there are three nodes connected to this beer, having *@rid* *11:4*, *14:262* and *12:59*:
+If we execute the first query in the [Browse](studio/Query.md) tab of Studio we get the following result, from where we can see that there are three nodes connected to this beer, having *@rid* *11:4*, *14:262* and *12:59*:
 
 ![](images/etl/openbeerdb/studio_browse_expand_beer.png)
 
-We can send the result of this `SELECT` query to the [Graph Editor](Graph-Editor.md) by clicking the icon "_Send to Graph_", or create a new visualization directly from the _Graph Editor_. 
+We can send the result of this `SELECT` query to the [Graph Editor](studio/Graph-Editor.md) by clicking the icon "_Send to Graph_", or create a new visualization directly from the _Graph Editor_. 
 
 The following is the visualization of the `MATCH` query above, executed directly on the _Graph Editor_:
 
@@ -344,7 +344,7 @@ MATCH
 RETURN $elements
 ```
 
-The following is the visualization of the `MATCH` query above in the [Graph Editor](Graph-Editor.md):
+The following is the visualization of the `MATCH` query above in the [Graph Editor](studio/Graph-Editor.md):
 
 ![](images/etl/openbeerdb/studio_graph_class_category_and_style.png)
 

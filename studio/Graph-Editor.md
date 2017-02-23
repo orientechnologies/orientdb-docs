@@ -10,7 +10,7 @@ but you can also interact with the graph and modify it.
 
 To populate the graph area just type a query in the query editor or use the functionality **Send To Graph** from the [Browse UI](Query.md)
 
-![GraphEditor](images/GraphEditor.png)
+![GraphEditor](../images/GraphEditor.png)
 
 
 Supported operations in the Graph Editor are:
@@ -38,12 +38,12 @@ This operation is done in two steps.
 
 The first step you have to choose the class for the new Vertex and then click **Next**
 
-![AddVertex1](images/AddVertex1.png)
+![AddVertex1](../images/AddVertex1.png)
 
 In the second step you have to insert the fields values of the new vertex, you can also add custom fields as OrientDB supports Schema-Less mode. To make the new vertex persistent click to **Save changes** and the 
 vertex will be saved into the database and added to the canvas area
 
-![AddVertex2](images/AddVertex2.png)
+![AddVertex2](../images/AddVertex2.png)
 
 ## Delete Vertices
 
@@ -61,11 +61,11 @@ Open the circular menu and then click to the **edit** icon, Studio will open a p
 
 If you want to take a quick look to the Vertex property, click to the **eye** icon.
 
-![Property](images/Property.png)
+![Property](../images/Property.png)
 
 ## Change the Rendering Configuration of Vertices
 
-![Settings](images/Settings.png)
+![Settings](../images/Settings.png)
 
 ## Navigating Relationships
 

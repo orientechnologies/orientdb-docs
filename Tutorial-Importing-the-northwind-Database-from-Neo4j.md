@@ -135,7 +135,7 @@ Import Summary:
 
 General information on how to connect to a newly imported database can be found in [this](OrientDB-Neo4j-Importer.md#connecting-to-the-newly-imported-database) section. 
 
-The following is a partial visualization of the _northwind_ database done with the Graph Editor included in the OrientDB's [Studio](Studio-Home-page.md) tool:
+The following is a partial visualization of the _northwind_ database done with the Graph Editor included in the OrientDB's [Studio](studio/Studio-Home-page.md) tool:
 
 ![](images/import_from_neo4j/northwind/northwind_graph_editor.PNG)
 
@@ -149,7 +149,7 @@ MATCH {class: Order, where: (orderID = 10344)}--{as: n} RETURN $pathelements
 
 ![](images/import_from_neo4j/northwind/northwind_match_query.PNG)
 
-From Studio's [Schema Manager](Studio-Schema.md), you can check all imported Vertex Classes (node Labels in Neo4j), Edge Classes (Relationship Types in Neo4j), and Indexes:
+From Studio's [Schema Manager](studio/Studio-Schema.md), you can check all imported Vertex Classes (node Labels in Neo4j), Edge Classes (Relationship Types in Neo4j), and Indexes:
 
 ![](images/import_from_neo4j/northwind/northwind_schema_manager.PNG)
 

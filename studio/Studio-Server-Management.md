@@ -18,7 +18,7 @@ This panel summarizes all the most important information about the current clust
 - `Warnings`
 - `Live chart` with CRUD operations in real-time
 
-![Overview](images/studio-server-management-overview.png)
+![Overview](../images/studio-server-management-overview.png)
 
 ## Connections
 It displays all the active connections to the server. For each connection reports the following information:
@@ -36,36 +36,36 @@ It displays all the active connections to the server. For each connection report
 - `Last Execution Time`, is the execution time o last request
 - `Total Working Time`, is the total execution time taken by current connection so far
 - `Connected Since`, is the date when the connection has been created
-- `Protocol`, is the protocol among [HTTP](OrientDB-REST.md) and [Binary](Network-Binary-Protocol.md)
+- `Protocol`, is the protocol among [HTTP](../OrientDB-REST.md) and [Binary](../Network-Binary-Protocol.md)
 - `Client ID`, a text representing the client connection
 - `Driver`, the driver name
 - `Commands`, a command button to `Interrupt` or `Kill` each session.
 
-![Connections](images/studio-server-management-connections.png)
+![Connections](../images/studio-server-management-connections.png)
 
 ## Metrics
-This panel shows all the metrics in 4 different tabs. To learn more about the available metrics please refer to the [Profiler](Profiler.md) section.
+This panel shows all the metrics in 4 different tabs. To learn more about the available metrics please refer to the [Profiler](../Profiler.md) section.
 
 - `Chronos`
 
-![Metrics-Chronos](images/studio-server-management-metrics-chronos.png)
+![Metrics-Chronos](../images/studio-server-management-metrics-chronos.png)
 
 - `Counters` 
 
-![Metrics-Counters](images/studio-server-management-metrics-counters.png)
+![Metrics-Counters](../images/studio-server-management-metrics-counters.png)
 
 - `Stats`
 
-![Metrics-Stats](images/studio-server-management-metrics-stats.png)
+![Metrics-Stats](../images/studio-server-management-metrics-stats.png)
 
 - `Hook Values`
 
-![Metrics-Hook](images/studio-server-management-metrics-hook.png)
+![Metrics-Hook](../images/studio-server-management-metrics-hook.png)
 
 ## Databases
 It lists all databases created on the server. It is possible make a backup using the specific option.
 
-![Databases](images/studio-server-management-databases.png)
+![Databases](../images/studio-server-management-databases.png)
 
 ## Warnings
 It list all warning messages. For each you can see:
@@ -73,7 +73,7 @@ It list all warning messages. For each you can see:
 - `Count`, as the number of that warnings
 - `Last Time`, as the timestamp of the last warning message
 
-![Warnings](images/studio-server-management-warnings.png)
+![Warnings](../images/studio-server-management-warnings.png)
 
 ## Logs
 This panel shows all the logs present on the server. The information in each log row are presented divided as follows:
@@ -85,14 +85,14 @@ This panel shows all the logs present on the server. The information in each log
 
 Moreover you can filter log messages through the specific panel, typing different parameters.
 
-![Logs](images/studio-server-management-logs.png)
+![Logs](../images/studio-server-management-logs.png)
 
 ## Plugins
 It helps you with the configuration of a new plugin, avoiding to edit the `config/orientdb-server-config.xml` configuration file.
 
-![Plugins](images/studio-server-management-plugins.png)
+![Plugins](../images/studio-server-management-plugins.png)
 
 ## Configuration
 You can consult in read-only mode the configuration of the server contained in the `config/orientdb-server-config.xml` file.
 
-![Configuration](images/studio-server-management-configuration.png)
+![Configuration](../images/studio-server-management-configuration.png)

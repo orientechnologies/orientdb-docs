@@ -13,13 +13,13 @@ Represents the database structure as clusters. Each cluster has the following in
 - `Records`, are the total number of records stored in the cluster
 - `Conflict Strategy`, is the conflict strategy used. I empty, the database's strategy is used as default
 
-![Structure](images/structure.png)
+![Structure](../images/structure.png)
 
 ##Configuration
 
 Contains the database configuration and custom properties. Here you can display and change the following settings:
-- `dateFormat`, is the [date format](Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd
-- `dateTimeFormat` is the [datetime format](Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd HH:mm:ss
+- `dateFormat`, is the [date format](../Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd
+- `dateTimeFormat` is the [datetime format](../Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd HH:mm:ss
 - `localeCountry`, is the country used. "NO" means no country set
 - `localeLanguage`, is the language used. "no" means no language set
 - `charSet`,	is the charset used. Default is *UTF-8*
@@ -29,9 +29,9 @@ Contains the database configuration and custom properties. Here you can display 
 - `minimumClusters`, minimum number of clusters to create whenat class creation
 - `conflictStrategy`, is the database strategy for resolving conflicts
 
-![Configuration](images/configuration.png)
+![Configuration](../images/configuration.png)
 
 ##Export
-Allows to export the current database in GZipped JSON format. To import the file into another database, use the [Import Console Command](Console-Command-Import.md).
+Allows to export the current database in GZipped JSON format. To import the file into another database, use the [Import Console Command](../Console-Command-Import.md).
 
-![Export](images/import-export.png)
+![Export](../images/import-export.png)

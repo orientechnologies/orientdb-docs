@@ -65,7 +65,7 @@ For more tips and tricks related to the import process, please refer to [this](I
 
 Once the *movie* database has been imported into OrientDB, you may use several ways to access its data.
 
-The `MATCH` [syntax](SQL-Match.md) and the tool [Studio](Studio-Home-page.md) can be used, for instance, in a similar way to the Neo4j's Cypher and Browser.
+The `MATCH` [syntax](SQL-Match.md) and the tool [Studio](studio/Studio-Home-page.md) can be used, for instance, in a similar way to the Neo4j's Cypher and Browser.
 
 The following sections include a comparison of the Neo4j's Cypher and OrientDB's `MATCH` syntax for some queries that you can execute against the *movie* database.
 

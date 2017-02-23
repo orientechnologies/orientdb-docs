@@ -5,7 +5,7 @@ search:
 
 # OrientDB Server
 
-OrientDB Server (DB-Server from now) is a multi-threaded Java application that listens to remote commands and executes them against the Orient databases. OrientDB Server supports both [binary](Network-Binary-Protocol.md) and [HTTP](OrientDB-REST.md) protocols. The first one is used by the Orient native client and the Orient Console. The second one can be used by any languages since it's based on [HTTP RESTful API](OrientDB-REST.md). The HTTP protocol is used also by the [OrientDB Studio application](Studio-Home-page.md).
+OrientDB Server (DB-Server from now) is a multi-threaded Java application that listens to remote commands and executes them against the Orient databases. OrientDB Server supports both [binary](Network-Binary-Protocol.md) and [HTTP](OrientDB-REST.md) protocols. The first one is used by the Orient native client and the Orient Console. The second one can be used by any languages since it's based on [HTTP RESTful API](OrientDB-REST.md). The HTTP protocol is used also by the [OrientDB Studio application](studio/Studio-Home-page.md).
 
 Starting from v1.7 OrientDB support [protected SSL connections](Using-SSL-with-OrientDB.md).
 
@@ -35,7 +35,7 @@ To stop a running server, press CTRL+C in the open shell that runs the Server in
 The OrientDB distribution provides the [Orient Console](Console-Commands.md) tool as a console Java application that uses the binary protocol to work with the database.
 
 ### By OrientDB Studio
-Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](Studio-Home-page.md), a client-side web app that uses the HTTP protocol to work with the database.
+Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](studio/Studio-Home-page.md), a client-side web app that uses the HTTP protocol to work with the database.
 
 ### By your application
 Consider the [native APIs](Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB-REST.md).
@@ -79,7 +79,7 @@ Available plugins:
 Contains the list of protocols used by the [listeners section](#Listeners).
 The protocols supported today are:
 - **binary**: the Raw binary protocol used by OrientDB clients and console application.
-- **http**: the HTTP RESTful protocol used by [OrientDB Studio](Studio-Home-page.md) and direct raw access from any language and browsers.
+- **http**: the HTTP RESTful protocol used by [OrientDB Studio](studio/Studio-Home-page.md) and direct raw access from any language and browsers.
 
 ### Listeners
 

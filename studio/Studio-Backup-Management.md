@@ -8,7 +8,7 @@ search:
 Studio 2.2 Enterprise Edition includes a **Backup Manager** that allows you to schedule and perform your backups and easily execute and manage restores you may need.
 You can enjoy this new functionality by reaching the **Backup Management** panel in the Server Management area, this is what you will find:
 
-![](images/studio-backup-00-fresh-scheduler.png)
+![](../images/studio-backup-00-fresh-scheduler.png)
 
 How you can see the panel is divided into two sections, on the left side you can schedule your backups, on the right side there is the calendar where you can check:
 - the executed tasks (backup or restore)
@@ -21,7 +21,7 @@ Now let's start seeing how you can schedule your backups.
 
 On the left you can find all the settings for your backup scheduling.
 
-![](images/studio-backup-01-backup-scheduler-right-panel.png)
+![](../images/studio-backup-01-backup-scheduler-right-panel.png)
 
 As first thing choose the **database** that you want backup. In the example above we have chosen the GratefulDeadConcerts database.
 Then you must specify the **output directory** where you want to save your backups and the **retention days** of your backups.
@@ -39,9 +39,9 @@ Below we will examine briefly the three different backup strategies.
 
 ###Full backup
 Through this mode when each period passes a **full backup** will be performed in the path you specified in the settings just discussed.
-If you want know more about the full backup you can refer to the [Full Backup](Backup-and-Restore.md) page.
+If you want know more about the full backup you can refer to the [Full Backup](../Backup-and-Restore.md) page.
 
-![](images/studio-backup-02-full-backup-scheduling.png)
+![](../images/studio-backup-02-full-backup-scheduling.png)
 
 With the settings shown above a full backup will be performed every 5 minutes. Thus in our example after 5 minutes we will have the first backup, after 10 minutes the second one and so on.
 
@@ -62,10 +62,10 @@ With the settings shown above a full backup will be performed every 5 minutes. T
 
 ###Incremental Backup
 If you prefer to execute an **incremental backup** you can select this mode.
-As declared in the [Incremental Backup](Incremental-Backup-And-Restore.md) page the incremental backup generates smaller backup files by storing only the **delta** between two versions of the database.
+As declared in the [Incremental Backup](../Incremental-Backup-And-Restore.md) page the incremental backup generates smaller backup files by storing only the **delta** between two versions of the database.
 Let's suppose we want execute a backup every 5 minutes: a **first full backup** will be performed, then it will be followed by a new **incremental backup**, containing  only the delta, **every 5 minutes**.
 
-![](images/studio-backup-03-incremental-backup-scheduling.png)
+![](../images/studio-backup-03-incremental-backup-scheduling.png)
 
 ```
 /tmp/backup/incremental
@@ -88,7 +88,7 @@ This mode follows an **hybrid approach** between the first two strategies, combi
 
 Let's analyse in which way the two modes are combined. Suppose we decided to execute the full backup every 5 minutes and the incremental backup every minute as shown in the example below.
 
-![](images/studio-backup-04-full-incr-backup-scheduling.png)
+![](../images/studio-backup-04-full-incr-backup-scheduling.png)
 
 Thus we will obtain that **every 5 minutes** a new directory with a **full backup** will be added in the specified path, then **in the following 4 minutes** only **incremental backups** will be performed. As we set 1 minute for the incremental backup, we will have 4 incremental backups after the first full backup.
 After 5 minutes a new full backup in another folder will be performed, and the following incrementals will be executed according to the delta relative to this second full backup and they will put in this second folder.
@@ -122,7 +122,7 @@ In this way we can have a "checkpoint" for each different directory to use in or
 ###Granularity
 You can have different granularities to schedule your backups. Besides **minutes** granularity you can choose **hour**, **day**, **week**, **month**, and **year** granularity.
 
-![](images/studio-backup-05-granularity.png)
+![](../images/studio-backup-05-granularity.png)
 
 ##Restore
 
@@ -143,7 +143,7 @@ Clicking on a backup you can examine additional info like **execution time** and
 Moreover you can **remove** the backup or carry out a restore starting from it.  
 **Use this way to delete your backups** because removing them manually may generates **unexpected behaviours**.
 
-![](images/studio-backup-06-backup-event.png) 
+![](../images/studio-backup-06-backup-event.png) 
 
 Let's make a restore by clicking on the button "Restore Database". A new window will be opened.
 Here you must **select the database where you want restore the backup**: notice you must declare just a name and a new empty database will be automatically created by the restore procedure, **don't use**:
@@ -155,12 +155,12 @@ Below are reported all the files involved in the restore procedure: the number o
 
 If the backup belongs to a **Full Backup** schedule, just a file will be involved for each restore procedure.
 
-![](images/studio-backup-07-restore-from-full.png)
+![](../images/studio-backup-07-restore-from-full.png)
 
 If the backup belongs to an **Incremental Backup** schedule, doesn't matter which file is selected, all the files in the directory will be processed during the restore.
 
-![](images/studio-backup-08-restore-from-incremental.png) 
+![](../images/studio-backup-08-restore-from-incremental.png) 
 
 If you chose a backup belonging to a **Full + Incremental Backup** schedule, then will be evaluated all the files contained in the folder which contains the backup file you selected from the calendar.
 
-![](images/studio-backup-09-restore-from-full-incr.png)
+![](../images/studio-backup-09-restore-from-full-incr.png)
