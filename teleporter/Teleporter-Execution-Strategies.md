@@ -26,24 +26,24 @@ Thus all records of each table are imported according to this "schemas-mapping":
 ####Example 1 - Without Join Table
 Source DB schema translation in OrientDB schema:      
 
-![](images/teleporter-naive-strategy-schema1.png)   
+![](../images/teleporter-naive-strategy-schema1.png)   
 
 Correspondent records import:      
 
-![](images/teleporter-strategies-example1.png)     
+![](../images/teleporter-strategies-example1.png)     
 
 ####Example 2 - With Aggregable Join Table
 Source DB schema translation in OrientDB schema:      
 
-![](images/teleporter-naive-strategy-schema2.png)     
+![](../images/teleporter-naive-strategy-schema2.png)     
 
 Starting from the following tables    
 
-![](images/teleporter-strategies-example2-tables.png)       
+![](../images/teleporter-strategies-example2-tables.png)       
 
 we will obtain the following graph:     
 
-![](images/teleporter-strategies-example2-not-aggr.png)     
+![](../images/teleporter-strategies-example2-not-aggr.png)     
 
 ## Naive-Aggregate Strategy
 Unlike the first strategy, this one performs aggregation on join tables of dimension equals to 2, that is to say those tables which map two tables together by referencing the primary keys of each data table through a foreing key. The join tables of dimension greater than 2 are ignored by the aggregation algorithm.
@@ -54,12 +54,12 @@ Referring to the scenario of the last example is evident as even if the new DB d
 ####Example 3 - With Aggregable Join Table
 Source DB schema translation in OrientDB schema:       
 
-![](images/teleporter-naive-aggr-strategy-schema3.png)    
+![](../images/teleporter-naive-aggr-strategy-schema3.png)    
 
 Through this strategy, starting from the same previous scenario      
 
-![](images/teleporter-strategies-example2-tables.png)   
+![](../images/teleporter-strategies-example2-tables.png)   
 
 this time we will obtain a less complex graph:      
 
-![](images/teleporter-strategies-example2-aggr.png)
+![](../images/teleporter-strategies-example2-aggr.png)

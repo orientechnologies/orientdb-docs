@@ -14,7 +14,7 @@ Some JPA providers support Table Per Class Inheritance with or without a discrim
 Now suppose you want to map the whole hierarchy given below into a coherent relational database schema. The **Employee** class is a superclass both for **Regular_Employee** and **Contract_Employee** classes.    
 The application of the above described pattern leads to the DB schema shown in the following diagram:  
 
-![](images/teleporter-inheritance-table-class.png)       
+![](../images/teleporter-inheritance-table-class.png)       
 
 There are two equivalent mapping file to represent this hierarchy:     
 1.
@@ -84,6 +84,6 @@ There are two equivalent mapping file to represent this hierarchy:
 
 Taking advantage of this inheritance-feature on the proposed model above, you will get the following schema in OrientDB:      
 
-![](images/teleporter-inheritance-orientdb-schema.png)     
+![](../images/teleporter-inheritance-orientdb-schema.png)     
 
 If you deal with a multi-level inheritance relationships in the DB, you have to represent them in the ORM file by recursively nesting each definition according to the hierarchical dependences being between the Entities of the model.

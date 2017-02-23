@@ -122,9 +122,9 @@ Teleporter execution consists of 4 steps:
 
 Thus the whole workflow is:
 
-![Whole Workflow](images/teleporter-whole-workflow.png)
+![Whole Workflow](../images/teleporter-whole-workflow.png)
 
 
 Below is reported a Teleporter execution dump:             
 
-![Execution Dump](images/teleporter-execution-dump.png)
+![Execution Dump](../images/teleporter-execution-dump.png)
