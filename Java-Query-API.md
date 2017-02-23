@@ -14,8 +14,8 @@ ODatabaseDocument provides some methods interact with the database via SQL state
   OResultSet command(String query, Object... positionalParams);
   OResultSet command(String query, Map namedParams);
   
-  OResultSet command(String language, String script, Object... positionalParams);
-  OResultSet command(String language, String script, Map namedParams);
+  OResultSet execute(String language, String script, Object... positionalParams);
+  OResultSet execute(String language, String script, Map namedParams);
 ```
 
 `query()` methods are inteded to execute idempotent statements only (eg. SELECT, MATCH, TRAVERSE).
