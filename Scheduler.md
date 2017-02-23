@@ -74,7 +74,7 @@ In this tutorial we want to purge all the records older than 1 year.
 ### 1) Create a [Function](Functions-Creation.md)
 First, create a SQL function that delete the records. To have the date of 1y ago you can use the expression `sysdate() - 31536000000`, where 31536000000 represents the number of milliseconds in a year.  You can this via SQL or Java API.
 
-#### Via [SQL](SQL-Create-Function.md)
+#### Via [SQL](sql/SQL-Create-Function.md)
 ```sql
 CREATE FUNCTION purgeHistoricalRecords
   "DELETE FROM Logs WHERE date < ( sysdate() - 31536000000 )"

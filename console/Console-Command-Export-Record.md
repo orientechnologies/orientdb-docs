@@ -18,7 +18,7 @@ EXPORT RECORD <format>
 
 **Examples**
 
-- Use [`SELECT`](../SQL-Query.md) to create a record for export:
+- Use [`SELECT`](../sql/SQL-Query.md) to create a record for export:
 
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT name, surname, parent, children, city FROM Person WHERE 

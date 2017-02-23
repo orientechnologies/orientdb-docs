@@ -95,7 +95,7 @@ In developing a configuration file for ETL module processes, consider the follow
   
 ### Conditional Execution
 
-In conditional execution, OrientDB only runs executable blocks, such as [transformers](Transformer.md) and [blocks](Block.md), when a condition is found true, such as with a [`WHERE`](SQL-Where.md) clause. 
+In conditional execution, OrientDB only runs executable blocks, such as [transformers](Transformer.md) and [blocks](Block.md), when a condition is found true, such as with a [`WHERE`](sql/SQL-Where.md) clause. 
 
 For example,
 

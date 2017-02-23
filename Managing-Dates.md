@@ -15,7 +15,7 @@ In order to make the internal count from the Unix Epoch into something human rea
 - Date Format: `yyyy-MM-dd`
 - Datetime Format: `yyyy-MM-dd HH:mm:ss`
 
-In the event that these default formats are not sufficient for the needs of your application, you can customize them through [`ALTER DATABASE...DATEFORMAT`](SQL-Alter-Database.md) and [`DATETIMEFORMAT`](SQL-Alter-Database.md) commands.  For instance,
+In the event that these default formats are not sufficient for the needs of your application, you can customize them through [`ALTER DATABASE...DATEFORMAT`](sql/SQL-Alter-Database.md) and [`DATETIMEFORMAT`](sql/SQL-Alter-Database.md) commands.  For instance,
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER DATABASE DATEFORMAT "dd MMMM yyyy"</code>
@@ -29,14 +29,14 @@ To simplify the management of dates, OrientDB SQL automatically parses dates to 
 
 | SQL | Description |
 |----|----|
-| [`DATE()`](SQL-Functions.md#date) | Function converts dates to and from strings and dates, also uses custom formats.|
-| [`SYSDATE()`](SQL-Functions.md#sysdate) | Function returns the current date.|
-| [`.format()`](SQL-Methods.md#format) | Method returns the date in different formats.|
-| [`.asDate()`](SQL-Methods.md#asdate) | Method converts any type into a date.|
-| [`.asDatetime()`](SQL-Methods.md#asdatetime) | Method converts any type into datetime.|
-| [`.asLong()`](SQL-Methods.md#aslong)| Method converts any date into long format, (that is, Unix time).|
+| [`DATE()`](sql/SQL-Functions.md#date) | Function converts dates to and from strings and dates, also uses custom formats.|
+| [`SYSDATE()`](sql/SQL-Functions.md#sysdate) | Function returns the current date.|
+| [`.format()`](sql/SQL-Methods.md#format) | Method returns the date in different formats.|
+| [`.asDate()`](sql/SQL-Methods.md#asdate) | Method converts any type into a date.|
+| [`.asDatetime()`](sql/SQL-Methods.md#asdatetime) | Method converts any type into datetime.|
+| [`.asLong()`](sql/SQL-Methods.md#aslong)| Method converts any date into long format, (that is, Unix time).|
 
-For example, consider a case where you need to extract only the years for date entries and to arrange them in order.  You can use the [`.format()`](SQL-Methods.md#format) method to extract dates into different formats.
+For example, consider a case where you need to extract only the years for date entries and to arrange them in order.  You can use the [`.format()`](sql/SQL-Methods.md#format) method to extract dates into different formats.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT @RID, id, date.format('yyyy') AS year FROM Order</code>
@@ -104,11 +104,11 @@ orientdb> <code class="lang-sql userinput">SELECT @RID, city, date FROM V</code>
 ------+------+------------------------+
 </pre>
 
-Here, you again create a vertex for the traditional date of the foundation of Rome.  However, instead of altering the database, you format the date field in [`CREATE VERTEX`](SQL-Create-Vertex.md) command.
+Here, you again create a vertex for the traditional date of the foundation of Rome.  However, instead of altering the database, you format the date field in [`CREATE VERTEX`](sql/SQL-Create-Vertex.md) command.
 
 ### Viewing Unix Time
 
-In addition to the formatted date and datetime, you can also view the underlying count from the Unix Epoch, using the [`asLong()`](SQL-Methods.md#aslong) method for records.  For example,
+In addition to the formatted date and datetime, you can also view the underlying count from the Unix Epoch, using the [`asLong()`](sql/SQL-Methods.md#aslong) method for records.  For example,
 
 <pre>
 orientdb> <code class='lang-sql userinput'>SELECT @RID, city, date.asLong() FROM #9:4</code>

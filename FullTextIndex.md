@@ -14,7 +14,7 @@ The SB-Tree index algorithm provides support for FullText indexes.  These indexe
 
 ## Creating FullText Indexes
 
-If you want to create an index using the FullText SB-Tree index algorithm, you can do so using the [`CREATE INDEX`](SQL-Create-Index.md) command.
+If you want to create an index using the FullText SB-Tree index algorithm, you can do so using the [`CREATE INDEX`](sql/SQL-Create-Index.md) command.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT</code>
@@ -34,7 +34,7 @@ In the event that the default FullText Index configuration is not sufficient to 
 |`minWordLength`|`3`|Minimum word length to index|
 |`stopWords`|`the in a at as and or for his her him this that what which while up with be was were is`|Stop words escluded from indexing|
 
-To configure a FullText Index, from version 1.7 on, you can do so through the OrientDB console or the Java API.  When configuring the index from the console, use the [`CREATE INDEX`](SQL-Create-Index.md) command with the `METADATA` operator.
+To configure a FullText Index, from version 1.7 on, you can do so through the OrientDB console or the Java API.  When configuring the index from the console, use the [`CREATE INDEX`](sql/SQL-Create-Index.md) command with the `METADATA` operator.
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT METADATA 

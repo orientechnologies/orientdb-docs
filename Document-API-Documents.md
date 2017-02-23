@@ -58,9 +58,9 @@ List<ODocument> result = db.query(
 );
 ```
 
-For more information on the OrientDB syntax, see [SQL](SQL.md).
+For more information on the OrientDB syntax, see [SQL](sql/SQL.md).
 
->**NOTE**: OrientDB is a Graph Database.  This means that it is very efficient at traversals.  You can use this feature to optimize your queries, such as with [pivoting](Pivoting-With-Query.md).
+>**NOTE**: OrientDB is a Graph Database.  This means that it is very efficient at traversals.  You can use this feature to optimize your queries, such as with [pivoting](sql/Pivoting-With-Query.md).
 
 ### Asynchronous Queries
 
@@ -182,7 +182,7 @@ Prepared queries use two kinds of markers to substitute parameters on execution:
   ```
 
 
->**NOTE**: With prepared queries, the parameter substitution feature only works with [`SELECT`](SQL-Query.md) statements.  It does not work with [`SELECT`](SQL-Query.md) statements nested with other query types, such as [`CREATE VERTEX`](SQL-Create-Vertex.md).
+>**NOTE**: With prepared queries, the parameter substitution feature only works with [`SELECT`](sql/SQL-Query.md) statements.  It does not work with [`SELECT`](sql/SQL-Query.md) statements nested with other query types, such as [`CREATE VERTEX`](sql/SQL-Create-Vertex.md).
 
 ### SQL Commands
 
@@ -194,7 +194,7 @@ int recordsUpdated = db.comamnd(
 ).execute();
 ```
 
-When the command modifies the schema, such as [`CREATE CLASS`](SQL-Create-Class.md) or [`ALTER PROPERTY`](SQL-Alter-Property.md), remember that you also need to force a schema update on the database instance you're using.
+When the command modifies the schema, such as [`CREATE CLASS`](sql/SQL-Create-Class.md) or [`ALTER PROPERTY`](sql/SQL-Alter-Property.md), remember that you also need to force a schema update on the database instance you're using.
 
 ```java
 db.getMetadata().getSchema().reload();

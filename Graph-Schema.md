@@ -15,7 +15,7 @@ The schema mode you use is defined at a class-level.  So, for instance you might
 
 >**NOTE**: Bear in mind that any changes you make to the class schema are not transactional.  You must execute them outside of a transaction.
 
-To access the schema, you can use either [SQL](SQL.md#query-the-schema) or the API.  The examples in the following pages use the Java API.
+To access the schema, you can use either [SQL](sql/SQL.md#query-the-schema) or the API.  The examples in the following pages use the Java API.
 
 - [**Graph Database Classes**](Graph-Schema-Class.md)
 - [**Graph Database Properties**](Graph-Schema-Property.md)

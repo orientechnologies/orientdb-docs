@@ -5,7 +5,7 @@ search:
 
 # OrientJS - `update()`
 
-Update queries in OrientJS are those used in changing or otherwise modifying existing records in the database.  The method is comparable to the [`UPDATE`](../SQL-Update.md) command on the OrientDB Console.
+Update queries in OrientJS are those used in changing or otherwise modifying existing records in the database.  The method is comparable to the [`UPDATE`](../sql/SQL-Update.md) command on the OrientDB Console.
 
 ## Working with Update Queries
 

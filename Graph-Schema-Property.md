@@ -36,7 +36,7 @@ To drop a persisten class property, use the `OClass.dropProperty()` method.  For
 accountVertex.dropProperty("name");
 ```
 
-This drops the property `name`.  OrientDB does not remove dropped properties from the record unless you delete them explicitly using the SQL [`UPDATE`](SQL-Update.md) command with the `REMOVE` clause.
+This drops the property `name`.  OrientDB does not remove dropped properties from the record unless you delete them explicitly using the SQL [`UPDATE`](sql/SQL-Update.md) command with the `REMOVE` clause.
 
 ```java
 // Drop the Property

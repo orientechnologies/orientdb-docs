@@ -57,7 +57,7 @@ CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]] [-
 
 >To create a static database to use from the server, see [`Server pre-configured storage types`](../DB-Server.md#storages).
 >
->To remove a database, see [`DROP DATABASE`](Console-Command-Drop-Database.md).  To change database configurations after creation, see [`ALTER DATABASE`](../SQL-Alter-Database.md).
+>To remove a database, see [`DROP DATABASE`](Console-Command-Drop-Database.md).  To change database configurations after creation, see [`ALTER DATABASE`](../sql/SQL-Alter-Database.md).
 >
 >For more information on other commands, see [Console Commands](Console-Commands.md).
 

@@ -17,7 +17,7 @@ Using the previous example to retrieve the last 20 log entries for a specific da
 `select from MyDBOAuditingLog order by @rid desc limit 20`
 
 ## Security First
-For security reasons, no roles should be able to access the `AuditingLog` records. For this reason before using Auditing assure to revoke any privilege on the `AuditingLog` cluster. You can do that from Studio, security panel, or via SQL by using the [SQL REVOKE](SQL-Revoke.md) command. Here's an example of revoking any access to the writer and reader roles:
+For security reasons, no roles should be able to access the `AuditingLog` records. For this reason before using Auditing assure to revoke any privilege on the `AuditingLog` cluster. You can do that from Studio, security panel, or via SQL by using the [SQL REVOKE](sql/SQL-Revoke.md) command. Here's an example of revoking any access to the writer and reader roles:
 
 ```sql
 REVOKE ALL ON database.cluster.auditinglog FROM writer

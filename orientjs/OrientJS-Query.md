@@ -12,7 +12,7 @@ There are two methods available in issuing queries to the database.  You can que
 
 ## Working with Queries
 
-When querying the database directly, you prepare a string containing OrientDB [SQL](../SQL.md), the pass it to either the `db.query()` or `db.exec()` methods.  For instance, going back to the baseball database, say that you want a list of players with a batting average of at least .300 that played for the Red Sox.
+When querying the database directly, you prepare a string containing OrientDB [SQL](../sql/SQL.md), the pass it to either the `db.query()` or `db.exec()` methods.  For instance, going back to the baseball database, say that you want a list of players with a batting average of at least .300 that played for the Red Sox.
 
 ```js
 db.query(

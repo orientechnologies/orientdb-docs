@@ -14,7 +14,7 @@ While you can use OrientDB in schema-less mode, there are times in which you nee
 
 >Bear in mind, changes made to the schema are not transactional.  You must execute these operations outside of a transaction.
 
-To access the schema through the Console, use [`SELECT`](SQL.md#query-the-schema).  
+To access the schema through the Console, use [`SELECT`](sql/SQL.md#query-the-schema).  
 
 In order to access and work with the schema through the Java API, you need to get the `OMetadata` object from the database, then call the `getSchema()` method. For instance,
 
@@ -28,6 +28,6 @@ This sets the object `schema`, which you can then use to further define classes 
 - [**Document Database Properties**](Document-API-Property.md)
 
 
->For more information on how to access the schema through SQL or the Console, see [Querying the Schema](SQL.md#query-the-schema).
+>For more information on how to access the schema through SQL or the Console, see [Querying the Schema](sql/SQL.md#query-the-schema).
 
 

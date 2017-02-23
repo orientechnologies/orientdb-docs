@@ -183,7 +183,7 @@ HTTP response:
   }
 }
 ```
-For more information about properties look at the [supported types](Types.md), or see the [SQL Create property](SQL-Create-Property.md) page for text values to be used when getting or posting class commands
+For more information about properties look at the [supported types](Types.md), or see the [SQL Create property](sql/SQL-Create-Property.md) page for text values to be used when getting or posting class commands
 
 #### Example
 
@@ -425,7 +425,7 @@ Execute a query passing parameters by position:
 }
 ```
 
-Read the [SQL section](SQL.md) or the [Gremlin introduction](Gremlin.md) for the type of commands.
+Read the [SQL section](sql/SQL.md) or the [Gremlin introduction](Gremlin.md) for the type of commands.
 
 #### Example
 
@@ -1028,7 +1028,7 @@ Where:
 Other key points:
 - To use commands that change the database (non-idempotent), see the [POST – Command section](#post---command)
 - The command-text included in the URL must be encoded as per a normal URL
-- See the [SQL section](SQL.md) for the type of queries that can be sent
+- See the [SQL section](sql/SQL.md) for the type of queries that can be sent
 
 #### Example
 

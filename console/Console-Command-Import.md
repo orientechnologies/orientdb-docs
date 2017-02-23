@@ -99,7 +99,7 @@ try{
 
 ### Validation Errors
 
-Occasionally, you may encounter validation errors during imports, usually shown as an `OValidationException` exception.  Beginning with version 2.2, you can disable validation at the database-level using the [`ALTER DATABASE`](../SQL-Alter-Database.md) command, to allow the import to go through.
+Occasionally, you may encounter validation errors during imports, usually shown as an `OValidationException` exception.  Beginning with version 2.2, you can disable validation at the database-level using the [`ALTER DATABASE`](../sql/SQL-Alter-Database.md) command, to allow the import to go through.
 
 1. Disable validation for the current database:
 
@@ -122,7 +122,7 @@ Occasionally, you may encounter validation errors during imports, usually shown 
 
 ### Cluster ID's
 
-During imports you may occasionally encounter an error that reads: `Imported cluster 'XXX' has id=6 different from the original: 5`.  Typically occurs in databases that were created in much older versions of OrientDB.  You can correct it using the [`DROP CLASS`](../SQL-Drop-Class.md) on the class `ORIDs`, then attempting the import again.
+During imports you may occasionally encounter an error that reads: `Imported cluster 'XXX' has id=6 different from the original: 5`.  Typically occurs in databases that were created in much older versions of OrientDB.  You can correct it using the [`DROP CLASS`](../sql/SQL-Drop-Class.md) on the class `ORIDs`, then attempting the import again.
 
 1. Import the database:
 

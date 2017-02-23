@@ -50,7 +50,7 @@ When the ETL module runs the OrientDB Loader, it loads the records and vertices 
 | `"useLightweightEdges"` | Defines whether it changes the default setting for [Lightweight Edges](Lightweight-Edges.md). | boolean | | `false` |
 | `"standardELementConstraints"` | Defines whether it changes the default setting for TinkerPop BLueprint constraints.  Value cannot be null and you cannot use `id` as a property name. | boolean |  | `true` |
 
-For the `"txUseLog"` parameter, when WAL is disabled you can still achieve reliable transactions through this parameter.  You may find it useful to group many operations into a batch, such as [`CREATE EDGE`](SQL-Create-Edge.md).
+For the `"txUseLog"` parameter, when WAL is disabled you can still achieve reliable transactions through this parameter.  You may find it useful to group many operations into a batch, such as [`CREATE EDGE`](sql/SQL-Create-Edge.md).
 If `"dbAutoCreate"` or `"dbAutoDropIfExists"` are set to true and remote connection is used,  `serverUsername` and `serverPassword` must be provided. Usually the server administrator user name is `root` and  the password is provided at the startup of the OrientDB server.  
 
 

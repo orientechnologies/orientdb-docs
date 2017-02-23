@@ -33,7 +33,7 @@ OrientDB stores the user status in the field `status`.  It can either be `SUSPEN
 
 ### Working with Users
 
-When you are connected to a database, you can query the current users on the database by using [`SELECT`](SQL-Query.md) queries on the `OUser` class.
+When you are connected to a database, you can query the current users on the database by using [`SELECT`](sql/SQL-Query.md) queries on the `OUser` class.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT RID, name, status FROM OUser</code>
@@ -50,7 +50,7 @@ orientdb> <code class="lang-sql userinput">SELECT RID, name, status FROM OUser</
 
 #### Creating a New User
 
-To create a new user, use the [`INSERT`](SQL-Insert.md) command.  Remember in doing so, that you must set the status to `ACTIVE` and give it a valid role.
+To create a new user, use the [`INSERT`](sql/SQL-Insert.md) command.  Remember in doing so, that you must set the status to `ACTIVE` and give it a valid role.
 
 <pre>
 orientdb> <code class="lang-sql userinput">INSERT INTO OUser SET name = 'jay', password = 'JaY', status = 'ACTIVE',
@@ -59,7 +59,7 @@ orientdb> <code class="lang-sql userinput">INSERT INTO OUser SET name = 'jay', p
 
 #### Updating Users
 
-You can change the name for the user with the [`UPDATE`](SQL-Update.md) statement:
+You can change the name for the user with the [`UPDATE`](sql/SQL-Update.md) statement:
 
 <pre>
 orientdb> <code class="lang-sql userinput">UPDATE OUser SET name = 'jay' WHERE name = 'reader'</code>
@@ -75,7 +75,7 @@ OrientDB saves the password in a hash format.  The trigger `OUserTrigger` encryp
 
 #### Disabling Users
 
-To disable a user, use [`UPDATE`](SQL-Update.md) to switch its status from `ACTIVE` to `SUSPENDED`.  For instance, if you wanted to disable all users except for `admin`:
+To disable a user, use [`UPDATE`](sql/SQL-Update.md) to switch its status from `ACTIVE` to `SUSPENDED`.  For instance, if you wanted to disable all users except for `admin`:
 
 <pre>
 orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED' WHERE name &lt;&gt; 'admin'</code>
@@ -91,7 +91,7 @@ A role determines what operations a user can perform against a resource.  Mainly
 ### Working with Roles
 
 
-When you are connected to a database, you can query the current roles on the database using [`SELECT`](SQL-Query.md) queries on the `ORole` class.
+When you are connected to a database, you can query the current roles on the database using [`SELECT`](sql/SQL-Query.md) queries on the `ORole` class.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT RID, mode, name, rules FROM ORole</code>
@@ -108,7 +108,7 @@ orientdb> <code class="lang-sql userinput">SELECT RID, mode, name, rules FROM OR
 
 #### Creating New Roles
 
-To create a new role, use the [`INSERT`](SQL-Insert.md) statement.
+To create a new role, use the [`INSERT`](sql/SQL-Insert.md) statement.
 
 <pre>
 orientdb> <code class="lang-sql userinput">INSERT INTO ORole SET name = 'developer', mode = 0</code>
@@ -179,7 +179,7 @@ orientdb> <code class="lang-sql userinput">UPDATE ORole PUT rules = "database.cl
 
 ### Granting and Revoking Permissions
 
-To grant and revoke permissions from a role, use the [GRANT](SQL-Grant.md) and [REVOKE](SQL-Revoke.md) commands.
+To grant and revoke permissions from a role, use the [GRANT](sql/SQL-Grant.md) and [REVOKE](sql/SQL-Revoke.md) commands.
 
 <pre>
 orientdb> <code class="lang-sql userinput">GRANT UPDATE ON database.cluster.Car TO motorcyclist</code>
@@ -357,7 +357,7 @@ orientdb> <code class="lang-sql userinput">UPDATE #18:0 REMOVE _allow = 5:6</cod
 orientdb> <code class="lang-sql userinput">UPDATE #18:0 ADD _allowRead = #5:6</code>
 </pre>
 
-For the sake of argument, assume that Luke's misgivings about Steve have some foundation.  Steve decides that he does not like Luke's entry `Yesterday in Italy` and would like to remove it from the database.  He logs into OrientDB, runs [`SELECT`](SQL-Query.md) to find its RID, and attempts to [`DELETE`](SQL-Delete.md) the record:
+For the sake of argument, assume that Luke's misgivings about Steve have some foundation.  Steve decides that he does not like Luke's entry `Yesterday in Italy` and would like to remove it from the database.  He logs into OrientDB, runs [`SELECT`](sql/SQL-Query.md) to find its RID, and attempts to [`DELETE`](sql/SQL-Delete.md) the record:
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Post</code>
@@ -374,7 +374,7 @@ orientdb> <code class="lang-sql userinput">DELETE FROM #18:0</code>
 !Error: Cannot delete record #18:0 because the access to the resource is restricted.
 </pre>
 
-As you can see, OrientDB blocks the [`DELETE`](SQL-Delete.md) operation, given that the current user, Steve, does not have permission to do so on this resource.
+As you can see, OrientDB blocks the [`DELETE`](sql/SQL-Delete.md) operation, given that the current user, Steve, does not have permission to do so on this resource.
 
 
 ## Password Management

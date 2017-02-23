@@ -7,7 +7,7 @@ Welcome to **OrientDB** - the first Multi-Model Open Source [NoSQL](http://en.wi
 **OrientDB** encompasses the best of both Graph and Document DBMS. The system is programmed in Java and designed to be exceptionally fast: it can store up to 150,000 records per second on common hardware. Not only can it embed documents like any other [Document database] (http://en.wikipedia.org/wiki/Document_database), it also manages relationships like [Graph Databases](http://en.wikipedia.org/wiki/Graph_database) with direct connections between records. You can traverse subsets or complete trees and graphs of records in a few milliseconds. 
 <br>
 <br>
-OrientDB supports schema-less, schema-full and schema-mixed modes. This combined with strong security profiling system based on users and roles creates a robust data model.  Thanks to an [SQL](SQL.md) layer, the OrientDB query language is straightforward and easy to use, especially for those skilled in the relational DBMS world. In addition to SQL, Blueprints and Gremlin are also natively supported.
+OrientDB supports schema-less, schema-full and schema-mixed modes. This combined with strong security profiling system based on users and roles creates a robust data model.  Thanks to an [SQL](sql/SQL.md) layer, the OrientDB query language is straightforward and easy to use, especially for those skilled in the relational DBMS world. In addition to SQL, Blueprints and Gremlin are also natively supported.
 
 Take a look at a few OrientDB [Presentations] (https://github.com/orientechnologies/orientdb/wiki/Presentations).
 

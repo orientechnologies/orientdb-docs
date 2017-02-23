@@ -22,7 +22,7 @@ r
 Will return the resultset.
 
 ## See also
-- [SQL-batch](SQL-batch.md)
+- [SQL-batch](sql/SQL-batch.md)
 
 ## Usage
 ### Via Java API

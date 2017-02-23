@@ -36,7 +36,7 @@ COMMIT
   before starting a new one.
   </pre>
 
-- Insert data into the class `Account`, using an [`INSERT`](../SQL-Insert.md) statement:
+- Insert data into the class `Account`, using an [`INSERT`](../sql/SQL-Insert.md) statement:
 
   <pre>
   orientdb> <code class="lang-sql userinput">INSERT INTO Account (name) VALUES ('tx test')</code>
@@ -52,7 +52,7 @@ COMMIT
   Transaction 2 has been committed in 4ms
   </pre>
 
-- Display the new content, using a [`SELECT`](../SQL-Query.md) query:
+- Display the new content, using a [`SELECT`](../sql/SQL-Query.md) query:
 
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name LIKE 'tx%'</code>

@@ -10,7 +10,7 @@ search:
 
 In graph databases, the database system graphs data into network-like structures consisting of vertices and edges. In the OrientDB [Graph model](Tutorial-Document-and-graph-model.md#graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge, as an entity that links two vertices.
 
-OrientDB ships with a generic vertex persistent class, called `V`, as well as a class for edges, called `E`. As an example, you can create a new vertex using the [`INSERT`](SQL-Insert.md) command with `V`.
+OrientDB ships with a generic vertex persistent class, called `V`, as well as a class for edges, called `E`. As an example, you can create a new vertex using the [`INSERT`](sql/SQL-Insert.md) command with `V`.
 
 <pre>
 orientdb> <code class="lang-sql userinput">INSERT INTO V SET name='Jay'</code>
@@ -18,7 +18,7 @@ orientdb> <code class="lang-sql userinput">INSERT INTO V SET name='Jay'</code>
 Created record with RID #9:0
 </pre>
 
-In effect, the Graph model database works on top of the underlying document model. But, in order to simplify this process, OrientDB introduces a new set of commands for managing graphs from the console. Instead of [`INSERT`](SQL-Insert.md), use [`CREATE VERTEX`](SQL-Create-Vertex.md)
+In effect, the Graph model database works on top of the underlying document model. But, in order to simplify this process, OrientDB introduces a new set of commands for managing graphs from the console. Instead of [`INSERT`](sql/SQL-Insert.md), use [`CREATE VERTEX`](sql/SQL-Create-Vertex.md)
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE VERTEX V SET name='Jay'</code>
@@ -28,11 +28,11 @@ Created vertex with RID #9:1
 
 By using the graph commands over the standard SQL syntax, OrientDB ensures that your graphs remain consistent. For more information on the particular commands, see the following pages:
 
-- [CREATE VERTEX](SQL-Create-Vertex.md)
-- [DELETE VERTEX](SQL-Delete-Vertex.md)
-- [CREATE EDGE](SQL-Create-Edge.md)
-- [UPDATE EDGE](SQL-Update-Edge.md)
-- [DELETE EDGE](SQL-Delete-Edge.md)
+- [CREATE VERTEX](sql/SQL-Create-Vertex.md)
+- [DELETE VERTEX](sql/SQL-Delete-Vertex.md)
+- [CREATE EDGE](sql/SQL-Create-Edge.md)
+- [UPDATE EDGE](sql/SQL-Update-Edge.md)
+- [DELETE EDGE](sql/SQL-Delete-Edge.md)
 
 ## Use Case: Social Network for Restaurant Patrons
 

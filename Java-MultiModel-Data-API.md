@@ -186,7 +186,7 @@ Any string is a valid property name, except:
 
 A string name can also contain numbers, blank spaces, punctation and special characters.
 
-> IMPORTANT: please refer to [SQL Syntax](SQL-Syntax.md) for details on how to escape property names including special characters when
+> IMPORTANT: please refer to [SQL Syntax](sql/SQL-Syntax.md) for details on how to escape property names including special characters when
 writing SQL statements
 
 The following are valid instructions:

@@ -29,7 +29,7 @@ OrientDB can use two methods to update indexes:
 
 - **Manual** Where the index is handled by the application developer, using the Java API and SQL commands (see below).  You can use them as Persistent Maps, where the entry's value are the records pointed to by the index.
 
-You can rebuild automatic indexes using the [`REBUILD INDEX`](SQL-Rebuild-Index.md) command.
+You can rebuild automatic indexes using the [`REBUILD INDEX`](sql/SQL-Rebuild-Index.md) command.
 
 ### Index Types
 
@@ -200,7 +200,7 @@ CREATE INDEX <name> [ON <class-name> (prop-names)] <type> [<key-type>]
   orientdb> <code class="lang-sql userinput">CREATE INDEX books ON Book (author, title, publicationYears) UNIQUE
   </pre>
 
-For more information on creating indexes, see the [`CREATE INDEX`](SQL-Create-Index.md) command.
+For more information on creating indexes, see the [`CREATE INDEX`](sql/SQL-Create-Index.md) command.
 
 ### Dropping Indexes
 
@@ -213,11 +213,11 @@ DROP INDEX <name>
 ```
 - `<name>` provides the name of the index you want to drop.
 
-For more information on dropping indexes, see the [`DROP INDEX`](SQL-Drop-Index.md) command.
+For more information on dropping indexes, see the [`DROP INDEX`](sql/SQL-Drop-Index.md) command.
 
 ### Querying Indexes
 
-When you have an index created and in use, you can query records in the index using the [`SELECT`](SQL-Query.md) command.
+When you have an index created and in use, you can query records in the index using the [`SELECT`](sql/SQL-Query.md) command.
 
 **Syntax:**
 
@@ -355,7 +355,7 @@ SELECT COUNT(*) AS size FROM INDEX:<index-name>
 
 ### Querying Keys from Indexes
 
-You can query all keys in an index using the [`SELECT`](SQL-Query.md) command.
+You can query all keys in an index using the [`SELECT`](sql/SQL-Query.md) command.
 
 **Syntax:**
 
@@ -506,7 +506,7 @@ index.put(key1, doc1);
 
 ## Query the available indexes
 
-To access to the indexes, you can use [SQL](SQL.md#query-the-available-indexes).
+To access to the indexes, you can use [SQL](sql/SQL.md#query-the-available-indexes).
 
 ## Create your index engine
 

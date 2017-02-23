@@ -108,7 +108,7 @@ for (Vertex v : (Iterable<Vertex>) graph.command(
 }
 ```
 
-In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](SQL-Create-Vertex.md), [`UPDATE`](SQL-Update.md), or [`DELETE VERTEX`](SQL-Delete-Vertex.md).  For instance,
+In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](sql/SQL-Create-Vertex.md), [`UPDATE`](sql/SQL-Update.md), or [`DELETE VERTEX`](sql/SQL-Delete-Vertex.md).  For instance,
 
 ```java
 int modified = graph.command(

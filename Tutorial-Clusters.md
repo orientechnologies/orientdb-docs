@@ -48,13 +48,13 @@ Suppose you have a class `Customer` that relies on two clusters:
 
 ![Class-Custer](http://www.orientdb.org/images/class-clusters.png)
 
-In ths deployment, the default cluster is `USA_customers`. Therefore, when 'Cluster Selection' is set to 'default' records added with the [`INSERT`](SQL-Insert.md) statement belong to 'USA_customers' unless specified otherwise. If the selection strategy is 'default' then inserting data into a non-default cluster would require that you specify the cluster you want to insert the data into in your `INSERT` statement.
+In ths deployment, the default cluster is `USA_customers`. Therefore, when 'Cluster Selection' is set to 'default' records added with the [`INSERT`](sql/SQL-Insert.md) statement belong to 'USA_customers' unless specified otherwise. If the selection strategy is 'default' then inserting data into a non-default cluster would require that you specify the cluster you want to insert the data into in your `INSERT` statement.
 
 ![Class-Cluster](http://www.orientdb.org/images/class-newrecord.png)
 
 If we have different remote servers servicing customers in China and the USA, then it might also make sense to have 'Cluster Selection' set to 'local'. This will result in modifications of the customer class to take place on the cluster associated with the server making the modification.
 
-When you run a query on the `Customer` class, such as  [`SELECT`](SQL-Query.md), for instance:
+When you run a query on the `Customer` class, such as  [`SELECT`](sql/SQL-Query.md), for instance:
 
 ![Class-Cluster](http://www.orientdb.org/images/class-query.png)
 
@@ -81,9 +81,9 @@ You may also find it beneficial to locate different clusters on different server
 
 ### Adding Clusters
 
-When you create a class, OrientDB creates a set of default clusters of the same name.  In order for you to take advantage of the power of clusters, you need to create additional clusters on the class.  This is done with the [`ALTER CLASS`](SQL-Alter-Class.md) statement in conjunction with the `ADDCLUSTER` parameter.
+When you create a class, OrientDB creates a set of default clusters of the same name.  In order for you to take advantage of the power of clusters, you need to create additional clusters on the class.  This is done with the [`ALTER CLASS`](sql/SQL-Alter-Class.md) statement in conjunction with the `ADDCLUSTER` parameter.
 
-To add a cluster to the `Customer` class, use an [`ALTER CLASS`](SQL-Alter-Class.md) statement in the console:
+To add a cluster to the `Customer` class, use an [`ALTER CLASS`](sql/SQL-Alter-Class.md) statement in the console:
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER CLASS Customer ADDCLUSTER UK_Customers</code>

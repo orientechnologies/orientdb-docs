@@ -55,7 +55,7 @@ Given that the Relational Model doesn't use concepts from Object Oriented Progra
 
 ## Exporting Relational Databases
 
-Most Relational database management systems provide a way to export the database into SQL format.  What you specifically need from this is a text file that contains the SQL [`INSERT`](SQL-Insert.md) commands to recreate the database from scratch.  For example,
+Most Relational database management systems provide a way to export the database into SQL format.  What you specifically need from this is a text file that contains the SQL [`INSERT`](sql/SQL-Insert.md) commands to recreate the database from scratch.  For example,
 
 - MySQL: the [`mysqldump`](https://dev.mysql.com/doc/refman/5.6/en/mysqldump.html) utility.
 - Oracle Database: the [Datapump](http://www.orafaq.com/wiki/Data_Pump) utilities.
@@ -170,7 +170,7 @@ DECLARE INTENT MASSIVEINSERT
 
 Relational databases have no parallel to concepts in Object Oriented programming, such as classes.  Conversely, OrientDB doesn't have a concept of tables in the Relational sense. 
 
-Modify the SQL file, changing `CREATE TABLE` statements to [`CREATE CLASS`](SQL-Create-Class.md) commands:
+Modify the SQL file, changing `CREATE TABLE` statements to [`CREATE CLASS`](sql/SQL-Create-Class.md) commands:
 
 <pre>
 $ <code class="lang-sql userinput">vim export.sql</code>
@@ -185,9 +185,9 @@ CREATE CLASS Comment
 
 In the Relational database, the relationship between the `post` and `comment` was handled through foreign keys on the `id` fields.  OrientDB handles relationships differently, using links between two or more records of the Document type.
 
-By default, the [`CREATE LINK`](SQL-Create-Link.md) command creates a direct relationship in your object model. Navigation goes from `Post` to `Comment` and not vice versa, which is the case for the Relational database.  You'll need to use the `INVERSE` keyword to make the links work in both directions.
+By default, the [`CREATE LINK`](sql/SQL-Create-Link.md) command creates a direct relationship in your object model. Navigation goes from `Post` to `Comment` and not vice versa, which is the case for the Relational database.  You'll need to use the `INVERSE` keyword to make the links work in both directions.
 
-Add the following line after the [`INSERT`](SQL-Insert.md) statements.
+Add the following line after the [`INSERT`](sql/SQL-Insert.md) statements.
 
 <pre>
 $ <code class="lang-sh userinput">vim export.sql</code>
@@ -197,9 +197,9 @@ CREATE LINK comments TYPE LINKSET FROM comment.postId TO post.id INVERSE
 
 ### Remove Constraints
 
-Unlike how Relational databases handle tables, OrientDB does not require you to create a strict schema on your classes.  The properties on each class are defined through the [`INSERT`](SQL-Insert.md) statements.  That is, `id` and `title` on `Post` and `id`, `postId` and `text` on `Comment`.
+Unlike how Relational databases handle tables, OrientDB does not require you to create a strict schema on your classes.  The properties on each class are defined through the [`INSERT`](sql/SQL-Insert.md) statements.  That is, `id` and `title` on `Post` and `id`, `postId` and `text` on `Comment`.
 
-Given that you created a link in the above section, the property `postId` is no longer necessary.  Instead of modifying each [`INSERT`](SQL-Insert.md) statement, you can use the [`UPDATE`](SQL-Update.md) command to remove them at the end:
+Given that you created a link in the above section, the property `postId` is no longer necessary.  Instead of modifying each [`INSERT`](sql/SQL-Insert.md) statement, you can use the [`UPDATE`](sql/SQL-Update.md) command to remove them at the end:
 
 <pre>
 $ <code class="lang-sh userinput">vim export.sql</code>
@@ -274,5 +274,5 @@ You now have an OrientDB Document database where relationships are direct and ha
 
 >For more information, see
 >
->- [SQL commands](SQL.md)
+>- [SQL commands](sql/SQL.md)
 >- [Console-Commands](console/Console-Commands.md)

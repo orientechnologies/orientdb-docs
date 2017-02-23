@@ -65,7 +65,7 @@ Where:
 
 ## SQL Graph language
 
-To use the OrientDB's SQL language use **<code>sql</code>** as language. For more information look at the [SQL-Syntax](SQL-Query.md).
+To use the OrientDB's SQL language use **<code>sql</code>** as language. For more information look at the [SQL-Syntax](sql/SQL-Query.md).
 
 For example, to return the first 1,000 vertices (class V) with outgoing connections the query would be:
 ```sql

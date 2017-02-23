@@ -63,7 +63,7 @@ Each class has its own cluster or clusters, (created by default, if none are def
 
 >For more information on classes in OrientDB, see [Class](Concepts.md#class).
 
-To create a new class, use the [`CREATE CLASS`](SQL-Create-Class.md) command:
+To create a new class, use the [`CREATE CLASS`](sql/SQL-Create-Class.md) command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE CLASS Student</code>
@@ -71,14 +71,14 @@ orientdb> <code class="lang-sql userinput">CREATE CLASS Student</code>
 Class created successfully. Total classes in database now: 15
 </pre>
 
-This creates a class called `Student`.  Given that no cluster was defined in the [`CREATE CLASS`](SQL-Create-Class.md) command, OrientDB creates a default cluster called `student`, to contain records assigned to this class. For the moment, the class has no records or properties tied to it.  It is now displayed in the [`CLASSES`](console/Console-Command-Classes.md) listing and in the schema manager of Studio.
+This creates a class called `Student`.  Given that no cluster was defined in the [`CREATE CLASS`](sql/SQL-Create-Class.md) command, OrientDB creates a default cluster called `student`, to contain records assigned to this class. For the moment, the class has no records or properties tied to it.  It is now displayed in the [`CLASSES`](console/Console-Command-Classes.md) listing and in the schema manager of Studio.
 
 
 ### Adding Properties to a Class
 
 As mentioned above, OrientDB allows you to work in a schema-less mode.  That is, it allows you to create classes without defining their properties. However, properties are mandatory if you would like to define indexes or constraints for a class. Let's follow OrientDB's comparison to relational databases again... If classes in OrientDB are similar to tables, then properties are the columns on those tables.
 
-To create new properties on `Student`, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command in the console or in the browse window of studio:
+To create new properties on `Student`, use the [`CREATE PROPERTY`](sql/SQL-Create-Property.md) command in the console or in the browse window of studio:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE PROPERTY Student.name STRING</code>
@@ -132,7 +132,7 @@ Constraints create limits on the data values assigned to properties.  For instan
 
 >The only two properties required when using the 'create a property' command for a class are 'NAME' and 'TYPE'.
 
-To add a constraint to an existing property, use the [`ALTER PROPERTY`](SQL-Alter-Property.md) command:
+To add a constraint to an existing property, use the [`ALTER PROPERTY`](sql/SQL-Alter-Property.md) command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER PROPERTY Student.name MIN 3</code>

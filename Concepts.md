@@ -97,7 +97,7 @@ When you create a new class, by default, OrientDB creates a new [persistent clus
 
 ### Abstract Class
 
-The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](SQL-Create-Class.md#abstract-class).
+The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](sql/SQL-Create-Class.md#abstract-class).
 
 This concept is essential to Object Orientation, without the typical spamming of the database with always empty, auto-created clusters.
 
@@ -108,13 +108,13 @@ This concept is essential to Object Orientation, without the typical spamming of
 
 ### Class vs. Cluster in Queries
 
-The combination of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2015` and `invoice2016`.  You can query all invoices using the class as a target with [`SELECT`](SQL-Query.md).
+The combination of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2015` and `invoice2016`.  You can query all invoices using the class as a target with [`SELECT`](sql/SQL-Query.md).
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Invoice</code>
 </pre>
 
-In addition to this, you can filter the result-set by year.  The class `Invoice` includes a `year` field, you can filter it through the [`WHERE`](SQL-Where.md) clause.
+In addition to this, you can filter the result-set by year.  The class `Invoice` includes a `year` field, you can filter it through the [`WHERE`](sql/SQL-Where.md) clause.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Invoice WHERE year = 2012</code>
@@ -133,7 +133,7 @@ Due to the optimization, this query runs significantly faster, because OrientDB 
 
 Where classes in provide you with a logical framework for organizing data, clusters provide physical or in-memory space in which OrientDB actually stores the data.  It is comparable to the collection in Document databases and the table in Relational databases.
 
-When you create a new class, the [`CREATE CLASS`](SQL-Create-Class.md) process also creates a physical cluster that serves as the default location in which to store data for that class.  OrientDB forms the cluster name using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
+When you create a new class, the [`CREATE CLASS`](sql/SQL-Create-Class.md) process also creates a physical cluster that serves as the default location in which to store data for that class.  OrientDB forms the cluster name using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
 
 >For more information, see the [Clusters Tutorial](Tutorial-Clusters.md).
 

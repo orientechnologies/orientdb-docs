@@ -16,7 +16,7 @@ In the case of schema-hybrid mode, you only set constraints for certain fields a
 
 >**NOTE** Changes to the schema are not transactional.  You must execute these commands outside of a transaction. 
 
-You can access the schema through [SQL](SQL.md#query-the-schema) or through the Java API.  Examples here use the latter.  To access the schema API in Java, you need the Schema instance of the database you want to use.  For example,
+You can access the schema through [SQL](sql/SQL.md#query-the-schema) or through the Java API.  Examples here use the latter.  To access the schema API in Java, you need the Schema instance of the database you want to use.  For example,
 
 
 ```java
@@ -109,7 +109,7 @@ In the event that you would like to remove properties from a class you can do so
 database.getMetadata().getSchema().getClass("Account").dropProperty("name");
 ```
 
-When you drop a property from a class, it does not remove records from that class unless you explicitly ask for it, using the [`UPDATE... REMOVE`](SQL-Update.md) statements.  For instance,
+When you drop a property from a class, it does not remove records from that class unless you explicitly ask for it, using the [`UPDATE... REMOVE`](sql/SQL-Update.md) statements.  For instance,
 
 
 ```java
@@ -234,7 +234,7 @@ This establishes a one to many relationship between the classes `Order` and `Ord
 
 ## Constraints
 
-OrientDB supports a number of constraints for each field.  For more information on setting constraints, see the [`ALTER PROPERTY`](SQL-Alter-Property.md) command.
+OrientDB supports a number of constraints for each field.  For more information on setting constraints, see the [`ALTER PROPERTY`](sql/SQL-Alter-Property.md) command.
 
 - **Minimum Value**: `setMin()` The field accepts a string, because it works also for date ranges.
 - **Maximum Value**: `setMax()` The field accepts a string, because it works also for date rangers.

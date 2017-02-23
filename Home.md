@@ -6,7 +6,7 @@
 
 |Getting Started	|Main Topics    |Developers   |
 |-----------------------|---------------|-------------|
-| [Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](Concepts.md)  | [SQL](SQL.md) | 
+| [Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](Concepts.md)  | [SQL](sql/SQL.md) | 
 | [Installation](Tutorial-Installation.md) | [Supported Data Types](Types.md) | [Gremlin](Gremlin.md) | 
 | [First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](Inheritance.md) | [HTTP API](OrientDB-REST.md) |
 | [Troubleshooting](Troubleshooting.md) |[Security](Security.md) | [Java API](Java-API.md) |

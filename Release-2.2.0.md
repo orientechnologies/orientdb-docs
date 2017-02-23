@@ -16,7 +16,7 @@ OrientDB v2.2 offers a brand new module to handle geospatial information provide
 
 ### Pattern Matching
 
-Starting from v2.2, OrientDB provides an alternative way to query the database by using the Pattern Matching approach. For more information look at [SQL Match](SQL-Match.md).
+Starting from v2.2, OrientDB provides an alternative way to query the database by using the Pattern Matching approach. For more information look at [SQL Match](sql/SQL-Match.md).
 
 ### Non-Stop Incremental Backup and Restore
 
@@ -34,7 +34,7 @@ This wasn't correct, because if a node is unreachable, it could be because netwo
 
 In v2.2.0-rc1 the nodes is never removed automatically from the configuration for this reason, unless you manually remove a node from the configuration claiming that node is not part of the cluster anymore. The new SQL command to remove a server from the configuration is:
 
-[`HA REMOVE SERVER <server-name>`](SQL-HA-Remove-Server.md)
+[`HA REMOVE SERVER <server-name>`](sql/SQL-HA-Remove-Server.md)
 
 
 #### Other changes
@@ -54,10 +54,10 @@ In v2.2.0-rc1 the nodes is never removed automatically from the configuration fo
  - `HA SYNC CLUSTER <cluster-name>`, to ask for a resync of a single cluster
 
 ### Command Cache
-OrientDB 2.2 has a new component called [Command Cache](Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](Command-Cache.md) to know more.
+OrientDB 2.2 has a new component called [Command Cache](sql/Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](sql/Command-Cache.md) to know more.
 
 ### Sequences
-In v2.2 we introduced [Sequences](Sequences-and-auto-increment.md). Thanks to the sequences it's easy to maintain counters and incremental ids in your application. You can use [Sequences](Sequences-and-auto-increment.md) from both Java API and SQL.
+In v2.2 we introduced [Sequences](sql/Sequences-and-auto-increment.md). Thanks to the sequences it's easy to maintain counters and incremental ids in your application. You can use [Sequences](sql/Sequences-and-auto-increment.md) from both Java API and SQL.
 
 ### Parallel queries
 OrientDB v2.2 can run query in parallel, using multiple threads. To use parallel queries, append the `PARALLEL` keyword at the end of SQL SELECT. Example: `SELECT FROM V WHERE amount < 100 PARALLEL`.

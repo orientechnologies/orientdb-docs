@@ -62,7 +62,7 @@ Invoice
                 [  8:12      8:19      8:23   ]
 ```
 
-Here, you have a class, `Invoice`, with linked fields `customer`, `city`, and `orders`.  If you were to run a [`SELECT`](SQL-Query.md) query on `Invoice`, it would not load the linked class, and it would require seven different loads to build the returned value.  In the event that you have a remote connection, that means seven network calls as well.
+Here, you have a class, `Invoice`, with linked fields `customer`, `city`, and `orders`.  If you were to run a [`SELECT`](sql/SQL-Query.md) query on `Invoice`, it would not load the linked class, and it would require seven different loads to build the returned value.  In the event that you have a remote connection, that means seven network calls as well.
 
 In order to avoid performance issues that may arise from this behavior, OrientDB supports fetching strategies, called Fetch Plans, that allow you to customize how it loads linked records.  The aim of a Fetch Plan is to pre-load connected records in a single call, rather than several.  The best use of Fetch Plans is on records loaded through remote connections and when using JSON serializers to produce JSON with nested records.
 

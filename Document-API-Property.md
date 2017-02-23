@@ -35,7 +35,7 @@ database.getMetadata().getSchema().getClass("Account)
    .dropProperty("name");
 ```
 
-When you drop properties using this method, note that doing so does not result in your removing records unless you explicitly do so.  In order to do so, you need to issue an SQL command through the application to run an [`UPDATE...REMOVE`](SQL-Update.md) statement.  For instance,
+When you drop properties using this method, note that doing so does not result in your removing records unless you explicitly do so.  In order to do so, you need to issue an SQL command through the application to run an [`UPDATE...REMOVE`](sql/SQL-Update.md) statement.  For instance,
 
 ```java
 database.getMetadata().getSchema().getClass("Account")

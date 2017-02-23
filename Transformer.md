@@ -152,7 +152,7 @@ Component description.
 
 ## Merge Transformer
 
-When the ETL module calls the Merge Transformer, it takes input from one `ODocument` instance to output into another, loaded by lookup.  THe lookup can either be a lookup against an index or a [`SELECT`](SQL-Query.md) query.
+When the ETL module calls the Merge Transformer, it takes input from one `ODocument` instance to output into another, loaded by lookup.  THe lookup can either be a lookup against an index or a [`SELECT`](sql/SQL-Query.md) query.
 
 Component description.
 - Component name: **merge**
@@ -164,7 +164,7 @@ Component description.
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
 | `"joinFieldName"` | Defines the field containing the join value. | string | yes | |
-| `"lookup"` | Defines the index on which to execute th elookup, or a [`SELECT`](SQL-Query.md) query. | string | yes | |
+| `"lookup"` | Defines the index on which to execute th elookup, or a [`SELECT`](sql/SQL-Query.md) query. | string | yes | |
 | `"unresolvedLinkAction"` | Defines the action to execute in the event that the join hasn't been resolved. | string | | `NOTHING` |
 
 For the `"unresolvedLinkAction"` parameter, the supported actions are:
@@ -221,7 +221,7 @@ Component description.
 
 ## Edge Transformer
 
-When the ETL modules calls the Edge Transformer, it converts join values in one or more edges between the current vertex and all vertices returned by the lookup.  The lookup can either be made against an index or a [`SELECT`](SQL-Query.md).
+When the ETL modules calls the Edge Transformer, it converts join values in one or more edges between the current vertex and all vertices returned by the lookup.  The lookup can either be made against an index or a [`SELECT`](sql/SQL-Query.md).
 
 Component description.
 - Component name: **EDGE**
@@ -235,7 +235,7 @@ Component description.
 | `"joinFieldName"` | Defines the field containing the join value. | string | yes | |
 | `"direction"` | Defines the edge direction. | string | | `out` |
 | `"class"` | Defines the edge class. | string | | `E` |
-| `"lookup"` | Defines the index on which to execute the lookup or a [`SELECT`](SQL-Query.md). | string | yes | |
+| `"lookup"` | Defines the index on which to execute the lookup or a [`SELECT`](sql/SQL-Query.md). | string | yes | |
 | `"targetVertexFields"` | Defines the field on which to set the target vertex. | object | | |
 | `"edgeFields"` | Defines the fields to set in th eedge. | object | | |
 | `"skipDuplicates"` | Defines whether to skip duplicate edges when the `UNIQUE` constraint is set on both the `out` and `in` properties. | boolean | | `false` |
@@ -380,7 +380,7 @@ Component description.
   
 ## Link Transformer
 
-When the ETL module calls the Link Transformer, it converts join values into links within the current record, using the result of the lookup.  The lookup can be made against an index or a [`SELECT`](SQL-Query.md).
+When the ETL module calls the Link Transformer, it converts join values into links within the current record, using the result of the lookup.  The lookup can be made against an index or a [`SELECT`](sql/SQL-Query.md).
 
 Component description.
 - Component name: **link**
@@ -395,7 +395,7 @@ Component description.
 | `"joinValue"` | Defines the value to look up. | string | | |
 | `"linkFieldName"` | Defines the field containing the link to set. | string | yes | |
 | `"linkFieldType"` | Defines the link type. | string | yes | |
-| `"lookup"` | Defines the index on which to execute the lookup or a [`SELECT`](SQL-Query.md) query. | string | yes | |
+| `"lookup"` | Defines the index on which to execute the lookup or a [`SELECT`](sql/SQL-Query.md) query. | string | yes | |
 | `"unresolvedLinkAction"` | Defines the action to execute in the event that the join doesn't resolve. | string | | `NOTHING`|
 
 For the `"linkFieldType"` parameter, supported link types are: `LINK`, `LINKSET` and `LINKLIST`.
@@ -505,7 +505,7 @@ Component description.
 
 **Example**
 
-- Execute a [`SELECT`](SQL-Query.md) and output an edge:
+- Execute a [`SELECT`](sql/SQL-Query.md) and output an edge:
 
   ```json
   { "command" : 

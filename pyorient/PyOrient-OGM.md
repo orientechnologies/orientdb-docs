@@ -19,7 +19,7 @@ What the OGM does is that it maps Python objects to classes and properties in Or
 
 >Whichever method you choose to adopt, once you have built the database and mapped its schema to your Python classes, you can execute queries against it.  You can do this using the OrientDB console or from within your application.
 >
->Currently, the mapper does not support [`TRAVERSE`](../SQL-Traverse.md) and it's support for Gremlin is functional, but limited.
+>Currently, the mapper does not support [`TRAVERSE`](../sql/SQL-Traverse.md) and it's support for Gremlin is functional, but limited.
 
 ## Using the OGM
 

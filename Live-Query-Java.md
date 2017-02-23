@@ -13,7 +13,7 @@ In order to implement the Live Query feature in your Java applications, you need
 
 ## Listener
 
-When developing a listener for your query, you must implement the `OLiveResultListener` class.  It must have a callback method that receives the Live Query token and the record that was modified with the operation that occurred, (that is, [`INSERT`](SQL-Insert.md), [`UPDATE`](SQL-Update.md), or [`DELETE`](SQL-Delete.md).
+When developing a listener for your query, you must implement the `OLiveResultListener` class.  It must have a callback method that receives the Live Query token and the record that was modified with the operation that occurred, (that is, [`INSERT`](sql/SQL-Insert.md), [`UPDATE`](sql/SQL-Update.md), or [`DELETE`](sql/SQL-Delete.md).
 
 ```java
 class MyLiveQueryListener implements OLiveResultListener {
@@ -67,7 +67,7 @@ List<ODocument> result = db.query(
 String token = result.get(0).field("token");
 ```
 
-From now on, your application receives updates from OrientDB whenever changes are made to the result-set.  So, for instance, say that someone connected to another client where to execute an [`INSERT`](SQL-Insert.md) statement, like
+From now on, your application receives updates from OrientDB whenever changes are made to the result-set.  So, for instance, say that someone connected to another client where to execute an [`INSERT`](sql/SQL-Insert.md) statement, like
 
 ```java
 // Send Message
@@ -97,7 +97,7 @@ Live Queries remain active indefinitely, until the server shuts down or you unsu
 String token = result.get(0).field("token");
 ```
 
-You can use this variable with [`LIVE UNSUBSCRIBE`](SQL-Live-Unsubscribe.md) to unsubscribe from the Live Query.
+You can use this variable with [`LIVE UNSUBSCRIBE`](sql/SQL-Live-Unsubscribe.md) to unsubscribe from the Live Query.
 
 ```java
 db.command(

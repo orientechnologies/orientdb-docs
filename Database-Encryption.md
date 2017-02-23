@@ -61,7 +61,7 @@ Whether you use the console or the Java API, these commands encrypt the entire d
 
 ## Encrypting Clusters
 
-In addition to the entire database, you can also only encrypt certain clusters on the database.  To do so, set the encryption to the default of `nothing` when you create the database, then configure the encryption per cluster through the [`ALTER CLUSTER`](SQL-Alter-Cluster.md) command. 
+In addition to the entire database, you can also only encrypt certain clusters on the database.  To do so, set the encryption to the default of `nothing` when you create the database, then configure the encryption per cluster through the [`ALTER CLUSTER`](sql/SQL-Alter-Cluster.md) command. 
 
 To encrypt the cluster through the Java API, create the database, then alter the cluster to use encryption:
 

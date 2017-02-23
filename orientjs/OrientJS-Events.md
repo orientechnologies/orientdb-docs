@@ -82,8 +82,8 @@ db.on("endQuery", function(obj){
 
 ### Running Events on Live Queries
 
-Beginning in version 2.1, OrientDB introduces Live Queries, which provides support for [`INSERT`](../SQL-Insert.md), [`DELETE`](../SQL-Delete.md), and [`UPDATE`](../SQL-Update.md) events to OrientJS applications.
+Beginning in version 2.1, OrientDB introduces Live Queries, which provides support for [`INSERT`](../sql/SQL-Insert.md), [`DELETE`](../sql/SQL-Delete.md), and [`UPDATE`](../sql/SQL-Update.md) events to OrientJS applications.
 
-Unlike other events, these are not set to the Database API itself, but rather through a [`LIVE SELECT`](../SQL-Live-Select.md) query that determines what records you want the application to monitor.
+Unlike other events, these are not set to the Database API itself, but rather through a [`LIVE SELECT`](../sql/SQL-Live-Select.md) query that determines what records you want the application to monitor.
 
 For more information and examples, see [`liveQuery()`](OrientJS-Query-Live-Query.md).

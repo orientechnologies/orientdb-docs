@@ -16,5 +16,5 @@ This is a comparison page between OrientDB and other DocumentDB projects . To kn
 |Web Site|http://www.orientdb.org|http://www.mongodb.org|http://www.couchdb.org|
 |Supported models|[Document](http://en.wikipedia.org/wiki/Document-oriented_database) and [Graph](http://en.wikipedia.org/wiki/Graph_database)|[Document](http://en.wikipedia.org/wiki/Document-oriented_database)|[Document](http://en.wikipedia.org/wiki/Document-oriented_database)|
 |Transactions|Yes, [ACID](http://en.wikipedia.org/wiki/ACID)|No|Yes, [ACID](http://en.wikipedia.org/wiki/ACID)|
-|Query languages|[Extended SQL](SQL.md), [Gremlin](https://github.com/tinkerpop/gremlin/wiki)|[Mongo Query Language](http://www.mongodb.org/display/DOCS/Querying)|[Non supported, JS API](http://sitr.us/2009/06/30/database-queries-the-couchdb-way.html)|
+|Query languages|[Extended SQL](sql/SQL.md), [Gremlin](https://github.com/tinkerpop/gremlin/wiki)|[Mongo Query Language](http://www.mongodb.org/display/DOCS/Querying)|[Non supported, JS API](http://sitr.us/2009/06/30/database-queries-the-couchdb-way.html)|
 

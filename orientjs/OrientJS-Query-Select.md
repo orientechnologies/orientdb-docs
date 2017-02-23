@@ -6,7 +6,7 @@ search:
 
 # OrientJS - `select()`
 
-Selection queries in OrientJS are those used to fetch data from the database, so that you can operate on it with your application.  The method is comparable to the [`SELECT`](../SQL-Query.md) command in the OrientDB Console.
+Selection queries in OrientJS are those used to fetch data from the database, so that you can operate on it with your application.  The method is comparable to the [`SELECT`](../sql/SQL-Query.md) command in the OrientDB Console.
 
 ## Working with Selection Queries
 

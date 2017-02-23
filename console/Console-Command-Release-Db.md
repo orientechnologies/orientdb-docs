@@ -25,6 +25,6 @@ RELEASE DATABASE
 
 >To freeze a database, see the [`FREEZE DATABASE`](Console-Command-Freeze-Db.md) command.
 >
->For more information on other commands, see [Console](Console-Commands.md) and [SQL](../SQL.md) commands.
+>For more information on other commands, see [Console](Console-Commands.md) and [SQL](../sql/SQL.md) commands.
 
 

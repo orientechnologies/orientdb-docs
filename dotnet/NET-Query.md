@@ -9,6 +9,6 @@ When querying a database on OrientDB through your C#/.NET application there are 
 
 These queries support common conditional and grouping methods to organize the data before OrientDB returns it to your application.
 
-- [**Conditional Methods**](NET-Query-Conditions.md) These are in building [`WHERE`](../SQL-Where.md) clauses within OrientDB-NET.
+- [**Conditional Methods**](NET-Query-Conditions.md) These are in building [`WHERE`](../sql/SQL-Where.md) clauses within OrientDB-NET.
 - [**Limiter Methods**](NET-Query-Limiter.md) These are used in limited or offsetting the result-set.
 - [**Sort Methods**](NET-Query-Sort.md) These are used in sorting or otherwise ordering the result-set.

@@ -141,7 +141,7 @@ The following is a partial visualization of the _northwind_ database done with t
 
 As you can see from the _Limit_ field, the visualization is limited to 200 vertices.
 
-The following, instead, is the graph returned by the following [MATCH](SQL-Match.md) query (the query returns all nodes connected to the Order with `orderID` 10344):
+The following, instead, is the graph returned by the following [MATCH](sql/SQL-Match.md) query (the query returns all nodes connected to the Order with `orderID` 10344):
 
 ```sql
 MATCH {class: Order, where: (orderID = 10344)}--{as: n} RETURN $pathelements

@@ -186,7 +186,7 @@ Here, you also delete `JavaSimpleTextClass` instances contained in the `simpleCl
 
 ## Executing Queries
 
-While OrientDB is a NoSQL database, it also supports a subset of SQL with extensions, allowing it to work with objects and graphs.  For more information, see [SQL](SQL.md).  For instance,
+While OrientDB is a NoSQL database, it also supports a subset of SQL with extensions, allowing it to work with objects and graphs.  For more information, see [SQL](sql/SQL.md).  For instance,
 
 ```java
 List<Animal> result = db.query(
@@ -194,7 +194,7 @@ List<Animal> result = db.query(
       "SELECT FROM Animal WHERE id = 10 AND name LIKE 'G%'"));
 ```
 
->OrientDB is a Graph database.  This means that it is very efficient at traversing records.  You can use this feature to optimize your queries.  A common technique for this is [Pivoting](Pivoting-With-Query.md).
+>OrientDB is a Graph database.  This means that it is very efficient at traversing records.  You can use this feature to optimize your queries.  A common technique for this is [Pivoting](sql/Pivoting-With-Query.md).
 
 To execute SQL commands, use the `command()` method with an `OCommandSQL` object.  For instance,
 

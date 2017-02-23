@@ -67,7 +67,7 @@ For relational database systems, the database computes the relationship every ti
 
 In OrientDB, the speed of traversal is not affected by the size of the database. It is always constant regardless of whether it has one record or one hundred billion records. This is a critical feature in the age of Big Data.
 
-Searching for an identifier at runtime each time you execute a query, for every record will grow very expensive. The first optimization with relational databases is the use of indexing. Indexes speed up searches, but they slow down [`INSERT`](SQL-Insert.md), [`UPDATE`](SQL-Update.md), and [`DELETE`](SQL-Delete.md) operations. Additionally, they occupy a substantial amount of space on the disk and in memory.
+Searching for an identifier at runtime each time you execute a query, for every record will grow very expensive. The first optimization with relational databases is the use of indexing. Indexes speed up searches, but they slow down [`INSERT`](sql/SQL-Insert.md), [`UPDATE`](sql/SQL-Update.md), and [`DELETE`](sql/SQL-Delete.md) operations. Additionally, they occupy a substantial amount of space on the disk and in memory.
 
 Consider also whether searching an index is actually fast.
 

@@ -165,20 +165,20 @@ graph.command(
 
 ### SQL Commands
 
-In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](SQL-Create-Vertex.md), [`UPDATE`](SQL-Update.md), or [`DELETE VERTEX`](SQL-Delete-Vertex.md).  For instance, consider a case where you want to set a new property called `local` to `true` on all the customers that live in Rome.
+In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](sql/SQL-Create-Vertex.md), [`UPDATE`](sql/SQL-Update.md), or [`DELETE VERTEX`](sql/SQL-Delete-Vertex.md).  For instance, consider a case where you want to set a new property called `local` to `true` on all the customers that live in Rome.
 
 ```java
 int modified = graph.command(
           new OCommandSQL("UPDATE Customer SET local = true WHERE 'Rome' IN out('lives').name")).execute());
 ```
 
-If the command modifies the schema, (such as in cases like [`CREATE CLASS`](SQL-Create-Class.md), [`ALTER CLASS`](SQL-Alter-Class.md), [`DROP CLASS`](SQL-Drop-Class.md), [`CREATE PROPERTY`](SQL-Create-Proeprty-md), [`ALTER PROPERTY`](SQL-Alter-Property.md), and [`DROP PROPERTY`](SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
+If the command modifies the schema, (such as in cases like [`CREATE CLASS`](sql/SQL-Create-Class.md), [`ALTER CLASS`](sql/SQL-Alter-Class.md), [`DROP CLASS`](sql/SQL-Drop-Class.md), [`CREATE PROPERTY`](SQL-Create-Proeprty-md), [`ALTER PROPERTY`](sql/SQL-Alter-Property.md), and [`DROP PROPERTY`](sql/SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
 
 ```java
 graph.getRawGraph().getMetadata().getSchema().reload();
 ```
 
->For more information, see [SQL Commands](SQL.md)
+>For more information, see [SQL Commands](sql/SQL.md)
 
 ### SQL Batch
 
@@ -195,7 +195,7 @@ cmd += "return $e";
 OIdentifiable edge = graph.command(new OCommandScript("sql", cmd)).execute();
 ```
 
->For more information, see [SQL Batch](SQL-batch.md)
+>For more information, see [SQL Batch](sql/SQL-batch.md)
 
 ### Database Functions
 

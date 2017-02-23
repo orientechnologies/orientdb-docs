@@ -316,7 +316,7 @@ If we want to find all nodes directly connected to a specific beer (e.g. the bee
 SELECT EXPAND( BOTH() ) FROM Beer WHERE name = 'Petrus Dubbel Bruin Ale'
 ```
 
-Alternatively, we can use the [MATCH](SQL-Match.md) syntax:
+Alternatively, we can use the [MATCH](sql/SQL-Match.md) syntax:
 
 ```
 MATCH {class: Beer, where: (name = 'Petrus Dubbel Bruin Ale')}--{as: n} RETURN $pathelements
@@ -336,7 +336,7 @@ The same resultset can be visualized using an external graph library. For instan
 
 ![](images/etl/openbeerdb/library_visjs_expand_beer.png)
 
-We can also query bigger portions of the graph. For example, to query all beer *Category* nodes and for each of them all the connected *Style* nodes, we can use a [MATCH](SQL-Match.md) query like the following:
+We can also query bigger portions of the graph. For example, to query all beer *Category* nodes and for each of them all the connected *Style* nodes, we can use a [MATCH](sql/SQL-Match.md) query like the following:
 
 ```
 MATCH 

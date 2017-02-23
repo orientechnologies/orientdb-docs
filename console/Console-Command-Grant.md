@@ -1,3 +1,3 @@
 # Console - GRANT
 
-Moved to [SQL Grant](../SQL-Grant.md).
+Moved to [SQL Grant](../sql/SQL-Grant.md).

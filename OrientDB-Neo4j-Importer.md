@@ -32,7 +32,7 @@ The following limitations apply:
 * Currently only `local` migrations are allowed.
 * Schema limitations:
 	* In case a node in Neo4j has multiple _Labels_, it will be imported into a single OrientDB `Class` (_"MultipleLabelNeo4jConversion"_). 
-		* Note that the information about the original set of Labels is not lost but stored into an internal property of the imported vertex (_"Neo4jLabelList"_). As a result, it will be possible to query nodes with a specific Neo4j _Label_. Note also that the nodes imported into the single class _"MultipleLabelNeo4jConversion"_ can then be moved to other `Classes`, according to your specific needs, using the [MOVE VERTEX](SQL-Move-Vertex.md) command. For more information, please refer to [this](OrientDB-Neo4j-Importer.md#querying-nodes-by-original-neo4j-labels) Section.
+		* Note that the information about the original set of Labels is not lost but stored into an internal property of the imported vertex (_"Neo4jLabelList"_). As a result, it will be possible to query nodes with a specific Neo4j _Label_. Note also that the nodes imported into the single class _"MultipleLabelNeo4jConversion"_ can then be moved to other `Classes`, according to your specific needs, using the [MOVE VERTEX](sql/SQL-Move-Vertex.md) command. For more information, please refer to [this](OrientDB-Neo4j-Importer.md#querying-nodes-by-original-neo4j-labels) Section.
 	* Neo4j Nodes with same _Label_ but different case, e.g. _LABEL_ and _LAbel_ will be aggregated into a single OrientDB vertex `Class`.
 	* Neo4j Relationship with same name but different case, e.g. _relaTIONship_ and _RELATIONSHIP_ will be aggregated into a single OrientDB edge `Class`  
 	* Migration of Neo4j's _"existence"_ constraints (only available in the Neo4j's Enterprise Edition) is currently not implemented. 
@@ -140,7 +140,7 @@ The following are some general migration details that is good to keep in mind:
 * List of original Neo4j _Labels_ are stored as properties in the imported OrientDB vertices (property: _"Neo4jLabelList"_). 
 
 * During the import, a not unique index is created on the property _"Neo4jLabelList"_. This allows you to query by _Label_ even over nodes migrated into the single `Class` _"MultipleLabelNeo4jConversion"_, using queries like: 
-`SELECT FROM V WHERE Neo4jLabelList CONTAINS 'your_label_here'` or the equivalent with the [MATCH](SQL-Match.md) syntax: `MATCH {class: V, as: your_alias, where: (Neo4jLabelList CONTAINS 'your_label'} RETURN your_alias`.
+`SELECT FROM V WHERE Neo4jLabelList CONTAINS 'your_label_here'` or the equivalent with the [MATCH](sql/SQL-Match.md) syntax: `MATCH {class: V, as: your_alias, where: (Neo4jLabelList CONTAINS 'your_label'} RETURN your_alias`.
 
 * Original Neo4j `IDs` are stored as properties in the imported OrientDB vertices and edges (`Neo4jNodeID` for vertices and `Neo4jRelID` for edges). Such properties can be (manually) removed at the end of the import, if not needed.
  
@@ -374,7 +374,7 @@ A list of prioritized enhancements for the Neo4j to OrientDB Importer, along wit
 
 **1. In case original nodes in Neo4j have multiple _Labels_, they are imported into a single OrientDB vertex Class. Depending on the specific use case, after the migration, it may be useful to manually move vertices to other Classes. How can this be done?**
 
-First, please note that there is an open [enhancement request](https://github.com/orientechnologies/orientdb-neo4j-importer/issues/8) about having a customized mapping between Neo4j _Labels_ and OrientDB `Classes`. Until it is implemented, a possible strategy to quickly move vertices into other `Classes` is to use the [`MOVE VERTEX`](SQL-Move-Vertex.md) syntax. 
+First, please note that there is an open [enhancement request](https://github.com/orientechnologies/orientdb-neo4j-importer/issues/8) about having a customized mapping between Neo4j _Labels_ and OrientDB `Classes`. Until it is implemented, a possible strategy to quickly move vertices into other `Classes` is to use the [`MOVE VERTEX`](sql/SQL-Move-Vertex.md) syntax. 
 
 The following are the steps to follow:
 
