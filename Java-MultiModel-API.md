@@ -12,7 +12,7 @@ This led to a big discrepancy between the two APIs. See these two examples:
 ```java
 // The Document API version
 
-ODatabaseDocumentTx db;
+ODatabaseDocument db;
 ...
 db.begin();
 ODocument doc = db.newInstance("Person");
