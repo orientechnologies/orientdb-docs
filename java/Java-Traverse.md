@@ -5,15 +5,15 @@ search:
 
 # Traverse
 
-OrientDB is a Graph database.  This means that its focal point is on relationships, (that is, links), and on managing them. The standard SQL language is not sufficient to work with trees or graphs, as it lacks the concept of recursion.  For this reason, the OrientDB subset of SQL implements a dedicated command for tree traversal: [`TRAVERSE`](sql/SQL-Traverse.md).
+OrientDB is a Graph database.  This means that its focal point is on relationships, (that is, links), and on managing them. The standard SQL language is not sufficient to work with trees or graphs, as it lacks the concept of recursion.  For this reason, the OrientDB subset of SQL implements a dedicated command for tree traversal: [`TRAVERSE`](../sql/SQL-Traverse.md).
 
 Traversal operations cross relationships between records, (that is, documents, vertices, nodes, and so on).  This operation runs much faster than the Relational database solution of executing a `JOIN`.
 
 The main concepts in traversal are:
 
-- **Target**: Defines where you want to begin traversing records, which can be a [class](Concepts.md#class), [cluster](Concepts.md#cluster), or a set of records defined by their [Record ID's](Concepts.md#record-id).
+- **Target**: Defines where you want to begin traversing records, which can be a [class](../Concepts.md#class), [cluster](../Concepts.md#cluster), or a set of records defined by their [Record ID's](../Concepts.md#record-id).
 
-  You can also use any sub-query that returns an iterable `OIdentifiable` object, such as when nesting multiple [`SELECT`](sql/SQL-Query.md) and [`TRAVERSE`](sql/SQL-Traverse.md) queries together.
+  You can also use any sub-query that returns an iterable `OIdentifiable` object, such as when nesting multiple [`SELECT`](../sql/SQL-Query.md) and [`TRAVERSE`](../sql/SQL-Traverse.md) queries together.
 
 - **Fields**: Defines the fields you want to traverse.  If you want to traverse all fields in a document, use `*`, `any()` or `all()`.
 
@@ -68,7 +68,7 @@ The following sections describe various traversal methods.
 
 ### SQL Traverse
 
-The simplest method available in executing a traversal is to use the SQL [`TRAVERSE`](sql/SQL-Traverse.md) command.
+The simplest method available in executing a traversal is to use the SQL [`TRAVERSE`](../sql/SQL-Traverse.md) command.
 
 For example, say that you have a `Movie` class and you want to retrieve all connected `from` and `to` records up to the fifth level in depth.  You might use something like this,
 
@@ -81,7 +81,7 @@ for (OIdentifiable id :
 }
 ```
 
-For more information on traversal in SQL, see [`TRAVERSE`](sql/SQL-Traverse.md).
+For more information on traversal in SQL, see [`TRAVERSE`](../sql/SQL-Traverse.md).
 
 
 ### Native Fluent API

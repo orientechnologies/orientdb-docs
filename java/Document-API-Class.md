@@ -18,7 +18,7 @@ When you create a new class, OrientDB creates a new physical cluster with it, wh
 
 Each class contains one or more properties, (which are also called fields).  This mode is similar to the classical model of Relational Databases, where you define tables before storing records.
 
-For instance, consider the use case of creating an `Account` class through the Java API.  By default, new [Physical Clusters](Concepts.md#physical-cluster) are created to store the class instances.
+For instance, consider the use case of creating an `Account` class through the Java API.  By default, new [Physical Clusters](../Concepts.md#physical-cluster) are created to store the class instances.
 
 ```java
 OClass account = database.getMetadata().getSchema()

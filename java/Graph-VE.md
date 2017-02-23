@@ -71,7 +71,7 @@ Edge lucaKnowsMarko = graph.addEdge(null, luca, marko, "knows");
 System.out.println("Created edge: " + lucaKnowsMarko.getId());
 ```
 
-For more information on optimizing edge creation through concurrent threads and clients, see [Concurrency on Adding Edges](Concurrency.md#concurrency-on-adding-edges).
+For more information on optimizing edge creation through concurrent threads and clients, see [Concurrency on Adding Edges](../Concurrency.md#concurrency-on-adding-edges).
 
 ### Retrieving Edges
 
@@ -83,7 +83,7 @@ for (Edge e : graph.getEdges()) {
 }
 ```
 
-When using [Lightweight Edges](Lightweight-Edges.md), OrientDB stores edges as links rather than records.  This improves performance, but as a consequence, the `.getEdges()` method only retrieves records of the class `E`.  When using Lightweight Edges, OrientDB only creates records in class `E` under certain circumstances, such as when the edge has properties.  Otherwise, the edges exist as links on the in and out vertices.
+When using [Lightweight Edges](../Lightweight-Edges.md), OrientDB stores edges as links rather than records.  This improves performance, but as a consequence, the `.getEdges()` method only retrieves records of the class `E`.  When using Lightweight Edges, OrientDB only creates records in class `E` under certain circumstances, such as when the edge has properties.  Otherwise, the edges exist as links on the in and out vertices.
 
 If you want to use `.getEdges()` to return all edges, disable the Lightweight Edges feature by executing the following command:
 
@@ -91,7 +91,7 @@ If you want to use `.getEdges()` to return all edges, disable the Lightweight Ed
 orientdb> <code class="lang-sql userinput">ALTER DATABASE my_db useLightweightEdges=FALSE</code>
 </pre>
 
-You only need to run this command once to disable Lightweight Edges.  The change only takes effect on edges you create after running it.  For existing edges, you need to convert them from links to actual edges before the `.getEdges()` method returns all edges.  For more information, see [Troubleshooting](Troubleshooting.md#why-cant-i-see-all-the-edges).
+You only need to run this command once to disable Lightweight Edges.  The change only takes effect on edges you create after running it.  For existing edges, you need to convert them from links to actual edges before the `.getEdges()` method returns all edges.  For more information, see [Troubleshooting](../Troubleshooting.md#why-cant-i-see-all-the-edges).
 
 >**NOTE**: Since version 2.0 of OrientDB, the Lightweight Edges feature is disabled by default.
 
@@ -108,7 +108,7 @@ graph.removeEdge(lucaKnowsMarko);
 
 ## Vertex and Edge Properties
 
-Vertices and Edges can have multiple properties.  The key to this property is a String, the value any [Types](Types.md) supported by OrientDB.
+Vertices and Edges can have multiple properties.  The key to this property is a String, the value any [Types](../Types.md) supported by OrientDB.
 
 | Method | Description |
 |---|---|
@@ -232,6 +232,6 @@ OrientDB allows query execution against any field of a vertex or edge, indexed o
   graph.getEdges("age", 20);
   ```
 
->For more information, see [Indexes](Indexes.md).
+>For more information, see [Indexes](../Indexes.md).
 
 

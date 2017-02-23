@@ -9,7 +9,7 @@ OrientDB natively handles binary data, namely BLOB. However, there are some cons
 
 Sometimes it's better to store binary records in a different path then default database directory to benefit of faster HD (like a SSD) or just to go in parallel if the OS and HW configuration allow this.
 
-In this case create a new [cluster](Concepts.md#cluster) in a different path:
+In this case create a new [cluster](../Concepts.md#cluster) in a different path:
 ```java
 db.addCluster("physical", "binary", "/mnt/ssd", "binary" );
 ```
@@ -113,7 +113,7 @@ Pros:
 Cons:
 - Slightly complex management
 
-| ![NOTE](images/warning.png) | While running in distributed mode ORecordBytes is not supported yet. See https://github.com/orientechnologies/orientdb/issues/3762 for more information. |
+| ![NOTE](../images/warning.png) | While running in distributed mode ORecordBytes is not supported yet. See https://github.com/orientechnologies/orientdb/issues/3762 for more information. |
 |----|:----|
 
 ## Large content: split in multiple ORecordBytes
@@ -124,7 +124,7 @@ However managing big chunks of binary data means having big `byte[]` structures 
 
 Continuing from the last example we could handle not a single reference against one `ORecordBytes` record but multiple references. A One-To-Many relationship. For this purpose the `LINKLIST` type fits perfect because maintains the order.
 
-To avoid OrientDB caches in memory large records use the massive insert intent and keep in the collection the [RID](Concepts.md#rid), not the entire records.
+To avoid OrientDB caches in memory large records use the massive insert intent and keep in the collection the [RID](../Concepts.md#rid), not the entire records.
 
 Example to store in OrientDB the file content:
 ```java
@@ -169,7 +169,7 @@ Pros:
 Cons:
 - More complex management
 
-| ![NOTE](images/warning.png) | While running in distributed mode ORecordBytes is not supported yet. See https://github.com/orientechnologies/orientdb/issues/3762 for more information. |
+| ![NOTE](../images/warning.png) | While running in distributed mode ORecordBytes is not supported yet. See https://github.com/orientechnologies/orientdb/issues/3762 for more information. |
 |----|:----|
 
 

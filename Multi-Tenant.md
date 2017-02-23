@@ -34,7 +34,7 @@ Cons:
 
 ## Use Partitioned Graphs
 
-By using the OrientDB's record level security, it's possible to have multiple partitions of graphs accessible by different users. For more information look at [Partitioned Graphs](Partitioned-Graphs.md).
+By using the OrientDB's record level security, it's possible to have multiple partitions of graphs accessible by different users. For more information look at [Partitioned Graphs](java/Partitioned-Graphs.md).
 
 Pros:
 - Easy to create reports and analytics cross tenant, because it's just one database

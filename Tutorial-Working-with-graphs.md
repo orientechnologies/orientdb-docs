@@ -212,4 +212,4 @@ orientdb> <code class="lang-sql userinput">ALTER DATABASE CUSTOM useLightweightE
 
 You only need to execute this command once. OrientDB now generates new edges as the standard Edge, rather than the Lightweight Edge. Note that this does not affect existing edges.
 
-For troubleshooting information on Lightweight Edges, see [Why I can't see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges). For more information in the Graph model in OrientDB, see [Graph API](Graph-Database-Tinkerpop.md).
+For troubleshooting information on Lightweight Edges, see [Why I can't see all the edges](Troubleshooting.md#why-cant-i-see-all-the-edges). For more information in the Graph model in OrientDB, see [Graph API](java/Graph-Database-Tinkerpop.md).

@@ -3,7 +3,7 @@ search:
    keywords: ["tutorial", "Java API"]
 ---
 
-# Java API Tutorial
+# Java API Tutorial (LEGACY)
 
 In the event that you have only used Relational database systems, you may find much of OrientDB very unfamiliar.  Given that OrientDB supports Document, Graph and Object Oriented modes, it requires that you use different Java API's, but there are some similarities between them.
 
@@ -108,7 +108,7 @@ for (Vertex v : (Iterable<Vertex>) graph.command(
 }
 ```
 
-In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](sql/SQL-Create-Vertex.md), [`UPDATE`](sql/SQL-Update.md), or [`DELETE VERTEX`](sql/SQL-Delete-Vertex.md).  For instance,
+In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](../sql/SQL-Create-Vertex.md), [`UPDATE`](../sql/SQL-Update.md), or [`DELETE VERTEX`](../sql/SQL-Delete-Vertex.md).  For instance,
 
 ```java
 int modified = graph.command(

@@ -4,7 +4,7 @@ search:
 ---
 
 # Tuning the Graph API
-This guide is specific for the [TinkerPop Blueprints Graph Database](Graph-Database-Tinkerpop.md). Please be sure to read the generic guide to the [Performance-Tuning](Performance-Tuning.md).
+This guide is specific for the [TinkerPop Blueprints Graph Database](java/Graph-Database-Tinkerpop.md). Please be sure to read the generic guide to the [Performance-Tuning](Performance-Tuning.md).
 
 ## Connect to the database locally
 
@@ -14,10 +14,10 @@ Local connection is much faster than remote. So use "plocal" based on the storag
 Even though supports properties on edges, this is much expensive because it creates a new record per edge. So if you need them you've to know that the database will be bigger and insertion time will be much longer.
 
 ## Set properties all together
-It's much lighter to set properties in block than one by one. Look at this paragraph: [Graph-Database-Tinkerpop#setting-multiple-properties](Graph-Database-Tinkerpop.md#setting-multiple-properties).
+It's much lighter to set properties in block than one by one. Look at this paragraph: [Graph-Database-Tinkerpop#setting-multiple-properties](java/Graph-Database-Tinkerpop.md#setting-multiple-properties).
 
 ## Set properties on vertex and edge creation
-It's even faster if you set properties directly on creation of vertices and edges. Look at this paragraph: [Graph-Database-Tinkerpop#create-element-and-properties](Graph-Database-Tinkerpop.md#create-element-and-properties).
+It's even faster if you set properties directly on creation of vertices and edges. Look at this paragraph: [Graph-Database-Tinkerpop#create-element-and-properties](java/Graph-Database-Tinkerpop.md#create-element-and-properties).
 
 ## Massive Insertion
 
@@ -37,7 +37,7 @@ Use the OrientGraphNoTx implementation that doesn't use transaction for basic op
 
 ## Use the schema
 
-Even if you can model your graph with only the entities (V)ertex and (E)dge it's much better to use schema for your types extending Vertex and Edge classes. In this way traversing will be faster and vertices and edges will be split on different files. For more information look at: [Graph Schema](Graph-Schema.md).
+Even if you can model your graph with only the entities (V)ertex and (E)dge it's much better to use schema for your types extending Vertex and Edge classes. In this way traversing will be faster and vertices and edges will be split on different files. For more information look at: [Graph Schema](java/Graph-Schema.md).
 
 Example:
 

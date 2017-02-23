@@ -185,7 +185,7 @@ You can save a POJO to the database by calling the method <code>save(pojo)</code
 
 # Fetching strategies
 
-Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
+Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](../Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
 
 # Custom types
 
@@ -297,14 +297,14 @@ When the <code>db.save( c )</code> is called, the ODatabaseObjectTx instance alr
 
 In a typical Front-End application you need to load objects, display them to the user, capture the changes and save them back to the database. Usually this is implemented by using a database pool in order to avoid leaving a database instance open for the entire life cycle of the user session.
 
-The database pool manages a configurable number of database instances. These instances are recycled for all database operations, so the list of connected POJOs is cleared at every release of the database pool instance. This is why the database instance doesn't know the POJO used by the application and in this mode if you save a previously loaded POJO it will appear as a NEW one and is therefore created as new instance in the database with a new [RecordID](Concepts.md#recordid).
+The database pool manages a configurable number of database instances. These instances are recycled for all database operations, so the list of connected POJOs is cleared at every release of the database pool instance. This is why the database instance doesn't know the POJO used by the application and in this mode if you save a previously loaded POJO it will appear as a NEW one and is therefore created as new instance in the database with a new [RecordID](../Concepts.md#recordid).
 
 This is why OrientDB needs to store the record information inside the POJO itself. This is retrieved when the POJO is saved so it is known if the POJO already has own identity (has been previously loaded) or not (it's new).
 
-To save the [Record Identity](Concepts.md#recordid) you can use the [JPA](http://java.sun.com/developer/technicalArticles/J2EE/jpa) **[@Id](http://download.oracle.com/javaee/5/api/javax/persistence/Id.html)** annotation above the property interested. You can declare it as:
+To save the [Record Identity](../Concepts.md#recordid) you can use the [JPA](http://java.sun.com/developer/technicalArticles/J2EE/jpa) **[@Id](http://download.oracle.com/javaee/5/api/javax/persistence/Id.html)** annotation above the property interested. You can declare it as:
 - **Object**, the suggested, in this case OrientDB will store the ORecordId instance
 - **String**, in this case OrientDB will store the string representation of the ORecordId
-- **Long**, in this case OrientDB will store the right part of the [RecordID](Concepts.md#recordid). This works only if you've a schema for the class. The left side will be rebuilt at save time by getting the class id.
+- **Long**, in this case OrientDB will store the right part of the [RecordID](../Concepts.md#recordid). This works only if you've a schema for the class. The left side will be rebuilt at save time by getting the class id.
 
 Example:
 
@@ -333,7 +333,7 @@ public class Customer{
 }
 ```
 
-OrientDB will save the [Record Identity](Concepts.md#recordid) in the **id** property even if getter/setter methods are not created.
+OrientDB will save the [Record Identity](../Concepts.md#recordid) in the **id** property even if getter/setter methods are not created.
 
 If you work with transactions you also need to store the Record Version in the POJO to allow MVCC. Use the [JPA](http://java.sun.com/developer/technicalArticles/J2EE/jpa) **[@Version](http://download.oracle.com/javaee/5/api/javax/persistence/Version.html)** annotation above the property interested. You can declare it as:
 - **java.lang.Object** (suggested) - a **com.orientechnologies.orient.core.version.OSimpleVersion** is used
@@ -379,7 +379,7 @@ Since OrientDB doesn't know what object is changed in a tree of connected object
 db.setSaveOnlyDirty(true);
 ```
 
-or by setting a global parameter (see [Parameters](Configuration.md)):
+or by setting a global parameter (see [Parameters](../Configuration.md)):
 ```java
 OGlobalConfiguration.OBJECT_SAVE_ONLY_DIRTY.setValue(true);
 ```
@@ -504,7 +504,7 @@ Callbacks are useful to free transient resources.
 
 == Fetching strategies =v
 
-Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
+Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](../Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
 
 ## Custom types
 

@@ -26,7 +26,7 @@ accountVertex.createProperty("id", OType.INTEGER);
 accountVertex.createProperty("birthDate", OType.DATE);
 ```
 
-Bear in mind, each field must belong to a [Type](Types.md).
+Bear in mind, each field must belong to a [Type](../Types.md).
 
 ### Dropping Properties
 
@@ -36,7 +36,7 @@ To drop a persisten class property, use the `OClass.dropProperty()` method.  For
 accountVertex.dropProperty("name");
 ```
 
-This drops the property `name`.  OrientDB does not remove dropped properties from the record unless you delete them explicitly using the SQL [`UPDATE`](sql/SQL-Update.md) command with the `REMOVE` clause.
+This drops the property `name`.  OrientDB does not remove dropped properties from the record unless you delete them explicitly using the SQL [`UPDATE`](../sql/SQL-Update.md) command with the `REMOVE` clause.
 
 ```java
 // Drop the Property
@@ -50,7 +50,7 @@ database.command(new OCommandSQL("UPDATE Account REMOVE name").execute();
 
 | | |
 |----|-----|
-|![](images/warning.png)| Using constraints with a distributed database may cause unexpected results.  Some operations execute in two steps: create and update, such as when creating an edge and then updating the vertex.  Constraints like `MANDATORY` and `NOTNULL` against fields would fail on distributed databases during the creation phase.|
+|![](../images/warning.png)| Using constraints with a distributed database may cause unexpected results.  Some operations execute in two steps: create and update, such as when creating an edge and then updating the vertex.  Constraints like `MANDATORY` and `NOTNULL` against fields would fail on distributed databases during the creation phase.|
 
 OrientDB supports a number of constraints for each field:
 
@@ -117,6 +117,6 @@ graph.getEdges("age", 20);
 ```
 >For more information, see
 >
->- [Indexes](Indexes.md)
+>- [Indexes](../Indexes.md)
 >- [Graph Schema](Graph-Schema.md)
 >- [Graph Database](Graph-Database-Tinkerpop.md)

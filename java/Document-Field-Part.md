@@ -5,14 +5,14 @@ search:
 
 # Working with Fields
 
-When you query OrientDB it normally returns complete fields.  In the event that you would like to only retrieve certain parts of the Document field, you can extract them through the Java API, ['WHERE'](sql/SQL-Where.md) conditions and SQL projections.
+When you query OrientDB it normally returns complete fields.  In the event that you would like to only retrieve certain parts of the Document field, you can extract them through the Java API, ['WHERE'](../sql/SQL-Where.md) conditions and SQL projections.
 
 To extract parts, use the brackets.
 
 
 ## Extracting Punctual Items
 
-Under normal operations, when you issue a query to OrientDB the return value contains complete fields.  That is, if you issue [`SELECT`](sql/SQL-Query.md) against a certain property, what you receive is the complete value on that property.  For instance,
+Under normal operations, when you issue a query to OrientDB the return value contains complete fields.  That is, if you issue [`SELECT`](../sql/SQL-Query.md) against a certain property, what you receive is the complete value on that property.  For instance,
 
 <pre>
 orientdb> <code class="userinput lang-sql">SELECT tags FROM BlogEntry</code>
@@ -146,7 +146,7 @@ orientdb> <code class='lang-sql userinput'>SELECT out[label = 'drives'][in.@clas
 
 Where brackets follow brackets, OrientDB filters the result-set in steps as in a pipeline.
 
->Bear in mind, this does not replace [Gremlin](Gremlin.md) support.  There's a lot more that you can do with Gremlin than you can through extraction, but extraction is a simpler tool for traversing relationships.  
+>Bear in mind, this does not replace [Gremlin](../Gremlin.md) support.  There's a lot more that you can do with Gremlin than you can through extraction, but extraction is a simpler tool for traversing relationships.  
 
 ## Future directions
 

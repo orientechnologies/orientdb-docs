@@ -37,7 +37,7 @@ The Object API interface is an instance of the Database Object type.  For instan
 
 Both lines initialize an object interface on `db`; however, in-memory databases are volatile.  All data stored on them will be lost when OrientDB Server shuts down.
 
->Note that in the remote example, the database is running on the same computer as the application, (hence: localhost).  In the event that your application runs on a separate machine, you would use an IP address or URL.  For more information, see [Database URL](Concepts.md#database-url).
+>Note that in the remote example, the database is running on the same computer as the application, (hence: localhost).  In the event that your application runs on a separate machine, you would use an IP address or URL.  For more information, see [Database URL](../Concepts.md#database-url).
 
 ### Closing Databases
 

@@ -5,7 +5,7 @@ search:
 
 # Partitioned Graphs
 
-You can partition graphs using the [Record-level Security](Security.md#record_level_security) feature.  This allows you to separate database records as sandboxes, where "restricted" records are inaccessible to unauthorized users. For more information about other solution for Multi-Tenant applications, look at [Multi-Tenant](Multi-Tenant.md).
+You can partition graphs using the [Record-level Security](../Security.md#record_level_security) feature.  This allows you to separate database records as sandboxes, where "restricted" records are inaccessible to unauthorized users. For more information about other solution for Multi-Tenant applications, look at [Multi-Tenant](../Multi-Tenant.md).
 
 This tutorial provides a demonstration of sandboxing with the Graph API and the [TinkerPop](Graph-Database-Tinkerpop.md) stack.  Partitioned Graph Databases allow you to build [Multi-tenant](http://en.wikipedia.org/wiki/Multitenancy) applications.
 
@@ -76,7 +76,7 @@ Running these commands shows that you do in fact have a `writer` role configured
 
 ### Creating Users
 
-Beginning with version 2.1, OrientDB now features a [`CREATE USER`](sql/SQL-Create-User.md) command. This allows you to create a new user in the current database, as opposed to inserting the credentials into the `OUser` and `ORole` classes.
+Beginning with version 2.1, OrientDB now features a [`CREATE USER`](../sql/SQL-Create-User.md) command. This allows you to create a new user in the current database, as opposed to inserting the credentials into the `OUser` and `ORole` classes.
 
 To create users for Luca and Steve, run the following commands:
 
@@ -92,7 +92,7 @@ The users are now active on your database as `luca` and `steve`.
 
 ### Inserting Users
 
-For older implementations of OrientDB, there is no [`CREATE USER`](sql/SQL-Create-User.md) command available to you.  To add users before version 2.1, you need to use [`INSERT`](sql/SQL-Insert.md) statements to add the new values into the `OUser` class, using the record ID for the `writer` role, which you found above as `#4:2`:
+For older implementations of OrientDB, there is no [`CREATE USER`](../sql/SQL-Create-User.md) command available to you.  To add users before version 2.1, you need to use [`INSERT`](../sql/SQL-Insert.md) statements to add the new values into the `OUser` class, using the record ID for the `writer` role, which you found above as `#4:2`:
 
 
 <pre>
@@ -121,7 +121,7 @@ In order to work with the partition, you need to create graphs for each user on 
 
 ### Create a Graph for Luca
 
-First, using [`DISCONNECT`](console/Console-Command-Disconnect.md) and [`CONNECT`](console/Console-Command-Connect.md) disconnect from your admin session on the `blog` database and reconnect as Luca's user.
+First, using [`DISCONNECT`](../console/Console-Command-Disconnect.md) and [`CONNECT`](../console/Console-Command-Connect.md) disconnect from your admin session on the `blog` database and reconnect as Luca's user.
 
 <pre>
 orientdb {db=blog}> <code class="lang-sql userinput">DISCONNECT</code>
@@ -133,7 +133,7 @@ Connecting to database [local:../databases/blog] with user 'luca'...OK
 orientdb {db=blog}>
 </pre>
 
-Now that you're logged in under Luca's user, using the [`CREATE VERTEX`](sql/SQL-Create-Vertex.md) command, create two vertices: one for restaurants and one for pizza.
+Now that you're logged in under Luca's user, using the [`CREATE VERTEX`](../sql/SQL-Create-Vertex.md) command, create two vertices: one for restaurants and one for pizza.
 
 <pre>
 orientdb {db=blog}> <code class="lang-sql userinput">CREATE VERTEX SET label = 'food', 
@@ -145,7 +145,7 @@ orientdb {db=blog}> <code class="lang-sql userinput">CREATE VERTEX SET label = '
 Created vertex 'V#9:1{label:restaurant,name:Dante's Pizza,_allow:[1]} v0' in 0,000000 sec(s).
 </pre>
 
-Connect these vertices with an edge for menus, using [`CREATE EDGE`](sql/SQL-Create-Edge.md):
+Connect these vertices with an edge for menus, using [`CREATE EDGE`](../sql/SQL-Create-Edge.md):
 
 <pre>
 orientdb {db=blog}> <code class="lang-sql userinput">CREATE EDGE FROM #9:0 TO #9:1 SET label = 'menu'</code>
@@ -153,7 +153,7 @@ Created edge '[E#10:0{out:#9:0,in:#9:1,label:menu,_allow:[1]}
 v1]' in 0,003000 sec(s).
 </pre>
 
-You can check the status using [`SELECT`](sql/SQL-Query.md) against these vertices:
+You can check the status using [`SELECT`](../sql/SQL-Query.md) against these vertices:
 
 
 <pre>
@@ -207,7 +207,7 @@ orientdb {db=blog}> <code class="lang-sql userinput">CREATE EDGE FROM #9:2 TO #9
 Created edge '[E#10:1{out:#9:2,in:#9:3,label:drive,_allow:[1]} v1]' in 0,002000 sec(s).
 </pre>
 
-Run the [`SELECT`](sql/SQL-Query.md) query from earlier to see the vertices you've created:
+Run the [`SELECT`](../sql/SQL-Query.md) query from earlier to see the vertices you've created:
 
 
 <pre>
@@ -240,10 +240,10 @@ The partition used by Luca remains totally isolated from the one used by Steve. 
 
 ## TinkerPop Stack
 
-The [Record-level Security](Security.md#record_level_security) feature is very powerful because it acts at a low-level within the OrientDB engine.  This allows for better integration of security features with the Java API and the [TinkerPop](Graph-Database-Tinkerpop.md) stack.
+The [Record-level Security](../Security.md#record_level_security) feature is very powerful because it acts at a low-level within the OrientDB engine.  This allows for better integration of security features with the Java API and the [TinkerPop](Graph-Database-Tinkerpop.md) stack.
 
 
-For instance, try to display all vertices and edges using [Gremlin](Gremlin.md):
+For instance, try to display all vertices and edges using [Gremlin](../Gremlin.md):
 
 
 <pre>

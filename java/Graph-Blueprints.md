@@ -7,7 +7,7 @@ search:
 
 OrientDB is a graph database that merges graph, document and object-oriented worlds together.  Below are some of the features exclusive to OrientDB through the Blueprints Extensions.
 
->For information on tuning your graph database, see [Performance Tuning Blueprints](Performance-Tuning-Graph.md).
+>For information on tuning your graph database, see [Performance Tuning Blueprints](../Performance-Tuning-Graph.md).
 
 ## Custom Types
 
@@ -17,7 +17,7 @@ Additionally, OrientDB introduces a few variants to Blueprint methods for workin
 
 ### Creating Vertices and Edges in Specific Clusters
 
-By default, each class has one cluster with the same name.  You can add multiple clusters to the class, allowing OrientDB to write vertices and edges on multiple files.  Furthermore, when working in [Distributed Mode](Distributed-Architecture.md), you can configure different servers to manage each cluster.
+By default, each class has one cluster with the same name.  You can add multiple clusters to the class, allowing OrientDB to write vertices and edges on multiple files.  Furthermore, when working in [Distributed Mode](../Distributed-Architecture.md), you can configure different servers to manage each cluster.
 
 For instance,
 
@@ -165,20 +165,20 @@ graph.command(
 
 ### SQL Commands
 
-In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](sql/SQL-Create-Vertex.md), [`UPDATE`](sql/SQL-Update.md), or [`DELETE VERTEX`](sql/SQL-Delete-Vertex.md).  For instance, consider a case where you want to set a new property called `local` to `true` on all the customers that live in Rome.
+In addition to queries, you can also execute any SQL command, such as [`CREATE VERTEX`](../sql/SQL-Create-Vertex.md), [`UPDATE`](../sql/SQL-Update.md), or [`DELETE VERTEX`](../sql/SQL-Delete-Vertex.md).  For instance, consider a case where you want to set a new property called `local` to `true` on all the customers that live in Rome.
 
 ```java
 int modified = graph.command(
           new OCommandSQL("UPDATE Customer SET local = true WHERE 'Rome' IN out('lives').name")).execute());
 ```
 
-If the command modifies the schema, (such as in cases like [`CREATE CLASS`](sql/SQL-Create-Class.md), [`ALTER CLASS`](sql/SQL-Alter-Class.md), [`DROP CLASS`](sql/SQL-Drop-Class.md), [`CREATE PROPERTY`](SQL-Create-Proeprty-md), [`ALTER PROPERTY`](sql/SQL-Alter-Property.md), and [`DROP PROPERTY`](sql/SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
+If the command modifies the schema, (such as in cases like [`CREATE CLASS`](../sql/SQL-Create-Class.md), [`ALTER CLASS`](../sql/SQL-Alter-Class.md), [`DROP CLASS`](../sql/SQL-Drop-Class.md), [`CREATE PROPERTY`](SQL-Create-Proeprty-md), [`ALTER PROPERTY`](../sql/SQL-Alter-Property.md), and [`DROP PROPERTY`](../sql/SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
 
 ```java
 graph.getRawGraph().getMetadata().getSchema().reload();
 ```
 
->For more information, see [SQL Commands](sql/SQL.md)
+>For more information, see [SQL Commands](../sql/SQL.md)
 
 ### SQL Batch
 
@@ -195,7 +195,7 @@ cmd += "return $e";
 OIdentifiable edge = graph.command(new OCommandScript("sql", cmd)).execute();
 ```
 
->For more information, see [SQL Batch](sql/SQL-batch.md)
+>For more information, see [SQL Batch](../sql/SQL-batch.md)
 
 ### Database Functions
 
@@ -238,7 +238,7 @@ try {
 
 ### Security
 
-If you want to use OrientDB security, use the construction that retrieves the Database URL, user and password.  For more information on OrientDB security, see [Security](Security.md).  By default, it uses the `admin` user.
+If you want to use OrientDB security, use the construction that retrieves the Database URL, user and password.  For more information on OrientDB security, see [Security](../Security.md).  By default, it uses the `admin` user.
 
 
 

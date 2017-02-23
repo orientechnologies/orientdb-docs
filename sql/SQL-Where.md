@@ -19,7 +19,7 @@ And `item` can be:
 |**What**|**Description**|**Example**|**Available since**|
 |--------|---------------|-----------|-------------------|
 |field|Document field|where *price* > 1000000|0.9.1|
-|field&lt;indexes&gt;|Document field part. To know more about field part look at the full syntax: [Document_Field_Part](../Document-Field-Part.md)|where tags[name='Hi'] or tags[0-3] IN ('Hello') and employees IS NOT NULL|1.0rc5|
+|field&lt;indexes&gt;|Document field part. To know more about field part look at the full syntax: [Document_Field_Part](../java/Document-Field-Part.md)|where tags[name='Hi'] or tags[0-3] IN ('Hello') and employees IS NOT NULL|1.0rc5|
 |record attribute|Record attribute name with @ as prefix|where *@class* = 'Profile'|0.9.21|
 |column|The number of the column. Useful in Column Database|where *column(1)* > 300|0.9.1|
 |any()|Represents any field of the Document. The condition is true if ANY of the fields matches the condition|where *any()* like 'L%'|0.9.10|
@@ -64,7 +64,7 @@ And `item` can be:
 |map|CONTAINSVALUE|true if the map contains at least one value equals to the requested. You can also use map.values() CONTAINS in place of it|connections *containsValue* 10:3|0.9.22|
 |string|CONTAINSTEXT|used with 89cd72a14eb5493801e99a43c5034685. Current limitation is that it must be the unique condition of a query. When used against an indexed field, a lookup in the index will be performed with the text specified as key. When there is no index a simple Java indexOf will be performed. So the result set could be different if you have an index or not on that field |text *containsText* 'jay'|0.9.22|
 |string|MATCHES|Matches the string using a [http://www.regular-expressions.info/ Regular Expression]|text matches '\b[A-Z0-9.%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b'|0.9.6|
-|any|TRAVERSE[(&lt;minDepth&gt; [,&lt;maxDepth&gt; [,&lt;fields&gt;]]|*This function was born before the SQL Traverse statement and today it's pretty limited. Look at [Traversing graphs](../Java-Traverse.md) to know more about traversing in better ways.* <br>true if traversing the declared field(s) at the level from &lt;minDepth&gt; to &lt;maxDepth&gt; matches the condition. A minDepth = 0 means the root node, maxDepth = -1 means no limit: traverse all the graph recursively. If &lt;minDepth&gt; and &lt;maxDepth&gt; are not used, then (0, -1) will be taken. If &lt;fields&gt; is not passed, than any() will be used.|select from profile where any() **traverse(0,7,'followers,followings')** ( address.city.name = 'Rome' )|0.9.10 and 0.9.24 for &lt;fields&gt; parameter|
+|any|TRAVERSE[(&lt;minDepth&gt; [,&lt;maxDepth&gt; [,&lt;fields&gt;]]|*This function was born before the SQL Traverse statement and today it's pretty limited. Look at [Traversing graphs](../java/Java-Traverse.md) to know more about traversing in better ways.* <br>true if traversing the declared field(s) at the level from &lt;minDepth&gt; to &lt;maxDepth&gt; matches the condition. A minDepth = 0 means the root node, maxDepth = -1 means no limit: traverse all the graph recursively. If &lt;minDepth&gt; and &lt;maxDepth&gt; are not used, then (0, -1) will be taken. If &lt;fields&gt; is not passed, than any() will be used.|select from profile where any() **traverse(0,7,'followers,followings')** ( address.city.name = 'Rome' )|0.9.10 and 0.9.24 for &lt;fields&gt; parameter|
 
 
 ## Logical Operators

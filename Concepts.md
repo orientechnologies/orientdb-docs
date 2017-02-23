@@ -214,7 +214,7 @@ In OrientDB, all Edges in the Graph model are bidirectional.  This differs from 
 
 ## Database
 
-The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](Java-API.md#database-types).
+The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](java/Java-API.md#database-types).
 
 Each server or Java VM can handle multiple database instances, but the database name must be unique. You can't manage two databases at the same time, even if they are in different directories.  To handle this case, use the `$` dollar character as a separator instead of the `/` slash character.  OrientDB binds the entire name, so it becomes unique, but at the file system level it converts `$` with `/`, allowing multiple databases with the same name in different paths.  For example,
 

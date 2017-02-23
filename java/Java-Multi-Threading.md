@@ -9,9 +9,9 @@ OrientDB supports multi-threaded access to the database, but only through one in
 
 The `ODocument`, `OrientVertex` and `OrientEdge` classes are also not thread-safe.  So, sharing them across threads can lead to unexpected errors that may prove difficult to recognize.
 
->For more information, see [Concurrency](Concurrency.md).
+>For more information, see [Concurrency](../Concurrency.md).
 
-|![](images/warning.png)| Beginning in version 2.1 of OrientDB, implicit usage of multiple database instances from the same thread is no longer allowed.  Any attempt to manage multiple instances in the same thread must explicitly call the `db.activateOnCurrentThread()` method against the database instance **before** you use it.|
+|![](../images/warning.png)| Beginning in version 2.1 of OrientDB, implicit usage of multiple database instances from the same thread is no longer allowed.  Any attempt to manage multiple instances in the same thread must explicitly call the `db.activateOnCurrentThread()` method against the database instance **before** you use it.|
 
 - [Understanding Multi-threading](#understanding-multi-threadng)
 - [Multi-threading with OrientDB](Java-Mutli-Threading-Usage.md)

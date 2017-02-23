@@ -38,7 +38,7 @@ The OrientDB distribution provides the [Orient Console](console/Console-Commands
 Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](studio/Studio-Home-page.md), a client-side web app that uses the HTTP protocol to work with the database.
 
 ### By your application
-Consider the [native APIs](Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB-REST.md).
+Consider the [native APIs](java/Java-API.md) if you use Java. For all the other languages you can use the [HTTP RESTful protocol](OrientDB-REST.md).
 
 ## Distributed servers
 
@@ -105,7 +105,7 @@ Example of configuration:
          loaded-at-startup="true" />
 ```
 
-To create a new database use the [CREATE DATABASE console command](console/Console-Command-Create-Database.md) or create it dinamically using the [Java-API](Java-API.md).
+To create a new database use the [CREATE DATABASE console command](console/Console-Command-Create-Database.md) or create it dinamically using the [Java-API](java/Java-API.md).
 
 ### Users
 

@@ -76,7 +76,7 @@ db.commit();
 
 The picture below shows the interface hierarchy of the Multi-Model API
 
-![AddVertex1](images/ORecordHierarchy.png)
+![AddVertex1](../images/ORecordHierarchy.png)
 
 - **ORecord**: this is a pre-existing interface, common to all the persistent records
   

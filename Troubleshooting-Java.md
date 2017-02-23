@@ -87,7 +87,7 @@ Another way is to embed the dependencies in configuration in the Maven pom.xml f
 </Embed-Dependency>
 ```
 
-Including only the jars you need. Look at [Which library do I use?](Java-API.md#which_library_do_i_use?)
+Including only the jars you need. Look at [Which library do I use?](java/Java-API.md#which_library_do_i_use?)
 
 ## Database instance has been released to the pool. Get another database instance from the pool with the right username and password
 
@@ -97,7 +97,7 @@ Check the stack trace to find the reason of it:
 
 ## OLazyObjectIterator
 
-This is the case when you're working with [Object Database API](Object-Database.md) and a field contains a collection or a map loaded in lazy. On iteration it needs an open database to fetch linked records.
+This is the case when you're working with [Object Database API](java/Object-Database.md) and a field contains a collection or a map loaded in lazy. On iteration it needs an open database to fetch linked records.
 
 Solutions:
 - assure to leave the database open while browsing the field

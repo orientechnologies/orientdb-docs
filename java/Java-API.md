@@ -20,7 +20,7 @@ OrientDB provides three different Java API's that allow you to work with OrientD
 - [**Document API**](#document-api) Use this Java API if your domain fits Document Database use case with schema-less structures.  It is easiest to switch to this when migrating from other Document Databases, such as MongoDB and CouchDB.
 - [**Object API**](#object-api) Use this Java API if you need a full Object Oriented abstraction that binds all database entities to POJO (that is, Plain Old Java Objects).  It is easiest to switch to this when migrating from JPA applications.
 
-Each Java API has its own pros and cons.  For more information on determining which Java API to use with your application, see [Choosing between the Graph or Document API](Choosing-between-Graph-or-Document-API.md).
+Each Java API has its own pros and cons.  For more information on determining which Java API to use with your application, see [Choosing between the Graph or Document API](../Choosing-between-Graph-or-Document-API.md).
 
 |    | Graph | Document | Object |
 |----|----|----|----|

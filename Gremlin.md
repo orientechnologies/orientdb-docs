@@ -9,7 +9,7 @@ search:
 - [Gremlin Documentation](http://gremlindocs.com)
 - [Gremlin WiKi](https://github.com/tinkerpop/gremlin/wiki)
 - [OrientDB adapter to use it inside Gremlin](https://github.com/tinkerpop/blueprints/wiki/OrientDB-Implementation)
-- [OrientDB implementation of TinkerPop Blueprints](Graph-Database-Tinkerpop.md)
+- [OrientDB implementation of TinkerPop Blueprints](java/Graph-Database-Tinkerpop.md)
 
 To know more about [Gremlin](http://gremlindocs.com) and [TinkerPop](http://www.tinkerpop.com)'s products subscribe to the [Gremlin Group](http://groups.google.com/forum/#!forum/gremlin-users).
 
@@ -26,11 +26,11 @@ Launch the **gremlin.sh** (or gremlin.bat on Windows OS) console script located 
 
 # Open the graph database
 
-Before playing with [Gremlin](http://gremlindocs.com) you need a valid **[OrientGraph](Graph-Database-Tinkerpop.md#work_with_graphdb)** instance that points to an OrientDB database. To know all the database types look at [Storage types](Concepts.md#storage).
+Before playing with [Gremlin](http://gremlindocs.com) you need a valid **[OrientGraph](java/Graph-Database-Tinkerpop.md#work_with_graphdb)** instance that points to an OrientDB database. To know all the database types look at [Storage types](Concepts.md#storage).
 
 When you're working with a local or an in-memory database, if the database does not exist it's created for you automatically. Using the remote connection you need to create the database on the target server before using it. This is due to security restrictions.
 
-Once created the **[OrientGraph](Graph-Database-Tinkerpop.md#work_with_graphdb)** instance with a proper URL is necessary to assign it to a variable. [Gremlin](http://gremlindocs.com) is written in Groovy, so it supports all the Groovy syntax, and both can be mixed to create very powerful scripts!
+Once created the **[OrientGraph](java/Graph-Database-Tinkerpop.md#work_with_graphdb)** instance with a proper URL is necessary to assign it to a variable. [Gremlin](http://gremlindocs.com) is written in Groovy, so it supports all the Groovy syntax, and both can be mixed to create very powerful scripts!
 
 Example with a local database (see below for more information about it):
 ```java

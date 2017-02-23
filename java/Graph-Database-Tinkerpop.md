@@ -31,7 +31,7 @@ To use the [TinkerPop Gremlin](http://wiki.github.com/tinkerpop/gremlin) languag
 - `gremlin-groovy-*.jar`
 - `groovy-*.jar`
 
->Bear in mind, beginning with version 2.0, OrientDB disables  [Lightweight Edges](Lightweight-Edges.md) by default when it creates new databases.
+>Bear in mind, beginning with version 2.0, OrientDB disables  [Lightweight Edges](../Lightweight-Edges.md) by default when it creates new databases.
 
 ## Introduction
 
@@ -45,18 +45,18 @@ To use the [TinkerPop Gremlin](http://wiki.github.com/tinkerpop/gremlin) languag
 - [**Gremlin**](http://wiki.github.com/tinkerpop/gremlin) Provides a Turing-complete graph-based programming language designed for key/value pairs in multi-relational graphs.  Gremlin makes use of an XPath-like syntax to support complex graph traversals.  This language has applications in the areas of graph query, analysis, and manipulation.
 - [**Rexster**](http://rexster.tinkerpop.com) Provides a RESTful graph shell that exposes any Blueprints graph as a standalone server.
 
-  Extensions support standard traversal goals such as search, score, rank, and (in concert) recommendation.  Rexster makes extensive use of Blueprints, Pipes, and Gremlin.  In this way it's possible to run Rexster over various graph systems.  to configure Rexster to work with OrientDB, see the guide [Rexster Configuration](Rexster.md).
+  Extensions support standard traversal goals such as search, score, rank, and (in concert) recommendation.  Rexster makes extensive use of Blueprints, Pipes, and Gremlin.  In this way it's possible to run Rexster over various graph systems.  to configure Rexster to work with OrientDB, see the guide [Rexster Configuration](../Rexster.md).
 - [**Sail Ouplementation**](https://github.com/tinkerpop/blueprints/wiki/Sail-Ouplementation) Provides support for using OrientDB as an RDF Triple Store.
 
 ## Getting Started with Blueprints
 
-OrientDB supports three different kinds of storages, depending on the [Database URL](Concepts.md#database-url) used:
+OrientDB supports three different kinds of storages, depending on the [Database URL](../Concepts.md#database-url) used:
 
-- **Persistent Embedded Graph Database**: Links to the application as a JAR, (that is, with no network transfer).  Use [PLocal](Paginated-Local-Storage.md) with the `plocal` prefix.  For instance, `plocal:/tmp/graph/test`.
+- **Persistent Embedded Graph Database**: Links to the application as a JAR, (that is, with no network transfer).  Use [PLocal](../Paginated-Local-Storage.md) with the `plocal` prefix.  For instance, `plocal:/tmp/graph/test`.
 - **In-Memory Embedded Graph Database**: Keeps all data in memory.  Use the `memory` prefix, for instance `memory:test`.
 - **Persistent Remote Graph Database** Uses a binary protocol to send and receive data from a remote OrientDB server.  Use the `remote` prefix, for instance `remote:localhost/test` Note that this requires an OrientDB server instance up and running at the specific address, (in this case, localhost).  Remote databases can be persistent or in-memory as well.
 
-In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.  
+In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](../Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.  
 
 >**NOTE**: When creating a database through the Graph API, you can only create PLocal and Memory databases.  Remote databases must already exist.
 
@@ -100,7 +100,7 @@ try {
 
 Prior to version 2.1.7, whenever you modify the graph database instance, OrientDB automatically starts an implicit transaction, in the event that no previous transactions are running.  When you close the graph instance, it commits the transaction automatically by calling the `.shutdown()` method or through `.commit()`.  This allows you to roll changes back where necessary, using the `.rollback()` method.
 
-Beginning in version 2.1.8, you can set the [Consistency Level](Graph-Consistency.md).  Changes within the transaction remain temporary until the commit or the closing of the graph database instance.  Concurrent threads or external clients can only see the changes after you fully commit the transaction.
+Beginning in version 2.1.8, you can set the [Consistency Level](../Graph-Consistency.md).  Changes within the transaction remain temporary until the commit or the closing of the graph database instance.  Concurrent threads or external clients can only see the changes after you fully commit the transaction.
 
 For instance,
 
@@ -117,7 +117,7 @@ try{
 }
 ```
 
-By surrounding the transaction in `try` and `catch`, you ensure that any errors that occur roll the transaction back to its previous state for all relevant elements.  For more information, see [Concurrency](Concurrency.md).
+By surrounding the transaction in `try` and `catch`, you ensure that any errors that occur roll the transaction back to its previous state for all relevant elements.  For more information, see [Concurrency](../Concurrency.md).
 
 >**NOTE**: Prior to version 2.1.7, to work with a graph always use transactional [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never the non-transactional instances to avoid graph corruption from multi-threaded updates.
 >
@@ -192,7 +192,7 @@ Beginning in version 1.6 of OrientDB, you can configure the graph by setting all
 - **`blueprints.orientdb.useVertexFieldsForEdgeLabels`** Defines whether it stores the edge relationship in the vertex by using the edge class.  This allows you to use multiple fields and makes traversals by the edge label (class) faster.
 
   Default: `true`
-- **`blueprints.orientdb.lightweightEdges`** Defines whether it uses [Lightweight Edges](Lightweight-Edges.md).  This allows you to avoid creating a physical document per edge.  Documents are only created when edges have properties.
+- **`blueprints.orientdb.lightweightEdges`** Defines whether it uses [Lightweight Edges](../Lightweight-Edges.md).  This allows you to avoid creating a physical document per edge.  Documents are only created when edges have properties.
 
   Default: `false`
 - **`blueprints.orientdb.autoStartTx`** Defines whether it auto-starts transactions when the graph is changed by adding or removing vertices, edges and properties.
@@ -209,7 +209,7 @@ OGremlinHelper.global().create()
 
 >For more information on Gremlin usage, see:
 >
->- [How to use the Gremlin language with OrientDB](Gremlin.md)
+>- [How to use the Gremlin language with OrientDB](../Gremlin.md)
 >- [Getting started with Gremlin](http://github.com/tinkerpop/gremlin/wiki/Getting-Started)
 >- [Usage of Gremlin through HTTP/RESTful API using the Rexter project](https://github.com/tinkerpop/rexster/wiki/Using-Gremlin).
 

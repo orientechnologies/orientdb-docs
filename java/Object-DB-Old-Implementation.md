@@ -4,7 +4,7 @@ Prior to the release of version 1.0rc9, the Object API was implemented as a clas
 
 |||
 |---|---|
-| ![](warning.png) | This implementation and documentation refers to all `ODatabaseObjectXXX` deprecated classes. |
+| ![](../warning.png) | This implementation and documentation refers to all `ODatabaseObjectXXX` deprecated classes. |
 
 The Orient Object DB works on top of the [Document API](Document-Database.md) and it's able to treat Java objects without the use of pre-processor, byte enhancer or Proxy classes. It uses the simpler way: the Java Reflection. Please consider that the Java reflection in modern Java Virtual Machines is really fast and the discovering of Java meta data is made at first time. Future implementation could use the byte-code enhancement techniques in addition.
 
@@ -51,7 +51,7 @@ The `close()` method doesn't close the database but release it to the owner pool
 
 ## Inheritance
 
-Starting from the release 0.9.19 OrientDB supports the [Inheritance](Inheritance.md). Using the Object API the inheritance of Documents fully matches the Java inheritance.
+Starting from the release 0.9.19 OrientDB supports the [Inheritance](../Inheritance.md). Using the Object API the inheritance of Documents fully matches the Java inheritance.
 
 For instance,
 

@@ -16,11 +16,11 @@ We want to keep it always updated with the new products and more features in the
 | Release | 1.0-SNAPSHOT | 1.7M03 | 4.5.1 | 2.1 |
 | Product Web Site | http://www.orientdb.org | http://www.neo4j.org | http://www.sparsity-technologies.com | http://objectivity.com/INFINITEGRAPH |
 |  License | [Open Source Apache 2](http://www.apache.org/licenses/LICENSE-2.0.html) | [Open Source GPL](http://www.gnu.org/licenses/gpl-3.0.html), [Open Source AGPL](http://www.gnu.org/licenses/agpl-3.0.html) and Commercial | Commercial | [Commercial](http://objectivity.com/support) |
-|  Query languages | [Extended SQL](sql/SQL.md), [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | [Cypher](http://docs.neo4j.org/chunked/1.4/cypher-query-lang.html) [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | Not available, only via API | [Gremlin](https://github.com/tinkerpop/gremlin/wiki), Java API |
+|  Query languages | [Extended SQL](../sql/SQL.md), [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | [Cypher](http://docs.neo4j.org/chunked/1.4/cypher-query-lang.html) [Gremlin](https://github.com/tinkerpop/gremlin/wiki) | Not available, only via API | [Gremlin](https://github.com/tinkerpop/gremlin/wiki), Java API |
 |  Transaction support | ![](http://www.orientdb.org/images/ok.png)  [ACID](http://en.wikipedia.org/wiki/ACID) | ![](http://www.orientdb.org/images/ok.png)  [ACID](http://en.wikipedia.org/wiki/ACID) | ![](http://www.orientdb.org/images/no.png) | ![](http://www.orientdb.org/images/ok.png)  [ACID](http://en.wikipedia.org/wiki/ACID) |
-|  Protocols | Embedded via Java API, remote as [Binary](Network-Binary-Protocol.md) and [REST](OrientDB-REST.md) | Embedded via Java API and remote via REST | ? | Embedded via Java API, Remote database access via TCP |
+|  Protocols | Embedded via Java API, remote as [Binary](../Network-Binary-Protocol.md) and [REST](../OrientDB-REST.md) | Embedded via Java API and remote via REST | ? | Embedded via Java API, Remote database access via TCP |
 |  Replication | Multi-Master | Master-Slave | No | ![](http://www.orientdb.org/images/no.png) |
-|  Custom types | ![](http://www.orientdb.org/images/ok.png) [Supports custom types and polymorphism](Graph-Schema.md) | ![](http://www.orientdb.org/images/no.png) | ![](http://www.orientdb.org/images/no.png) | ![](http://www.orientdb.org/images/ok.png) Supports custom types and polymorphism |
+|  Custom types | ![](http://www.orientdb.org/images/ok.png) [Supports custom types and polymorphism](../java/Graph-Schema.md) | ![](http://www.orientdb.org/images/no.png) | ![](http://www.orientdb.org/images/no.png) | ![](http://www.orientdb.org/images/ok.png) Supports custom types and polymorphism |
 |  Self loops | ![](http://www.orientdb.org/images/ok.png) | ![](http://www.orientdb.org/images/ok.png) | ![](http://www.orientdb.org/images/ok.png) | ![](http://www.orientdb.org/images/ok.png) |
 
 

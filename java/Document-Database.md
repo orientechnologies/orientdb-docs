@@ -8,7 +8,7 @@ search:
 The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Graph Database](Graph-Database-Tinkerpop.md).  The Document API supports:
 
 - [Multi-thread Access](#Multi-threading)
-- [Transactions](Transactions.md)
+- [Transactions](../Transactions.md)
 - [Queries](Document-API-Documents.md#retrieving-documents)
 - [Traverse](Document-API-Documents.md#traversing-documents)
 
@@ -34,7 +34,7 @@ doc.save();
 db.close();
 ```
 
-Bear in mind, in this example that we haven't declared the `Person` class previously.  When you save this `ODocument` instance, OrientDB creates the `Person` class without constraints.  For more information on declaring persistent classes, see [Schema Management](Schema.md).
+Bear in mind, in this example that we haven't declared the `Person` class previously.  When you save this `ODocument` instance, OrientDB creates the `Person` class without constraints.  For more information on declaring persistent classes, see [Schema Management](../Schema.md).
 
 In order to use the Document API, you must include the following jars in your classpath:
 
@@ -50,7 +50,7 @@ Additionally, in the event that you would like to interface with the Document AP
 >For more information, see
 >
 >- Javadoc: [JavaDoc](http://www.orientechnologies.com/javadoc/latest/)
->- [OrientDB Studio Web tool](studio/Studio-Home-page.md).
+>- [OrientDB Studio Web tool](../studio/Studio-Home-page.md).
 
 
 
@@ -94,7 +94,7 @@ animal.save();
 
 When you call `save()`, OrientDB only updates the fields you've changed.
 
->**NOTE**: This behavior can vary depending on whether you've begun a transaction.  For more information, see [Transactions](Transactions.md).
+>**NOTE**: This behavior can vary depending on whether you've begun a transaction.  For more information, see [Transactions](../Transactions.md).
 
 
 For instance, using the code below you can raise the price of animals by 5%:
@@ -116,7 +116,7 @@ Through the Java API, you can delete documents through the `delete()` method on 
 animal.delete();
 ```
 
->**NOTE**: This behavior can vary depending on whether you've begun a transaction.  For more information, see [Transactions](Transactions.md).
+>**NOTE**: This behavior can vary depending on whether you've begun a transaction.  For more information, see [Transactions](../Transactions.md).
 
 For instance, using the code below you can delete all documents of the `Animal` class:
 
@@ -136,14 +136,14 @@ OrientDB is flexible when it comes to schemas.  You can use it,
 - **Schema Less**, such as with many NoSQL Document Databases.
 - **Scheme Hybrid**, which mixes the two.
 
->For more information, see [Schemas](Schema.md).
+>For more information, see [Schemas](../Schema.md).
 
 In order to use the schema with documents, create the `ODocument` instance with the constructor `ODocument(String className)`, passing it the class name as an argument.  If you haven't declared the class, OrientDB creates it automatically with no fields.  This won't work during transactions, given it can't apply schema changes in transactional contexts.
 
 
 ## Security
 
-Few NoSQL implementations support security.  OrientDB does.  For more information on its security features, see [Security](Security.md).
+Few NoSQL implementations support security.  OrientDB does.  For more information on its security features, see [Security](../Security.md).
 
 To manage the security from within the Java API, get the Security Manager and use it to operate on users and roles.  For instance,
 
@@ -166,7 +166,7 @@ OUser user = db.getUser();
 
 Transactions provide you with a practical way to group sets of operations together.  OrientDB supports [ACID](http://en.wikipedia.org/wiki/ACID) transactions, ensuring that either all operations succeed or none of them do.  The database always remains consistent.
 
->For more information, see [Transactions](Transactions.md).
+>For more information, see [Transactions](../Transactions.md).
 
 OrientDB manages transactions at the database-level.  Currently, it does not support nesting transactions.  A database instance can only have one transaction running at a time. It provides three methods in handling transactions:
 
@@ -176,7 +176,7 @@ OrientDB manages transactions at the database-level.  Currently, it does not sup
 
 ### Optimistic approach
 
-In its current release, OrientDB uses [Optimistic Transactions](Transactions.md#optimistic-transactions), in which no lock is kept and all operations are checked on the commit.  This improves concurrency, but can throw an `OConcurrentModificationException` exception in cases where the records are modified by concurrent client threads.  In this scenario, the client code can reload the updated records and repeat the transaction.
+In its current release, OrientDB uses [Optimistic Transactions](../Transactions.md#optimistic-transactions), in which no lock is kept and all operations are checked on the commit.  This improves concurrency, but can throw an `OConcurrentModificationException` exception in cases where the records are modified by concurrent client threads.  In this scenario, the client code can reload the updated records and repeat the transaction.
 
 When optimistic transactions run, they keep all changes in memory on the client.  If you're using remote storage, it sends no changes to the server until you call the `commit()` method.  All changes transfer in a block to reduce network latency, speed up the execution and increase concurrency.  This differs from most Relational Databases, where changes are sent immediately to the server during transactions.
 
@@ -202,7 +202,7 @@ try {
 
 ## Index API
 
-While you can set up and configure [Indices](Indexes.md) through SQL, the recommended and most efficient way is through the Java API.
+While you can set up and configure [Indices](../Indexes.md) through SQL, the recommended and most efficient way is through the Java API.
 
 The main class to use when working with indices is the [`OIndexManager`](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/index/OIndexManager.html)
 

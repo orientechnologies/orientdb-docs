@@ -332,7 +332,7 @@ The following is the visualization of the `MATCH` query above, executed directly
 
 ![](images/etl/openbeerdb/studio_graph_specific_beer.png)
 
-The same resultset can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](Graph-Database-Tinkerpop.md):
+The same resultset can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](java/Graph-Database-Tinkerpop.md):
 
 ![](images/etl/openbeerdb/library_visjs_expand_beer.png)
 

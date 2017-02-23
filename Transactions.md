@@ -124,7 +124,7 @@ This mode uses the well known [Multi Version Control System (MVCC)](http://en.wi
 
 >**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap) memory on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
-With [Graph API](Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. With Graphs you can change the [consistency level](Graph-Consistency.md).
+With [Graph API](java/Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. With Graphs you can change the [consistency level](Graph-Consistency.md).
 
 Example with Document API:
 
@@ -156,7 +156,7 @@ At commit time, these temporary records [RecordID](Concepts.md#recordid)s will b
 This mode is not yet supported by the engine.
 
 ## Nested transactions and propagation
-OrientDB doesn't support nested transaction. If further `begin()` are called after a transaction is already begun, then the current transaction keeps track of call stack to let to the final commit() call to effectively commit the transaction. Look at [Transaction Propagation](Transaction-propagation.md) more information.
+OrientDB doesn't support nested transaction. If further `begin()` are called after a transaction is already begun, then the current transaction keeps track of call stack to let to the final commit() call to effectively commit the transaction. Look at [Transaction Propagation](java/Transaction-propagation.md) more information.
 
 ## Record IDs
 

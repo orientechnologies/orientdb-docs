@@ -7,7 +7,7 @@
 This is the basic data hierarchy in OrientDB. Each document, vertex, edge or BLOB in the database
 will be represented in Java as an object in this hierarchy.
 
-![AddVertex1](images/ORecordHierarchy.png)
+![AddVertex1](../images/ORecordHierarchy.png)
 
 - **ORecord**: this is a pre-existing interface, common to all the persistent records.
   Its main goal is to provide an abstraction to obtain low level information (eg. identity) and behavior 
@@ -21,7 +21,7 @@ will be represented in Java as an object in this hierarchy.
 - **OVertex**: is the basic interface for vertices, it includes methods to manipulate and traverse connected edges and vertices
 - **OEdge**: is the basic interface for edges, it includes methods to retrieve info regarding connected vertices
 
-An ORecord has an identity and a version number, for the basic details see [Basic Concepts](Concepts.md)
+An ORecord has an identity and a version number, for the basic details see [Basic Concepts](../Concepts.md)
 
 
 ### Creating a document
@@ -172,7 +172,7 @@ doc.reload();
 
 ### Properties
 
-A document can have properties. A property is a key/value pair, where the key is a string and the value is one of the [Supported Types](Types.md) 
+A document can have properties. A property is a key/value pair, where the key is a string and the value is one of the [Supported Types](../Types.md) 
 
 OElement interface provides methods to set and retrieve property values and names.
 
@@ -186,7 +186,7 @@ Any string is a valid property name, except:
 
 A string name can also contain numbers, blank spaces, punctation and special characters.
 
-> IMPORTANT: please refer to [SQL Syntax](sql/SQL-Syntax.md) for details on how to escape property names including special characters when
+> IMPORTANT: please refer to [SQL Syntax](../sql/SQL-Syntax.md) for details on how to escape property names including special characters when
 writing SQL statements
 
 The following are valid instructions:
@@ -252,7 +252,7 @@ doc.setProperty("tags", new String[]{"foo", "bar", "baz"});
 
 Setting a property value multiple times, just overwrites the property value.
 
-When working schemaless (see [Schema](Schema.md)), property values are saved without conversion:
+When working schemaless (see [Schema](../Schema.md)), property values are saved without conversion:
 - basic types (numbers, strings, boolean) are save as is
 - document properties (eg. `doc1.setProperty("parent", doc2);`) are saved as links
 - collections and maps of basic types are saved as is

@@ -7,7 +7,7 @@ search:
 
 Before you can execute any operation on a Document Database, you first need to open an instance in your application.  You can do so by either opening an existing instance or creating a new one.  Bear in mind that database instances are not thread-safe, so only use one database per thread.
 
-Whether you want to open or create a database, you first need a valid database URL.  The URL defines where OrientDB looks for the database and what kind it should use.  For instance, `memory` refers to a database that is in-memory only and volatile, `plocal` to one that is embedded and `remote` to a database either on a remote server or accessed through localhost.  For more information, see [Database URL](Concepts.md#database_url).
+Whether you want to open or create a database, you first need a valid database URL.  The URL defines where OrientDB looks for the database and what kind it should use.  For instance, `memory` refers to a database that is in-memory only and volatile, `plocal` to one that is embedded and `remote` to a database either on a remote server or accessed through localhost.  For more information, see [Database URL](../Concepts.md#database_url).
 
 ## Managing Database Instances
 
@@ -57,7 +57,7 @@ Roles:
 - Role `reader` - read only permissions
 - Role `writer` - read/write permissions, but no schema manipulation
 
-For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](Database-Security.md)
+For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](../Database-Security.md)
 
 For creating database instances on remote servers, the process is a little more complicated.  You need the user and password to access the remote OrientDB Server instance.  By default, OrientDB creates the `root` user when the server first starts.  Checking the file in `$ORIENTDB_HOME/config/orientdb-server-config.xml`, which also provides the password.
 

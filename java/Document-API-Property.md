@@ -23,7 +23,7 @@ account.createProperty("id", OType.INTEGER);
 account.createProperty("birthDate", OType.DATE);
 ```
 
-Bear in mind, the property must belong to a [Type](Types.md).
+Bear in mind, the property must belong to a [Type](../Types.md).
 
 
 ### Dropping Properties
@@ -35,7 +35,7 @@ database.getMetadata().getSchema().getClass("Account)
    .dropProperty("name");
 ```
 
-When you drop properties using this method, note that doing so does not result in your removing records unless you explicitly do so.  In order to do so, you need to issue an SQL command through the application to run an [`UPDATE...REMOVE`](sql/SQL-Update.md) statement.  For instance,
+When you drop properties using this method, note that doing so does not result in your removing records unless you explicitly do so.  In order to do so, you need to issue an SQL command through the application to run an [`UPDATE...REMOVE`](../sql/SQL-Update.md) statement.  For instance,
 
 ```java
 database.getMetadata().getSchema().getClass("Account")
@@ -63,7 +63,7 @@ CLASS=Invoice          CLASS=Customer
  RID=5:23                RID=10:2
 ```
 
-Here, *Record A* contains a reference to *Record B* in the property `customer`,  Note that both records are accessible through any other record.  Each has a [Record ID](Concepts.md#record-id).
+Here, *Record A* contains a reference to *Record B* in the property `customer`,  Note that both records are accessible through any other record.  Each has a [Record ID](../Concepts.md#record-id).
 
 #### 1-1 and n-1 Referenced Relationships
 
@@ -217,4 +217,4 @@ profile.createIndex("compositeIdx", OClass.INDEX_TYPE
    .NOTUNIQUE, "name", "surname");
 ```
 
-For more information on indexes, see [Indexes](Indexes.md).
+For more information on indexes, see [Indexes](../Indexes.md).
