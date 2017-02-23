@@ -7,7 +7,7 @@ search:
 
 Deletion queries in OrientJS are those used in removing records from the database.  It can also account for edges between vertices, updating the graph to maintain its consistency.
 
-The deletion query method is comparable to [`DELETE`](SQL-Delete.md), [`DELETE VERTEX`](SQL-Delete-Vertex.md) and the [`DELETE EDGE`](SQL-Delete-Edge.md) statements.
+The deletion query method is comparable to [`DELETE`](../SQL-Delete.md), [`DELETE VERTEX`](../SQL-Delete-Vertex.md) and the [`DELETE EDGE`](../SQL-Delete-Edge.md) statements.
 
 
 ## Working with Deletion Queries
@@ -48,7 +48,7 @@ db.delete('EDGE', 'PlaysFor')
 
 ### Deleting Records
 
-In order to delete records in a given class, you need to define a conditional value that tells OrientDB the specific records in the class that you want to delete.  When working from the Console, you would use the [`WHERE`](SQL-Where.md) clause.  In OrientJS, set the `where()` method.
+In order to delete records in a given class, you need to define a conditional value that tells OrientDB the specific records in the class that you want to delete.  When working from the Console, you would use the [`WHERE`](../SQL-Where.md) clause.  In OrientJS, set the `where()` method.
 
 ```js
 db.delete().from('Player')

@@ -5,9 +5,9 @@ search:
 
 # OrientJS - `liveQuery()`
 
-When using traditional queries, such as those called with `db.query()` and `db.select()` you only get data that is current at the time the query is issued.  Beginning in version 2.1, OrientDB now supports [Live Queries](Live-Query.md), where in issuing the query you tell OrientDB you want it to push affecting changes to your application.
+When using traditional queries, such as those called with `db.query()` and `db.select()` you only get data that is current at the time the query is issued.  Beginning in version 2.1, OrientDB now supports [Live Queries](../Live-Query.md), where in issuing the query you tell OrientDB you want it to push affecting changes to your application.
 
-You can execute Live Queries using the `db.liveQuery()` method with a [`LIVE SELECT`](SQL-Live-Select.md) statement passed as its argument. 
+You can execute Live Queries using the `db.liveQuery()` method with a [`LIVE SELECT`](../SQL-Live-Select.md) statement passed as its argument. 
 
 From OrientDB 2.2.x in order to make live query works the token must be enabled. See [here](OrientJS-Server.md#using-tokens)
 ## Understanding Live Queries
@@ -16,7 +16,7 @@ Traditional queries provide you with information that is current at the time the
 
 For instance, what if in addition to historical data you also want your application to serve real-time information about baseball games as they're being played.
 
-With the traditional query, you would have to reissue the query within a set interval to update the application.  Live Queries allow you to register events, so that your application performs addition operations in the event of an [`INSERT`](SQL-Insert.md), [`DELETE`](SQL-Delete.md), or [`UPDATE`](SQL-Update.md).
+With the traditional query, you would have to reissue the query within a set interval to update the application.  Live Queries allow you to register events, so that your application performs addition operations in the event of an [`INSERT`](../SQL-Insert.md), [`DELETE`](../SQL-Delete.md), or [`UPDATE`](../SQL-Update.md).
   
 For example, say that you have a web application that uses the baseball database.  The application serves the current score and various other stats for the game.  Whenever your back-end system inserts new records for the game, you can execute a function to update the display information.
 
@@ -24,7 +24,7 @@ For example, say that you have a web application that uses the baseball database
 
 ## Working with Live Queries
 
-In OrientJS, Live Queries are called using the `db.liveQuery()` method.  This is similar to `db.query()` in that you use it to issue the raw SQL of a [`LIVE SELECT`](SQL-Live-Select.md) statement.  Unlike `db.query()`, you can assign event handlers to `db.liveQuery` using the `on()` method.
+In OrientJS, Live Queries are called using the `db.liveQuery()` method.  This is similar to `db.query()` in that you use it to issue the raw SQL of a [`LIVE SELECT`](../SQL-Live-Select.md) statement.  Unlike `db.query()`, you can assign event handlers to `db.liveQuery` using the `on()` method.
 
 For instance,
 
@@ -77,7 +77,7 @@ db.liveQuery('LIVE SELECT FROM Game '
    });
 ```
 
-Here, the Live Query registers an event to [`INSERT`](SQL-Insert.md) events on the `Game` class where the `game_id` property equals the one currently being played.  Whenever the back-end service inserts data on a new play, the application checks for changes in the score.  When either team scores, it passes the score to an `updateScore` function, which we might use to trigger a notification event in the web browser to let the user know their team scored run or runs.
+Here, the Live Query registers an event to [`INSERT`](../SQL-Insert.md) events on the `Game` class where the `game_id` property equals the one currently being played.  Whenever the back-end service inserts data on a new play, the application checks for changes in the score.  When either team scores, it passes the score to an `updateScore` function, which we might use to trigger a notification event in the web browser to let the user know their team scored run or runs.
 
 ### Running Events on Delete
 
@@ -119,4 +119,4 @@ db.liveQuery('LIVE SELECT FROM OUser')
    });
 ```
 
-When your application contains this code, any changes on the database that issue [`UPDATE`](SQL-Update.md) queries to the `OUser` class are passed to the `reportChange()` function, which you can use to determine whether or not the changes are legitimate and if they're not, what you want it to do or who it should notify about suspicious activity. 
+When your application contains this code, any changes on the database that issue [`UPDATE`](../SQL-Update.md) queries to the `OUser` class are passed to the `reportChange()` function, which you can use to determine whether or not the changes are legitimate and if they're not, what you want it to do or who it should notify about suspicious activity. 

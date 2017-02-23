@@ -26,7 +26,7 @@ To disable them, set the `query.live.support` property to `false`.
 Currently, Live Queries are supported by the following interfaces:
 
 - [**Java API**](Live-Query-Java.md), through the `OLiveResultListener` and `OLiveQuery` objects.
-- [**OrientJS (Node.js)**](OrientJS.md), through the [`liveQuery()`](OrientJS-Live-Query.md) function.
+- [**OrientJS (Node.js)**](orientjs/OrientJS.md), through the [`liveQuery()`](OrientJS-Live-Query.md) function.
 
 
 ### When to use Live Queries

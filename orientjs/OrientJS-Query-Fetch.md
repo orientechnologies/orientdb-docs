@@ -5,9 +5,9 @@ search:
 
 # OrientJS - `fetch()`
 
-In OrientDB, sometimes the default behavior of the [`SELECT`](SQL-Query.md) command is not sufficient for your needs.  For instance, when your application connects to a remote server, using a fetching strategy can limit the number of times it needs to connect to the remote server.
+In OrientDB, sometimes the default behavior of the [`SELECT`](../SQL-Query.md) command is not sufficient for your needs.  For instance, when your application connects to a remote server, using a fetching strategy can limit the number of times it needs to connect to the remote server.
 
->For more information, see [Fetching Strategies](Fetching-Strategies.md).
+>For more information, see [Fetching Strategies](../Fetching-Strategies.md).
 
 
 ## Working with Fetching Strategies

@@ -31,7 +31,7 @@ var indexName = db.index.create({
 
 In the baseball statistics database, you may find yourself often searching for players by name.  The above example creates a Full Text index on the `name` property of `Player` using the SB-Tree indexing algorithm.
 
->For more information on indices in OrientDB, see [Indexes](Indexes.md).
+>For more information on indices in OrientDB, see [Indexes](../Indexes.md).
 
 ### Getting Indexes
 
