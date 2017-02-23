@@ -70,5 +70,5 @@ Supported Strategies:
 >- [`DROP CLASS`](SQL-Drop-Class.md)
 >- [`CREATE CLUSTER`](SQL-Create-Cluster.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)
 

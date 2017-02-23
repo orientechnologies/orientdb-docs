@@ -91,4 +91,4 @@ When altering `NAME` or `TYPE` this command runs a data update that may take som
 
 
 
->To create a property, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command, to remove a property the [`DROP PROPERTY`](SQL-Drop-Property.md) command.  For more information on other commands, see [Console](Console-Commands.md) and [SQL](SQL.md) commands.
+>To create a property, use the [`CREATE PROPERTY`](SQL-Create-Property.md) command, to remove a property the [`DROP PROPERTY`](SQL-Drop-Property.md) command.  For more information on other commands, see [Console](console/Console-Commands.md) and [SQL](SQL.md) commands.

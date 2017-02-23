@@ -11,7 +11,7 @@ This method prepares or executes a command on the OrientDB database.  The return
 
 There are several methods available in issuing queries and commands to OrientDB through your C# application.  This method allows you to issue SQL commands to the database.
 
-For information on available commands, see [SQL](../SQL.md) and [Console](../Console-Commands.md) commands.
+For information on available commands, see [SQL](../SQL.md) and [Console](../console/Console-Commands.md) commands.
 
 
 ### Syntax

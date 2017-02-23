@@ -34,4 +34,4 @@ DROP CLASS <class> [ UNSAFE ]
 >- [`ALTER CLASS`](SQL-Alter-Class.md)
 >- [`ALTER CLUSTER`](SQL-Alter-Cluster.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)

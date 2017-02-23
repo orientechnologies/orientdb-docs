@@ -39,7 +39,7 @@ ALTER DATABASE <attribute-name> <attribute-value>
 
 
 
->To create a database, see the [`CREATE DATABASE`](Console-Command-Create-Database.md).  To remove a database, see the [`DROP DATABASE`](Console-Command-Drop-Database.md) command.  For more information on other commands, see [Console](Console-Commands.md) and [SQL](SQL.md) commands.
+>To create a database, see the [`CREATE DATABASE`](console/Console-Command-Create-Database.md).  To remove a database, see the [`DROP DATABASE`](console/Console-Command-Drop-Database.md) command.  For more information on other commands, see [Console](console/Console-Commands.md) and [SQL](SQL.md) commands.
 
 
 
@@ -66,7 +66,7 @@ ALTER DATABASE <attribute-name> <attribute-value>
  - `content`, in case the version is different checks if the content is changed, otherwise use the highest version and avoid throwing exception
  - `automerge`, merges the changes
 - **CUSTOM** sets custom properties
-- **VALIDATION**, (Since v2.2) disable or enable the validation for the entire database. This setting is not persistent, so at the next restart the validation is active (Default). Disabling the validation sometimes is needed in case of [remote import database](Console-Command-Import.md#validation-errors).
+- **VALIDATION**, (Since v2.2) disable or enable the validation for the entire database. This setting is not persistent, so at the next restart the validation is active (Default). Disabling the validation sometimes is needed in case of [remote import database](console/Console-Command-Import.md#validation-errors).
 
 
 

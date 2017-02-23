@@ -60,7 +60,7 @@ CREATE PROPERTY
 >
 >- [`DROP PROPERTY`](SQL-Drop-Property.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)
 
 
 ## Supported Types

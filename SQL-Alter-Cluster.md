@@ -50,7 +50,7 @@ ALTER CLUSTER <cluster> <attribute-name> <attribute-value>
 
 
 
->For more information see, [`CREATE CLUSTER`](SQL-Create-Cluster.md), [`DROP CLUSTER`](SQL-Drop-Cluster.md), [`ALTER CLUSTER`](SQL-Alter-Cluster.md) commands.  For more information on other commands, see [Console](Console-Commands.md) and [SQL](SQL.md) commands.
+>For more information see, [`CREATE CLUSTER`](SQL-Create-Cluster.md), [`DROP CLUSTER`](SQL-Drop-Cluster.md), [`ALTER CLUSTER`](SQL-Alter-Cluster.md) commands.  For more information on other commands, see [Console](console/Console-Commands.md) and [SQL](SQL.md) commands.
 
 ## Supported Attributes
 

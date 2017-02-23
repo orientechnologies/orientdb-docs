@@ -50,4 +50,4 @@ CREATE FUNCTION <name> <code>
 >
 >- [Functions](Functions.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)

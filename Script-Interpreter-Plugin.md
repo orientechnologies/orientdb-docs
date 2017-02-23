@@ -33,5 +33,5 @@ Default configuration in orientdb-server-config.xml. Example:
 
 ## Usage
 
-Look at [Console Command JSS](Console-Command-Jss.md).
+Look at [Console Command JSS](console/Console-Command-Jss.md).
 

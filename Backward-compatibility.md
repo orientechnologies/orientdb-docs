@@ -19,7 +19,7 @@ Binary compatibility feature is implemented using following algorithm:
 Only features and database components which were exist at the moment when current binary format was latest one will be used. It means that you can not use all database features available in latest release if you use storage which was created using old binary format version. It also means that bugs which are fixed in new versions may be (but may be not) reproducible on storage created using old binary format.
 
 To update binary format storage to latest one you should export database in JSON format and import it back.
-Using either console commands [export database](Console-Command-Export.md) and [import database](Console-Command-Import.md) or Java API look at `com.orientechnologies.orient.core.db.tool.ODatabaseImport`, `com.orientechnologies.orient.core.db.tool.ODatabaseExport` classes and `com.orientechnologies.orient.test.database.auto.DbImportExportTest` test.
+Using either console commands [export database](console/Console-Command-Export.md) and [import database](console/Console-Command-Import.md) or Java API look at `com.orientechnologies.orient.core.db.tool.ODatabaseImport`, `com.orientechnologies.orient.core.db.tool.ODatabaseExport` classes and `com.orientechnologies.orient.test.database.auto.DbImportExportTest` test.
 
 + Current binary format version can be read from `com.orientechnologies.orient.core.db.record.OCurrentStorageComponentsFactory#binaryFormatVersion` proporty.
 + Instance of `OCurrentStorageComponentsFactory` class can be retrieved by call of `com.orientechnologies.orient.core.storage.OStorage#getComponentsFactory` method. 

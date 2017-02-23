@@ -43,9 +43,9 @@ To restrict unauthorized users from giving themselves privileges on the OrientDB
 
 Beginning with version 2.2, the OrientDB console provides a series of commands for managing users:
 
-- [`LIST SERVER USERS`](Console-Command-List-Server-Users.md): Displays all users.
-- [`SET SERVER USER`](Console-Command-Set-Server-User.md): Creates or modifies a user.
-- [`DROP SERVER USER`](Console-Command-Drop-Server-User.md): Drops a user.
+- [`LIST SERVER USERS`](console/Console-Command-List-Server-Users.md): Displays all users.
+- [`SET SERVER USER`](console/Console-Command-Set-Server-User.md): Creates or modifies a user.
+- [`DROP SERVER USER`](console/Console-Command-Drop-Server-User.md): Drops a user.
 
 
 ## Server Resources

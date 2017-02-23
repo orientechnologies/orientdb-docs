@@ -32,7 +32,7 @@ To stop a running server, press CTRL+C in the open shell that runs the Server in
 ## Connect to the server
 
 ### By Console
-The OrientDB distribution provides the [Orient Console](Console-Commands.md) tool as a console Java application that uses the binary protocol to work with the database.
+The OrientDB distribution provides the [Orient Console](console/Console-Commands.md) tool as a console Java application that uses the binary protocol to work with the database.
 
 ### By OrientDB Studio
 Starting from the release 0.9.13 Orient comes with the [OrientDB Studio application](studio/Studio-Home-page.md), a client-side web app that uses the HTTP protocol to work with the database.
@@ -105,7 +105,7 @@ Example of configuration:
          loaded-at-startup="true" />
 ```
 
-To create a new database use the [CREATE DATABASE console command](Console-Command-Create-Database.md) or create it dinamically using the [Java-API](Java-API.md).
+To create a new database use the [CREATE DATABASE console command](console/Console-Command-Create-Database.md) or create it dinamically using the [Java-API](Java-API.md).
 
 ### Users
 

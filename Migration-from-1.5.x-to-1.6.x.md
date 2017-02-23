@@ -19,7 +19,7 @@ From OrientDB 1.5.x:
  - orientdb> create database plocal:/temp/db admin admin plocal
  - orientdb> import database /temp/db.zip
 
-For any problem on import, look at [Import Troubleshooting](Console-Command-Import.md#troubleshooting).
+For any problem on import, look at [Import Troubleshooting](console/Console-Command-Import.md#troubleshooting).
 
 ## Engine
 

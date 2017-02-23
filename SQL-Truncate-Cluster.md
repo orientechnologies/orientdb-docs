@@ -28,4 +28,4 @@ TRUNCATE CLUSTER <cluster>
 >- [`DELETE`](SQL-Delete.md)
 >- [`TRUNCATE CLASS`](SQL-Truncate-Class.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)

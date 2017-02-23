@@ -121,7 +121,7 @@ In order to work with the partition, you need to create graphs for each user on 
 
 ### Create a Graph for Luca
 
-First, using [`DISCONNECT`](Console-Command-Disconnect.md) and [`CONNECT`](Console-Command-Connect.md) disconnect from your admin session on the `blog` database and reconnect as Luca's user.
+First, using [`DISCONNECT`](console/Console-Command-Disconnect.md) and [`CONNECT`](console/Console-Command-Connect.md) disconnect from your admin session on the `blog` database and reconnect as Luca's user.
 
 <pre>
 orientdb {db=blog}> <code class="lang-sql userinput">DISCONNECT</code>

@@ -29,4 +29,4 @@ CREATE CLUSTER <cluster> [ID <cluster-id>]
 >
 >- [`DROP CLUSTER`](SQL-Drop-Cluster.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)

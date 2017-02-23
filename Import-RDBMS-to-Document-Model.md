@@ -6,7 +6,7 @@ search:
 # Import from a Relational Database
 
 Relational databases typically query and manipulate data with SQL.  Given that OrientDB supports a subset of SQL, it is relatively straightfoward to import data from a Relational databases to OrientDB.
-You can manage imports using the Java API, [OrientDB Studio](studio/Studio-Home-page.md) or the [OrientDB Console](Console-Commands.md).  The examples below use the Console.
+You can manage imports using the Java API, [OrientDB Studio](studio/Studio-Home-page.md) or the [OrientDB Console](console/Console-Commands.md).  The examples below use the Console.
 
 >This guide covers importing into the Document Model.  Beginning with version 2.0, you can import into the Graph Model using the [ETL Module](Import-from-DBMS.md).  From version 1.7.x you can still use ETL by installing it as a separate module
 
@@ -115,7 +115,7 @@ The recommended method is PLocal, given that it offers better performance on mas
   CREATE DATABASE PLOCAL:/tmp/db/blog admin_user admin_passwd PLOCAL DOCUMENT
   </code></pre>
   
-  Here, the [`CREATE DATABASE`](Console-Command-Create-Database.md) command creates a new database at `/tmp/db/blog`.
+  Here, the [`CREATE DATABASE`](console/Console-Command-Create-Database.md) command creates a new database at `/tmp/db/blog`.
 
 - Using the Remote mode:
 
@@ -132,7 +132,7 @@ The recommended method is PLocal, given that it offers better performance on mas
 
 #### Using Existing Databases
 
-In the event that you already have a database set up and ready for the import, instead of creating a database add a line that connects to that databases, using the [`CONNECT`](Console-Command-Connect.md) command.
+In the event that you already have a database set up and ready for the import, instead of creating a database add a line that connects to that databases, using the [`CONNECT`](console/Console-Command-Connect.md) command.
 
 - Using the embedded PLocal mode:
 
@@ -275,4 +275,4 @@ You now have an OrientDB Document database where relationships are direct and ha
 >For more information, see
 >
 >- [SQL commands](SQL.md)
->- [Console-Commands](Console-Commands.md)
+>- [Console-Commands](console/Console-Commands.md)

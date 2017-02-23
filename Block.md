@@ -79,7 +79,7 @@ In the `"code"` block, you can configure code snippets to execute in any JVM-sup
 
 ## Console Blocks
 
-In a `"console"` block, you can define commands OrientDB executes through the [Console](Console-Commands.md).
+In a `"console"` block, you can define commands OrientDB executes through the [Console](console/Console-Commands.md).
 
 - Component name: `console`
 

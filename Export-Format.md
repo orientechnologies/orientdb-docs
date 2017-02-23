@@ -5,7 +5,7 @@ search:
 
 # Export Format
 
-When you run the [`EXPORT DATABASE`](Console-Command-Export.md) command, OrientDB exports the database into a zipped file using a special JSON format.  When you run the [`IMPORT DATABASE`](Console-Command-Import.md) command, OrientDB unzips the file and parses the JSON, making the import.
+When you run the [`EXPORT DATABASE`](console/Console-Command-Export.md) command, OrientDB exports the database into a zipped file using a special JSON format.  When you run the [`IMPORT DATABASE`](console/Console-Command-Import.md) command, OrientDB unzips the file and parses the JSON, making the import.
 
 ## Sections
 

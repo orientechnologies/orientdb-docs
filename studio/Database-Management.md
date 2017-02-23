@@ -32,6 +32,6 @@ Contains the database configuration and custom properties. Here you can display 
 ![Configuration](../images/configuration.png)
 
 ##Export
-Allows to export the current database in GZipped JSON format. To import the file into another database, use the [Import Console Command](../Console-Command-Import.md).
+Allows to export the current database in GZipped JSON format. To import the file into another database, use the [Import Console Command](../console/Console-Command-Import.md).
 
 ![Export](../images/import-export.png)

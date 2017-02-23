@@ -31,7 +31,7 @@ When finished call the <code>OServerAdmin.close()</code> method to release the n
 
 ## Create a database
 
-To create a new database in a remote server you can use the console's [create database](Console-Command-Create-Database.md) command  or via API using the <code>OServerAdmin.createDatabase()</code> method.
+To create a new database in a remote server you can use the console's [create database](console/Console-Command-Create-Database.md) command  or via API using the <code>OServerAdmin.createDatabase()</code> method.
 ```java
 // ANY VERSION: CREATE A SERVER ADMIN CLIENT AGAINST A REMOTE SERVER
 OServerAdmin serverAdmin = new OServerAdmin("remote:localhost/GratefulDeadConcerts").connect("admin", "admin");
@@ -48,7 +48,7 @@ The iStorageMode can be memory or [plocal](https://github.com/orientechnologies/
 
 ## Drop a database
 
-To drop a database from a server you can use the console's  [drop database](Console-Command-Drop-Database.md) command or via API using the <code>OServerAdmin.dropDatabase()</code> method.
+To drop a database from a server you can use the console's  [drop database](console/Console-Command-Drop-Database.md) command or via API using the <code>OServerAdmin.dropDatabase()</code> method.
 ```java
 // CREATE A SERVER ADMIN CLIENT AGAINST A REMOTE SERVER
 OServerAdmin serverAdmin = new OServerAdmin("remote:localhost/GratefulDeadConcerts").connect("admin", "admin");

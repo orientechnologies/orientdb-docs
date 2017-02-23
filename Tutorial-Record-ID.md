@@ -36,7 +36,7 @@ In document and relational databases the more data that you have, the slower the
 
 ### Console Load
 
-To directly load a record, use the [`LOAD RECORD`](Console-Command-Load-Record.md) command in the console.
+To directly load a record, use the [`LOAD RECORD`](console/Console-Command-Load-Record.md) command in the console.
 
 <pre>
 orientdb> <code class="lang-sql userinput">LOAD RECORD #34:0</code>
@@ -57,7 +57,7 @@ DOCUMENT @class:Company @rid:#34:0 @version:2
 +----+-----------+---------------------+
 </pre>
 
-The [`LOAD RECORD`](Console-Command-Load-Record.md) command returns some useful information about this record. It shows that:
+The [`LOAD RECORD`](console/Console-Command-Load-Record.md) command returns some useful information about this record. It shows that:
 
 - The record is a [document](Concepts.md#document). OrientDB supports different types of records, but document is the only type covered in this chapter.
 

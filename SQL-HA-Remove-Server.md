@@ -40,4 +40,4 @@ The correct way to remove a server from the configuration is running this comman
 >For more information, see
 >- [Distributed Architecture](Distributed-Architecture.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)

@@ -29,4 +29,4 @@ OPTIMIZE DATABASE [-lwedges] [-noverbose]
 >For more information, see
 >- [Lightweight Edges](Lightweight-Edges.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)

@@ -156,4 +156,4 @@ Here, entries are removed from the `Employee` class where the employee in questi
 **See also:**
 
   - [The SQL Reference](SQL.md)
-  - [The Console Command Reference](Console-Commands.md)
+  - [The Console Command Reference](console/Console-Commands.md)

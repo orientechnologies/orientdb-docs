@@ -11,7 +11,7 @@ The [Cluster](Concepts.md#cluster) is a place where a group of records are store
 
 In this tutorial you will learn what clusters are and how to use them in your database.
 
-To list all the configured clusters on your system, use the [`CLUSTERS`](Console-Command-Clusters.md) command in the console:
+To list all the configured clusters on your system, use the [`CLUSTERS`](console/Console-Command-Clusters.md) command in the console:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CLUSTERS</code>
@@ -97,13 +97,13 @@ You now have a third cluster for the `Customer` class, covering those customers 
 
 ## Viewing Records in a Cluster
 
-Clusters store the records contained by a class in OrientDB. You can view all records that belong to a cluster using the [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md) command and the data belonging to a particular record with the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command.
+Clusters store the records contained by a class in OrientDB. You can view all records that belong to a cluster using the [`BROWSE CLUSTER`](console/Console-Command-Browse-Cluster.md) command and the data belonging to a particular record with the [`DISPLAY RECORD`](console/Console-Command-Display-Record.md) command.
 
 In the above example, you added a cluster to a class for storing records customer information based on their locations around the world, but you did not create these records or add any data.  As a result, running these commands on the `Customer` class returns no results.  Instead, for the examples below, consider the `ouser` cluster.
 
-OrientDB ships with a number of default clusters to store data from its default classes. You can see these using the [`CLUSTERS`](Console-Command-Clusters.md) command. Among these, there is the `ouser` cluster, which stores data of the users on your database.
+OrientDB ships with a number of default clusters to store data from its default classes. You can see these using the [`CLUSTERS`](console/Console-Command-Clusters.md) command. Among these, there is the `ouser` cluster, which stores data of the users on your database.
 
-To see records stored in the `ouser` cluster, run the [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md) command:
+To see records stored in the `ouser` cluster, run the [`BROWSE CLUSTER`](console/Console-Command-Browse-Cluster.md) command:
 
 
 <pre>
@@ -118,15 +118,15 @@ orientdb> <code class="lang-sql userinput">BROWSE CLUSTER OUser</code>
 ---+------+--------+--------+----------------------------------+--------+-------+
 </pre>
 
-The results are identical to executing [`BROWSE CLASS`](Console-Command-Browse-Class.md) on the `OUser` class, given that there is only one cluster for the `OUser` class in this example.
+The results are identical to executing [`BROWSE CLASS`](console/Console-Command-Browse-Class.md) on the `OUser` class, given that there is only one cluster for the `OUser` class in this example.
 
 |||
 |---|-----|
 |![](images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure. To further improve security in production environments, see [Security](Security.md).|
 
-When you run [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md), the first column in the output provides the identifier number, which you can use to display detailed information on that particular record.
+When you run [`BROWSE CLUSTER`](console/Console-Command-Browse-Cluster.md), the first column in the output provides the identifier number, which you can use to display detailed information on that particular record.
 
-To show the first record browsed from the `ouser` cluster, run the [`DISPLAY RECORD`](Console-Command-Display-Record.md) command:
+To show the first record browsed from the `ouser` cluster, run the [`DISPLAY RECORD`](console/Console-Command-Display-Record.md) command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">DISPLAY RECORD 0</code>
@@ -142,7 +142,7 @@ DOCUMENT @class:OUser @rid:#5:0 @version:1
 ----------+--------------------------------------------+
 </pre>
 
-Bear in mind that this command references the last call of [`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md). You can continue to display other records, but you cannot display records from another cluster until you browse that particular cluster.
+Bear in mind that this command references the last call of [`BROWSE CLUSTER`](console/Console-Command-Browse-Cluster.md). You can continue to display other records, but you cannot display records from another cluster until you browse that particular cluster.
 
 ## Congratulations
 

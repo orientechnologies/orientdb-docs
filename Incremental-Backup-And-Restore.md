@@ -15,8 +15,8 @@ NOTE: Lucene Indexes are not supported yet in the incremental backup/restore pro
 
 ## See also
 - [Backup and Restore](Backup-and-Restore.md)
-- [BACKUP DATABASE console command](Console-Command-Backup.md)
-- [RESTORE DATABASE console command](Console-Command-Restore.md)
+- [BACKUP DATABASE console command](console/Console-Command-Backup.md)
+- [RESTORE DATABASE console command](console/Console-Command-Restore.md)
 
 ## How does it work?
 
@@ -36,7 +36,7 @@ The most important information is the `lsn` field that is the WAL LSN (Last Seri
 
 ### Incremental Backup via Console
 
-[Backup Database console command](Console-Command-Backup.md) accepts `-incremental` as an optional parameter to execute an incremental backup. In this case the new backup is executed from the last backup (file `last-backup.json` is read if present). If this is the first incremental backup, a full backup is executed. Example:
+[Backup Database console command](console/Console-Command-Backup.md) accepts `-incremental` as an optional parameter to execute an incremental backup. In this case the new backup is executed from the last backup (file `last-backup.json` is read if present). If this is the first incremental backup, a full backup is executed. Example:
 
 ```
 orientdb> connect plocal:/databases/mydb admin admin
@@ -76,7 +76,7 @@ graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 
 ### Incremental Restore via the Console
 
-[Restore Database console command](Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Restoring an incremental backup creates a new database with the restored content.  You cannot perform an in-place incremental restore on an existing database. The execution of the create database command with the option `-restore` builds a fresh database and performs the incremental restore starting from the backup path. 
+[Restore Database console command](console/Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Restoring an incremental backup creates a new database with the restored content.  You cannot perform an in-place incremental restore on an existing database. The execution of the create database command with the option `-restore` builds a fresh database and performs the incremental restore starting from the backup path. 
 
 Example:
 

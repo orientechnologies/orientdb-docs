@@ -29,4 +29,4 @@ DROP PROPERTY <class>.<property> [FORCE]
 >For more information, see
 >- [`CREATE PROPERTY`](SQL-Create-Property.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](console/Console-Commands.md)
