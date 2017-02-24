@@ -48,3 +48,14 @@ MATCH {class: Customers, as: c, where: (OrderedId=1)}--{class: Places, as: p}--{
 	
 #### Same as before, but now returns also their Profile names, surnames and emails 
 MATCH {class: Customers, as: c, where: (OrderedId=1)}--{class: Places, as: place}--{class: Customers, as: otherCustomers, where: (OrderedId<>1)}-HasProfile->{class: Profiles, as: profile} RETURN place.Name, place.Type, otherCustomers.OrderedId, profile.Name, profile.Surname, profile.Email
+
+#### Find all Places where Customer with Id 1 has stayed
+MATCH {as: n}<-HasStayed-{class: Customers, as: c, where: (OrderedId=1)} RETURN $pathelements
+
+#### Find all Places where Customer with Id 1 has eaten
+MATCH {as: n}-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} RETURN $pathelements
+
+#### Find the top 3 nationality of the tourists that eaten at Restaurant with Id 109
+SELECT Name, count(*) as CountryCount FROM (SELECT expand(out('IsFromCountry')) AS countries FROM ( SELECT expand(in("HasEaten")) AS customers FROM `Restaurants` WHERE Id='109' UNWIND customers) unwind countries) GROUP BY Name
+  
+
