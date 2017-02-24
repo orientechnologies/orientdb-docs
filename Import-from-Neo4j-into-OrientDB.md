@@ -23,6 +23,6 @@ To migrate, please choose one of the following strategies:
 1. **Use GraphML**
 	* GraphML is an XML-based file format for graphs. For more details, please refer to the section [Import from Neo4j using GraphML](Import-from-Neo4j-using-GraphML.md)
 
-**Note:** if your data is in CSV format, you can migrate to OrientDB using the [OrientDB's ETL](ETL-Introduction.md) tool.
+**Note:** if your data is in CSV format, you can migrate to OrientDB using the [OrientDB's ETL](etl/ETL-Introduction.md) tool.
 	
 

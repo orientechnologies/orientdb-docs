@@ -24,7 +24,7 @@ Before execution, it always initalizes the `$input` variable, so that if you nee
 
 ## CSV Transformer
 
->Beginning with version 2.1.4, the CSV Transformer has been deprecated in favor of the [CSV Extractor](Extractor.md#csv-extractor).
+>Beginning with version 2.1.4, the CSV Transformer has been deprecated in favor of the [CSV Extractor](etl/Extractor.md#csv-extractor).
 
 Converts a string in a Document, parsing it as CSV
 
@@ -460,7 +460,7 @@ Component description.
 
 ## Block Transformer
 
-When the ETL module calls the Block Transformer, it executes an ETL [Block](Block.md) component as a transformation step.
+When the ETL module calls the Block Transformer, it executes an ETL [Block](etl/Block.md) component as a transformation step.
 
 Component description.
 - Component name: **block**
