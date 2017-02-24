@@ -55,7 +55,7 @@ MATCH {as: n}<-HasStayed-{class: Customers, as: c, where: (OrderedId=1)} RETURN 
 #### Find all Places where Customer with Id 1 has eaten
 MATCH {as: n}-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} RETURN $pathelements
 
-#### Find the top 3 nationality of the tourists that eaten at Restaurant with Id 109
-SELECT Name, count(*) as CountryCount FROM (SELECT expand(out('IsFromCountry')) AS countries FROM ( SELECT expand(in("HasEaten")) AS customers FROM `Restaurants` WHERE Id='109' UNWIND customers) unwind countries) GROUP BY Name
+#### Find the top 3 nationality of the tourists that eaten at Restaurant with Id 13
+SELECT Name, count(*) as CountryCount FROM (SELECT expand(out('IsFromCountry')) AS countries FROM ( SELECT expand(in("HasEaten")) AS customers FROM Restaurants WHERE Id='13' UNWIND customers) unwind countries) GROUP BY Name ORDER BY CountryCount DESC LIMIT 3
   
 
