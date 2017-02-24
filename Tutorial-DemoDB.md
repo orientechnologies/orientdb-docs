@@ -24,7 +24,7 @@ select *, out("HasReview").size() as ReviewNumbers from `Restaurants` ORDER BY R
 SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Hotels` ORDER BY ReviewNumbers DESC LIMIT 3
 
 #### Find the 3 Hotels that have been booked most times
-SELECT *, in("HasStayed").size() AS NumberOfBookings FROM `Hotels` ORDER BY NumberOfBookings DESC 
+SELECT *, in("HasStayed").size() AS NumberOfBookings FROM Hotels ORDER BY NumberOfBookings DESC LIMIT 3
 
 ### CUSTOMERS 
 	
@@ -33,6 +33,9 @@ MATCH {class: Customers, as: c, where: (OrderedId=1)}--{as: n} RETURN $patheleme
 
 #### Find all Orders placed by Customer with Id 1  
 MATCH {class: Customers, as: c, where: (OrderedId=1)}<-HasCustomer-{class: Orders, as: o} RETURN $pathelements
+
+### Find the 3 Customers who placed most Orders
+SELECT *, in("HasCustomer").size() AS NumberOfOrders FROM Customers ORDER BY NumberOfOrders DESC LIMIT 3
 
 #### Find all Places connected to Customer with Id 1 
 MATCH {class: Places, as: p}--{class: Customers, as: c, where: (OrderedId=1)} RETURN $pathelements
