@@ -20,10 +20,6 @@ section.normal li {
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 4px solid #eee;	
-	background-image: url("eol_message.png"); 
-	background-size: 500px;
-	background-repeat: no-repeat; 
-	background-position: center;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal h2 {
@@ -39,6 +35,9 @@ section.normal li {
 .book .book-body .page-wrapper .page-inner section.normal h4 {
     font-size: 1.1em;
 }
+
+h1{background-image: url("eol_message.png"); background-size: 500px; background-repeat: no-repeat; background-position: center;}
+
 
 
 
