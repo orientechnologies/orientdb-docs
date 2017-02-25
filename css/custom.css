@@ -19,7 +19,11 @@ section.normal li {
     padding-bottom: .3em;
     font-size: 2.25em;
     line-height: 1.2;
-    border-bottom: 4px solid #eee;
+    border-bottom: 4px solid #eee;	
+	background-image: url("eol_message.png"); 
+	background-size: 500px;
+	background-repeat: no-repeat; 
+	background-position: center;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal h2 {
@@ -30,12 +34,6 @@ section.normal li {
 .book .book-body .page-wrapper .page-inner section.normal h3 {
     font-size: 1.5em;
     border-bottom: 2px solid #eee;
-}
-
-.book .book-body .page-wrapper .page-inner:before {
-  content: 'OrientDB v. 2.1 has reached End of Life. This documentation is out of date. Please select version 2.2.x from the combo-box at the left of this page or go to http://orientdb.com/docs/last/';
-  font-size:1.75em;
-  color: blue;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal h4 {
