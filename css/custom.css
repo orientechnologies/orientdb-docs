@@ -36,12 +36,10 @@ section.normal li {
     font-size: 1.1em;
 }
 
-.book-body:before {
+.book .book-body .page-wrapper .page-inner:before {
   content: "OrientDB v. 2.1 has reached End of Life. This documentation is out of date. Please select version 2.2.x from the combo-box at the left of this page or go to http://orientdb.com/docs/last/.";
   font-size:1.75em;
   color: blue;
-  padding-left:.3em;
-  padding-right:.3em;
 }
 
 
