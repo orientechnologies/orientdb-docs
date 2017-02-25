@@ -1,6 +1,6 @@
 # Java API
 
-OrientDB is written 100% in Java. You can use the native Java APIs without any driver or adapter. [Here the Javadocs](http://www.orientechnologies.com/javadoc/latest/).
+OrientDB is written 100% in Java. You can use the native Java APIs without any driver or adapter. [Here is the Javadocs](http://www.orientechnologies.com/javadoc/latest/).
 
 ## Architecture of components
 
