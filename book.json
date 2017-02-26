@@ -2,16 +2,16 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "links": {
-    "home": "http://orientdb.com",
-    "about": "http://orientdb.com",
+    "home": "https://orientdb.com",
+    "about": "https://orientdb.com",
     "issues": "https://github.com/orientechnologies/orientdb/issues",
-    "contribute": "http://orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
+    "contribute": "https://orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
     "sharing": {
       "google": "https://plus.google.com/108716918285358206552/posts",
       "facebook": "https://www.facebook.com/groups/orientdb/",
       "twitter": "https://twitter.com/OrientDB",
       "gitter": "https://gitter.im/orientechnologies/orientdb",
-      "all": "http://orientdb.com"
+      "all": "https://orientdb.com"
     }
   },
   "pdf": {
@@ -44,31 +44,31 @@
         "js/custom.js"
       ],
       "css": [
-        "css/custom.css"
+        "css/custom2.css"
       ]
     },
     "versions": {
-      "gitbookConfigURL": "http://orientdb.com/docs/book.json",
+      "gitbookConfigURL": "https://orientdb.com/docs/book.json",
       "options": [
         {
-          "value": "http://orientdb.com/docs/1.7.8/",
+          "value": "https://orientdb.com/docs/1.7.8/",
           "text": "Version 1.7.x"
         },
         {
-          "value": "http://orientdb.com/docs/2.0/",
+          "value": "https://orientdb.com/docs/2.0/",
           "text": "Version 2.0.x"
         },
         {
-          "value": "http://orientdb.com/docs/2.1.x",
+          "value": "https://orientdb.com/docs/2.1.x",
           "text": "Version 2.1.x",
           "selected": true
         },
         {
-          "value": "http://orientdb.com/docs/2.2.x",
+          "value": "https://orientdb.com/docs/2.2.x",
           "text": "Version 2.2.x"
         },
         {
-          "value": "http://orientdb.com/docs/master",
+          "value": "https://orientdb.com/docs/master",
           "text": "Version last"
         }
       ]

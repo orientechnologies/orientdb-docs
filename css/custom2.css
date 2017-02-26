@@ -1,0 +1,44 @@
+/* Custom CSS for Documentation */
+.userinput {
+    font-weight:bold;
+}
+.replaceable {
+    font-style: italic;
+}
+
+pre code.userinput {
+    font-size: inherit !important;
+}
+
+section.normal p,
+section.normal li {
+    text-align: justify;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 4px solid #eee;	
+}
+
+.book .book-body .page-wrapper .page-inner section.normal h2 {
+    font-size: 1.75em;
+    border-bottom: 3px solid #eee;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal h3 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #eee;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal h4 {
+    font-size: 1.1em;
+}
+
+h1{background-image: url("eol_message.png"); background-size: 500px; background-repeat: no-repeat; background-position: center;}
+
+
+
+
+
