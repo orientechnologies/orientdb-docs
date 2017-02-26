@@ -17,7 +17,7 @@
   * [Running the OrientDB Console](TODO.md)
   * [Running Studio](TODO.md)
   * [Documents, Vertices and Edges](TODO.md)
-  * [Classes and Schema](TODO.md)
+  * [Classes, Schema and Constraints](TODO.md)
   * [Record IDs](TODO.md)
   * [Basic SQL](TODO.md)
   * [Users, Roles and Security](TODO.md)
