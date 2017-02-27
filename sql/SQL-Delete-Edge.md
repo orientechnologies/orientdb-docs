@@ -105,7 +105,7 @@ To implement it in Java, add the following line to your application at a point b
 OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 ```
 
-For more information, see [Concurrency on Adding Edges](../Concurrency.md#concurrency-when-adding-edges).
+For more information, see [Concurrency on Adding Edges](../general/Concurrency.md#concurrency-when-adding-edges).
 
 
 | ![NOTE](../images/warning.png) | **NOTE**: When using a distributed database, OrientDB does not support SBTree indexes.  In these environments, you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` to avoid replication errors._ |

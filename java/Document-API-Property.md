@@ -23,7 +23,7 @@ account.createProperty("id", OType.INTEGER);
 account.createProperty("birthDate", OType.DATE);
 ```
 
-Bear in mind, the property must belong to a [Type](../Types.md).
+Bear in mind, the property must belong to a [Type](../general/Types.md).
 
 
 ### Dropping Properties
@@ -63,7 +63,7 @@ CLASS=Invoice          CLASS=Customer
  RID=5:23                RID=10:2
 ```
 
-Here, *Record A* contains a reference to *Record B* in the property `customer`,  Note that both records are accessible through any other record.  Each has a [Record ID](../Concepts.md#record-id).
+Here, *Record A* contains a reference to *Record B* in the property `customer`,  Note that both records are accessible through any other record.  Each has a [Record ID](../datamodeling/Concepts.md#record-id).
 
 #### 1-1 and n-1 Referenced Relationships
 

@@ -16,7 +16,7 @@ In the case of schema-hybrid mode, you only set constraints for certain fields a
 
 >**NOTE** Changes to the schema are not transactional.  You must execute these commands outside of a transaction. 
 
-You can access the schema through [SQL](sql/SQL.md#query-the-schema) or through the Java API.  Examples here use the latter.  To access the schema API in Java, you need the Schema instance of the database you want to use.  For example,
+You can access the schema through [SQL](../sql/SQL.md#query-the-schema) or through the Java API.  Examples here use the latter.  To access the schema API in Java, you need the Schema instance of the database you want to use.  For example,
 
 
 ```java
@@ -109,7 +109,7 @@ In the event that you would like to remove properties from a class you can do so
 database.getMetadata().getSchema().getClass("Account").dropProperty("name");
 ```
 
-When you drop a property from a class, it does not remove records from that class unless you explicitly ask for it, using the [`UPDATE... REMOVE`](sql/SQL-Update.md) statements.  For instance,
+When you drop a property from a class, it does not remove records from that class unless you explicitly ask for it, using the [`UPDATE... REMOVE`](../sql/SQL-Update.md) statements.  For instance,
 
 
 ```java
@@ -134,7 +134,7 @@ CLASS=Invoice                 CLASS=Customer
   RID=5:23                       RID=10:2
 ```
 
-In the example, Record A contains the reference to Record B in the property `customer`.  Both records are accessible by any other records since each has a [Record ID](Concepts.md#recordid).
+In the example, Record A contains the reference to Record B in the property `customer`.  Both records are accessible by any other records since each has a [Record ID](../datamodeling/Concepts.md#recordid).
 
 #### 1:1 and *n*:1 Reference Relationships
 
@@ -179,7 +179,7 @@ Here, you have two classes: `Order` and `OrderItem` and a 1:*n* referenced relat
 
 ### Embedded Relationships
 
-In the case of embedded relationships, OrientDB contains the relationship within the record.  Embedded relationships are stronger than referenced relationships, but the embedded record does not have its own [Record ID](Concepts.md#recordid).  Because of this, you cannot reference them directly through other records.  The relationship is only accessible through the container record.  If the container record is deleted, then the embedded record is also deleted.
+In the case of embedded relationships, OrientDB contains the relationship within the record.  Embedded relationships are stronger than referenced relationships, but the embedded record does not have its own [Record ID](../datamodeling/Concepts.md#recordid).  Because of this, you cannot reference them directly through other records.  The relationship is only accessible through the container record.  If the container record is deleted, then the embedded record is also deleted.
 
 ```
                   address
@@ -234,7 +234,7 @@ This establishes a one to many relationship between the classes `Order` and `Ord
 
 ## Constraints
 
-OrientDB supports a number of constraints for each field.  For more information on setting constraints, see the [`ALTER PROPERTY`](sql/SQL-Alter-Property.md) command.
+OrientDB supports a number of constraints for each field.  For more information on setting constraints, see the [`ALTER PROPERTY`](../sql/SQL-Alter-Property.md) command.
 
 - **Minimum Value**: `setMin()` The field accepts a string, because it works also for date ranges.
 - **Maximum Value**: `setMax()` The field accepts a string, because it works also for date rangers.
@@ -271,4 +271,4 @@ You can also constrain a group of properties as unique by creating a composite i
 profile.createIndex("compositeIdx", OClass.INDEX_TYPE.NOTUNIQUE, "name", "surname");
 ```
 
-For more information about indexes look at [Index guide](indexing/Indexes.md).
+For more information about indexes look at [Index guide](../indexing/Indexes.md).

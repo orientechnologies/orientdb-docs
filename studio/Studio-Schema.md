@@ -5,7 +5,7 @@ search:
 
 # Schema Manager
 
-OrientDB can work in schema-less mode, schema mode or a mix of both. Here we'll discuss the schema mode. To know more about schema in OrientDB go [here](../Schema.md)
+OrientDB can work in schema-less mode, schema mode or a mix of both. Here we'll discuss the schema mode. To know more about schema in OrientDB go [here](../general/Schema.md)
 
 ![Schema](../images/schema.png)
 
@@ -29,7 +29,7 @@ Some information is required to create the new class.
 * Alias (Optional)
 * Abstract 
 
-Here you can find more information about [Classes](../Schema.md#class)
+Here you can find more information about [Classes](../general/Schema.md#class)
 ![newClass](../images/newClass.png)
 
 ## View all indexes

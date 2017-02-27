@@ -71,7 +71,7 @@ Edge lucaKnowsMarko = graph.addEdge(null, luca, marko, "knows");
 System.out.println("Created edge: " + lucaKnowsMarko.getId());
 ```
 
-For more information on optimizing edge creation through concurrent threads and clients, see [Concurrency on Adding Edges](../Concurrency.md#concurrency-on-adding-edges).
+For more information on optimizing edge creation through concurrent threads and clients, see [Concurrency on Adding Edges](../general/Concurrency.md#concurrency-on-adding-edges).
 
 ### Retrieving Edges
 
@@ -108,7 +108,7 @@ graph.removeEdge(lucaKnowsMarko);
 
 ## Vertex and Edge Properties
 
-Vertices and Edges can have multiple properties.  The key to this property is a String, the value any [Types](../Types.md) supported by OrientDB.
+Vertices and Edges can have multiple properties.  The key to this property is a String, the value any [Types](../general/Types.md) supported by OrientDB.
 
 | Method | Description |
 |---|---|

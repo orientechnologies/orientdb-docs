@@ -12,15 +12,15 @@ search:
 
 ### Spatial Module
 
-OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](Spatial-Module.md).
+OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](../Spatial-Module.md).
 
 ### Pattern Matching
 
-Starting from v2.2, OrientDB provides an alternative way to query the database by using the Pattern Matching approach. For more information look at [SQL Match](sql/SQL-Match.md).
+Starting from v2.2, OrientDB provides an alternative way to query the database by using the Pattern Matching approach. For more information look at [SQL Match](../sql/SQL-Match.md).
 
 ### Non-Stop Incremental Backup and Restore
 
-OrientDB Enterprise Edition allows [Non-Stop Incremental Backup and Restore](admin/Incremental-Backup-And-Restore.md).
+OrientDB Enterprise Edition allows [Non-Stop Incremental Backup and Restore](../admin/Incremental-Backup-And-Restore.md).
 
 ### Distributed
 
@@ -34,18 +34,18 @@ This wasn't correct, because if a node is unreachable, it could be because netwo
 
 In v2.2.0-rc1 the nodes is never removed automatically from the configuration for this reason, unless you manually remove a node from the configuration claiming that node is not part of the cluster anymore. The new SQL command to remove a server from the configuration is:
 
-[`HA REMOVE SERVER <server-name>`](sql/SQL-HA-Remove-Server.md)
+[`HA REMOVE SERVER <server-name>`](../sql/SQL-HA-Remove-Server.md)
 
 
 #### Other changes
 
 - Multi-Threads message management
-- [Static Ownership of clusters](Distributed-Architecture.md#static-owner)
-- ['majority' and 'all' quorum](Distributed-Configuration.md#default-distributed-db-configjson) to assure you have the majority (N/2+1) or the total of the consensus
+- [Static Ownership of clusters](../Distributed-Architecture.md#static-owner)
+- ['majority' and 'all' quorum](../Distributed-Configuration.md#default-distributed-db-configjson) to assure you have the majority (N/2+1) or the total of the consensus
 - Removed `failureAvailableNodesLessQuorum` setting: with majority you don't need this setting anymore
 - Removed `hotAlignment` setting: servers, once they join the cluster, remain always in the configuration until they are manually removed
-- [Server Roles](Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
-- [Load balancing on the client side](Distributed-Configuration.md#load-balancing)
+- [Server Roles](../Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
+- [Load balancing on the client side](../Distributed-Configuration.md#load-balancing)
 - OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol
 - Hazelcast is still used for: auto-discovery of servers, distributed locks and distributed configuration
 - New SQL commands to manage the distributed configuration:
@@ -54,10 +54,10 @@ In v2.2.0-rc1 the nodes is never removed automatically from the configuration fo
  - `HA SYNC CLUSTER <cluster-name>`, to ask for a resync of a single cluster
 
 ### Command Cache
-OrientDB 2.2 has a new component called [Command Cache](sql/Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](sql/Command-Cache.md) to know more.
+OrientDB 2.2 has a new component called [Command Cache](../sql/Command-Cache.md), disabled by default, but that can make a huge difference in performance on some use cases. Look at [Command Cache](../sql/Command-Cache.md) to know more.
 
 ### Sequences
-In v2.2 we introduced [Sequences](sql/Sequences-and-auto-increment.md). Thanks to the sequences it's easy to maintain counters and incremental ids in your application. You can use [Sequences](sql/Sequences-and-auto-increment.md) from both Java API and SQL.
+In v2.2 we introduced [Sequences](../sql/Sequences-and-auto-increment.md). Thanks to the sequences it's easy to maintain counters and incremental ids in your application. You can use [Sequences](../sql/Sequences-and-auto-increment.md) from both Java API and SQL.
 
 ### Parallel queries
 OrientDB v2.2 can run query in parallel, using multiple threads. To use parallel queries, append the `PARALLEL` keyword at the end of SQL SELECT. Example: `SELECT FROM V WHERE amount < 100 PARALLEL`.
@@ -71,16 +71,16 @@ Starting from v2.2, the OrientDB SQL executor can decide if execute or not a que
 Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
 
 ### Encryption at rest
-OrientDB v2.2 can encrypt database at [file system level](Database-Encryption.md) by using DES and AES encryption.
+OrientDB v2.2 can encrypt database at [file system level](../Database-Encryption.md) by using DES and AES encryption.
 
 ### New ODocument.eval()
 To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` has been deprecated, but still supported. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
 
 ### Security
-OrientDB v2.2 comes with a plethora of [new security features](Security-OrientDB-New-Security-Features.md), including a new centralized security module, external authenticators (including Kerberos), LDAP import of users, password validation, enhanced auditing features, support for syslog events, using a salt with password hashes, and a new *system user*.
+OrientDB v2.2 comes with a plethora of [new security features](../Security-OrientDB-New-Security-Features.md), including a new centralized security module, external authenticators (including Kerberos), LDAP import of users, password validation, enhanced auditing features, support for syslog events, using a salt with password hashes, and a new *system user*.
 
 #### security.json
-The new security module uses a [JSON configuration file](Security-Config.md), located at `config\security.json`.
+The new security module uses a [JSON configuration file](../Security-Config.md), located at `config\security.json`.
 
 #### External Authenticators
 OrientDB v2.2 supports external authentication, meaning that authentication of database and server users can occur outside the database and server configuration.  Kerberos/SPNEGO authentication is now fully supported.
@@ -92,7 +92,7 @@ As part of the new security module, LDAP users can be imported automatically int
 Password validation is now fully supported, including the ability to specify minimum length and the number of uppercase, special, and numeric characters.
 
 #### Auditing
-Auditing is no longer an Enterprise-only feature and supports many new auditing events, including the creation and dropping of classes, reloading of configuration files, and distributed node events.  Additionally, if the new [syslog plugin](plugins/SysLog-Plugin.md) is installed, auditing events will also be recorded to syslog.
+Auditing is no longer an Enterprise-only feature and supports many new auditing events, including the creation and dropping of classes, reloading of configuration files, and distributed node events.  Additionally, if the new [syslog plugin](../plugins/SysLog-Plugin.md) is installed, auditing events will also be recorded to syslog.
 
 #### Salt
 OrientDB v2.2 increases security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycles for the SALT: more is harder to decode but is slower. Change the setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.
@@ -101,10 +101,10 @@ The default password hashing algorithm is now `PBKDF2WithHmacSHA256` this is not
 If you are using Java < 8,  since `PBKDF2WithHmacSHA256` is not supported you should change it  into `PBKDF2WithHmacSHA1` 
 
 #### System User
-As part of the new ["system database"](System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
+As part of the new ["system database"](../System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](../System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
 
 ### System Database
-OrientDB now uses a ["system database"](System-Database.md) to provide additional capabilities.
+OrientDB now uses a ["system database"](../System-Database.md) to provide additional capabilities.
 
 The system database, currently named *OSystem*, is created when the OrientDB server starts, if the database does not exist.
 

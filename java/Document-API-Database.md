@@ -7,7 +7,7 @@ search:
 
 Before you can execute any operation on a Document Database, you first need to open an instance in your application.  You can do so by either opening an existing instance or creating a new one.  Bear in mind that database instances are not thread-safe, so only use one database per thread.
 
-Whether you want to open or create a database, you first need a valid database URL.  The URL defines where OrientDB looks for the database and what kind it should use.  For instance, `memory` refers to a database that is in-memory only and volatile, `plocal` to one that is embedded and `remote` to a database either on a remote server or accessed through localhost.  For more information, see [Database URL](../Concepts.md#database_url).
+Whether you want to open or create a database, you first need a valid database URL.  The URL defines where OrientDB looks for the database and what kind it should use.  For instance, `memory` refers to a database that is in-memory only and volatile, `plocal` to one that is embedded and `remote` to a database either on a remote server or accessed through localhost.  For more information, see [Database URL](../datamodeling/Concepts.md#database_url).
 
 ## Managing Database Instances
 

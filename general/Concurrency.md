@@ -6,7 +6,7 @@ search:
 <!-- proofread 2015-11-26 SAM -->
 # Concurrency
 
-OrientDB uses an optimistic approach to concurrency.  Optimistic Concurrency Control, or [OCC](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) assumes that multiple transactions can compete frequently without interfering with each other. It's very important that you don't share instances of databases, graphs, records, documents, vertices and edges between threads because they are non thread-safe. For more information look at [Multi-Threading](java/Java-Multi-Threading.md).
+OrientDB uses an optimistic approach to concurrency.  Optimistic Concurrency Control, or [OCC](http://en.wikipedia.org/wiki/Optimistic_concurrency_control) assumes that multiple transactions can compete frequently without interfering with each other. It's very important that you don't share instances of databases, graphs, records, documents, vertices and edges between threads because they are non thread-safe. For more information look at [Multi-Threading](../java/Java-Multi-Threading.md).
 
 ## How does it work?
 
@@ -110,7 +110,7 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 
 #### Concurrency Level
 
-Before v2.2.4, transactions acquire an exclusive lock on the storage, so no matter if you have 1 or 100 cores, the execution was always serialized. With 2.2.4 and further, transactions are executed in parallel only if they involve different [clusters](Concepts.md#cluster) and indexes.
+Before v2.2.4, transactions acquire an exclusive lock on the storage, so no matter if you have 1 or 100 cores, the execution was always serialized. With 2.2.4 and further, transactions are executed in parallel only if they involve different [clusters](../datamodeling/Concepts.md#cluster) and indexes.
 
 In order to use the transaction parallelism, the domain has to be slightly changed by using the OrientDB inheritance by creating a base class and multiple sub-classes, one per core. Example of creating the class Log with 4 sub-classes (4 cores) and the indexed property 'id':
 
@@ -188,7 +188,7 @@ When it's possible to pre-determine there the record is saved, using the sub-cla
 
 ## Concurrency when Adding Edges
 
-Consider the case where multiple clients attempt to add edges on the same vertex.  OrientDB could throw the `OConcurrentModificationException` exception.  This occurs because collections of edges are kept on vertices,  meaning that, every time OrientDB adds or removes an edge, both vertices update and their versions increment.  You can avoid this issue by using [RIDBAG Bonsai structure](internals/RidBag.md), which are never embedded, so the edge never updates the vertices.
+Consider the case where multiple clients attempt to add edges on the same vertex.  OrientDB could throw the `OConcurrentModificationException` exception.  This occurs because collections of edges are kept on vertices,  meaning that, every time OrientDB adds or removes an edge, both vertices update and their versions increment.  You can avoid this issue by using [RIDBAG Bonsai structure](../internals/RidBag.md), which are never embedded, so the edge never updates the vertices.
  
 To use this configuration at run-time, before launching OrientDB, use this code:
 
@@ -203,7 +203,7 @@ $ <code class="lang-sql userinput">java -DridBag.embeddedToSbtreeBonsaiThreshold
 </pre>
 
 
-| ![NOTE](images/warning.png) | While running in distributed mode SBTrees are not supported. If using a distributed database then you must set <pre>ridBag.embeddedToSbtreeBonsaiThreshold = Integer.MAX\_VALUE</pre>  to avoid replication errors. |
+| ![NOTE](../images/warning.png) | While running in distributed mode SBTrees are not supported. If using a distributed database then you must set <pre>ridBag.embeddedToSbtreeBonsaiThreshold = Integer.MAX\_VALUE</pre>  to avoid replication errors. |
 |----|:----|
 
 

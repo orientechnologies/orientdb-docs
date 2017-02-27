@@ -13,7 +13,7 @@ This page aims to link all the guides to Problems and Troubleshooting.
 ## Topics
 
 
-#### Best practice to map the [RID](Concepts.md#record-id) in REST Full friendly ID representation
+#### Best practice to map the [RID](datamodeling/Concepts.md#record-id) in REST Full friendly ID representation
 
 Take a look at [HashID](http://hashids.org/). HashID should get you a hashed Rid, which is also convertible, so it won't take up more storage space (like with a UUID). It will just take a small bit of CPU time.
 

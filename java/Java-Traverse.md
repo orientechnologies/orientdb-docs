@@ -11,7 +11,7 @@ Traversal operations cross relationships between records, (that is, documents, v
 
 The main concepts in traversal are:
 
-- **Target**: Defines where you want to begin traversing records, which can be a [class](../Concepts.md#class), [cluster](../Concepts.md#cluster), or a set of records defined by their [Record ID's](../Concepts.md#record-id).
+- **Target**: Defines where you want to begin traversing records, which can be a [class](../datamodeling/Concepts.md#class), [cluster](../datamodeling/Concepts.md#cluster), or a set of records defined by their [Record ID's](../datamodeling/Concepts.md#record-id).
 
   You can also use any sub-query that returns an iterable `OIdentifiable` object, such as when nesting multiple [`SELECT`](../sql/SQL-Query.md) and [`TRAVERSE`](../sql/SQL-Traverse.md) queries together.
 

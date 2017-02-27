@@ -16,7 +16,7 @@ If you'd like to develop a new binding, please take a look to the available ones
 Also, check the available [REST implementations](OrientDB-REST.md).
 
 Before starting, please note that:
-- **[Record](Concepts.md#wiki-record)** is an abstraction of **[Document](Concepts.md#wiki-document)**. However, keep in mind that in OrientDB you can handle structures at a lower level than Documents. These include positional records, raw strings, raw bytes, etc.
+- **[Record](datamodeling/Concepts.md#wiki-record)** is an abstraction of **[Document](datamodeling/Concepts.md#wiki-document)**. However, keep in mind that in OrientDB you can handle structures at a lower level than Documents. These include positional records, raw strings, raw bytes, etc.
 
 For more in-depth information please look at the Java classes:
 - Client side: [OStorageRemote.java](https://github.com/nuvolabase/orientdb/tree/master/client/src/main/java/com/orientechnologies/orient/client/remote/OStorageRemote.java)
@@ -304,7 +304,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 
 ## REQUEST_DB_OPEN
 
-This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
+This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](datamodeling/Concepts.md#wikiCluster) in the opened databse.
 
 ```
 Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(support-push:boolean)(collect-stats:boolean)(database-name:string)(user-name:string)(user-password:string)
@@ -357,7 +357,7 @@ Response: empty
 
 - **database-name** - the name of the database to create. Example: "MyDatabase".
 - **database-type** - the type of the database to create. Can be either `document` or `graph` (since version 8). Example: "document".
-- **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](datamodeling/Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
 - **backup-path** - path of the backup file to restore located on the server's file system (since version 36). This is used when a database is created starting from a previous backup
@@ -387,7 +387,7 @@ Response: (result:boolean)
 #### Request
 
 - **database-name** - the name of the target database. *Note* that this was empty before `1.0rc1`.
-- **storage-type** - specifies the storage type of the database to be checked for existence. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to be checked for existence. Since `1.5-snapshot`. It can be one of the [supported types](datamodeling/Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
 
@@ -423,7 +423,7 @@ Response: empty
 #### Request
 
 - **database-name** - the name of the database to remove.
-- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](datamodeling/Concepts.md#wiki-Database_URL):
   - `plocal` - persistent database
   - `memory` - volatile database
 
@@ -514,7 +514,7 @@ Response: 0000000000001000
 ```
 ## REQUEST_RECORD_LOAD
 
-Loads a record by its [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md).
+Loads a record by its [RecordID](datamodeling/Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md).
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
@@ -542,7 +542,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 
 ## REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
 
-Loads a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
+Loads a record by [RecordID](datamodeling/Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)
@@ -602,7 +602,7 @@ The last part of response (from `count-of-collection-changes` on) refers to [Rid
 
 ## REQUEST_RECORD_UPDATE
 
-Updates the record identified by the given [RecordID](Concepts.md#RecordID). Returns the new version of the record.
+Updates the record identified by the given [RecordID](datamodeling/Concepts.md#RecordID). Returns the new version of the record.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(update-content:boolean)(record-content:bytes)(record-version:int)(record-type:byte)(mode:byte)
@@ -635,7 +635,7 @@ The last part of response (from `count-of-collection-changes` on) refers to [Rid
 
 ## REQUEST_RECORD_DELETE
 
-Delete a record identified by the given [RecordID](Concepts.md#RecordID). During the optimistic transaction the record will be deleted only if the given version and the version of the record on the server match. This operation returns true if the record is deleted successfully, false otherwise.
+Delete a record identified by the given [RecordID](datamodeling/Concepts.md#RecordID). During the optimistic transaction the record will be deleted only if the given version and the version of the record on the server match. This operation returns true if the record is deleted successfully, false otherwise.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(record-version:int)(mode:byte)
@@ -785,7 +785,7 @@ The response contains two parts:
 
 If the version of a created record is not `0`, then the RecordID of the created record will also appear in the list of "updated" records, along with its new version. This is a [known bug](https://github.com/orientechnologies/orientdb/issues/4660).
 
-Look at [Optimistic Transaction](internals/Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](Concepts.md#RecordID)s are managed.
+Look at [Optimistic Transaction](internals/Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](datamodeling/Concepts.md#RecordID)s are managed.
 
 The last part of response (from `count-of-collection-changes` on) refers to [RidBag](internals/RidBag.md) management. Take a look at [the main page](internals/RidBag.md) for more details.
 
@@ -943,10 +943,10 @@ Where:
 - *TREE SIZE* as signed integer (4 bytes) containing the size of the tree. Only the root node has this value updated, so to know the size of the collection you need to load the root node and get this field. other nodes can contain not updated values because upon rotation of pieces of the tree (made during tree rebalancing) the root can change and the old root will have the "old" size as dirty.
 - *NODE SIZE* as signed integer (4 bytes) containing number of entries in this node. It's always <= to the page-size defined at the tree level and equals for all the nodes. By default page-size is 16 items
 - *COLOR* as 1 byte containing 1=Black, 0=Red. To know more about the meaning of this look at [Red-Black Trees](http://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-- **PARENT RID** as [RID](Concepts.md#record-id) (10 bytes) of the parent node record
-- **LEFT RID** as [RID](Concepts.md#record-id) (10 bytes) of the left node record
-- **RIGHT RID** as [RID](Concepts.md#record-id) (10 bytes) of the right node record
-- **RID LIST** as the list of [RIDs](Concepts.md#record-id) containing the references to the records. This is pre-allocated to the configured page-size. Since each [RID](Concepts.md#record-id) takes 10 bytes, a page-size of 16 means 16 x 10bytes = 160bytes
+- **PARENT RID** as [RID](datamodeling/Concepts.md#record-id) (10 bytes) of the parent node record
+- **LEFT RID** as [RID](datamodeling/Concepts.md#record-id) (10 bytes) of the left node record
+- **RIGHT RID** as [RID](datamodeling/Concepts.md#record-id) (10 bytes) of the right node record
+- **RID LIST** as the list of [RIDs](datamodeling/Concepts.md#record-id) containing the references to the records. This is pre-allocated to the configured page-size. Since each [RID](datamodeling/Concepts.md#record-id) takes 10 bytes, a page-size of 16 means 16 x 10bytes = 160bytes
 
 The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. To compute it: 39 bytes + 10 * PAGE-SIZE bytes. For a page-size = 16 you'll have 39 + 160 = 199 bytes.
 

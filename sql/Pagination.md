@@ -5,7 +5,7 @@ search:
 
 # Pagination
 
-OrientDB supports pagination natively. Pagination doesn't consume server side resources because no cursors are used. Only [Record ID's](../Concepts.md#record-id) are used as pointers to the physical position in the cluster. 
+OrientDB supports pagination natively. Pagination doesn't consume server side resources because no cursors are used. Only [Record ID's](../datamodeling/Concepts.md#record-id) are used as pointers to the physical position in the cluster. 
 
 There are 2 ways to achieve pagination:
 
@@ -33,7 +33,7 @@ SELECT FROM <target> WHERE @rid > <lower-rid> ... [LIMIT <max-records>]
 ```
 
 Where:
-- **lower-rid** is the exclusive lower bound of the range as [Record ID](../Concepts.md#record-id)
+- **lower-rid** is the exclusive lower bound of the range as [Record ID](../datamodeling/Concepts.md#record-id)
 - **max-records** is the maximum number of records returned by the query
 
 In this way, OrientDB will start to scan the cluster from the given position **lower-rid** + 1. After the first call, the **lower-rid** will be the rid of the last record returned by the previous call. To scan the cluster from the beginning, use `#-1:-1` as **lower-rid** .

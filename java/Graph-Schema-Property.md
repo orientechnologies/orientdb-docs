@@ -26,7 +26,7 @@ accountVertex.createProperty("id", OType.INTEGER);
 accountVertex.createProperty("birthDate", OType.DATE);
 ```
 
-Bear in mind, each field must belong to a [Type](../Types.md).
+Bear in mind, each field must belong to a [Type](../general/Types.md).
 
 ### Dropping Properties
 

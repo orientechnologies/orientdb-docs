@@ -34,7 +34,7 @@ And `item` can be:
 |Name|Description|Example|Available since|
 |--------|---------------|-----------|-------------------|
 |@this|returns the record it self|select **@this.toJSON()** from Account|0.9.25|
-|@rid|returns the [Record ID](../Concepts.md#record-id) in the form &lt;cluster:position&gt;. It's null for embedded records. *NOTE: using @rid in where condition slow down queries. Much better to use the [Record ID](../Concepts.md#record-id) as target. Example: change this: select from Profile where @rid = #10:44 with this: select from #10:44 *|**@rid** = #11:0|0.9.21|
+|@rid|returns the [Record ID](../datamodeling/Concepts.md#record-id) in the form &lt;cluster:position&gt;. It's null for embedded records. *NOTE: using @rid in where condition slow down queries. Much better to use the [Record ID](../datamodeling/Concepts.md#record-id) as target. Example: change this: select from Profile where @rid = #10:44 with this: select from #10:44 *|**@rid** = #11:0|0.9.21|
 |@class|returns Class name only for record of type Schema Aware. It's null for the others|**@class** = 'Profile'|0.9.21|
 |@version|returns the record version as integer. Version starts from 0. Can't be null|**@version** > 0|0.9.21|
 |@size|returns the record size in bytes|**@size** > 1024|0.9.21|

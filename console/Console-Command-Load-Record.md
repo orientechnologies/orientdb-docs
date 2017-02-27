@@ -5,7 +5,7 @@ search:
 
 # Console - `LOAD RECORD`
 
-Loads a record the given [Record ID](../Concepts.md#record-id) from the current database.
+Loads a record the given [Record ID](../datamodeling/Concepts.md#record-id) from the current database.
 
 **Syntax**
 

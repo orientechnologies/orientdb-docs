@@ -6,15 +6,15 @@
 
 |Getting Started	|Main Topics    |Developers   |
 |-----------------------|---------------|-------------|
-|[Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](Concepts.md)  | [SQL](sql/SQL.md)| 
-|[Installation](Tutorial-Installation.md) | [Supported Data Types](Types.md) | [Gremlin](Gremlin.md) | 
-|[First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](Inheritance.md) | [HTTP API](OrientDB-REST.md) |
+|[Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](datamodeling/Concepts.md)  | [SQL](sql/SQL.md)| 
+|[Installation](Tutorial-Installation.md) | [Supported Data Types](general/Types.md) | [Gremlin](Gremlin.md) | 
+|[First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](general/Inheritance.md) | [HTTP API](OrientDB-REST.md) |
 |[Troubleshooting](Troubleshooting.md) |[Security](Security.md)| [Java API](java/Java-API.md)|
 |[Enterprise Edition](ee/Enterprise-Edition.md)| [Indexes](indexing/Indexes.md) | [NodeJS](orientjs/OrientJS.md)|
 | | [ACID Transactions](internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
 | | [Functions](Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
 | | [Caching Levels](internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
-| | [Common Use Cases](Use-Cases.md) | [Other Drivers](Programming-Language-Bindings.md) |
+| | [Common Use Cases](legacy/Use-Cases.md) | [Other Drivers](Programming-Language-Bindings.md) |
 | | | [Network Binary Protocol](Network-Binary-Protocol.md) |
 | | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
 

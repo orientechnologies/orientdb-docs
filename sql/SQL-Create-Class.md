@@ -45,7 +45,7 @@ When working with multiple cores, it is recommended that you use multiple cluste
   orientdb> <code class="lang-sql userinput">CREATE CLASS Car CLUSTER 10</code>
   </pre>
 
-- Create the class `Person` as an [abstract class](../Concepts.md#abstract-class):
+- Create the class `Person` as an [abstract class](../datamodeling/Concepts.md#abstract-class):
 
   <pre>
   orientdb> <code class="lang-sql userinput">CREATE CLASS Person ABSTRACT</code>

@@ -21,7 +21,7 @@ will be represented in Java as an object in this hierarchy.
 - **OVertex**: is the basic interface for vertices, it includes methods to manipulate and traverse connected edges and vertices
 - **OEdge**: is the basic interface for edges, it includes methods to retrieve info regarding connected vertices
 
-An ORecord has an identity and a version number, for the basic details see [Basic Concepts](../Concepts.md)
+An ORecord has an identity and a version number, for the basic details see [Basic Concepts](../datamodeling/Concepts.md)
 
 
 ### Creating a document
@@ -172,7 +172,7 @@ doc.reload();
 
 ### Properties
 
-A document can have properties. A property is a key/value pair, where the key is a string and the value is one of the [Supported Types](../Types.md) 
+A document can have properties. A property is a key/value pair, where the key is a string and the value is one of the [Supported Types](../general/Types.md) 
 
 OElement interface provides methods to set and retrieve property values and names.
 
@@ -252,7 +252,7 @@ doc.setProperty("tags", new String[]{"foo", "bar", "baz"});
 
 Setting a property value multiple times, just overwrites the property value.
 
-When working schemaless (see [Schema](../Schema.md)), property values are saved without conversion:
+When working schemaless (see [Schema](../general/Schema.md)), property values are saved without conversion:
 - basic types (numbers, strings, boolean) are save as is
 - document properties (eg. `doc1.setProperty("parent", doc2);`) are saved as links
 - collections and maps of basic types are saved as is

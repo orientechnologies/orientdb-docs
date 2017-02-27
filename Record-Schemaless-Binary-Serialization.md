@@ -45,7 +45,7 @@ Named fields are encoded as:
 
 - `field-name` - the name of the field. The `field-type` varint is included in `field-name` (as per the string encoding) as mentioned above.
 - `pointer-to-data-structure` - a pointer to the data structure for the current field in the `data` segment. It's `0` if the field is null.
-- `data-type` - the type id of the type of the value for the current field. The supported types (with their ids) are defined in [this section](Types.md).
+- `data-type` - the type id of the type of the value for the current field. The supported types (with their ids) are defined in [this section](general/Types.md).
 
 #### Properties
 

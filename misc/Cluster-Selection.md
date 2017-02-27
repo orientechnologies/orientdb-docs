@@ -6,7 +6,7 @@ search:
 <!-- proofread 2015-11-26 SAM -->
 # Cluster Selection
 
-When you create a new record and specify the [class](Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](Concepts.md#cluster), where it stores the physical data of the record. There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
+When you create a new record and specify the [class](../datamodeling/Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](../datamodeling/Concepts.md#cluster), where it stores the physical data of the record. There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
 
 - `default`  It selects the cluster using the `defaultClusterId` property from the class.  Prior to version 1.7, this was the default method.
 
@@ -16,7 +16,7 @@ When you create a new record and specify the [class](Concepts.md#class) to which
 
 - `local` When the database is run in distributed mode, it selects the master cluster on the current node. This helps to avoid conflicts and reduce network latency with remote calls between nodes.
 
-Whichever cluster selection strategy works best for your application, you can assign it through the [`ALTER CLASS...CLUSTERSELECTION`](sql/SQL-Alter-Class.md) command.  For example,
+Whichever cluster selection strategy works best for your application, you can assign it through the [`ALTER CLASS...CLUSTERSELECTION`](../sql/SQL-Alter-Class.md) command.  For example,
 
 <pre>
 orientdb> <code class="lang-sql userinput">ALTER CLASS Account CLUSTERSELECTION round-robin</code>
@@ -63,7 +63,7 @@ In addition to the cluster selection strategies listed above, you can also devel
    com.orientechnologies.orient.core.metadata.schema.clusterselection.OBalancedClusterSelectionStrategy
    ```
 
-1. From the database console, assign the new selection strategy to your class with the [`ALTER CLASS...CLUSTERSELECTION`](sql/SQL-Alter-Class.md) command.
+1. From the database console, assign the new selection strategy to your class with the [`ALTER CLASS...CLUSTERSELECTION`](../sql/SQL-Alter-Class.md) command.
 
    <pre>
    orientdb> <code class="lang-sql userinput">ALTER CLASS Employee CLUSTERSELECTION random</code>

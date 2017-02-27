@@ -33,7 +33,7 @@ CREATE LINK <link> TYPE [<link-type>] FROM <source-class>.<source-property> TO <
 
 >For more information, see
 >
->- [Relationships](../Concepts.md#relationships)
+>- [Relationships](../datamodeling/Concepts.md#relationships)
 >- [Importing from Relational Databases](../Import-RDBMS-to-Document-Model.md)
 >- [SQL Commands](SQL.md)
 

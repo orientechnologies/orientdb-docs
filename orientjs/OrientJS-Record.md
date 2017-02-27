@@ -5,7 +5,7 @@ search:
 
 # OrientJS Record API
 
-Once you have initialized a database instance, you can fetch and manipulate records directly through their [Record ID's](../Concepts.md#record-id). Unlike many Database API features, you don't need to initialize a record object in order to manipulate the data.
+Once you have initialized a database instance, you can fetch and manipulate records directly through their [Record ID's](../datamodeling/Concepts.md#record-id). Unlike many Database API features, you don't need to initialize a record object in order to manipulate the data.
 
 >By convention, the variable on which you initialize the Database API is called `db`.  This designation is arbitrary and used only for convenience.
 

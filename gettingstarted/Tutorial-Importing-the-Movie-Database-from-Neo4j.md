@@ -5,17 +5,17 @@ search:
 
 # Tutorial: Importing the *movie* Database from Neo4j
 
-In this tutorial we will follow the steps described in the [Import from Neo4j using GraphML](Import-from-Neo4j-using-GraphML.md) section to import the Neo4j's *movie* example database into OrientDB.
+In this tutorial we will follow the steps described in the [Import from Neo4j using GraphML](../Import-from-Neo4j-using-GraphML.md) section to import the Neo4j's *movie* example database into OrientDB.
 
-We will also provide some examples of queries using the OrientDB's [MATCH](sql/SQL-Match.md) syntax, making a comparison with the corresponding Neo4j's Cypher query language.
+We will also provide some examples of queries using the OrientDB's [MATCH](../sql/SQL-Match.md) syntax, making a comparison with the corresponding Neo4j's Cypher query language.
 
-For general information on the possible Neo4j to OrientDB migration strategies, please refer to the [Import from Neo4j](Import-from-Neo4j-into-OrientDB.md) section. 
+For general information on the possible Neo4j to OrientDB migration strategies, please refer to the [Import from Neo4j](../Import-from-Neo4j-into-OrientDB.md) section. 
 
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
 ## Exporting from Neo4j
 
-Assuming you have already downloaded and unpacked the [Neo4j Shell Tools](https://github.com/jexp/neo4j-shell-tools), and restarted the Neo4j Server, as described in the Section [Exporting GraphML](Import-from-Neo4j-using-GraphML.md#exporting-graphml), you can export the *movie* database using `neo4j-shell` with a command like the following one:
+Assuming you have already downloaded and unpacked the [Neo4j Shell Tools](https://github.com/jexp/neo4j-shell-tools), and restarted the Neo4j Server, as described in the Section [Exporting GraphML](../Import-from-Neo4j-using-GraphML.md#exporting-graphml), you can export the *movie* database using `neo4j-shell` with a command like the following one:
 
 ```
 D:\neo4j\neo4j-community-3.0.6\bin>neo4j-shell.bat
@@ -32,7 +32,7 @@ In the example above the exported *movie* graph is stored under `D:\movie.graphm
 
 ## Importing into OrientDB
 
-In this tutorial we will import in OrientDB the file `movie.graphml` using the OrientDB's [Console](console/Console-Commands.md). For other GraphML import methods, please refer to the section [Importing GraphML](Import-from-Neo4j-using-GraphML.md#importing-graphml).
+In this tutorial we will import in OrientDB the file `movie.graphml` using the OrientDB's [Console](../console/Console-Commands.md). For other GraphML import methods, please refer to the section [Importing GraphML](../Import-from-Neo4j-using-GraphML.md#importing-graphml).
 
 The OrientDB's Console output generated during the import process is similar to the following (note that first we create a *movie* database using the command `CREATE DATABASE`, and then we do the actual import using the command `IMPORT DATABASE`):
 
@@ -58,14 +58,14 @@ orientdb {db=movie}>
 
 As you can see from the output above, as a result of the import 171 vertices and 253 edges have been created in OrientDB. This is exactly the same number of nodes and relationships exported from Neo4j.
 
-For more tips and tricks related to the import process, please refer to [this](Import-from-Neo4j-using-GraphML.md#import-tips-and-tricks) section.
+For more tips and tricks related to the import process, please refer to [this](../Import-from-Neo4j-using-GraphML.md#import-tips-and-tricks) section.
 
 
 ## Query Comparison
 
 Once the *movie* database has been imported into OrientDB, you may use several ways to access its data.
 
-The `MATCH` [syntax](sql/SQL-Match.md) and the tool [Studio](studio/Studio-Home-page.md) can be used, for instance, in a similar way to the Neo4j's Cypher and Browser.
+The `MATCH` [syntax](../sql/SQL-Match.md) and the tool [Studio](../studio/Studio-Home-page.md) can be used, for instance, in a similar way to the Neo4j's Cypher and Browser.
 
 The following sections include a comparison of the Neo4j's Cypher and OrientDB's `MATCH` syntax for some queries that you can execute against the *movie* database.
 

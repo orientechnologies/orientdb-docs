@@ -10,7 +10,7 @@ In OrientDB Graph databases, there are two types of edges available:
 - [**Regular Edges**](#regular-edge-representation), which are instances or extensions of the `E` class and have their own records on the database.
 - [**Lightweight Edges**](#lightweight-edge-representation), which have no properties and have no identity on the database, since they only exist within the vertex records.
 
-The advantage of Lightweight Edges lies in performance and disk usage.  Similar to [links](Concepts.md#relationships), because it doesn't create the underlying document it runs faster and saves on space, with the addition of allowing for bidirectional connections.  This allows you to use the [`MOVE VERTEX`](sql/SQL-Move-Vertex.md) command to refactor your graph without breaking any links.
+The advantage of Lightweight Edges lies in performance and disk usage.  Similar to [links](datamodeling/Concepts.md#relationships), because it doesn't create the underlying document it runs faster and saves on space, with the addition of allowing for bidirectional connections.  This allows you to use the [`MOVE VERTEX`](sql/SQL-Move-Vertex.md) command to refactor your graph without breaking any links.
 
 >**NOTE**: Beginning in version 2.0, OrientDB disables Lightweight Edges by default.
 

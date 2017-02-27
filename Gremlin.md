@@ -26,7 +26,7 @@ Launch the **gremlin.sh** (or gremlin.bat on Windows OS) console script located 
 
 # Open the graph database
 
-Before playing with [Gremlin](http://gremlindocs.com) you need a valid **[OrientGraph](java/Graph-Database-Tinkerpop.md#work_with_graphdb)** instance that points to an OrientDB database. To know all the database types look at [Storage types](Concepts.md#storage).
+Before playing with [Gremlin](http://gremlindocs.com) you need a valid **[OrientGraph](java/Graph-Database-Tinkerpop.md#work_with_graphdb)** instance that points to an OrientDB database. To know all the database types look at [Storage types](datamodeling/Concepts.md#storage).
 
 When you're working with a local or an in-memory database, if the database does not exist it's created for you automatically. Using the remote connection you need to create the database on the target server before using it. This is due to security restrictions.
 
@@ -107,7 +107,7 @@ gremlin> g.stopTransaction(SUCCESS)
 
 # Retrieve a vertex
 
-To retrieve a vertex by its ID, use the **v(id)** method passing the [RecordId](Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first vertex created in the above example.
+To retrieve a vertex by its ID, use the **v(id)** method passing the [RecordId](datamodeling/Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first vertex created in the above example.
 ```java
 gremlin> g.v('5:0')
 ==>v[#5:0]
@@ -124,7 +124,7 @@ gremlin> g.V
 
 # Retrieve an edge
 
-Retrieving an edge is very similar to retrieving a vertex.  Use the *e(id)* method passing the [RecordId](Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first edge created in the previous example.
+Retrieving an edge is very similar to retrieving a vertex.  Use the *e(id)* method passing the [RecordId](datamodeling/Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first edge created in the previous example.
 ```java
 gremlin> g.e('6:0')
 ==>e[#6:0][#5:0-friend->#5:1]

@@ -7,22 +7,22 @@ search:
 
 _NOTE: Sharding is a new feature with some [limitations](Distributed-Sharding.md#limitation). Please read them before using it._
 
-OrientDB supports sharding of data at class level by using multiple [clusters](Concepts.md#cluster) per [class](Concepts.md#class). Under this model each cluster keeps a list of servers where data is replicated. From a logical point of view all the records stored in clusters that are part of the same class, are records of that class.
+OrientDB supports sharding of data at class level by using multiple [clusters](datamodeling/Concepts.md#cluster) per [class](datamodeling/Concepts.md#class). Under this model each cluster keeps a list of servers where data is replicated. From a logical point of view all the records stored in clusters that are part of the same class, are records of that class.
 
-The following is an example that splits the [class](Concepts.md#class) “Client” in 3 [clusters](Concepts.md#cluster):
+The following is an example that splits the [class](datamodeling/Concepts.md#class) “Client” in 3 [clusters](datamodeling/Concepts.md#cluster):
 
-[Class](Concepts.md#class) **Client** -> [Clusters](Concepts.md#cluster) [ `client_usa`, `client_europe`, `client_china` ]
+[Class](datamodeling/Concepts.md#class) **Client** -> [Clusters](datamodeling/Concepts.md#cluster) [ `client_usa`, `client_europe`, `client_china` ]
 
-This means that OrientDB will consider any record/document/graph element in any of the three [clusters](Concepts.md#cluster) as “Clients” (Client [class](Concepts.md#class) relies on such [clusters](Concepts.md#cluster)). In [Distributed-Architecture](Distributed-Architecture.md) each cluster can be assigned to one or more server nodes.
+This means that OrientDB will consider any record/document/graph element in any of the three [clusters](datamodeling/Concepts.md#cluster) as “Clients” (Client [class](datamodeling/Concepts.md#class) relies on such [clusters](datamodeling/Concepts.md#cluster)). In [Distributed-Architecture](Distributed-Architecture.md) each cluster can be assigned to one or more server nodes.
 
 ![image](http://www.orientdb.org/images/distributed-sharding-class.png)
 
 Shards, based on clusters, work against indexed and non-indexed class/clusters.
 
 ## Multiple servers per cluster
-You can assign each [cluster](Concepts.md#cluster) to one or more servers. If more servers are enlisted then records will be copied across all of the servers. This is similar to what [RAID](http://en.wikipedia.org/wiki/RAID) does for Disks. The first server in the list will be the **master server** for that cluster.
+You can assign each [cluster](datamodeling/Concepts.md#cluster) to one or more servers. If more servers are enlisted then records will be copied across all of the servers. This is similar to what [RAID](http://en.wikipedia.org/wiki/RAID) does for Disks. The first server in the list will be the **master server** for that cluster.
 
-For example, consider a configuration where the Client [class](Concepts.md#class) has been split in the 3 [clusters](Concepts.md#cluster) client_usa, client_europe and client_china. Each cluster might have a different configuration:
+For example, consider a configuration where the Client [class](datamodeling/Concepts.md#class) has been split in the 3 [clusters](datamodeling/Concepts.md#cluster) client_usa, client_europe and client_china. Each cluster might have a different configuration:
 - `client_usa`, will be managed by the ”usa" and "europe" nodes
 - `client_europe`, will be managed only by the node, ”europe"
 - `client_china`, will be managed by all of the nodes (it would be equivalent as writing `“<NEW_NODE>”`, see cluster "*", the default one)
@@ -64,11 +64,11 @@ In order to keep things simple, the entire OrientDB Distributed Configuration is
 
 ## Cluster Locality 
 
-OrientDB automatically creates a new [cluster](Concepts.md#cluster) per each class as soon as a node joins the distributed cluster. These cluster names have the node name as suffix: `<class>_<node>`. Example: `client_usa`. When a node goes down, the [clusters](Concepts.md#cluster) who’s master was the node to crash are reassigned to other servers. As soon as the node is up and running again OrientDB will reassign the [clusters](Concepts.md#cluster) who’s master crashed back to that same node again following the convention `<class>_<node>`.
+OrientDB automatically creates a new [cluster](datamodeling/Concepts.md#cluster) per each class as soon as a node joins the distributed cluster. These cluster names have the node name as suffix: `<class>_<node>`. Example: `client_usa`. When a node goes down, the [clusters](datamodeling/Concepts.md#cluster) who’s master was the node to crash are reassigned to other servers. As soon as the node is up and running again OrientDB will reassign the [clusters](datamodeling/Concepts.md#cluster) who’s master crashed back to that same node again following the convention `<class>_<node>`.
 
 This is defined as "Cluster Locality". The local node is always selected when a new record is created. This avoids conflicts and allows for the insert of records in parallel on multiple nodes. This also means that in distributed mode you can't select the [cluster selection strategy](cluster-selection.md), because "local" strategy is always injected to all the cluster automatically.
 
-If you want to permanently change the mastership of a [cluster](Concepts.md#cluster), rename the cluster by changing it’s suffix to that of the node you want assign as master.
+If you want to permanently change the mastership of a [cluster](datamodeling/Concepts.md#cluster), rename the cluster by changing it’s suffix to that of the node you want assign as master.
 
 ## CRUD Operations
 ### Create new records

@@ -6,7 +6,7 @@ search:
 <!-- proofread 2015-11-26 SAM -->
 # Graph or Document API?
 
-**(legacy, please refer to [MultiModel API](java/Java-MultiModel-API.md))**
+**(legacy, please refer to [MultiModel API](../java/Java-MultiModel-API.md))**
 
 In OrientDB, we created 2 different APIs: the Document API and the Graph API. The Graph API works on top of the Document API. The Document API contains the Document, Key/Value and Object Oriented models. The Graph API handles the Vertex and Edge relationships.
 
@@ -32,7 +32,7 @@ With OrientDB 2.0, we improved our Graph API to support [all models in just one 
 Using the Graph API:
 - Your Data ('records' in the RDBMS world) will be modeled as Vertices and Edges. You can store properties in both.
 - You can still work in Schema-Less, Schema-Full or Hybrid modes.
-- Relationships are modeled as Bidirectional Edges. If the Lightweight edge setting is active, OrientDB uses [Lightweight Edges](Lightweight-Edges.md) in cases where edges have no properties, so it has the same impact on speed and space as with Document LINKs, but with the additional bonus of having bidirectional connections. This means you can use the `MOVE VERTEX` command to refactor your graph with no broken LINKs. For more information how Edges are managed, please refer to [Lightweight Edges](Lightweight-Edges.md).
+- Relationships are modeled as Bidirectional Edges. If the Lightweight edge setting is active, OrientDB uses [Lightweight Edges](../Lightweight-Edges.md) in cases where edges have no properties, so it has the same impact on speed and space as with Document LINKs, but with the additional bonus of having bidirectional connections. This means you can use the `MOVE VERTEX` command to refactor your graph with no broken LINKs. For more information how Edges are managed, please refer to [Lightweight Edges](../Lightweight-Edges.md).
 
 ## Document API
 

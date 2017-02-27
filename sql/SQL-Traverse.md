@@ -92,7 +92,7 @@ In a social network-like domain, a user profile is connected to friends through 
 
 Defines the fields that you want to traverse.  If set to `*`, `any()` or `all()` then it traverses all fields.  This can prove costly to performance and resource usage, so it is recommended that you optimize the command to only traverse the pertinent fields.
 
-In addition tot his, you can specify the fields at a class-level.  [Polymorphism](../Inheritance.md) is supported.  By specifying `Person.city` and the class `Customer` extends person, you also traverse fields in `Customer`.
+In addition tot his, you can specify the fields at a class-level.  [Polymorphism](../general/Inheritance.md) is supported.  By specifying `Person.city` and the class `Customer` extends person, you also traverse fields in `Customer`.
 
 Field names are case-sensitive, classes not.
 

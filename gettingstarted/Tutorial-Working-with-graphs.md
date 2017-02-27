@@ -8,7 +8,7 @@ search:
 # Working with Graphs
 
 
-In graph databases, the database system graphs data into network-like structures consisting of vertices and edges. In the OrientDB [Graph model](Tutorial-Document-and-graph-model.md#graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge, as an entity that links two vertices.
+In graph databases, the database system graphs data into network-like structures consisting of vertices and edges. In the OrientDB [Graph model](../datamodeling/Tutorial-Document-and-graph-model.md#graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge, as an entity that links two vertices.
 
 OrientDB ships with a generic vertex persistent class, called `V`, as well as a class for edges, called `E`. As an example, you can create a new vertex using the [`INSERT`](sql/SQL-Insert.md) command with `V`.
 

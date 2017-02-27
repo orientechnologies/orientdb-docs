@@ -34,7 +34,7 @@ doc.save();
 db.close();
 ```
 
-Bear in mind, in this example that we haven't declared the `Person` class previously.  When you save this `ODocument` instance, OrientDB creates the `Person` class without constraints.  For more information on declaring persistent classes, see [Schema Management](../Schema.md).
+Bear in mind, in this example that we haven't declared the `Person` class previously.  When you save this `ODocument` instance, OrientDB creates the `Person` class without constraints.  For more information on declaring persistent classes, see [Schema Management](../general/Schema.md).
 
 In order to use the Document API, you must include the following jars in your classpath:
 
@@ -136,7 +136,7 @@ OrientDB is flexible when it comes to schemas.  You can use it,
 - **Schema Less**, such as with many NoSQL Document Databases.
 - **Scheme Hybrid**, which mixes the two.
 
->For more information, see [Schemas](../Schema.md).
+>For more information, see [Schemas](../general/Schema.md).
 
 In order to use the schema with documents, create the `ODocument` instance with the constructor `ODocument(String className)`, passing it the class name as an argument.  If you haven't declared the class, OrientDB creates it automatically with no fields.  This won't work during transactions, given it can't apply schema changes in transactional contexts.
 

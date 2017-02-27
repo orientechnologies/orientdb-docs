@@ -9,7 +9,7 @@ The CSV serialzation is the format how record are serialized in the orientdb 0.*
 
 Documents are serialized in a proprietary format (as a string) derived from JSON, but more compact. The string retrieved from the storage could be filled with spaces. This is due to the oversize feature if it is set. Just ignore the tailing spaces.
 
-To know more about types look at [Supported types](Types.md).
+To know more about types look at [Supported types](general/Types.md).
 
 These are the rules:
 - Any string content must escape some characters:
@@ -28,7 +28,7 @@ These are the rules:
 - **Dates** must be in the POSIX format (also called UNIX format: http://en.wikipedia.org/wiki/Unix_time). Are always stored as longs but end with:
 - the 't' character when it's DATETIME type (default in schema-less mode when a Date object is used). Datetime handles the maximum precision up to milliseconds. E.g. <code>lastUpdate:1296279468000t</code> is read as 2011-01-29 05:37:48
 - the 'a' character when it's DATE type. Date handles up to day as precision. E.g. <code>lastUpdate:1306281600000a</code> is read as 2011-05-25 00:00:00 (Available since 1.0rc2)
-- **[RecordID](Concepts.md#wiki-RecordID)** (link) must be prefixed by <code>#</code>. A Record Id always has the format <code>&lt;cluster-id&gt;:&lt;cluster-position&gt;</code>. E.g. <code>location:#3:2</code>
+- **[RecordID](datamodeling/Concepts.md#wiki-RecordID)** (link) must be prefixed by <code>#</code>. A Record Id always has the format <code>&lt;cluster-id&gt;:&lt;cluster-position&gt;</code>. E.g. <code>location:#3:2</code>
 - **Embedded** documents are enclosed by parenthesis <code>(</code> and <code>)</code> characters. E.g. <code>(name:"rules")</code>. *Note: before SVN revision 2007 (0.9.24-snapshot) only <code>*</code> characters were used to begin and end the embedded document.*
 - **Lists** (array and list) must be enclosed by `[` and `]` characters. E.g. `[1,2,3]`, `[#10:3,#10:4]` and `[(name:"Luca")]`. Before rel.15 SET type was stored as a list, but now it uses own format (see below)
 - **Sets** (collections without duplicates) must be enclosed by `<` and `>` characters. E.g. `<1,2,3>`, `<#10:3,#10:4>` and `<(name:"Luca")>`. There is a special case when use LINKSET type reported in detail in [Special use of LINKSET types](#Special_use_of_LINKSET_types) section. Before rel.15 SET type was stored as a list (see upon).

@@ -50,13 +50,13 @@ To use the [TinkerPop Gremlin](http://wiki.github.com/tinkerpop/gremlin) languag
 
 ## Getting Started with Blueprints
 
-OrientDB supports three different kinds of storages, depending on the [Database URL](../Concepts.md#database-url) used:
+OrientDB supports three different kinds of storages, depending on the [Database URL](../datamodeling/Concepts.md#database-url) used:
 
 - **Persistent Embedded Graph Database**: Links to the application as a JAR, (that is, with no network transfer).  Use [PLocal](../internals/Paginated-Local-Storage.md) with the `plocal` prefix.  For instance, `plocal:/tmp/graph/test`.
 - **In-Memory Embedded Graph Database**: Keeps all data in memory.  Use the `memory` prefix, for instance `memory:test`.
 - **Persistent Remote Graph Database** Uses a binary protocol to send and receive data from a remote OrientDB server.  Use the `remote` prefix, for instance `remote:localhost/test` Note that this requires an OrientDB server instance up and running at the specific address, (in this case, localhost).  Remote databases can be persistent or in-memory as well.
 
-In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](../Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.  
+In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](../datamodeling/Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.  
 
 >**NOTE**: When creating a database through the Graph API, you can only create PLocal and Memory databases.  Remote databases must already exist.
 
@@ -117,7 +117,7 @@ try{
 }
 ```
 
-By surrounding the transaction in `try` and `catch`, you ensure that any errors that occur roll the transaction back to its previous state for all relevant elements.  For more information, see [Concurrency](../Concurrency.md).
+By surrounding the transaction in `try` and `catch`, you ensure that any errors that occur roll the transaction back to its previous state for all relevant elements.  For more information, see [Concurrency](../general/Concurrency.md).
 
 >**NOTE**: Prior to version 2.1.7, to work with a graph always use transactional [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never the non-transactional instances to avoid graph corruption from multi-threaded updates.
 >

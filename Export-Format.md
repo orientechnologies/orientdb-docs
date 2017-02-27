@@ -100,7 +100,7 @@ This section defines the database schema as classes and properties.
 |Parameter|Description|JSON Type|
 |---------|-----------|---------|
 | `"name"` | Defines the logical name of the property. | String |
-| `"type"` | Defines the [property type](Types.md). | String |
+| `"type"` | Defines the [property type](general/Types.md). | String |
 | `"mandatory"` | Defines whether the property is mandatory. | Boolean |
 | `"not-null"` | Defines whether the property accepts a `NULL` value. | Boolean |
 
@@ -131,7 +131,7 @@ This section defines the exported record with metadata and fields.  Entries for 
 |Parameter|Description|JSON Type|
 |---------|-----------|---------|
 | `"@type"` | Defines the record-type: `d` for Document, `b` for Binary. | String|
-| `"@rid"` | Defines the [Record ID](Concepts.md#record-id), using the format: `<cluster-id>:<cluster-position>`. | String |
+| `"@rid"` | Defines the [Record ID](datamodeling/Concepts.md#record-id), using the format: `<cluster-id>:<cluster-position>`. | String |
 | `"@version"` | Defines the record version.  Range: 0-2, 147, 483, 647. | Integer |
 | `"@class"` | Defines the logical class name for the record. | String |
 | `"@fieldTypes"` | Defines an array of the types for each field in this record. | Any |

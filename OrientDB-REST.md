@@ -183,7 +183,7 @@ HTTP response:
   }
 }
 ```
-For more information about properties look at the [supported types](Types.md), or see the [SQL Create property](sql/SQL-Create-Property.md) page for text values to be used when getting or posting class commands
+For more information about properties look at the [supported types](general/Types.md), or see the [SQL Create property](sql/SQL-Create-Property.md) page for text values to be used when getting or posting class commands
 
 #### Example
 
@@ -701,7 +701,7 @@ This is a key way to retrieve data from the database, especially when combined w
 Syntax: `http://<server>:[<port>]/document/<database>/<record-id>[/<fetchPlan>]`
 
 Where:
-- `<record-id>` [See Concepts: RecordID](Concepts.md#recordID)
+- `<record-id>` [See Concepts: RecordID](datamodeling/Concepts.md#recordID)
 - `<fetchPlan>` Optional, is the fetch plan used. 0 means the root record, -1 infinite depth, positive numbers is the depth level. Look at [Fetching Strategies](Fetching-Strategies.md) for more information.
 
 #### Example
@@ -739,7 +739,7 @@ Check if a document exists
 Syntax: `http://<server>:[<port>]/document/<database>/<record-id>`
 
 Where:
-- `<record-id>` [See Concepts: RecordID](Concepts.md#recordID)
+- `<record-id>` [See Concepts: RecordID](datamodeling/Concepts.md#recordID)
 
 #### Example
 
@@ -773,7 +773,7 @@ HTTP POST request: `http://localhost:2480/document/demo`
     "online": true
   }
 ```
-HTTP response, as the document created with the assigned [RecordID](Concepts.md#record-id) as @rid:
+HTTP response, as the document created with the assigned [RecordID](datamodeling/Concepts.md#record-id) as @rid:
 ```
 {
   "@rid": "#11:4456",

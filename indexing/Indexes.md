@@ -19,7 +19,7 @@ OrientDB supports four index algorithms:
 OrientDB can handle indexes in the same manner as classes, using the SQL language and prefixing the name with `index:` followed by the index name.  An index is like a class with two properties:
 
 - `key` The index key.
-- `rid` The [Record ID](../Concepts.md#recordid), which points to the record associated with the key.
+- `rid` The [Record ID](../datamodeling/Concepts.md#recordid), which points to the record associated with the key.
 
 ### Index Target
 

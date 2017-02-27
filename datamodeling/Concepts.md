@@ -61,7 +61,7 @@ Vertices are also documents.  This means they can contain embedded records and a
 
 In Graph databases, an arc is the connection between two nodes, which in OrientDB is called an edge.  Edges are bidirectional and can only connect two vertices.
 
-Edges can be regular or lightweight. The Regular Edge saves as a Document, while the Lightweight Edge does not. For an understanding of the differences between these, see [Lightweight Edges](Lightweight-Edges.md).
+Edges can be regular or lightweight. The Regular Edge saves as a Document, while the Lightweight Edge does not. For an understanding of the differences between these, see [Lightweight Edges](../Lightweight-Edges.md).
 
 For more information on connecting vertices in general, see [Relationships](Concepts.md#relationships), below.
 
@@ -91,13 +91,13 @@ The concept of the Class is taken from the [Object Oriented Programming](http://
 
 Classes can be schema-less, schema-full or a mix.  They can inherit from other classes, creating a tree of classes.  [Inheritance](http://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29), in this context, means that a sub-class extends a parent class, inheriting all of its attributes.
 
-Each class has its own [cluster](Concepts.md#cluster).  A class must have at least one cluster defined, which functions as its default cluster.  But, a class can support multiple clusters.  When you execute a query against a class, it automatically propagates to all clusters that are part of the class.  When you create a new record, OrientDB selects the cluster to store it in using a [configurable strategy](Cluster-Selection.md).
+Each class has its own [cluster](Concepts.md#cluster).  A class must have at least one cluster defined, which functions as its default cluster.  But, a class can support multiple clusters.  When you execute a query against a class, it automatically propagates to all clusters that are part of the class.  When you create a new record, OrientDB selects the cluster to store it in using a [configurable strategy](../misc/Cluster-Selection.md).
 
 When you create a new class, by default, OrientDB creates a new [persistent cluster](Concepts.md#physical_cluster) with the same name as the class, in lowercase.
 
 ### Abstract Class
 
-The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](sql/SQL-Create-Class.md#abstract-class).
+The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](../sql/SQL-Create-Class.md#abstract-class).
 
 This concept is essential to Object Orientation, without the typical spamming of the database with always empty, auto-created clusters.
 
@@ -108,13 +108,13 @@ This concept is essential to Object Orientation, without the typical spamming of
 
 ### Class vs. Cluster in Queries
 
-The combination of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2015` and `invoice2016`.  You can query all invoices using the class as a target with [`SELECT`](sql/SQL-Query.md).
+The combination of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2015` and `invoice2016`.  You can query all invoices using the class as a target with [`SELECT`](../sql/SQL-Query.md).
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Invoice</code>
 </pre>
 
-In addition to this, you can filter the result-set by year.  The class `Invoice` includes a `year` field, you can filter it through the [`WHERE`](sql/SQL-Where.md) clause.
+In addition to this, you can filter the result-set by year.  The class `Invoice` includes a `year` field, you can filter it through the [`WHERE`](../sql/SQL-Where.md) clause.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Invoice WHERE year = 2012</code>
@@ -133,7 +133,7 @@ Due to the optimization, this query runs significantly faster, because OrientDB 
 
 Where classes in provide you with a logical framework for organizing data, clusters provide physical or in-memory space in which OrientDB actually stores the data.  It is comparable to the collection in Document databases and the table in Relational databases.
 
-When you create a new class, the [`CREATE CLASS`](sql/SQL-Create-Class.md) process also creates a physical cluster that serves as the default location in which to store data for that class.  OrientDB forms the cluster name using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
+When you create a new class, the [`CREATE CLASS`](../sql/SQL-Create-Class.md) process also creates a physical cluster that serves as the default location in which to store data for that class.  OrientDB forms the cluster name using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
 
 >For more information, see the [Clusters Tutorial](Tutorial-Clusters.md).
 
@@ -214,7 +214,7 @@ In OrientDB, all Edges in the Graph model are bidirectional.  This differs from 
 
 ## Database
 
-The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](java/Java-API.md#database-types).
+The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](../java/Java-API.md#database-types).
 
 Each server or Java VM can handle multiple database instances, but the database name must be unique. You can't manage two databases at the same time, even if they are in different directories.  To handle this case, use the `$` dollar character as a separator instead of the `/` slash character.  OrientDB binds the entire name, so it becomes unique, but at the file system level it converts `$` with `/`, allowing multiple databases with the same name in different paths.  For example,
 
@@ -237,8 +237,8 @@ OrientDB uses its own [URL](http://en.wikipedia.org/wiki/Uniform_Resource_Locato
 
 |Engine|Description|Example|
 |------|-----------|-------|
-|[plocal](internals/Paginated-Local-Storage.md)|This engine writes to the file system to store data. There is a LOG of changes to restore the storage in case of a crash.|`plocal:/temp/databases/petshop/petshop`|
-|[memory](internals/Memory-storage.md)|Open a database completely in memory|`memory:petshop`|
+|[plocal](../internals/Paginated-Local-Storage.md)|This engine writes to the file system to store data. There is a LOG of changes to restore the storage in case of a crash.|`plocal:/temp/databases/petshop/petshop`|
+|[memory](../internals/Memory-storage.md)|Open a database completely in memory|`memory:petshop`|
 |remote|The storage will be opened via a remote network connection. It requires an OrientDB Server up and running. In this mode, the database is shared among multiple clients. Syntax: `remote:<server>:[<port>]/db-name`. The port is optional and defaults to 2424.|`remote:localhost/petshop`|
 
 ### Database Usage

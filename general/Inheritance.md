@@ -11,7 +11,7 @@ Unlike many Object-relational mapping tools, OrientDB does not split documents b
 
 ## Declaring Inheritance in Schema
 
-In developing your application, bear in mind that OrientDB needs to know the class inheritance relationship.  This is an abstract concept that applies to both  [POJO's](java/Object-Database.md#inheritance) and  [Documents](java/Document-Database.md#inheritance).
+In developing your application, bear in mind that OrientDB needs to know the class inheritance relationship.  This is an abstract concept that applies to both  [POJO's](../java/Object-Database.md#inheritance) and  [Documents](../java/Document-Database.md#inheritance).
 
 For example,
 

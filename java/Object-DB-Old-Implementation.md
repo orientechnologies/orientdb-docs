@@ -51,7 +51,7 @@ The `close()` method doesn't close the database but release it to the owner pool
 
 ## Inheritance
 
-Starting from the release 0.9.19 OrientDB supports the [Inheritance](../Inheritance.md). Using the Object API the inheritance of Documents fully matches the Java inheritance.
+Starting from the release 0.9.19 OrientDB supports the [Inheritance](../general/Inheritance.md). Using the Object API the inheritance of Documents fully matches the Java inheritance.
 
 For instance,
 

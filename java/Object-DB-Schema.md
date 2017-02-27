@@ -27,7 +27,7 @@ In schema-full mode, you need to declare the classes you're using. Each class co
 
 ## Schema Generation
 
-Beginning in version 1.5, the Object Database provides support for automatic [schema](../Schema.md) generation based on registered entities.  This operation can be
+Beginning in version 1.5, the Object Database provides support for automatic [schema](../general/Schema.md) generation based on registered entities.  This operation can be
 
 - [Manual](#manual-schema-generation)
 - [Automatic](#automatic-schema-generation)

@@ -74,14 +74,14 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 |Attribute|Type|Support|Description|
 |---|---|---|---|
 | `LINKEDCLASS` | String | | Defines the linked class name.  Use `NULL` to remove an existing value.|
-| `LINKEDTYPE` | String | | Defines the [link type](../Types.md).  Use `NULL` to remove an existing value.|
+| `LINKEDTYPE` | String | | Defines the [link type](../general/Types.md).  Use `NULL` to remove an existing value.|
 | `MIN` | Integer | | Defines the minimum value as a constraint.  Use `NULL` to remove an existing constraint.  On String attributes, it defines the minimum length of the string.  On Integer attributes, it defines the minimum value for the number.  On Date attributes, the earliest date accepted.  For multi-value attributes (lists, sets and maps), it defines the fewest number of entries.|
 | `MANDATORY` | Boolean | | Defines whether the property requires a value. |
 | `MAX` | Integer | | Defines the maximum value as a constraint.  Use `NULL` to remove an existing constraint.  On String attributes, it defines the greatest length of the string.  On Integer attributes, it defines the maximum value for the number.  On Date attributes, the last date accepted.  For multi-value attributes (lists, sets and maps), it defines the highest number of entries.|
 | `NAME` | String || Defines the property name.|
 | `NOTNULL` | Boolean || Defines whether the property can have a null value. |
 | `REGEX` | String || Defines a Regular Expression as constraint.  Use `NULL` to remove an existing constraint.|
-| `TYPE` | String || Defines a [property type](../Types.md).|
+| `TYPE` | String || Defines a [property type](../general/Types.md).|
 | `COLLATE` | String || Sets collate to one of the defined comparison strategies.  By default, it is set to case-sensitive (`cs`).  You can also set it to case-insensitive (`ci`).|
 | `READONLY` | Boolean || Defines whether the property value is immutable.  That is, if it is possible to change it after the first assignment.  Use with `DEFAULT` to have immutable values on creation.|
 | `CUSTOM` | String || Defines custom properties.  The syntax for custom properties is `<custom-name> = <custom-value>`, such as `stereotype = icon`. The custom name is an identifier, so it has to be back-tick quoted if it contains special characters (eg. dots); the value is a string, so it has to be quoted with single or double quotes.|

@@ -28,7 +28,7 @@ V 2.1 introduces a new implementation of the new SQL parser. This implementation
 
 For backward compatibility, you can disable the new parser from Studio -> DB -> Configuration -> remove the flag from strictSql (bottom right of the page).
 
-![strictSQL](images/strictSQL.png)
+![strictSQL](../images/strictSQL.png)
 
 Or via console by executing this command, just once:
 
