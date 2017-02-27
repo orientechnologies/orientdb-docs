@@ -36,6 +36,6 @@ From Studio 2.0, you can send the result set of a query to the [Graph Editor](Gr
 
 ## Look at the JSON output
 
-Studio communicates with the OrientDB Server using [HTTP/RESt+JSON protocol](../OrientDB-REST.md). To see the output in JSON format, press the **RAW** tab.
+Studio communicates with the OrientDB Server using [HTTP/RESt+JSON protocol](../misc/OrientDB-REST.md). To see the output in JSON format, press the **RAW** tab.
 
 ![Query result](../images/resultRaw.png)

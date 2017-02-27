@@ -16,7 +16,7 @@ DROP USER <user>
 - **`<user>`** Defines the user you want to remove.
 
 
->**NOTE**: This is a wrapper on the class `OUser`.  For more information, see [Security](../Security.md).
+>**NOTE**: This is a wrapper on the class `OUser`.  For more information, see [Security](../security/Security.md).
 
 
 **Examples**

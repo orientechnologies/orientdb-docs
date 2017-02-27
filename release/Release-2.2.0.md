@@ -40,12 +40,12 @@ In v2.2.0-rc1 the nodes is never removed automatically from the configuration fo
 #### Other changes
 
 - Multi-Threads message management
-- [Static Ownership of clusters](../Distributed-Architecture.md#static-owner)
-- ['majority' and 'all' quorum](../Distributed-Configuration.md#default-distributed-db-configjson) to assure you have the majority (N/2+1) or the total of the consensus
+- [Static Ownership of clusters](../distributed/Distributed-Architecture.md#static-owner)
+- ['majority' and 'all' quorum](../distributed/Distributed-Configuration.md#default-distributed-db-configjson) to assure you have the majority (N/2+1) or the total of the consensus
 - Removed `failureAvailableNodesLessQuorum` setting: with majority you don't need this setting anymore
 - Removed `hotAlignment` setting: servers, once they join the cluster, remain always in the configuration until they are manually removed
-- [Server Roles](../Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
-- [Load balancing on the client side](../Distributed-Configuration.md#load-balancing)
+- [Server Roles](../distributed/Distributed-Architecture.md#server-roles), where you can specify a node is a read only "REPLICA"
+- [Load balancing on the client side](../distributed/Distributed-Configuration.md#load-balancing)
 - OrientDB doesn't use Hazelcast Queues to exchange messages between nodes, but rather the OrientDB binary protocol
 - Hazelcast is still used for: auto-discovery of servers, distributed locks and distributed configuration
 - New SQL commands to manage the distributed configuration:
@@ -71,16 +71,16 @@ Starting from v2.2, the OrientDB SQL executor can decide if execute or not a que
 Starting from v2.2, when a class is created, the number of underlying clusters will be the number of cores. [Issue 4518](https://github.com/orientechnologies/orientdb/issues/4518).
 
 ### Encryption at rest
-OrientDB v2.2 can encrypt database at [file system level](../Database-Encryption.md) by using DES and AES encryption.
+OrientDB v2.2 can encrypt database at [file system level](../security/Database-Encryption.md) by using DES and AES encryption.
 
 ### New ODocument.eval()
 To execute quick expression starting from a ODocument and Vertex/Edge objects, use the new `.eval()` method. The old syntax `ODocument.field("city[0].country.name")` has been deprecated, but still supported. [Issue 4505](https://github.com/orientechnologies/orientdb/issues/4505).
 
 ### Security
-OrientDB v2.2 comes with a plethora of [new security features](../Security-OrientDB-New-Security-Features.md), including a new centralized security module, external authenticators (including Kerberos), LDAP import of users, password validation, enhanced auditing features, support for syslog events, using a salt with password hashes, and a new *system user*.
+OrientDB v2.2 comes with a plethora of [new security features](../security/Security-OrientDB-New-Security-Features.md), including a new centralized security module, external authenticators (including Kerberos), LDAP import of users, password validation, enhanced auditing features, support for syslog events, using a salt with password hashes, and a new *system user*.
 
 #### security.json
-The new security module uses a [JSON configuration file](../Security-Config.md), located at `config\security.json`.
+The new security module uses a [JSON configuration file](../security/Security-Config.md), located at `config\security.json`.
 
 #### External Authenticators
 OrientDB v2.2 supports external authentication, meaning that authentication of database and server users can occur outside the database and server configuration.  Kerberos/SPNEGO authentication is now fully supported.
@@ -101,10 +101,10 @@ The default password hashing algorithm is now `PBKDF2WithHmacSHA256` this is not
 If you are using Java < 8,  since `PBKDF2WithHmacSHA256` is not supported you should change it  into `PBKDF2WithHmacSHA1` 
 
 #### System User
-As part of the new ["system database"](../System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](../System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
+As part of the new ["system database"](../internals/System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](../System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
 
 ### System Database
-OrientDB now uses a ["system database"](../System-Database.md) to provide additional capabilities.
+OrientDB now uses a ["system database"](../internals/System-Database.md) to provide additional capabilities.
 
 The system database, currently named *OSystem*, is created when the OrientDB server starts, if the database does not exist.
 

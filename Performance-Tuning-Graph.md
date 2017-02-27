@@ -8,7 +8,7 @@ This guide is specific for the [TinkerPop Blueprints Graph Database](java/Graph-
 
 ## Connect to the database locally
 
-Local connection is much faster than remote. So use "plocal" based on the storage engine used on database creation. If you need to connect to the database from the network you can use the ["Embed the server technique"](Embedded-Server.md).
+Local connection is much faster than remote. So use "plocal" based on the storage engine used on database creation. If you need to connect to the database from the network you can use the ["Embed the server technique"](internals/Embedded-Server.md).
 
 ## Avoid putting properties on edges
 Even though supports properties on edges, this is much expensive because it creates a new record per edge. So if you need them you've to know that the database will be bigger and insertion time will be much longer.

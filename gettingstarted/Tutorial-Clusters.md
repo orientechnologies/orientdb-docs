@@ -70,7 +70,7 @@ Here, OrientDB only scans the `China_customers` cluster of the `Customer` class 
 
 ## Working with Clusters
 
-While running in HA mode, upon the creation of a new record (document, vertex, edge, etc.) the coordinator server automatically assigns the cluster among the list of local clusters for the current server. For more information look at [HA: Cluster Ownership](../Distributed-Architecture.md#cluster-ownership).
+While running in HA mode, upon the creation of a new record (document, vertex, edge, etc.) the coordinator server automatically assigns the cluster among the list of local clusters for the current server. For more information look at [HA: Cluster Ownership](../distributed/Distributed-Architecture.md#cluster-ownership).
 
 You may also find it beneficial to locate different clusters on different servers, physically separating where you store records in your database.  The advantages of this include:
 
@@ -122,7 +122,7 @@ The results are identical to executing [`BROWSE CLASS`](../console/Console-Comma
 
 |||
 |---|-----|
-|![](../images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure. To further improve security in production environments, see [Security](../Security.md).|
+|![](../images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure. To further improve security in production environments, see [Security](../security/Security.md).|
 
 When you run [`BROWSE CLUSTER`](../console/Console-Command-Browse-Cluster.md), the first column in the output provides the identifier number, which you can use to display detailed information on that particular record.
 

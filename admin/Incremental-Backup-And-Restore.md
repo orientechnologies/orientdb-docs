@@ -104,7 +104,7 @@ You can overcome this inconsistency by executing a shutdown on all the nodes of 
 
 ## Distributed Architecture
 
-The incremental backup is used in the [Distributed Architecture](../Distributed-Architecture.md) when a server node restarts. This avoids having to backup and tranfer the entire database across the network.
+The incremental backup is used in the [Distributed Architecture](../distributed/Distributed-Architecture.md) when a server node restarts. This avoids having to backup and tranfer the entire database across the network.
 
 ## Internals
 

@@ -28,7 +28,7 @@ Displays all the active connections to the server. Each connection reports the f
 - `Last Execution Time`, is the execution time o last request
 - `Total Working Time`, is the total execution time taken by current connection so far
 - `Connected Since`, is the date when the connection has been created
-- `Protocol`, is the protocol between [HTTP](OrientDB-REST.md) and [Binary](Network-Binary-Protocol.md)
+- `Protocol`, is the protocol between [HTTP](misc/OrientDB-REST.md) and [Binary](internals/Network-Binary-Protocol.md)
 - `Client ID`, a text representing the client connection
 - `Driver`, the driver name
 

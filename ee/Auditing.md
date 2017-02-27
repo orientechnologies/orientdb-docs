@@ -9,7 +9,7 @@ Starting in OrientDB 2.1, the Auditing component is part of the [Enterprise Edit
 By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough privileges, you can directly query the auditing log. Example on retrieving the last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
 
 **OrientDB 2.2**
-Starting in OrientDB 2.2, all auditing logs are now stored in the [system database](../System-Database.md).  The auditing log for each database is stored in a derived class of the `AuditingLog` class with this format: *databaseName*OAuditingLog.
+Starting in OrientDB 2.2, all auditing logs are now stored in the [system database](../internals/System-Database.md).  The auditing log for each database is stored in a derived class of the `AuditingLog` class with this format: *databaseName*OAuditingLog.
 
 As an example, if you have a database called *MyDB*, then the class name will be `MyDBOAuditingLog`.
 
@@ -33,7 +33,7 @@ OrientDB schema is polymorphic (taken from the Object-Oriented paradigm). This m
 This makes your life easier when you want to profile only certain classes. For example, you could create an abstract class "Profiled" and let all the classes you want to profile extend it. Starting from v2.1, OrientDB supports multiple inheritance, so it's not a problem extending more classes.
 
 ## security.json Configuration
-There are two parts to enabling and configuring the auditing component.  Starting in OrientDB 2.2, there is a `security.json` configuration file that resides under the `config` folder.  See the [OrientDB Security Configuraton](../Security-Config.md) documentation for more details.
+There are two parts to enabling and configuring the auditing component.  Starting in OrientDB 2.2, there is a `security.json` configuration file that resides under the `config` folder.  See the [OrientDB Security Configuraton](../security/Security-Config.md) documentation for more details.
 
 The "auditing" section of the `security.json` file must be enabled for auditing to work.
 

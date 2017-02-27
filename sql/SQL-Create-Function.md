@@ -5,7 +5,7 @@ search:
 
 # SQL - `CREATE FUNCTION`
 
-Creates a new Server-side function.  You can execute [Functions](../Functions.md) from SQL, HTTP and Java.
+Creates a new Server-side function.  You can execute [Functions](../admin/Functions.md) from SQL, HTTP and Java.
 
 
 **Syntax**
@@ -48,6 +48,6 @@ CREATE FUNCTION <name> <code>
 
 >For more information, see
 >
->- [Functions](../Functions.md)
+>- [Functions](../admin/Functions.md)
 >- [SQL Commands](SQL.md)
 >- [Console Commands](../console/Console-Commands.md)

@@ -7,7 +7,7 @@ search:
 
 Creates a user in the current database, using the specified password and an optional role.  When the role is unspecified, it defaults to `writer`.  
 
-The command was introduced in version 2.2.  It is a simple wrapper around the `OUser` and `ORole` classes.  More information is available at [Security](../Security.md).
+The command was introduced in version 2.2.  It is a simple wrapper around the `OUser` and `ORole` classes.  More information is available at [Security](../security/Security.md).
 
 **Syntax**
 
@@ -35,6 +35,6 @@ CREATE USER <user> IDENTIFIED BY <password> [ROLE <role>]
 
 >For more information, see
 >
->- [Security](../Security.md)
+>- [Security](../security/Security.md)
 >- [`DROP USER`](SQL-Drop-User.md)
 >- [SQL Commands](SQL.md)

@@ -8,8 +8,8 @@ search:
 
 *Fetchplans* are used in two different scopes:
 
-1. A Connection that uses the [Binary Protocol](Network-Binary-Protocol.md) can *early load* records to the client. On traversing of connected records, the client doesn't have to execute further remote calls to the server, because the requested records are already in the client's cache.
-1. A Connection that uses the [HTTP/JSON Protocol](OrientDB-REST.md) can *expand the resulting JSON* to include connected records as embedded in the same JSON. This is useful with the HTTP protocol to fetch all the connected records in just one call.
+1. A Connection that uses the [Binary Protocol](internals/Network-Binary-Protocol.md) can *early load* records to the client. On traversing of connected records, the client doesn't have to execute further remote calls to the server, because the requested records are already in the client's cache.
+1. A Connection that uses the [HTTP/JSON Protocol](misc/OrientDB-REST.md) can *expand the resulting JSON* to include connected records as embedded in the same JSON. This is useful with the HTTP protocol to fetch all the connected records in just one call.
 
 ## Format for Fetch Plans
 

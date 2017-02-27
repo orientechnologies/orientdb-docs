@@ -8,7 +8,7 @@ Dynamic [Hooks](Hook.md) are more flexible than [Java Hooks](../java/Java-Hooks.
 
 Dynamic Hooks can call:
 
-- [Functions](../Functions.md), written in SQL, Javascript or any language supported by OrientDB and JVM
+- [Functions](../admin/Functions.md), written in SQL, Javascript or any language supported by OrientDB and JVM
 - Java static methods
 
 

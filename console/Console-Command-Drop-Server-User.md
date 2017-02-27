@@ -15,7 +15,7 @@ DROP SERVER USER <user-name>
 
 - **`<user-name>`** Defines the user you want to drop.
 
->**NOTE**: For more information on server users, see [OrientDB Server Security](../Security.md#orientdb-server-security).
+>**NOTE**: For more information on server users, see [OrientDB Server Security](../security/Security.md#orientdb-server-security).
 
 >This feature was introduced in version 2.2.
 

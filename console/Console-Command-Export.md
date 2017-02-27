@@ -5,7 +5,7 @@ search:
 
 # Console - `EXPORT`
 
-Exports the current database to a file.  OrientDB uses a JSON-based [Export Format](../Export-Format.md).  By default, it compresses the file using the GZIP algorithm.  
+Exports the current database to a file.  OrientDB uses a JSON-based [Export Format](../admin/Export-Format.md).  By default, it compresses the file using the GZIP algorithm.  
 
 With the [`IMPORT`](Console-Command-Import.md) command, this allows you to migrate the database between different versions of OrientDB without losing data.  
 
@@ -129,7 +129,7 @@ try{
 >- [RESTORE DATABASE](Console-Command-Restore.md)
 >
 >as well as the following pages:
->- [Export File Format](../Export-Format.md)
+>- [Export File Format](../admin/Export-Format.md)
 >- [`ODatabaseExport`](https://github.com/orientechnologies/orientdb/blob/master/core/src/main/java/com/orientechnologies/orient/core/db/tool/ODatabaseExport.java)
  Java Class
 >

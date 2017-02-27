@@ -9,7 +9,7 @@ search:
 OrientDB can also be used as a Key Value DBMS by using the super fast [Indexes](../indexing/Indexes.md). You can have as many [Indexes](../indexing/Indexes.md) as you need.
 
 # HTTP
-OrientDB RESTful HTTP protocol allows to talk with a OrientDB Server instance using the [HTTP protocol](../OrientDB-REST.md) and JSON. OrientDB supports also a highly optimized Binary protocol for superior performances.
+OrientDB RESTful HTTP protocol allows to talk with a OrientDB Server instance using the [HTTP protocol](../misc/OrientDB-REST.md) and JSON. OrientDB supports also a highly optimized Binary protocol for superior performances.
 
 ## Operations
 To interact against OrientDB indexes use the four methods of the HTTP protocol in REST fashion:
@@ -19,7 +19,7 @@ To interact against OrientDB indexes use the four methods of the HTTP protocol i
 - **DELETE**, to delete an entry from the database
 
 ## Create an entry ##
-To create a new entry in the database use the [Index-PUT API](../OrientDB-REST.md#link-Index).
+To create a new entry in the database use the [Index-PUT API](../misc/OrientDB-REST.md#link-Index).
 
 Syntax: ```http://<server>:[<port>]/index/<index-name>/<key>```
 
@@ -36,7 +36,7 @@ HTTP PUT: ```http://localhost:2480/index/customers/jay```
 HTTP Response 204 is returned.
 
 ## Retrieve an entry ##
-To retrieve an entry from the database use the [Index-GET API](../OrientDB-REST.md#link-Index).
+To retrieve an entry from the database use the [Index-GET API](../misc/OrientDB-REST.md#link-Index).
 
 Syntax: ```http://<server>:[<port>]/index/<index-name>/<key>```
 
@@ -53,7 +53,7 @@ HTTP Response 200 is returned with this JSON as payload:
 }
 ```
 ## Remove an entry ##
-To remove an entry from the database use the [Index-DELETE API](../OrientDB-REST.md#link-Index).
+To remove an entry from the database use the [Index-DELETE API](../misc/OrientDB-REST.md#link-Index).
 
 Syntax: ```http://<server>:[<port>]/index/<index-name>/<key>```
 

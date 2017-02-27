@@ -57,7 +57,7 @@ MOVE VERTEX <source> TO <destination> [SET [<field>=<value>]* [,]] [MERGE <JSON>
   orientdb> <code class="lang-sql userinput">MOVE VERTEX #3:33 TO CLUSTER:providers_europe</code>
   </pre>
 
-  You may find this useful when using a [distributed database](../Distributed-Architecture.md), where you can move vertices onto different servers.
+  You may find this useful when using a [distributed database](../distributed/Distributed-Architecture.md), where you can move vertices onto different servers.
 
 - Move a set of vertices to the class `Provider`, while doing so update the property `movedOn` to the current date:
 

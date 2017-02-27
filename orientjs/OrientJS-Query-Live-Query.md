@@ -5,7 +5,7 @@ search:
 
 # OrientJS - `liveQuery()`
 
-When using traditional queries, such as those called with `db.query()` and `db.select()` you only get data that is current at the time the query is issued.  Beginning in version 2.1, OrientDB now supports [Live Queries](../Live-Query.md), where in issuing the query you tell OrientDB you want it to push affecting changes to your application.
+When using traditional queries, such as those called with `db.query()` and `db.select()` you only get data that is current at the time the query is issued.  Beginning in version 2.1, OrientDB now supports [Live Queries](../java/Live-Query.md), where in issuing the query you tell OrientDB you want it to push affecting changes to your application.
 
 You can execute Live Queries using the `db.liveQuery()` method with a [`LIVE SELECT`](../sql/SQL-Live-Select.md) statement passed as its argument. 
 

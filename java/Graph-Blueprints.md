@@ -17,7 +17,7 @@ Additionally, OrientDB introduces a few variants to Blueprint methods for workin
 
 ### Creating Vertices and Edges in Specific Clusters
 
-By default, each class has one cluster with the same name.  You can add multiple clusters to the class, allowing OrientDB to write vertices and edges on multiple files.  Furthermore, when working in [Distributed Mode](../Distributed-Architecture.md), you can configure different servers to manage each cluster.
+By default, each class has one cluster with the same name.  You can add multiple clusters to the class, allowing OrientDB to write vertices and edges on multiple files.  Furthermore, when working in [Distributed Mode](../distributed/Distributed-Architecture.md), you can configure different servers to manage each cluster.
 
 For instance,
 
@@ -238,7 +238,7 @@ try {
 
 ### Security
 
-If you want to use OrientDB security, use the construction that retrieves the Database URL, user and password.  For more information on OrientDB security, see [Security](../Security.md).  By default, it uses the `admin` user.
+If you want to use OrientDB security, use the construction that retrieves the Database URL, user and password.  For more information on OrientDB security, see [Security](../security/Security.md).  By default, it uses the `admin` user.
 
 
 

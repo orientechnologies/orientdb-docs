@@ -1,5 +1,5 @@
 # System Database (Internal Notes)
-As discussed in the main [system database](System-Database.md) documentation, introduced in 2.2, OrientDB now has a "system database" which will be used to implement some additional capabilities.
+As discussed in the main [system database](internals/System-Database.md) documentation, introduced in 2.2, OrientDB now has a "system database" which will be used to implement some additional capabilities.
 
 Currently, the system database, called *OSystem*, is like a blank canvas.  It's only used today to implement the new *system users*, which use OUser and ORole only.  There aren't even any custom schemas created, though this will change as new features are added.
 

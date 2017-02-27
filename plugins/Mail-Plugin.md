@@ -17,7 +17,7 @@ Allows to send (and in future read) emails.
 
 ## Configuration
 
-This plugin is configured as a [Server handler](../DB-Server.md#handlers). The plugin can be configured in easy way by changing parameters:
+This plugin is configured as a [Server handler](../internals/DB-Server.md#handlers). The plugin can be configured in easy way by changing parameters:
 
 <table>
   <tr><th>Name</th><th>Description</th><th>Type</th><th>Example</th><th>Since</th></tr>

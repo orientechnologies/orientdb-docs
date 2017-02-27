@@ -8,34 +8,34 @@
 |-----------------------|---------------|-------------|
 | [Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](datamodeling/Concepts.md)  | [SQL](sql/SQL.md) | 
 | [Installation](Tutorial-Installation.md) | [Supported Data Types](general/Types.md) | [Gremlin](Gremlin.md) | 
-| [First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](general/Inheritance.md) | [HTTP API](OrientDB-REST.md) |
-| [Troubleshooting](Troubleshooting.md) |[Security](Security.md) | [Java API](java/Java-API.md) |
+| [First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](general/Inheritance.md) | [HTTP API](misc/OrientDB-REST.md) |
+| [Troubleshooting](misc/Troubleshooting.md) |[Security](security/Security.md) | [Java API](java/Java-API.md) |
 | [Enterprise Edition](ee/Enterprise-Edition.md) | [Indexes](indexing/Indexes.md) | [NodeJS](https://github.com/orientechnologies/orientjs) |
 | | [ACID Transactions](internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
-| | [Functions](Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
+| | [Functions](admin/Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
 | | [Caching Levels](internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
 | | [Common Use Cases](legacy/Use-Cases.md) | [Other Drivers](Programming-Language-Bindings.md) |
-| | | [Network Binary Protocol](Network-Binary-Protocol.md) |
+| | | [Network Binary Protocol](internals/Network-Binary-Protocol.md) |
 | | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
 
 ### Operations
 - [Installation](Tutorial-Installation.md)
 - [3rdy party Plugins](Plugins.md)
 - [Upgrade](Upgrade.md) 
-- [Configuration](Configuration.md)
-- [Distributed Architecture](Distributed-Architecture.md)(replication, sharding and high-availability)
+- [Configuration](admin/Configuration.md)
+- [Distributed Architecture](distributed/Distributed-Architecture.md)(replication, sharding and high-availability)
 - [Performance Tuning](Performance-Tuning.md)
 - [ETL to Import any kind of data into OrientDB](etl/ETL-Introduction.md)
-- [Import from Relational DB](Import-From-RDBMS.md)
+- [Import from Relational DB](admin/Import-From-RDBMS.md)
 - [Backup and Restore](admin/Backup-and-Restore.md)
-- [Export and Import](Export-and-Import.md)
+- [Export and Import](admin/Export-and-Import.md)
 
 ### Quick References
 - [Console](console/Console-Commands.md)
 - [Studio](Home-page.md) web tool
 - [Workbench](http://www.orientechnologies.com/enterprise/1.7.4/userguide.html) (Enterprise Edition) 
-- [OrientDB Server](DB-Server.md)
-- [Network-Binary-Protocol](Network-Binary-Protocol.md) 
+- [OrientDB Server](internals/DB-Server.md)
+- [Network-Binary-Protocol](internals/Network-Binary-Protocol.md) 
 - [Gephi Graph Analysis Visual tool](plugins/Gephi.md)
 - [Rexster Support and configuration](plugins/Rexster.md)
 - [Continuous integration](http://helios.orientechnologies.com/)
@@ -46,7 +46,7 @@
 - [Training](http://orientechnologies.com/training) - Training and classes.
 - [Events](http://www.orientechnologies.com/event) - Follow OrientDB at the next event!
 - [Team](Team.md) - Meet the team behind OrientDB
-- [Contribute](Contribute-to-OrientDB.md) - Contribute to the project.
+- [Contribute](misc/Contribute-to-OrientDB.md) - Contribute to the project.
 - [Who is using OrientDB?](http://www.orientechnologies.com/customers) - Clients using OrientDB in production.
 
 ## Questions or Need Help?

@@ -57,7 +57,7 @@ Roles:
 - Role `reader` - read only permissions
 - Role `writer` - read/write permissions, but no schema manipulation
 
-For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](../Database-Security.md)
+For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](../gettingstarted/Database-Security.md)
 
 For creating database instances on remote servers, the process is a little more complicated.  You need the user and password to access the remote OrientDB Server instance.  By default, OrientDB creates the `root` user when the server first starts.  Checking the file in `$ORIENTDB_HOME/config/orientdb-server-config.xml`, which also provides the password.
 

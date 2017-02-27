@@ -108,7 +108,7 @@ ALTER CLASS <class> <attribute-name> <attribute-value>
 | `SHORTNAME`| String | | Defines a short name, (that is, an alias), for the class.  Use `NULL` to remove a short name assignment. |
 | `SUPERCLASS` | String | | Defines a super-class for the class.  Use `NULL` to remove a super-class assignment.  Beginning with version 2.1, it supports multiple inheritances. To add a new class, you can use the syntax `+<class>`, to remove it use `-<class>`.|
 | `OVERSIZE`| Decimal number | | Defines the oversize factor. |
-| `ADDCLUSTER` | String | | Adds a cluster to the class.  If the cluster doesn't exist, it creates a physical cluster. Adding clusters to a class is also useful in storing records in distributed servers.  For more information, see [Distributed Sharding](../Distributed-Sharding.md). |
+| `ADDCLUSTER` | String | | Adds a cluster to the class.  If the cluster doesn't exist, it creates a physical cluster. Adding clusters to a class is also useful in storing records in distributed servers.  For more information, see [Distributed Sharding](../distributed/Distributed-Sharding.md). |
 | `REMOVECLUSTER` | String | | Removes a cluster from a class.  It does not delete the cluster, only removes it from the class. |
 | `STRICTMODE` | | | Enalbes or disables strict mode.  When in strict mode, you work in schema-full mode and cannot add new properties to a record if they're part of the class' schema definition. |
 | `CLUSTERSELECTION` | | 1.7 | Defines the selection strategy in choosing which cluster it uses for new records.  On class creation it inherits the setting from the database.  For more information, see [Cluster Selection](../misc/Cluster-Selection.md).|

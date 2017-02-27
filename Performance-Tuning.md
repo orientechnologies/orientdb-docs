@@ -9,7 +9,7 @@ This guide contains the general tips to optimize your application that use the O
 
 - [Document Database performance tuning](Performance-Tuning-Document.md)
 - [Object Database performance tuning](Performance-Tuning-Object.md)
-- [Distributed Configuration tuning](Distributed-Configuration-Tuning.md)
+- [Distributed Configuration tuning](distributed/Distributed-Configuration-Tuning.md)
 
 ## I/O benchmark
 The main requirement for a fast DBMS is having good I/O. In order to understand the performance of your hw/sw configuration. If you have a Unix derived OS (like Linux, MacOSX, etc.), the simplest way to have your raw I/O performance is running this two commands:
@@ -125,8 +125,8 @@ When you've multiple threads could be a bottleneck since a lot of time is spent 
 
 The configurations is very simple, just 2 parameters:
 
-- **minPool**, is the initial size of the connection pool. The default value is configured as global parameters "client.channel.minPool" (see [parameters](Configuration.md#parameters))
-- **maxPool**, is the maximum size the connection pool can reach. The default value is configured as global parameters "client.channel.maxPool" (see [parameters](Configuration.md#parameters))
+- **minPool**, is the initial size of the connection pool. The default value is configured as global parameters "client.channel.minPool" (see [parameters](admin/Configuration.md#parameters))
+- **maxPool**, is the maximum size the connection pool can reach. The default value is configured as global parameters "client.channel.maxPool" (see [parameters](admin/Configuration.md#parameters))
 
 At first connection the **minPool** is used to pre-create network connections against the server. When a client thread is asking for a connection and all the pool is busy, then it tries to create a new connection until **maxPool** is reached.
 
@@ -258,7 +258,7 @@ OGlobalConfiguration.TX_USE_LOG.setValue(false);
 Starting from OrientDB 2.0, if fields are declared in the schema, field names are not stored in document/vertex/edge themselves. This improves performance and saves a lot of space on disk.
 
 ## Configuration
-To tune OrientDB look at the [Configuration](Configuration.md) settings.
+To tune OrientDB look at the [Configuration](admin/Configuration.md) settings.
 
 ## Platforms
 - [Performance analysis on ZFS](http://carloprad.blogspot.it/2014/03/orientdb-on-zfs-performance-analysis.html)

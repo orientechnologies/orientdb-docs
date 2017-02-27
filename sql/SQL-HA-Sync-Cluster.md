@@ -26,6 +26,6 @@ HA SYNC CLUSTER <cluster-name>
 
 >For more information, see
 >- [`HA SYNC DATABASE`](SQL-HA-Sync-Database.md)
->- [Distributed Architecture](../Distributed-Architecture.md)
+>- [Distributed Architecture](../distributed/Distributed-Architecture.md)
 >- [SQL Commands](SQL.md)
 >- [Console Commands](../console/Console-Commands.md)

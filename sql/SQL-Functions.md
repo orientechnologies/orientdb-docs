@@ -43,7 +43,7 @@ search:
 | [traversedEdge()](SQL-Functions.md#traversededge) | [traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid) |
 | [variance()](SQL-Functions.md#variance) | | | |
 
-SQL Functions are all the functions bundled with OrientDB [SQL engine](SQL.md). You can create your own [Database Functions](../Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
+SQL Functions are all the functions bundled with OrientDB [SQL engine](SQL.md). You can create your own [Database Functions](../admin/Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
 
 SQL Functions can work in 2 ways based on the fact that they can receive 1 or more parameters:
 
@@ -926,7 +926,7 @@ The SQL engine can be extended with custom functions written with a Scripting la
 
 ### Database's function
 
-Look at the [Functions](../Functions.md) page.
+Look at the [Functions](../admin/Functions.md) page.
 
 ### Custom functions in Java
 

@@ -37,7 +37,7 @@ server.close();
 
 ### Using Tokens
 
-OrientJS supports tokens through the [Network Binary Protocol](../Network-Binary-Protocol.md#token).  To use it in your application, define the `useToken` configuration parameter when you initialize the server connection.
+OrientJS supports tokens through the [Network Binary Protocol](../internals/Network-Binary-Protocol.md#token).  To use it in your application, define the `useToken` configuration parameter when you initialize the server connection.
 
 For instance,
 

@@ -170,5 +170,5 @@ For further information look at [Transaction tuning](../Performance-Tuning.md#wi
 
 ## Distributed environment
 
-Transactions can be committed across a distributed architecture. Look at [Distributed Transactions](../Distributed-Architecture.md#distributed-transactions) for more information.
+Transactions can be committed across a distributed architecture. Look at [Distributed Transactions](../distributed/Distributed-Architecture.md#distributed-transactions) for more information.
 

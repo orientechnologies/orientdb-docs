@@ -17,7 +17,7 @@ In order to achieve a full hot upgrade, you should run a separate cluster of ser
 Steps:
 
 1. Configure a cluster of servers equipped with the newer version of OrientDB. We suggest of using the same number of servers of the running cluster.
-1. Before starting the servers, change the cluster name in [hazelcast.xml](Distributed-Configuration.md) file using a different name than what you used for the current cluster. For example if your running cluster has just "orientdb" and you want to upgrade to OrientDB v2.2, you could call the cluster name "orientdb_v22". Example:
+1. Before starting the servers, change the cluster name in [hazelcast.xml](distributed/Distributed-Configuration.md) file using a different name than what you used for the current cluster. For example if your running cluster has just "orientdb" and you want to upgrade to OrientDB v2.2, you could call the cluster name "orientdb_v22". Example:
    ```xml
    <group>
       <name>orientdb_v22</name>

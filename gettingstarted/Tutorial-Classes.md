@@ -210,7 +210,7 @@ orientdb> <code class="lang-sql userinput">BROWSE CLASS OUser</code>
 
 |||
 |---|-----|
-|![](../images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure. To further improve security in production environments, see [Security](../Security.md).|
+|![](../images/warning.png)| In the example, you are listing all of the users of the database.  While this is fine for your initial setup and as an example, it is not particularly secure. To further improve security in production environments, see [Security](../security/Security.md).|
 
 When you run [`BROWSE CLASS`](../console/Console-Command-Browse-Class.md), the first column in the output provides the identifier number, which you can use to display detailed information on that particular record.
 

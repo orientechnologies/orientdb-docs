@@ -8,12 +8,12 @@ search:
  
 |   |   |
 |---|---|
-|![](images/warning.png)|This API has been deprecated, please use HTTP calls from the browser by using the [HTTP RESTful protocol](OrientDB-REST.md).|
+|![](images/warning.png)|This API has been deprecated, please use HTTP calls from the browser by using the [HTTP RESTful protocol](misc/OrientDB-REST.md).|
  
 
 ------------
 
-This driver wraps the most common use cases in database usage. All parameters required by methods or constructor are Strings. This library works on top of [HTTP RESTful protocol](OrientDB-REST.md).
+This driver wraps the most common use cases in database usage. All parameters required by methods or constructor are Strings. This library works on top of [HTTP RESTful protocol](misc/OrientDB-REST.md).
 
 *Note: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting](Javascript-Driver.md#cross-site-scripting).*
 
@@ -399,7 +399,7 @@ Return Example:
 
 Method that retrieves server informations, it returns the server informations in JSON format.
 
->**Note**: Server information needs the root username and password.  For more information, see [OrientDB Server Security](Server-Security.md). 
+>**Note**: Server information needs the root username and password.  For more information, see [OrientDB Server Security](security/Server-Security.md). 
 
 Syntax: <code>&lt;databaseInstance&gt;.serverInfo()</code>
 

@@ -52,7 +52,7 @@ gremlin> g = new OrientGraph("plocal:/home/gremlin/db/demo");
 
 ## Working with a remote database
 
-To open a database on a remote server be sure the server is up and running first. To start the server just launch **server.sh** (or server.bat on Windows OS) script. For more information look at [OrientDB Server](DB-Server.md)
+To open a database on a remote server be sure the server is up and running first. To start the server just launch **server.sh** (or server.bat on Windows OS) script. For more information look at [OrientDB Server](internals/DB-Server.md)
 ```java
 gremlin> g = new OrientGraph("remote:localhost/demo");
 ==>orientgraph[remote:localhost/demo]
@@ -68,7 +68,7 @@ gremlin> g = new OrientGraph("memory:demo");
 
 ## Use security
 
-OrientDB supports security by creating multiple users and roles associated with certain privileges. To know more look at [Security](Security.md). To open the graph database with a different user than the default, pass the user and password as additional parameters:
+OrientDB supports security by creating multiple users and roles associated with certain privileges. To know more look at [Security](security/Security.md). To open the graph database with a different user than the default, pass the user and password as additional parameters:
 
 ```java
 gremlin> g = new OrientGraph("memory:demo", "reader", "reader");

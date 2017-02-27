@@ -74,7 +74,7 @@ This section tells the OrientDB server to read the file at `$ORIENTDB_HOME/confi
 
 In versions prior to 2.2, the only option in configuring automatic backups is to use the `config/orientdb-server-config.xml` configuration file.   Beginning with version 2.2 you can manage automatic backup configuration through a separate JSON file or use the legacy approach.
 
-The example below configures automatic backups/exports on the database as a [Server Plugin](../DB-Server.md#handlers).
+The example below configures automatic backups/exports on the database as a [Server Plugin](../internals/DB-Server.md#handlers).
 
 
 ```xml

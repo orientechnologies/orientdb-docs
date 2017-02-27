@@ -143,7 +143,7 @@ In order to use the schema with documents, create the `ODocument` instance with 
 
 ## Security
 
-Few NoSQL implementations support security.  OrientDB does.  For more information on its security features, see [Security](../Security.md).
+Few NoSQL implementations support security.  OrientDB does.  For more information on its security features, see [Security](../security/Security.md).
 
 To manage the security from within the Java API, get the Security Manager and use it to operate on users and roles.  For instance,
 

@@ -73,7 +73,7 @@ The flow of save/commit commands:
 
 Save and load operations are performed during save/load of owner of RidBag. Other operations are performed separately and have its own commands in binary protocol.
 
-To get definitive syntax of each network command see [Network Binary Protocol](../Network-Binary-Protocol.md)
+To get definitive syntax of each network command see [Network Binary Protocol](Network-Binary-Protocol.md)
 ##Serialization during save and load
 The bag is serialized in a binary format. If it is serialized into document by CSV serializer it's encoded with base64.
 

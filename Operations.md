@@ -7,11 +7,11 @@ This is the main page for DBA and DevOps.
 
 ## In & Out
 - [ETL (Extract-Transform-Load)](etl/ETL-Introduction.md)
-- [Distributed Architecture](Distributed-Architecture.md)
+- [Distributed Architecture](distributed/Distributed-Architecture.md)
 - [Backup & Restore](admin/Backup-and-Restore.md)
-- [Export & Import](Export-and-Import.md)
+- [Export & Import](admin/Export-and-Import.md)
 
 
 ## Install
-- [Install as Service on Unix/Linux](Unix-Service.md)
-- [Install as Service on Windows](Windows-Service.md)
+- [Install as Service on Unix/Linux](gettingstarted/Unix-Service.md)
+- [Install as Service on Windows](gettingstarted/Windows-Service.md)

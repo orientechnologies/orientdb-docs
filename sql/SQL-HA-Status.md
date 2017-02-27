@@ -119,6 +119,6 @@ HA STATUS [-servers] [-db] [-latency] [-messages] [-all] [-output=text]
   </pre>  
   
 >For more information, see
->- [Distributed Architecture](../Distributed-Architecture.md)
+>- [Distributed Architecture](../distributed/Distributed-Architecture.md)
 >- [SQL Commands](SQL.md)
 >- [Console Commands](../console/Console-Commands.md)

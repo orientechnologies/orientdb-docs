@@ -5,7 +5,7 @@ search:
 
 # PyOrient OGM
 
-Where the PyOrient Client is a wrapper for the [Binary Protocol](../Network-Binary-Protocol.md), the Object-Graph Mapper provides a higher-level object-oriented Pythonic interface for Graph databases in OrientDB.  It is comparable to the use of ORM's with Relational databases.
+Where the PyOrient Client is a wrapper for the [Binary Protocol](../internals/Network-Binary-Protocol.md), the Object-Graph Mapper provides a higher-level object-oriented Pythonic interface for Graph databases in OrientDB.  It is comparable to the use of ORM's with Relational databases.
 
 The purpose of the OGM is to make interactions with large and complex Graph databases more understandable and easier to maintain.  It bridges the gap between higher level object-oriented concepts in your application and the vertices and edges in your database.
 

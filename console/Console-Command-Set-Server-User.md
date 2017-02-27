@@ -13,10 +13,10 @@ SET SERVER USER <user-name> <user-password> <user-permissions>
 
 - **`<user-name>`** Defines the server username.
 - **`<user-password>`** Defines the password for the server user.
-- **`<user-permissions>`** Defines the [permissions](../Server-Security.md#server-resources) for the server user.
+- **`<user-permissions>`** Defines the [permissions](../security/Server-Security.md#server-resources) for the server user.
 
 
->For more information on security, see [OrientDB Server Security](../Security.md#orientdb-server-security).  Feature introduced in version 2.2.
+>For more information on security, see [OrientDB Server Security](../security/Security.md#orientdb-server-security).  Feature introduced in version 2.2.
 
 **Example**
 

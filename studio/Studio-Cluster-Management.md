@@ -34,6 +34,6 @@ Through the box above you can change in real time the current cluster configurat
 - `Failure Available Nodes Less Quorum`
 - `Server Roles`, roles may be "Master" or "Replica"
 
-To learn more about these configuration parameters please visit the [Distributed Configuration](../Distributed-Configuration.md) section.
+To learn more about these configuration parameters please visit the [Distributed Configuration](../distributed/Distributed-Configuration.md) section.
 
 ![Databases](../images/studio-cluster-management-databases.png)

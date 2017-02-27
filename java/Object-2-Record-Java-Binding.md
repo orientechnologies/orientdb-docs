@@ -379,7 +379,7 @@ Since OrientDB doesn't know what object is changed in a tree of connected object
 db.setSaveOnlyDirty(true);
 ```
 
-or by setting a global parameter (see [Parameters](../Configuration.md)):
+or by setting a global parameter (see [Parameters](../admin/Configuration.md)):
 ```java
 OGlobalConfiguration.OBJECT_SAVE_ONLY_DIRTY.setValue(true);
 ```
