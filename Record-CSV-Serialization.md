@@ -33,7 +33,7 @@ These are the rules:
 - **Lists** (array and list) must be enclosed by `[` and `]` characters. E.g. `[1,2,3]`, `[#10:3,#10:4]` and `[(name:"Luca")]`. Before rel.15 SET type was stored as a list, but now it uses own format (see below)
 - **Sets** (collections without duplicates) must be enclosed by `<` and `>` characters. E.g. `<1,2,3>`, `<#10:3,#10:4>` and `<(name:"Luca")>`. There is a special case when use LINKSET type reported in detail in [Special use of LINKSET types](#Special_use_of_LINKSET_types) section. Before rel.15 SET type was stored as a list (see upon).
 - **Maps** (as a collection of entries with key/value) must be enclosed in `{` and `}` characters. E.g. `rules:{"database":2,"database.cluster.internal":2</code>}` (NB. to set a value part of a key/value pair, set it to the text "null", without quotation marks. Eg. `rules:{"database_name":"fred","database_alias":null}`)
-- **RidBags** a special collection for link management. Represented as `%(content:binary);` where the content is binary data encoded in base64. Take a look at [the main page](RidBag.md) for more details.
+- **RidBags** a special collection for link management. Represented as `%(content:binary);` where the content is binary data encoded in base64. Take a look at [the main page](internals/RidBag.md) for more details.
 - **Null** fields have an empty value part of the field. E.g. `salary_cloned:,salary:`
 
 ```

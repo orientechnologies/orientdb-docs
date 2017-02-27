@@ -40,6 +40,6 @@ DICTIONARY PUT <key> <record-id>
   </pre>
 
 
->To see all the keys stored in the database dictionary, use the [`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md) command.  For more information on dictionaries and indexes, see [Indexes](../Indexes.md).
+>To see all the keys stored in the database dictionary, use the [`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md) command.  For more information on dictionaries and indexes, see [Indexes](../indexing/Indexes.md).
 >
 >For more information on other commands, see [Console Commands](Console-Commands.md).

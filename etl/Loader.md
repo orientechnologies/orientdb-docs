@@ -38,7 +38,7 @@ When the ETL module runs the OrientDB Loader, it loads the records and vertices 
 | `"dbAutoCreate"` | Defines whether it automatically creates the database, in the event that it doesn't exist already. | boolean | | `true` |
 | `"dbAutoCreateProperties"` | Defnes whether it automatically creates properties in the schema. | boolean | | `false` |
 | `"dbAutoDropIfExists"` | Defines whether it automatically drops the database if it exists already. | boolean | | `false` |
-| `"tx"` | Defines whether it uses [transactions](../Transactions.md) | boolean | | `false` |
+| `"tx"` | Defines whether it uses [transactions](../internals/Transactions.md) | boolean | | `false` |
 | `"txUseLog"` | Defines whether it uses log in transactions. | boolean | | |
 | `"wal"` | Defines whether it uses write ahead logging.  Disable to achieve better performance. | boolean | | `true` |
 | `"batchCommit"` | When using transactions, defines the batch of entries it commits.  Helps avoid having one large transaction in memory. | integer | | `0` |

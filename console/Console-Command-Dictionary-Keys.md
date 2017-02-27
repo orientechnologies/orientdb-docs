@@ -27,6 +27,6 @@ DICTIONARY KEYS
   #3: key-145
   </pre>
 
->To load the records associated with these keys, use the [`DICTIONARY GET`](Console-Command-Dictionary-Get.md) command.  For more information on indexes, see [Indexes](../Indexes.md).
+>To load the records associated with these keys, use the [`DICTIONARY GET`](Console-Command-Dictionary-Get.md) command.  For more information on indexes, see [Indexes](../indexing/Indexes.md).
 >
 >For more information on other commands, see [Console Commands](Console-Commands.md).

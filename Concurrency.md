@@ -188,7 +188,7 @@ When it's possible to pre-determine there the record is saved, using the sub-cla
 
 ## Concurrency when Adding Edges
 
-Consider the case where multiple clients attempt to add edges on the same vertex.  OrientDB could throw the `OConcurrentModificationException` exception.  This occurs because collections of edges are kept on vertices,  meaning that, every time OrientDB adds or removes an edge, both vertices update and their versions increment.  You can avoid this issue by using [RIDBAG Bonsai structure](RidBag.md), which are never embedded, so the edge never updates the vertices.
+Consider the case where multiple clients attempt to add edges on the same vertex.  OrientDB could throw the `OConcurrentModificationException` exception.  This occurs because collections of edges are kept on vertices,  meaning that, every time OrientDB adds or removes an edge, both vertices update and their versions increment.  You can avoid this issue by using [RIDBAG Bonsai structure](internals/RidBag.md), which are never embedded, so the edge never updates the vertices.
  
 To use this configuration at run-time, before launching OrientDB, use this code:
 

@@ -8,7 +8,7 @@ This is the main page for DBA and DevOps.
 ## In & Out
 - [ETL (Extract-Transform-Load)](etl/ETL-Introduction.md)
 - [Distributed Architecture](Distributed-Architecture.md)
-- [Backup & Restore](Backup-and-Restore.md)
+- [Backup & Restore](admin/Backup-and-Restore.md)
 - [Export & Import](Export-and-Import.md)
 
 

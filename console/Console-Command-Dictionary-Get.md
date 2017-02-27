@@ -38,6 +38,6 @@ DICTIONARY GET <key>
   -------------------------------------------------------------------------
   </pre>
 
->You can display all keys stored in a database using the [`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md) command. For more information on indexes, see [Indexes](../Indexes.md).
+>You can display all keys stored in a database using the [`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md) command. For more information on indexes, see [Indexes](../indexing/Indexes.md).
 
 >For more information on other commands, see [Console Commands](Console-Commands.md).

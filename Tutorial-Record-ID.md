@@ -63,7 +63,7 @@ The [`LOAD RECORD`](console/Console-Command-Load-Record.md) command returns some
 
 - It belongs to the `Company` class.
 
-- Its current version is `2`. OrientDB uses an [MVCC system](Transactions.md#Optimistic-Transaction).  Every time you update a record, its version increments by one.
+- Its current version is `2`. OrientDB uses an [MVCC system](internals/Transactions.md#Optimistic-Transaction).  Every time you update a record, its version increments by one.
 
 - We have different field types: 
    - floats for `salary` and `salary2`

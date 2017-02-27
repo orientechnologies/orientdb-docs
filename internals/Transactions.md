@@ -124,7 +124,7 @@ This mode uses the well known [Multi Version Control System (MVCC)](http://en.wi
 
 >**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap) memory on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
-With [Graph API](java/Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. With Graphs you can change the [consistency level](Graph-Consistency.md).
+With [Graph API](../java/Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. With Graphs you can change the [consistency level](../Graph-Consistency.md).
 
 Example with Document API:
 
@@ -144,31 +144,31 @@ try{
 }
 ```
 
-In Optimistic transaction new records take temporary [RecordID](Concepts.md#recordid)s to avoid to ask to the server a new [RecordID](Concepts.md#recordid) every time. Temporary [RecordID](Concepts.md#recordid)s have Cluster Id -1 and Cluster Position < -1. When a new transaction begun the counter is reset to -1:-2. So if you create 3 new records you'll have:
+In Optimistic transaction new records take temporary [RecordID](../Concepts.md#recordid)s to avoid to ask to the server a new [RecordID](../Concepts.md#recordid) every time. Temporary [RecordID](../Concepts.md#recordid)s have Cluster Id -1 and Cluster Position < -1. When a new transaction begun the counter is reset to -1:-2. So if you create 3 new records you'll have:
 - -1:-2
 - -1:-3
 - -1:-4
 
-At commit time, these temporary records [RecordID](Concepts.md#recordid)s will be converted in the final ones.
+At commit time, these temporary records [RecordID](../Concepts.md#recordid)s will be converted in the final ones.
 
 ### Pessimistic Transaction
 
 This mode is not yet supported by the engine.
 
 ## Nested transactions and propagation
-OrientDB doesn't support nested transaction. If further `begin()` are called after a transaction is already begun, then the current transaction keeps track of call stack to let to the final commit() call to effectively commit the transaction. Look at [Transaction Propagation](java/Transaction-propagation.md) more information.
+OrientDB doesn't support nested transaction. If further `begin()` are called after a transaction is already begun, then the current transaction keeps track of call stack to let to the final commit() call to effectively commit the transaction. Look at [Transaction Propagation](../java/Transaction-propagation.md) more information.
 
 ## Record IDs
 
-OrientDB uses temporary [RecordID](Concepts.md#recordid)s with transaction as scope that will be transformed to finals once the transactions is successfully committed to the database. This avoid to ask for a free slot every time a client creates a record.
+OrientDB uses temporary [RecordID](../Concepts.md#recordid)s with transaction as scope that will be transformed to finals once the transactions is successfully committed to the database. This avoid to ask for a free slot every time a client creates a record.
 
 ## Tuning
 
 In some situations transactions can improve performance, typically in the client/server scenario. If you use an Optimistic Transaction, the OrientDB engine optimizes the network transfer between the client and server, saving both CPU and bandwidth.
 
-For further information look at [Transaction tuning](Performance-Tuning.md#wise_use_of_transactions) to know more.
+For further information look at [Transaction tuning](../Performance-Tuning.md#wise_use_of_transactions) to know more.
 
 ## Distributed environment
 
-Transactions can be committed across a distributed architecture. Look at [Distributed Transactions](Distributed-Architecture.md#distributed-transactions) for more information.
+Transactions can be committed across a distributed architecture. Look at [Distributed Transactions](../Distributed-Architecture.md#distributed-transactions) for more information.
 

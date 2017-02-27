@@ -83,7 +83,7 @@ Beginning with version 2.1, when no edges are created OrientDB throws a `OComman
 
 ## Control Vertices Version Increment
 
-Creating and deleting edges causes OrientDB to update versions involved in the vertices.  To avoid this behavior, use the [Bonsai Structure](../RidBag.md).
+Creating and deleting edges causes OrientDB to update versions involved in the vertices.  To avoid this behavior, use the [Bonsai Structure](../internals/RidBag.md).
 
 By default, OrientDB uses Bonsai as soon as it reaches the threshold to optimize operation.  To always use Bonsai on your database, either set this configuration on the JVM or in the `orientdb-server-config.xml` configuration file.
 

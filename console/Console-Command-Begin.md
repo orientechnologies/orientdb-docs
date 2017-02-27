@@ -54,7 +54,7 @@ When a transaction is open, new records all have temporary Record ID's, which ar
 
 >For more information on Transactions, see
 
->- [Transactions](../Transactions.md)
+>- [Transactions](../internals/Transactions.md)
 >- [Console Command COMMIT](Console-Command-Commit.md)
 >- [Console Command ROLLBACK](Console-Command-Rollback.md)
 >- [Console Commands](Console-Commands.md)

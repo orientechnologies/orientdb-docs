@@ -10,8 +10,8 @@ OrientDB has several caching mechanisms that act at different levels. Look at th
 ![image](http://www.orientdb.org/images/caching.png)
 
 - **Local cache** is one per database instance (and per thread in multi-thread environment)
-- **[Storage](Concepts.md#storage)**, it could cache depending on the implementation. This is the case for the **Local Storage** (disk-based) that caches file reads to reduce I/O requests
-- **[Command Cache](sql/Command-Cache.md)**
+- **[Storage](../Concepts.md#storage)**, it could cache depending on the implementation. This is the case for the **Local Storage** (disk-based) that caches file reads to reduce I/O requests
+- **[Command Cache](../sql/Command-Cache.md)**
 
 
 # How cache works?

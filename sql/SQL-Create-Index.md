@@ -10,7 +10,7 @@ Creates a new index.  Indexes can be
 - **Not Unique** Where they allow duplicates.
 - **Full Text** Where they index any single word of text.
 
->There are several index algorithms available to determine how OrientDB indexes your database.  For more information on these, see [Indexes](../Indexes.md).
+>There are several index algorithms available to determine how OrientDB indexes your database.  For more information on these, see [Indexes](../indexing/Indexes.md).
 
 
 **Syntax**
@@ -25,7 +25,7 @@ CREATE INDEX <name> [ON <class> (<property>)] <index-type> [<key-type>]
 
   >If the property is one of the Map types, such as `LINKMAP` or `EMBEDDEDMAP`, you can specify the keys or values to use in index generation, using the `BY KEY` or `BY VALUE` clause.
 
-- **`<index-type>`** Defines the index type you want to use.  For a complete list, see [Indexes](../Indexes.md).
+- **`<index-type>`** Defines the index type you want to use.  For a complete list, see [Indexes](../indexing/Indexes.md).
 - **`<key-type>`** Defines the key type.  With automatic indexes, the key type is automatically selected when the database reads the target schema property.  For manual indexes, when not specified, it selects the key at run-time during the first insertion by reading the type of the class.  In creating composite indexes, it uses a comma-separated list of types.
 - **`METADATA`** Defines additional metadata through JSON. 
 
@@ -116,5 +116,5 @@ In the event that the `ON` and `<key-type>` clauses both exist, the database val
 
 > For more information, see
 >- [`DROP INDEX`](SQL-Drop-Index.md)
->- [Indexes](../Indexes.md)
+>- [Indexes](../indexing/Indexes.md)
 >- [SQL commands](SQL.md)

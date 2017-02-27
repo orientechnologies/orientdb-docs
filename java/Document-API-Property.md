@@ -217,4 +217,4 @@ profile.createIndex("compositeIdx", OClass.INDEX_TYPE
    .NOTUNIQUE, "name", "surname");
 ```
 
-For more information on indexes, see [Indexes](../Indexes.md).
+For more information on indexes, see [Indexes](../indexing/Indexes.md).

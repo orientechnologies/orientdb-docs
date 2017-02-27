@@ -33,5 +33,5 @@ OrientDB supports several types natively. Below is the complete table.
 |19|Date|Any date as year, month and day. To know more about it, look at [Managing Dates](Managing-Dates.md)|<code>java.util.Date</code>|-<bonetomanyr>-|Date, Long, String|
 |20|Custom|used to store a custom type providing the marshall and unmarshall methods|<code>OSerializableStream</code>|0<br>X|-|
 |21|Decimal|Decimal numbers without rounding|<code>java.math.BigDecimal</code>|?<br>?|Any Number, String|
-|22|LinkBag| List of [Record ID](Concepts.md#record-id)s as spec [RidBag](RidBag.md) | <code>ORidBag</code> | ?<br>? | - |
+|22|LinkBag| List of [Record ID](Concepts.md#record-id)s as spec [RidBag](internals/RidBag.md) | <code>ORidBag</code> | ?<br>? | - |
 |23|Any|Not determinated type, used to specify Collections of mixed type, and null | - | - | - |

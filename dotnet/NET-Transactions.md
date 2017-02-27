@@ -9,7 +9,7 @@ Transactions allow you to organize a series of commands on the database into uni
 
 In OrientDB-NET, tranasctions are controlled through the `OTransaction` object, which you can access through the [`ODatabase`](NET-Database.md) interface.
 
-For more information, see [Transactions](../Transactions.md).
+For more information, see [Transactions](../internals/Transactions.md).
 
 ## Initialize a Transaction 
 

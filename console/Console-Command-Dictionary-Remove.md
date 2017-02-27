@@ -39,6 +39,6 @@ DICTIONARY REMOVE <key>
   </pre>
 
 
->You can display information for all keys stored in the database dictionary using the [`DICTIONARY KEY`](Console-Command-Dictionary-Keys.md) command.  For more information on dictionaries and indexes, see [Indexes](../Indexes.md).
+>You can display information for all keys stored in the database dictionary using the [`DICTIONARY KEY`](Console-Command-Dictionary-Keys.md) command.  For more information on dictionaries and indexes, see [Indexes](../indexing/Indexes.md).
 >
 >For more information on other commands, see [Console Commands](Console-Commands.md).

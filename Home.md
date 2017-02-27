@@ -10,10 +10,10 @@
 | [Installation](Tutorial-Installation.md) | [Supported Data Types](Types.md) | [Gremlin](Gremlin.md) | 
 | [First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](Inheritance.md) | [HTTP API](OrientDB-REST.md) |
 | [Troubleshooting](Troubleshooting.md) |[Security](Security.md) | [Java API](java/Java-API.md) |
-| [Enterprise Edition](Enterprise-Edition.md) | [Indexes](Indexes.md) | [NodeJS](https://github.com/orientechnologies/orientjs) |
-| | [ACID Transactions](Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
+| [Enterprise Edition](ee/Enterprise-Edition.md) | [Indexes](indexing/Indexes.md) | [NodeJS](https://github.com/orientechnologies/orientjs) |
+| | [ACID Transactions](internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
 | | [Functions](Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
-| | [Caching Levels](Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
+| | [Caching Levels](internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
 | | [Common Use Cases](Use-Cases.md) | [Other Drivers](Programming-Language-Bindings.md) |
 | | | [Network Binary Protocol](Network-Binary-Protocol.md) |
 | | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
@@ -27,7 +27,7 @@
 - [Performance Tuning](Performance-Tuning.md)
 - [ETL to Import any kind of data into OrientDB](etl/ETL-Introduction.md)
 - [Import from Relational DB](Import-From-RDBMS.md)
-- [Backup and Restore](Backup-and-Restore.md)
+- [Backup and Restore](admin/Backup-and-Restore.md)
 - [Export and Import](Export-and-Import.md)
 
 ### Quick References
@@ -36,8 +36,8 @@
 - [Workbench](http://www.orientechnologies.com/enterprise/1.7.4/userguide.html) (Enterprise Edition) 
 - [OrientDB Server](DB-Server.md)
 - [Network-Binary-Protocol](Network-Binary-Protocol.md) 
-- [Gephi Graph Analysis Visual tool](Gephi.md)
-- [Rexster Support and configuration](Rexster.md)
+- [Gephi Graph Analysis Visual tool](plugins/Gephi.md)
+- [Rexster Support and configuration](plugins/Rexster.md)
 - [Continuous integration](http://helios.orientechnologies.com/)
 
 ### Resources

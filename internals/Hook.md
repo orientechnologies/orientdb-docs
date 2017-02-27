@@ -9,7 +9,7 @@ Hooks work like triggers and enable a user's application to intercept internal e
 
 OrientDB supports two kinds of Hooks:
 - [Dynamic Hooks](Dynamic-Hooks.md), defined at the schema and/or document level
-- Native [Java Hooks](java/Java-Hooks.md), defined as Java classes
+- Native [Java Hooks](../java/Java-Hooks.md), defined as Java classes
 
 ### What use? Pros/Cons?
 

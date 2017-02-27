@@ -58,7 +58,7 @@ Furthermore it's not possible anymore to disable Cache, so method `setEnable()` 
 |Configuration|OGlobalConfiguration.CACHE_LEVEL2_ENABLED|Not available|
 
 ### No more LOCAL engine
-We completely dropped the long deprecated [LOCAL Storage](Local-Storage.md). If your database were created using "[LOCAL:](Local-Storage.md)" then you have to export it with the version you were using, then import it in a fresh new database created with OrientDB 2.0.
+We completely dropped the long deprecated [LOCAL Storage](internals/Local-Storage.md). If your database were created using "[LOCAL:](internals/Local-Storage.md)" then you have to export it with the version you were using, then import it in a fresh new database created with OrientDB 2.0.
 
 ## Server
 ### First run ask for root password

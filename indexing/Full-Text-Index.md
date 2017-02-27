@@ -30,7 +30,7 @@ The default analyzer used by OrientDB when a Lucene index is created id the [Sta
 
 ### Analyzer 
 
-In addition to the StandardAnalyzer, full text indexes can be configured to use different analyzer by the `METADATA` operator through [`CREATE INDEX`](sql/SQL-Create-Index.md).
+In addition to the StandardAnalyzer, full text indexes can be configured to use different analyzer by the `METADATA` operator through [`CREATE INDEX`](../sql/SQL-Create-Index.md).
 
 Configure the index on `City.name` to use the `EnglishAnalyzer`:
 <pre>
@@ -272,19 +272,19 @@ The Lucene Engine supports index creation without the need for a class.
 CREATE INDEX <name> FULLTEXT ENGINE LUCENE  [<key-type>] [METADATA {<metadata>}]
 ```
 
-For example, create a manual index using the [`CREATE INDEX`](sql/SQL-Create-Index.md) command:
+For example, create a manual index using the [`CREATE INDEX`](../sql/SQL-Create-Index.md) command:
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX Manual FULLTEXT ENGINE LUCENE STRING, STRING</code>
 </pre>
 
-Once you have created the index `Manual`, you can insert values in index using the [`INSERT INTO INDEX:...`](sql/SQL-Insert.md) command.
+Once you have created the index `Manual`, you can insert values in index using the [`INSERT INTO INDEX:...`](../sql/SQL-Insert.md) command.
 
 <pre>
 orientdb> <code class="lang-sql userinput">INSERT INTO INDEX:Manual (key, rid) VALUES(['Enrico', 'Rome'], #5:0)</code>
 </pre>
 
-You can then query the index through [`SELECT...FROM INDEX:`](sql/SQL-Query.md):
+You can then query the index through [`SELECT...FROM INDEX:`](../sql/SQL-Query.md):
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:Manual WHERE key LUCENE "Enrico"</code>

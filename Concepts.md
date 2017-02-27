@@ -237,8 +237,8 @@ OrientDB uses its own [URL](http://en.wikipedia.org/wiki/Uniform_Resource_Locato
 
 |Engine|Description|Example|
 |------|-----------|-------|
-|[plocal](Paginated-Local-Storage.md)|This engine writes to the file system to store data. There is a LOG of changes to restore the storage in case of a crash.|`plocal:/temp/databases/petshop/petshop`|
-|[memory](Memory-storage.md)|Open a database completely in memory|`memory:petshop`|
+|[plocal](internals/Paginated-Local-Storage.md)|This engine writes to the file system to store data. There is a LOG of changes to restore the storage in case of a crash.|`plocal:/temp/databases/petshop/petshop`|
+|[memory](internals/Memory-storage.md)|Open a database completely in memory|`memory:petshop`|
 |remote|The storage will be opened via a remote network connection. It requires an OrientDB Server up and running. In this mode, the database is shared among multiple clients. Syntax: `remote:<server>:[<port>]/db-name`. The port is optional and defaults to 2424.|`remote:localhost/petshop`|
 
 ### Database Usage

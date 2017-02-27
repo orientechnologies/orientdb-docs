@@ -34,5 +34,5 @@ REBUILD INDEX <index>
 >For more information, see
 >- [`CREATE INDEX`](SQL-Create-Index.md)
 >- [`DROP INDEX`](SQL-Drop-Index.md)
->- [Indexes](../Indexes.md)
+>- [Indexes](../indexing/Indexes.md)
 >- [SQL commands](SQL.md)

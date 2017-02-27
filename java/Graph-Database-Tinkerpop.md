@@ -45,14 +45,14 @@ To use the [TinkerPop Gremlin](http://wiki.github.com/tinkerpop/gremlin) languag
 - [**Gremlin**](http://wiki.github.com/tinkerpop/gremlin) Provides a Turing-complete graph-based programming language designed for key/value pairs in multi-relational graphs.  Gremlin makes use of an XPath-like syntax to support complex graph traversals.  This language has applications in the areas of graph query, analysis, and manipulation.
 - [**Rexster**](http://rexster.tinkerpop.com) Provides a RESTful graph shell that exposes any Blueprints graph as a standalone server.
 
-  Extensions support standard traversal goals such as search, score, rank, and (in concert) recommendation.  Rexster makes extensive use of Blueprints, Pipes, and Gremlin.  In this way it's possible to run Rexster over various graph systems.  to configure Rexster to work with OrientDB, see the guide [Rexster Configuration](../Rexster.md).
+  Extensions support standard traversal goals such as search, score, rank, and (in concert) recommendation.  Rexster makes extensive use of Blueprints, Pipes, and Gremlin.  In this way it's possible to run Rexster over various graph systems.  to configure Rexster to work with OrientDB, see the guide [Rexster Configuration](../plugins/Rexster.md).
 - [**Sail Ouplementation**](https://github.com/tinkerpop/blueprints/wiki/Sail-Ouplementation) Provides support for using OrientDB as an RDF Triple Store.
 
 ## Getting Started with Blueprints
 
 OrientDB supports three different kinds of storages, depending on the [Database URL](../Concepts.md#database-url) used:
 
-- **Persistent Embedded Graph Database**: Links to the application as a JAR, (that is, with no network transfer).  Use [PLocal](../Paginated-Local-Storage.md) with the `plocal` prefix.  For instance, `plocal:/tmp/graph/test`.
+- **Persistent Embedded Graph Database**: Links to the application as a JAR, (that is, with no network transfer).  Use [PLocal](../internals/Paginated-Local-Storage.md) with the `plocal` prefix.  For instance, `plocal:/tmp/graph/test`.
 - **In-Memory Embedded Graph Database**: Keeps all data in memory.  Use the `memory` prefix, for instance `memory:test`.
 - **Persistent Remote Graph Database** Uses a binary protocol to send and receive data from a remote OrientDB server.  Use the `remote` prefix, for instance `remote:localhost/test` Note that this requires an OrientDB server instance up and running at the specific address, (in this case, localhost).  Remote databases can be persistent or in-memory as well.
 

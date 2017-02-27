@@ -44,7 +44,7 @@ Starting from v2.1, OrientDB exposes internal metrics through [JMX Beans](JMX.md
 
 ## Memory settings
 ### Server and Embedded settings
-These settings are valid for both Server component and the JVM where is running the Java application that use OrientDB in Embedded Mode, by using directly [plocal](plocal-storage-engine.md).
+These settings are valid for both Server component and the JVM where is running the Java application that use OrientDB in Embedded Mode, by using directly [plocal](internals/plocal-storage-engine.md).
 
 The most important thing on tuning is assuring the memory settings are correct. What can make the real difference is the right balancing between the heap and the virtual memory used by Memory Mapping, specially on large datasets (GBs, TBs and more) where the in memory cache structures count less than raw IO.
 
@@ -59,7 +59,7 @@ You could instead try this:
 java -Xmx800m -Dstorage.diskCache.bufferSize=7200 ...
 ```
 
-The **storage.diskCache.bufferSize** setting (with old "local" storage it was **file.mmap.maxMemory**) is in MB and tells how much memory to use for [Disk Cache](plocal-storage-disk-cache.md) component. By default is 4GB.
+The **storage.diskCache.bufferSize** setting (with old "local" storage it was **file.mmap.maxMemory**) is in MB and tells how much memory to use for [Disk Cache](internals/plocal-storage-disk-cache.md) component. By default is 4GB.
 
 _NOTE: If the sum of maximum heap and disk cache buffer is too high, could cause the OS to swap with huge slow down._
 
@@ -155,7 +155,7 @@ means that probably default timeouts are too low and server side operation need 
 
 ### Use of indexes
 
-The first improvement to speed up queries is to create [Indexes](Indexes.md) against the fields used in WHERE conditions. For example this query:
+The first improvement to speed up queries is to create [Indexes](indexing/Indexes.md) against the fields used in WHERE conditions. For example this query:
 ```sql
 SELECT FROM Profile WHERE name = 'Jay'
 ```
@@ -213,7 +213,7 @@ In case of massive insertion, specially when this operation is made just once, y
 
     -storage.useWAL=false
 
-By default [WAL (Write Ahead Log)](Write-Ahead-Log.md) is enabled.
+By default [WAL (Write Ahead Log)](internals/Write-Ahead-Log.md) is enabled.
 
 ### Disable sync on flush of pages
 This setting avoids to execute a sync at OS level when a page is flushed. Disabling this setting will improve throughput on writes:
@@ -235,9 +235,9 @@ myClass.setOverSize(2);
 
 ## Wise use of transactions
 
-To obtain real linear performance with OrientDB you should avoid to use [Transactions](Transactions.md) as far as you can. In facts OrientDB keeps in memory all the changes until you flush it with a commit. So the bottleneck is your Heap space and the management of local transaction cache (implemented as a Map).
+To obtain real linear performance with OrientDB you should avoid to use [Transactions](internals/Transactions.md) as far as you can. In facts OrientDB keeps in memory all the changes until you flush it with a commit. So the bottleneck is your Heap space and the management of local transaction cache (implemented as a Map).
 
-[Transactions](Transactions.md) slow down massive inserts unless you're using a "remote" connection. In that case it speeds up all the insertion because the client/server communication happens only at commit time.
+[Transactions](internals/Transactions.md) slow down massive inserts unless you're using a "remote" connection. In that case it speeds up all the insertion because the client/server communication happens only at commit time.
 
 ### Disable Transaction Log
 

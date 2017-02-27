@@ -70,7 +70,7 @@ Vert.x is a lightweight, high performance application platform for the JVM that'
 
 <a href="https://gephi.org"><img width="100" align="left" src="http://gephi.github.io/images/logo.png" /></a><br>
  
-[Gephi Visual tool](Gephi.md) usage with OrientDB and the [Blueprints importer](https://github.com/datablend/gephi-blueprints-plugin/wiki)
+[Gephi Visual tool](plugins/Gephi.md) usage with OrientDB and the [Blueprints importer](https://github.com/datablend/gephi-blueprints-plugin/wiki)
 
 ------
 [OrientDB session store](https://github.com/ffissore/connect-orientdb) for Connect

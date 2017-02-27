@@ -40,7 +40,7 @@ This will work on any protocol and driver.
 
 ## Optimistic transaction
 
-Example to create a new vertex in a [Transaction](../Transactions.md) and attach it to an existent vertex by creating a new edge between them. If a concurrent modification occurs, repeat the transaction up to 100 times:
+Example to create a new vertex in a [Transaction](../internals/Transactions.md) and attach it to an existent vertex by creating a new edge between them. If a concurrent modification occurs, repeat the transaction up to 100 times:
 
 ```sql
 begin
@@ -66,7 +66,7 @@ COMMIT
 return $e
 ```
 
-Note the "lock record" after the select. This means the returning records will be locked until commit (or rollback). In this way concurrent updates against London will wait for this [transaction](../Transactions.md) to complete.
+Note the "lock record" after the select. This means the returning records will be locked until commit (or rollback). In this way concurrent updates against London will wait for this [transaction](../internals/Transactions.md) to complete.
 
 _NOTE: locks inside transactions works ONLY against MEMORY storage, we're working to provide such feature also against plocal. Stay tuned (Issue https://github.com/orientechnologies/orientdb/issues/1677)_
 

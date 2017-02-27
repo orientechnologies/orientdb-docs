@@ -20,7 +20,7 @@ Starting from v2.2, OrientDB provides an alternative way to query the database b
 
 ### Non-Stop Incremental Backup and Restore
 
-OrientDB Enterprise Edition allows [Non-Stop Incremental Backup and Restore](Incremental-Backup-And-Restore.md).
+OrientDB Enterprise Edition allows [Non-Stop Incremental Backup and Restore](admin/Incremental-Backup-And-Restore.md).
 
 ### Distributed
 
@@ -92,7 +92,7 @@ As part of the new security module, LDAP users can be imported automatically int
 Password validation is now fully supported, including the ability to specify minimum length and the number of uppercase, special, and numeric characters.
 
 #### Auditing
-Auditing is no longer an Enterprise-only feature and supports many new auditing events, including the creation and dropping of classes, reloading of configuration files, and distributed node events.  Additionally, if the new [syslog plugin](SysLog-Plugin.md) is installed, auditing events will also be recorded to syslog.
+Auditing is no longer an Enterprise-only feature and supports many new auditing events, including the creation and dropping of classes, reloading of configuration files, and distributed node events.  Additionally, if the new [syslog plugin](plugins/SysLog-Plugin.md) is installed, auditing events will also be recorded to syslog.
 
 #### Salt
 OrientDB v2.2 increases security by using [SALT](https://github.com/orientechnologies/orientdb/issues/1229). This means that hashing of password is much slower than OrientDB v2.1. You can configure the number of cycles for the SALT: more is harder to decode but is slower. Change the setting `security.userPasswordSaltIterations` to the number of cycles. Default is 65k cycles.

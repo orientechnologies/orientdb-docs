@@ -63,7 +63,7 @@ This means that probably default timeouts are too low and server side operation 
 
 #### Record id invalid -1:-2
 
-This message is relative to a temporary record id generated inside a transaction. For more information look at [Transactions](Transactions.md). This means that the record hasn't been correctly serialized.
+This message is relative to a temporary record id generated inside a transaction. For more information look at [Transactions](internals/Transactions.md). This means that the record hasn't been correctly serialized.
 
 #### Brand new records are created with version greater than 0
 

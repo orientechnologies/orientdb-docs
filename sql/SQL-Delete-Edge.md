@@ -91,7 +91,7 @@ DELETE EDGE
 
 ### Controlling Vertex Version Increments
 
-Creating and deleting edges causes OrientDB to increment versions on the involved vertices.  You can prevent this operation by implementing the [Bonsai Structure](../RidBag.md).
+Creating and deleting edges causes OrientDB to increment versions on the involved vertices.  You can prevent this operation by implementing the [Bonsai Structure](../internals/RidBag.md).
 
 By default, OrientDB only uses Bonsai as soon as it reaches the threshold, in order to optimize operation.  To always use Bonsai, configure it on the JVM or in the `orientdb-server-config.xml` configuration file.
 

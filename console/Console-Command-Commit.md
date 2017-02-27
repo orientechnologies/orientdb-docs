@@ -9,7 +9,7 @@ search:
 
 Closes a transaction, committing the changes you have made to the database.  Use the [`BEGIN`](Console-Command-Begin.md) command to open a transaction. If you don't want to save the changes you've made, use the [`ROLLBACK`](Console-Command-Rollback.md) command to revert the database state back to the point where you opened the transaction.
 
->For more information, see [Transactions](../Transactions.md).
+>For more information, see [Transactions](../internals/Transactions.md).
 
 **Syntax**
 
@@ -70,7 +70,7 @@ When a transaction is open, all new records use a temporary Record ID that featu
 
 >For more information, see
 >
->- [Transactions](../Transactions.md)
+>- [Transactions](../internals/Transactions.md)
 >- [`BEGIN`](Console-Command-Begin.md)
 >- [`ROLLBACK`](Console-Command-Rollback.md)
 >- [Console Commands](Console-Commands.md)

@@ -64,15 +64,15 @@ By default OrientDB server manages the database under the directory "$ORIENTDB_H
 
 Plug-ins (old name "Handler") are the way the OrientDB Server can be extended.
 
-To write your own plug-in read below [Extend the server](Extend-Server.md).
+To write your own plug-in read below [Extend the server](plugins/Extend-Server.md).
 
 Available plugins:
-- [Automatic-Backup](Automatic-Backup.md)
-- [EMail Plugin](Mail-Plugin.md)
-- [JMX Plugin](JMX-Plugin.md)
+- [Automatic-Backup](plugins/Automatic-Backup.md)
+- [EMail Plugin](plugins/Mail-Plugin.md)
+- [JMX Plugin](plugins/JMX-Plugin.md)
 - [Distributed-Server-Manager](Distributed-Server-Manager.md)
 - [Server-side script interpreter](Javascript-Command.md#enable_server_side_scripting)
-- [Write your own](Extend-Server.md)
+- [Write your own](plugins/Extend-Server.md)
 
 ### Protocols
 
@@ -153,7 +153,7 @@ To configure a new user open the **config/orientdb-server-config.xml** file and 
 
 ## Extend the server
 
-To extend the server's features look at [Extends the server](Extend-Server.md).
+To extend the server's features look at [Extends the server](plugins/Extend-Server.md).
 
 ## Debug the server
 

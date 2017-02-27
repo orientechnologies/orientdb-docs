@@ -271,4 +271,4 @@ You can also constrain a group of properties as unique by creating a composite i
 profile.createIndex("compositeIdx", OClass.INDEX_TYPE.NOTUNIQUE, "name", "surname");
 ```
 
-For more information about indexes look at [Index guide](Indexes.md).
+For more information about indexes look at [Index guide](indexing/Indexes.md).

@@ -110,7 +110,7 @@ var indexName = db.index.create({
 });
 ```
 
-For more information on the Index API and other methods, see [Index API](OrientJS-Index.md).  For more information on indices in general, see [Indexes](../Indexes.md).
+For more information on the Index API and other methods, see [Index API](OrientJS-Index.md).  For more information on indices in general, see [Indexes](../indexing/Indexes.md).
 
 ### Using the Function API
 

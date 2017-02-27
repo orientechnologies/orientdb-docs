@@ -232,6 +232,6 @@ OrientDB allows query execution against any field of a vertex or edge, indexed o
   graph.getEdges("age", 20);
   ```
 
->For more information, see [Indexes](../Indexes.md).
+>For more information, see [Indexes](../indexing/Indexes.md).
 
 

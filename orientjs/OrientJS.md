@@ -99,7 +99,7 @@ OrientJS aims to support version 2.0.0 and later.  It has been tested on both ve
 
 ### Bonsai Structure
 
-Currently, OrientJS does not support the tree-based [Bonsai Structure](../RidBag.md) feature in OrientDB, as it relies on additional network requests.
+Currently, OrientJS does not support the tree-based [Bonsai Structure](../internals/RidBag.md) feature in OrientDB, as it relies on additional network requests.
 
 What this means is that, by default, the result  of `JSON.stringify(record)` on a record with 119 edges would behave very differently from a record with more than 120 edges.  It can lead to unexpected results that may not appear at any point during development, but which will occur when your application runs in production
 

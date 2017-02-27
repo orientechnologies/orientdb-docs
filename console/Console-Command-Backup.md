@@ -7,7 +7,7 @@ search:
 
 # Console - `BACKUP`
 
-Executes a complete backup on the currently opened database. It then compresses the backup file using the ZIP algorithm. You can then restore a database from backups, using the [`RESTORE DATABASE`](Console-Command-Restore.md) command. You can automate backups using the [Automatic-Backup](../Automatic-Backup.md) server plugin.
+Executes a complete backup on the currently opened database. It then compresses the backup file using the ZIP algorithm. You can then restore a database from backups, using the [`RESTORE DATABASE`](Console-Command-Restore.md) command. You can automate backups using the [Automatic-Backup](../plugins/Automatic-Backup.md) server plugin.
 
 Backups and restores are similar to the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md), but they offer better performance than these options.  
 
@@ -20,7 +20,7 @@ BACKUP DATABASE <output-file> [-incremental] [-compressionLevel=<compressionLeve
 ```
 
 - **`<output-file>`** Defines the path to the backup file.
-- **`-incremental`** Option to execute an [incremental backup](../Incremental-Backup-And-Restore.md).  When enabled, it computes the data to backup as all new changes since the last backup. Available only in the [OrientDB Enterprise Edition](../Enterprise-Edition.md) version 2.2 or later.
+- **`-incremental`** Option to execute an [incremental backup](../admin/Incremental-Backup-And-Restore.md).  When enabled, it computes the data to backup as all new changes since the last backup. Available only in the [OrientDB Enterprise Edition](../ee/Enterprise-Edition.md) version 2.2 or later.
 - **-`compressionLevel`** Defines the level of compression for the backup file.  Valid levels are `0` to `9`.  The default is `9`.  Available in 1.7 or later.
 - **`-bufferSize`** Defines the compression buffer size.  By default, this is set to 1MB.  Available in 1.7 or later.
 
@@ -77,7 +77,7 @@ try{
 
 ### Incremental Backup
 
-As of version 2.2, [OrientDB Enterprise Edition](../Enterprise-Edition.md) supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
+As of version 2.2, [OrientDB Enterprise Edition](../ee/Enterprise-Edition.md) supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
 
 ```java
 db.incrementalBackup(backupDirectory);

@@ -7,7 +7,7 @@ search:
 
 (Since v2.2 - Enteprise Edition only)
 
-An incremental backup generates smaller backup files by storing only the delta between two versions of the database. This is useful when you execute a backup on a regular basis and you want to avoid having to back up the entire database each time. The easiest way to execute a backup and a restore is using [Studio](studio/Studio-Backup-Management.md).
+An incremental backup generates smaller backup files by storing only the delta between two versions of the database. This is useful when you execute a backup on a regular basis and you want to avoid having to back up the entire database each time. The easiest way to execute a backup and a restore is using [Studio](../studio/Studio-Backup-Management.md).
 
 NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
 
@@ -15,8 +15,8 @@ NOTE: Lucene Indexes are not supported yet in the incremental backup/restore pro
 
 ## See also
 - [Backup and Restore](Backup-and-Restore.md)
-- [BACKUP DATABASE console command](console/Console-Command-Backup.md)
-- [RESTORE DATABASE console command](console/Console-Command-Restore.md)
+- [BACKUP DATABASE console command](../console/Console-Command-Backup.md)
+- [RESTORE DATABASE console command](../console/Console-Command-Restore.md)
 
 ## How does it work?
 
@@ -36,7 +36,7 @@ The most important information is the `lsn` field that is the WAL LSN (Last Seri
 
 ### Incremental Backup via Console
 
-[Backup Database console command](console/Console-Command-Backup.md) accepts `-incremental` as an optional parameter to execute an incremental backup. In this case the new backup is executed from the last backup (file `last-backup.json` is read if present). If this is the first incremental backup, a full backup is executed. Example:
+[Backup Database console command](../console/Console-Command-Backup.md) accepts `-incremental` as an optional parameter to execute an incremental backup. In this case the new backup is executed from the last backup (file `last-backup.json` is read if present). If this is the first incremental backup, a full backup is executed. Example:
 
 ```
 orientdb> connect plocal:/databases/mydb admin admin
@@ -76,7 +76,7 @@ graphDatabase.getRawGraph().incrementalBackup("/tmp/backup");
 
 ### Incremental Restore via the Console
 
-[Restore Database console command](console/Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Restoring an incremental backup creates a new database with the restored content.  You cannot perform an in-place incremental restore on an existing database. The execution of the create database command with the option `-restore` builds a fresh database and performs the incremental restore starting from the backup path. 
+[Restore Database console command](../console/Console-Command-Restore.md) automatically recognizes if a backup contains incremental data. Restoring an incremental backup creates a new database with the restored content.  You cannot perform an in-place incremental restore on an existing database. The execution of the create database command with the option `-restore` builds a fresh database and performs the incremental restore starting from the backup path. 
 
 Example:
 
@@ -104,7 +104,7 @@ You can overcome this inconsistency by executing a shutdown on all the nodes of 
 
 ## Distributed Architecture
 
-The incremental backup is used in the [Distributed Architecture](Distributed-Architecture.md) when a server node restarts. This avoids having to backup and tranfer the entire database across the network.
+The incremental backup is used in the [Distributed Architecture](../Distributed-Architecture.md) when a server node restarts. This avoids having to backup and tranfer the entire database across the network.
 
 ## Internals
 

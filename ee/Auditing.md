@@ -4,12 +4,12 @@ search:
 ---
 
 # Auditing
-Starting in OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). This page refers to the Auditing feature and how to work with it. The Studio web tool provides a GUI for Auditing that makes configuration easier. Look at the [Auditing page in Studio](studio/Studio-Auditing.md).
+Starting in OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). This page refers to the Auditing feature and how to work with it. The Studio web tool provides a GUI for Auditing that makes configuration easier. Look at the [Auditing page in Studio](../studio/Studio-Auditing.md).
 
 By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough privileges, you can directly query the auditing log. Example on retrieving the last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
 
 **OrientDB 2.2**
-Starting in OrientDB 2.2, all auditing logs are now stored in the [system database](System-Database.md).  The auditing log for each database is stored in a derived class of the `AuditingLog` class with this format: *databaseName*OAuditingLog.
+Starting in OrientDB 2.2, all auditing logs are now stored in the [system database](../System-Database.md).  The auditing log for each database is stored in a derived class of the `AuditingLog` class with this format: *databaseName*OAuditingLog.
 
 As an example, if you have a database called *MyDB*, then the class name will be `MyDBOAuditingLog`.
 
@@ -17,7 +17,7 @@ Using the previous example to retrieve the last 20 log entries for a specific da
 `select from MyDBOAuditingLog order by @rid desc limit 20`
 
 ## Security First
-For security reasons, no roles should be able to access the `AuditingLog` records. For this reason before using Auditing assure to revoke any privilege on the `AuditingLog` cluster. You can do that from Studio, security panel, or via SQL by using the [SQL REVOKE](sql/SQL-Revoke.md) command. Here's an example of revoking any access to the writer and reader roles:
+For security reasons, no roles should be able to access the `AuditingLog` records. For this reason before using Auditing assure to revoke any privilege on the `AuditingLog` cluster. You can do that from Studio, security panel, or via SQL by using the [SQL REVOKE](../sql/SQL-Revoke.md) command. Here's an example of revoking any access to the writer and reader roles:
 
 ```sql
 REVOKE ALL ON database.cluster.auditinglog FROM writer
@@ -25,7 +25,7 @@ REVOKE ALL ON database.cluster.auditinglog FROM reader
 ```
 
 **OrientDB 2.2**
-This is no longer required starting in 2.2, since all auditing logs are stored in the system database.  No local database user has access to the auditing logs stored in the system database.  To grant access, a [*system user*](System-Users.md) must be created in the system database with the appropriate role and permissions.
+This is no longer required starting in 2.2, since all auditing logs are stored in the system database.  No local database user has access to the auditing logs stored in the system database.  To grant access, a [*system user*](../System-Users.md) must be created in the system database with the appropriate role and permissions.
 
 ## Polymorphism
 OrientDB schema is polymorphic (taken from the Object-Oriented paradigm). This means that if you have the class "Person" and the two classes "Employee" and "Provider" that extend "Person", all the auditing settings on "Person" will be inherited by "Employee" and "Provider" (if the checkbox "polymorphic" is enabled on class "Person"). 
@@ -33,7 +33,7 @@ OrientDB schema is polymorphic (taken from the Object-Oriented paradigm). This m
 This makes your life easier when you want to profile only certain classes. For example, you could create an abstract class "Profiled" and let all the classes you want to profile extend it. Starting from v2.1, OrientDB supports multiple inheritance, so it's not a problem extending more classes.
 
 ## security.json Configuration
-There are two parts to enabling and configuring the auditing component.  Starting in OrientDB 2.2, there is a `security.json` configuration file that resides under the `config` folder.  See the [OrientDB Security Configuraton](Security-Config.md) documentation for more details.
+There are two parts to enabling and configuring the auditing component.  Starting in OrientDB 2.2, there is a `security.json` configuration file that resides under the `config` folder.  See the [OrientDB Security Configuraton](../Security-Config.md) documentation for more details.
 
 The "auditing" section of the `security.json` file must be enabled for auditing to work.
 

@@ -1,6 +1,6 @@
 # Distributed Cache
 
-OrientDB has own more [Cache](Caching.md) levels. When OrientDB runs in [Distributed-Architecture](Distributed-Architecture.md), each server has own cache. All the caches in each server are independent.
+OrientDB has own more [Cache](internals/Caching.md) levels. When OrientDB runs in [Distributed-Architecture](Distributed-Architecture.md), each server has own cache. All the caches in each server are independent.
 
 ### Distributed 2nd Level cache
 

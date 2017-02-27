@@ -117,6 +117,6 @@ graph.getEdges("age", 20);
 ```
 >For more information, see
 >
->- [Indexes](../Indexes.md)
+>- [Indexes](../indexing/Indexes.md)
 >- [Graph Schema](Graph-Schema.md)
 >- [Graph Database](Graph-Database-Tinkerpop.md)

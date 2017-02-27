@@ -5,7 +5,7 @@ search:
 
 # Profiler
 
-[OrientDB Enterprise Edition](Enterprise-Edition.md) comes with a profiler that collects all the metrics about the engine and the system where is running.
+[OrientDB Enterprise Edition](ee/Enterprise-Edition.md) comes with a profiler that collects all the metrics about the engine and the system where is running.
 
 ## Automatic dump
 

@@ -75,4 +75,4 @@ Database created successfully.
 
 Current database is: remote:localhost/mydb
 ```
-For further details on incremental backup and restore you can refer to the page [Incremental Backup and Restore](../Incremental-Backup-And-Restore.md).
+For further details on incremental backup and restore you can refer to the page [Incremental Backup and Restore](../admin/Incremental-Backup-And-Restore.md).

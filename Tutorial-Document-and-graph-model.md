@@ -11,7 +11,7 @@ The OrientDB engine supports **Graph**, **Document**, **Key/Value**, and **Objec
 
 ## The Document Model
 
-The data in this model is stored inside documents. A document is a set of key/value pairs (also referred to as fields or properties), where the key allows access to its value. Values can hold primitive data types, embedded documents, or arrays of other values. Documents are not typically forced to have a schema, which can be advantageous, because they remain flexible and easy to modify. Documents are stored in collections, enabling developers to group data as they decide. OrientDB uses the concepts of "[classes](Concepts.md#class)" and "[clusters](Clusters.md)" as its form of "collections" for grouping documents. This provides several benefits, which we will discuss in further sections of the documentation. 
+The data in this model is stored inside documents. A document is a set of key/value pairs (also referred to as fields or properties), where the key allows access to its value. Values can hold primitive data types, embedded documents, or arrays of other values. Documents are not typically forced to have a schema, which can be advantageous, because they remain flexible and easy to modify. Documents are stored in collections, enabling developers to group data as they decide. OrientDB uses the concepts of "[classes](Concepts.md#class)" and "[clusters](internals/Clusters.md)" as its form of "collections" for grouping documents. This provides several benefits, which we will discuss in further sections of the documentation. 
 
 OrientDB's Document model also adds the concept of a "[LINK](Concepts.md#relationships)" as a relationship between documents. With OrientDB, you can decide whether to embed documents or link to them directly. When you fetch a document, all the links are automatically resolved by OrientDB. This is a major difference to other Document Databases, like MongoDB or CouchDB, where the developer must handle any and all relationships between the documents herself.
 
@@ -19,7 +19,7 @@ The table below illustrates the comparison between the relational model, the doc
 
 | Relational Model | Document Model   | OrientDB Document Model |
 |------------------|------------------|-------------------------|
-| Table            | Collection       | [Class](Concepts.md#class) or [Cluster](Clusters.md) |
+| Table            | Collection       | [Class](Concepts.md#class) or [Cluster](internals/Clusters.md) |
 | Row              | Document         | [Document](Concepts.md#document) |
 | Column           | Key/value pair   | Document field          |
 | Relationship     | not available    | [Link](Concepts.md#relationships)                    |
@@ -64,7 +64,7 @@ The table below illustrates the comparison between the relational model, the Key
 
 | Relational Model | Key/Value Model   | OrientDB Key/Value Model |
 |------------------|------------------|-------------------------|
-| Table            | Bucket           | [Class](Concepts.md#class) or [Cluster](Clusters.md) |
+| Table            | Bucket           | [Class](Concepts.md#class) or [Cluster](internals/Clusters.md) |
 | Row              | Key/Value pair   | [Document](Concepts.md#document) |
 | Column           | not available    | Document field or Vertex/Edge property          |
 | Relationship     | not available    | [Link](Concepts.md#relationships)                    |
@@ -78,7 +78,7 @@ The table below illustrates the comparison between the relational model, the Obj
 
 | Relational Model | Object Model | OrientDB Object Model |
 |------------------|------------------|-------------------------|
-| Table            | Class           | [Class](Concepts.md#class) or [Cluster](Clusters.md) |
+| Table            | Class           | [Class](Concepts.md#class) or [Cluster](internals/Clusters.md) |
 | Row              | Object   | [Document](Concepts.md#document) or Vertex |
 | Column           | Object property    | Document field or Vertex/Edge property          |
 | Relationship     | Pointer    | [Link](Concepts.md#relationships)                    |

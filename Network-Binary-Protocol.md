@@ -597,7 +597,7 @@ In versions before `2.0`, the response started with an additional **datasegment-
 - **cluster-id**, **cluster-position** - the RecordID of the newly created record.
 - **record-version** - the version of the newly created record.
 
-The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+The last part of response (from `count-of-collection-changes` on) refers to [RidBag](internals/RidBag.md) management. Take a look at [the main page](internals/RidBag.md) for more details.
 
 
 ## REQUEST_RECORD_UPDATE
@@ -630,7 +630,7 @@ Response: (record-version:int)(count-of-collection-changes)[(uuid-most-sig-bits:
 
 - **record-version** - the new version of the updated record
 
-The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+The last part of response (from `count-of-collection-changes` on) refers to [RidBag](internals/RidBag.md) management. Take a look at [the main page](internals/RidBag.md) for more details.
 
 
 ## REQUEST_RECORD_DELETE
@@ -785,9 +785,9 @@ The response contains two parts:
 
 If the version of a created record is not `0`, then the RecordID of the created record will also appear in the list of "updated" records, along with its new version. This is a [known bug](https://github.com/orientechnologies/orientdb/issues/4660).
 
-Look at [Optimistic Transaction](Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](Concepts.md#RecordID)s are managed.
+Look at [Optimistic Transaction](internals/Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](Concepts.md#RecordID)s are managed.
 
-The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
+The last part of response (from `count-of-collection-changes` on) refers to [RidBag](internals/RidBag.md) management. Take a look at [the main page](internals/RidBag.md) for more details.
 
 
 ## REQUEST_INDEX_GET
@@ -853,7 +853,7 @@ Where:
 Request: (clusterId:int)
 Response: (collectionPointer)
 ```
-See: [serialization of collection pointer](RidBag.md#serialization-of-collection-pointer)
+See: [serialization of collection pointer](internals/RidBag.md#serialization-of-collection-pointer)
 
 Creates an sb-tree bonsai on the remote server.
 
@@ -862,7 +862,7 @@ Creates an sb-tree bonsai on the remote server.
 Request: (collectionPointer)(key:binary)
 Response: (valueSerializerId:byte)(value:binary)
 ```
-See: [serialization of collection pointer](RidBag.md#serialization-of-collection-pointer)
+See: [serialization of collection pointer](internals/RidBag.md#serialization-of-collection-pointer)
 
 Get value by key from sb-tree bonsai.
 
@@ -875,7 +875,7 @@ If the operation is used by RidBag key is always a RID and value can be null or 
 Request: (collectionPointer)
 Response: (keySerializerId:byte)(key:binary)
 ```
-See: [serialization of collection pointer](RidBag.md#serialization-of-collection-pointer)
+See: [serialization of collection pointer](internals/RidBag.md#serialization-of-collection-pointer)
 
 Get first key from sb-tree bonsai. Null if tree is empty.
 
@@ -887,7 +887,7 @@ If the operation is used by RidBag key is null or RID.
 Request: (collectionPointer)(key:binary)(inclusive:boolean)(pageSize:int)
 Response: (count:int)[(key:binary)(value:binary)]*
 ```
-See: [serialization of collection pointer](RidBag.md#serialization-of-collection-pointer)
+See: [serialization of collection pointer](internals/RidBag.md#serialization-of-collection-pointer)
 
 Gets the portion of entries major than specified one. If returns 0 entries than the specified entry is the largest.
 
@@ -901,7 +901,7 @@ Default pageSize is 128.
 Request: (collectionPointer)(collectionChanges)
 Response: (size:int)
 ```
-See: [serialization of collection pointer](RidBag.md#serialization-of-collection-pointer), [serialization of collection changes](RidBag.md#serialization-of-rid-bag-changes)
+See: [serialization of collection pointer](internals/RidBag.md#serialization-of-collection-pointer), [serialization of collection changes](internals/RidBag.md#serialization-of-rid-bag-changes)
 
 Rid-bag specific operation. Send but does not save changes of rid bag. Retrieves computed size of rid bag.
 

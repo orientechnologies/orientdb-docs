@@ -30,11 +30,11 @@ RidBag could be configured with OGlobalConfiguration.
 + `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` (`ridBag.embeddedToSbtreeBonsaiThreshold`) - The threshold of LINKBAG conversion to sbtree-based implementation. _Default value: 40_.
 + `RID_BAG_SBTREEBONSAI_TO_EMBEDDED_THRESHOLD` (`ridBag.sbtreeBonsaiToEmbeddedToThreshold`) - The threshold of LINKBAG conversion to embedded implementation. _Disabled by default_.
 
-Setting `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to `-1` forces using of sbtree-based RidBag. Look at [Concurrency on adding edges]( Concurrency.md#concurrency-on-adding-edges) to know more about impact on graphs of this setting.
+Setting `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to `-1` forces using of sbtree-based RidBag. Look at [Concurrency on adding edges]( ../Concurrency.md#concurrency-on-adding-edges) to know more about impact on graphs of this setting.
 
 |    |    |
 |----|----|
-| ![NOTE](images/warning.png) | _NOTE: While running in distributed mode SBTrees are not supported. If using a distributed database then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` to avoid replication errors._ |
+| ![NOTE](../images/warning.png) | _NOTE: While running in distributed mode SBTrees are not supported. If using a distributed database then you must set `ridBag.embeddedToSbtreeBonsaiThreshold=Integer.MAX\_VALUE` to avoid replication errors._ |
 
 #Interaction with remote clients
 > NOTE: This topic is rather for contributors or driver developers. OrientDB users don't have to care about bag internals.
@@ -73,7 +73,7 @@ The flow of save/commit commands:
 
 Save and load operations are performed during save/load of owner of RidBag. Other operations are performed separately and have its own commands in binary protocol.
 
-To get definitive syntax of each network command see [Network Binary Protocol](Network-Binary-Protocol.md)
+To get definitive syntax of each network command see [Network Binary Protocol](../Network-Binary-Protocol.md)
 ##Serialization during save and load
 The bag is serialized in a binary format. If it is serialized into document by CSV serializer it's encoded with base64.
 
