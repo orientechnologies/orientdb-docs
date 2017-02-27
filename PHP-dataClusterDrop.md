@@ -26,7 +26,7 @@ Consider the example of a web application that uses multiple in-memory clusters 
 
 ```php
 // REMOVE CLUSTER
-function removeCluster(clusterId){
+function removeCluster($clusterId){
 
 	// Log Operation
 	echo "Removing Cluster: $clusterId";

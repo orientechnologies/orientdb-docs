@@ -346,6 +346,9 @@
       * [recordUpdate()](PHP-recordUpdate.md)
       * [sqlBatch()](PHP-sqlBatch.md)
 		* [ClusterMap](PHP-ClusterMap.md)
+      * [dropClusterID()](PHP-ClusterMap-dropClusterID.md)
+      * [getClusterID()](PHP-ClusterMap-getClusterID.md)
+      * [getIdList()](PHP-ClusterMap-getIdList.md)
 
     * [Transaction](PHP-Tx.md)
       * [attach()](PHP-Tx-attach.md)

@@ -3,19 +3,42 @@ search:
    keywords: ["PHP", "PhpOrient", "clusters"]
 ---
 
-PhpOrient - Clusters
+# PhpOrient - Cluster Maps
 
-In OrientDB clusters provide physical or in-memory storage for data on your database.  In the event that you would like to operate on clusters from within your application, PhpOrient provides a series of methods to add, remove and size clusters on the database.
+When you open a database on the client interface, the return value is cluster map.  This PHP class provides you with an interface and a series of methods for manipulating clusters on the database.
 
 ## Using Clusters
 
-Methods relating to clusters in PhpOrient are called on the `$client` interface and all start with `dataCluster`.  Once you have initialized the client, you can begin to use these methods in your application.
+In order to retrieve the cluster map for a database, you need to open the database and set the return value on a variable.  For instance,
+
+```php
+$clusterMap = $client->dbOpen("GratefulDeadConcerts", "admin", "admin);
+```
+
+You can then use the `$clusterMap` object in calling additional methods.
 
 | Method | Description |
 |---|---|
-| [**`dataClusterAdd()`**](PHP-dataClusterAdd.md) | Adds a cluster |
-| [**`dataClusterCount()`**](PHP-dataClusterCount.md) | Counts records in cluster or clusters |
-| [**`dataClusterDrop()`**](PHP-dataClusterDrop.md) | Removes a cluster |
-| [**`dataClusterDataRange()`**](PHP-dataClusterDataRange.md) | Retrieves a range of Record ID's by cluster |
+| [**`count()`**](#count) | |
+| [**`dropClusterID()`**](PHP-ClusterMap-dropClusterID.md) | |
+| [**`getIdList()`**](PHP-ClusterMap-getIdList.md) | |
+| [**`offsetExists()`**](PHP-ClusterMap-offsetExists.md) | |
+| [**`offsetGet()`**](PHP-ClusterMap-offsetGet.md) | |
+| [**`offsetSet()`**](PHP-ClusterMap-offsetSet.md) | |
+| [**`offsetUnset()`**](PHP-ClusterMap-offsetUnset.md) | |
+
+
+### `count()`
+
+In cases where you want to know how many records the Cluster Map contains, you can obtains this using the `count()` method.  For instance, you might want to test that a database contains records after opening it:
+
+```php
+// Open Database
+$clusterMap = $client->dbOpen("GratefulDeadConcerts", "admin", "admin);
+
+// Report Count
+$entityCount = $clusterMap->count();
+echo "Database Contains: $entityCount records";
+```
 
 
