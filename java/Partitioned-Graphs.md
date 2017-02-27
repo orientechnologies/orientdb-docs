@@ -5,7 +5,7 @@ search:
 
 # Partitioned Graphs
 
-You can partition graphs using the [Record-level Security](../security/Security.md#record_level_security) feature.  This allows you to separate database records as sandboxes, where "restricted" records are inaccessible to unauthorized users. For more information about other solution for Multi-Tenant applications, look at [Multi-Tenant](../Multi-Tenant.md).
+You can partition graphs using the [Record-level Security](../security/Security.md#record_level_security) feature.  This allows you to separate database records as sandboxes, where "restricted" records are inaccessible to unauthorized users. For more information about other solution for Multi-Tenant applications, look at [Multi-Tenant](../datamodeling/Multi-Tenant.md).
 
 This tutorial provides a demonstration of sandboxing with the Graph API and the [TinkerPop](Graph-Database-Tinkerpop.md) stack.  Partitioned Graph Databases allow you to build [Multi-tenant](http://en.wikipedia.org/wiki/Multitenancy) applications.
 
@@ -243,7 +243,7 @@ The partition used by Luca remains totally isolated from the one used by Steve. 
 The [Record-level Security](../security/Security.md#record_level_security) feature is very powerful because it acts at a low-level within the OrientDB engine.  This allows for better integration of security features with the Java API and the [TinkerPop](Graph-Database-Tinkerpop.md) stack.
 
 
-For instance, try to display all vertices and edges using [Gremlin](../Gremlin.md):
+For instance, try to display all vertices and edges using [Gremlin](../gremlin/Gremlin.md):
 
 
 <pre>

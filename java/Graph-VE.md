@@ -83,7 +83,7 @@ for (Edge e : graph.getEdges()) {
 }
 ```
 
-When using [Lightweight Edges](../Lightweight-Edges.md), OrientDB stores edges as links rather than records.  This improves performance, but as a consequence, the `.getEdges()` method only retrieves records of the class `E`.  When using Lightweight Edges, OrientDB only creates records in class `E` under certain circumstances, such as when the edge has properties.  Otherwise, the edges exist as links on the in and out vertices.
+When using [Lightweight Edges](Lightweight-Edges.md), OrientDB stores edges as links rather than records.  This improves performance, but as a consequence, the `.getEdges()` method only retrieves records of the class `E`.  When using Lightweight Edges, OrientDB only creates records in class `E` under certain circumstances, such as when the edge has properties.  Otherwise, the edges exist as links on the in and out vertices.
 
 If you want to use `.getEdges()` to return all edges, disable the Lightweight Edges feature by executing the following command:
 

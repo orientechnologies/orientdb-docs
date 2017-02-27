@@ -146,7 +146,7 @@ orientdb> <code class='lang-sql userinput'>SELECT out[label = 'drives'][in.@clas
 
 Where brackets follow brackets, OrientDB filters the result-set in steps as in a pipeline.
 
->Bear in mind, this does not replace [Gremlin](../Gremlin.md) support.  There's a lot more that you can do with Gremlin than you can through extraction, but extraction is a simpler tool for traversing relationships.  
+>Bear in mind, this does not replace [Gremlin](../gremlin/Gremlin.md) support.  There's a lot more that you can do with Gremlin than you can through extraction, but extraction is a simpler tool for traversing relationships.  
 
 ## Future directions
 

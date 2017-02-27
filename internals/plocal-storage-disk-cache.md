@@ -9,7 +9,7 @@ OrientDB Disk cache consists of two separate cache components that work together
 - **Read Cache**, based on [2Q](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.54.392) cache algorithm
 - **Write Cache**, based on [WOW](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.108.8729) cache algorithm
 
-Starting from v2.1, OrientDB exposes internal metrics through [JMX Beans](../JMX.md). Use this information to track and profile OrientDB.
+Starting from v2.1, OrientDB exposes internal metrics through [JMX Beans](../admin/JMX.md). Use this information to track and profile OrientDB.
 
 ## Read Cache
 

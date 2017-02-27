@@ -25,6 +25,6 @@ All of OrientDB's administration facilities are aimed to make your usage of Orie
 >- [Export and Import](Export-and-Import.md)
 >- [Logging](Logging.md)
 >- [Trouble shooting](../misc/Troubleshooting.md)
->- [Performance Tuning](../Performance-Tuning.md)
+>- [Performance Tuning](../tuning/Performance-Tuning.md)
 >- [ETL Tools](../etl/ETL-Introduction.md)
 >- [Stress Test Tool](../misc/Stress-Test-Tool.md)

@@ -126,7 +126,7 @@ SELECT FROM Users WHERE online.asBoolean() = true
 ---
 
 ### .asDate()
-Transforms the field into a Date type. To know more about it, look at [Managing Dates](../Managing-Dates.md).
+Transforms the field into a Date type. To know more about it, look at [Managing Dates](../general/Managing-Dates.md).
 
 Syntax: ```<value>.asDate()```
 
@@ -148,7 +148,7 @@ SELECT FROM Log WHERE time.asDateTime() < '01-01-2010 00:00:00'
 ---
 
 ### .asDateTime()
-Transforms the field into a Date type but parsing also the time information. To know more about it, look at [Managing Dates](../Managing-Dates.md).
+Transforms the field into a Date type but parsing also the time information. To know more about it, look at [Managing Dates](../general/Managing-Dates.md).
 
 Syntax: ```<value>.asDateTime()```
 
@@ -252,7 +252,7 @@ SELECT tags.asList() FROM Friend
 
 
 ### .asLong()
-Transforms the field into a Long type. To know more about it, look at [Managing Dates](../Managing-Dates.md).
+Transforms the field into a Long type. To know more about it, look at [Managing Dates](../general/Managing-Dates.md).
 
 Syntax: ```<value>.asLong()```
 
@@ -385,7 +385,7 @@ SELECT EXPAND( @this.exclude( 'password' ) ) FROM OUser
 ---
 
 ### .format()
-Returns the value formatted using the common "printf" syntax. For the complete reference goto [Java Formatter JavaDoc](http://java.sun.com/j2se/1.5.0/docs/api/java/util/Formatter.html#syntax).  To know more about it, look at [Managing Dates](../Managing-Dates.md).
+Returns the value formatted using the common "printf" syntax. For the complete reference goto [Java Formatter JavaDoc](http://java.sun.com/j2se/1.5.0/docs/api/java/util/Formatter.html#syntax).  To know more about it, look at [Managing Dates](../general/Managing-Dates.md).
 
 Syntax: ```<value>.format(<format>)```
 
@@ -736,7 +736,7 @@ Where:
  - **class** to include the class name in the attribute "@class"
  - **attribSameRow** put all the attributes in the same row
  - **indent** is the indent level as integer. By Default no ident is used
- - **fetchPlan** is the [FetchPlan](../Fetching-Strategies.md) to use while fetching linked records
+ - **fetchPlan** is the [FetchPlan](../java/Fetching-Strategies.md) to use while fetching linked records
  - **alwaysFetchEmbedded** to always fetch embedded records (without considering the fetch plan)
  - **dateAsLong** to return dates (Date and Datetime types) as long numers
  - **prettyPrint** indent the returning JSON in readeable (pretty) way

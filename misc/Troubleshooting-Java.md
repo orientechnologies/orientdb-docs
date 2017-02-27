@@ -9,7 +9,7 @@ search:
 ## OConcurrentModificationException: Cannot update record #X:Y in storage 'Z' because the version is not the latest. Probably you are updating an old record or it has been modified by another user (db=vA your=vB)
 
 This exception happens because you're running in a Multi Version Control Check (MVCC) system and another thread/user has updated the record you're saving. For more information about this topic look at [Concurrency](../general/Concurrency.md). To fix this problem you can:
-- Change the Graph [consistency level](../Graph-Consistency.md) to don't use transactions.
+- Change the Graph [consistency level](../java/Graph-Consistency.md) to don't use transactions.
 - Or write code concurrency proof.
 
 Example:

@@ -12,7 +12,7 @@ search:
 
 ### Spatial Module
 
-OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](../Spatial-Module.md).
+OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](../legacy/Spatial-Module.md).
 
 ### Pattern Matching
 
@@ -101,7 +101,7 @@ The default password hashing algorithm is now `PBKDF2WithHmacSHA256` this is not
 If you are using Java < 8,  since `PBKDF2WithHmacSHA256` is not supported you should change it  into `PBKDF2WithHmacSHA1` 
 
 #### System User
-As part of the new ["system database"](../internals/System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](../System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
+As part of the new ["system database"](../internals/System-Database.md) implementation, OrientDB v2.2 offers a new kind of user, called the [System User](../internals/System-Users.md).  A *system user* is like a hybrid between a server user and a database user, meaning that a system user can have permissions and roles assigned like a database user but it can be applied to the entire system not just a single database.
 
 ### System Database
 OrientDB now uses a ["system database"](../internals/System-Database.md) to provide additional capabilities.

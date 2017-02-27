@@ -108,7 +108,7 @@ OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 
 ### 2.0
 
-- Disables [Lightweight Edges](../Lightweight-Edges.md) in new databases by default.  This command now creates a regular edge.
+- Disables [Lightweight Edges](../java/Lightweight-Edges.md) in new databases by default.  This command now creates a regular edge.
 
 ### 1.4
 

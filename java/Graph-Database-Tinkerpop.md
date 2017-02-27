@@ -31,7 +31,7 @@ To use the [TinkerPop Gremlin](http://wiki.github.com/tinkerpop/gremlin) languag
 - `gremlin-groovy-*.jar`
 - `groovy-*.jar`
 
->Bear in mind, beginning with version 2.0, OrientDB disables  [Lightweight Edges](../Lightweight-Edges.md) by default when it creates new databases.
+>Bear in mind, beginning with version 2.0, OrientDB disables  [Lightweight Edges](Lightweight-Edges.md) by default when it creates new databases.
 
 ## Introduction
 
@@ -100,7 +100,7 @@ try {
 
 Prior to version 2.1.7, whenever you modify the graph database instance, OrientDB automatically starts an implicit transaction, in the event that no previous transactions are running.  When you close the graph instance, it commits the transaction automatically by calling the `.shutdown()` method or through `.commit()`.  This allows you to roll changes back where necessary, using the `.rollback()` method.
 
-Beginning in version 2.1.8, you can set the [Consistency Level](../Graph-Consistency.md).  Changes within the transaction remain temporary until the commit or the closing of the graph database instance.  Concurrent threads or external clients can only see the changes after you fully commit the transaction.
+Beginning in version 2.1.8, you can set the [Consistency Level](Graph-Consistency.md).  Changes within the transaction remain temporary until the commit or the closing of the graph database instance.  Concurrent threads or external clients can only see the changes after you fully commit the transaction.
 
 For instance,
 
@@ -192,7 +192,7 @@ Beginning in version 1.6 of OrientDB, you can configure the graph by setting all
 - **`blueprints.orientdb.useVertexFieldsForEdgeLabels`** Defines whether it stores the edge relationship in the vertex by using the edge class.  This allows you to use multiple fields and makes traversals by the edge label (class) faster.
 
   Default: `true`
-- **`blueprints.orientdb.lightweightEdges`** Defines whether it uses [Lightweight Edges](../Lightweight-Edges.md).  This allows you to avoid creating a physical document per edge.  Documents are only created when edges have properties.
+- **`blueprints.orientdb.lightweightEdges`** Defines whether it uses [Lightweight Edges](Lightweight-Edges.md).  This allows you to avoid creating a physical document per edge.  Documents are only created when edges have properties.
 
   Default: `false`
 - **`blueprints.orientdb.autoStartTx`** Defines whether it auto-starts transactions when the graph is changed by adding or removing vertices, edges and properties.
@@ -209,7 +209,7 @@ OGremlinHelper.global().create()
 
 >For more information on Gremlin usage, see:
 >
->- [How to use the Gremlin language with OrientDB](../Gremlin.md)
+>- [How to use the Gremlin language with OrientDB](../gremlin/Gremlin.md)
 >- [Getting started with Gremlin](http://github.com/tinkerpop/gremlin/wiki/Getting-Started)
 >- [Usage of Gremlin through HTTP/RESTful API using the Rexter project](https://github.com/tinkerpop/rexster/wiki/Using-Gremlin).
 

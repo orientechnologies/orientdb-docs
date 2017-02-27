@@ -25,7 +25,7 @@ REVOKE ALL ON database.cluster.auditinglog FROM reader
 ```
 
 **OrientDB 2.2**
-This is no longer required starting in 2.2, since all auditing logs are stored in the system database.  No local database user has access to the auditing logs stored in the system database.  To grant access, a [*system user*](../System-Users.md) must be created in the system database with the appropriate role and permissions.
+This is no longer required starting in 2.2, since all auditing logs are stored in the system database.  No local database user has access to the auditing logs stored in the system database.  To grant access, a [*system user*](../internals/System-Users.md) must be created in the system database with the appropriate role and permissions.
 
 ## Polymorphism
 OrientDB schema is polymorphic (taken from the Object-Oriented paradigm). This means that if you have the class "Person" and the two classes "Employee" and "Provider" that extend "Person", all the auditing settings on "Person" will be inherited by "Employee" and "Provider" (if the checkbox "polymorphic" is enabled on class "Person"). 

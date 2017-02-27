@@ -38,7 +38,7 @@ OrientDB manages configuration for the ETL module through a single JSON configur
 - **`"source"`** Manages the source data to process.
 - **`"begin"`** Defines a list of [blocks](Block.md) to execute in order when the process begins.
 - **`"extractor"`** Manages the [extractor](Extractor.md) settings.
-- **`"transformers"`** Defines a list of [transformers](../Transformer.md) to execute in the pipeline.
+- **`"transformers"`** Defines a list of [transformers](Transformer.md) to execute in the pipeline.
 - **`"loader"`** Manages the [loader](Loader.md) settings.
 - **`"end"`** Defines a list of [blocks](Block.md) to execute in order when the process finishes.
 
@@ -95,7 +95,7 @@ In developing a configuration file for ETL module processes, consider the follow
   
 ### Conditional Execution
 
-In conditional execution, OrientDB only runs executable blocks, such as [transformers](../Transformer.md) and [blocks](Block.md), when a condition is found true, such as with a [`WHERE`](../sql/SQL-Where.md) clause. 
+In conditional execution, OrientDB only runs executable blocks, such as [transformers](Transformer.md) and [blocks](Block.md), when a condition is found true, such as with a [`WHERE`](../sql/SQL-Where.md) clause. 
 
 For example,
 
@@ -116,7 +116,7 @@ For example,
 
 ### Log setting
 
-Most blocks, such [transformers](../Transformer.md) and [blocks](Block.md), support the `"log"` setting.  Logs take one of the following logging levels, (which are case-insensitive),: `NONE`, `ERROR`, `INFO`, `DEBUG`.  By default, it uses the `INFO` level.
+Most blocks, such [transformers](Transformer.md) and [blocks](Block.md), support the `"log"` setting.  Logs take one of the following logging levels, (which are case-insensitive),: `NONE`, `ERROR`, `INFO`, `DEBUG`.  By default, it uses the `INFO` level.
 ETL uses the [Java util logging](https://docs.oracle.com/javase/8/docs/technotes/guides/logging/overview.html) and writes logs on the console and on a dedicated rolling file. A dedicated configuration file (`orientdb-etl-log.properties`) is present under the `config` directory of the OrientDB distribution.
 ETL logging levels are mapped to JUL levels:
 

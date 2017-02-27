@@ -38,7 +38,7 @@ Here, your application queries the `Sensors` class for all records that pertain 
 
 ### Querying Records with Fetch Plans
 
-In OrientDB, [Fetching Strategies](../Fetching-Strategies.md) allow you to refine the process the given client uses in retrieving data from the server.  You may find this useful when retrieving a record that contains several layers of linked records.  With a normal query, the client would need to resubmit the request for each additional layer of linked records.  Using a fetch plan, OrientDB with collect all connecting records and send them to PyOrient together.
+In OrientDB, [Fetching Strategies](../java/Fetching-Strategies.md) allow you to refine the process the given client uses in retrieving data from the server.  You may find this useful when retrieving a record that contains several layers of linked records.  With a normal query, the client would need to resubmit the request for each additional layer of linked records.  Using a fetch plan, OrientDB with collect all connecting records and send them to PyOrient together.
 
 For instance, in the example of a smart home database say that you want to retrieve all records from sensors in your bedroom.  In the event that you have trouble sleeping, this might help in determining the cause of the problem, allowing you to say connect room temperature or light conditions with your waking up in the middle of the night.
 
@@ -48,4 +48,4 @@ data = client.query("SELECT FROM Sensors "
                     100, "*:-1")
 ```
 
-Here, the fetching strategy, (given as the third argument) retrieves all connecting records to the bedroom sensors.  It sets the return data to an object, which you can then pass to other methods for analysis or presentation.  You can fine tune how many layers of connecting records OrientDB collects.  For more information, see [Fetching Strategies](../Fetching-Strategies.md).
+Here, the fetching strategy, (given as the third argument) retrieves all connecting records to the bedroom sensors.  It sets the return data to an object, which you can then pass to other methods for analysis or presentation.  You can fine tune how many layers of connecting records OrientDB collects.  For more information, see [Fetching Strategies](../java/Fetching-Strategies.md).

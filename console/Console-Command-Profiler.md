@@ -5,7 +5,7 @@ search:
 
 # Console - `PROFILER`
 
-Controls the [Profiler](../Profiler.md).
+Controls the [Profiler](../tuning/Profiler.md).
 
 **Syntax**
 

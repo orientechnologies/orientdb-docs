@@ -39,7 +39,7 @@ SELECT [ <Projections> ] [ FROM <Target> [ LET <Assignment>* ] ]
 - **[`UNWIND`](SQL-Query.md#unwind)** Designates the field on which to unwind the collection.  Introduced in version 2.1.
 - **`SKIP`** Defines the number of records you want to skip from the start of the result-set.  You may find this useful in [pagination](Pagination.md), when using it in conjunction with `LIMIT`.
 - **`LIMIT`** Defines the maximum number of records in the result-set.  You may find this useful in [pagination](Pagination.md), when using it in conjunction with `SKIP`. 
-- **`FETCHPLAN`** Defines how you want it to fetch results.  For more information, see [Fetching Strategy](../Fetching-Strategies.md).
+- **`FETCHPLAN`** Defines how you want it to fetch results.  For more information, see [Fetching Strategy](../java/Fetching-Strategies.md).
 - **`TIMEOUT`** Defines the maximum time in milliseconds for the query.  By default, queries have no timeouts.  If you don't specify a timeout strategy, it defaults to `EXCEPTION`.  These are the available timeout strategies:
   - `RETURN` Truncate the result-set, returning the data collected up to the timeout.
   - `EXCEPTION` Raises an exception.

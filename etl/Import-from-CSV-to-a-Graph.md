@@ -48,7 +48,7 @@ With OrientDB, the Graph model uses [Edges](../Tutorial-Working-with-graphs.md) 
 Class POST ->* (collection of edges) Class COMMENT
 ```
 ## (1) Export to CSV
-If you're using an RDBMS or any other source, export your data in [CSV](../Transformer.md#csv-transformer) format. The ETL module is also able to extract from [JSON](Extractor.md#json-extractor) and an RDBMS directly through [JDBC](Extractor.md#jdbc-extractor) drivers. However, for the sake of simplicity, in this example we're going to use [CSV](../Transformer.md#csv-transformer) as the source format.
+If you're using an RDBMS or any other source, export your data in [CSV](Transformer.md#csv-transformer) format. The ETL module is also able to extract from [JSON](Extractor.md#json-extractor) and an RDBMS directly through [JDBC](Extractor.md#jdbc-extractor) drivers. However, for the sake of simplicity, in this example we're going to use [CSV](Transformer.md#csv-transformer) as the source format.
 
 Consider having 2 CSV files:
 #### File posts.csv
@@ -72,7 +72,7 @@ id,postId,text
 ```
 
 ## (2) ETL Configuration
-The OrientDB ETL tool requires only a JSON file to define the ETL process as [Extractor](Extractor.md), a list of [Transformers](../Transformer.md) to be executed in the pipeline, and a [Loader](Loader.md), to load graph elements into the OrientDB database.
+The OrientDB ETL tool requires only a JSON file to define the ETL process as [Extractor](Extractor.md), a list of [Transformers](Transformer.md) to be executed in the pipeline, and a [Loader](Loader.md), to load graph elements into the OrientDB database.
 
 Below are 2 files containing the ETL to import Posts and Comments separately.
 

@@ -34,7 +34,7 @@ ALTER DATABASE <attribute-name> <attribute-value>
   orientdb> <code class='lang-sql userinput'>ALTER DATABASE CUSTOM useVertexFieldsForEdgeLabel=FALSE</code>
   </pre>
 
-  >Version 1.4 introduced [Lightweight Edges](../Lightweight-Edges.md), which was disabled by default beginning in version 2.0.  Use the above commands to maintain compatibility when using older databases with newer versions of OrientDB.
+  >Version 1.4 introduced [Lightweight Edges](../java/Lightweight-Edges.md), which was disabled by default beginning in version 2.0.  Use the above commands to maintain compatibility when using older databases with newer versions of OrientDB.
 
 
 

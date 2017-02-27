@@ -61,7 +61,7 @@ Vertices are also documents.  This means they can contain embedded records and a
 
 In Graph databases, an arc is the connection between two nodes, which in OrientDB is called an edge.  Edges are bidirectional and can only connect two vertices.
 
-Edges can be regular or lightweight. The Regular Edge saves as a Document, while the Lightweight Edge does not. For an understanding of the differences between these, see [Lightweight Edges](../Lightweight-Edges.md).
+Edges can be regular or lightweight. The Regular Edge saves as a Document, while the Lightweight Edge does not. For an understanding of the differences between these, see [Lightweight Edges](../java/Lightweight-Edges.md).
 
 For more information on connecting vertices in general, see [Relationships](Concepts.md#relationships), below.
 

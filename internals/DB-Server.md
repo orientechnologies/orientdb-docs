@@ -71,7 +71,7 @@ Available plugins:
 - [EMail Plugin](../plugins/Mail-Plugin.md)
 - [JMX Plugin](../plugins/JMX-Plugin.md)
 - [Distributed-Server-Manager](../distributed/Distributed-Server-Manager.md)
-- [Server-side script interpreter](../Javascript-Command.md#enable_server_side_scripting)
+- [Server-side script interpreter](../js/Javascript-Command.md#enable_server_side_scripting)
 - [Write your own](../plugins/Extend-Server.md)
 
 ### Protocols

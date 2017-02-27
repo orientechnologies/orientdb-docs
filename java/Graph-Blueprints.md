@@ -7,7 +7,7 @@ search:
 
 OrientDB is a graph database that merges graph, document and object-oriented worlds together.  Below are some of the features exclusive to OrientDB through the Blueprints Extensions.
 
->For information on tuning your graph database, see [Performance Tuning Blueprints](../Performance-Tuning-Graph.md).
+>For information on tuning your graph database, see [Performance Tuning Blueprints](../tuning/Performance-Tuning-Graph.md).
 
 ## Custom Types
 

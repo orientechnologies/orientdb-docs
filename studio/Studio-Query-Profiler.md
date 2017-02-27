@@ -5,7 +5,7 @@ search:
 
 # Query Profiler
 
-Starting from version 2.2, Studio Enterprise Edition includes a functionality called _Profiling_. To understand how Profiling works, please refer to the [Profiler](../Profiler.md) page.
+Starting from version 2.2, Studio Enterprise Edition includes a functionality called _Profiling_. To understand how Profiling works, please refer to the [Profiler](../tuning/Profiler.md) page.
 
 In the above section you can choose the server in order to investigate queries executed on it and manage the local cache.
 

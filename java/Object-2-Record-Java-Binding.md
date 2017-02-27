@@ -185,7 +185,7 @@ You can save a POJO to the database by calling the method <code>save(pojo)</code
 
 # Fetching strategies
 
-Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](../Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
+Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
 
 # Custom types
 
@@ -504,7 +504,7 @@ Callbacks are useful to free transient resources.
 
 == Fetching strategies =v
 
-Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](../Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
+Starting from release 0.9.20, OrientDB supports [Fetching-Strategies](Fetching-Strategies.md) by using the **Fetch Plans**. Fetch Plans are used to customize how OrientDB must load linked records. The ODatabaseObjectTx uses the Fetch Plan also to determine how to bind the linked records to the POJO by building an object tree.
 
 ## Custom types
 

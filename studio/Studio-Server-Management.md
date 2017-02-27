@@ -44,7 +44,7 @@ It displays all the active connections to the server. For each connection report
 ![Connections](../images/studio-server-management-connections.png)
 
 ## Metrics
-This panel shows all the metrics in 4 different tabs. To learn more about the available metrics please refer to the [Profiler](../Profiler.md) section.
+This panel shows all the metrics in 4 different tabs. To learn more about the available metrics please refer to the [Profiler](../tuning/Profiler.md) section.
 
 - `Chronos`
 

@@ -398,7 +398,7 @@ Where:
 - *`<language>`* is the name of the language between those supported. OrientDB distribution comes with "sql" and GraphDB distribution has both "sql" and "gremlin"
 - *`command-text`* is the text containing the command to execute
 - *`limit`* is the maximum number of record to return. Optional, default is 20
-- *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](../Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
+- *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](../java/Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
 
 The *command-text* can appear in either the URL or the content of the POST transmission. Where the command-text is included in the URL, it must be encoded as per normal URL encoding. By default the result is returned in JSON. To have the result in CSV, pass "Accept: text/csv" in HTTP Request.
 
@@ -425,7 +425,7 @@ Execute a query passing parameters by position:
 }
 ```
 
-Read the [SQL section](../sql/SQL.md) or the [Gremlin introduction](../Gremlin.md) for the type of commands.
+Read the [SQL section](../sql/SQL.md) or the [Gremlin introduction](../gremlin/Gremlin.md) for the type of commands.
 
 #### Example
 
@@ -702,7 +702,7 @@ Syntax: `http://<server>:[<port>]/document/<database>/<record-id>[/<fetchPlan>]`
 
 Where:
 - `<record-id>` [See Concepts: RecordID](../datamodeling/Concepts.md#recordID)
-- `<fetchPlan>` Optional, is the fetch plan used. 0 means the root record, -1 infinite depth, positive numbers is the depth level. Look at [Fetching Strategies](../Fetching-Strategies.md) for more information.
+- `<fetchPlan>` Optional, is the fetch plan used. 0 means the root record, -1 infinite depth, positive numbers is the depth level. Look at [Fetching Strategies](../java/Fetching-Strategies.md) for more information.
 
 #### Example
 
@@ -891,7 +891,7 @@ Syntax: `http://<server>:[<port>]/documentbyclass/<database>/<class-name>/<recor
 Where:
 - `<class-name>` is the name of the document's class
 - `<record-position>` is the absolute position of the record inside the class' default cluster
-- `<fetchPlan>` Optional, is the fetch plan used. 0 means the root record, -1 infinite depth, positive numbers is the depth level. Look at [Fetching Strategies](../Fetching-Strategies.md) for more information.
+- `<fetchPlan>` Optional, is the fetch plan used. 0 means the root record, -1 infinite depth, positive numbers is the depth level. Look at [Fetching Strategies](../java/Fetching-Strategies.md) for more information.
 
 
 #### Example
@@ -1023,7 +1023,7 @@ Where:
 - *`<language>`* is the name of the language between those supported. OrientDB distribution comes with "sql" only. Gremlin language cannot be executed with **query** because it cannot guarantee to be idempotent. To execute Gremlin use [command](#command) instead.
 - *`query-text`* is the text containing the query to execute
 - *`limit`* is the maximum number of record to return. Optional, default is 20
-- *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](../Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
+- *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](../java/Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
 
 Other key points:
 - To use commands that change the database (non-idempotent), see the [POST – Command section](#post---command)

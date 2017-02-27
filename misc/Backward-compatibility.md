@@ -27,4 +27,4 @@ Using either console commands [export database](../console/Console-Command-Expor
 
 Please note that binary compatibility is supported since __1.7-rc2__ version for plocal storage (as exception you can read database created in 1.5.1 version by 1.7-rc2 version).
 
-Return to [Upgrade](../Upgrade.md).
+Return to [Upgrade](../release/Upgrade.md).

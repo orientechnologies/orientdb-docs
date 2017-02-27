@@ -12,7 +12,7 @@ Here's a list of some of the features that the system database may support:
 - Recording performance metrics about the server and its databases
 
 ### System Users
-A third type of user now exists, called a *system user*.  A *system user* is similar in concept to a *server user* but resides in the system database as an *OUser* record.  See [System Users](../System-Users.md).
+A third type of user now exists, called a *system user*.  A *system user* is similar in concept to a *server user* but resides in the system database as an *OUser* record.  See [System Users](System-Users.md).
 
 ### Accessing The System Database via Studio
 By default, the OrientDB system database will not be displayed in the *Studio* drop-down list of databases.  To enable this, add a "server.listDatabases.system" resource to the "guest" server user.

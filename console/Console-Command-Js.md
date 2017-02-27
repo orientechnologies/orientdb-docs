@@ -5,7 +5,7 @@ search:
 
 # Console - `JS`
 
-Executes commands in the Javascript language from the Console. Look also [Javascript Command](../Javascript-Command.md).
+Executes commands in the Javascript language from the Console. Look also [Javascript Command](../js/Javascript-Command.md).
 
 **Syntax**
 
@@ -38,4 +38,4 @@ You can execute a command in just one line (`JS print('Hello World!')`) or enabl
   Client side script executed in 0.142000 sec(s). Value returned is: null
   </pre>
 
->For more information on the Javascript execution, see [Javascript Command](../Javascript-Command.md).  For more information on other commands, see [Console Commands](Console-Commands.md).
+>For more information on the Javascript execution, see [Javascript Command](../js/Javascript-Command.md).  For more information on other commands, see [Console Commands](Console-Commands.md).

@@ -59,7 +59,7 @@ Look at: [Restore admin user](../security/Security.md#restore-admin-user).
 
 #### WARNING: Connection re-acquired transparently after XXXms and Y retries: no errors will be thrown at application level
 
-This means that probably default timeouts are too low and server side operation need more time to complete. Follow these  [Performance Tuning](../Performance-Tuning.md).
+This means that probably default timeouts are too low and server side operation need more time to complete. Follow these  [Performance Tuning](../tuning/Performance-Tuning.md).
 
 #### Record id invalid -1:-2
 

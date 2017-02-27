@@ -49,7 +49,7 @@ db.query(
 
 ### Using Fetching Strategies
 
-While the `query()` method supports most OrientDB SQL statements, there are some limitations in regards to [Fetching Strategies](../Fetching-Strategies.md).
+While the `query()` method supports most OrientDB SQL statements, there are some limitations in regards to [Fetching Strategies](../java/Fetching-Strategies.md).
 
 The `query()` method does not support Fetching Strategies directly.For instance, say that you want to query the player records in your baseball database with baseball card images.  From the OrientDB Console, you might issue this command:
 
@@ -89,7 +89,7 @@ Rather than writing out query strings in SQL, you can alternatively use the Orie
 |---|---|
 | [**`create()`**](OrientJS-Query-Create.md) | Creates vertices and edges. |
 | [**`delete()`**](OrientJS-Query-Delete.md) | Removes vertices, edges, and records.|
-| [**`fetch()`**](OrientJS-Query-Fetch.md) | Defines a [Fetching Strategy](../Fetching-Strategies.md).|
+| [**`fetch()`**](OrientJS-Query-Fetch.md) | Defines a [Fetching Strategy](../java/Fetching-Strategies.md).|
 | [**`insert()`**](OrientJS-Query-Insert.md)| Adds records.|
 | [**`liveQuery()`**](OrientJS-Query-Live-Query.md) | Executes a Live Query. |
 | [**`select()`**](OrientJS-Query-Select.md)| Fetches records by query.|

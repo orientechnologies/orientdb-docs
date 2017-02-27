@@ -15,7 +15,7 @@ Available since: **v. 1.2.0**.
 
 Expose the OrientDB server configuration through JMX protocol. This task is configured as a [Server handler](../internals/DB-Server.md#handlers). The task can be configured in easy way by changing parameters:
 - **enabled**: true to turn on, false (default) is turned off
-- **profilerManaged**: manage the [Profiler](../Profiler.md) instance
+- **profilerManaged**: manage the [Profiler](../tuning/Profiler.md) instance
 
 Default configuration in orientdb-server-config.xml
 

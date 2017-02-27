@@ -124,7 +124,7 @@ This mode uses the well known [Multi Version Control System (MVCC)](http://en.wi
 
 >**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap) memory on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
-With [Graph API](../java/Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. With Graphs you can change the [consistency level](../Graph-Consistency.md).
+With [Graph API](../java/Graph-Database-Tinkerpop.md#transactions) transaction begins automatically, with Document API is explicit by using the `begin()` method. With Graphs you can change the [consistency level](../java/Graph-Consistency.md).
 
 Example with Document API:
 
@@ -166,7 +166,7 @@ OrientDB uses temporary [RecordID](../datamodeling/Concepts.md#recordid)s with t
 
 In some situations transactions can improve performance, typically in the client/server scenario. If you use an Optimistic Transaction, the OrientDB engine optimizes the network transfer between the client and server, saving both CPU and bandwidth.
 
-For further information look at [Transaction tuning](../Performance-Tuning.md#wise_use_of_transactions) to know more.
+For further information look at [Transaction tuning](../tuning/Performance-Tuning.md#wise_use_of_transactions) to know more.
 
 ## Distributed environment
 

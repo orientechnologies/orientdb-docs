@@ -144,12 +144,12 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`INFO`](Console-Command-Info.md)|Displays information about current status|
 |[`INFO CLASS`](Console-Command-Info-Class.md)|Displays information about a class|
 |[`INSERT`](Console-Command-Insert.md)|Inserts a new record in the current database using the SQL syntax. To know more about the [SQL syntax go here](../sql/SQL-Query.md)|
-|[`JS`](../Javascript-Command.md#via_console)|Executes a Javascript in the console|
-|[`JSS`](../Javascript-Command.md#via_console)|Executes a Javascript in the server|
+|[`JS`](../js/Javascript-Command.md#via_console)|Executes a Javascript in the console|
+|[`JSS`](../js/Javascript-Command.md#via_console)|Executes a Javascript in the server|
 |[`LIST DATABASES`](Console-Command-List-Databases.md)|List the available databases|
 |[`LIST CONNECTIONS`](Console-Command-List-Connections.md)|List the available connections|
 |[`LOAD RECORD`](Console-Command-Load-Record.md)|Loads a record in memory and set it as the current one|
-|[`PROFILER`](Console-Command-Profiler.md)|Controls the [Profiler](../Profiler.md)|
+|[`PROFILER`](Console-Command-Profiler.md)|Controls the [Profiler](../tuning/Profiler.md)|
 |[`PROPERTIES`](Console-Command-Properties.md)|Returns all the configured properties|
 |`pwd`|Display current path|
 |[`REBUILD INDEX`](../sql/SQL-Rebuild-Index.md)|Rebuild an index|

@@ -11,7 +11,7 @@ Current protocol version for 2.1.x: **32**. Look at [Compatibility](#compatibili
 
 The OrientDB binary protocol is the fastest way to interface a client application to an OrientDB Server instance. The aim of this page is to provide a starting point from which to build a language binding, maintaining high-performance.
 
-If you'd like to develop a new binding, please take a look to the available ones before starting a new project from scratch: [Existent Drivers](../Programming-Language-Bindings.md).
+If you'd like to develop a new binding, please take a look to the available ones before starting a new project from scratch: [Existent Drivers](../misc/Programming-Language-Bindings.md).
 
 Also, check the available [REST implementations](../misc/OrientDB-REST.md).
 
@@ -131,7 +131,7 @@ The network protocol supports different types of information:
 The record format is choose during the [CONNECT](#request_connect) or [DB_OPEN](#request_db_open) request, the formats available are:
 
 [CSV](Record-CSV-Serialization.md) (serialization-impl value "ORecordDocument2csv")
-[Binary](../Record-Schemaless-Binary-Serialization.md) (serialization-impl value "ORecordSerializerBinary")
+[Binary](Record-Schemaless-Binary-Serialization.md) (serialization-impl value "ORecordSerializerBinary")
 
 The CSV format is the default for all the versions 0.* and 1.* or for any client with Network Protocol Version < 22
 
@@ -514,7 +514,7 @@ Response: 0000000000001000
 ```
 ## REQUEST_RECORD_LOAD
 
-Loads a record by its [RecordID](../datamodeling/Concepts.md#RecordID), according to a [fetch plan](../Fetching-Strategies.md).
+Loads a record by its [RecordID](../datamodeling/Concepts.md#RecordID), according to a [fetch plan](../java/Fetching-Strategies.md).
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
@@ -524,7 +524,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 #### Request
 
 - **cluster-id**, **cluster-position** - the RecordID of the record.
-- **fetch-plan** - the [fetch plan](../Fetching-Strategies.md) to use or an empty string.
+- **fetch-plan** - the [fetch plan](../java/Fetching-Strategies.md) to use or an empty string.
 - **ignore-cache** - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
 - **load-tombstones** - a flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
 
@@ -542,7 +542,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 
 ## REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
 
-Loads a record by [RecordID](../datamodeling/Concepts.md#RecordID), according to a [fetch plan](../Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
+Loads a record by [RecordID](../datamodeling/Concepts.md#RecordID), according to a [fetch plan](../java/Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)
@@ -553,7 +553,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 
 - **cluster-id**, **cluster-position** - the RecordID of the record.
 - **version** - the version of the record to fetch.
-- **fetch-plan** - the [fetch plan](../Fetching-Strategies.md) to use or an empty string.
+- **fetch-plan** - the [fetch plan](../java/Fetching-Strategies.md) to use or an empty string.
 - **ignore-cache** - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
 
 #### Response
@@ -677,7 +677,7 @@ Response:
 - **class-name** - the class name of the command implementation. There are some short forms for the most common commands, which are:
   - `q` - stands for "query" as idempotent command (e.g., `SELECT`). It's like passing `com.orientechnologies.orient.core.sql.query.OSQLSynchquery`.
   - `c` - stands for "command" as non-idempotent command (e.g., `INSERT` or `UPDATE`). It's like passing `com.orientechnologies.orient.core.sql.OCommandSQL`.
-  - `s` - stands for "script" (for server-side scripting using languages like [JavaScript](../Javascript-Command.md)). It's like passing `com.orientechnologies.orient.core.command.script.OCommandScript`.
+  - `s` - stands for "script" (for server-side scripting using languages like [JavaScript](../js/Javascript-Command.md)). It's like passing `com.orientechnologies.orient.core.command.script.OCommandScript`.
   - any other string - the string is the class name of the command. The command will be created via reflection using the default constructor and invoking the `fromStream()` method against it.
 - **command-payload** - is the payload of the command as specified in [the "Commands" section](Network-Binary-Protocol-Commands.md).
 
@@ -803,7 +803,7 @@ Response: (result-type:byte)
 
 - **index-name** - the name of the index.
 - **key** - a document whose `"key"` field contains the key.
-- **fetch-plan** - the [fetch plan](../Fetching-Strategies.md) to use or an empty string.
+- **fetch-plan** - the [fetch plan](../java/Fetching-Strategies.md) to use or an empty string.
 
 #### Response
 

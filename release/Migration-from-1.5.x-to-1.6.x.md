@@ -23,4 +23,4 @@ For any problem on import, look at [Import Troubleshooting](../console/Console-C
 
 ## Engine
 
-OrientDB 1.6.x comes with the new PLOCAL engine. To migrate a database create with the old "local" to such engine follow the steps in: [Migrate from local storage engine to plocal](../Upgrade.md#migrate-from-local-storage-engine-to-plocal).
+OrientDB 1.6.x comes with the new PLOCAL engine. To migrate a database create with the old "local" to such engine follow the steps in: [Migrate from local storage engine to plocal](Upgrade.md#migrate-from-local-storage-engine-to-plocal).

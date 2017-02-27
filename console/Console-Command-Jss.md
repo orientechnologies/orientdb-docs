@@ -5,7 +5,7 @@ search:
 
 # Console - `JSS`
 
-Executes commands on OrientDB Server in the Javascript language from the Console. Look also [Javascript Command](../Javascript-Command.md).
+Executes commands on OrientDB Server in the Javascript language from the Console. Look also [Javascript Command](../js/Javascript-Command.md).
 
 **Syntax**
 
@@ -36,4 +36,4 @@ You can execute a command in just one line (`JSS print('Hello World!')`) or enab
 
   In this case the output will be displayed on the server console.
   
->For more information on the Javascript execution, see [Javascript Command](../Javascript-Command.md).  For more information on other commands, see [Console Commands](Console-Commands.md).
+>For more information on the Javascript execution, see [Javascript Command](../js/Javascript-Command.md).  For more information on other commands, see [Console Commands](Console-Commands.md).

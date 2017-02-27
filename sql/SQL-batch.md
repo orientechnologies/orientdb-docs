@@ -36,7 +36,7 @@ This will work on any protocol and driver.
 
 
 ## See also
-- [Javascript-Command](../Javascript-Command.md)
+- [Javascript-Command](../js/Javascript-Command.md)
 
 ## Optimistic transaction
 

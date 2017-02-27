@@ -10,7 +10,7 @@ The Extractor Transformer and Loader, or ETL, module for OrientDB provides suppo
 
 - [Configuration](Configuration-File.md): The ETL module uses a configuration file, written in JSON.
 - [Extractor](Extractor.md) Pulls data from the source database.
-- [Transformers](../Transformer.md) Convert the data in the pipeline from its source format to one accessible to the target database.
+- [Transformers](Transformer.md) Convert the data in the pipeline from its source format to one accessible to the target database.
 - [Loader](Loader.md) loads the data into the target database.
 
 
@@ -65,7 +65,7 @@ When the ETL module initializes, it pulls `/tmp/mydb` from the command-line to d
 - [Blocks](Block.md)
 - [Sources](Source.md)
 - [Extractors](Extractor.md)
-- [Transformers](../Transformer.md)
+- [Transformers](Transformer.md)
 - [Loaders](Loader.md)
 
 Examples:

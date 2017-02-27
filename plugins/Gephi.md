@@ -79,7 +79,7 @@ http://localhost:2480/gephi/demo/sql/select%20from%20V%20where%20out.size()%20%3
 
 ## GREMLIN language
 
-To use the powerful GREMLIN language to retrieve the graph or a portion of it use **<code>gremlin</code>** as language. For more information look at the [GREMLIN syntax](../Gremlin.md).
+To use the powerful GREMLIN language to retrieve the graph or a portion of it use **<code>gremlin</code>** as language. For more information look at the [GREMLIN syntax](../gremlin/Gremlin.md).
 
 For example, to return the first 100 vertices:
 ```
