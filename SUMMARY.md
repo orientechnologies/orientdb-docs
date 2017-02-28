@@ -212,6 +212,8 @@
     * [Import from DB-Pedia](etl/Import-from-DBPedia.md) 
     * [Import from Parse (Facebook)](etl/Import-from-PARSE.md) 
 * [SQL Reference](sql/SQL.md)
+  * [SQL Syntax](sql/SQL-Syntax.md)
+    * [Projections](sql/SQL-Projections.md)
   * [Commands](sql/Commands.md) 
     * [Alter Class](sql/SQL-Alter-Class.md) 
     * [Alter Cluster](sql/SQL-Alter-Cluster.md) 
