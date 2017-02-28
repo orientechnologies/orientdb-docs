@@ -13,5 +13,5 @@ This is the main page for DBA and DevOps.
 
 
 ## Install
-- [Install as Service on Unix/Linux](../gettingstarted/Unix-Service.md)
-- [Install as Service on Windows](../gettingstarted/Windows-Service.md)
+- [Install as Service on Unix/Linux](../admin/Unix-Service.md)
+- [Install as Service on Windows](../admin/Windows-Service.md)

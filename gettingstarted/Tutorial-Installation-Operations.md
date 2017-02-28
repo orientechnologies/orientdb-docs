@@ -56,9 +56,9 @@ OrientDB uses a ConcurrentLinkedHashMap implementation provided by https://githu
 ### Other Resources
 
 To learn more about how to install OrientDB on specific environments, please refer to the guides below:
-- [Install as service on Unix, Linux and MacOSX](Unix-Service.md)
-- [Install as service on Windows](Windows-Service.md)
-- [Install with Docker](Docker-Home.md)
+- [Install as service on Unix, Linux and MacOSX](../admin/Unix-Service.md)
+- [Install as service on Windows](../admin/Windows-Service.md)
+- [Install with Docker](../admin/Docker-Home.md)
 - [Install on Linux Ubuntu](http://famvdploeg.com/blog/2013/01/setting-up-an-orientdb-server-on-ubuntu/)
 - [Install on JBoss AS](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+JBoss+AS)
 - [Install on GlassFish](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+GlassFish)

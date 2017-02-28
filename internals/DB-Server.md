@@ -16,8 +16,8 @@ Starting from v1.7 OrientDB support [protected SSL connections](../security/Usin
 ## Install as a service
 OrientDB Server is part of Community and Enterprise distributions. To install OrientDB as service follow the following guides
 
-- [Unix, Linux and MacOSX](../gettingstarted/Unix-Service.md)
-- [Windows](../gettingstarted/Windows-Service.md)
+- [Unix, Linux and MacOSX](../admin/Unix-Service.md)
+- [Windows](../admin/Windows-Service.md)
 
 ## Start the server
 

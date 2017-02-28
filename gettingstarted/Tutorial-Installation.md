@@ -123,8 +123,8 @@ These commands update the execute permissions on files in the `config/` director
 
 For desktop users installing the binary, OrientDB is now installed and can be run through shell scripts found in the package `bin` directory of the installation.  For servers, there are some additional steps that you need to take in order to manage the database server for OrientDB as a service.  The procedure for this varies, depending on your operating system.
 
-- [Install as Service on Unix, Linux and Mac OS X](Unix-Service.md)
-- [Install as Service on Microsoft Windows](Windows-Service.md)
+- [Install as Service on Unix, Linux and Mac OS X](../admin/Unix-Service.md)
+- [Install as Service on Microsoft Windows](../admin/Windows-Service.md)
 
 ## Upgrading
 
@@ -154,7 +154,7 @@ OrientDB for internal components like engines, operators, factories uses Java SP
 
 To learn more about how to install OrientDB on specific environments, please refer to the guides below:
 
-- [Install with Docker](Docker-Home.md)
+- [Install with Docker](../admin/Docker-Home.md)
 - [Install on Linux Ubuntu](http://famvdploeg.com/blog/2013/01/setting-up-an-orientdb-server-on-ubuntu/)
 - [Install on JBoss AS](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+JBoss+AS)
 - [Install on GlassFish](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+GlassFish)
