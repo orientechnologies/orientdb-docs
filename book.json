@@ -43,8 +43,7 @@
     "edit-link",
     "addcssjs",
     "search",
-    "page-toc",
-    "uml"
+    "page-toc"
   ],  
   "pluginsConfig": {    
     "ga": {
@@ -98,9 +97,6 @@
     },
     "lunr": {
       "maxIndexSize": 25000000
-    },
-    "uml": {
-       "format": "png"
     }
   }
 }
