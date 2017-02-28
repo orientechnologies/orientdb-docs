@@ -23,9 +23,10 @@
 ### Improvements of storage caching for reduce latency
 
 
-### New Demo DB `Demo-DB-SocialTravelAgency`
+### New Demo DB 'Social Travel Agency'
 
-TODO
+Starting with OrientDB v.3.0 a new demo database is included. More information on the new demo database can be found [here](Tutorial-DemoDB.md).
+
 
 ## API Changes
 
