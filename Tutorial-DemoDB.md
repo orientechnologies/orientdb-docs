@@ -1,19 +1,34 @@
 
+Starting with OrientDB v.3.0 a new demo database is included.
+
+This page (which is still a work in progress) lists some of the queries that is possible to execute on the new demo db
+
 ### LOCATIONS 
 
+### Find all Attractions connected with Customer with OrderedId 1
+```
+MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions} 
+RETURN $pathelements
+```
 
-// Find all Attractions connected with Customer with OrderedId 1
-// MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions} RETURN $pathelements
+### Find all Services connected with Customer with OrderedId 1
+```
+MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services} 
+RETURN $pathelements
+```
 
-// Find all Services connected with Customer with OrderedId 1
-// MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services} RETURN $pathelements
+### Find all Locations visited by Customer with OrderedId 1
+```
+MATCH {as: n}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=1)} 
+RETURN $pathelements
+```
 
-// Find all Locations visited by Customer with OrderedId 1
-// MATCH {as: n}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=1)} RETURN $pathelements
- 
-// Find all Locations visited by Profile2 friends
-// MATCH {Class: Profiles, as: profile, where: (Id=2)}-HasFriend->{Class: Profiles, as: friend}<-HasProfile-{Class: Customers, as: customer}-HasVisited->{Class: Attractions, as: attraction} RETURN attraction.Name
- 
+### Find all Locations visited by Profile2 friends
+```
+MATCH {Class: Profiles, as: profile, where: (Id=2)}-HasFriend->{Class: Profiles, as: friend}<-HasProfile-{Class: Customers, as: customer}-HasVisited->{Class: Attractions, as: attraction} 
+RETURN attraction.Name
+```
+
 
 ### REVIEWS 
 
