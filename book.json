@@ -45,11 +45,8 @@
     "search",
     "page-toc",
     "uml"
-  ],
-  "uml": [
-    "format": "png"
-  ]
-  "pluginsConfig": {
+  ],  
+  "pluginsConfig": {    
     "ga": {
       "token": "UA-28543690-2"
     },
@@ -101,6 +98,9 @@
     },
     "lunr": {
       "maxIndexSize": 25000000
+    },
+    "uml": {
+       "format": "png"
     }
   }
 }
