@@ -151,3 +151,20 @@ MATCH
   {as: hotel}.outE('HasReview'){as: ReviewStars, where: (Stars>3)}.inV(){as: review}
 RETURN hotel, ReviewStars.Stars  
 ```
+
+test:
+
+```uml
+@startuml
+
+	Class Stage
+	Class Timeout {
+		+constructor:function(cfg)
+		+timeout:function(ctx)
+		+overdue:function(ctx)
+		+stage: Stage
+	}
+ 	Stage <|-- Timeout
+
+@enduml
+```
