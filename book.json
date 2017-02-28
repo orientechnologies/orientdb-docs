@@ -43,8 +43,12 @@
     "edit-link",
     "addcssjs",
     "search",
-    "page-toc"
+    "page-toc",
+    "uml"
   ],
+  "uml": [
+    "format": "png"
+  ]
   "pluginsConfig": {
     "ga": {
       "token": "UA-28543690-2"
