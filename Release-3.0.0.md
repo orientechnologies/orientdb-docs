@@ -73,13 +73,19 @@ IMPORTANT: in the near future `ODocument.field()` methods will be deprecated and
 
 ## SQL Changes
 
+### Changes in the CREATE INDEX statement
 CREATE INDEX T.id UNIQUE won't work anymore --> CREATE INDEX T.id ON T(id) UNIQUE is needed
 
-batch
+### Changes in the way batch script commands are separated
+
 
 statement1
 statement2
 
 wont' work anymore --> add ; after a statement
+
+### Changes in the CREATE EDGE statement
+
+Starting from 3.0, it is mandatory to create the Edge class before executing the CREATE EDGE statement. If the Edge class does not exist the CREATE EDGE statement will fail (previously it was creating the Edge class automatically)
 
 ## Migration from 2.2.x to 3.0.x
