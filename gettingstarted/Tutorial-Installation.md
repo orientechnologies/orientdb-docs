@@ -31,6 +31,58 @@ If you have Docker installed in your computer, this is the easiest way to run Or
 
 Where instead of "root", type the root's password you want to use.
 
+## Use Ansible
+
+If you manage your servers through Ansible, you can use the following role : https://galaxy.ansible.com/migibert/orientdb which is highly customizable and allows you to deploy OrientDB as a standalone instance or multiple clusterized instances.
+
+For using it, you can follow these steps :
+
+**Install the role**
+```
+ansible-galaxy install migibert.orientdb
+```
+
+**Create an Ansible inventory** 
+
+Assuming you have one two servers with respective IPs fixed at 192.168.10.5 and 192.168.10.6, using ubuntu user.
+```
+[orientdb-servers]
+192.168.20.5 ansible_ssh_user=ubuntu
+192.168.20.6 ansible_ssh_user=ubuntu
+```
+
+**Create an Ansible playbook**
+
+In this example, we provision a two node cluster using multicast discovery mode. Please note that this playbook assumes java is already installed on the machine so you should have one step before that install Java 8 on the servers
+```
+- hosts: orientdb-servers
+  become: yes
+  vars:
+    orientdb_version: 2.0.5
+    orientdb_enable_distributed: true
+    orientdb_distributed:
+      hazelcast_network_port: 2434
+      hazelcast_group: orientdb
+      hazelcast_password: orientdb
+      multicast_enabled: True
+      multicast_group: 235.1.1.1
+      multicast_port: 2434
+      tcp_enabled: False
+      tcp_members: []
+    orientdb_users:
+      - name: root
+        password: root
+         tasks:
+  - apt:
+      name: openjdk-8-jdk
+      state: present
+  roles:
+  - role: orientdb-role
+```
+
+**Run the playbook**
+`ansible-playbook -i inventory playbook.yml`
+
 
 ## Prerequisites
 
@@ -154,7 +206,8 @@ OrientDB for internal components like engines, operators, factories uses Java SP
 
 To learn more about how to install OrientDB on specific environments, please refer to the guides below:
 
-- [Install with Docker](../admin/Docker-Home.md)
+- [Install with Docker](Docker-Home.md)
+- [Install with Ansible](https://github.com/migibert/orientdb-role)
 - [Install on Linux Ubuntu](http://famvdploeg.com/blog/2013/01/setting-up-an-orientdb-server-on-ubuntu/)
 - [Install on JBoss AS](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+JBoss+AS)
 - [Install on GlassFish](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+GlassFish)
