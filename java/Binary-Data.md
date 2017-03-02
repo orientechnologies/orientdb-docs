@@ -5,16 +5,8 @@ search:
 
 # Binary Data
 
-OrientDB natively handles binary data, namely BLOB. However, there are some considerations to take into account based on the type of binary data, the size, the kind of usage, etc.
+OrientDB natively handles binary data, namely BLOB.
 
-Sometimes it's better to store binary records in a different path then default database directory to benefit of faster HD (like a SSD) or just to go in parallel if the OS and HW configuration allow this.
-
-In this case create a new [cluster](../datamodeling/Concepts.md#cluster) in a different path:
-```java
-db.addCluster("physical", "binary", "/mnt/ssd", "binary" );
-```
-
-All the records in cluster `binary` will reside in files created under the directory `/mnt/ssd`.
 
 # Techniques
 
@@ -24,9 +16,9 @@ This is the simpler way to handle binary data: store them to the file system and
 
 Example:
 ```java
-ODocument doc = new ODocument();
+ODocument doc = database.newInstance("MyClass");
 doc.field("binary", "/usr/local/orientdb/binary/test.pdf");
-doc.save();
+database.save(doc);
 ```
 
 Pros:
@@ -40,10 +32,11 @@ Cons:
 
 ODocument class is able to manage binary data in form of `byte[]` (byte array). Example:
 ```java
-ODocument doc = new ODocument();
+ODocument doc = database.newInstance("MyClass");
 doc.field("binary", "Binary data".getBytes());
-doc.save();
+database.save(doc);
 ```
+
 
 This is the easiest way to keep the binary data inside the database, but it's not really efficient on large BLOB because the binary content is serialized in Base64. This means a waste of space (33% more) and a run-time cost in marshalling/unmarshalling.
 
@@ -63,47 +56,29 @@ The `ORecordBytes` class is a record implementation able to store binary content
 
 Example:
 ```java
-ORecordBytes record = new ORecordBytes("Binary data".getBytes());
-record.save();
+OBlob record = database.newBlob("Binary data".getBytes());
+database.save(record);
 ```
 
 Since this is a separate record, the best way to reference it is to link it to a Document record. Example:
 ```java
-ORecordBytes record = new ORecordBytes("Binary data".getBytes());
-
+OBlob record = database.newBlog("Binary data".getBytes());
 ODocument doc = new ODocument();
 doc.field("id", 12345);
 doc.field("binary", record);
-doc.save();
+database.save(doc);
 ```
 
 In this way you can access to the binary data by traversing the `binary` field of the parent's document record.
 ```java
-ORecordBytes record = doc.field("binary");
+OBlob record = doc.field("binary");
 byte[] content = record.toStream();
-```
-
-You can manipulate directly the buffer and save it back again by calling the `setDirty()` against the object:
-```java
-byte[] content = record.toStream();
-content[0] = 0;
-record.setDirty();
-record.save();
-```
-
-Or you can work against another `byte[]`:
-```java
-byte[] content = record.toStream();
-byte[] newContent = new byte[content*2];
-System.arrayCopy(content, 0, newContent, 0, content.length);
-record.fromStream(newContent);
-record.setDirty();
-record.save();
 ```
 
 `ORecordBytes` class can work with Java Streams:
 ```java
-ORecordBytes record = new ORecordBytes().fromInputStream(in);
+OBlob record = database.newBlob();
+record.fromInputStream(in);
 record.toOutputStream(out);
 ```
 
