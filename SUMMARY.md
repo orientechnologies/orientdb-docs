@@ -28,6 +28,7 @@
   * [Run the Studio](gettingstarted/Tutorial-Run-the-studio.md)  
   * [Documents, Vertices and Edges](misc/Documents-Vertices-Edges.md)
   * [Classes, Schema and Constraints](gettingstarted/Tutorial-Classes.md)
+  * [Demo Database](gettingstarted/DemoDB.md)
   * [Basic SQL](gettingstarted/Tutorial-SQL.md)
   * [Users, Roles and Security](gettingstarted/Database-Security.md)
   * [Distributed Architecture](distributed/Distributed-Architecture.md) 

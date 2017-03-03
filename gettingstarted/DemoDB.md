@@ -10,7 +10,7 @@ This page (which is still a work in progress) lists some of the queries that is 
 
 Data model is reported in the image below:
 
-![](images/demo-dbs/social-travel-agency/DataModel.png)
+![](../images/demo-dbs/social-travel-agency/DataModel.png)
 
 
 ## Inheritance
