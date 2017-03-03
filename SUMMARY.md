@@ -23,6 +23,7 @@
     * [Migration From 1.4.x to 1.5.x](release/Migration-from-1.4.x-to-1.5.x.md) 
     * [Migration From 1.3.x to 1.4.x](release/Migration-from-1.3.x-to-1.4.x.md)
 * [Getting Started](gettingstarted/Getting-Started.md)
+  * [Installation](gettingstarted/Tutorial-Installation.md)
   * [Run the server](gettingstarted/Tutorial-Run-the-server.md) 
   * [Run the console](gettingstarted/Tutorial-Run-the-console.md) 
   * [Run the Studio](gettingstarted/Tutorial-Run-the-studio.md)  
