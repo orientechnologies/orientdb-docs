@@ -5,7 +5,10 @@ search:
 
 # Document API
 
-The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Graph Database](Graph-Database-Tinkerpop.md).  The Document API supports:
+> In case of embedded GroupId: **com.orientechnologies**  ArtifactId: **orientdb-core**
+> In case of remote GroupId: **com.orientechnologies**  ArtifactId: **orientdb-client**
+
+The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Tinkerpop Graph](Graph-Database-Tinkerpop.md).  The Document API supports:
 
 - [Multi-thread Access](#Multi-threading)
 - [Transactions](../internals/Transactions.md)
@@ -32,16 +35,6 @@ db.save(doc);
 db.close();
 orientDB.close();
 ```
-
-In order to use the Document API, you must include the following jars in your classpath:
-
-
-- `orientdb-core-*.jar`
-- `concurrentlinkedhashmap-lru-*.jar`
-
-Additionally, in the event that you would like to interface with the Document API on a remote server, you also need to include these jars:
-
-- `orientdb-enterprise-*.jar`
 
 >For more information, see
 >

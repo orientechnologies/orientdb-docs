@@ -5,33 +5,8 @@ search:
 
 # Graph API
 
-OrientDB follows the [TinkerPop Blueprints](https://github.com/tinkerpop/blueprints) standard and uses it as the default for the Java Graph API.
+> GroupId: **com.orientechnologies**  ArtifactId: **orientdb-graphdb**
 
-When you install OrientDB, it loads a number of Java libraries in the `$ORIENTDB_HOME/lib` directory.  In order to use the Graph API, you need to load some of these JAR files into your class-path.  The specific files that you need to load varies depending on what you want to do.
-
-To use the Graph API, load the following JAR's:
-- `orientdb-core-*.jar`
-- `blueprints-core-*.jar`
-- `orientdb-graphdb-*.jar`
-
-You may also benefit from these third-party JAR's:
-- `jna-*.jar`
-- `jna-platform-*.jar`
-- `concurrentlinkedhashmap-lru-*.jar`
-
-If you need to connect to a remote server, (as opposed to connecting in Local PLocal or Memory modes), you need to include these JAR's:
-- `orientdb-client-*.jar`
-- `orientdb-enterprise-*.jar`
-
-To use the [TinkerPop Pipes](http://wiki.github.com/tinkerpop/pipes) tool, include this JAR:
-- `pipes-*.jar`
-
-To use the [TinkerPop Gremlin](http://wiki.github.com/tinkerpop/gremlin) language, include these JAR's:
-- `gremlin-java-*.jar`
-- `gremlin-groovy-*.jar`
-- `groovy-*.jar`
-
->Bear in mind, beginning with version 2.0, OrientDB disables  [Lightweight Edges](Lightweight-Edges.md) by default when it creates new databases.
 
 ## Introduction
 
@@ -56,7 +31,7 @@ OrientDB supports three different kinds of storages, depending on the [Database 
 - **In-Memory Embedded Graph Database**: Keeps all data in memory.  Use the `memory` prefix, for instance `memory:test`.
 - **Persistent Remote Graph Database** Uses a binary protocol to send and receive data from a remote OrientDB server.  Use the `remote` prefix, for instance `remote:localhost/test` Note that this requires an OrientDB server instance up and running at the specific address, (in this case, localhost).  Remote databases can be persistent or in-memory as well.
 
-In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](../datamodeling/Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.  
+In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](../datamodeling/Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.
 
 >**NOTE**: When creating a database through the Graph API, you can only create PLocal and Memory databases.  Remote databases must already exist.
 

@@ -17,7 +17,7 @@ Additionally, OrientDB introduces a few variants to Blueprint methods for workin
 
 ### Creating Vertices and Edges in Specific Clusters
 
-By default, each class has one cluster with the same name.  You can add multiple clusters to the class, allowing OrientDB to write vertices and edges on multiple files.  Furthermore, when working in [Distributed Mode](../distributed/Distributed-Architecture.md), you can configure different servers to manage each cluster.
+By default, each class has one cluster with the same name.  You can add multiple clusters to the class, allowing OrientDB to write vertices and edges on multiple files.
 
 For instance,
 
@@ -185,12 +185,12 @@ graph.getRawGraph().getMetadata().getSchema().reload();
 To execute multiple SQL commands in a batch, use the `OCommandScript` and SQL as the language.  This is recommended when creating edges on the server-side, to minimize the network roundtrip.
 
 ```java
-String cmd = "BEGIN\n";
-cmd += "LET a = CREATE VERTEX SET script = true\n";
-cmd += "LET b = SELECT FROM V LIMIT 1\n";
-cmd += "LET e = CREATE EDGE FROM $a TO $b RETRY 100\n";
-cmd += "COMMIT\n";
-cmd += "return $e";
+String cmd = "BEGIN;";
+cmd += "LET a = CREATE VERTEX SET script = true;";
+cmd += "LET b = SELECT FROM V LIMIT 1;";
+cmd += "LET e = CREATE EDGE FROM $a TO $b RETRY 100;";
+cmd += "COMMIT;";
+cmd += "return $e;";
 
 OIdentifiable edge = graph.command(new OCommandScript("sql", cmd)).execute();
 ```
@@ -224,13 +224,12 @@ The TinkerPop Blueprints API is quite raw and doesn't provide ad hoc methods for
 - Getting incoming and outgoing vertices without browsing the edges.
 - Executing a query using an SQL-like language integrated in the engine.
 
-The [`OrientGraph`](https://github.com/orientechnologies/orientdb/blob/master/graphdb/src/main/java/com/tinkerpop/blueprints/impls/orient/OrientGraph.java) class provides the method `.getRawGraph()` to return the underlying Document database. For instance,
+The [`OrientGraph`]({javadoc}com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class provides the method `.getRawGraph()` to return the underlying Document database. For instance,
 
 ```java
 final OrientGraph graph = new OrientGraph("plocal:C:/temp/graph/db");
 try {
-  List<ODocument> result = graph.getRawGraph().query(
-            new OSQLSynchQuery("SELECT FROM V WHERE color = 'red'"));
+  OResultSet result = graph.getRawGraph().query("SELECT FROM V WHERE color = 'red'");
 } finally {
   graph.shutdown();
 }
