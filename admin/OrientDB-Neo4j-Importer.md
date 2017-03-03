@@ -362,7 +362,7 @@ Note that the property _Neo4jLabelList_ has an index on it.
 
 ## Migration Example
 
-A complete example of a migration from Neo4j to OrientDB using the _Neo4j to OrientDB Importer_ can be found in the section [Tutorial: Importing the *northwind* Database from Neo4j](Tutorial-Importing-the-northwind-Database-from-Neo4j.md).
+A complete example of a migration from Neo4j to OrientDB using the _Neo4j to OrientDB Importer_ can be found in the section [Tutorial: Importing the *northwind* Database from Neo4j](../gettingstarted/tutorials/Tutorial-Importing-the-northwind-Database-from-Neo4j.md).
 
 
 ## Roadmap
