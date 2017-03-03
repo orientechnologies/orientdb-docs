@@ -458,5 +458,5 @@
   * [Binary Protocol](internals/Network-Binary-Protocol.md) 
     * [CSV Serialization](internals/Record-CSV-Serialization.md) 
     * [Schemaless Serialization](internals/Record-Schemaless-Binary-Serialization.md) 
-    * [Commands](internals/Network-Binary-Protocol-Commands.md) 
-    
+    * [Commands](internals/Network-Binary-Protocol-Commands.md)     
+* [Release Notes](release/Release-Notes.md)
