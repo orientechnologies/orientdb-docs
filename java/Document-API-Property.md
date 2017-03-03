@@ -9,16 +9,12 @@ Properties are the fields in a class.  Generally, you can consider properties as
 
 ## Working with Properties
 
-Much as you can define properties using SQL, you can also define them through the Document API.
-
-
 ### Creating Properties
 
 Once you have created a class, you can create properties on that class.  For instance,
 
 ```java
-OClass account = database.getMetadata().getschema()
-   .createClass("Account");
+OClass account = database.createClass("Account");
 account.createProperty("id", OType.INTEGER);
 account.createProperty("birthDate", OType.DATE);
 ```
@@ -31,17 +27,14 @@ Bear in mind, the property must belong to a [Type](../general/Types.md).
 To drop persistent class properties, use the `OClass.dropProperty(String)` method.  For instance,
 
 ```java
-database.getMetadata().getSchema().getClass("Account)
-   .dropProperty("name");
+database.getClass("Account).dropProperty("name");
 ```
 
 When you drop properties using this method, note that doing so does not result in your removing records unless you explicitly do so.  In order to do so, you need to issue an SQL command through the application to run an [`UPDATE...REMOVE`](../sql/SQL-Update.md) statement.  For instance,
 
 ```java
-database.getMetadata().getSchema().getClass("Account")
-   .dropProperty("name");
-database.command(new OCommandSQL(
-   "UPDATE Account REMOVE name")).execute();
+database.getClass("Account").dropProperty("name");
+database.command("UPDATE Account REMOVE name");
 ```
 
 ## Working with Relationships
@@ -70,12 +63,10 @@ Here, *Record A* contains a reference to *Record B* in the property `customer`, 
 In the case of one-to-one and many-to-one Referenced Relationships, you can express them through the `LINK` type.  For instance, using the Document API:
 
 ```java
-OCLass customer = database.getMetadata().getSchema()
-   .createClass("Customer");
+OCLass customer = database.createClass("Customer");
 customer.createProperty("name", OType.STRING);
 
-OClass invoice = database.getMetadata().getSchema()
-   .createClass("Invoice");
+OClass invoice = database.createClass("Invoice");
 invoice.createProperty("id", OType.INTEGER);
 invoice.createProperty("date", OType.DATE);
 invoice.createProperty("customer", OType.LINK, customer);
@@ -95,18 +86,15 @@ In one-to-many and many-to-many Referenced Relationships, you can express the re
 For instance, in the case of a one-to-many relationship between the classes `Order` and `OrderItem`:
 
 ```java
-OClass orderItem = db.getMetadata().getSchema
-   .createClass("OrderItem");
+OClass orderItem = db.createClass("OrderItem");
 orderItem.createProperty("id", OType.INTEGER);
 orderItem.createProperty("animal", Otype.LINK, animal);
 
-OClass order = db.getMetadata().getSchema()
-   .createClass("Order");
+OClass order = db.createClass("Order");
 order.createProperty("id", OType.INTEGER);
 order.createProperty("date", OType.DATE);
 order.createProperty("item", OType.LINKLIST, orderItem);
 
-db.getMetadata().getSchema().save();
 ```
 
 
@@ -134,11 +122,9 @@ orientdb> <code class="lang-sql userinput">SELECT FROM account WHERE address.cit
 In one-to-one and many-to-one relationships, use the `EMBEDDED` type.  For instance,
 
 ```java
-OClass address = database.getMetadata().getSchema()
-   .createClass("Address");
+OClass address = database.createClass("Address");
 
-OClass account = database.getMetadata().gtschema()
-   .createClass("Account");
+OClass account = database.createClass("Account");
 account.createProperty("id", OType.INTEGER);
 account.createProperty("birthDate", OType.DATE);
 account.createProperty("address", OType.EMBEDDED, address);
@@ -157,17 +143,14 @@ In the cases of one-to-many and many-to-many relationships , use embedded link c
 For instance, consider a one-to-many relationship between `Order` and `OrderItem`:
 
 ```java
-OClass orderItem = db.getMetadata().getSchema()
-   .createClass("OrderItem");
+OClass orderItem = db.createClass("OrderItem");
 orderItem.createProperty("id", OType.INTEGER);
 orderITem.createProperty("animal", OType.LINK, animal);
 
-OClass order = db.getMetadata().getSchema()
-   .createClass("Order");
+OClass order = db.createClass("Order");
 order.createProperty("id", OType.INTEGER);
 order.createProperty("date", OType.DATE);
-order.createProperty("items", OType.EMBEDDEDLIST, 
-   orderItem);
+order.createProperty("items", OType.EMBEDDEDLIST, orderItem);
 ```
 
 ## Working with Constraints
@@ -179,7 +162,7 @@ OrientDB supports a number of constrains on each property:
 - **Mandatory**: `setMandatory()` Defines a required property.
 - **Read Only**: `setReadonly()` Defines whether you can update the property after creating it.
 - **Not Null**: `setNotNull()` Defines whether property can receive null values.
-- **Unique**: `setUnique()` Defines whether property rejects duplicate values.  Note: Using this constraint can speed up searches made against this property. 
+- **Unique**: `setUnique()` Defines whether property rejects duplicate values.  Note: Using this constraint can speed up searches made against this property.
 - **Regular Expression** `setRegexp()` Defines whether the property must satisfy the given regular expression.
 
 For instance, consider the properties you might set on the `Profile` class for a social networking service.

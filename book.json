@@ -6,6 +6,7 @@
     "download_linux": "http://mkt.orientdb.com/CE-2217-linux",
     "download_windows": "http://mkt.orientdb.com/CE-2217-windows",
     "download_multiOS": "http://mkt.orientdb.com/CE-2217-multiOS",
+    "javadoc":"http://orientdb.com/javadoc/latest/",
     "lastGA": "2.2.17",
     "currentVersion": "3.0.0-SNAPSHOT"
   },
