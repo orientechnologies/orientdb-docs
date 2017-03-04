@@ -43,7 +43,7 @@
     * [Key Value](gettingstarted/Key-Value-use-case.md) 
     * [Queue system](gettingstarted/Queue-use-case.md)    
     * [More Tutorials](gettingstarted/Quick-Start.md) 
-	* [Import Tutorials](Import-Tutorials.md)
+	* [Import Tutorials](gettingstarted/tutorials/Import-Tutorials.md)
 	   * [Importing the Open Beer Database into OrientDB](gettingstarted/tutorials/Import-the-Database-of-Beers.md) 
 	   * [Importing the *northwind* Database from Neo4j](gettingstarted/tutorials/Tutorial-Importing-the-northwind-Database-from-Neo4j.md)
        * [Importing the *movie* Database from Neo4j](gettingstarted/tutorials/Tutorial-Importing-the-Movie-Database-from-Neo4j.md) 
