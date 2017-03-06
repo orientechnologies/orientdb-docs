@@ -22,10 +22,6 @@ You can then use the `$clusterMap` object in calling additional methods.
 | [**`count()`**](#count) | |
 | [**`dropClusterID()`**](PHP-ClusterMap-dropClusterID.md) | |
 | [**`getIdList()`**](PHP-ClusterMap-getIdList.md) | |
-| [**`offsetExists()`**](PHP-ClusterMap-offsetExists.md) | |
-| [**`offsetGet()`**](PHP-ClusterMap-offsetGet.md) | |
-| [**`offsetSet()`**](PHP-ClusterMap-offsetSet.md) | |
-| [**`offsetUnset()`**](PHP-ClusterMap-offsetUnset.md) | |
 
 
 ### `count()`
