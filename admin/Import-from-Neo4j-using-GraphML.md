@@ -221,5 +221,5 @@ By default, OrientDB updates the import to use its own ID's for vertices.  If yo
 
 ## Example
 
-A complete example of a migration from Neo4j to OrientDB using the GraphML  method can be found in the section [Tutorial: Importing the *movie* Database from Neo4j](Tutorial-Importing-the-Movie-Database-from-Neo4j.md).
+A complete example of a migration from Neo4j to OrientDB using the GraphML  method can be found in the section [Tutorial: Importing the *movie* Database from Neo4j](../gettingstarted/tutorials/Tutorial-Importing-the-Movie-Database-from-Neo4j.md).
 

@@ -9,7 +9,7 @@ The Class is a concept taken from the Object-Oriented Programming paradigm.  In 
 
 Classes can inherit from other classes.  Inheritance means that the sub-class extends the parent class, inheriting all its attributes as if they were its own.
 
-Each class has its own clusters.  These are either logical or physical.  By default, they are logical.  A class must have at least one defined cluster as its default cluster, but can support multiple clusters.  OrientDB writes new records in the default cluster, but reads always involve all defined clusters.
+Each class has its own clusters. A class must have at least one defined cluster as its default cluster, but can support multiple clusters.  OrientDB writes new records in the default cluster, but reads always involve all defined clusters.
 
 When you create a new class, OrientDB creates a new physical cluster with it, which has the same name, but set in lowercase.
 
@@ -21,16 +21,13 @@ Each class contains one or more properties, (which are also called fields).  Thi
 For instance, consider the use case of creating an `Account` class through the Java API.  By default, new [Physical Clusters](../datamodeling/Concepts.md#physical-cluster) are created to store the class instances.
 
 ```java
-OClass account = database.getMetadata().getSchema()
-   .createClass("Account");
+OClass account = database.createClass("Account");
 ```
 
 To create a new vertex or edge type, you need to extend the `V` or `E` classes, respectively.  For example,
 
 ```java
-OClass person = database.getMetadata().getSchema()
-   .createClass("Account", database.getMetadata()
-      .getSchema().getClass("V"));
+OClass person = database.createVertexClass("Account");
 ```
 
 For more information, see [Graph Schema](Graph-Schema.md).
@@ -40,24 +37,15 @@ For more information, see [Graph Schema](Graph-Schema.md).
 To retrieve persistent classes, use the `.getClass(String)` method.  If the class does not exist, the method returns a null value.
 
 ```java
-OClass account = database.getMetadata().getSchema()
-   .getClass("Account");
+OClass account = database.getClass("Account");
 ```
 
 ## Dropping Persistent Classes
 
-To drop a persistent class use the `OSchema.dropClass(String)` method.  For instance,
+To drop a persistent class use the `OSchema.dropClass(String)` method, this will remove all persistent records of the class.  For instance,
 
 ```java
-database.getMetadata(0.getSchema.dropClass("Account");
-```
-
-When you use this method, OrientDB does not remove records from the removed class unless you explicitly delete them before dropping the class.  For instance,
-
-```java
-database.command(new OCommandSQL("DELETE FROM Account")
-   .execute()
-database.getMetadate().getSchema.dropClass("Account");
+database.getMetadata().getSchema().dropClass("Account");
 ```
 
 ## Constraints

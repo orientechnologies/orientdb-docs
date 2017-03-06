@@ -5,7 +5,10 @@ search:
 
 # Document API
 
-The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Graph Database](Graph-Database-Tinkerpop.md).  The Document API supports:
+> In case of embedded GroupId: **com.orientechnologies**  ArtifactId: **orientdb-core**
+> In case of remote GroupId: **com.orientechnologies**  ArtifactId: **orientdb-client**
+
+The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Tinkerpop Graph](Graph-Database-Tinkerpop.md).  The Document API supports:
 
 - [Multi-thread Access](#Multi-threading)
 - [Transactions](../internals/Transactions.md)
@@ -13,12 +16,10 @@ The Document Database in OrientDB is the foundation of higher level implementati
 - [Traverse](Document-API-Documents.md#traversing-documents)
 
 
-It is also very flexible and can be used in schema-full, schema-less or mixed schema modes.
-
 ```java
 // OPEN THE DATABASE
-ODatabaseDocumentTx db = new ODatabaseDocumentTx(
-   "remote:localhost/petshop").open("admin", "admin_passwd");
+OrientDB orientDB = new OrientDB("remote:localhost");
+ODatabaseDocument db = orientDB.open("petshop","admin", "admin_passwd");
 
 // CREATE A NEW DOCUMENT AND FILL IT
 ODocument doc = new ODocument("Person");
@@ -29,23 +30,11 @@ doc.field( "city", new ODocument("City")
    .field("country", "Italy") );
 
 // SAVE THE DOCUMENT
-doc.save();
+db.save(doc);
 
 db.close();
+orientDB.close();
 ```
-
-Bear in mind, in this example that we haven't declared the `Person` class previously.  When you save this `ODocument` instance, OrientDB creates the `Person` class without constraints.  For more information on declaring persistent classes, see [Schema Management](../general/Schema.md).
-
-In order to use the Document API, you must include the following jars in your classpath:
-
-
-- `orientdb-core-*.jar`
-- `concurrentlinkedhashmap-lru-*.jar`
-
-Additionally, in the event that you would like to interface with the Document API on a remote server, you also need to include these jars:
-
-- `orientdb-client-*.jar`
-- `orientdb-enterprise-*.jar`
 
 >For more information, see
 >
@@ -59,9 +48,8 @@ Additionally, in the event that you would like to interface with the Document AP
 In order to work with documents in your application, you first need to open a database and create an instance in your code.  For instance, when opening on localhost through the `remote` interface, you might use something like this:
 
 ```java
-ODatabaseDocumentTx db = new ODatabaseDocumentTx
-   ("remote:localhost/petshop")
-   .open("admin", "admin_passwd");
+OrientDB orientDB = new OrientDB("remote:localhost");
+ODatabaseDocument db = orientDB.open("petshop","admin", "admin_passwd");
 ```
 
 Once you have the database open, you can create, update and delete documents, as well as query document data to use in your application.
@@ -178,7 +166,7 @@ OrientDB manages transactions at the database-level.  Currently, it does not sup
 
 In its current release, OrientDB uses [Optimistic Transactions](../internals/Transactions.md#optimistic-transactions), in which no lock is kept and all operations are checked on the commit.  This improves concurrency, but can throw an `OConcurrentModificationException` exception in cases where the records are modified by concurrent client threads.  In this scenario, the client code can reload the updated records and repeat the transaction.
 
-When optimistic transactions run, they keep all changes in memory on the client.  If you're using remote storage, it sends no changes to the server until you call the `commit()` method.  All changes transfer in a block to reduce network latency, speed up the execution and increase concurrency.  This differs from most Relational Databases, where changes are sent immediately to the server during transactions.
+When optimistic transactions run, all changes are kept in memory.  If you're using remote storage, the changes are sent to the server only when you executed a query or you call the `commit()` method.  All changes transfer in a block to reduce network latency, speed up the execution and increase concurrency.  This differs from most Relational Databases, where changes are sent immediately to the server during transactions.
 
 
 ### Usage
@@ -188,68 +176,36 @@ OrientDB commits transactions only when you call the `commit()` method and no er
 For instance,
 
 ```java
-ODatabaseDocumentTx db = new ODatabaseDocumentTx(url);
-db.open("admin", "admin_passwd");
+OrientDB orientDB = new OrientDB("memory:localhost");
 
-db.begin();
-try {
+try (ODatabaseDocument db = orientDB.open("petshop","admin", "admin_passwd")) {
+  db.begin();
   // YOUR CODE
   db.commit();
-} finally {
-  db.close();
 }
+
+orientDB.close();
 ```
 
 ## Index API
 
-While you can set up and configure [Indices](../indexing/Indexes.md) through SQL, the recommended and most efficient way is through the Java API.
+> See also [SQL Indices](../indexing/Indexes.md).
 
-The main class to use when working with indices is the [`OIndexManager`](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/index/OIndexManager.html)
+You can declare an index on a property or a group of properties this will make orient automatically index the documents of the specific class with the specific properties and automatically use the index in the queries, the way to declare this indexes is through the `OClass` and `OProperty` API.
 
-```java
-OIndexManager idxManager = database.getMetadata().getIndexManager();
+Index on a single property, For instance,
 ```
-
-The Index Manager allows you to manage the index life-cycle for creating, deleting and retrieving index instances.  The most common usage is through a single index.  You can get the index reference:
-
-```java
-OIndex<?> idx = database.getMetadata().getIndexManager()
-   .getIndex("Profile.name");
+OClass animalClass = database.getClass("Animal");
+OProperty nameProp = animalClass.getProperty("name");
+nameProp.createIndex(OClass.INDEX_TYPE.NOTUNIQUE);
 ```
+This example will use as index name `<class-name>.<property-name>`
 
-Here, `Profile.name` is the index name.  By default, OrientDB assigns the name as `<class-name>.<property-name>` for automatic indices created against the class property.
+Index on multiple properies, For Instance,
 
-The [`OIndex`](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/index/OIndex.html) interface is similar to a Java Map and provides methods to get, put, remove and count items.
-
-Below are examples of retrieving records using a `UNIQUE` index against aname field and a `NOTUNIQUE` index against the gender field:
-
-
-```java
-OIndex<?> nameIdx = database.getMetadata().getIndexManager()
-   .getIndex("Profile.name");
-
-// THIS IS A UNIQUE INDEX, SO IT RETRIEVES A OIdentifiable
-OIdentifiable luke = nameIdx.get("Luke");
-if( luke != null )
-   printRecord((ODocument) luke.getRecord());
-
-OIndex<?> genderIdx = database.getMetadata().getIndexManager()
-   .getIndex("Profile.gender");
-
-// THIS IS A NOTUNIQUE INDEX, SO IT RETRIEVES A Set<OIdentifiable>
-Set<OIdentifiable> males = genderIdx.get( "male" );
-for (OIdentifiable male : males)
-   printRecord((ODocument) male.getRecord());
 ```
-
-OrientDB manages automatic indices using hooks, you can use manual indices to store values.  To create a new entry, use the `put()` method:
-
-
-```java
-OIndex<?> addressbook = database.getMetadata().getIndexManager()
-   .getIndex("addressbook");
-
-addressbook.put( "Luke", new ODocument("Contact").field( "name", "Luke" );
+OClass animalClass = database.getClass("Animal");
+animalClass.createIndex("index_name", OClass.INDEX_TYPE.NOTUNIQUE, "name","location");
 ```
 
 
