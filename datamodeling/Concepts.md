@@ -11,14 +11,14 @@ search:
 
 The smallest unit that you can load from and store in the database.  Records come in four types:
 
-- Document
-- RecordBytes
-- Vertex
-- Edge
+- Documents
+- Blobs
+- Vertices
+- Edges
 
 
 
-A **Record** is the smallest unit that can be loaded from and stored into the database. A record can be a Document, a RecordBytes record (BLOB) a Vertex or even an Edge.
+A **Record** is the smallest unit that can be loaded from and stored into the database. A record can be a Document, a Blob a Vertex or even an Edge.
 
 ### Document
 
@@ -78,7 +78,7 @@ When OrientDB generates a record, it auto-assigns a unique unit identifier, call
 
 >**NOTE**: The prefix character `#` is mandatory to recognize a Record ID.
 
-Records never lose their identifiers unless they are deleted.  When deleted, OrientDB never recycles identifiers, except with `local` storage.  Additionally, you can access records directly through their Record ID's.  For this reason, you don't need to create a field to serve as the primary key, as you do in Relational databases.
+Records never lose their identifiers unless they are deleted.  When deleted, OrientDB never recycles identifiers.  Additionally, you can access records directly through their Record ID's.  For this reason, you don't need to create a field to serve as the primary key, as you do in Relational databases.
 
 ## Record Version
 
@@ -91,9 +91,12 @@ The concept of the Class is taken from the [Object Oriented Programming](http://
 
 Classes can be schema-less, schema-full or a mix.  They can inherit from other classes, creating a tree of classes.  [Inheritance](http://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29), in this context, means that a sub-class extends a parent class, inheriting all of its attributes.
 
-Each class has its own [cluster](Concepts.md#cluster).  A class must have at least one cluster defined, which functions as its default cluster.  But, a class can support multiple clusters.  When you execute a query against a class, it automatically propagates to all clusters that are part of the class.  When you create a new record, OrientDB selects the cluster to store it in using a [configurable strategy](../misc/Cluster-Selection.md).
+Each class has its own [clusters (data files)](Concepts.md#cluster).  A non-abstract class (see below) must have at least one cluster defined, which functions as its default cluster.  But, a class can support multiple clusters.  When you execute a query against a class, it automatically propagates to all clusters that are part of the class.  When you create a new record, OrientDB selects the cluster to store it in using a [configurable strategy](../misc/Cluster-Selection.md).
 
-When you create a new class, by default, OrientDB creates a new [persistent cluster](Concepts.md#physical_cluster) with the same name as the class, in lowercase.
+When you create a new class, by default, OrientDB creates new [persistent clusters](Concepts.md#physical_cluster) with the same name as the class, in lowercase, suffixed with underscore and an integer.
+As a default, OrientDB creates as many clusters per class as many cores (processors) the host machine has.
+
+Eg. for class `Person`, OrientDB will create clusters `person`, `person_1`, `person_2` and so on so forth.
 
 ### Abstract Class
 
@@ -129,11 +132,11 @@ orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:invoice2012</code
 Due to the optimization, this query runs significantly faster, because OrientDB can narrow the search to the targeted cluster.
 
 
-## Cluster
+## Cluster (data file)
 
-Where classes in provide you with a logical framework for organizing data, clusters provide physical or in-memory space in which OrientDB actually stores the data.  It is comparable to the collection in Document databases and the table in Relational databases.
+Where classes provide you with a logical framework for organizing data, clusters provide physical or in-memory space in which OrientDB actually stores the data.  It is comparable to the collection in Document databases and the table in Relational databases.
 
-When you create a new class, the [`CREATE CLASS`](../sql/SQL-Create-Class.md) process also creates a physical cluster that serves as the default location in which to store data for that class.  OrientDB forms the cluster name using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
+When you create a new class, the [`CREATE CLASS`](../sql/SQL-Create-Class.md) process also creates physical clusters that serve as the default location in which to store data for that class.  OrientDB forms the cluster names using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
 
 >For more information, see the [Clusters Tutorial](Tutorial-Clusters.md).
 
@@ -223,12 +226,6 @@ test$customers -> test/customers
 production$customers = production/customers
 ```
 
-To open the database, use the following code:
-
-```java
-test = new ODatabaseDocumentTx("remote:localhost/test$customers");
-production = new ODatabaseDocumentTx("remote:localhost/production$customers");
-```
 ### Database URL
 
 OrientDB uses its own [URL](http://en.wikipedia.org/wiki/Uniform_Resource_Locator) format, of engine and database name as `<engine>:<db-name>`.
