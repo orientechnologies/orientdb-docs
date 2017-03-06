@@ -36,68 +36,12 @@ Backing current database to: database mydb.zip
 Backup executed in 0.52 seconds
 </pre>
 
-## Backup API
-
-In addition to backups called through the Console, you can also manage backups through the Java API. Using this, you can perform either a full or incremental backup on your database.
-
-### Full Backup
-
-In Java or any other language that runs on top of the JVM, you can initiate a full backup by using the `backup()` method on a database instance.
-
-```java
-db.backup(out, options, callable, listener, compressionLevel, bufferSize);
-```
-
-- **`out`** Refers to the `OutputStream` that it uses to write the backup content.  Use a `FileOutputStream` to make the backup persistent on disk.
-- **`options`** Defines backup options as a `Map<String, Object>` object.
-- **`callable`** Defines the callback to execute when the database is locked.
-- **`listener`** Defines the listened called for backup messages.
-- **`compressionLevel`** Defines the level of compression for the backup.  It supports levels between `0` and `9`, where `0` equals no compression and `9` the maximum.  Higher compression levels do mean smaller files, but they also mean the backup requires more from the CPU at execution time.
-- **`bufferSize`** Defines the buffer size in bytes.  The larger the buffer, the more efficient the comrpession.
-
-**Example:**
-
-```java
-ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/temp/mydb");
-db.open("admin", "admin");
-try{
-  OCommandOutputListener listener = new OCommandOutputListener() {
-    @Override
-    public void onMessage(String iText) {
-      System.out.print(iText);
-    }
-  };
-
-  OutputStream out = new FileOutputStream("/temp/mydb.zip");
-  db.backup(out,null,null,listener,9,2048);
-} finally {
-   db.close();
-}
-```
 
 ### Incremental Backup
 
-As of version 2.2, [OrientDB Enterprise Edition](../ee/Enterprise-Edition.md) supports incremental backups executed through Java or any language that runs on top of the JVM, using the `incrementalBackup()` method against a database instance.
+Since version 2.2, [OrientDB Enterprise Edition](../ee/Enterprise-Edition.md) supports incremental backups.
+For more details see [Incremental Backup and Restore](../admin/Incremental-Backup-And-Restore.md) 
 
-```java
-db.incrementalBackup(backupDirectory);
-```
-
-- **`backupDirectory`** Defines the directory where it generates the incremental backup files.  
-
-It is important that previous incremental backup files are present in the same directory, in order to compute the database portion to back up, based on the last incremental backup.
-
-**Example:**
-
-```java
-ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/temp/mydb");
-db.open("admin", "admin");
-try{
-  db.backup("/var/backup/orientdb/mydb");
-} finally {
-   db.close();
-}
-```
 
 >For more information, see:
 

@@ -9,7 +9,7 @@ search:
 
 Closes a transaction, committing the changes you have made to the database.  Use the [`BEGIN`](Console-Command-Begin.md) command to open a transaction. If you don't want to save the changes you've made, use the [`ROLLBACK`](Console-Command-Rollback.md) command to revert the database state back to the point where you opened the transaction.
 
->For more information, see [Transactions](../internals/Transactions.md).
+>For more information, see [Transactions](../../internals/Transactions.md).
 
 **Syntax**
 
@@ -36,7 +36,7 @@ COMMIT
   before starting a new one.
   </pre>
 
-- Insert data into the class `Account`, using an [`INSERT`](../sql/SQL-Insert.md) statement:
+- Insert data into the class `Account`, using an [`INSERT`](../../sql/SQL-Insert.md) statement:
 
   <pre>
   orientdb> <code class="lang-sql userinput">INSERT INTO Account (name) VALUES ('tx test')</code>
@@ -52,7 +52,7 @@ COMMIT
   Transaction 2 has been committed in 4ms
   </pre>
 
-- Display the new content, using a [`SELECT`](../sql/SQL-Query.md) query:
+- Display the new content, using a [`SELECT`](../../sql/SQL-Query.md) query:
 
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM Account WHERE name LIKE 'tx%'</code>
@@ -70,7 +70,7 @@ When a transaction is open, all new records use a temporary Record ID that featu
 
 >For more information, see
 >
->- [Transactions](../internals/Transactions.md)
+>- [Transactions](../../internals/Transactions.md)
 >- [`BEGIN`](Console-Command-Begin.md)
 >- [`ROLLBACK`](Console-Command-Rollback.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](../Console-Commands.md)

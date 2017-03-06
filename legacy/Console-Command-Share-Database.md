@@ -33,4 +33,4 @@ Connecting to remote Server instance [remote:localhost:2424] with user 'root'...
 Database 'demo' has been shared in 'synch' mode with '127.0.0.1:2425' the server 127.0.0.1:2425
 ```
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+This is a command of the Orient console. To know all the commands go to [Console-Commands](../console/Console-Commands.md).

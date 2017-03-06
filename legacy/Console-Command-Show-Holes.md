@@ -44,4 +44,4 @@ Found 20 holes in database demo:
 +----------------------+----------------------+
 ```
 
-This is a command of the Orient console. To know all the commands go to [Console-Commands](Console-Commands.md).
+This is a command of the Orient console. To know all the commands go to [Console-Commands](../console/Console-Commands.md).

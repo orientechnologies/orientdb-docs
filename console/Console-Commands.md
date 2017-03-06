@@ -93,32 +93,18 @@ OrientDB implements a number of SQL statements and commands that are available t
 
 |Command|Description|
 |-------|-----------|
-|[`ALTER CLASS`](../sql/SQL-Alter-Class.md)|Changes the class schema|
-|[`ALTER CLUSTER`](../sql/SQL-Alter-Cluster.md)|Changes the cluster attributes|
-|[`ALTER DATABASE`](../sql/SQL-Alter-Database.md)|Changes the database attributes|
-|[`ALTER PROPERTY`](../sql/SQL-Alter-Property.md)|Changes the class's property schema|
 |[`BACKUP DATABASE`](Console-Command-Backup.md)|Backup a database|
-|[`BEGIN`](Console-Command-Begin.md)|Begins a new transaction|
 |[`BROWSE CLASS`](Console-Command-Browse-Class.md)|Browses all the records of a class|
 |[`BROWSE CLUSTER`](Console-Command-Browse-Cluster.md)|Browses all the records of a cluster|
 |[`CLASSES`](Console-Command-Classes.md)|Displays all the configured classes|
 |[`CLUSTER STATUS`](Console-Command-Cluster-Status.md)|Displays the status of distributed cluster of servers|
 |[`CLUSTERS`](Console-Command-Clusters.md)|Displays all the configured clusters|
-|[`COMMIT`](Console-Command-Commit.md)|Commits an active transaction|
 |[`CONFIG`](Console-Command-Config.md)|Displays the configuration where the opened database is located (local or remote)|
 |[`CONFIG GET`](Console-Command-Config-Get.md)|Returns a configuration value|
 |[`CONFIG SET`](Console-Command-Config-Set.md)|Set a configuration value|
 |[`CONNECT`](Console-Command-Connect.md)|Connects to a database|
-|[`CREATE CLASS`](../sql/SQL-Create-Class.md)|Creates a new class|
-|[`CREATE CLUSTER`](Console-Command-Create-Cluster.md)|Creates a new cluster inside a database|
-|[`CREATE CLUSTER`](Console-Command-Create-Cluster.md)|Creates a new record cluster|
 |[`CREATE DATABASE`](Console-Command-Create-Database.md)|Creates a new database|
-|[`CREATE EDGE`](../sql/SQL-Create-Edge.md)|Create a new edge connecting two vertices|
-|[`CREATE INDEX`](../sql/SQL-Create-Index.md)|Create a new index|
-|[`CREATE LINK`](../sql/SQL-Create-Link.md)|Create a link reading a RDBMS JOIN|
-|[`CREATE VERTEX`](../sql/SQL-Create-Vertex.md)|Create a new vertex|
 |[`DECLARE INTENT`](Console-Command-Declare-Intent.md)|Declares an intent|
-|[`DELETE`](../sql/SQL-Delete.md)|Deletes a record from the database using the SQL syntax. To know more about the [SQL syntax go here](../sql/SQL-Query.md)|
 |[`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md)|Displays all the keys in the database dictionary|
 |[`DICTIONARY GET`](Console-Command-Dictionary-Get.md)|Loookups for a record using the dictionary. If found set it as the current record|
 |[`DICTIONARY PUT`](Console-Command-Dictionary-Put.md)|Inserts or modify an entry in the database dictionary. The entry is composed by key=String, value=record-id|
@@ -126,24 +112,15 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`DISCONNECT`](Console-Command-Disconnect.md)|Disconnects from the current database|
 |[`DISPLAY RECORD`](Console-Command-Display-Record.md)|Displays current record's attributes|
 |[`DISPLAY RAW RECORD`](Console-Command-Display-Raw-Record.md)|Displays current record's raw format|
-|[`DROP CLASS`](../sql/SQL-Drop-Class.md)|Drop a class|
-|[`DROP CLUSTER`](../sql/SQL-Drop-Cluster.md)|Drop a cluster|
 |[`DROP DATABASE`](Console-Command-Drop-Database.md)|Drop a database|
-|[`DROP INDEX`](../sql/SQL-Drop-Index.md)|Drop an index|
-|[`DROP PROPERTY`](../sql/SQL-Drop-Property.md)|Drop a property from a schema class|
-|[`EXPLAIN`](../sql/SQL-Explain.md)|Explain a command by displaying the profiling values while executing it|
 |[`EXPORT DATABASE`](Console-Command-Export.md)|Exports a database|
 |[`EXPORT RECORD`](Console-Command-Export-Record.md)|Exports a record in any of the supported format (i.e. json)|
-|[`FIND REFERENCES`](../sql/SQL-Find-References.md)|Find the references to a record|
 |[`FREEZE DATABASE`](Console-Command-Freeze-Db.md)|Freezes the database locking all the changes. Use this to raw backup. Once frozen it uses the [`RELEASE DATABASE`](Console-Command-Release-Db.md) to release it|
 |[`GET`](Console-Command-Get.md)|Returns the value of a property|
-|[`GRANT`](../sql/SQL-Grant.md)|Grants a permission to a user|
-|[`GREMLIN`](Console-Command-Gremlin.md)|Executes a Gremlin script|
 |[`IMPORT DATABASE`](Console-Command-Import.md)|Imports a database previously exported|
 |[`INDEXES`](Console-Command-Indexes.md)|Displays information about indexes|
 |[`INFO`](Console-Command-Info.md)|Displays information about current status|
 |[`INFO CLASS`](Console-Command-Info-Class.md)|Displays information about a class|
-|[`INSERT`](Console-Command-Insert.md)|Inserts a new record in the current database using the SQL syntax. To know more about the [SQL syntax go here](../sql/SQL-Query.md)|
 |[`JS`](../js/Javascript-Command.md#via_console)|Executes a Javascript in the console|
 |[`JSS`](../js/Javascript-Command.md#via_console)|Executes a Javascript in the server|
 |[`LIST DATABASES`](Console-Command-List-Databases.md)|List the available databases|
@@ -152,23 +129,14 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`PROFILER`](Console-Command-Profiler.md)|Controls the [Profiler](../tuning/Profiler.md)|
 |[`PROPERTIES`](Console-Command-Properties.md)|Returns all the configured properties|
 |`pwd`|Display current path|
-|[`REBUILD INDEX`](../sql/SQL-Rebuild-Index.md)|Rebuild an index|
 |[`RELEASE DATABASE`](Console-Command-Release-Db.md)|Releases a [Console Freeze Database](Console-Command-Freeze-Db.md) database|
 |[`RELOAD RECORD`](Console-Command-Reload-Record.md)|Reloads a record in memory and set it as the current one|
 |`RELOAD SCHEMA`|Reloads the schema|
-|[`ROLLBACK`](Console-Command-Rollback.md)|Rollbacks the active transaction started with [begin](Console-Command-Begin.md)|
 |[`RESTORE DATABASE`](Console-Command-Restore.md)|Restore a database|
-|[`SELECT`](../sql/SQL-Query.md)|Executes a SQL query against the database and display the results. To know more about the [SQL syntax go here](../sql/SQL-Query.md)|
-|[`REVOKE`](../sql/SQL-Revoke.md)|Revokes a permission to a user|
 |[`SET`](Console-Command-Set.md)|Changes the value of a property|
-|[`SLEEP`](Console-Command-Sleep.md)|Sleep for the time specified. Useful on scripts|
-|[`TRAVERSE`](../sql/SQL-Traverse.md)|Traverse a graph of records|
-|[`TRUNCATE CLASS`](../sql/SQL-Truncate-Class.md)|Remove all the records of a class (by truncating all the underlying configured clusters)|
-|[`TRUNCATE CLUSTER`](../sql/SQL-Truncate-Cluster.md)|Remove all the records of a cluster|
-|[`TRUNCATE RECORD`](../sql/SQL-Truncate-Record.md)|Truncate a record you can't delete because it's corrupted|
-|[`UPDATE`](../sql/SQL-Update.md)|Updates a record in the current database using the SQL syntax. To know more about the [SQL syntax go here](../sql/SQL-Query.md)|
 |`HELP`|Prints this help|
 |`EXIT`|Closes the console|
+|[SQL Statements](../sql/Commands.md)|
 
 
 ## Custom Commands

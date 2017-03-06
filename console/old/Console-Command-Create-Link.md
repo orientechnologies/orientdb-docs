@@ -64,5 +64,5 @@ reldb> <code class="lang-sql userinput">SELECT * FROM Comment;</code>
 In OrientDB, you have a direct relationship in your object model. Navigation runs from `Post` to `Comment` and not vice versa, (as in the Relational database model). For this reason, you need to create a link as `INVERSE`.
 
 
->For more information on SQL commands, see [SQL Commands](../sql/Commands.md).  
->For more information on other commands, see [Console Commands](Console-Commands.md).
+>For more information on SQL commands, see [SQL Commands](../../sql/Commands.md).  
+>For more information on other commands, see [Console Commands](../Console-Commands.md).

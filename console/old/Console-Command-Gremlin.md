@@ -35,4 +35,4 @@ GREMLIN <command>
   </pre>
 
 
->For more information on the Gremlin language, see [Gremlin](../gremlin/Gremlin.md).  For more information on other commands, see [Console Commands](Console-Commands.md).
+>For more information on the Gremlin language, see [Gremlin](../../gremlin/Gremlin.md).  For more information on other commands, see [Console Commands](../Console-Commands.md).

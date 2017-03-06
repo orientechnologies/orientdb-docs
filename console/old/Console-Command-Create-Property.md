@@ -46,7 +46,7 @@ CREATE PROPERTY <class-name>.<property-name> <property-type> [<linked-type>][ <l
   This forms a circular reference.
 
 
->To remove a property, use the [`DROP PROPERTY`](../sql/SQL-Drop-Property.md) command.  
+>To remove a property, use the [`DROP PROPERTY`](../../sql/SQL-Drop-Property.md) command.  
 
 ## Property Types
 
@@ -76,6 +76,6 @@ The link types available are the same as those available as the standard propert
 |`BINARY`|`EMBEDDED`|`LINK`|`BYTE`|
 
 
->For more information, see [SQL Commands](../sql/Commands.md) and [Console Commands](Console-Commands.md).
+>For more information, see [SQL Commands](../../sql/Commands.md) and [Console Commands](../Console-Commands.md).
 
 

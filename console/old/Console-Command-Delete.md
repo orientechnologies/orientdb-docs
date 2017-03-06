@@ -7,7 +7,7 @@ search:
 
 # Console - DELETE
 
-Remove one or more records from the database. You can determine which records get deleted using the [`WHERE`](../sql/SQL-Where.md) clause.
+Remove one or more records from the database. You can determine which records get deleted using the [`WHERE`](../../sql/SQL-Where.md) clause.
 
 **Syntax**
 
@@ -26,11 +26,11 @@ DELETE FROM <target-name> [LOCK <lock-type>] [RETURN <return-type>]
 - **`RETURN <return-type>`** Defines what the Console returns.  There are two supported return types:
   - `COUNT` Returns the number of deleted records. This is the default return type.
   - `BEFORE` Returns the records before the deletion.
-- [**`WHERE <condition>`**](../sql/SQL-Where.md) Defines the condition used in selecting records for deletion.
+- [**`WHERE <condition>`**](../../sql/SQL-Where.md) Defines the condition used in selecting records for deletion.
 - **`LIMIT`** Defines the maximum number of records to delete.
 - **`TIMEOUT`** Defines the time-limit to allow the operation to run before it times out.
 
->**NOTE**: When dealing with vertices and edges, do not use the standard SQL [`DELETE`](../sql/SQL-Delete.md) command.  Doing so can disrupt graph integrity. Instead, use the [`DELETE VERTEX`](../sql/SQL-Delete-Vertex.md) or the [`DELETE EDGE`](../sql/SQL-Delete-Edge.md) commands.
+>**NOTE**: When dealing with vertices and edges, do not use the standard SQL [`DELETE`](../../sql/SQL-Delete.md) command.  Doing so can disrupt graph integrity. Instead, use the [`DELETE VERTEX`](../../sql/SQL-Delete-Vertex.md) or the [`DELETE EDGE`](../../sql/SQL-Delete-Edge.md) commands.
 
 **Examples**
 
@@ -41,5 +41,5 @@ DELETE FROM <target-name> [LOCK <lock-type>] [RETURN <return-type>]
   </pre>
 
 
->For more information on other commands, see [SQL Commands](../sql/SQL.md) and [Console Commands](Console-Commands.md).
+>For more information on other commands, see [SQL Commands](../../sql/SQL.md) and [Console Commands](../Console-Commands.md).
 

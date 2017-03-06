@@ -23,4 +23,4 @@ SLEEP <time>
   orientdb {server=remote:localhost/}> <code class='lang-sql userinput'>SLEEP 3000</code>
   </pre>
 
->For more information on other commands, see [Console Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](../Console-Commands.md).

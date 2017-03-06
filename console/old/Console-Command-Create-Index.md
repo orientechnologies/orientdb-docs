@@ -23,7 +23,7 @@ Create an index on a given property. OrientDB supports three index algorithms an
   - `LUCENE` Full text index type using the Lucene Engine.
   - `SPATIAL` Spatial index using the Lucene Engine.
 
->For more information on indexing, see [Indexes](../indexing/Indexes.md).
+>For more information on indexing, see [Indexes](../../indexing/Indexes.md).
 
 
 **Syntax**
@@ -48,6 +48,6 @@ CREATE INDEX <index-name> [ON <class-name> (<property-names>)] <index-type> [<ke
   orientdb> <code class="userinput lang-sql">CREATE INDEX jobs.job_id UNIQUE</code>
   </pre>
 
->The SQL [`CREATE INDEX`](../sql/SQL-Create-Index.md) page provides more information on creating indexes.  More information on indexing can be found under [Indexes](../indexing/Indexes.md). Further SQL information can be found under [`SQL Commands`](../sql/SQL.md).
+>The SQL [`CREATE INDEX`](../../sql/SQL-Create-Index.md) page provides more information on creating indexes.  More information on indexing can be found under [Indexes](../../indexing/Indexes.md). Further SQL information can be found under [`SQL Commands`](../../sql/SQL.md).
 >
->For more information on other commands, see [Console Commands](Console-Commands.md)
+>For more information on other commands, see [Console Commands](../Console-Commands.md)

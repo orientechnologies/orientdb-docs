@@ -30,4 +30,4 @@ DROP CLUSTER <cluster-name>
 
 >You can create a new cluster using the [`CREATE CLUSTER`](Console-Command-Create-Cluster.md) command.
 
->For information on other commands, see [SQL](../sql/SQL.md) and [Console](Console-Commands.md) commands.
+>For information on other commands, see [SQL](../../sql/SQL.md) and [Console](../Console-Commands.md) commands.

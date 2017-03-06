@@ -34,6 +34,6 @@ CREATE CLUSTER <cluster-name> <cluster-type> <data-segment> <location> [<positio
   </pre>
 
 
->You can display all configured clusters in the current database using the [`CLUSTERS`](Console-Command-Clusters.md) command.  To delete an existing cluster, use the [`DROP CLUSTER`](Console-Command-Drop-Cluster.md) command.
+>You can display all configured clusters in the current database using the [`CLUSTERS`](../Console-Command-Clusters.md) command.  To delete an existing cluster, use the [`DROP CLUSTER`](Console-Command-Drop-Cluster.md) command.
 >
->For more information on other commands, see [Console Commands](Console-Commands.md)
+>For more information on other commands, see [Console Commands](../Console-Commands.md)

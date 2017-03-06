@@ -51,4 +51,4 @@ Displays all configured clusters in the current database.
   --------------------------------------------
   </pre>
 
->For information on creating new clusters in the current database, see the [`CREATE CLUSTER`](Console-Command-Create-Cluster.md) command.  For more information on other commands, see [Console Commands](Console-Commands.md).
+>For information on creating new clusters in the current database, see the [`CREATE CLUSTER`](../sql/SQL-Create-Cluster.md) command.  For more information on other commands, see [Console Commands](Console-Commands.md).

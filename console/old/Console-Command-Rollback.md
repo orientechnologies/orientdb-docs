@@ -13,7 +13,7 @@ Aborts a transaction, rolling the database back to its save point.
 BEGIN
 ```
 
->For more information on transactions, see [Transactions](../internals/Transactions.md).  To initiate a transaction, use the [`BEGIN`](Console-Command-Begin.md) command.  To save changes, see [`COMMIT`](Console-Command-Commit.md) command.
+>For more information on transactions, see [Transactions](../../internals/Transactions.md).  To initiate a transaction, use the [`BEGIN`](Console-Command-Begin.md) command.  To save changes, see [`COMMIT`](Console-Command-Commit.md) command.
 
 
 **Example**
@@ -71,4 +71,4 @@ BEGIN
   0 item(s) found. Query executed in 0.037 sec(s).
   </pre>
 
->For more information on other commands, see [Console Commands](Console-Commands.md).
+>For more information on other commands, see [Console Commands](../Console-Commands.md).
