@@ -19,9 +19,6 @@ While you can build graphs using `V` and `E` class instances, it is strongly rec
 To create a custom vertex class (or type) use the `createVertexType(<name>)`:
 
 ```java
-// Create Graph Database Instance
-OrientGraph graph = new OrientGraph("plocal:/tmp/db");
-
 // Create Custom Vertex Class
 OrientVertexType account = graph.createVertexType("Account");
 ```
@@ -56,7 +53,7 @@ Edge e = account.addEdge("Lives", address);
 
 ## Inheritance Tree
 
-Classes can extend other classes.  Beginning with version 2.1, OrientDB supports multiple inheritances.  To create a class that extend a class different from `V` or `E`, pass the class name in the construction:
+Classes can extend other classes.  To create a class that extend a class different from `V` or `E`, pass the class name in the construction:
 
 ```java
 graph.createVertexType(<class>, <super-class>); // Vertex

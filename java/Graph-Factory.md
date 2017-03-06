@@ -84,18 +84,3 @@ factory.close();
 
 
 
-## Legacy Workarounds
-
-In older OrientDB applications, you may occasionally encounter legacy workarounds that antedate the `OrientGraphFactory` class.
-
-For instance,
-
-
-```java
-ODatabaseDocumentPool pool = new ODatabaseDocumentPool("plocal:/temp/mydb");
-OrientGraph g = new OrientGraph(pool.acquire());
- ```
-
-The code works around the absence of a factory class in TinkerPop Blueprints by mixing the Graph and Document API's together at an application level.
-
-With the factory class, you no longer need to rely upon such hackneyed methods.
