@@ -504,6 +504,37 @@ Where:
 
 #### SQL batch
 
+Execute a POST against /batch URL by sending a payload in this format:
+
+Syntax:
+```json
+{ "transaction" : false,
+  "operations" : [
+    {
+      "type" : "script",
+      "language" : "sql",
+      "script" : <text>
+    }
+  ]
+}
+```
+
+Example:
+
+```json
+{ "transaction" : false,
+  "operations" : [
+    {
+      "type" : "script",
+      "language" : "sql",
+      "script" : [ "BEGIN;let account = CREATE VERTEX Account SET name = 'Luke';let city =SELECT FROM City WHERE name = 'London';CREATE EDGE Lives FROM $account TO $city;COMMIT RETRY 100" ]
+    }
+  ]
+}
+```
+
+To separate commands use semicolon (;). Starting from release 1.7 the "script" property can be an array of strings to put each command on separate item, example: 
+
 ```json
 { "transaction" : true,
   "operations" : [
@@ -517,6 +548,7 @@ Where:
   ]
 }
 ```
+
 
 ## Function
 

@@ -13,13 +13,6 @@ To manipulate sequences you can use the Java API or SQL commands.
 
 ## Create a sequence
 
-### Create a sequence with Java API
-```java
-OSequenceLibrary sequenceLibrary = database.getMetadata().getSequenceLibrary();
-OSequence seq = sequenceLibrary.createSequence("idseq", SEQUENCE_TYPE.ORDERED, new OSequence.CreateParams().setStart(0).setIncrement(1));
-```
-
-### SQL CREATE SEQUENCE
 ```sql
 CREATE SEQUENCE idseq
 INSERT INTO account SET id = sequence('idseq').next()
@@ -27,13 +20,6 @@ INSERT INTO account SET id = sequence('idseq').next()
 
 For more information look at [SQL CREATE SEQUENCE](SQL-Create-Sequence.md).
 
-## Using a sequence
-
-### Using a sequence with Java API
-```java
-OSequence seq = graph.getRawGraph().getMetadata().getSequenceLibrary().getSequence("idseq");
-graph.addVertex("class:Account", "id", seq.next());
-```
 
 ### Using a sequence from SQL
 You can use a sequence from SQL with the following syntax:
@@ -55,13 +41,6 @@ INSERT INTO Account SET id = sequence('mysequence').next()
 
 ## Alter a sequence
 
-## Alter a sequence with Java API
-
-```java
-graph.getRawGraph().getMetadata().getSequenceLibrary().getSequence("idseq").updateParams( new OSequence.CreateParams().setStart(1000) );
-```
-
-### SQL ALTER SEQUENCE
 ```sql
 ALTER SEQUENCE idseq START 1000
 ```
@@ -70,12 +49,6 @@ For more information look at [SQL ALTER SEQUENCE](SQL-Alter-Sequence.md).
 
 ## Drop a sequence
 
-### Drop a sequence with Java API
-```java
-graph.getRawGraph().getMetadata().getSequenceLibrary().dropSequence("idseq");
-```
-
-### SQL DROP SEQUENCE
 
 ```sql
 DROP SEQUENCE idseq

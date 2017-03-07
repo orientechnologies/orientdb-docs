@@ -25,7 +25,7 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 - Change the name of the property `age` in the class `Account` to `born`:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Account.age NAME born</code>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Account.age NAME "born"</code>
   </pre>
 
 - Update a property to make it mandatory:
@@ -43,7 +43,7 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 - Define a field as case-insensitive to comparisons:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Employee.name COLLATE ci</code>
+  orientdb> <code class="lang-sql userinput">ALTER PROPERTY Employee.name COLLATE "ci"</code>
   </pre>
 
 - Define a custom field on a property:

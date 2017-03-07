@@ -25,7 +25,7 @@ MATCH
     [maxDepth: <number>],
     [optional: (true | false)]
   }*
-RETURN <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
+RETURN [DISTINCT] <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
 LIMIT <number>
 ```
 
@@ -234,6 +234,52 @@ The following examples are based on this sample data-set from the class `People`
   </pre>
 
 
+
+## DISTINCT
+
+In v 3.0 the MATCH statement returns all the occurrences of a pattern, even if they are duplicated. To have unique, distinct records
+as a result, you have to specify the DISTINCT keyword in the RETURN statement.
+
+Example: suppose you have a dataset made like following:
+
+   INSERT INTO V SET name = 'John', surname = 'Smith';
+   INSERT INTO V SET name = 'John', surname = 'Harris'
+   INSERT INTO V SET name = 'Jenny', surname = 'Rose'
+
+This is the result of the query without a DISTINCT clause:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">MATCH {class: Person, as:p} RETURN p.name as name</code>
+
+  --------
+   name
+  --------
+   John
+  --------
+   John
+  --------
+   Jenny
+  --------
+  </pre>
+
+
+And this is the result of the query with a DISTINCT clause:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">MATCH {class: Person, as:p} RETURN DISTINCT p.name as name</code>
+
+  --------
+   name
+  --------
+   John
+  --------
+   Jenny
+  --------
+  </pre>
+  
+> IMPORTANT: in V 2.2 it was not possible to specify DISTINCT keyword in the RETURN block and the DISTINCT was implicit.
+
+> IMPORTANT: in V 3.0, using the **legacy Java API**, the behavior will be the same as in v 2.2 
 
 ## Context Variables
 

@@ -5,7 +5,7 @@ search:
 
 # SQL
 
-When it comes to query languages, SQL is the mostly widely recognized standard. The majority of developers have experience and are comfortable with SQL. For this reason Orient DB uses SQL as it's query language and adds some extensions to enable graph functionality. There are a few differences between the standard SQL syntax and that supported by OrientDB, but for the most part, it should feel very natural. The differences are covered in the [OrientDB SQL dialect](#orientdb-sql-dialect) section of this page.
+When it comes to query languages, SQL is the most widely recognized standard. The majority of developers have experience and are comfortable with SQL. For this reason Orient DB uses SQL as its query language and adds some extensions to enable graph functionality. There are a few differences between the standard SQL syntax and that supported by OrientDB, but for the most part, it should feel very natural. The differences are covered in the [OrientDB SQL dialect](#orientdb-sql-dialect) section of this page.
 
 Many SQL commands share the [WHERE condition](SQL-Where.md). Keywords and class names in OrientDB SQL are case insensitive. Field names and values are case sensitive. In the following examples keywords are in uppercase but this is not strictly required.
 
@@ -33,7 +33,9 @@ SELECT FROM INDEX:myIndex WHERE key = 'Jay'
 ```
 
 ## Extra resources
-- [SQL expression syntax](SQL-Where.md)
+- [SQL syntax](SQL-Syntax.md)
+- [SQL projections](SQL-Projections.md)
+- [SQL conditions](SQL-Where.md)
  - [Where clause](SQL-Where.md)
  - [Operators](SQL-Where.md#operators)
  - [Functions](SQL-Where.md#functions)
@@ -56,7 +58,7 @@ To know more, look to [OrientDB SQL Syntax](SQL-Syntax.md).
 
 Or order any book like [these](http://www.amazon.com/s/ref=nb_sb_noss/189-0251150-4407173?url=search-alias%3Daps&field-keywords=sql)
 
-## JOINs
+## No JOINs
 The most important difference between OrientDB and a Relational Database is that relationships are represented by `LINKS` instead of JOINs.
 
 For this reason, the classic JOIN syntax is not supported. OrientDB uses the "dot (`.`) notation" to navigate `LINKS`. Example 1 : In SQL you might create a join such as:
@@ -93,13 +95,19 @@ In OrientDB, the `*` is optional:
 SELECT FROM Customer
 ```
 
+See [SQL projections](SQL-Projections.md)
+
 ## DISTINCT
-In SQL, `DISTINCT` is a keyword but in OrientDB it is a function, so if your query is:
+
+In OrientDB v 3.0 you can use DISTINCT keyword exactly as in a relational database:
 ```sql
 SELECT DISTINCT name FROM City
 ```
-In OrientDB, you would write:
+
+Until v 2.2, DISTINCT keyword was not allowed; there was a DISTINCT() function instead, with limited capabilities 
 ```sql
+//legacy
+
 SELECT DISTINCT(name) FROM City
 ```
 

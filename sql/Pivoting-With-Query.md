@@ -1,6 +1,6 @@
 When planning an OrientDB [SELECT](SQL-Query.md) query, it is important to determine the model class that will be used as the pivot class of the query.  This class is expressed in the FROM clause. It affects other elements in the query as follows:
 - projections will be relative to the pivot class. It is possible to traverse within a projection to refer to neighboring classes by chaining edge syntax expressions  (i.e. ```in[label='office'].out.out[label='office'].size()```). However, consider that multiple results from a projection traversed from the pivot class will be returned as a collection within the result set (unless there is only a single value).
-- filtering conditions in the WHERE clause are also relative to the pivot class. It is also possible to traverse to neighboring classes in order to compose advanced conditions by using edge syntax expressions (e.g. ```and in[label='company'].out.out[label='employee'].in.id IN '0000345'```).
+- filtering conditions in the WHERE clause are also relative to the pivot class. It is also possible to traverse to neighboring classes in order to compose advanced conditions by using edge syntax expressions (e.g. ```and in()[type='company'].out().out()[type='employee'].in().id IN '0000345'```).
 - the ORDER BY clause will be relative to one of the projections and must be returned as a single value per record (i.e. an attribute of the pivot class or a single attribute of a neighboring class). It will not be possible to order by traversed projections in a single query if they return multiple results (as a collection). Therefore, in queries using an ORDER BY clause, there is only one possible choice for the pivot class as it must be the class containing the attribute to order by.
 
 Additionally, there are performance considerations that should be considered on selecting the pivot class. Assuming 2 classes as follows:
@@ -34,13 +34,13 @@ On one hand, according to the requirements of the ORDER BY clause, we are forced
 A more elegant solution can be achieved by using the nested query technique, as shown below:
 ```sql
 SELECT                                                              -- outer query
-  in[label='city'].out.name AS name,
-  in[label='city'].out.out[label='city'].size() AS city_count,
+  in()[type='city'].out().name AS name,
+  in()[type='city'].out().out()[type='city'].size() AS city_count,
   CityLat,
   CityLong,
   distance(CityLat, CityLong, 51.513363, -0.089178) AS distance     -- order by parameter
 FROM (                                                              -- inner query
-  SELECT flatten( in[label='region'].out.out[label='city'].in )
+  SELECT expand( in()[type='region'].out().out()[type='city'].in() )
   FROM CountryType WHERE id IN '0032'
 )
 WHERE CityLat <> '' AND CityLong  <> ''

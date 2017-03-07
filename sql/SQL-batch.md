@@ -35,9 +35,6 @@ return (SELECT $a as first, $b as second)
 This will work on any protocol and driver.
 
 
-## See also
-- [Javascript-Command](../js/Javascript-Command.md)
-
 ## Optimistic transaction
 
 Example to create a new vertex in a [Transaction](../internals/Transactions.md) and attach it to an existent vertex by creating a new edge between them. If a concurrent modification occurs, repeat the transaction up to 100 times:
@@ -96,71 +93,4 @@ if($a.size() > 0) {
 }
 ```
 
-## Java API
 
-This can be used by Java API with:
-```java
-database.open("admin", "admin");
-
-String cmd = "begin\n";
-cmd += "let a = CREATE VERTEX SET script = true\n";
-cmd += "let b = SELECT FROM v LIMIT 1\n";
-cmd += "let e = CREATE EDGE FROM $a TO $b\n";
-cmd += "COMMIT RETRY 100\n";
-cmd += "return $e";
-
-OIdentifiable edge = database.command(new OCommandScript("sql", cmd)).execute();
-```
-
-Remember to put one command per line (postfix it with \n) or use the semicolon (;) as separator.
-
-## HTTP REST API
-
-And via HTTP REST interface (https://github.com/orientechnologies/orientdb/issues/2056). Execute a POST against /batch URL by sending a payload in this format:
-
-```json
-{ "transaction" : false,
-  "operations" : [
-    {
-      "type" : "script",
-      "language" : "sql",
-      "script" : <text>
-    }
-  ]
-}
-```
-
-Example:
-
-```json
-{ "transaction" : false,
-  "operations" : [
-    {
-      "type" : "script",
-      "language" : "sql",
-      "script" : [ "BEGIN;let account = CREATE VERTEX Account SET name = 'Luke';let city =SELECT FROM City WHERE name = 'London';CREATE EDGE Lives FROM $account TO $city;COMMIT RETRY 100" ]
-    }
-  ]
-}
-```
-
-To separate commands use semicolon (;) or linefeed (\n). Starting from release 1.7 the "script" property can be an array of strings to put each command on separate item, example:
-```json
-{ "transaction" : false,
-  "operations" : [
-    {
-      "type" : "script",
-      "language" : "sql",
-      "script" : [ "begin",
-                   "let account = CREATE VERTEX Account SET name = 'Luke'",
-                   "let city = SELECT FROM City WHERE name = 'London'",
-                   "CREATE EDGE Lives FROM $account TO $city",
-                   "COMMIT RETRY 100" ]
-    }
-  ]
-}
-```
-
-Hope this new feature will simplify your development improving performance.
-
-What about having more complex constructs like IF, FOR, etc? If you need more complexity, we suggest you to use Javascript as language that already support all these concepts.

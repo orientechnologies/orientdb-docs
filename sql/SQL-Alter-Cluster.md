@@ -21,31 +21,34 @@ ALTER CLUSTER <cluster> <attribute-name> <attribute-value>
 - Change the name of a cluster, using its name:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER CLUSTER profile NAME profile2</code>
+  orientdb> <code class="lang-sql userinput">ALTER CLUSTER profile NAME "profile2"</code>
   </pre>
+
+
+> IMPORTANT: cluster name, status, compression, conflictstrategy are strings, so they have to be "quoted"
 
 - Change the name of a cluster, using its ID:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER CLUSTER 9 NAME profile2</code>
+  orientdb> <code class="lang-sql userinput">ALTER CLUSTER 9 NAME "profile2"</code>
   </pre>
 
 - Update the cluster conflict strategy to `automerge`:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">ALTER CLUSTER V CONFLICTSTRATEGY automerge</code>
+  orientdb> <code class="lang-sql userinput">ALTER CLUSTER V CONFLICTSTRATEGY "automerge"</code>
   </pre>
 
 - Put cluster `V_2012` offline:
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>ALTER CLUSTER V_2012 STATUS OFFLINE</code>
+  orientdb> <code class='lang-sql userinput'>ALTER CLUSTER V_2012 STATUS "OFFLINE"</code>
   </pre>
 
 - Update multiple clusters with a similar name:
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>ALTER CLUSTER employee* status offline</code>
+  orientdb> <code class='lang-sql userinput'>ALTER CLUSTER employee* status "offline"</code>
   </pre>
 
 

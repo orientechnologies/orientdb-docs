@@ -279,6 +279,10 @@ orientdb> <code class="lang-sql userinput">SELECT name, OUT("Friend").name AS fr
 >**NOTE**: For more information on other SQL commands, see [SQL commands](SQL.md).
 
 
+## Execution planning
+
+For details about query execution planning, please refer to [SQL SELECT Execution](SQL-Select-Execution.md)
+
 ## History
 
 - **1.7.7**: New target prefixes `INDEXVALUES:`, `INDEXVALUESASC:` and `INDEXVALUESDESC:` added.

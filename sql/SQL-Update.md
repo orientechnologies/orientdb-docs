@@ -11,7 +11,7 @@ Update one or more records in the current database.  Remember: OrientDB can work
 
 ```sql
 UPDATE <class>|CLUSTER:<cluster>|<recordID>
-  [SET|INCREMENT|ADD|REMOVE|PUT <field-name> = <field-value>[,]*]|[CONTENT|MERGE <JSON>]
+  [SET|REMOVE <field-name> = <field-value>[,]*]|[CONTENT|MERGE <JSON>]
   [UPSERT]
   [RETURN <returning> [<returning-expression>]]
   [WHERE <conditions>]
@@ -20,13 +20,7 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
 ```
 
 - **`SET`** Defines the fields to update.
-- **`INCREMENT`** Increments the field by the value.
-
-  For instance, record at `10` with `INCREMENT value = 3` sets the new value to `13`.  You may find this useful in atomic updates of counters.  Use negative numbers to decrement.  Additionally, you can use `INCREMENT` to implement [sequences and auto-increment](Sequences-and-auto-increment.md).
-
-- **`ADD`** Adds a new item in collection fields.
 - **`REMOVE`** Removes an item in collection and map fields.
-- **`PUT`** Puts an entry into a map field.
 - **`CONTENT`** Replaces the record content with a JSON document.
 - **`MERGE`** Merges the record content with a JSON document.
 - **`LOCK`** Specifies how to lock the record between the load and update.  You can use one of the following lock strategies:
@@ -61,18 +55,6 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
   orientdb> <code class="lang-sql userinput">UPDATE Profile REMOVE nick</code>
   </pre>
 
-- Update to add a value into a collection:
-
-  <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account ADD address=#12:0</code>
-  </pre>
-
-  >**NOTE**: Beginning with version 2.0.5, the OrientDB server generates a server error if there is no space between `#` and the `=`.  You must write the command as:
-  >
-  ><pre>
-  >orientdb> <code class='lang-sql userinput'>UPDATE Account ADD address = #12:0</code>
-  ></pre>
-
 - Update to remove a value from a collection, if you know the exact value that you want to remove:
 
   Remove an element from a link list or set:
@@ -103,12 +85,6 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
 
   This remove the second element from a list, (position numbers start from `0`, so `addresses[1]` is the second elelment).
 
-- Update to put a map entry into the map:
-
-  <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Account PUT addresses = 'Luca', #12:0</code>
-  </pre>
-
 - Update to remove a value from a map
 
   <pre>
@@ -135,12 +111,6 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
   orientdb> <code class="lang-sql userinput">UPDATE Profile SET nick = 'Luca' UPSERT WHERE nick = 'Luca'</code>
   </pre>
 
-- Update a web counter, avoiding concurrent accesses:
-
-  <pre>
-  orientdb> <code class="lang-sql userinput">UPDATE Counter INCREMENT views = 1 WHERE pages = '/downloads/' 
-            LOCK RECORD</code>
-  </pre>
 
 - Updates using the `RETURN` keyword:
 
@@ -148,10 +118,8 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
   orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @rid</code>
   orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @version</code>
   orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER @this</code>
-  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 INCREMENT Counter = 123 RETURN BEFORE $current.Counter</code>
   orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 SET gender='male' RETURN AFTER $current.exclude(
             "really_big_field")</code>
-  orientdb> <code class="lang-sql userinput">UPDATE ♯7:0 ADD out_Edge = ♯12:1 RETURN AFTER $current.outE("Edge")</code>
   </pre>
 
 In the event that a single field is returned, OrientDB wraps the result-set in a record storing the value in the field `result`.  This avoids introducing a new serialization, as there is no primitive values collection serialization in the binary protocol.  Additionally, it provides useful fields like `version` and `rid` from the original record in corresponding fields.  The new syntax allows for optimization of client-server network traffic.

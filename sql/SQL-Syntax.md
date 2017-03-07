@@ -370,13 +370,13 @@ An expression that returns something different from a boolean value is always ev
 
 ### Math + Assign operators
 
-- **`+=`  (add and assign)**: adds right operand to left operand and assigns the value to the left operand. Returns the final value of the left operand. If one of the operands is not a number, then this operator acts as a `concatenate string values and assign`
-- **`-=`  (subtract and assign)**: subtracts right operand from left operand and assigns the value to the left operand. Returns the final value of the left operand
-- **`*=`  (multiply and assign)**: multiplies left operand and right operand and assigns the value to the left operand. Returns the final value of the left operand
-- **`/=`  (divide and assign)**: divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
-- **`%=`  (modulo and assign)**: calculates left operand modulo right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`+=`  (add and assign)** (support will come after 3.0 M1): adds right operand to left operand and assigns the value to the left operand. Returns the final value of the left operand. If one of the operands is not a number, then this operator acts as a `concatenate string values and assign`
+- **`-=`  (subtract and assign)** (support will come after 3.0 M1): subtracts right operand from left operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`*=`  (multiply and assign)** (support will come after 3.0 M1): multiplies left operand and right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`/=`  (divide and assign)** (support will come after 3.0 M1): divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`%=`  (modulo and assign)** (support will come after 3.0 M1): calculates left operand modulo right operand and assigns the value to the left operand. Returns the final value of the left operand
 
-### Array concatenation
+### Array concatenation (support will come after 3.0 M1)
 
 The `||` operator concatenates two arrays.
 
