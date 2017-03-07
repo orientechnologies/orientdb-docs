@@ -13,29 +13,8 @@ Every time you update a record, the version number for that record gets incremen
 
 Below are examples of how to properly manage version concurrency.
 
-## Graph API
 
-```java
-for (int retry = 0; retry < maxRetries; ++retry) {
-
-   try {
-
-      // APPLY CHANGES
-      vertex.setProperty("name", "Luca");
-      vertex.addEdge("Buy", product);
-
-      breakl
-
-   } catch(ONeedRetryException e) {
-
-      // RELOAD IT TO GET LAST VERSION
-      vertex.reload();
-      product.reload();
-   }
-}
-```
-
-## Document API
+## Database API
 
 ```java
 for (int retry = 0; retry < maxRetries; ++retry) {
@@ -44,7 +23,7 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 
       // APPLY CHANGES
       document.field("name", "Luca");
-      document.save();
+      database.save(document);
 
       break;
 
@@ -56,6 +35,29 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 }
 ```
 
+## Tinkerpop Graph API
+
+```java
+for (int retry = 0; retry < maxRetries; ++retry) {
+
+   try {
+
+      // APPLY CHANGES
+      vertex.setProperty("name", "Luca");
+      vertex.addEdge("Buy", product);
+
+      break;
+
+   } catch(ONeedRetryException e) {
+
+      // RELOAD IT TO GET LAST VERSION
+      vertex.reload();
+      product.reload();
+   }
+}
+```
+
+
 ## Transactions
 
 There is a similar procedure used with transactions:
@@ -63,21 +65,21 @@ There is a similar procedure used with transactions:
 ```java
 for (int retry = 0; retry < maxRetries; ++retry) {
 
-   db.begin();
+   database.begin();
 
    try {
 
       // CREATE A NEW ITEM
       ODocument invoiceItem = new ODocument("InvoieItem");
       invoiceItem.field("price", 213231);
-      invoiceItem.save();
+      database.save(invoiceItem;
 
       // ADD IT TO THE INVOICE
       Collection<ODocument> items = invoice.field(items);
       items.add(invoiceItem);
-      invoice.save();
+      database(invoice);
 
-      db.commit();
+      database.commit();
       break;
 
   } catch(OTransactionException e) {
@@ -98,22 +100,18 @@ Transactions are bound to a database.  If you change the current database while 
 For instance,
 
 ```java
-ODatabaseDocumentTx db1 = new
-   ODatabaseDocumentTx("plocal:/tmp/db1")
-   .create(); // SETS CURRENT DB TO db1
+ODatabaseDocument db1 =orientDB.open("db1","admin","admin"); // SETS CURRENT DB TO db1
 db1.begin();
 
 ODocument doc1 = new ODocument("Customer");
 doc1.field("name", "Luca");
-doc1.save(); // OPERATION BOUND TO db1 TRANSACTION
+database.save(doc1); // OPERATION BOUND TO db1 TRANSACTION
 
-ODatabaseDocumenTx db2 = new
-   ODatabaseDocumentTx("plocal:/tmp/db2")
-   .create(); // SETS CURRENT DB TO db2
+ODatabaseDocumen db2 = orientDB.open("db2","admin","admin"); // SETS CURRENT DB TO db2
 
 ODocument doc2 = new ODocument("Provider");
 doc2.field("name", "Chuck");
-doc2.save(); // OPERATION BOUND TO db2 BECAUSE IT'S CURRENT
+db2.save(doc2); // OPERATION BOUND TO db2 BECAUSE IT'S CURRENT
 
 db1.activateOnCurrentThread();
 db1.commit(); // COMMITS TRANSACTION FOR doc1 ONLY

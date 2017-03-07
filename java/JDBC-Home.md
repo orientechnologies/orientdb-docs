@@ -4,22 +4,9 @@ search:
 ---
 
 # JDBC Driver
+> GroupId: **com.orientechnologies** ArtifactId: **orientdb-jdbc**
 
 The JDBC driver for OrientDB allows to connect to a remote server using the standard and consolidated way of interacting with database in the Java world.
-
-## Include in your projects
-
-To be used inside your project, simply add the dependency to your pom:
-
-<pre><code class="lang-xml">
-<dependency>
-  <groupId>com.orientechnologies</groupId>
-  <artifactId>orientdb-jdbc</artifactId>
-  <version>{{book.currentVersion}}</version>
-</dependency>
-</pre>
-
-_NOTE: to use SNAPSHOT version remember to add the Snapshot repository to your ```pom.xml```._
 
 ## How can be used in my code?
 

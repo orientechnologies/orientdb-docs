@@ -6,6 +6,7 @@ search:
 # Document API
 
 > In case of embedded GroupId: **com.orientechnologies**  ArtifactId: **orientdb-core**
+
 > In case of remote GroupId: **com.orientechnologies**  ArtifactId: **orientdb-client**
 
 The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Tinkerpop Graph](Graph-Database-Tinkerpop.md).  The Document API supports:
