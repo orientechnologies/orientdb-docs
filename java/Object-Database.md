@@ -4,6 +4,7 @@ search:
 ---
 
 # Object API
+> groupId: **com.orientechnologies**  artifactId: **orientdb-object**
 
 The Object Database in OrientDB operates on top of the [Document API](Document-Database.md).  The Object API uses Java Reflection to register the classes and the [Javassist](http://www.jboss.org/javassist) tool to manage the object-to-document conversion.
 
@@ -22,8 +23,8 @@ The database instance has an API to generate new objects already proxied.  When 
 
 ```java
 // OPEN DATABASE
-OObjectDatabaseTx db = new OObjectDatabaseTx("remote:localhost/petshop")
-   .open("admin", "admin_passwd");
+OrientDBObject orientDB = new OrientDBObject("remote:localhost");
+ODatabaseObject db = orientDB.open("petshop","admin", "admin_passwd");
 
 // REGISTER CLASS ONLY ONCE AFTER DB IS OPENED/CREATED
 db.getEntityManager().registerEntityClass("org.petshop.domain");
@@ -55,18 +56,5 @@ account.getAddress()
 // SAVE ACCOUNT: ORIENTDB SERIALIZES OBJECT & GIVES PROXIED INSTANCE
 account = db.save(account);
 ```
-
-## Requirements
-
-In order to use the Object API, you need to include the following jars in your class path:
-
-- `orientdb-core-*.jar`
-- `orientdb-object-*.jar`
-
-Furthermore, if you want to use the Object API interface to connect to a remote server, rather than one that is local or embedded, you also need to include these jars:
-
-- `orientdb-client-*.jar`
-- `orientdb-enterprise-*.jar`
-
 
 

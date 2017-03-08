@@ -9,35 +9,16 @@ In OrientDB the Object API operates on a [Document Data](Document-Database.md). 
 
 ## Initializing Object Interfaces
 
-The Object API interface is an instance of the Database Object type.  For instance, a transactional database would use `OObjectDatabaseTx`.  You can create an in-memory database or open a database through a remote connection.
+The Object API interface is an instance of the Database Object type.  For instance,
 
 
-- **Opening PLocal Databases**
-
-  ```java
-  // OPEN DATABASE
-  OObjectDatabaseTx db = new OObjectDatabaseTx("plocal:/data/petshop")
-     .open("admin", "admin_passwd");
-  ```
-
-- **Opening Remote Databases**
+**Opening Databases**
 
   ```java
   // OPEN DATABASE
-  OObjectDatabaseTx db = new OObjectDatabaseTx("remote:localhost/petshop)
-     .open("admin", "admin_passwd");
+  OrientDBObject orientDB = new OrientDBObject("embedded:/data");
+  ODatabaseObject db = orientDB.open("petshop","admin","admin_passwd");
   ```
-
-- **Creating In-Memory Databases**
-
-  ```java
-  OObjectDatabaseTx db = new OObjectDatabaseTx("memory:petshop")
-     .create();
-  ```
-
-Both lines initialize an object interface on `db`; however, in-memory databases are volatile.  All data stored on them will be lost when OrientDB Server shuts down.
-
->Note that in the remote example, the database is running on the same computer as the application, (hence: localhost).  In the event that your application runs on a separate machine, you would use an IP address or URL.  For more information, see [Database URL](../datamodeling/Concepts.md#database-url).
 
 ### Closing Databases
 
@@ -51,23 +32,25 @@ db.close();
 
 Common use-case when developing applications for OrientDB, especially in the case of web apps, is to utilize a connection pool.  This allows you to reuse a given database connection, rather than creating a new one every time it's needed.
 
-To open a database from the pool, use the `OObjectDatabasePool` object:
+To open a database from the pool, use the `ODatabaseObjectPool` object:
 
 ```java
 // OPEN DATABASE
-OObjectDatabaseTx db = OObjectDatabasePool
-   .global()
-   .acquire("remote:localhost/petshop",
-            "admin", "admin");
+ODatabaseObjectPool pool = new ODatabaseObjectPool("remote:localhost/petshop",
+            "admin", "admin",OrientDBConfig.defaultConfig());
+ODatabaseObject db = pool.acquire();
 
 // REGISTER THE CLASS ONLY ONCE AFTER DB IS OPEN/CREATED
 db.getEntityManager().registerEntityClass("org.petshop.domain");
 
 try {
-   ...
+   //...
 } finally {
    db.close();
 }
+
+//...
+pool.close();
 ```
 
 In this case the `close()` method doesn't close the database.  Rather it releases it into the owner pool, so that it can be reused later.
@@ -80,8 +63,8 @@ Once you have initialized the object interface, you can begin to use it in your 
 
 ```java
 // OPEN DATABASE
-OObjectDatabaseTx db = new OObjectDatabaseTx("remote:localhost/petshop")
-   .open("admin", "admin_passwd");
+OrientDBObject orientDB = new OrientDBObject("remote:localhost");
+ODatabaseObject db = orientDB.open("petshop","admin","admin_passwd");
 
 // REGISTER CLASS ONLY ONCE AFTER DB IS OPENED/CREATED
 db.getEntityManager().registerEntityClass("org.petshop.domain");
@@ -116,7 +99,7 @@ account = db.save(account);
 
 ### Multi-threading
 
-When working with mutli-threaded applications, bear in mind that the `OObjectDatabaseTx` object interface that you use initialize your database instance is not thread safe.  For this reason, when working with multiple threads always initialize a separte `OObjectDatabaseTx` instance for each thread.  These instances share the local cache once you commit transactions.
+When working with mutli-threaded applications, bear in mind that the `ODatabaseObject` object interface that you use initialize your database instance is not thread safe.  For this reason, when working with multiple threads always initialize a separte `ODatabaseObject` instance for each thread.
 
 
 ### Inheritance

@@ -71,12 +71,10 @@ From now on, your application receives updates from OrientDB whenever changes ar
 
 ```java
 // Send Message
-db.command(
-   new OCommandSQL(
-      "INSERT INTO Messages SET toAddress = #12:40, "
+db.command("INSERT INTO Messages SET toAddress = #12:40, "
       + "fromAddress = 12:80, "
       + "subject = 'Re: Recent Events'"
-   )).execute();
+   );
 ```
 
 When the client executes this command on OrientDB, OrientDB in turn invokes the `onLiveResult()` method on your listener class.  Given the way the code is written in [Listener](#listener) above, your applications prints the following information to standard output:
