@@ -55,4 +55,63 @@ $client->configure(
 		'port'		=> 2424));
 ```
 
+### Persistent Connections
 
+Beginning in version 27, PhpOrient provides support for persistent client connections.  This allows you to set a session token, then connect, disconnect and reconnect to the given session as suits the needs of your application. 
+
+When using persistent connections, use the `setSessionToken()` method with a boolean value to enable the feature.  Then using the `getSessionToken()` method to retrieve a token for the given session.
+
+```php
+
+// INITIALIZE CLIENT
+$client = new PhpOrient('localhost', 2424);
+
+// ENABLE PERSISTENT CONNECTIONS
+$client->setSessionToken(true);
+
+// RETRIEVE SESSION TOKEN
+$sessionToken = $client->getSessionToken();
+```
+
+Once you have the session token, you can reattach to an existing session using it.  For instance, elsewhere in your code, you might want a function to handle the reconnection:
+
+```php
+// CREATE CLIENT
+function getClient($sessionToken){
+
+	// Instantiate Client
+	$client = new PhpOrient("localhost", 2424);
+
+	// Open Session
+	$client->setSessionToken($sessionToken);
+
+	return $client;
+}
+```
+
+In cases where you call `getSessionToken()` before enabling persistent connections on the client, the method returns an empty string.  You can use this behavior to perform basic checks to ensure everything is working properly.  For instance,
+
+```php
+function getToken(){
+
+	// Log Operation
+	echo "Retrieving Session Token";
+
+	// Fetch Globals
+	global $client;
+	global $sessionToken;
+
+	// Set Session Token
+	$sessionToken = $client->getSessionToken();
+
+	if ($sessionToken == ''){
+
+		// Enable Session Token
+		$client->setSessionToken(true);
+
+		// Fetch New Token
+		$sessionToken = $client->getSessionToken();
+	}
+
+}
+```
