@@ -9,7 +9,7 @@ While you can use OrientDB in schema-less mode, there are times in which you nee
 
 - **Schema Full** Enables the strict-mode at a class-level defining all fields as mandatory.
 - **Schema Less**: Enables the creation of classes with no properties.  This non-strict mode is the default in OrientDB and allows records to have arbitrary fields.
-- **Schema Hybrid**: Enalbes a mix of classes that are schema-full and schema-less.  
+- **Schema Hybrid**: Enables a mix of classes that are schema-full and schema-less.
 
 
 >Bear in mind, changes made to the schema are not transactional.  You must execute these operations outside of a transaction.
