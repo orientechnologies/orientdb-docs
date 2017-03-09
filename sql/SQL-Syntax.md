@@ -74,7 +74,8 @@ SELECT `foo\`bar` from Foo
 ```
 **Case sensitivity**
 
-*(draft, TBD)* All the identifiers are case sensitive.
+*(draft)* 
+In current version, class names are case *insensitive*, all the other identifiers are case sensitive.
 
 ###Reserved words
 
@@ -231,25 +232,73 @@ OrientDB can store five different types of numbers
 - Duoble: decimal 64bit signed
 - BigDecimal: absolute precision
 
-(TODO hex and oct, decimal exponent, hex exponent)
-
 **Integers** are represented in SQL as plain numbers, eg. `123`. If the number represented exceeds the Integer maximum size (see Java java.lang.Integer `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Long. 
 
 When an integer is saved to a schemaful property of another numerical type, it is automatically converted. 
 
 **Longs** are represented in SQL as numbers with `L` suffix, eg. `123L` (L can be uppercase or lowercase). Plain numbers (withot L prefix) that exceed the Integer range are also automatically converted to Long. If the number represented exceeds the Long maximum size (see Java java.lang.Long `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`;
 
+Integer and Long numbers can be represented in base 10 (decimal), 8 (octal) or 16 (hexadecimal):
+- decimal: `["-"] ("0" | ( ("1"-"9") ("0"-"9")* ) ["l"|"L"]`, eg. 
+  - `15`, `15L`  
+  - `-164` 
+  - `999999999999`
+- octal: `["-"] "0" ("0"-"7")+ ["l"|"L"]`, eg. 
+  - `01`, `01L` (equivalent to decimal 1) 
+  - `010`, `010L` (equivalent to decimal 8)
+  - `-065`, `-065L` (equivalent to decimal 53)
+- hexadecimal: `["-"] "0" ("x"|"X") ("0"-"9"," a"-"f", "A"-"F")+ ["l"|"L"]`, eg.
+  - `0x1`, `0X1`, `0x1L` (equivalent to 1 decimal)
+  - `0x10` (equivalent to decimal 16)
+  - `0xff`, `0xFF` (equivalent to decimal 255)
+  - `-0xff`, `-0xFF` (equivalent to decimal -255)
+  
 **Float** numbers are represented in SQL as `[-][<number>].<number>`, eg. valid Float values are `1.5`, `-1567.0`, `.556767`. If the number represented exceeds the Float maximum size (see Java java.lang.Float `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Double. 
 
 **Double** numbers are represented in SQL as `[-][<number>].<number>D` (D can be uppercase or lowercase), eg. valid Float values are `1.5d`, `-1567.0D`, `.556767D`. If the number represented exceeds the Double maximum size (see Java java.lang.Double `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`
+
+
+Float and Double numbers can be represented as decimal, decimal with exponent, hexadecimal and hexadecimal with exponent.
+Here is the full syntax:
+
+```
+
+FLOATING_POINT_LITERAL: ["-"] ( <DECIMAL_FLOATING_POINT_LITERAL> | <HEXADECIMAL_FLOATING_POINT_LITERAL> )
+
+DECIMAL_FLOATING_POINT_LITERAL:
+      (["0"-"9"])+ "." (["0"-"9"])* (<DECIMAL_EXPONENT>)? (["f","F","d","D"])?
+      | "." (["0"-"9"])+ (<DECIMAL_EXPONENT>)? (["f","F","d","D"])?
+      | (["0"-"9"])+ <DECIMAL_EXPONENT> (["f","F","d","D"])?
+      | (["0"-"9"])+ (<DECIMAL_EXPONENT>)? ["f","F","d","D"]
+  >
+
+DECIMAL_EXPONENT: ["e","E"] (["+","-"])? (["0"-"9"])+ 
+
+HEXADECIMAL_FLOATING_POINT_LITERAL:
+        "0" ["x", "X"] (["0"-"9","a"-"f","A"-"F"])+ (".")? <HEXADECIMAL_EXPONENT> (["f","F","d","D"])?
+      | "0" ["x", "X"] (["0"-"9","a"-"f","A"-"F"])* "." (["0"-"9","a"-"f","A"-"F"])+ <HEXADECIMAL_EXPONENT> (["f","F","d","D"])?
+
+HEXADECIMAL_EXPONENT: ["p","P"] (["+","-"])? (["0"-"9"])+ 
+```
+
+Eg. 
+- base 10 
+  - `0.5` 
+  - `0.5f`, `0.5F`, `2f` (ATTENTION, this is NOT hexadecimal)
+  - `0.5d`, `0.5D`, `2D` (ATTENTION, this is NOT hexadecimal)
+  - `3.21e2d` equivalent to `3.21 * 10^2 = 321`
+- base 16
+  - `0x3p4d` equivalent to `3 * 2^4 = 48`  
+  - `0x3.5p4d` equivalent to `3.5(base 16) * 2^4`
 
 **BigDecimal** in OrientDB is represented as a Java BigDecimal. 
 The instantiation of BigDecimal can be done explicitly, using the `bigDecimal(<number> | <string>)` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
 
 
+#### Mathematical operations
 
-Mathematical operations with numbers follow these rules:
-- Operations are calculated from left to right, following the operand priority (see maths section)
+Mathematical Operations with numbers follow these rules:
+- Operations are calculated from left to right, following the operand priority. 
 - When an operation involves two numbers of different type, both are converted to the higher precision type between the two. 
 
 Eg. 
@@ -267,6 +316,8 @@ Eg.
 the overflow follows Java rules.
 
 The conversion of a number to BigDecimal can be done explicitly, using the `bigDecimal()` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+
+
 
 ###Collections
 
