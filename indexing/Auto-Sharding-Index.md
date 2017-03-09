@@ -22,7 +22,7 @@ Since this index is based on the [Hash Index](Hash-Index.md), it's able to perfo
 Create an index by passing "AUTOSHARDING" as index engine:
 
 ```java
-final OClass cls = db.getMetadata().getSchema().createClass("Log");
+final OClass cls = db.createClass("Log");
 cls.createProperty("key", OType.LONG);
 cls.createIndex("idx_LogKey", OClass.INDEX_TYPE.UNIQUE.toString(),
     (OProgressListener) null, (ODocument) null, "AUTOSHARDING", new String[] { "key" });

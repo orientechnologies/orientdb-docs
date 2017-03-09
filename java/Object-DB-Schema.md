@@ -5,8 +5,9 @@ You can use the Object API in schema-less or in schema-full mode, provided the r
 For instance,
 
 ```java
-OOBjectDatabaseTx db = new OObjectDatabaseTx("remote:localhost/petshop")
-   .open("admin", "admin_passwd");
+OrientDBObject orientDB = new OrientDBObject("remote:localhost",OrientDBConfig.defaultConfig());
+ODatabaseObject db = orientDB.open("petshop","admin", "admin_passwd");
+
 db.getEntityManage().registerEntityClass(Person.class);
 
 Person p = db.newInstance(Person.class);
@@ -108,7 +109,7 @@ db.getMetadata().getSchema().save();
 
 ## Schema Synchronization
 
-Beginning in version 1.6, there's an API to synchronize the schema for all registered entities.
+For synchronize the schema for all registered entities you can use.
 
 ```java
 db.getMetadata().getSchema().synchronizeSchema();

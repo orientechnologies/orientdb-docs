@@ -32,9 +32,8 @@ public void method2() {
 
 As you can see [transaction](../internals/Transactions.md) is started in first method and then new one is started in second method.
 So how these [transactions](../internals/Transactions.md) should interact with each other.
-Prior 1.7-rc2 first [transaction](../internals/Transactions.md) was rolled back and second was started so were risk that all changes will be lost.
 
-Since 1.7-rc2 we start nested [transaction](../internals/Transactions.md) as part of outer transaction.
+
 What does it mean on practice?
 
 Lets consider example above we may have two possible cases here:

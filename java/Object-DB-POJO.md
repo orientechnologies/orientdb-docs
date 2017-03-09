@@ -8,7 +8,7 @@ With the Object API, Plain Old Java Objects, or POJO's, are automatically bound 
 
 ## Working with Records
 
-The best practice in creating Java objects is to use the `newInstance()` method on the `OObjectDatabaseTx` object.  For instance,
+The best practice in creating Java objects is to use the `newInstance()` method on the `ODatabaseObject` object.  For instance,
 
 ```java
 public class Person {
@@ -28,9 +28,9 @@ public class Person {
 
    //getters and settss
 }
+OrientDBObject orientDB = new OrientDBObject("remote:localhost",OrientDBConfig.defaultConfig());
 
-OObjectDatabaseTx db = new OObjectDatabaseTx("remote:localhost/petshop")
-   .open("admin", "admin_passwd");
+ODatabaseObject db = orientDB.open("petshop",admin", "admin_passwd");
 
 db.getEntityManager().registerEntityClass(Person.class);
 
@@ -206,7 +206,7 @@ int recordsUpdated = db.command(
 
 ## Getting ODocument from a POJO
 
-The `OObjectDatabaseTx` implementation has APIs to get a document from its referencing object:
+The `ODatabaseObject` implementation has APIs to get a document from its referencing object:
 
 ```java
 ODocument doc = db.getRecordByUserObject( animal );
