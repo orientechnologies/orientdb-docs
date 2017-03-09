@@ -397,7 +397,7 @@ A condition is an expression that returns a boolean value.
 
 An expression that returns something different from a boolean value is always evaluated to `false`.
 
-### Math Operators
+### Comparison Operators
 
 - **`=`  (equals)**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
 - **`!=` (not equals)**: inequality operator. (TODO type conversion)
@@ -406,18 +406,34 @@ An expression that returns something different from a boolean value is always ev
 - **`>=` (greater or equal)**
 - **`<`  (less than)**
 - **`<=` (less or equal)**
+
+### Math Operators
+
 - **`+`  (plus)**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'`. Plus can also be used as a unary operator (no effect)
 - **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). Minus can also be used as a unary operator, to invert the sign of a number
 - **`*`  (multiplication)**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
 - **`/`  (division)**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
 - **`%`  (modulo)**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
-- **`>>`  (bitwise right shift)** (support will come after 3.0 M1)
-- **`<<`  (bitwise right shift)** (support will come after 3.0 M1)
-- **`&`  (bitwise AND)** (support will come after 3.0 M1)
-- **`|`  (bitwise OR)** (support will come after 3.0 M1)
-- **`^`  (bitwise XOR)** (support will come after 3.0 M1)
+- **`>>`  (bitwise right shift)** 
+- **`>>>`  (unsigned bitwise right shift)** 
+- **`<<`  (bitwise right shift)** 
+- **`&`  (bitwise AND)** 
+- **`|`  (bitwise OR)** 
+- **`^`  (bitwise XOR)** 
 - **`~`  (bitwise NOT)** (support will come after 3.0 M1)
 - **`||`**: array concatenation (support will come after 3.0 M1)
+
+#### Math Operators precedence
+
+
+| type                  |   Operators     |
+|-----------------------|-----------------|
+| multiplicative        | `*` `/` `%`     |
+| additive	            |   `+` `-`       |
+| shift	                | `<<` `>>` `>>>` |
+| bitwise AND	        |   `&`           |
+| bitwise exclusive OR	|  `^`            |
+| bitwise inclusive OR	|   <code>&#124;</code>        |
 
 ### Math + Assign operators
 
