@@ -45,8 +45,7 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) 
 Alternatively, you can configure the index in Java.
 
 ```java
-OSchema schema = db.getMetadata().getSchema();
-OClass city = schema.getClass("City");
+OClass city = db.getClass("City");
 ODocument metadata = new ODocument();
 metadata.field("indexRadix", true);
 metadata.field("stopWords", Arrays.asList(new String[] { "the", "in", "a", "at" }));

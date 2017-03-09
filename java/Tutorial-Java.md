@@ -33,7 +33,7 @@ In order to use the Graph API, you need to create an `OrientGraph` object first:
 ```java
 import com.tinkerpop.blueprints.impls.orient.OrientGraph;
 
-OrientGraph graph = new OrientGraph("local:test", 
+OrientGraph graph = new OrientGraph("embedded:./test",
         "username", "password");
 ```
 

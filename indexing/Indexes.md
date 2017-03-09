@@ -70,7 +70,7 @@ orientdb> <code class='lang-sql userinput'>CREATE INDEX addresses ON Employee (a
 
 And Java API:
 ```
-schema.getClass(Employee.class).getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
+schema.getClass("Employee").getProperty("address").createIndex(OClass.INDEX_TYPE.NOTUNIQUE, new ODocument().field("ignoreNullValues",true));
 ```
 
 ### Indexes and Composite Keys
@@ -406,102 +406,6 @@ DELETE FROM INDEX:<index-name>
   <pre>
   orientdb> <code class="lang-sql userinput">DELETE FROM INDEX:dictionary</code>
   </pre>
-
-
-
-
-## Custom Keys
-
-OrientDB includes support for the creation of custom keys for indexes.  This feature has been available since version 1.0, and can provide you with a huge performance improvement, in the event that you would like minimize memory usage by developing your own serializer.
-
-For example, consider a case where you want to handle SHA-256 data as binary keys without using a string to represent it, which would save on disk space, CPU and memory usage.
-
-To implement this, begin by creating your own type,
-
-```java
-public static class ComparableBinary implements Comparable<ComparableBinary> {
-      private byte[] value;
-
-      public ComparableBinary(byte[] buffer) {
-            value = buffer;
-      }
-
-      public int compareTo(ComparableBinary o) {
-            final int size = value.length;
-            for (int i = 0; i < size; ++i) {
-                  if (value[i] > o.value[i])
-                        return 1;
-                  else if (value[i] < o.value[i])
-                        return -1;
-            }
-            return 0;
-      }
-
-      public byte[] toByteArray() {
-            return value;
-      }
-}
-```
-
-With your index type created, next create a binary selector for it to use:
-
-```java
-public static class OHash256Serializer implements OBinarySerializer<ComparableBinary> {
-
-      public static final OBinaryTypeSerializer INSTANCE = new OBinaryTypeSerializer();
-      public static final byte ID = 100;
-      public static final int LENGTH = 32;
-
-      public int getObjectSize(final int length) {
-            return length;
-      }
-
-      public int getObjectSize(final ComparableBinary object) {
-            return object.toByteArray().length;
-      }
-
-      public void serialize(
-         final ComparableBinary object,
-         final byte[] stream,
-	 final int startPosition) {
-                  final byte[] buffer = object.toByteArray();
-                  System.arraycopy(buffer, 0, stream, startPosition, buffer.length);
-            }
-
-      public ComparableBinary deserialize(
-         final byte[] stream,
-	 final int startPosition) {
-                 final byte[] buffer = Arrays.copyOfRange(
-			      stream,
-			      startPosition,
-			      startPosition + LENGTH);
-                  return new ComparableBinary(buffer);
-      }
-
-      public int getObjectSize(byte[] stream, int startPosition) {
-            return LENGTH;
-      }
-
-      public byte getId() {
-            return ID;
-      }
-}
-```
-
-Lastly, register the new serializer with OrientDB:
-
-```java
-OBinarySerializerFactory.INSTANCE.registerSerializer(new OHash256Serializer(), null);
-index = database.getMetadata().getIndexManager().createIndex("custom-hash", "UNIQUE", new ORuntimeKeyIndexDefinition(OHash256Serializer.ID), null, null);
-```
-
-Your custom keys are now available for use in searches:
-
-```java
-ComparableBinary key1 = new ComparableBinary(new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1 });
-ODocument doc1 = new ODocument().field("k", "key1");
-index.put(key1, doc1);
-```
 
 
 ## Query the available indexes
