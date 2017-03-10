@@ -32,13 +32,15 @@ section.normal li {
     border-bottom: 2px solid #eee;
 }
 
+.book .book-body .page-wrapper .page-inner:before {
+  content: 'OrientDB v.2.1 has reached End of Life. This documentation is out of date. Please visit http://orientdb.com/docs/last/';
+  font-size:1.75em;
+  color: blue;
+}
+
 .book .book-body .page-wrapper .page-inner section.normal h4 {
     font-size: 1.1em;
 }
-
-h1{background-image: url("eol_message.png"); background-size: 500px; background-repeat: no-repeat; background-position: center;}
-
-
 
 
 
