@@ -33,8 +33,8 @@ Inheritance in the Edge classes:
 
 ```
 - HasUsedService
-  - HasStayed
-  - HasEaten
+  -- HasStayed
+  -- HasEaten
 ```
 
 ## Queries
