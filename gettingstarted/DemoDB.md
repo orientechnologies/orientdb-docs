@@ -15,18 +15,26 @@ Data model is reported in the image below:
 
 ## Inheritance
 
-Inheritance in the vertex classes:
+Inheritance in the Vertex classes:
 
 ```
-Locations
-  - Attractions
-    -- ArchaeologicalSites 
-    -- Castles
-    -- Monuments
-    -- Theatres
-  - Services
-    -- Hotels 
-    -- Restaurants
+- Locations
+  -- Attractions
+    --- ArchaeologicalSites 
+    --- Castles
+    --- Monuments
+    --- Theatres
+  -- Services
+    --- Hotels 
+    --- Restaurants
+```
+
+Inheritance in the Edge classes:
+
+```
+- HasUsedService
+  - HasStayed
+  - HasEaten
 ```
 
 ## Queries
