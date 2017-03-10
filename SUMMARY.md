@@ -358,6 +358,7 @@
       * [setOClass()](PHP-Record-setOClass.md)
       * [setOData()](PHP-Record-setOData.md)
       * [setRid()](PHP-Record-setRid.md)
+    * [ID](PHP-ID.md)
     * [Transaction](PHP-Tx.md)
       * [attach()](PHP-Tx-attach.md)
       * [begin()](PHP-Tx-begin.md)
