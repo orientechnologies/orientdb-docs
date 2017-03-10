@@ -17,7 +17,7 @@ Eventually, you'll want your application to programmatically add records to Orie
 $client->recordCreate(<record>)
 ```
 
-- **`<record>`** Defines a `Record()` instance to create.
+- **`<record>`** Defines the record to create, it is an instance of [`Record()`](PHP-Record.md).
 
 
 ### Example

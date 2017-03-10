@@ -3,7 +3,7 @@ search:
    keywords: ["PHP", "PhpOrient", "list databases", "dbList"]
 ---
 
-# PhpOrient - `dbLists()`
+# PhpOrient - `dbList()`
 
 Retrieves a list of databases on the server.
 
@@ -23,7 +23,7 @@ For instance, when developing a web application that servers multiple sites each
 
 ```php
 // LOOP OVER DATABASES AND ECHO NAMES
-foreach ($clinet->dbList() as $db){
-	echo $db;
+foreach ($client->dbList() as $db){
+	echo "Database: $db";
 }
 ```

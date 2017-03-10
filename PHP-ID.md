@@ -28,7 +28,7 @@ $rid = new ID().parseString($stringID);
 
 #### Using Cluster ID
 
-In addition to these approaches, you can also partially instantiate a record by only providing it with a Cluster ID.  For instance,
+In addition to these approaches, you can also partially instantiate an ID by only providing it with a Cluster ID.  For instance,
 
 ```php
 $rid = new ID(5);

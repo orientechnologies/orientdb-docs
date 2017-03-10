@@ -24,7 +24,7 @@ $record = new Record()
 | [**`getOClass()`**](PHP-Record-getOClass.md) | Retrieve the class name |
 | [**`getOData()`**](PHP-Record-getOData.md) | Retrieves record data |
 | [**`getRid()`**](PHP-Record-getRid.md) | Returns the Record ID |
-| [**`jsonSerialize()`](PHP-Record-jsonSerialize.md) | REturns record in serialized JSON format |
+| [**`jsonSerialize()`**](PHP-Record-jsonSerialize.md) | Returns record in serialized JSON format |
 | [**`recordSerialize()`**](PHP-Record-serializeRecord.md) | Returns record in serialized format |
 | [**`setOClass()`**](PHP-Record-setOClass.md) | Sets the class |
 | [**`setOData()`**](PHP-Record-setOData.md) | Sets record data |

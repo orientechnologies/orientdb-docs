@@ -5,11 +5,11 @@ search:
 
 # PhpOrient - `dbOpen()`
 
-This method opens a database on the OrientDB Server.  It returns a cluster map object. It returns a cluster map object. 
+This method opens a database on the client interface.  The return value is a [cluster map](PHP-ClusterMap.md).
 
 ## Opening Databases
 
-When you have the name of the database that you want to open, as well as valid login credentials.  It returns a cluster map object.  Once you have opened a database on the client, you can begin to operate on the database.
+When the database you want exists already on the OrientDB Server, you can open it on the client interface using this method with the appropriate name and login credentials.  Once you have it open, a series of additional methods become available through the client interface.  These allow you to insert, retrieve and modify records in the database.
 
 ### Syntax
 
@@ -45,6 +45,7 @@ Once you have an open database on the client interface, a series of additional m
 | [**`dbCountRecords()`**](PHP-dbCountRecords.md) | Counts records on a database. |
 | [**`dbReload()`**](PHP-dbReload.md) | Reloads the database on the client interface. |
 | [**`dbSize()`**](PHP-dbSize.md) | Returns the size of the database. |
+| [**`getTransactionStatement()`**](PHP-Tx.md) | Instantiates a transaction interface. |
 | [**`query()`**](PHP-Query.md) | Queries the database. |
 | [**`queryAsync()`**](PHP-queryAsync.md) | Queries the database with support for callback functions and Fetching Strategies. |
 | [**`recordCreate()`**](PHP-recordCreate.md) | Creates a record on database. |

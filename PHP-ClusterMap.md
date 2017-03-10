@@ -19,9 +19,9 @@ You can then use the `$clusterMap` object in calling additional methods.
 
 | Method | Description |
 |---|---|
-| [**`count()`**](#count) | |
-| [**`dropClusterID()`**](PHP-ClusterMap-dropClusterID.md) | |
-| [**`getIdList()`**](PHP-ClusterMap-getIdList.md) | |
+| [**`count()`**](#count) | Returns a count of records in the cluster. |
+| [**`dropClusterID()`**](PHP-ClusterMap-dropClusterID.md) | Removes a cluster from the database. |
+| [**`getIdList()`**](PHP-ClusterMap-getIdList.md) | Retrieves a list of Cluster ID's. |
 
 
 ### `count()`

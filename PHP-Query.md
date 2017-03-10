@@ -25,10 +25,16 @@ In cases where you find yourself frequently issuing queries to OrientDB, you may
 
 ```php
 // QUERY FUNCTION
-function queryDatabase($client, $className, $properties = array('*'), $whereCondtions = array(), $limit = 0){
+function queryDatabase($className, 
+			$properties = array('*'), 
+			$whereCondtions = array(), 
+			$limit = 0){
 
 	// LOG OPERATION
 	echo "Querying $className";
+
+	// FETCH GLOBAL CLIENT
+	global $client;
 
 	// CONSTRUCT SELECT STATEMENT
 	if ($properties == array('*')) {

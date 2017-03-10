@@ -7,7 +7,7 @@ search:
 
 This method fetches a range of Record ID's by cluster.
 
-## Retrieving Range of Records
+## Retrieving Ranges of Records
 
 In some cases, you may want to retrieve all records in a given cluster.  This method uses the Cluster ID to identify the records you want to access.
 

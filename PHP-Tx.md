@@ -11,7 +11,7 @@ OrientDB supports transactions, allowing you to organize database operations int
 
 Transactions are managed through a transaction interface.  You can initialize this interface using the `getTransactionStatement()` method on the client interface.  For instance,
 
-```
+```php
 // Fetch Transaction Interface
 $tx = $client->getTransactionStatement();
 ```

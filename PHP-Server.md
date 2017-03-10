@@ -32,9 +32,12 @@ When your application gets to this point, the `$client` variable is now connecte
 
 ## Operating on the Server
 
+The client interface provides a number of methods for database and server operations.  The table below provides a list of methods for server operations, specifically in creating, opening, listing and removing databases on the server.
+
 | Method | Description |
-| [`dbCreate()`]() | Creates a database. |
-| [`dbDrop()`]() | Removes a database. |
-| [`dbExists()`]() | Checks that database exists. |
-| [`dbList()`]() | Lists databases on server. |
-| [`dbOpen()`](PHP-Database.md) | Opens an existing database. |
+|---|---|
+| [`dbCreate()`](PHP-dbCreate.md) | Creates a database |
+| [`dbDrop()`](PHP-dbDrop.md) | Removes a database |
+| [`dbExists()`](PHP-dbExists.md) | Checks that database exists |
+| [`dbList()`](PHP-dbList.md) | Lists databases on server |
+| [`dbOpen()`](PHP-Database.md) | Opens an existing database |

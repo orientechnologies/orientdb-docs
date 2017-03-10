@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - `setOData()`
 
-This method sets data on a `Record()` object.
+This method sets data on a [`Record()`](PHP-Record.md) object.
 
 ## Setting Data
 

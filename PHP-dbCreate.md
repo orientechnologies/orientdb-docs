@@ -9,7 +9,7 @@ Creates a database on the connected OrientDB Server.
 
 ## Creating Databases
 
-In the event that a database does not already exist on the server, you can create one from within your application, using the `dbCreate()` method.  This method requires on argument, the database name, and can take two additional arguments defining the storage and database types.  It returns the default cluster ID.
+In the event that a database does not already exist on the server, you can create one from within your application, using the `dbCreate()` method.  This method requires one argument, the database name, and can take two additional arguments defining the storage and database types.  It returns the default cluster ID.
 
 ### Syntax
 
@@ -34,7 +34,10 @@ Consider the use case of a web application.  Rather than just assuming that Orie
 
 ```php
 // OPEN OR CREATE DATABASE
-function dbOpenCreate($client, $dbname, $user, $passwd){
+function dbOpenCreate($dbname, $user, $passwd){
+
+	// RETRIEVE GLOBAL CLIENT
+	global $client;
 
 	// CHECK IF EXISTS
 	if !($client->dbExists($dbname)){
@@ -47,4 +50,4 @@ function dbOpenCreate($client, $dbname, $user, $passwd){
 }
 ```
 
-This function takes the client interface, database name and database login credentials as arguments.  Using [`dbExists()`](PHP-dbExists.md) it determines whether the database exists on the database and creates it if it doesn't exist.  Then it opens the given database, returning the cluster map.
+This function takes the database name and database login credentials as arguments.  Using [`dbExists()`](PHP-dbExists.md) it determines whether the database exists on the database and creates it if it doesn't exist.  Then it opens the given database, returning the cluster map.

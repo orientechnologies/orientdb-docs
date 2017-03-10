@@ -12,14 +12,14 @@ It requires OrientDB version 1.7.4 or later.  It also requires that your applica
 
 ## Getting PhpOrient 
 
-In order to use PhpOrient with your application, you first need to install it on your system.  There are two methods available to you in doing in install PhpOrient: registering PhpOrient as a dependency of your application or manually retrieving the source code and installing it.  Both methods require PHP Composer.
+In order to use PhpOrient with your application, you first need to install it on your system.  There are two methods available to you in installing PhpOrient: registering PhpOrient as a dependency of your application or manually retrieving the source code and installing it separately on your system.  Both methods require PHP Composer.
 
 ### Dependency Registration
 
 When working with an existing project or in cases where you already have PHP Composer installed, you can register PhpOrient as a dependency of your project.  To do so, run the following command from your project directory:
 
 <pre>
-$ <code class="lang-sh userinput">php composer.phar require "ostico/phporient:dev-master \
+$ <code class="lang-sh userinput">php composer.phar require "ostico/phporient:dev-master" \
       --update-no-dev</code>
 </pre>
 
@@ -54,9 +54,7 @@ PhpOrient is now installed and ready for use on your system.
 
 ### 32-bit Architecture
 
-While PhpOrient supports both 32-bit and 64-bit architectures, there are some issues that you should keep in mind when deploying applications on 32-bit systems.
-
-In order to support Java long integers and to prove better driver performance on these systems, you must install one of the following libraries:
+While PhpOrient supports both 32-bit and 64-bit architectures, there are some issues that you should keep in mind when deploying applications on 32-bit systems.  In order to support Java long integers and to prove better driver performance on these systems, you must install one of the following libraries:
 
 - [BCMath Arbitrary Precision Mathematics](http://php.net/manual/en/book/bc.php)
 - [GNU Multiple Precision](http://php.net/manual/en/book/gmp.php)
@@ -66,13 +64,9 @@ When your 32-bit application receives a Java long integer from OrientDB, values 
 
 ## Using PhpOrient
 
-During installation, PHP Composer generated an autoload file that you can use in retrieving PhpOrient classes and functions to use with your application.  To implement these features, add the following lines to any file where you would like to have these features available:
+During installation, PHP Composer generates an autoload file that you can use in retrieving PhpOrient classes and functions to use with your application.  To implement these features, add the following lines to any file where you would like to have these features available:
 
 ```php
 require "vendor/autoload.php;
 use PhpOrient\PhpOrient;
 ```
-
-
-
-

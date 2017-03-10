@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - `setOClass()`
 
-This method sets the class on the `Record()` object.
+This method sets the class on the [`Record()`](PHP-Record.md) object.
 
 ## Setting Classes
 
@@ -21,7 +21,7 @@ $record->setOClass(<class>)
 
 ### Example
 
-For instance, when creating a new `Record()` instance within your application, use this method to set the class.
+For instance, when creating a new [`Record()`](PHP-Record.md) instance within your application, use this method to set the class.
 
 ```php
 function addEntry($data){

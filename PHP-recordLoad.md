@@ -3,7 +3,7 @@ search:
    keywords: ['PHP', 'PhpOrient', 'load record', 'record load', 'recordLoad']
 ---
 
-# PhpOrient - 'reacordLoad()'
+# PhpOrient - `reacordLoad()`
 
 This method returns a record from the database.
 

@@ -49,7 +49,7 @@ function createRecord($class, $records){
 		);	
 
 		// Attach Operation to Transaction
-		$tx->allow($createdRecord);
+		$tx->attach($createdRecord);
 	}
 
 	// Commit Changes

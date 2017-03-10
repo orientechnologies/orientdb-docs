@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - Client Connections
 
-Operations on OrientDB servers and databases are handled through a client interface within your application.  By convention, this interface is called `$client`, but you can use any variable name you prefer.  Once you have initialized this connection, you can begin to call additional methods to perform whatever operations your application requires.
+Within your PHP application, performing operations on OrientDB servers and databases requires a client interface.  By convention, this interface is called `$client` within these docs, but you can use any variable name you prefer.  Once you have initialized this connection, you can begin to call additional methods to operate on [servers](PHP-Server.md) and [databases](PHP-Database.md). 
 
 
 ## Initializing Client Connections
@@ -59,7 +59,7 @@ $client->configure(
 
 Beginning in version 27, PhpOrient provides support for persistent client connections.  This allows you to set a session token, then connect, disconnect and reconnect to the given session as suits the needs of your application. 
 
-When using persistent connections, use the `setSessionToken()` method with a boolean value to enable the feature.  Then using the `getSessionToken()` method to retrieve a token for the given session.
+When using persistent connections, use the `setSessionToken()` method with a boolean value to enable the feature.  Then use the `getSessionToken()` method to retrieve a token for the given session.
 
 ```php
 

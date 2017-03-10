@@ -32,9 +32,9 @@ function buildRecord($title, $text, $user){
 
 	// BUILD RECORD CONTENT
 	$recordContent = [
-		"title": $title,
+		"title":  $title,
 		"author": $user,
-		"text":	 $text];
+		"text":   $text];
 
 	// BUILD RECORD
 	$record = (new Record() )->setOData($recordContent)->setOClass("Blog")->setRid(new ID(9));

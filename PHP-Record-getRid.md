@@ -9,7 +9,7 @@ This method returns the Record ID of the given Record object.
 
 ## Retrieving Record ID's
 
-In cases where you want to access the Record ID of a given `Record()` object, this method allows you to retrieve the `ID()` instance from the record.  You can then use this to call additional methods on the Record ID in further operations.
+In cases where you want to access the Record ID of a given [`Record()`](PHP-Record.md) object, this method allows you to retrieve the [`ID()`](PHP-ID.md) instance from the record.  You can then use this to call additional methods on the Record ID in further operations.
 
 
 ### Syntax
