@@ -364,7 +364,7 @@ Valid expressions are:
 - `[ <expression> (, <expression>)* ]`: a list, an ordered collection that allows duplicates, eg. `["a", "b", "c"]`)
 - `{ <expression>: <expression> (, <expression>: <expression>)* }`: the result is an ODocument, with <field>:<value> values, eg. `{"a":1, "b": 1+2+3, "c": foo.bar.size() }`. The key name is converted to String if it's not.
 - `<expression> <modifier> ( <modifier> )*`: a chain of modifiers (see below)
-- `<json>`: It is translated to an ODocument. Nested JSON is allowed and is translated to nested ODocuments (TODO what about Maps?)
+- `<json>`: It is translated to an ODocument. Nested JSON is allowed and is translated to nested ODocuments 
 - `<expression> IS NULL`: check for null value of an expression
 - `<expression> IS NOT NULL`: check for non null value of an expression
 
@@ -400,7 +400,7 @@ An expression that returns something different from a boolean value is always ev
 ### Comparison Operators
 
 - **`=`  (equals)**: If used in an expression, it is the boolean equals (eg. `select from Foo where name = 'John'`. If used in an SET section of INSERT/UPDATE statements or on a LET statement, it represents a variable assignment (eg. `insert into Foo set name = 'John'`)
-- **`!=` (not equals)**: inequality operator. (TODO type conversion)
+- **`!=` (not equals)**: inequality operator. 
 - **`<>` (not equals)**: same as `!=`
 - **`>`  (greater than)**
 - **`>=` (greater or equal)**
@@ -409,19 +409,19 @@ An expression that returns something different from a boolean value is always ev
 
 ### Math Operators
 
-- **`+`  (plus)**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'`. Plus can also be used as a unary operator (no effect)
-- **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero (TODO CHECK THIS!!!). Minus can also be used as a unary operator, to invert the sign of a number
-- **`*`  (multiplication)**: multiplication between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
-- **`/`  (division)**: division between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). The result of a division by zero is NaN
-- **`%`  (modulo)**: modulo between numbers. Non-number operands are evaluated to one (TODO CHECK THIS!!!). 
-- **`>>`  (bitwise right shift)** 
-- **`>>>`  (unsigned bitwise right shift)** 
-- **`<<`  (bitwise right shift)** 
-- **`&`  (bitwise AND)** 
-- **`|`  (bitwise OR)** 
-- **`^`  (bitwise XOR)** 
+- **`+`  (plus)**: addition if both operands are numbers, string concatenation (with string conversion) if one of the operands is not a number. The order of calculation (and conversion) is from left to right, eg `'a' + 1 + 2 = 'a12'`, `1 + 2 + 'a' = '3a'`. It can also be used as a unary operator (no effect)
+- **`-`  (minus**): subtraction between numbers. Non-number operands are evaluated to zero. Null values are treated as a zero, eg `1 + null = 1`. Minus can also be used as a unary operator, to invert the sign of a number
+- **`*`  (multiplication)**: multiplication between numbers. If one of the operands is null, the multiplication will evaluate to null. 
+- **`/`  (division)**: division between numbers. If one of the operands is null, the division will evaluate to null.. The result of a division by zero is NaN
+- **`%`  (modulo)**: modulo between numbers. If one of the operands is null, the modulo will evaluate to null.. 
+- **`>>`  (bitwise right shift)**: shifts bits on the right operand by a number of positions equal to the right operand. Eg. `8 >> 2 = 2`. Both operands have to be Integer or Long values, otherwise the result will be null.  
+- **`>>>`  (unsigned bitwise right shift)** The same as `>>`, but with negative numbers it will fill with `1` on the left. Both operands have to be Integer or Long values, otherwise the result will be null.
+- **`<<`  (bitwise right shift)** shifts bits on the left, eg. `2 << 2 = 8`. Both operands have to be Integer or Long values, otherwise the result will be null.
+- **`&`  (bitwise AND)** executes a bitwise AND operation. Both operands have to be Integer or Long values, otherwise the result will be null.
+- **`|`  (bitwise OR)** executes a bitwise OR operation. Both operands have to be Integer or Long values, otherwise the result will be null.
+- **`^`  (bitwise XOR)** executes a bitwise XOR operation. Both operands have to be Integer or Long values, otherwise the result will be null.
 - **`~`  (bitwise NOT)** (support will come after 3.0 M1)
-- **`||`**: array concatenation (support will come after 3.0 M1)
+- **`||`**: array concatenation (see below for details)
 
 #### Math Operators precedence
 
@@ -434,14 +434,18 @@ An expression that returns something different from a boolean value is always ev
 | bitwise AND	        |   `&`           |
 | bitwise exclusive OR	|  `^`            |
 | bitwise inclusive OR	|   <code>&#124;</code>        |
+| array concatenation	|   <code>&#124;&#124;</code>        |
 
 ### Math + Assign operators
 
-- **`+=`  (add and assign)** (support will come after 3.0 M1): adds right operand to left operand and assigns the value to the left operand. Returns the final value of the left operand. If one of the operands is not a number, then this operator acts as a `concatenate string values and assign`
-- **`-=`  (subtract and assign)** (support will come after 3.0 M1): subtracts right operand from left operand and assigns the value to the left operand. Returns the final value of the left operand
-- **`*=`  (multiply and assign)** (support will come after 3.0 M1): multiplies left operand and right operand and assigns the value to the left operand. Returns the final value of the left operand
-- **`/=`  (divide and assign)** (support will come after 3.0 M1): divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
-- **`%=`  (modulo and assign)** (support will come after 3.0 M1): calculates left operand modulo right operand and assigns the value to the left operand. Returns the final value of the left operand
+These operators can be used in UPDATE statements to update and set values. The semantics is the same as the operation plus the assignment,
+eg. `a += 2` is just a shortcut for `a = a + 2`.
+
+- **`+=`  (add and assign)**: adds right operand to left operand and assigns the value to the left operand. Returns the final value of the left operand. If one of the operands is not a number, then this operator acts as a `concatenate string values and assign`
+- **`-=`  (subtract and assign)**: subtracts right operand from left operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`*=`  (multiply and assign)**: multiplies left operand and right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`/=`  (divide and assign)**: divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
+- **`%=`  (modulo and assign)**: calculates left operand modulo right operand and assigns the value to the left operand. Returns the final value of the left operand
 
 ### Array concatenation (support will come after 3.0 M1)
 
@@ -479,6 +483,23 @@ To transform the result of an array concatenation in a Set (remove duplicates), 
 ([1, 2] || [2, 3]).asSet() = [1, 2, 3] 
 ```
 
+**Specific behavior of NULL**
+
+Null value has no effect when applied to a || operation. eg.
+
+```
+[1, 2] || null = [1, 2]
+
+null || [1, 2] = [1, 2]
+```
+
+To add null values to a collection, you have to explicitly wrap them in another collection, eg.
+
+```
+[1, 2] || [null] = [1, 2, null]
+```
+
+
 
 ### Boolean Operators
 
@@ -494,5 +515,5 @@ To transform the result of an array concatenation in a Set (remove duplicates), 
 - **`IS NOT DEFINED`** (unary): returns TRUE is a field is not defined in a document
 - **`BETWEEN - AND`** (ternary): returns TRUE is a value is between two values, eg. `5 BETWEEN 1 AND 10`
 - **`MATCHES`**: checks if a string matches a regular expression
-- **`INSTANCEOF`**: checks the type of a value, the right operand has to be the a String representing a class name, eg. `father INSTANCEOF 'Person'` (TODO consider identifiers as class names as well?)
+- **`INSTANCEOF`**: checks the type of a value, the right operand has to be the a String representing a class name, eg. `father INSTANCEOF 'Person'` 
 
