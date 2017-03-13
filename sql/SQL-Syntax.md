@@ -370,8 +370,25 @@ Valid expressions are:
 #### Modifiers
 
 A modifier can be
-- a dot-separated field chain, eg. `foo.bar`.
+- a dot-separated field chain, eg. `foo.bar`. Dot notation is used to navigate relationships and document fields. eg.
+  ```
+  john = {
+            name: "John",
+            surname: "Jones",
+            address: {
+               city: {
+                  name: "London"
+               }
+            }
+         }
+            
+  john.address.city.name = "London"
+  ```
+  
 - a method invocation, eg. `foo.size()`.
+
+  Method invocations can be chained, eg. `foo.toLowerCase().substring(2, 4)`
+  
 - a square bracket filter, eg. `foo[1]` or `foo[name = 'John']`
 
 
