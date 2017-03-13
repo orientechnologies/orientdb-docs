@@ -358,7 +358,6 @@ Valid expressions are:
 - `<function invocation>`
 - `<expression> <binary operator> <expression>`: with Java precedence rules
 - `<unary operator> <expression>` 
-- `<expression> ? <expression> : <expression>`: ternary if-else operator
 - `( <expression> )`: expression between parenthesis, for precedences
 - `( <query> )`: query between parenthesis
 - `[ <expression> (, <expression>)* ]`: a list, an ordered collection that allows duplicates, eg. `["a", "b", "c"]`)
