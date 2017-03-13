@@ -420,7 +420,6 @@ An expression that returns something different from a boolean value is always ev
 - **`&`  (bitwise AND)** executes a bitwise AND operation. Both operands have to be Integer or Long values, otherwise the result will be null.
 - **`|`  (bitwise OR)** executes a bitwise OR operation. Both operands have to be Integer or Long values, otherwise the result will be null.
 - **`^`  (bitwise XOR)** executes a bitwise XOR operation. Both operands have to be Integer or Long values, otherwise the result will be null.
-- **`~`  (bitwise NOT)** (support will come after 3.0 M1)
 - **`||`**: array concatenation (see below for details)
 
 #### Math Operators precedence
@@ -447,7 +446,7 @@ eg. `a += 2` is just a shortcut for `a = a + 2`.
 - **`/=`  (divide and assign)**: divides left operand by right operand and assigns the value to the left operand. Returns the final value of the left operand
 - **`%=`  (modulo and assign)**: calculates left operand modulo right operand and assigns the value to the left operand. Returns the final value of the left operand
 
-### Array concatenation (support will come after 3.0 M1)
+### Array concatenation
 
 The `||` operator concatenates two arrays.
 
