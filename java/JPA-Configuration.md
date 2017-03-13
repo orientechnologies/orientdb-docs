@@ -81,7 +81,8 @@ public class GuiceServletConfig extends GuiceServletContextListener {
 ### Native example
 ```java
 // OPEN THE DATABASE
-OObjectDatabaseTx db = new OObjectDatabaseTx ("remote:localhost/petshop").open("admin", "admin");
+OrientDBObject orientDB = new OrientDBObject("remote:localhost",OrientDBConfig.defaultConfig());
+ODatabaseObject db = orientDB.open("admin", "admin");
 
 // REGISTER THE CLASS ONLY ONCE AFTER THE DB IS OPEN/CREATED
 db.getEntityManager().registerEntityClasses("foo.domain");
