@@ -29,11 +29,11 @@ The back-tick character can be used as a valid character for identifiers, but it
 
 The following are reserved identifiers can NEVER be used (upper or lower case):
 
-- ``` `@rid` ```
-- ``` `@class` ```
-- ``` `@version` ```
-- ``` `@type` ```
-- ``` `@fieldTypes` ```
+- ``` @rid ```
+- ``` @class ```
+- ``` @version ```
+- ``` @type ```
+- ``` @fieldTypes ```
 
 **Simplified identifiers**
 
