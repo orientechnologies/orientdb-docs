@@ -27,13 +27,13 @@ Examples of valid identifiers are
 The back-tick character can be used as a valid character for identifiers, but it has to be escaped with a backslash, eg.
 - ``` `foo \` bar` ```
 
-The following are reserved identifiers can NEVER be used (upper or lower case):
+The following are reserved identifiers, they can NEVER be used with a different meaning (upper or lower case):
 
-- ``` @rid ```
-- ``` @class ```
-- ``` @version ```
-- ``` @type ```
-- ``` @fieldTypes ```
+- ``` @rid ```: record ID
+- ``` @class ```: document class
+- ``` @version ```: document version
+- ``` @type ```: record type
+- ``` @fieldTypes ```: document field types
 
 **Simplified identifiers**
 
