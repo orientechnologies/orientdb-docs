@@ -356,7 +356,7 @@ Valid expressions are:
 - `<field name>`
 - `<@attribute name>`
 - `<function invocation>`
-- `<expression> <binary operator> <expression>`: with Java precedence rules
+- `<expression> <binary operator> <expression>`: for operator precedence, see below table.
 - `<unary operator> <expression>` 
 - `( <expression> )`: expression between parenthesis, for precedences
 - `( <query> )`: query between parenthesis
