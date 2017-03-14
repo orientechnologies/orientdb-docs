@@ -6,9 +6,12 @@ search:
 # API
 
 OrientDB supports 3 kinds of drivers:
-- **Native binary remote**, that talks directly against the TCP/IP socket using the [binary protocol](https://github.com/nuvolabase/orientdb/wiki/Network-Binary-Protocol)
+
+- **Native Binary Remote**, that talks directly against the TCP/IP socket using the [binary protocol](https://github.com/nuvolabase/orientdb/wiki/Network-Binary-Protocol)
+
 - **HTTP REST/JSON**, that talks directly against the TCP/IP socket using the [HTTP protocol](https://github.com/nuvolabase/orientdb/wiki/OrientDB-REST)
-- **Java wrapped**, as a layer that links in some way the native Java driver. This is pretty easy for languages that run into the JVM like Scala, Groovy and JRuby
+
+- **Java-wrapped**, as a layer that links in some way the native Java driver. This is pretty easy for languages that run into the JVM like Scala, Groovy and JRuby
 
 Look also at the available integration with [Plugins and Frameworks](Plugins.md).
 
