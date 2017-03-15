@@ -275,7 +275,7 @@
       * [Partitioned](java/Partitioned-Graphs.md)  
       * [Lightweight Edges](java/Lightweight-Edges.md)
       * [Graph Batch Insert](java/Graph-Batch-Insert.md)     
-    * [Document API (legacy)](java/Document-Database.md)
+    * [Document API](java/Document-Database.md)
       * [Documents](java/Document-API-Documents.md)
     *[Live Query](java/Live-Query.md)
       *[Live Query Intro](java/Live-Query-Intro.md)
