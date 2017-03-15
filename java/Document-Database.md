@@ -177,7 +177,7 @@ OrientDB commits transactions only when you call the `commit()` method and no er
 For instance,
 
 ```java
-OrientDB orientDB = new OrientDB("memory:localhost");
+OrientDB orientDB = new OrientDB("remote:localhost");
 
 try (ODatabaseDocument db = orientDB.open("petshop","admin", "admin_passwd")) {
   db.begin();
