@@ -12,7 +12,7 @@ Typing in Java is somewhat more granular than it is in Elixir.  For instance, wh
 
 ## Typing in MarcoPolo
 
-In any situation where you send data from your application to OrientDB, MarcoPolo converts the internal type in Elixir to a default type in Java.  So, for instance, if you set a booelan value on a record it gets set in OrientDB as the `java.lang.Boolean` type.
+In any situation where you send data from your application to OrientDB, MarcoPolo converts the internal type in Elixir to a default type in Java.  So, for instance, if you set a boolean value on a record it gets set in OrientDB as the `java.lang.Boolean` type.
 
 Java types that you retrieve from OrientDB are converted to their approximate Elixir type.  So, if you query OrientDB and retrieve an instance of `java.lang.Long` it is set in your application as an Elixir integer.
 
