@@ -371,6 +371,7 @@
       * [commit()](PHP-Tx-commit.md)
       * [rollback()](PHP-Tx-rollback.md)
   * [Elixir](MarcoPolo.md)
+    * [Types](MarcoPolo-Types.md)
   * [Scala API](Scala-Language.md)
   * [HTTP API](OrientDB-REST.md)
   * [Binary Protocol](Network-Binary-Protocol.md)
