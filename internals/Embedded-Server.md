@@ -19,11 +19,29 @@ In order to embed the server you need to include the following jar files in the 
 - <code>orientdb-enterprise-**.jar</code>
 - <code>orientdb-server-**.jar</code>
 
-In v 2.2 please set MaxDirectMemorySize to a high value, like 512g (JVM setting):
+Starting from version 2.2, please set the `MaxDirectMemorySize` parameter. Setting this parameter is required. You can set it to a very high value, e.g. 512g (JVM setting):
+
 ```
 -XX:MaxDirectMemorySize=512g
 ```
 
+Setting `MaxDirectMemorySize` to a very high value should not concern you as it does not mean that OrientDB will consume all 512GB of memory. The size of direct memory consumed by OrientDB is limited by the size of the disk cache (variable [`storage.diskCache.bufferSize`](../admin/Configuration.md)).
+
+When you start the Server using the provided `server.sh` or `server.bat` scripts, `MaxDirectMemorySize` is set already by those scripts. But when you embed the Server it is required that you set `MaxDirectMemorySize` manually.
+
+Note: if you are using a pom file, you may set `MaxDirectMemorySize` inside your pom in the following way:
+
+```
+<properties>
+   <argLine>-XX:MaxDirectMemorySize=512g</argLine>
+</properties>
+```
+
+If you start an embedded Server without setting this variable you will get a WARNING message similar to the following:
+
+```
+MaxDirectMemorySize JVM option is not set or has invalid value, that may cause out of memory errors
+```
 
 ## Include the commands you need
 

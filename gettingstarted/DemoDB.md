@@ -1,43 +1,72 @@
 
-#Demo Database
+# Demo Database
 
-Starting with OrientDB v.3.0 a new demo database is included.
+Starting with OrientDB v.3.0 a new demo database (`DemoDB`)  is included.
 
-This page (which is still a work in progress) lists some of the queries that is possible to execute on the new demo database.
+The demo database can help you understand better OrientDB features and capabilities and replace the old demo database `GratefulDeadConcerts`. 
+
+_Note:_ Random-generated data is used in the `DemoDB`, including data used for Emails, Names, Surnames, Phone Numbers and Reviews.
+
+This Section introduced the `DemoDB` database, its Data Model, and includes some queries that is possible to execute on it.
+
+
+### Version
+
+`DemoDB` has a version that is in general not linked to the Server version you are running. You can check version of your `DemoDB` by executing the following SQL query:
+
+```sql
+select Version from `DBInfo`
+```
+
+### Location
+
+The demo database is located in the `databases` directory under $ORIENTDB_HOME (e.g. `D:\orientdb\orientdb-community-3.0.0\databases\DemoDB`.
+
+### Connecting to the Demo Database
+
+It is possible to connect to `DemoDB` using the three standard OrientDB Users:
+
+- `read` / `read`
+- `write` / `write`
+- `admin` / `admin`
 
 
 ## Data Model
+
+`DemoDB` is the database of an hypothetical Travel Agency that runs a public Social Platform as well.
+
+Users (that are stored in the database in the class _Profiles_) can freely register to the social platform and start making friends (friendship is expressed via the _HasFriend_ edge).
+
+Some of the users can become Customers. When this happens the application in use at the Social Travel Agency creates a vertex in the _Customers_ class and links it to the associated Profile via an _HasProfile_ edge.
+
+When Customers are created, they are automatically linked to a Country as well, via an _IsFromCountry_ edge. 
+
+Orders made by Customers are stored in the vertex class _Orders_. Each customer can make one or more orders, and the _HasCustomer_ edge is used to connect orders to customers.
+
+When customers start visiting Attractions (like Castles, Momuments, Theatres or Archaeological Sites) or using Services (like Hotels or Restaurants) edges are created to link that specific customer with that specific attraction or service (_HasVisited_, _HasStayed_, and _HasEaten_ edges are used).
+
+The Social Travel Agency also stores some reviews in the vertex class _Reviews_. Reviews are linked to customers via the _MadeReview_ edge, and to an attraction or service via the _HasReview_ edge.
 
 Data model is reported in the image below:
 
 ![](../images/demo-dbs/social-travel-agency/DataModel.png)
 
+### Inheritance
 
-## Inheritance
+Inheritance in the Vertex and Edge classes is reported in the image below:
 
-Inheritance in the Vertex classes:
+![](../images/demo-dbs/social-travel-agency/Inheritance.png)
 
-```
-- Locations
-  -- Attractions
-    --- ArchaeologicalSites 
-    --- Castles
-    --- Monuments
-    --- Theatres
-  -- Services
-    --- Hotels 
-    --- Restaurants
-```
-
-Inheritance in the Edge classes:
-
-```
-- HasUsedService
-  -- HasStayed
-  -- HasEaten
-```
 
 ## Queries
+
+Some query examples are reported below.
+
+### FRIENDSHIP
+
+### Example 1
+
+ 
 
 ### LOCATIONS 
 
