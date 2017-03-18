@@ -9,7 +9,16 @@
     "javadoc":"http://orientdb.com/javadoc/latest/",
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
     "lastGA": "2.2.17",
-    "currentVersion": "3.0.0-SNAPSHOT"
+    "currentVersion": "3.0.0-SNAPSHOT",
+	
+	"demodb-query-1-text": "Find Santo's Friends",
+	"demodb-query-1-sql": "MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}",
+	"demodb-query-1-return_graph": "RETURN $pathelements",
+	"demodb-query-1-return_browse": "RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname",
+	
+	
+	"demodb-query-100-text": "test test test",
+	"demodb-query-100-sql": "test test test"
   },
   "links": {
     "home": "http://orientdb.com",

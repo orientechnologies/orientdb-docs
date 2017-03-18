@@ -3,6 +3,9 @@
 
 Starting with OrientDB v.3.0 a new demo database (`DemoDB`)  is included.
 
+
+## Introduction
+
 The demo database can help you understand better OrientDB features and capabilities and replace the old demo database `GratefulDeadConcerts`. 
 
 _Note:_ Random-generated data is used in the `DemoDB`, including data used for Emails, Names, Surnames, Phone Numbers and Reviews.
@@ -15,12 +18,13 @@ This Section introduced the `DemoDB` database, its Data Model, and includes some
 `DemoDB` has a version that is in general not linked to the Server version you are running. You can check version of your `DemoDB` by executing the following SQL query:
 
 ```sql
-select Version from `DBInfo`
+SELECT `Version` FROM `DBInfo`
 ```
 
 ### Location
 
 The demo database is located in the `databases` directory under $ORIENTDB_HOME (e.g. `D:\orientdb\orientdb-community-3.0.0\databases\DemoDB`.
+
 
 ### Connecting to the Demo Database
 
@@ -29,6 +33,9 @@ It is possible to connect to `DemoDB` using the three standard OrientDB Users:
 - `read` / `read`
 - `write` / `write`
 - `admin` / `admin`
+
+
+## Using the Demo Database with version 2.2.x
 
 
 ## Data Model
@@ -51,6 +58,7 @@ Data model is reported in the image below:
 
 ![](../images/demo-dbs/social-travel-agency/DataModel.png)
 
+
 ### Inheritance
 
 Inheritance in the Vertex and Edge classes is reported in the image below:
@@ -62,11 +70,37 @@ Inheritance in the Vertex and Edge classes is reported in the image below:
 
 Some query examples are reported below.
 
-### FRIENDSHIP
+The following table can help you navigate through all examples:
 
-### Example 1
+| FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | RECOMMENDATIONS
+|------------|-----------|---------|----------|-----------|-----------------|
+| {{book.demodb-query-1-sql}} [Link](DemoDB.md) | {{book.demodb-query-1-sql}} [Link](DemoDB.md) | {{book.demodb-query-1-sql}} [Link](DemoDB.md) | {{book.demodb-query-1-sql}} [Link](DemoDB.md) | {{book.demodb-query-1-sql}} [Link](DemoDB.md) | {{book.demodb-query-1-sql}} [Link](DemoDB.md) |
+
+
+### Tips
 
  
+
+
+### FRIENDSHIP
+
+### Friendship - Example 1
+
+{{book.demodb-query-1-text}}:
+
+<pre><code class="lang-sql"> 
+{{book.demodb-query-1-sql}} 
+RETURN {{book.demodb-query-1-return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-1-return_graph}} as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query-1-graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-1-return_browse}} as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query-1-browse.png)
+
 
 ### LOCATIONS 
 
