@@ -95,11 +95,11 @@ RETURN {{book.demodb-query-1-return_graph}}
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-1-return_graph}} as `RETURN` clause, this is the obtained graph:
 
-![](../images/demo-dbs/social-travel-agency/query-1-graph.png)
+![](../images/demo-dbs/social-travel-agency/query_1_graph.png)
 
 In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-1-return_browse}} as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
-![](../images/demo-dbs/social-travel-agency/query-1-browse.png)
+![](../images/demo-dbs/social-travel-agency/query_1_browse.png)
 
 
 ### LOCATIONS 
