@@ -47,6 +47,13 @@
 	"demodb_query_11_text": "Find the year of the Orders, and how many Orders have been placed in the same year",
 	"demodb_query_11_sql_browse": "SELECT count(*) as OrdersCount, OrderDate.format('yyyy') AS OrderYear FROM Orders GROUP BY OrderYear ORDER BY OrdersCount DESC",
 	"demodb_query_11_sql_graph": "NA",
+	"demodb_query_12_text": "Find the top 3 Profiles that have the highest number of Friends",
+	"demodb_query_12_sql_browse": "SELECT @rid as Profile_RID, Name, Surname, both("HasFriend").size() AS FriendsNumber FROM `Profiles` ORDER BY FriendsNumber DESC LIMIT 3",
+	"demodb_query_12_sql_graph": "https://github.com/orientechnologies/orientdb-studio/issues/462 + https://github.com/orientechnologies/orientdb/issues/7249",
+	"demodb_query_13_text": "Count Santo's Friends",
+	"demodb_query_13_sql_browse_method_1": "SELECT COUNT(*) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} RETURN friend)",
+	"demodb_query_13_sql_browse_method_2": "SELECT both("HasFriend").size() AS FriendsNumber FROM `Profiles` WHERE Name='Santo' AND Surname='OrientDB'",
+	"demodb_query_13_sql_graph": "NA",
 	"demodb_query_100_text": "test test test",
 	"demodb_query_100_sql": "test test test"
   },

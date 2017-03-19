@@ -107,7 +107,21 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 ![](../images/demo-dbs/social-travel-agency/query_8_browse.png)
 
 
+### Profiles - Example 2
 
+{{book.demodb-query-12-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{demodb_query_12_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_12_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records:
+
+<pre><code class="lang-sql">{{book.demodb_query_12_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_12_browse.png)
 
 
 
@@ -128,6 +142,14 @@ In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using
 In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-1-return_browse}} as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../images/demo-dbs/social-travel-agency/query_1_browse.png)
+
+If you would like only to count them, you can execute a query like the following:
+
+<pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_1}}</code></pre>
+
+or
+
+<pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_2}}</code></pre>
 
 
 ### Friendship - Example 2
