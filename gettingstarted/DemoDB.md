@@ -478,6 +478,25 @@ SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY Re
 
 #### Orders - Example 1
 
+{{book.demodb-query-9-text}}:
+
+<pre><code class="lang-sql">{{book.demodb_query_9_sql_browse}}</code></pre>
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query above, this is the visualized result:
+
+![](../images/demo-dbs/social-travel-agency/query_9_browse.png)
+
+#### Orders - Example 1
+
+#### Orders - Example 3
+
+{{book.demodb-query-11-text}}:
+
+<pre><code class="lang-sql">{{book.demodb_query_11_sql_browse}}</code></pre>
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query above, this is the visualized result:
+
+![](../images/demo-dbs/social-travel-agency/query_11_browse.png)
 
 
 ### RECOMMENDATIONS
