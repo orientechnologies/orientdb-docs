@@ -72,12 +72,15 @@ Some query examples are reported below.
 
 The following table can help you navigate through all examples:
 
-| FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | RECOMMENDATIONS
-|------------|-----------|---------|----------|-----------|-----------------|
-| {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) |
-| {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |
-| {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |
-| {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |
+| PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES
+|----------|------------|---------|----------|-----------|-----------------|
+|   | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) |   |   | {{book.demodb-query-7-text}} [Link](DemoDB.md) |
+|   | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |   |   |  |
+|   | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) |   |   |  |
+|   | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |
+|   | {{book.demodb-query-5-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |
+|   | {{book.demodb-query-6-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |
+|   | {{book.demodb-query-7-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |
 
 ### Tips
 
@@ -153,6 +156,58 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.dem
 
 ![](../images/demo-dbs/social-travel-agency/query_4_browse.png)
 
+
+### Friendship - Example 5
+
+{{book.demodb-query-5-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{demodb_query_5_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_5_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_5_browse.png)
+
+
+### Friendship - Example 6
+
+{{book.demodb-query-6-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{demodb_query_6_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_6_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_6_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_6_browse.png)
+
+You may find in a similar way the top 3 Customers, among Santo's Friends, that has stayed at the highest number of Hotels, or has eaten at the highest number of Restaurants. Just use `out("HasStayed").size()` or `out("HasEaten").size()` instead of `out("HasVisited").size()` (you may also consider to modify the alias, from `NumberOfVisits` to `NumberOfHotels` and `NumberOfRestaurants`.
+
+
+### Friendship - Example 7
+
+{{book.demodb-query-7-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{demodb_query_7_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_7_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_7_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_7_browse.png)
 
 
 
