@@ -12,7 +12,7 @@ OrientDB is written completely in the Java language.  This means that you can us
 
 ## Component Architecture 
 
-![image](http://www.orientdb.org/images/orientdb-api-stack.png)
+![](../images/java/orientdb-api-stack.png)
 
 OrientDB provides four different Java API's that allow you to work with OrientDB.
 
