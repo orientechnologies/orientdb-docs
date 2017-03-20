@@ -3,6 +3,9 @@
 
 Starting with OrientDB v.3.0 a new demo database (`DemoDB`)  is included.
 
+
+## Introduction
+
 The demo database can help you understand better OrientDB features and capabilities and replace the old demo database `GratefulDeadConcerts`. 
 
 _Note:_ Random-generated data is used in the `DemoDB`, including data used for Emails, Names, Surnames, Phone Numbers and Reviews.
@@ -15,12 +18,13 @@ This Section introduced the `DemoDB` database, its Data Model, and includes some
 `DemoDB` has a version that is in general not linked to the Server version you are running. You can check version of your `DemoDB` by executing the following SQL query:
 
 ```sql
-select Version from `DBInfo`
+SELECT `Version` FROM `DBInfo`
 ```
 
 ### Location
 
 The demo database is located in the `databases` directory under $ORIENTDB_HOME (e.g. `D:\orientdb\orientdb-community-3.0.0\databases\DemoDB`.
+
 
 ### Connecting to the Demo Database
 
@@ -29,6 +33,9 @@ It is possible to connect to `DemoDB` using the three standard OrientDB Users:
 - `read` / `read`
 - `write` / `write`
 - `admin` / `admin`
+
+
+### Using the Demo Database with version 2.2.x
 
 
 ## Data Model
@@ -51,6 +58,7 @@ Data model is reported in the image below:
 
 ![](../images/demo-dbs/social-travel-agency/DataModel.png)
 
+
 ### Inheritance
 
 Inheritance in the Vertex and Edge classes is reported in the image below:
@@ -62,11 +70,207 @@ Inheritance in the Vertex and Edge classes is reported in the image below:
 
 Some query examples are reported below.
 
+The following table can help you navigate through all examples:
+
+| PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES
+|----------|------------|-----------|---------|----------|-----------|--------|-----------------|----------------------|
+|   | {{ book.demodb-query-1-text }} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-7-text}} [Link](DemoDB.md) | 
+|   | {{ book.demodb-query-2-text }} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-8-text}} [Link](DemoDB.md) | 
+|   | {{ book.demodb-query-3-text }} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-4-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-5-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-6-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-7-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-8-text }} [Link](DemoDB.md) | |   |   |   |   |  |  |
+
+
+
+### Tips
+
+
+### PROFILES
+
+#### Profiles - Example 1
+
+{{ book.demodb-query-8-text }}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{book.demodb_query_8_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_8_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_8_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_8_browse.png)
+
+
+#### Profiles - Example 2
+
+{{ book.demodb-query-12-text }}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{demodb_query_12_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_12_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records:
+
+<pre><code class="lang-sql">{{book.demodb_query_12_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_12_browse.png)
+
+
+
 ### FRIENDSHIP
 
-### Example 1
+#### Friendship - Example 1
 
- 
+{{book.demodb-query-1-text}}:
+
+<pre><code class="lang-sql">{{book.demodb-query-1-sql}} 
+RETURN {{book.demodb-query-1-return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-1-return_graph}} as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query_1_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-1-return_browse}} as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query_1_browse.png)
+
+If you would like only to count them, you can execute a query like the following:
+
+<pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_1}}</code></pre>
+
+or
+
+<pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_2}}</code></pre>
+
+
+#### Friendship - Example 2
+
+{{book.demodb-query-2-text}}:
+
+<pre><code class="lang-sql">{{book.demodb-query-2-sql}} 
+RETURN {{book.demodb-query-2-return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-2-return_graph}} as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query_2_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-2-return_browse}} as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query_2_browse.png)
+
+
+#### Friendship - Example 3
+
+{{book.demodb-query-3-text}}:
+
+<pre><code class="lang-sql">{{book.demodb-query-3-sql}} 
+RETURN {{book.demodb-query-3-return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-3-return_graph}} as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query_3_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-3-return_browse}} as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query_3_browse.png)
+
+
+#### Friendship - Example 4
+
+{{book.demodb-query-4-text}}:
+
+<pre><code class="lang-sql">{{book.demodb-query-4-sql}} 
+RETURN {{book.demodb-query-4-return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-4-return_graph}} as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query_4_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.demodb-query-4-return_browse}} as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query_4_browse.png)
+
+
+#### Friendship - Example 5
+
+{{book.demodb-query-5-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{book.demodb_query_5_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_5_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_5_browse.png)
+
+
+#### Friendship - Example 6
+
+{{book.demodb-query-6-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{book.demodb_query_6_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_6_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_6_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_6_browse.png)
+
+You may find in a similar way the top 3 Customers, among Santo's Friends, that has stayed at the highest number of Hotels, or has eaten at the highest number of Restaurants. Just use `out("HasStayed").size()` or `out("HasEaten").size()` instead of `out("HasVisited").size()` (you may also consider to modify the alias, from `NumberOfVisits` to `NumberOfHotels` and `NumberOfRestaurants`.
+
+
+#### Friendship - Example 7
+
+{{book.demodb-query-7-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{book.demodb_query_7_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_7_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_7_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_7_browse.png)
+
+or, without restricting to a specific customer,
+
+{{book.demodb-query-8-text}}:
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+
+<pre><code class="lang-sql">{{book.demodb_query_8_sql_graph}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_8_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+
+<pre><code class="lang-sql">{{book.demodb_query_8_sql_browse}}</code></pre>
+
+![](../images/demo-dbs/social-travel-agency/query_8_browse.png)
+
 
 ### LOCATIONS 
 
@@ -291,6 +495,31 @@ Find the 3 Customers who made more reviews
 ```sql
 SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY ReviewNumbers DESC LIMIT 3
 ```
+
+### ORDERS
+
+#### Orders - Example 1
+
+{{book.demodb-query-9-text}}:
+
+<pre><code class="lang-sql">{{book.demodb_query_9_sql_browse}}</code></pre>
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query above, this is the visualized result:
+
+![](../images/demo-dbs/social-travel-agency/query_9_browse.png)
+
+#### Orders - Example 1
+
+#### Orders - Example 3
+
+{{book.demodb-query-11-text}}:
+
+<pre><code class="lang-sql">{{book.demodb_query_11_sql_browse}}</code></pre>
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query above, this is the visualized result:
+
+![](../images/demo-dbs/social-travel-agency/query_11_browse.png)
+
 
 ### RECOMMENDATIONS
 
