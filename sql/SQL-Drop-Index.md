@@ -12,7 +12,7 @@ If the index does not exist, this call just returns with no errors.
 **Syntax**
 
 ```sql
-DROP INDEX <index>|<class>.<property>
+DROP INDEX <index>|<class>.<property> [ IF EXISTS ]
 ```
 
 - **`<index>`** Defines the name of the index.
