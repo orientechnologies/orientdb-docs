@@ -1,34 +1,34 @@
 
 # Demo Database
 
-Starting with OrientDB v.3.0 a new demo database (`DemoDB`)  is included.
+Starting with OrientDB v.3.0 a new demo database (`demodb`)  is included.
 
 
 ## Introduction
 
 The demo database can help you understand better OrientDB features and capabilities and replace the old demo database `GratefulDeadConcerts`. 
 
-_Note:_ Random-generated data is used in the `DemoDB`, including data used for Emails, Names, Surnames, Phone Numbers and Reviews.
+_Note:_ Random-generated data is used in the `demodb`, including data used for Emails, Names, Surnames, Phone Numbers and Reviews.
 
-This Section introduced the `DemoDB` database, its Data Model, and includes some queries that is possible to execute on it.
+This Section introduces the `demodb` database, its Data Model, and includes some queries that is possible to execute on it.
 
 
 ### Version
 
-`DemoDB` has a version that is in general not linked to the Server version you are running. You can check version of your `DemoDB` by executing the following SQL query:
+`demodb` has a version that is in general not linked to the Server version you are running. You can check version of your `demodb` by executing the following SQL query:
 
 ```sql
-SELECT `Version` FROM `DBInfo`
+SELECT `Version` FROM `DBInfo`;
 ```
 
 ### Location
 
-The demo database is located in the `databases` directory under $ORIENTDB_HOME (e.g. `D:\orientdb\orientdb-community-3.0.0\databases\DemoDB`.
+The demo database is located in the `databases` directory under `$ORIENTDB_HOME` (e.g. `D:\orientdb\orientdb-community-3.0.0\databases\demodb`.
 
 
 ### Connecting to the Demo Database
 
-It is possible to connect to `DemoDB` using the three standard OrientDB Users:
+It is possible to connect to `demodb` using the three standard OrientDB Users:
 
 - `read` / `read`
 - `write` / `write`
@@ -37,10 +37,14 @@ It is possible to connect to `DemoDB` using the three standard OrientDB Users:
 
 ### Using the Demo Database with version 2.2.x
 
+The demo database can be easily loaded into OrientDB 2.2.x using the Studio's "Import a public database" feature.
+
+Alternatevely, it is possible to import it via an SQL script that includes the set of instructions needed to recreate the data model as well as all the records (vertices, edges, documents). 
+
 
 ## Data Model
 
-`DemoDB` is the database of an hypothetical Travel Agency that runs a public Social Platform as well.
+`demodb` is the database of an hypothetical Travel Agency that runs a public Social Platform as well.
 
 Users (that are stored in the database in the class _Profiles_) can freely register to the social platform and start making friends (friendship is expressed via the _HasFriend_ edge).
 
@@ -50,7 +54,7 @@ When Customers are created, they are automatically linked to a Country as well, 
 
 Orders made by Customers are stored in the vertex class _Orders_. Each customer can make one or more orders, and the _HasCustomer_ edge is used to connect orders to customers.
 
-When customers start visiting Attractions (like Castles, Momuments, Theatres or Archaeological Sites) or using Services (like Hotels or Restaurants) edges are created to link that specific customer with that specific attraction or service (_HasVisited_, _HasStayed_, and _HasEaten_ edges are used).
+When customers start visiting Attractions (like Castles, Monuments, Theatres or Archaeological Sites) or using Services (like Hotels or Restaurants) edges are created to link that specific customer with that specific attraction or service (_HasVisited_, _HasStayed_, and _HasEaten_ edges are used).
 
 The Social Travel Agency also stores some reviews in the vertex class _Reviews_. Reviews are linked to customers via the _MadeReview_ edge, and to an attraction or service via the _HasReview_ edge.
 
@@ -74,7 +78,7 @@ The following table can help you navigate through all examples:
 
 | PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES
 |----------|------------|-----------|---------|----------|-----------|--------|-----------------|----------------------|
-|   | {{ book.demodb-query-1-text }} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-7-text}} [Link](DemoDB.md) | 
+|   | <pre>{{ book.demodb-query-1-text }}</pre> [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-7-text}} [Link](DemoDB.md) | 
 |   | {{ book.demodb-query-2-text }} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-8-text}} [Link](DemoDB.md) | 
 |   | {{ book.demodb-query-3-text }} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) |   |   |  |  |
 |   | {{ book.demodb-query-4-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
@@ -92,7 +96,7 @@ The following table can help you navigate through all examples:
 
 #### Profiles - Example 1
 
-{{ book.demodb-query-8-text }}:
+<pre>{{ book.demodb-query-8-text }}</pre>:
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
