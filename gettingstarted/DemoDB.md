@@ -35,7 +35,7 @@ It is possible to connect to `DemoDB` using the three standard OrientDB Users:
 - `admin` / `admin`
 
 
-## Using the Demo Database with version 2.2.x
+### Using the Demo Database with version 2.2.x
 
 
 ## Data Model
@@ -74,14 +74,14 @@ The following table can help you navigate through all examples:
 
 | PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES
 |----------|------------|-----------|---------|----------|-----------|--------|-----------------|----------------------|
-|   | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-7-text}} [Link](DemoDB.md) | 
-|   | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-8-text}} [Link](DemoDB.md) | 
-|   | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) |   |   |  |  |
-|   | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
-|   | {{book.demodb-query-5-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
-|   | {{book.demodb-query-6-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
-|   | {{book.demodb-query-7-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
-|   | {{book.demodb-query-8-text}} [Link](DemoDB.md) | |   |   |   |   |  |  |
+|   | {{ book.demodb-query-1-text }} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) | {{book.demodb-query-1-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-7-text}} [Link](DemoDB.md) | 
+|   | {{ book.demodb-query-2-text }} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) | {{book.demodb-query-2-text}} [Link](DemoDB.md) |   |   |  | {{book.demodb-query-8-text}} [Link](DemoDB.md) | 
+|   | {{ book.demodb-query-3-text }} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) | {{book.demodb-query-3-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-4-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-5-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-6-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-7-text }} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) | {{book.demodb-query-4-text}} [Link](DemoDB.md) |   |   |  |  |
+|   | {{ book.demodb-query-8-text }} [Link](DemoDB.md) | |   |   |   |   |  |  |
 
 
 
@@ -90,13 +90,13 @@ The following table can help you navigate through all examples:
 
 ### PROFILES
 
-### Profiles - Example 1
+#### Profiles - Example 1
 
-{{book.demodb-query-8-text}}:
+{{ book.demodb-query-8-text }}:
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{demodb_query_8_sql_graph}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_8_sql_graph}}</code></pre>
 
 ![](../images/demo-dbs/social-travel-agency/query_8_graph.png)
 
@@ -107,9 +107,9 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 ![](../images/demo-dbs/social-travel-agency/query_8_browse.png)
 
 
-### Profiles - Example 2
+#### Profiles - Example 2
 
-{{book.demodb-query-12-text}}:
+{{ book.demodb-query-12-text }}:
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
@@ -127,7 +127,7 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 ### FRIENDSHIP
 
-### Friendship - Example 1
+#### Friendship - Example 1
 
 {{book.demodb-query-1-text}}:
 
@@ -152,7 +152,7 @@ or
 <pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_2}}</code></pre>
 
 
-### Friendship - Example 2
+#### Friendship - Example 2
 
 {{book.demodb-query-2-text}}:
 
@@ -169,7 +169,7 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.dem
 ![](../images/demo-dbs/social-travel-agency/query_2_browse.png)
 
 
-### Friendship - Example 3
+#### Friendship - Example 3
 
 {{book.demodb-query-3-text}}:
 
@@ -186,7 +186,7 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.dem
 ![](../images/demo-dbs/social-travel-agency/query_3_browse.png)
 
 
-### Friendship - Example 4
+#### Friendship - Example 4
 
 {{book.demodb-query-4-text}}:
 
@@ -203,13 +203,13 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using {{book.dem
 ![](../images/demo-dbs/social-travel-agency/query_4_browse.png)
 
 
-### Friendship - Example 5
+#### Friendship - Example 5
 
 {{book.demodb-query-5-text}}:
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{demodb_query_5_sql_graph}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_5_sql_graph}}</code></pre>
 
 ![](../images/demo-dbs/social-travel-agency/query_5_graph.png)
 
@@ -220,13 +220,13 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 ![](../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
 
-### Friendship - Example 6
+#### Friendship - Example 6
 
 {{book.demodb-query-6-text}}:
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{demodb_query_6_sql_graph}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_6_sql_graph}}</code></pre>
 
 ![](../images/demo-dbs/social-travel-agency/query_6_graph.png)
 
@@ -239,13 +239,13 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 You may find in a similar way the top 3 Customers, among Santo's Friends, that has stayed at the highest number of Hotels, or has eaten at the highest number of Restaurants. Just use `out("HasStayed").size()` or `out("HasEaten").size()` instead of `out("HasVisited").size()` (you may also consider to modify the alias, from `NumberOfVisits` to `NumberOfHotels` and `NumberOfRestaurants`.
 
 
-### Friendship - Example 7
+#### Friendship - Example 7
 
 {{book.demodb-query-7-text}}:
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{demodb_query_7_sql_graph}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_7_sql_graph}}</code></pre>
 
 ![](../images/demo-dbs/social-travel-agency/query_7_graph.png)
 
@@ -261,7 +261,7 @@ or, without restricting to a specific customer,
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{demodb_query_8_sql_graph}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_8_sql_graph}}</code></pre>
 
 ![](../images/demo-dbs/social-travel-agency/query_8_graph.png)
 
