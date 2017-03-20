@@ -36,7 +36,7 @@ A projection block has the following syntax:
 
 By default, a query returns a different result-set based on the projections it has:
 - **`*` alone**: The result set is made of records as they arrive from the target, with the original @rid and @class attributes (if any)
-- **`*` plus other projections**: records of the original target, merged with the other projection values, with temporary @rid and no @class (if not explicitly declared in the other projections)
+- **`*` plus other projections**: records of the original target, merged with the other projection values, with @rid, @class and @version of the original record. 
 - **no projections**: same behavior as `*`
 - **`expand(<projection>)`**: The result set is made of the records returned by the projection, expanded (if the projection result is a link or a colleciton of links) and unwinded (if the projection result is a collection). Nothing in all the other cases.
 - **one or more projections**: temporary records (with temporary @rid and no @class). Projections that represent links are returned as simple @rid values, unless differently specified in the fetchplan.
@@ -51,21 +51,25 @@ will return `[{"@rid": "-2:0", "a":2}]`
 
 eg.
 
-Having the record `{"@class":"Foo", "name":"bar", "@rid":"#12:0"}`
+Having the record `{"@class":"Foo", "name":"bar", "@rid":"#12:0", "@version": 2}`
 
 ```sql
 SELECT *, "hey" as name from Foo
 ```
-will return `[{"@rid": "-2:0", "name":"hey"}]`
+will return `[{"@class":"Foo", "@rid":"#12:0", "@version": 2, "name":"hey"}]`
 
 ```sql
 SELECT  "hey" as name, * from Foo
 ```
-will return  `[{"@rid": "-2:0", "name":"bar"}]`
+will return `[{"@class":"Foo", "@rid":"#12:0", "@version": 2, "name":"bar"}]`
 
-*IMPORTANT - the result of the query can be further unwinded using the UNWIND operator*
 
-*IMPORTANT: `expand()` cannot be used together with `GROUP BY`*
+> ATTENTION: when saving back a record with a valid rid, you will overwrite the existing record! So pay attention 
+when using `*` together with other projections 
+
+> IMPORTANT - the result of the query can be further unwound using the UNWIND operator
+
+> IMPORTANT: `expand()` cannot be used together with `GROUP BY`
 
 ### Aliases
 
