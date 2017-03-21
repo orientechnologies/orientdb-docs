@@ -1,6 +1,7 @@
 # Summary 
 
-* [Introduction](README.md) 
+* [Home](README.md)
+* [Introduction](introduction/Introduction.md) 
   * [About This Manual](misc/About-This-Manual.md)
   * [Overview of OrientDB](misc/Overview.md)
     * [What is OrientDB?](misc/What-Is-OrientDB.md)
