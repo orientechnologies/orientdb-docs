@@ -202,4 +202,9 @@ Starting from 3.0, it is mandatory to create the Edge class before executing the
 - The 'Neo4j to OrientDB Importer' plugin has not been refactored to be compatible with OrientDB 3.0 yet.
 
 
-## Migration from 2.2.x to 3.0.x
+## Migrating to 3.0.x
+
+General information on how to upgrade OrientDB can be found in the [Upgrade](Upgrade.md) Chapter.
+Specific information on how to migrate to v.3.0 can be found in the [Release Migration](Migration.md) Chapter.
+
+You may also be interested in checking the [Release Notes](Release-Notes.md).
