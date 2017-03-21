@@ -19,13 +19,10 @@ So between PATCH versions, the compatibility is assured (example 2.1.0 -> 2.1.8)
 
 | FROM |TO | Guide | Blueprints | Database |Binary Protocol|HTTP Protocol|
 |-----|----|------------|----------|--------|-----------|-----------|----------|----------|---|
-| 2.1.x | 2.2.x | [Release 2.2.x](Release-2.2.0.md) | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 34 |10|
-| 2.0.x | 2.1.x | [Release 2.1.x](Release-2.1.0.md) | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 30 |10|
-| 1.7.x | 2.0.x | [Migration-from-1.7.x-to-2.0.x](Migration-from-1.7.x-to-2.0.x.md) | Final v2.6.0 | [Automatic](../misc/Backward-compatibility.md) | 25 |10|
-| 1.6.x | 1.7.x | [Migration-from-1.6.x-to-1.7.x](Migration-from-1.6.x-to-1.7.x.md) | Final v2.5.0 | [Automatic](../misc/Backward-compatibility.md) | 20, 21 |10|
-| 1.5.x | 1.6.x | [Migration-from-1.5.x-to-1.6.x](Migration-from-1.5.x-to-1.6.x.md) | Changed v2.5.x | [Automatic](../misc/Backward-compatibility.md) | 18, 19|10|
-| 1.4.x | 1.5.x | [Migration-from-1.4.x-to-1.5.x](Migration-from-1.4.x-to-1.5.x.md) | Changed v2.4.x | [Automatic](../misc/Backward-compatibility.md) | 16, 17|10|
-| 1.3.x | 1.4.x | [Migration-from-1.3.x-to-1.4.x](Migration-from-1.3.x-to-1.4.x.md) | Changed v2.3.x | [Automatic](../misc/Backward-compatibility.md) | 14, 15|n.a.|
+| 2.2.x | 3.0.x | REFACTOR-TODO |              |  |   | |
+| 2.1.x | 2.2.x | REFACTOR-TODO | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 34 |10|
+| 2.0.x | 2.1.x | REFACTOR-TODO | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 30 |10|
+
 
 ## Instructions
 
