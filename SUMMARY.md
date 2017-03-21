@@ -122,7 +122,7 @@
     * [orientdb-neo4j-importer](TODO.md) 
     * [oetl](TODO.md) 	  
 * [Administration](admin/Administration.md)
-  * [Installation and Server Management](admin/Server-Management-Java.md) 
+  * [Installation](admin/Installation.md) 
     * [Install as Service on Unix](admin/Unix-Service.md) 
     * [Install as Service on Windows](admin/Windows-Service.md) 
     * [Install with Docker](admin/Docker-Home.md) 
