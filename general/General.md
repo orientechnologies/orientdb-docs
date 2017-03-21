@@ -1,26 +1,3 @@
-#General Information
+# General Information
 
-* [Supported Types](general/Types.md)
-  * [Schema](general/Schema.md)
-  * [Inheritance](general/Inheritance.md)
-  * [Concurrency](general/Concurrency.md)      
-  * [Indexing](indexing/Indexes.md) 
-    * [SB-Tree](indexing/SB-Tree-index.md) 
-    * [Hash](indexing/Hash-Index.md) 
-    * [Auto-Sharding](indexing/Auto-Sharding-Index.md) 
-    * [Full Text](indexing/FullTextIndex.md) 
-    * [Lucene Full Text](indexing/Full-Text-Index.md) 
-    * [Lucene Spatial Index](indexing/Spatial-Index.md) 
-  * [Cluster Selection](TODO.md)
-  * [Managing Dates](general/Managing-Dates.md) 
-  * [Transactions](internals/Transactions.md)   
-  * [Embedding the Server](internals/Embedded-Server.md)	
-  * [Available OrientDB Plugins](plugins/Extend-Server.md) 
-    * [Automatic Backup](plugins/Automatic-Backup.md) 
-    * [SysLog](plugins/SysLog-Plugin.md)
-    * [Mail](plugins/Mail-Plugin.md) 
-    * [JMX](plugins/JMX-Plugin.md) 
-    * [Rexster](plugins/Rexster.md) 
-    * [Gephi Graph Render](plugins/Gephi.md) 
-    * [spider-box](plugins/spider-box.md)
-    * [3rd Party Plugins](plugins/Plugins.md)
+This Chapter includes some General Information on OrientDB.
