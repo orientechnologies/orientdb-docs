@@ -562,3 +562,14 @@ MATCH
 RETURN hotel, ReviewStars.Stars  
 ```
  
+## Graph Portions
+
+
+### Profiles
+
+![](../images/demo-dbs/social-travel-agency/profiles.png)
+
+
+# Customer-Restaurant Relationship
+
+![](../images/demo-dbs/social-travel-agency/customers_restaurants.png)
