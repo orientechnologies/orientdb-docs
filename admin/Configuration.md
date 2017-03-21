@@ -3,7 +3,7 @@ search:
    keywords: ['performance', 'performance tuning', 'configuration', 'global configuration', 'config', 'options']
 ---
 
-# Global Configuration
+# Configuration
 
 OrientDB can be configured in several ways.
 

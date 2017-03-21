@@ -3,7 +3,7 @@ search:
    keywords: ['scheduler', 'schedule']
 ---
 
-# Scheduler
+# Event Scheduler
 
 OrientDB has a Scheduler of events you can use to fire your events on regular basis. To manage events you can use both SQL and Java API. The scheduler gets the popular [CRON expression](https://en.wikipedia.org/wiki/Cron#CRON_expression) syntax. The scheduled event, when fired, executes a Database 
 
