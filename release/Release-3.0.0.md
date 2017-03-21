@@ -1,5 +1,12 @@
 # Release 3.0.x
 
+
+```markdown
+| | |
+|----|-----|
+|![](images/warning.png)|OrientDB {{book.currentVersion}} is still in development. Please do not use it in production.|
+```
+
 ## What's new?
 
 ### New database administration API
@@ -188,5 +195,11 @@ that the query executor will execute to calculate the query result.
 ### Changes in the CREATE EDGE statement
 
 Starting from 3.0, it is mandatory to create the Edge class before executing the CREATE EDGE statement. If the Edge class does not exist the CREATE EDGE statement will fail (previously it was creating the Edge class automatically)
+
+
+## What's new?
+
+- The 'Neo4j to OrientDB Importer' plugin has not been refactored to be compatible with OrientDB 3.0 yet.
+
 
 ## Migration from 2.2.x to 3.0.x
