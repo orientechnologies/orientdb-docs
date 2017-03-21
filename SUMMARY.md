@@ -22,7 +22,7 @@
   * [Demo Database](gettingstarted/DemoDB.md)
   * [Basic SQL](gettingstarted/Tutorial-SQL.md)
   * [Users, Roles and Security](gettingstarted/Users-Roles-Security.md)
-  * [Distributed Architecture](Distributed-Architecture.md) 
+  * [Distributed Architecture](gettingstarted/Distributed-Architecture.md) 
   * [Tutorials](gettingstarted/Tutorials.md)
     * [Working with Graphs](gettingstarted/Tutorial-Working-with-graphs.md) 
     * [Using Schema with Graphs](gettingstarted/Tutorial-Using-schema-with-graphs.md) 
