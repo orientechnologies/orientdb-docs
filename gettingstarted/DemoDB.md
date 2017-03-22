@@ -78,14 +78,14 @@ The following table can help you navigate through all examples:
 
 | PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES
 |----------|------------|-----------|---------|----------|-----------|--------|-----------------|----------------------|
-|   | {{ book.demodb_query_1_text }} [Link](DemoDB.md) | | |   |   |   |  | {{book.demodb_query_7_text}} [Link](DemoDB.md) | 
-|   | {{ book.demodb_query_2_text }} [Link](DemoDB.md) | | |   |   |   |  | {{book.demodb_query_8_text}} [Link](DemoDB.md) | 
-|   | {{ book.demodb_query_3_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
-|   | {{ book.demodb_query_4_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
-|   | {{ book.demodb_query_5_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
-|   | {{ book.demodb_query_6_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
-|   | {{ book.demodb_query_7_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
-|   | {{ book.demodb_query_8_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
+| {{ book.demodb_query_8_text }} [Link](DemoDB.md)  | {{ book.demodb_query_1_text }} [Link](DemoDB.md)  | | |   |   |   |  | {{book.demodb_query_7_text}} [Link](DemoDB.md) | 
+| {{ book.demodb_query_12_text }} [Link](DemoDB.md) | {{ book.demodb_query_2_text }} [Link](DemoDB.md)  | | |   |   |   |  | {{book.demodb_query_14_text}} [Link](DemoDB.md) | 
+|                                                   | {{ book.demodb_query_3_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
+|                                                   | {{ book.demodb_query_4_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
+|                                                   | {{ book.demodb_query_5_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
+|                                                   | {{ book.demodb_query_6_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
+|                                                   | {{ book.demodb_query_7_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
+|                                                   | {{ book.demodb_query_14_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
 
 
 
@@ -234,7 +234,7 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 ![](../images/demo-dbs/social-travel-agency/query_6_browse.png)
 
-You may find in a similar way the top 3 Customers, among Santo's Friends, that has stayed at the highest number of Hotels, or has eaten at the highest number of Restaurants. Just use `out("HasStayed").size()` or `out("HasEaten").size()` instead of `out("HasVisited").size()` (you may also consider to modify the alias, from `NumberOfVisits` to `NumberOfHotels` and `NumberOfRestaurants`.
+You may find in a similar way the top 3 Customers, among Santo's Friends, that have stayed at the highest number of Hotels, or have eaten at the highest number of Restaurants. Just use `out("HasStayed").size()` or `out("HasEaten").size()` instead of `out("HasVisited").size()` (you may also consider to modify the alias, from `NumberOfVisits` to `NumberOfHotels` and `NumberOfRestaurants`, so that it is more coherent to these cases).
 
 
 #### Friendship - Example 7
@@ -253,21 +253,21 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 ![](../images/demo-dbs/social-travel-agency/query_7_browse.png)
 
-or, without restricting to a specific customer,
+or, without restricting to a specific customer:
 
-{{book.demodb_query_8_text}}:
+{{book.demodb_query_14_text}}:
 
 In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{book.demodb_query_8_sql_graph}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_14_sql_graph}}</code></pre>
 
-![](../images/demo-dbs/social-travel-agency/query_8_graph.png)
+![](../images/demo-dbs/social-travel-agency/query_14_graph.png)
 
 In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">{{book.demodb_query_8_sql_browse}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_14_sql_browse}}</code></pre>
 
-![](../images/demo-dbs/social-travel-agency/query_8_browse.png)
+![](../images/demo-dbs/social-travel-agency/query_14_browse.png)
 
 
 ### LOCATIONS 
