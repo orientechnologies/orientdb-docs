@@ -78,14 +78,14 @@ The following table can help you navigate through all examples:
 
 | PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES
 |----------|------------|-----------|---------|----------|-----------|--------|-----------------|----------------------|
-| {{ book.demodb_query_8_text }} [Link](DemoDB.md)  | {{ book.demodb_query_1_text }} [Link](DemoDB.md)  | | |   |   |   |  | {{book.demodb_query_7_text}} [Link](DemoDB.md) | 
-| {{ book.demodb_query_12_text }} [Link](DemoDB.md) | {{ book.demodb_query_2_text }} [Link](DemoDB.md)  | | |   |   |   |  | {{book.demodb_query_14_text}} [Link](DemoDB.md) | 
-|                                                   | {{ book.demodb_query_3_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
-|                                                   | {{ book.demodb_query_4_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
-|                                                   | {{ book.demodb_query_5_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
-|                                                   | {{ book.demodb_query_6_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
-|                                                   | {{ book.demodb_query_7_text }} [Link](DemoDB.md)  | | |   |   |   |  |  |
-|                                                   | {{ book.demodb_query_14_text }} [Link](DemoDB.md) | | |   |   |   |  |  |
+| {{ book.demodb_query_8_text }}  [Link](DemoDB.md#profiles---example-1)  | {{ book.demodb_query_1_text }}  [Link](DemoDB.md#friendship---example-1)  | | |   |   | {{ book.demodb_query_9_text }}   [Link](DemoDB.md#orders---example-1)  |  | {{book.demodb_query_7_text}}  [Link](DemoDB.md) | 
+| {{ book.demodb_query_12_text }} [Link](DemoDB.md#profiles---example-2)  | {{ book.demodb_query_2_text }}  [Link](DemoDB.md#friendship---example-2)  | | |   |   | {{ book.demodb_query_11_text }}  [Link](DemoDB.md#orders---example-2)  |  | {{book.demodb_query_14_text}} [Link](DemoDB.md) | 
+|                                                                         | {{ book.demodb_query_3_text }}  [Link](DemoDB.md#friendship---example-3)  | | |   |   |   |  |  |
+|                                                                         | {{ book.demodb_query_4_text }}  [Link](DemoDB.md#friendship---example-4)  | | |   |   |   |  |  |
+|                                                                         | {{ book.demodb_query_5_text }}  [Link](DemoDB.md#friendship---example-5)  | | |   |   |   |  |  |
+|                                                                         | {{ book.demodb_query_6_text }}  [Link](DemoDB.md#friendship---example-6)  | | |   |   |   |  |  |
+|                                                                         | {{ book.demodb_query_7_text }}  [Link](DemoDB.md#friendship---example-7)  | | |   |   |   |  |  |
+|                                                                         |   | | |   |   |   |  |  |
 
 
 
@@ -280,6 +280,9 @@ MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attraction
 RETURN $pathelements
 ```
 
+![](../images/demo-dbs/social-travel-agency/query_location_1_graph.png)
+
+
 #### Example 2
 
 Find all Services connected with Customer with OrderedId 1
@@ -287,6 +290,9 @@ Find all Services connected with Customer with OrderedId 1
 MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services} 
 RETURN $pathelements
 ```
+
+![](../images/demo-dbs/social-travel-agency/query_location_2_graph.png)
+
 
 #### Example 3
 
@@ -506,9 +512,7 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 ![](../images/demo-dbs/social-travel-agency/query_9_browse.png)
 
-#### Orders - Example 1
-
-#### Orders - Example 3
+#### Orders - Example 2
 
 {{book.demodb_query_11_text}}:
 
@@ -528,6 +532,8 @@ Recommend some friends to Profile with Id 1 (friends of friends)
 MATCH {class: Profiles, as: profile, where: (Id=1)}.both('HasFriend').both('HasFriend'){as: friendOfFriend, where: ($matched.profile != $currentMatch)} 
 RETURN profile, friendOfFriend 
 ```
+![](../images/demo-dbs/social-travel-agency/query_recommendation_1_graph.png)
+
 
 #### Example 2
 
@@ -562,6 +568,11 @@ RETURN hotel, ReviewStars.Stars
 ### Profiles
 
 ![](../images/demo-dbs/social-travel-agency/profiles.png)
+
+
+### Customer-Country Relationship
+
+![](../images/demo-dbs/social-travel-agency/customers_countries.png)
 
 
 ### Customer-Restaurant Relationship

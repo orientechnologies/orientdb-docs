@@ -39,7 +39,7 @@
 	"demodb_query_8_text": "Find the 'year of birth' of the Profiles, and how many Profiles were born in the same year",
 	"demodb_query_8_sql_browse": "SELECT count(*) as NumberOfProfiles, Birthday.format('yyyy') AS YearOfBirth FROM Profiles GROUP BY YearOfBirth ORDER BY NumberOfProfiles DESC",
 	"demodb_query_8_sql_graph": "NA",
-	"demodb_query_9_text": "Calculate the total revenutes from Orders",
+	"demodb_query_9_text": "Calculate the total revenues from Orders",
 	"demodb_query_9_sql_browse": "SELECT sum(Amount) AS TotalRevenuesFromOrders FROM Orders;",
 	"demodb_query_9_sql_graph": "NA",
 	"demodb_query_10_text": "Calculate the Average Order Value",
