@@ -178,6 +178,7 @@ Available configurations are :
 #### Create a new Vertex
 
 To create a new vertex, use the **addVertex()** method. The vertex will be created and a unique id will be displayed as the return value.
+
 ```java
 graph.addVertex();
 ==>v[#5:0]
@@ -203,10 +204,12 @@ gremlin> e = v1.addEdge('friend',v2)
 #### Close the database
 
 To close a graph use the **close()** method:
+
 ```java
 gremlin> graph.close()
 ==>null
 ```
+
 This is not strictly necessary because OrientDB always closes the database when the Gremlin Console quits.
 
 #### Transactions
