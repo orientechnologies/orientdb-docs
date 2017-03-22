@@ -213,7 +213,7 @@ In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using
 
 In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}</code></pre>
+<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}{{book.demodb_query_5_sql_browse_part2}}</code></pre>
 
 ![](../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
