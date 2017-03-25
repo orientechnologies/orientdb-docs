@@ -11,7 +11,7 @@ http://localhost:2480
 
 This is the Studio 2.2 Homepage. 
 
-![Home Page](../images/studio-login.png)
+![Home Page](../images/studio/studio-login.png)
 
 From here, you can :
 
