@@ -76,16 +76,16 @@ Some query examples are reported below.
 
 The following table can help you navigate through all examples:
 
-| PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES
-|----------|------------|-----------|---------|----------|-----------|--------|-----------------|----------------------|
-| {{ book.demodb_query_8_text }}  [Link](DemoDB.md#profiles---example-1)  | {{ book.demodb_query_1_text }}  [Link](DemoDB.md#friendship---example-1)  | | |   |   | {{ book.demodb_query_9_text }}   [Link](DemoDB.md#orders---example-1)  |  | {{book.demodb_query_7_text}}  [Link](DemoDB.md) | 
-| {{ book.demodb_query_12_text }} [Link](DemoDB.md#profiles---example-2)  | {{ book.demodb_query_2_text }}  [Link](DemoDB.md#friendship---example-2)  | | |   |   | {{ book.demodb_query_11_text }}  [Link](DemoDB.md#orders---example-2)  |  | {{book.demodb_query_14_text}} [Link](DemoDB.md) | 
-|                                                                         | {{ book.demodb_query_3_text }}  [Link](DemoDB.md#friendship---example-3)  | | |   |   |   |  |  |
-|                                                                         | {{ book.demodb_query_4_text }}  [Link](DemoDB.md#friendship---example-4)  | | |   |   |   |  |  |
-|                                                                         | {{ book.demodb_query_5_text }}  [Link](DemoDB.md#friendship---example-5)  | | |   |   |   |  |  |
-|                                                                         | {{ book.demodb_query_6_text }}  [Link](DemoDB.md#friendship---example-6)  | | |   |   |   |  |  |
-|                                                                         | {{ book.demodb_query_7_text }}  [Link](DemoDB.md#friendship---example-7)  | | |   |   |   |  |  |
-|                                                                         |   | | |   |   |   |  |  |
+| PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES | SHORTEST PATHS | TRAVERSES
+|----------|------------|-----------|---------|----------|-----------|--------|-----------------|------------------------|----------------------|----------------------|
+| {{ book.demodb_query_8_text }}  [Link](DemoDB.md#profiles---example-1)  | {{ book.demodb_query_1_text }}  [Link](DemoDB.md#friendship---example-1)  | | |   |   | {{ book.demodb_query_9_text }}   [Link](DemoDB.md#orders---example-1)  |  | {{book.demodb_query_7_text}}  [Link](DemoDB.md) ||| 
+| {{ book.demodb_query_12_text }} [Link](DemoDB.md#profiles---example-2)  | {{ book.demodb_query_2_text }}  [Link](DemoDB.md#friendship---example-2)  | | |   |   | {{ book.demodb_query_11_text }}  [Link](DemoDB.md#orders---example-2)  |  | {{book.demodb_query_14_text}} [Link](DemoDB.md) |||
+|                                                                         | {{ book.demodb_query_3_text }}  [Link](DemoDB.md#friendship---example-3)  | | |   |   |   |  |  |||
+|                                                                         | {{ book.demodb_query_4_text }}  [Link](DemoDB.md#friendship---example-4)  | | |   |   |   |  |  |||
+|                                                                         | {{ book.demodb_query_5_text }}  [Link](DemoDB.md#friendship---example-5)  | | |   |   |   |  |  |||
+|                                                                         | {{ book.demodb_query_6_text }}  [Link](DemoDB.md#friendship---example-6)  | | |   |   |   |  |  |||
+|                                                                         | {{ book.demodb_query_7_text }}  [Link](DemoDB.md#friendship---example-7)  | | |   |   |   |  |  |||
+|                                                                         |   | | |   |   |   |  |  |||
 
 
 
@@ -561,20 +561,42 @@ MATCH
   {as: hotel}.outE('HasReview'){as: ReviewStars, where: (Stars>3)}.inV(){as: review}
 RETURN hotel, ReviewStars.Stars  
 ```
+
+### SHORTEST PATHS
+
+#### Example 1
  
-## Graph Portions
+Find the shortest path between the Profile 'Santo' and the Country 'United States':
+
+```sql
+SELECT expand(path) FROM (
+  SELECT shortestPath($from, $to) AS path 
+  LET $from = (SELECT FROM Profiles WHERE Name='Santo' and Surname='OrientDB'), $to = (SELECT FROM Countries WHERE Name='United States') 
+  UNWIND path
+)
+```
+
+![](../images/demo-dbs/social-travel-agency/shortestpath_1_browse.png)
+
+![](../images/demo-dbs/social-travel-agency/shortestpath_1_graph.png)
 
 
 ### Profiles
+
+The graph below includes all Profiles. Some profiles have no friends, and ten profiles "communities" are easily identifiable:
 
 ![](../images/demo-dbs/social-travel-agency/profiles.png)
 
 
 ### Customer-Country Relationship
 
+The graph below show the relationships between all Customers and their Countries of origin:
+
 ![](../images/demo-dbs/social-travel-agency/customers_countries.png)
 
 
 ### Customer-Restaurant Relationship
+
+Relationships between Customers and Restaurants are reported in the graph below:
 
 ![](../images/demo-dbs/social-travel-agency/customers_restaurants.png)
