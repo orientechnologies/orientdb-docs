@@ -581,6 +581,34 @@ SELECT expand(path) FROM (
 ![](../images/demo-dbs/social-travel-agency/shortestpath_1_graph.png)
 
 
+### TRAVERSES
+
+#### Example 1
+
+```sql
+TRAVERSE * FROM (
+  SELECT FROM Profiles WHERE Name='Santo' and Surname='OrientDB'
+) MAXDEPTH 3
+```
+
+![](../images/demo-dbs/social-travel-agency/traverse_1_browse.png)
+
+![](../images/demo-dbs/social-travel-agency/traverse_1_graph.png)
+
+
+#### Example 2
+
+```sql
+TRAVERSE * FROM (
+  SELECT FROM Countries WHERE Name='Italy'
+) MAXDEPTH 3
+```
+
+![](../images/demo-dbs/social-travel-agency/traverse_2_browse.png)
+
+![](../images/demo-dbs/social-travel-agency/traverse_2_graph.png)
+
+
 ### Profiles
 
 The graph below includes all Profiles. Some profiles have no friends, and ten profiles "communities" are easily identifiable:
