@@ -76,16 +76,16 @@ Some query examples are reported below.
 
 The following table can help you navigate through all examples:
 
-| PROFILES | FRIENDSHIP | LOCATIONS | REVIEWS | SERVICES | CUSTOMERS | ORDERS | RECOMMENDATIONS | BUSINESS OPPORTUNITIES | SHORTEST PATHS | TRAVERSES
-|----------|------------|-----------|---------|----------|-----------|--------|-----------------|------------------------|----------------------|----------------------|
-| {{ book.demodb_query_8_text }}  [Link](DemoDB.md#profiles---example-1)  | {{ book.demodb_query_1_text }}  [Link](DemoDB.md#friendship---example-1)  | | |   |   | {{ book.demodb_query_9_text }}   [Link](DemoDB.md#orders---example-1)  |  | {{book.demodb_query_7_text}}  [Link](DemoDB.md) ||| 
-| {{ book.demodb_query_12_text }} [Link](DemoDB.md#profiles---example-2)  | {{ book.demodb_query_2_text }}  [Link](DemoDB.md#friendship---example-2)  | | |   |   | {{ book.demodb_query_11_text }}  [Link](DemoDB.md#orders---example-2)  |  | {{book.demodb_query_14_text}} [Link](DemoDB.md) |||
-|                                                                         | {{ book.demodb_query_3_text }}  [Link](DemoDB.md#friendship---example-3)  | | |   |   |   |  |  |||
-|                                                                         | {{ book.demodb_query_4_text }}  [Link](DemoDB.md#friendship---example-4)  | | |   |   |   |  |  |||
-|                                                                         | {{ book.demodb_query_5_text }}  [Link](DemoDB.md#friendship---example-5)  | | |   |   |   |  |  |||
-|                                                                         | {{ book.demodb_query_6_text }}  [Link](DemoDB.md#friendship---example-6)  | | |   |   |   |  |  |||
-|                                                                         | {{ book.demodb_query_7_text }}  [Link](DemoDB.md#friendship---example-7)  | | |   |   |   |  |  |||
-|                                                                         |   | | |   |   |   |  |  |||
+| PROFILES                                                                | FRIENDSHIP                                                               | LOCATIONS                                                                | REVIEWS | SERVICES | CUSTOMERS | ORDERS                                                                | RECOMMENDATIONS | BUSINESS OPPORTUNITIES                          | SHORTEST PATHS       | TRAVERSES            |POLYMORPHISM 
+|-------------------------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------|---------|----------|-----------|-----------------------------------------------------------------------|-----------------|-------------------------------------------------|----------------------|----------------------|-----------------------------------------------------------------------------|
+| {{ book.demodb_query_8_text }}  [Link](DemoDB.md#profiles---example-1)  | {{ book.demodb_query_1_text }}  [Link](DemoDB.md#friendship---example-1) | {{ book.demodb_query_15_text }}  [Link](DemoDB.md#locations---example-1) | |   |                          | {{ book.demodb_query_9_text }}   [Link](DemoDB.md#orders---example-1) |                 | {{book.demodb_query_7_text}}  [Link](DemoDB.md) |                      |                      | {{ book.demodb_query_17_text }}  [Link](DemoDB.md#polymorphism---example-1) |
+| {{ book.demodb_query_12_text }} [Link](DemoDB.md#profiles---example-2)  | {{ book.demodb_query_2_text }}  [Link](DemoDB.md#friendship---example-2) | {{ book.demodb_query_16_text }}  [Link](DemoDB.md#locations---example-2) | |   |                          | {{ book.demodb_query_11_text }}  [Link](DemoDB.md#orders---example-2) |                 | {{book.demodb_query_14_text}} [Link](DemoDB.md) |||| 
+|                                                                         | {{ book.demodb_query_3_text }}  [Link](DemoDB.md#friendship---example-3) | | |   |   |   |  |  |||| 
+|                                                                         | {{ book.demodb_query_4_text }}  [Link](DemoDB.md#friendship---example-4) | | |   |   |   |  |  |||| 
+|                                                                         | {{ book.demodb_query_5_text }}  [Link](DemoDB.md#friendship---example-5) | | |   |   |   |  |  |||| 
+|                                                                         | {{ book.demodb_query_6_text }}  [Link](DemoDB.md#friendship---example-6) | | |   |   |   |  |  |||| 
+|                                                                         | {{ book.demodb_query_7_text }}  [Link](DemoDB.md#friendship---example-7) | | |   |   |   |  |  |||| 
+|                                                                         |   | | |   |   |   |  |  |||| 
 
 
 
@@ -272,31 +272,43 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 ### LOCATIONS 
 
-#### Example 1 
+#### Locations - Example 1 
 
-Find all Attractions connected with Customer with OrderedId 1
-```sql
-MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions} 
-RETURN $pathelements
-```
+{{book.demodb_query_15_text}}:
 
-![](../images/demo-dbs/social-travel-agency/query_location_1_graph.png)
+<pre><code class="lang-sql">{{book.demodb_query_15_sql}} 
+{{book.demodb_query_15_return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_15_return_graph}}' as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query_15_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_15_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query_15_browse.png)
 
 
-#### Example 2
+#### Locations - Example 2
 
-Find all Services connected with Customer with OrderedId 1
-```sql
-MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services} 
-RETURN $pathelements
-```
+{{book.demodb_query_16_text}}:
 
-![](../images/demo-dbs/social-travel-agency/query_location_2_graph.png)
+<pre><code class="lang-sql">{{book.demodb_query_16_sql}} 
+{{book.demodb_query_16_return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_16_return_graph}}' as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query_16_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_16_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query_16_browse.png)
 
 
 #### Example 3
 
-Find all Locations visited by Customer with OrderedId 1
+Find all Locations visited by Customer with OrderedId 2
 ```sql
 MATCH {as: n}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=1)} 
 RETURN $pathelements
@@ -304,11 +316,35 @@ RETURN $pathelements
 
 #### Example 4
 
-Find all Locations visited by Profile2 friends
+Find all Locations visited by Santo's friends
 ```sql
-MATCH {Class: Profiles, as: profile, where: (Id=2)}-HasFriend->{Class: Profiles, as: friend}<-HasProfile-{Class: Customers, as: customer}-HasVisited->{Class: Attractions, as: attraction} 
-RETURN attraction.Name
+MATCH {Class: Profiles, as: profile, where: (Name='Santo' and Surname='OrientDB')}-HasFriend->{Class: Profiles, as: friend}<-HasProfile-{Class: Customers, as: customer}-HasVisited->{Class: Locations, as: location} 
+RETURN $pathelements
 ```
+
+
+### POLYMORPHISM 
+
+#### Polymorphism - Example 1
+
+{{book.demodb_query_17_text}}:
+
+<pre><code class="lang-sql">{{book.demodb_query_17_sql}} 
+{{book.demodb_query_17_return_graph}} 
+</code></pre>
+
+In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_17_return_graph}}' as `RETURN` clause, this is the obtained graph:
+
+![](../images/demo-dbs/social-travel-agency/query_17_graph.png)
+
+In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_17_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../images/demo-dbs/social-travel-agency/query_17_browse.png)
+
+
+#### Polymorphism - Example 2
+
+
 
 
 ### REVIEWS 
