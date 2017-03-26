@@ -371,6 +371,23 @@
       * [commit()](PHP-Tx-commit.md)
       * [rollback()](PHP-Tx-rollback.md)
   * [Elixir](MarcoPolo.md)
+    * [Server](MarcoPolo-Server.md)
+      * [create_db()](MarcoPolo-create-db.md)
+      * [db_exists?()](MarcoPolo-db-exists.md)
+      * [distrib-config()](MarcoPolo-distrib-config.md)*
+      * [drop_db()](MarcoPolo-drop-db.md)
+    * [Database](MarcoPolo-Database.md)
+      * [command()](MarcoPolo-command.md)*
+      * [create_record()](MarcoPolo-create-record.md)*
+      * [db_countrecords()](MarcoPolo-db-countrecords.md)*
+      * [db_reload()](MarcoPolo-db-reload.md)*
+      * [db_size()](MarcoPolo-db-size.md)*
+      * [delete_record()](MarcoPolo-delete-record.md)*
+      * [live_query()](MarcoPolo-live-query.md)*
+      * [live_query_unsubscribe()](MarcoPolo-live-query-unsubscribe.md)*
+      * [load_record()](MarcoPolo-load-record.md)*
+      * [script()](MarcoPolo-script.md)*
+      * [update_record()](MarcoPolo-update-record.md)*
     * [Types](MarcoPolo-Types.md)
   * [Scala API](Scala-Language.md)
   * [HTTP API](OrientDB-REST.md)

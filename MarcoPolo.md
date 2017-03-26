@@ -36,3 +36,17 @@ $ <code class="userinput lang-sh">mix deps</code>
   locked at 0.2.2 (marco_polo) 40x47150
   ok
 </pre>
+
+
+## Using MarcoPolo
+
+Once you have registered MarcoPolo as a dependency with Mix you can begin to use it in developing your Elixir application.
+
+```elixir
+@doc """ Connects to OrientDB Server """
+@spec connect_orientdb_server(String.t, String.t) :: {:ok, conn} | {:error, term}
+def connect_orientdb_server(String user, String passwd) do 
+	{:ok, conn} = MarcoPolo.start_link(
+		user: user, password: passwd, connection: :server)
+end
+```

@@ -24,9 +24,3 @@ data = {:long, 944}
 
 Here, an integer in your application is sent to OrientDB as a long integer.
 
-
-
-
-
-
-
