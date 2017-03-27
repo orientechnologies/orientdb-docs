@@ -3,17 +3,17 @@
 
 #### Example 1
 
-Recommend some friends to Profile with Id 1 (friends of friends)
+Recommend some friends to Profile with Id 1 (friends of friends):
+
 ```sql
 MATCH {class: Profiles, as: profile, where: (Id=1)}.both('HasFriend').both('HasFriend'){as: friendOfFriend, where: ($matched.profile != $currentMatch)} 
 RETURN profile, friendOfFriend 
 ```
-![](../../../images/demo-dbs/social-travel-agency/query_recommendation_1_graph.png)
-
 
 #### Example 2
 
-Recommend some Hotels to Customer with OrderedId 1	
+Recommend some Hotels to Customer with OrderedId 1:
+
 ```sql
 MATCH 
   {Class: Customers, as: customer, where: (OrderedId=1)}-HasProfile->{class: Profiles, as: profile},
@@ -24,6 +24,8 @@ MATCH
   {as: hotel}-HasReview->{as: review}
 RETURN $pathelements
 ```
+
+![](../../../images/demo-dbs/social-travel-agency/query_recommendation_2_graph.png)
 
 To filter additionally, and suggest only the 4 and 5-rated hotels, it is possible to add a filter condition on the 'HasReview' edge (property 'Stars'):
 
