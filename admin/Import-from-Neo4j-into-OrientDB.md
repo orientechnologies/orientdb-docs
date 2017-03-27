@@ -16,12 +16,9 @@ Neo4j is an open-source graph database that queries and manipulates data using i
 
 Importing data from Neo4j into OrientDB is a straightforward process.
 
-To migrate, please choose one of the following strategies:
+To migrate, you may use the _Neo4j to OrientDB Importer_**. Starting from OrientDB version 2.2, this is the preferred way to migrate from Neo4j.
 
-1. **Use the _Neo4j to OrientDB Importer_**
-	* Starting from OrientDB version 2.2, this is the preferred way to migrate from Neo4j, especially for large and complex datasets. The _Neo4j to OrientDB Importer_ allows you to migrate Neo4j's nodes, relationships, unique constraints and indexes. For more details, please refer to the [Neo4j to OrientDB Importer](../orientdb-neo4j-importer/README.md) section	
-1. **Use GraphML**
-	* GraphML is an XML-based file format for graphs. For more details, please refer to the section [Import from Neo4j using GraphML](Import-from-Neo4j-using-GraphML.md)
+The _Neo4j to OrientDB Importer_ allows you to migrate Neo4j's nodes, relationships, constraints and indexes. For more details, please refer to the [Neo4j to OrientDB Importer](../orientdb-neo4j-importer/README.md) section	
 
 **Note:** if your data is in CSV format, you can migrate to OrientDB using the [OrientDB's ETL](../etl/ETL-Introduction.md) tool.
 	

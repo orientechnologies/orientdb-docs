@@ -3,6 +3,11 @@ search:
    keywords: ['import', 'Neo4j', 'migration', 'GraphML']
 ---
 
+| | |
+|----|-----|
+|![](../images/warning.png)| This is a legacy strategy to migrate from Neo4j. The new strategy is to migrate using the [Neo4j to OrientDB Importer](../orientdb-neo4j-importer/README.md). 
+
+
 # Import from Neo4j using GraphML
 
 This section describes the process of importing data from Neo4j to OrientDB using GraphML. For general information on the possible Neo4j to OrientDB migration strategies, please refer to the [Import from Neo4j](Import-from-Neo4j-into-OrientDB.md) section. 
