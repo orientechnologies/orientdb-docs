@@ -40,7 +40,7 @@ orientDB.close();
 >For more information, see
 >
 >- Javadoc: [JavaDoc](http://www.orientechnologies.com/javadoc/latest/)
->- [OrientDB Studio Web tool](../studio/Studio-Home-page.md).
+>- [OrientDB Studio Web tool](../studio/README.md).
 
 
 

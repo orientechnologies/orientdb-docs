@@ -156,7 +156,7 @@
     * [Monitoring](admin/Monitoring.md)  
         * [JMX](admin/JMX.md)
 * [OrientDB Tools](misc/Tools.md)
-    * [Studio](studio/Studio-Home-page.md) 
+    * [Studio](studio/README.md) 
         * [Query](studio/Query.md) 
         * [Edit Document](studio/Edit-Document.md) 
         * [Edit Vertex](studio/Edit-Vertex.md) 

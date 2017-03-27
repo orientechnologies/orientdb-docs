@@ -295,7 +295,7 @@ The following are some ways we can use to access the newly imported `OpenBeer` d
 
 - [Console](console/README.md)
 - [Gremlin Console](Gremlin.md)
-- [Studio](studio/Studio-Home-page.md)
+- [Studio](studio/README.md)
 - [APIs & Drivers](Programming-Language-Bindings.md)
 - some external tools, like [Gephy](Gephi.md)
 - some external visualization libraries for graph rendering

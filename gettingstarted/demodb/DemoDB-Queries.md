@@ -29,7 +29,7 @@ The following table can help you navigate through all examples:
 
 {{ book.demodb_query_8_text }}:
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 <pre><code class="lang-sql">{{book.demodb_query_8_sql_browse}}</code></pre>
 
@@ -40,13 +40,13 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 {{ book.demodb_query_12_text }}:
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
 <pre><code class="lang-sql">{{book.demodb_query_12_sql_graph}}</code></pre>
 
 ![](../../images/demo-dbs/social-travel-agency/query_12_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records:
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records:
 
 <pre><code class="lang-sql">{{book.demodb_query_12_sql_browse}}</code></pre>
 
@@ -64,11 +64,11 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 {{book.demodb_query_1_return_graph}} 
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_1_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_1_return_graph}}' as `RETURN` clause, this is the obtained graph:
 
 ![](../../images/demo-dbs/social-travel-agency/query_1_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_1_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_1_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../images/demo-dbs/social-travel-agency/query_1_browse.png)
 
@@ -89,11 +89,11 @@ or
 {{book.demodb_query_2_return_graph}} 
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_2_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_2_return_graph}}' as `RETURN` clause, this is the obtained graph:
 
 ![](../../images/demo-dbs/social-travel-agency/query_2_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_2_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_2_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../images/demo-dbs/social-travel-agency/query_2_browse.png)
 
@@ -106,11 +106,11 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.de
 {{book.demodb_query_3_return_graph}} 
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_3_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_3_return_graph}}' as `RETURN` clause, this is the obtained graph:
 
 ![](../../images/demo-dbs/social-travel-agency/query_3_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_3_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_3_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../images/demo-dbs/social-travel-agency/query_3_browse.png)
 
@@ -123,11 +123,11 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.de
 {{book.demodb_query_4_return_graph}} 
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_4_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_4_return_graph}}' as `RETURN` clause, this is the obtained graph:
 
 ![](../../images/demo-dbs/social-travel-agency/query_4_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_4_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_4_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../images/demo-dbs/social-travel-agency/query_4_browse.png)
 
@@ -136,13 +136,13 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.de
 
 {{book.demodb_query_5_text}}:
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
 <pre><code class="lang-sql">{{book.demodb_query_5_sql_graph}}</code></pre>
 
 ![](../../images/demo-dbs/social-travel-agency/query_5_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 <pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}{{book.demodb_query_5_sql_browse_part2}}</code></pre>
 
@@ -153,13 +153,13 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 {{book.demodb_query_6_text}}:
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
 <pre><code class="lang-sql">{{book.demodb_query_6_sql_graph}}</code></pre>
 
 ![](../../images/demo-dbs/social-travel-agency/query_6_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 <pre><code class="lang-sql">{{book.demodb_query_6_sql_browse}}</code></pre>
 
@@ -172,13 +172,13 @@ You may find in a similar way the top 3 Customers, among Santo's Friends, that h
 
 {{book.demodb_query_7_text}}:
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
 <pre><code class="lang-sql">{{book.demodb_query_7_sql_graph}}</code></pre>
 
 ![](../../images/demo-dbs/social-travel-agency/query_7_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 <pre><code class="lang-sql">{{book.demodb_query_7_sql_browse}}</code></pre>
 
@@ -188,13 +188,13 @@ or, without restricting to a specific customer:
 
 {{book.demodb_query_14_text}}:
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
 <pre><code class="lang-sql">{{book.demodb_query_14_sql_graph}}</code></pre>
 
 ![](../../images/demo-dbs/social-travel-agency/query_14_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 <pre><code class="lang-sql">{{book.demodb_query_14_sql_browse}}</code></pre>
 
@@ -211,11 +211,11 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 {{book.demodb_query_15_return_graph}} 
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_15_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_15_return_graph}}' as `RETURN` clause, this is the obtained graph:
 
 ![](../../images/demo-dbs/social-travel-agency/query_15_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_15_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_15_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../images/demo-dbs/social-travel-agency/query_15_browse.png)
 
@@ -228,11 +228,11 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.de
 {{book.demodb_query_16_return_graph}} 
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_16_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_16_return_graph}}' as `RETURN` clause, this is the obtained graph:
 
 ![](../../images/demo-dbs/social-travel-agency/query_16_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_16_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_16_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../images/demo-dbs/social-travel-agency/query_16_browse.png)
 
@@ -264,11 +264,11 @@ RETURN $pathelements
 {{book.demodb_query_17_return_graph}} 
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_17_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_17_return_graph}}' as `RETURN` clause, this is the obtained graph:
 
 ![](../../images/demo-dbs/social-travel-agency/query_17_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using '{{book.demodb_query_17_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_17_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../images/demo-dbs/social-travel-agency/query_17_browse.png)
 
@@ -475,7 +475,7 @@ SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY Re
 
 <pre><code class="lang-sql">{{book.demodb_query_9_sql_browse}}</code></pre>
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query above, this is the visualized result:
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, this is the visualized result:
 
 ![](../../images/demo-dbs/social-travel-agency/query_9_browse.png)
 
@@ -485,7 +485,7 @@ In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query 
 
 <pre><code class="lang-sql">{{book.demodb_query_11_sql_browse}}</code></pre>
 
-In the _Browse Tab_ of [Studio](../studio/Studio-Home-page.md), using the query above, this is the visualized result:
+In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, this is the visualized result:
 
 ![](../../images/demo-dbs/social-travel-agency/query_11_browse.png)
 

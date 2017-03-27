@@ -9,7 +9,7 @@ In addition to the functions provided in OrientDB by default, you can also creat
 
 ## Using OrientDB Studio
 
-You can do so through the [OrientDB Studio](../studio/Studio-Home-page.md). To create a sample function, complete the following steps:
+You can do so through the [OrientDB Studio](../studio/README.md). To create a sample function, complete the following steps:
 
 1. In Studio, open a database and navigate to the **Functions** panel.
 

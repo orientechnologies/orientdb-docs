@@ -128,7 +128,7 @@
     * [Import from Parse (Facebook)](etl/Import-from-PARSE.md) 
   * [Logging](admin/Logging.md) 
   * [Scheduler](admin/Scheduler.md) 
-  * [Studio](studio/Studio-Home-page.md) 
+  * [Studio](studio/README.md) 
     * [Query](studio/Query.md) 
     * [Edit Document](studio/Edit-Document.md) 
     * [Edit Vertex](studio/Edit-Vertex.md) 

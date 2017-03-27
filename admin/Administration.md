@@ -9,7 +9,7 @@ search:
 
 OrientDB has a number of tools to make administration of the database easier. There is the [console](../Tutorial-Run-the-console.md), which allows you to run a large number of [commands](../console/Console-Commands.md).
 
-There is also the [OrientDB Studio](../studio/Studio-Home-page.md), which allows you to run queries and visually look at the graph. 
+There is also the [OrientDB Studio](../studio/README.md), which allows you to run queries and visually look at the graph. 
 
 ![GraphEditor](../images/GraphEditor.png)
 
@@ -19,7 +19,7 @@ All of OrientDB's administration facilities are aimed to make your usage of Orie
 
 >For more information see:
 
->- [Studio](../studio/Studio-Home-page.md)
+>- [Studio](../studio/README.md)
 >- [Console](../console/README.md)
 >- [Backup and Restore](Backup-and-Restore.md)
 >- [Export and Import](Export-and-Import.md)

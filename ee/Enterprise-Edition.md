@@ -28,7 +28,7 @@ At run-time, the Enterprise edition logs this message:
 
 ### Upgrade from 2.1.x or previous
 
-Before v2.2, the Enterprise Edition front end was the **Workbench** application. Starting from v2.2, the Workbench has been merged into [Studio](../studio/Studio-Home-page.md). When Studio runs on an Enterprise Edition, it enables the additional features automatically. Furthermore while the Workbench was a separate application that was connected to the servers, with the new Studio Enterprise, every server is a peer of the distributed cluster. You can configure any server by connecting to one of the servers in the distributed cluster.
+Before v2.2, the Enterprise Edition front end was the **Workbench** application. Starting from v2.2, the Workbench has been merged into [Studio](../studio/README.md). When Studio runs on an Enterprise Edition, it enables the additional features automatically. Furthermore while the Workbench was a separate application that was connected to the servers, with the new Studio Enterprise, every server is a peer of the distributed cluster. You can configure any server by connecting to one of the servers in the distributed cluster.
 
 Explore the Enterprise Edition features:
 

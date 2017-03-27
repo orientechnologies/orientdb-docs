@@ -3,9 +3,9 @@ search:
    keywords: ['Studio', 'home page']
 ---
 
-# Studio Home page
+# Studio
 
-Studio is a web interface for the administration of OrientDB that comes in bundle with the OrientDB distribution. 
+_Studio_ is a web interface for the administration of OrientDB that comes in bundle with the OrientDB distribution. 
 
 If you run OrientDB in your machine the web interface can be accessed via the URL:
 
@@ -13,8 +13,7 @@ If you run OrientDB in your machine the web interface can be accessed via the UR
 http://localhost:2480
 ```
 
-
-This is the Studio 2.2 Homepage. 
+The following is a screenshot of the home-page of Studio v.3.0: 
 
 ![Home Page](../images/studio-login.png)
 

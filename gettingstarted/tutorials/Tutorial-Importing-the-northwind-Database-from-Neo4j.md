@@ -135,7 +135,7 @@ Import Summary:
 
 General information on how to connect to a newly imported database can be found in [this](../../orientdb-neo4j-importer/README.md#connecting-to-the-newly-imported-database) section. 
 
-The following is a partial visualization of the _northwind_ database done with the Graph Editor included in the OrientDB's [Studio](../studio/Studio-Home-page.md) tool:
+The following is a partial visualization of the _northwind_ database done with the Graph Editor included in the OrientDB's [Studio](../studio/README.md) tool:
 
 ![](images/import_from_neo4j/northwind/northwind_graph_editor.PNG)
 

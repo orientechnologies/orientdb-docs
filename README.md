@@ -32,7 +32,7 @@
 
 ### Quick References
 - [Console](console/README.md)
-- [Studio](studio/Studio-Home-page.md) web tool
+- [Studio](studio/README.md) web tool
 - [Workbench](http://orientdb.com/enterprise/last/introduction.html) (Enterprise Edition) 
 - [OrientDB Server](internals/DB-Server.md)
 - [Network-Binary-Protocol](internals/Network-Binary-Protocol.md) 
