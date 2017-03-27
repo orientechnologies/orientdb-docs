@@ -31,7 +31,7 @@
 - [Export and Import](../admin/Export-and-Import.md)
 
 ### Quick References
-- [Console](../console/Console-Commands.md)
+- [Console](../console/README.md)
 - [Studio](../studio/Home-page.md) web tool
 - [Workbench](http://www.orientechnologies.com/enterprise/1.7.4/userguide.html) (Enterprise Edition) 
 - [OrientDB Server](../internals/DB-Server.md)

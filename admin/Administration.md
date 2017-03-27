@@ -20,7 +20,7 @@ All of OrientDB's administration facilities are aimed to make your usage of Orie
 >For more information see:
 
 >- [Studio](../studio/Studio-Home-page.md)
->- [Console](../console/Console-Commands.md)
+>- [Console](../console/README.md)
 >- [Backup and Restore](Backup-and-Restore.md)
 >- [Export and Import](Export-and-Import.md)
 >- [Logging](Logging.md)

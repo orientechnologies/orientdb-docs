@@ -32,7 +32,7 @@ In the example above the exported *movie* graph is stored under `D:\movie.graphm
 
 ## Importing into OrientDB
 
-In this tutorial we will import in OrientDB the file `movie.graphml` using the OrientDB's [Console](../console/Console-Commands.md). For other GraphML import methods, please refer to the section [Importing GraphML](Import-from-Neo4j-using-GraphML.md#importing-graphml).
+In this tutorial we will import in OrientDB the file `movie.graphml` using the OrientDB's [Console](../console/README.md). For other GraphML import methods, please refer to the section [Importing GraphML](Import-from-Neo4j-using-GraphML.md#importing-graphml).
 
 The OrientDB's Console output generated during the import process is similar to the following (note that first we create a *movie* database using the command `CREATE DATABASE`, and then we do the actual import using the command `IMPORT DATABASE`):
 

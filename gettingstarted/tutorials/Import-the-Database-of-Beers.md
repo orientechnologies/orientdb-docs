@@ -293,7 +293,7 @@ Now that the database has been imported we can execute some queries and create s
 
 The following are some ways we can use to access the newly imported `OpenBeer` database:
 
-- [Console](console/Console-Commands.md)
+- [Console](console/README.md)
 - [Gremlin Console](Gremlin.md)
 - [Studio](studio/Studio-Home-page.md)
 - [APIs & Drivers](Programming-Language-Bindings.md)

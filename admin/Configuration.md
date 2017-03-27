@@ -21,7 +21,7 @@ Example:
 
 ### From the Console
 
-To retrieve the full list of current settings from the [Console](../console/Console-Commands.md) you can use the [`CONFIG`](../console/Console-Command-Config.md) command:
+To retrieve the full list of current settings from the [Console](../console/README.md) you can use the [`CONFIG`](../console/Console-Command-Config.md) command:
 
 ```
 orientdb> CONFIG
@@ -94,7 +94,7 @@ OGlobalConfiguration.MVRBTREE_NODE_PAGE_SIZE.setValue(2048);
 
 #### From the Console
 
-To change at run-time a setting from the [Console](../console/Console-Commands.md) you can use the [`CONFIG SET`](../console/Console-Command-Config-Set.md) command.
+To change at run-time a setting from the [Console](../console/README.md) you can use the [`CONFIG SET`](../console/Console-Command-Config-Set.md) command.
 
 Example:
 

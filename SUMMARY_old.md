@@ -33,7 +33,7 @@
     * [Queue system](gettingstarted/Queue-use-case.md)    
 * [Administration](admin/Administration.md)
   * [Global Configuration](admin/Configuration.md) 
-  * [Console](console/Console-Commands.md) 
+  * [Console](console/README.md) 
     * [Backup](console/Console-Command-Backup.md) 
     * [Begin](console/old/Console-Command-Begin.md) 
     * [Browse Class](console/Console-Command-Browse-Class.md) 

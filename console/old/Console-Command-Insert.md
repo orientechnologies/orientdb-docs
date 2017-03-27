@@ -41,4 +41,4 @@ INSERT INTO <<class-name>|CLUSTER:<cluster-name>> (<field-names>) VALUES ( <fiel
   orientdb> <code class='lang-sql userinput'>INSERT INTO Profile (name, friends) VALUES ('Luca', [10:3, 10:4])</code>
   </pre>
 
->For more information on other commands, see [SQL](../../sql/SQL.md) and [Console](../Console-Commands.md) commands.
+>For more information on other commands, see [SQL](../../sql/SQL.md) and [Console](../README.md) commands.

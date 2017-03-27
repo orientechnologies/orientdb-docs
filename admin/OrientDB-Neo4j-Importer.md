@@ -216,7 +216,7 @@ In case of problems, the details of the occurred errors are written in the migra
 
 After the migration process, you may start an OrientDB server using the `server.sh` or `server.bat` scripts.
 
-You can connect to the newly imported database through [Studio](../studio/Studio-Home-page.md) or the [Console](../console/Console-Commands.md) using the OrientDB's default database users, e.g. using the user _admin_ and password _admin_.
+You can connect to the newly imported database through [Studio](../studio/Studio-Home-page.md) or the [Console](../console/README.md) using the OrientDB's default database users, e.g. using the user _admin_ and password _admin_.
 
 Please secure your database by removing the default users, if you don't need them, or by creating new users.
 

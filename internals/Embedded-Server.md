@@ -7,7 +7,7 @@ search:
 
 Embedding an OrientDB Server inside a Java application has several advantages and interesting features:
 - Java application that runs embedded with the server can bypass the remote connection and use the database directly with [local mode](../datamodeling/Concepts.md#database-url). local and remote connections against the same database can work in concurrency: OrientDB will synchronize the access.
-- You can use the [Console](../console/Console-Commands.md) to control it
+- You can use the [Console](../console/README.md) to control it
 - You can use the [OrientDB Studio](../studio/Studio-Home-page.md)
 - You can replicate the database across distributed standalone or embedded servers
 
