@@ -23,6 +23,7 @@
         * [Introduction](gettingstarted/demodb/DemoDB-Introduction.md)
         * [Data Model](gettingstarted/demodb/DemoDB-DataModel.md)
         * [Queries](gettingstarted/demodb/DemoDB-Queries.md)
+            * [Profiles](gettingstarted/demodb/DemoDB-Queries-Profiles.md)
         * [Graph Portions](gettingstarted/demodb/DemoDB-Graph-Portions.md)
     * [Basic SQL](gettingstarted/Tutorial-SQL.md)
      * [Users, Roles and Security](gettingstarted/Users-Roles-Security.md)
