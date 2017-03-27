@@ -1,7 +1,7 @@
 
 ### Orders
 
-#### Orders - Example 1
+#### Example 1
 
 {{book.demodb_query_9_text}}:
 
@@ -11,7 +11,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, thi
 
 ![](../../../images/demo-dbs/social-travel-agency/query_9_browse.png)
 
-#### Orders - Example 2
+#### Example 2
 
 {{book.demodb_query_11_text}}:
 

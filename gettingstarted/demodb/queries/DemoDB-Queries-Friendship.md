@@ -1,7 +1,7 @@
 
 ### Friendship
 
-#### Friendship - Example 1
+#### Example 1
 
 {{book.demodb_query_1_text}}:
 
@@ -26,7 +26,7 @@ or
 <pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_2}}</code></pre>
 
 
-#### Friendship - Example 2
+#### Example 2
 
 {{book.demodb_query_2_text}}:
 
@@ -43,7 +43,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 ![](../../../images/demo-dbs/social-travel-agency/query_2_browse.png)
 
 
-#### Friendship - Example 3
+#### Example 3
 
 {{book.demodb_query_3_text}}:
 
@@ -60,7 +60,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 ![](../../../images/demo-dbs/social-travel-agency/query_3_browse.png)
 
 
-#### Friendship - Example 4
+#### Example 4
 
 {{book.demodb_query_4_text}}:
 
@@ -77,7 +77,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 ![](../../../images/demo-dbs/social-travel-agency/query_4_browse.png)
 
 
-#### Friendship - Example 5
+#### Example 5
 
 {{book.demodb_query_5_text}}:
 
@@ -97,7 +97,7 @@ test:
 ![](../../../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
 
-#### Friendship - Example 6
+#### Example 6
 
 {{book.demodb_query_6_text}}:
 
@@ -116,7 +116,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, thi
 You may find in a similar way the top 3 Customers, among Santo's Friends, that have stayed at the highest number of Hotels, or have eaten at the highest number of Restaurants. Just use `out("HasStayed").size()` or `out("HasEaten").size()` instead of `out("HasVisited").size()` (you may also consider to modify the alias, from `NumberOfVisits` to `NumberOfHotels` and `NumberOfRestaurants`, so that it is more coherent to these cases).
 
 
-#### Friendship - Example 7
+#### Example 7
 
 {{book.demodb_query_7_text}}:
 

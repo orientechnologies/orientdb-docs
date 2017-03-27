@@ -1,7 +1,7 @@
 
 ### Polymorphism 
 
-#### Polymorphism - Example 1
+#### Example 1
 
 {{book.demodb_query_17_text}}:
 
@@ -18,4 +18,4 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 ![](../../../images/demo-dbs/social-travel-agency/query_17_browse.png)
 
 
-#### Polymorphism - Example 2
+#### Example 2

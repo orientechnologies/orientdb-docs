@@ -1,7 +1,7 @@
 
 ### Locations 
 
-#### Locations - Example 1 
+#### Example 1 
 
 {{book.demodb_query_15_text}}:
 
@@ -18,7 +18,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 ![](../../../images/demo-dbs/social-travel-agency/query_15_browse.png)
 
 
-#### Locations - Example 2
+#### Example 2
 
 {{book.demodb_query_16_text}}:
 
