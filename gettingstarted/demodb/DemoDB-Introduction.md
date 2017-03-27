@@ -28,7 +28,7 @@ It is possible to connect to `demodb` using the three standard OrientDB Users:
 - `admin` / `admin`
 
 
-### Using the Demo Database with version 2.2.x
+### Using the Demo Database with OrientDB 2.2.x
 
 The demo database can be easily loaded into OrientDB 2.2.x using the Studio's "Import a public database" feature.
 

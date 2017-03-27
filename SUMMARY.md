@@ -28,7 +28,7 @@
             * [Locations](gettingstarted/demodb/queries/DemoDB-Queries-Locations.md)
             * [Polymorphism](gettingstarted/demodb/queries/DemoDB-Queries-Polymorphism.md)
             * [Reviews](gettingstarted/demodb/queries/DemoDB-Queries-Reviews.md)
-            * [Services](gettingstarted/demodb/queries/Services.md)
+            * [Services](gettingstarted/demodb/queries/DemoDB-Queries-Services.md)
             * [Customers](gettingstarted/demodb/queries/DemoDB-Queries-Customers.md)
             * [Orders](gettingstarted/demodb/queries/DemoDB-Queries-Orders.md)
             * [Recommendations](gettingstarted/demodb/queries/DemoDB-Queries-Recommendations.md)  
