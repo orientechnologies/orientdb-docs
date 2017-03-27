@@ -15,7 +15,7 @@ http://localhost:2480
 
 The following is a screenshot of the home-page of Studio v.3.0: 
 
-![Home Page](../images/studio-login.png)
+![Home Page](../images/studio/studio-login.png)
 
 From here, you can :
 

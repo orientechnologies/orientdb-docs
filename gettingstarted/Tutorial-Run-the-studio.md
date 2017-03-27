@@ -16,7 +16,7 @@ By default, there are no additional steps that you need to take to start OrientD
 $ <code class="lang-sh userinput">firefox http://localhost:2480</code>
 </pre>
 
-![Home Page](images/login.png)
+![Home Page](../images/studio/studio-login.png)
 
 From here you can create a new database, connect to or drop an existing database, import a public database and navigate to the Server management interface.
 
