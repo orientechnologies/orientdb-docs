@@ -27,7 +27,7 @@
   * [Basic SQL](gettingstarted/Tutorial-SQL.md)
   * [Users, Roles and Security](gettingstarted/Users-Roles-Security.md)
   * [Distributed Architecture](gettingstarted/Distributed-Architecture.md) 
-  * [Tutorials](gettingstarted/Tutorials.md)
+  * [Tutorials](gettingstarted/tutorials/README.md)
     * [Working with Graphs](gettingstarted/Tutorial-Working-with-graphs.md) 
     * [Using Schema with Graphs](gettingstarted/Tutorial-Using-schema-with-graphs.md) 
     * [Setup a Distributed Database](gettingstarted/tutorials/Tutorial-Setup-a-distributed-database.md) 
