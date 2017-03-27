@@ -5,8 +5,6 @@ The demo database can help you understand better OrientDB features and capabilit
 
 _Note:_ Random-generated data is used in the `demodb`, including data used for Emails, Names, Surnames, Phone Numbers and Reviews.
 
-This Section introduces the `demodb` database, its Data Model, and includes some queries that is possible to execute on it.
-
 
 ### Version
 
