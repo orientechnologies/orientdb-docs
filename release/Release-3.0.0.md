@@ -70,7 +70,7 @@ In v 3.0 TinkerPop is just an alternative graph API. The main graph API provided
 
 ### New Demo DB 'Social Travel Agency'
 
-Starting with OrientDB v.3.0 a new demo database is included. More information on the new demo database can be found [here](../gettingstarted/DemoDB.md).
+Starting with OrientDB v.3.0 a new demo database is included. More information on the new demo database can be found [here](../gettingstarted/demodb/).
 
 
 ## API Changes
