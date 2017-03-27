@@ -5,7 +5,7 @@ search:
 
 | | |
 |----|-----|
-|![](../images/warning.png)| This is a legacy strategy to migrate from Neo4j. The new strategy is to migrate using the [Neo4j to OrientDB Importer](../orientdb-neo4j-importer/README.md). 
+|![](../images/warning.png)| This is a legacy strategy to migrate from Neo4j. The new strategy is to migrate using the [Neo4j to OrientDB Importer](../neo4j-to-orientdb-importer/README.md). 
 
 
 # Import from Neo4j using GraphML
@@ -16,7 +16,7 @@ Neo4j can export in GraphML, an XML-based file format for graphs. Given that Ori
 
 **Note:**
 
->For large and complex datasets, the preferred way to migrate from Neo4j is using the [Neo4j to OrientDB Importer](../orientdb-neo4j-importer/README.md).
+>For large and complex datasets, the preferred way to migrate from Neo4j is using the [Neo4j to OrientDB Importer](../neo4j-to-orientdb-importer/README.md).
 
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
