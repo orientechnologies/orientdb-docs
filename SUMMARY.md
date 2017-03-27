@@ -19,7 +19,7 @@
   * [Run the Studio](gettingstarted/Tutorial-Run-the-studio.md)  
   * [Documents, Vertices and Edges](misc/Documents-Vertices-Edges.md)
   * [Classes, Schema and Constraints](gettingstarted/Tutorial-Classes.md)
-  * [Demo Database](gettingstarted/demodb/)
+  * [Demo Database](gettingstarted/demodb/README.md)
      *[Introduction](gettingstarted/demodb/DemoDB-Introduction.md)
      *[Data Model](gettingstarted/demodb/DemoDB-DataModel.md)
      *[Queries](gettingstarted/demodb/DemoDB-Queries.md)
