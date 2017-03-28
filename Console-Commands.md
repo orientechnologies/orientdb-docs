@@ -149,6 +149,7 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`LIST DATABASES`](Console-Command-List-Databases.md)|List the available databases|
 |[`LIST CONNECTIONS`](Console-Command-List-Connections.md)|List the available connections|
 |[`LOAD RECORD`](Console-Command-Load-Record.md)|Loads a record in memory and set it as the current one|
+|[`LOAD SCRIPT`](Console-Command-Load-Script.md)|Loads a script and execute it|
 |[`PROFILER`](Console-Command-Profiler.md)|Controls the [Profiler](Profiler.md)|
 |[`PROPERTIES`](Console-Command-Properties.md)|Returns all the configured properties|
 |`pwd`|Display current path|
