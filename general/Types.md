@@ -1,13 +1,13 @@
 ---
 search:
-   keywords: ['concepts', 'types']
+   keywords: ['concepts', 'data types', 'types']
 ---
 
 
 <!-- proofread 2015-11-26 SAM -->
-# Supported Types
+# Supported Data Types
 
-OrientDB supports several types natively. Below is the complete table.
+OrientDB supports several data types natively. Below is the complete table.
 
 |#id|Type|Description|Java type|Minimum<br>Maximum|Auto-conversion from/to|
 |---|----|-----------|------|------------------|-----------------------|
