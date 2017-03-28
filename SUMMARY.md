@@ -208,7 +208,7 @@
         * [Import from RDBMS](etl/Import-from-DBMS.md) 
         * [Import from DB-Pedia](etl/Import-from-DBPedia.md) 
         * [Import from Parse (Facebook)](etl/Import-from-PARSE.md) 
-    * [Neo4j to OrientDB Importer](orientdb-neo4j-importer/README.md)
+    * [Neo4j to OrientDB Importer](neo4j-to-orientdb-importer/README.md)
 * [SQL Reference](sql/SQL.md)
   * [SQL Syntax](sql/SQL-Syntax.md)
     * [Projections](sql/SQL-Projections.md)
