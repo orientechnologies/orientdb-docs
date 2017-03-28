@@ -48,7 +48,8 @@
 - [Events](http://orientdb.com/event) - Follow OrientDB at the next event!
 - [Team](legacy/Team.md) - Meet the team behind OrientDB
 - [Contribute](misc/Contribute-to-OrientDB.md) - Contribute to the project.
-- [Who is using OrientDB?](http://orientdb.com/customers) - Clients using OrientDB in production.
+- [Who is using OrientDB?](https://orientdb.com/customers) - Clients using OrientDB in production.
+
 
 ## Questions or Need Help?
 Check out our [Get in Touch](misc/Get-in-Touch.md) page for different ways of getting in touch with us. 
