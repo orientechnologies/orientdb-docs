@@ -11,7 +11,7 @@ Starting from v1.7 OrientDB support [protected SSL connections](Using-SSL-with-O
 
 |   |   |
 |---|---|
-|![warning](images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
+|![warning](images/warning.png)|Even though OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
 
 ## Install as a service
 OrientDB Server is part of Community and Enterprise distributions. To install OrientDB as service follow the following guides
