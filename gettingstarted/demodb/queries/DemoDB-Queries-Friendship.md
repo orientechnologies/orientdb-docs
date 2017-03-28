@@ -89,11 +89,8 @@ In the _Graph Editor_ included in [Studio](../studio/README.md), using the query
 
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}< {{book.demodb_query_5_sql_browse_part_2}}</code></pre>
-
-test:
-<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse_part_2}}</code></pre>
-
+<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}</code></pre>
+ 
 ![](../../../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
 
