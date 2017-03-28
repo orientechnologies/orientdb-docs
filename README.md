@@ -1,6 +1,8 @@
-#OrientDB Manual - version {{book.currentVersion}}
+# OrientDB Manual - version {{book.currentVersion}}
 
 ![image](http://www.orientdb.com/images/orientdb_logo_mid.png)
+
+Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
 ## Quick Navigation
 
@@ -18,6 +20,7 @@
 | | | [Network Binary Protocol](internals/Network-Binary-Protocol.md) |
 | | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
 
+
 ### Operations
 - [Installation](Tutorial-Installation.md)
 - [3rd party Plugins](plugins/Plugins.md)
@@ -30,23 +33,24 @@
 - [Backup and Restore](admin/Backup-and-Restore.md)
 - [Export and Import](admin/Export-and-Import.md)
 
+
 ### Quick References
 - [Console](console/README.md)
 - [Studio](studio/README.md) web tool
-- [Workbench](http://orientdb.com/enterprise/last/introduction.html) (Enterprise Edition) 
 - [OrientDB Server](internals/DB-Server.md)
 - [Network-Binary-Protocol](internals/Network-Binary-Protocol.md) 
 - [Gephi Graph Analysis Visual tool](plugins/Gephi.md)
 - [Rexster Support and configuration](plugins/Rexster.md)
 - [Continuous integration](http://helios.orientechnologies.com/)
 
+ 
 ### Resources
-- [User Group](http://orientdb.com/active-user-community) - Have question, troubles, problems?
+- [User Group](https://orientdb.com/active-user-community) - Have question, troubles, problems?
 - [#orientdb IRC channel on freenode](http://webchat.freenode.net/?channels=orientdb)
-- [Professional Support](http://orientdb.com/support)
-- [Training](http://orientdb.com/training) - Training and classes.
-- [Events](http://orientdb.com/event) - Follow OrientDB at the next event!
-- [Team](legacy/Team.md) - Meet the team behind OrientDB
+- [Professional Support](https://orientdb.com/support)
+- [Training](https://orientdb.com/training) - Training and classes.
+- [Events](https://orientdb.com/event) - Follow OrientDB at the next event!
+- [Team](https://orientdb.com/team/) - Meet the team behind OrientDB
 - [Contribute](misc/Contribute-to-OrientDB.md) - Contribute to the project.
 - [Who is using OrientDB?](https://orientdb.com/customers) - Clients using OrientDB in production.
 
@@ -58,13 +62,12 @@ Check out our [Get in Touch](misc/Get-in-Touch.md) page for different ways of ge
 ## PDF
 This documentation is also available in [PDF format](OrientDB-Manual.pdf).
 
+
 ## Past releases
 - [v1.7.8](http://orientdb.com/docs/1.7.8/)
 - [v2.0.x](http://orientdb.com/docs/2.0/)
 - [v2.1.x](http://orientdb.com/docs/2.1/)
 - [v2.2.x](http://orientdb.com/docs/2.2/)
 
-
-Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
 >Every effort has been made to ensure the accuracy of this manual. However, OrientDB, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.
