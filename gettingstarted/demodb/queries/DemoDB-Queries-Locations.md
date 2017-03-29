@@ -37,6 +37,16 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 #### Example 3
 
+{{book.demodb_query_25_text}}:
+
+
+#### Example 4
+
+{{book.demodb_query_26_text}}:
+
+
+#### Example 5
+
 {{book.demodb_query_18_text}}:
 
 <pre><code class="lang-sql">{{book.demodb_query_18_sql}} 
@@ -51,11 +61,11 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 ![](../../../images/demo-dbs/social-travel-agency/query_18_browse.png)
 
- 
 
-#### Example 4
+#### Example 6
 
-Find all Locations visited by Santo's friends
+{{book.demodb_query_35_text}}:
+
 ```sql
 MATCH {Class: Profiles, as: profile, where: (Name='Santo' and Surname='OrientDB')}-HasFriend->{Class: Profiles, as: friend}<-HasProfile-{Class: Customers, as: customer}-HasVisited->{Class: Locations, as: location} 
 RETURN $pathelements

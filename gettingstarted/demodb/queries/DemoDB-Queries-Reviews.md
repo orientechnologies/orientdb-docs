@@ -57,8 +57,9 @@ SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Restaurants` ORDER BY R
 
 #### Example 6
 
-Find the 3 Customers who made more reviews
+{{book.demodb_query_30_text}}:
 
 ```sql
 SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY ReviewNumbers DESC LIMIT 3
 ```
+ 
