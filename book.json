@@ -73,7 +73,10 @@
 	"demodb_query_18_text": "Find all Locations visited by Customer with OrderedId 2",
 	"demodb_query_18_sql": "MATCH {Class: Locations, as: location}< -HasVisited-{class: Customers, as: customer, where: (OrderedId=2)}",
 	"demodb_query_18_return_graph": "RETURN $pathelements",
-	"demodb_query_18_return_browse": "RETURN location.@Rid as Location_RID, location.Name as Location_Name, location.Type as Location_Type",
+	"demodb_query_18_return_browse": "RETURN location.@Rid as Location_RID, location.Name as Location_Name, location.Type as Location_Type",	
+	"demodb_query_19_text": "Traverse everything from Profile 'Santo' up to depth three",
+	"demodb_query_20_text": "Traverse everything from Country 'Italy' up to depth three",
+	"demodb_query_21_text": "Find the shortest path between the Profile 'Santo' and the Country 'United States'",
     "demodb_query_100_text": "test test test",
 	"demodb_query_100_sql": "test test test"
   },

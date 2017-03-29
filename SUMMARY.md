@@ -32,6 +32,7 @@
             * [Customers](gettingstarted/demodb/queries/DemoDB-Queries-Customers.md)
             * [Orders](gettingstarted/demodb/queries/DemoDB-Queries-Orders.md)
             * [Recommendations](gettingstarted/demodb/queries/DemoDB-Queries-Recommendations.md)  
+            * [Business Opportunities](gettingstarted/demodb/queries/DemoDB-Queries-Business-Opportunities.md)
             * [Shortest Paths](gettingstarted/demodb/queries/DemoDB-Queries-Shortest-Paths.md)           
             * [Traverses](gettingstarted/demodb/queries/DemoDB-Queries-Traverses.md)           
         * [Graph Portions](gettingstarted/demodb/DemoDB-Graph-Portions.md)
