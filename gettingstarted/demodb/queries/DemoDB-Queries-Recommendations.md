@@ -3,16 +3,20 @@
 
 #### Example 1
 
-Recommend some friends to Profile with Id 1 (friends of friends):
+{{book.demodb_query_22_text}}:
 
 ```sql
-MATCH {class: Profiles, as: profile, where: (Id=1)}.both('HasFriend').both('HasFriend'){as: friendOfFriend, where: ($matched.profile != $currentMatch)} 
-RETURN profile, friendOfFriend 
+MATCH {class: Profiles, as: profile, where: (Name = 'Isabella' AND Surname='Gomez')}-HasFriend-{as: friend},
+	  {as: friend}-HasFriend-{as: friendOfFriend, where: ($matched.profile not in $currentMatch.both('HasFriend') and $matched.profile != $currentMatch)} 
+RETURN DISTINCT friendOfFriend.Name
 ```
+
+![](../../../images/demo-dbs/social-travel-agency/query_recommendation_1_browse.png)
+
 
 #### Example 2
 
-Recommend some Hotels to Customer with OrderedId 1:
+{{book.demodb_query_23_text}}:
 
 ```sql
 MATCH 
