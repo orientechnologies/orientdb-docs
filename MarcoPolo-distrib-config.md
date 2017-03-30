@@ -22,7 +22,17 @@ distrib_config(<conn>, <opts>)
 ```
 
 - **`<conn>`** Defines the database connection.
-- **`<opts>`** Defines any additional options you would like to pass to the function.
+- **`<opts>`** Defines any additional options you would like to pass to the function.  For more information on the available options, see the [Options](#options) section below.
+
+#### Options
+
+This function supports one additional option:
+
+- **`:timeout`** Defines the timeout value in milliseconds.  In the event that the operation takes longer than the allotted time, MarcoPolo sends an exit signal to the calling process.
+
+#### Return Values
+
+This operatation returns a [Document](MarcoPolo-Document.md) instance containing the current state of the distributed configuration.
 
 ### Example
 

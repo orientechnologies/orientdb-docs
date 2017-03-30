@@ -27,7 +27,17 @@ create_db(<conn>, <name>, <database-type>, <storage type>, <opts>)
   - *`:memory`* Sets to the in-memory storage-type.
 - **`<opts>`** Used for any additional keyword options passed to the function. 
 
+#### Options
+
+This function supports one additional option:
+
+- **`:timeout`** Defines the timeout value in milliseconds.  In the event that the operation takes longer than the allotted time, MarcoPolo sends an exit signal to the calling process.
+
+
+#### Return Values
+
 When the function is successful, it returns `:ok`.  In the event that there is a problem, it returns `{:error, term}`, where `term` is the error message.
+
 
 ### Example
 
@@ -45,6 +55,7 @@ def create_db(conn, dbname, type) when type in [:plocal, :memory] do
 		
 		# Create Database
 		MarcoPolo.db_create(conn, dbname, :document, type)
+
 	end
 end 
 ```
