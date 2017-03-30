@@ -191,8 +191,23 @@ that the query executor will execute to calculate the query result.
 
 ### Changes in the CREATE EDGE statement
 
-Starting from 3.0, it is mandatory to create the Edge class before executing the CREATE EDGE statement. If the Edge class does not exist the CREATE EDGE statement will fail (previously it was creating the Edge class automatically)
+Starting from 3.0, it is mandatory to create the Edge class before executing the CREATE EDGE statement. If the Edge class does not exist the CREATE EDGE statement will fail (previously it was creating the Edge class automatically).
 
+### Changes in the DELETE EDGE statement
+
+Starting from 3.0, it is mandatory to specify in the DELETE EDGE statement the Edge class of the edge instance you want to delete. If the Edge class is not specified the DELETE EDGE statement will fail.
+So if until 2.2.x Edge class is optional and you can execute something like
+```
+delete edge where out=#9:0 and in=#10:1
+```
+in 3.0 Edge Class is mandatory:
+```
+delete edge <Edge-Class-Name> where out=#9:0 and in=#10:1
+```
+If you don't want to get bored in remembering your class hierarchy you can simply specify the 'E' Edge Class.
+```
+delete edge E where out=#9:0 and in=#10:1
+```
 
 ## Known Issues
 
