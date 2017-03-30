@@ -108,7 +108,7 @@ This concept is essential to Object Orientation, without the typical spamming of
 
 ### Class vs. Cluster in Queries
 
-The combination of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2015` and `invoice2016`.  You can query all invoices using the class as a target with [`SELECT`](SQL-Query.md).
+The combination of classes and clusters is very powerful and has a number of use cases.  Consider an example where you create a class `Invoice`, with two clusters `invoice2016` and `invoice2017`.  You can query all invoices using the class as a target with [`SELECT`](SQL-Query.md).
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Invoice</code>
@@ -117,13 +117,13 @@ orientdb> <code class="lang-sql userinput">SELECT FROM Invoice</code>
 In addition to this, you can filter the result-set by year.  The class `Invoice` includes a `year` field, you can filter it through the [`WHERE`](SQL-Where.md) clause.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Invoice WHERE year = 2012</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM Invoice WHERE year = 2016</code>
 </pre>
 
 You can also query specific objects from a single cluster.  By splitting the class `Invoice` across multiple clusters, (that is, one per year), you can optimize the query by narrowing the potential result-set.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:invoice2012</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:invoice2016</code>
 </pre>
 
 Due to the optimization, this query runs significantly faster, because OrientDB can narrow the search to the targeted cluster.
