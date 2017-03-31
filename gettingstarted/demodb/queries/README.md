@@ -26,7 +26,9 @@ The following table can help you navigate through all examples:
 |                            | {{book.demodb_query_35_text}} | [Link](DemoDB-Queries-Locations.md#example-6)                |
 | **Polymorphism**           | {{book.demodb_query_17_text}} | [Link](DemoDB-Queries-Polymorphism.md#example-1)             |
 | **Reviews**                |                               |                                                              |
-| **Services**               |                               |                                                              |
+| **Services**               | {{book.demodb_query_37_text}} | [Link](DemoDB-Queries-Reviews.md#example-2)                  |
+|                            | {{book.demodb_query_40_text}} | [Link](DemoDB-Queries-Locations.md#example-5)                |
+
 | **Customers**              | {{book.demodb_query_24_text}} | [Link](DemoDB-Queries-Customers.md#example-1)                |
 |                            | {{book.demodb_query_25_text}} | [Link](DemoDB-Queries-Customers.md#example-1)                |
 |                            | {{book.demodb_query_26_text}} | [Link](DemoDB-Queries-Customers.md#example-2)                |

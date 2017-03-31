@@ -1,59 +1,48 @@
 
-
 ### Reviews 
 
 #### Example 1
 
-Find number of reviews per star
+{{book.demodb_query_36_text}}:
+
 ```sql
 SELECT Stars, count(*) as count FROM HasReview GROUP BY Stars ORDER BY count DESC
 ```
 
+
 #### Example 2
 
-Find all reviewed Services
+{{book.demodb_query_37_text}}:
+
 ```sql
 MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r} 
 RETURN $pathelements
 ```
 
+
 #### Example 3
 
-Find all reviewed Services and the Customer who made the review 
+{{book.demodb_query_38_text}}:
+
 ```sql
 MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r}<-MadeReview-{class: Customers, as: c} 
 RETURN $pathelements 
 ```
 
+
 #### Example 4
 
-Find the numbers of reviews per Service 
+{{book.demodb_query_39_text}}:
+
 ```sql
 SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY ReviewNumbers DESC 
 ```
 
+
 #### Example 5
 
-**Example 5.1**
+{% include "../../../general/include-demodb-query-file-1.md" %}
 
-Find the 3 Places that have most reviews
-```sql
-SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY ReviewNumbers DESC LIMIT 3
-```
-
-**Example 5.2**
-
-Find the 3 Hotels that have most reviews 
-```sql
-SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Hotels` ORDER BY ReviewNumbers DESC LIMIT 3
-```
-
-**Example 5.3**
-
-Find the 3 Restaurants that have most reviews 
-```sql
-SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Restaurants` ORDER BY ReviewNumbers DESC LIMIT 3
-```
 
 #### Example 6
 
