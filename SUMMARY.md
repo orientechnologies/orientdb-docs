@@ -6,7 +6,7 @@
 ---
 
 
-### FIRST STEPS
+## FIRST STEPS
 
 * [Introduction](introduction/Introduction.md) 
     * [About This Manual](misc/About-This-Manual.md)
@@ -86,7 +86,7 @@
 * [Data Modeling](datamodeling/Tutorial-Document-and-graph-model.md)
     * [Multi Tenant](datamodeling/Multi-Tenant.md)
 	
-### PART 1
+# PART 1
 
 * [OrientDB Programs](programs/Programs.md)
     * [OrientDB Server-Startup Programs](programs/Server-Startup-Programs.md)
