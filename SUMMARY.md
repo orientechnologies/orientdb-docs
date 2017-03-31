@@ -1,6 +1,11 @@
 # Summary 
 
 * [Home](README.md)
+
+---
+
+### FIRST STEPS
+
 * [Introduction](introduction/Introduction.md) 
     * [About This Manual](misc/About-This-Manual.md)
     * [Overview of OrientDB](misc/Overview.md)
@@ -78,6 +83,9 @@
         * [3rd Party Plugins](plugins/Plugins.md)
 * [Data Modeling](datamodeling/Tutorial-Document-and-graph-model.md)
     * [Multi Tenant](datamodeling/Multi-Tenant.md)
+	
+### PART TEST
+
 * [OrientDB Programs](programs/Programs.md)
     * [OrientDB Server-Startup Programs](programs/Server-Startup-Programs.md)
         * [server](programs/server.md)
@@ -503,4 +511,7 @@
     * [CSV Serialization](internals/Record-CSV-Serialization.md) 
     * [Schemaless Serialization](internals/Record-Schemaless-Binary-Serialization.md) 
     * [Commands](internals/Network-Binary-Protocol-Commands.md)     
+	
+---
+
 * [Release Notes](release/Release-Notes.md)
