@@ -1,10 +1,10 @@
 # Summary 
 
-* [Home](README.md)
-
-
 ---
 
+* [Home](README.md)
+
+---
 
 ## FIRST STEPS
 
@@ -86,7 +86,7 @@
 * [Data Modeling](datamodeling/Tutorial-Document-and-graph-model.md)
     * [Multi Tenant](datamodeling/Multi-Tenant.md)
 	
-# PART 1
+## PART 1
 
 * [OrientDB Programs](programs/Programs.md)
     * [OrientDB Server-Startup Programs](programs/Server-Startup-Programs.md)
