@@ -61,4 +61,4 @@ function updateRecord($class, $data, $rid){
 }
 ```
 
->For more information, see [Transactions](Transactions.md).
+>For more information, see [Transactions](../internals/Transactions.md).
