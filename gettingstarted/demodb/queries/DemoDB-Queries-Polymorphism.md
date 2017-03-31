@@ -19,3 +19,9 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 
 #### Example 2
+
+{{book.demodb_query_40_text}}:
+
+the following text is included (test):
+
+{% include "../../../general/include-file-1.md" %}
