@@ -2,7 +2,9 @@
 
 * [Home](README.md)
 
+
 ---
+
 
 ### FIRST STEPS
 
@@ -84,7 +86,7 @@
 * [Data Modeling](datamodeling/Tutorial-Document-and-graph-model.md)
     * [Multi Tenant](datamodeling/Multi-Tenant.md)
 	
-### PART TEST
+### PART 1
 
 * [OrientDB Programs](programs/Programs.md)
     * [OrientDB Server-Startup Programs](programs/Server-Startup-Programs.md)
@@ -277,6 +279,9 @@
   * [Sequences and auto increment](sql/Sequences-and-auto-increment.md) 
   * [Pivoting with Query](sql/Pivoting-With-Query.md) 
   * [Command Cache](sql/Command-Cache.md) 
+  
+### PART 2
+
 * [APIs and Drivers](misc/Programming-Language-Bindings.md)
   * [Java API](java/Java-API.md)  
     * [Document Graph API](java/Java-MultiModel-API.md)
@@ -456,6 +461,9 @@
     * [Javascript API](js/Javascript-Driver.md)      
   * [Rest API](misc/OrientDB-REST.md)
   * [Gremlin API](gremlin/Gremlin.md) 
+    
+### PART 3
+
 * [Security](security/Security.md) 
   * [Database security](security/Database-Security.md) 
   * [Server security](security/Server-Security.md)
@@ -487,6 +495,9 @@
   * [Stress Test Tool](misc/Stress-Test-Tool.md)
 * [Enterprise Edition](ee/Enterprise-Edition.md) 
   * [Auditing](ee/Auditing.md) 
+  
+---
+
 * [Internals](internals/Internals.md) 
   * [System database](internals/System-Database.md)
   * [Storages](internals/Storages.md) 
