@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - `command()`
 
-This method issues an [SQL](SQL.md) command to the database.
+This method issues an [SQL](../sql/SQL.md) command to the database.
 
 ## Sending Commands
 
@@ -41,4 +41,4 @@ function insertData($client, $class, $dataArray){
 }
 ```
 
-Here, your function constructs an [`INSERT`](SQL-Insert.md) statement from the given array, then issues the command to OrientDB.
+Here, your function constructs an [`INSERT`](../sql/SQL-Insert.md) statement from the given array, then issues the command to OrientDB.

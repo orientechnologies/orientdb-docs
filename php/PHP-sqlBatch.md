@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - `sqlBatch()`
 
-This method issues [`BATCH`](SQL-batch.md) commands to the database.
+This method issues [`BATCH`](../sql/SQL-batch.md) commands to the database.
 
 ## Executing Batch Commands
 

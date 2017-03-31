@@ -70,7 +70,7 @@ function fetchRecords($client, $ridArray){
 
 #### Loading Records with Callback Function
 
-Similar to the [`queryAsync()`](PHP-queryAsync.md) method, you can define a [fetching strategy](Fetching-Strategies.md) and callback function.  You can manage these features by passing a mapped array as the second argument to the method.
+Similar to the [`queryAsync()`](PHP-queryAsync.md) method, you can define a [fetching strategy](../java/Fetching-Strategies.md) and callback function.  You can manage these features by passing a mapped array as the second argument to the method.
 
 For instance, during development you might want to call the `var_dump()` function for each record the method returns.
 

@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - `query()`
 
-This method issues an [SQL](SQL.md) query to the database.
+This method issues an [SQL](../sql/SQL.md) query to the database.
 
 ## Querying the Database
 
