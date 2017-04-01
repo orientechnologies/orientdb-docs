@@ -1,5 +1,5 @@
 
-{% include "include-warning-3.0.md" %}
+{% include "./include-warning-3.0.md" %}
 
 ## What's new in OrientDB 3.0?
 

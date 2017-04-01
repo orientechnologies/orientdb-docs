@@ -1,5 +1,5 @@
 
-{% include "include-warning-3.0.md" %}
+{% include "./include-warning-3.0.md" %}
  
 ## Known Issues
 
