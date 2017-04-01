@@ -5,7 +5,7 @@
 
 {{book.demodb_query_17_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_17_sql}} 
+<pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Locations, as: location} 
 {{book.demodb_query_17_return_graph}} 
 </code></pre>
 

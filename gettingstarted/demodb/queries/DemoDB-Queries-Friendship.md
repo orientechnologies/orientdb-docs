@@ -19,11 +19,11 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 If you would like only to count them, you can execute a query like the following:
 
-<pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_1}}</code></pre>
+<pre><code class="lang-sql">SELECT COUNT(*) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} RETURN friend)</code></pre>
 
 or
 
-<pre><code class="lang-sql">{{book.demodb_query_13_sql_browse_method_2}}</code></pre>
+<pre><code class="lang-sql">SELECT (in('HasFriend').size() + out('HasFriend').size()) AS FriendsNumber FROM `Profiles` WHERE Name='Santo' AND Surname='OrientDB'</code></pre>
 
 
 #### Example 2
@@ -64,7 +64,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 {{book.demodb_query_4_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_4_sql}} 
+<pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}<-HasCustomer-{Class: Orders, as: order} 
 {{book.demodb_query_4_return_graph}} 
 </code></pre>
 
@@ -83,13 +83,13 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{book.demodb_query_5_sql_graph}}</code></pre>
+<pre><code class="lang-sql">SELECT *, OrderedId as Customer_OrderedId, in('HasCustomer').size() as NumberOfOrders, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfOrders DESC LIMIT 3</code></pre>
 
 ![](../../../images/demo-dbs/social-travel-agency/query_5_graph.png)
 
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">{{book.demodb_query_5_sql_browse}}</code></pre>
+<pre><code class="lang-sql">SELECT OrderedId as Customer_OrderedId, in('HasCustomer').size() as NumberOfOrders, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfOrders DESC LIMIT 3</code></pre>
  
 ![](../../../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
@@ -100,13 +100,13 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, thi
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{book.demodb_query_6_sql_graph}}</code></pre>
+<pre><code class="lang-sql">SELECT *, OrderedId as Customer_OrderedId, out('HasVisited').size() as NumberOfVisits, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfVisits DESC LIMIT 3</code></pre>
 
 ![](../../../images/demo-dbs/social-travel-agency/query_6_graph.png)
 
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">{{book.demodb_query_6_sql_browse}}</code></pre>
+<pre><code class="lang-sql">SELECT OrderedId as Customer_OrderedId, out('HasVisited').size() as NumberOfVisits, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfVisits DESC LIMIT 3</code></pre>
 
 ![](../../../images/demo-dbs/social-travel-agency/query_6_browse.png)
 
@@ -119,13 +119,13 @@ You may find in a similar way the top 3 Customers, among Santo's Friends, that h
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{book.demodb_query_7_sql_graph}}</code></pre>
+<pre><code class="lang-sql">SELECT *, @Rid as Friend_RID, Name as Friend_Name, Surname as Friend_Surname FROM (SELECT expand(customerFriend) FROM ( MATCH {Class:Customers, as: customer, where:(OrderedId=1)}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend} RETURN customerFriend)) WHERE in('HasProfile').size()=0</code></pre>
 
 ![](../../../images/demo-dbs/social-travel-agency/query_7_graph.png)
 
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">{{book.demodb_query_7_sql_browse}}</code></pre>
+<pre><code class="lang-sql">SELECT @Rid as Friend_RID, Name as Friend_Name, Surname as Friend_Surname FROM (SELECT expand(customerFriend) FROM ( MATCH {Class:Customers, as: customer, where:(OrderedId=1)}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend} RETURN customerFriend)) WHERE in('HasProfile').size()=0</code></pre>
 
 ![](../../../images/demo-dbs/social-travel-agency/query_7_browse.png)
 
@@ -135,13 +135,13 @@ or, without restricting to a specific customer:
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">{{book.demodb_query_14_sql_graph}}</code></pre>
+<pre><code class="lang-sql">SELECT * FROM (SELECT expand(customerFriend) FROM ( MATCH {Class:Customers, as: customer}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend} RETURN customerFriend)) WHERE in('HasProfile').size()=0</code></pre>
 
 ![](../../../images/demo-dbs/social-travel-agency/query_14_graph.png)
 
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">{{book.demodb_query_14_sql_browse}}</code></pre>
+<pre><code class="lang-sql">SELECT @Rid as Friend_RID, Name as Friend_Name, Surname as Friend_Surname FROM (SELECT expand(customerFriend) FROM ( MATCH {Class:Customers, as: customer}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend} RETURN customerFriend)) WHERE in('HasProfile').size()=0</code></pre>
 
 ![](../../../images/demo-dbs/social-travel-agency/query_14_browse.png)
 

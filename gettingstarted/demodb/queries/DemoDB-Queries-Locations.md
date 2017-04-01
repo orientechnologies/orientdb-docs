@@ -5,7 +5,7 @@
 
 {{book.demodb_query_15_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_15_sql}} 
+<pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions, as: attraction}
 {{book.demodb_query_15_return_graph}} 
 </code></pre>
 
@@ -22,7 +22,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 {{book.demodb_query_16_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_16_sql}} 
+<pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}
 {{book.demodb_query_16_return_graph}} 
 </code></pre>
 
@@ -49,7 +49,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 {{book.demodb_query_18_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_18_sql}} 
+<pre><code class="lang-sql">MATCH {Class: Locations, as: location}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=2)}
 {{book.demodb_query_18_return_graph}} 
 </code></pre>
 
