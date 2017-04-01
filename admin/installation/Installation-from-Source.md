@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ["source", "source installation"]
+   keywords: ['source', 'source installation']
 ---  
 
 ## Installation from Source
