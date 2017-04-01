@@ -1,9 +1,9 @@
 
 ## Queries
 
-Some query examples are reported below.
+This Section includes several query examples that you can execute from the [Studio](../../../studio/README.md)'s _Browse Tab_, or from its _Graph Editor_. You may also execute these queries directly from the [Console]((../../../console/README.md)), or your application through an [API or Driver](../../../apis-and-drivers/README.md).  
 
-_Note:_ the screen-shots included in this page have been taken with version {{ book.demoDBVersion_screenshots }} of the demo database. While the queries remain valid, future versions of the demo database may include different records.
+{% include "../../../general/include-demodb-version-warning.md" %}
 
 The following table can help you navigate through all examples:
 
@@ -28,7 +28,6 @@ The following table can help you navigate through all examples:
 | **Reviews**                |                               |                                                              |
 | **Services**               | {{book.demodb_query_37_text}} | [Link](DemoDB-Queries-Reviews.md#example-2)                  |
 |                            | {{book.demodb_query_40_text}} | [Link](DemoDB-Queries-Locations.md#example-5)                |
-
 | **Customers**              | {{book.demodb_query_24_text}} | [Link](DemoDB-Queries-Customers.md#example-1)                |
 |                            | {{book.demodb_query_25_text}} | [Link](DemoDB-Queries-Customers.md#example-1)                |
 |                            | {{book.demodb_query_26_text}} | [Link](DemoDB-Queries-Customers.md#example-2)                |
@@ -50,9 +49,8 @@ The following table can help you navigate through all examples:
 | **Traverses**              | {{book.demodb_query_19_text}} | [Link](DemoDB-Queries-Traverses.md#example-1)                |
 |                            | {{book.demodb_query_20_text}} | [Link](DemoDB-Queries-Traverses.md#example-2)                |
 
-### Tips
 
- 
+
 
 
 

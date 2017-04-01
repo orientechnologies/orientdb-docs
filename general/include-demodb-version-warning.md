@@ -1,0 +1,1 @@
+**Note:** the screen-shots included in this Section have been taken with version {{ book.demoDBVersion_screenshots }} of the demo database. While the queries remain valid, future versions of the demo database may include different records.
