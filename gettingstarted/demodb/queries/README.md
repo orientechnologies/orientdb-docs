@@ -1,7 +1,7 @@
 
 ## Queries
 
-This Section includes several query examples that you can execute from the [Studio](../../../studio/README.md)'s _Browse Tab_, or from its _Graph Editor_. You may also execute these queries directly from the [Console]((../../../console/README.md)), or your application through an [API or Driver](../../../apis-and-drivers/README.md).  
+This Section includes several query examples that you can execute from the [Studio](../../../studio/README.md)'s _Browse Tab_, or from its _Graph Editor_. You may also execute these queries directly from the [Console](../../../console/README.md), or your application through an [API or Driver](../../../apis-and-drivers/README.md).  
 
 {% include "../../../general/include-demodb-version-warning.md" %}
 
