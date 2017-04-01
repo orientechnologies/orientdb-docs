@@ -3,7 +3,7 @@
 
 #### Example 1 
 
-{{book.demodb_query_15_text}}:
+Find all Attractions connected with Customer with OrderedId 1:
 
 <pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions, as: attraction}
 RETURN $pathelements
@@ -20,7 +20,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN attraction.
 
 #### Example 2
 
-{{book.demodb_query_16_text}}:
+Find all Services connected with Customer with OrderedId 1:
 
 <pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}
 RETURN $pathelements
@@ -37,17 +37,17 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN service.@Ri
 
 #### Example 3
 
-{{book.demodb_query_25_text}}:
+Find all Locations connected to Customer with Id 1:
 
 
 #### Example 4
 
-{{book.demodb_query_26_text}}:
+Find all Locations connected to Customer with Id 1, and their Reviews (if any):
 
 
 #### Example 5
 
-{{book.demodb_query_18_text}}:
+Find all Locations visited by Customer with OrderedId 2:
 
 <pre><code class="lang-sql">MATCH {Class: Locations, as: location}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=2)}
 RETURN $pathelements
@@ -64,9 +64,10 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN location.@R
 
 #### Example 6
 
-{{book.demodb_query_35_text}}:
+Find all Locations visited by Santo's friends:
 
 ```sql
 MATCH {Class: Profiles, as: profile, where: (Name='Santo' and Surname='OrientDB')}-HasFriend->{Class: Profiles, as: friend}<-HasProfile-{Class: Customers, as: customer}-HasVisited->{Class: Locations, as: location} 
 RETURN $pathelements
 ```
+

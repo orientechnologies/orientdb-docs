@@ -1,4 +1,4 @@
-{{book.demodb_query_40_text}}:
+Find the 3 Hotels that have most reviews:
 
 ```sql
 SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Hotels` ORDER BY ReviewNumbers DESC LIMIT 3
@@ -6,7 +6,7 @@ SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Hotels` ORDER BY Review
 
 In a similar way:
 
-{{book.demodb_query_41_text}}:
+Find the 3 Restaurants that have most reviews:
  
 ```sql
 SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Restaurants` ORDER BY ReviewNumbers DESC LIMIT 3
@@ -14,7 +14,7 @@ SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Restaurants` ORDER BY R
 
 In a polymorphic way:
 
-{{book.demodb_query_42_text}}:
+Find the 3 Services (Hotels + Restaurants) that have most reviews:
 
 ```sql
 SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY ReviewNumbers DESC LIMIT 3

@@ -3,7 +3,7 @@
 
 #### Example 1
 
-{{book.demodb_query_1_text}}:
+Find Santo's Friends:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} 
 RETURN $pathelements
@@ -28,7 +28,7 @@ or
 
 #### Example 2
 
-{{book.demodb_query_2_text}}:
+Find Santo's Friends who are also Customers:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}
 RETURN $pathelements
@@ -45,7 +45,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 
 #### Example 3
 
-{{book.demodb_query_3_text}}:
+Find Santo's Friends who are also Customers, and the Countries they are from:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}-IsFromCountry->{Class: Countries, as: country}
 RETURN $pathelements
@@ -62,7 +62,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 
 #### Example 4
 
-{{book.demodb_query_4_text}}:
+Find Santo's Friends who are also Customers, and the Orders they have placed:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}<-HasCustomer-{Class: Orders, as: order} 
 RETURN $pathelements
@@ -79,7 +79,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 
 #### Example 5
 
-{{book.demodb_query_5_text}}:
+Among Santo's Friends, find the top 3 Customers that placed the highest number of Orders:
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
@@ -96,7 +96,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, thi
 
 #### Example 6
 
-{{book.demodb_query_6_text}}:
+Among Santo's Friends, find the top 3 Customers that visited the highest number of Places:
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 
@@ -115,23 +115,11 @@ You may find in a similar way the top 3 Customers, among Santo's Friends, that h
 
 #### Example 7
 
-{{book.demodb_query_7_text}}:
-
-In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
-
-<pre><code class="lang-sql">SELECT *, @Rid as Friend_RID, Name as Friend_Name, Surname as Friend_Surname FROM (SELECT expand(customerFriend) FROM ( MATCH {Class:Customers, as: customer, where:(OrderedId=1)}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend} RETURN customerFriend)) WHERE in('HasProfile').size()=0</code></pre>
-
-![](../../../images/demo-dbs/social-travel-agency/query_7_graph.png)
-
-In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
-
-<pre><code class="lang-sql">SELECT @Rid as Friend_RID, Name as Friend_Name, Surname as Friend_Surname FROM (SELECT expand(customerFriend) FROM ( MATCH {Class:Customers, as: customer, where:(OrderedId=1)}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend} RETURN customerFriend)) WHERE in('HasProfile').size()=0</code></pre>
-
-![](../../../images/demo-dbs/social-travel-agency/query_7_browse.png)
+{% include "./include-file-1.md" %}
 
 or, without restricting to a specific customer:
 
-{{book.demodb_query_14_text}}:
+Find all the Customer Friends that are not Customers (so that a product can be proposed):
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
 

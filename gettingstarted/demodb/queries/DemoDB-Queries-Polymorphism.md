@@ -3,7 +3,7 @@
 
 #### Example 1
 
-{{book.demodb_query_17_text}}:
+Find all Locations (Services + Attractions) connected with Customer with OrderedId 1:
 
 <pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Locations, as: location} 
 RETURN $pathelements
@@ -20,4 +20,4 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN location.@R
 
 #### Example 2
 
-{% include "../../../general/include-demodb-query-file-1.md" %}
+{% include "./include-file-2.md" %}

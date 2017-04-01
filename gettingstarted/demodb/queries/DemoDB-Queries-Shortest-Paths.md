@@ -3,7 +3,7 @@
 
 #### Example 1
  
-{{ book.demodb_query_21_text }}:
+Find the shortest path between the Profile 'Santo' and the Country 'United States':
 
 ```sql
 SELECT expand(path) FROM (

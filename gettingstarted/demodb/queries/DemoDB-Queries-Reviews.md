@@ -3,7 +3,7 @@
 
 #### Example 1
 
-{{book.demodb_query_36_text}}:
+Find number of Reviews per star:
 
 ```sql
 SELECT Stars, count(*) as count FROM HasReview GROUP BY Stars ORDER BY count DESC
@@ -12,7 +12,7 @@ SELECT Stars, count(*) as count FROM HasReview GROUP BY Stars ORDER BY count DES
 
 #### Example 2
 
-{{book.demodb_query_37_text}}:
+Find all reviewed Services:
 
 ```sql
 MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r} 
@@ -22,7 +22,7 @@ RETURN $pathelements
 
 #### Example 3
 
-{{book.demodb_query_38_text}}:
+Find all reviewed Services and the Customer who made the review:
 
 ```sql
 MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r}<-MadeReview-{class: Customers, as: c} 
@@ -32,7 +32,7 @@ RETURN $pathelements
 
 #### Example 4
 
-{{book.demodb_query_39_text}}:
+Find the numbers of reviews per Service:
 
 ```sql
 SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY ReviewNumbers DESC 
@@ -41,12 +41,12 @@ SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY Revi
 
 #### Example 5
 
-{% include "../../../general/include-demodb-query-file-1.md" %}
+{% include "./include-file-2.md" %}
 
 
 #### Example 6
 
-{{book.demodb_query_30_text}}:
+Find the 3 Customers who made more reviews:
 
 ```sql
 SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY ReviewNumbers DESC LIMIT 3

@@ -3,7 +3,7 @@
 
 #### Example 1
 
-{{book.demodb_query_22_text}}:
+Recommend some friends to Profile 'Isabella Gomez' (friends of friends):
 
 ```sql
 MATCH 
@@ -17,7 +17,7 @@ RETURN DISTINCT friendOfFriend.Name
 
 #### Example 2
 
-{{book.demodb_query_23_text}}:
+Recommend some Hotels to Customer with OrderedId 1:
 
 ```sql
 MATCH 

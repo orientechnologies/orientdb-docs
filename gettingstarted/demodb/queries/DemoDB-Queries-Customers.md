@@ -3,7 +3,7 @@
 	
 #### Example 1
 
-{{book.demodb_query_24_text}}:
+Find everything that is connected (1st degree) to Customer with Id 1:
 
 ```sql
 MATCH {class: Customers, as: c, where: (OrderedId=1)}--{as: n} RETURN $pathelements
@@ -32,7 +32,7 @@ RETURN $pathelements
 
 #### Example 4
 
-{{book.demodb_query_27_text}}:
+Find the other Customers that visited the Locations visited by Customer with Id 1:
 
 ```sql
 MATCH {class: Customers, as: c, where: (OrderedId=1)}--{class: Locations, as: loc}--{class: Customers, as: otherCustomers, where: (OrderedId<>1)} 
@@ -49,7 +49,7 @@ RETURN otherCustomers.OrderedId, loc.Name, loc.Type, profile.Name, profile.Surna
 
 #### Example 5
 
-{{book.demodb_query_28_text}}:
+Find all the places where Customer with Id 1 has stayed:
 
 ```sql
 MATCH {as: n}<-HasStayed-{class: Customers, as: c, where: (OrderedId=1)} 
@@ -59,7 +59,7 @@ RETURN $pathelements
 
 #### Example 6
 
-{{book.demodb_query_29_text}}:
+Find all places where Customer with Id 1 has eaten:
 
 ```sql
 MATCH {as: n}-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} 
@@ -77,7 +77,7 @@ SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY Re
 
 #### Example 8
 
-{{book.demodb_query_31_text}}:
+Find all Orders placed by Customer with Id 1:
 
 ```sql
 MATCH {class: Customers, as: c, where: (OrderedId=1)}<-HasCustomer-{class: Orders, as: o} 
@@ -86,13 +86,13 @@ RETURN $pathelements
 
 ### Example 9
 
-{{book.demodb_query_32_text}}:
+Calculate the total revenues from Orders associated with Customer with Id 1:
 
 
 
 #### Example 10
 
-{{book.demodb_query_33_text}}:
+Find the 3 Customers who placed most Orders:
 
 ```sql
 SELECT *, in("HasCustomer").size() AS NumberOfOrders FROM Customers ORDER BY NumberOfOrders DESC LIMIT 3

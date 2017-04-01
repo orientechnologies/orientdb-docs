@@ -3,7 +3,7 @@
 
 This Section includes some screen-shots on "portions" of the `demodb` graph.
 
-{% include "../../general/include-demodb-version-warning.md" %}
+{% include "./include-demodb-version-warning.md" %}
 
 
 ### Profiles

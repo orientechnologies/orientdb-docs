@@ -3,7 +3,7 @@
 
 #### Example 1
 
-{{ book.demodb_query_19_text }}:
+Traverse everything from Profile 'Santo' up to depth three:
 
 ```sql
 TRAVERSE * FROM (
@@ -22,7 +22,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), this is the obtained list 
 
 #### Example 2
 
-{{ book.demodb_query_20_text }}:
+Traverse everything from Country 'Italy' up to depth three:
 
 ```sql
 TRAVERSE * FROM (
