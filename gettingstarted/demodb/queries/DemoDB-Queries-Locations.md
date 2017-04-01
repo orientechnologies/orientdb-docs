@@ -6,14 +6,14 @@
 {{book.demodb_query_15_text}}:
 
 <pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions, as: attraction}
-{{book.demodb_query_15_return_graph}} 
+RETURN $pathelements
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_15_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_15_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_15_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN attraction.@Rid as Attaction_RID, attraction.Name as Attaction_Name, attraction.Type as Attaction_Type'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_15_browse.png)
 
@@ -23,14 +23,14 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 {{book.demodb_query_16_text}}:
 
 <pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}
-{{book.demodb_query_16_return_graph}} 
+RETURN $pathelements
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_16_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_16_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_16_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN service.@Rid as Service_RID, service.Name as Service_Name, service.Type as Service_Type'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_16_browse.png)
 
@@ -50,14 +50,14 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 {{book.demodb_query_18_text}}:
 
 <pre><code class="lang-sql">MATCH {Class: Locations, as: location}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=2)}
-{{book.demodb_query_18_return_graph}} 
+RETURN $pathelements
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_18_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_18_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_18_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN location.@Rid as Location_RID, location.Name as Location_Name, location.Type as Location_Type'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_18_browse.png)
 

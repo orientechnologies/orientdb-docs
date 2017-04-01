@@ -6,14 +6,14 @@
 {{book.demodb_query_1_text}}:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} 
-{{book.demodb_query_1_return_graph}} 
+RETURN $pathelements
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_1_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_1_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_1_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_1_browse.png)
 
@@ -31,14 +31,14 @@ or
 {{book.demodb_query_2_text}}:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}
-{{book.demodb_query_2_return_graph}} 
+RETURN $pathelements
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_2_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_2_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_2_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrederedId'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_2_browse.png)
 
@@ -48,14 +48,14 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 {{book.demodb_query_3_text}}:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}-IsFromCountry->{Class: Countries, as: country}
-{{book.demodb_query_3_return_graph}} 
+RETURN $pathelements
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_3_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_3_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_3_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrederedId, country.Name as FriendIsFrom'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_3_browse.png)
 
@@ -65,14 +65,14 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 {{book.demodb_query_4_text}}:
 
 <pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}<-HasCustomer-{Class: Orders, as: order} 
-{{book.demodb_query_4_return_graph}} 
+RETURN $pathelements
 </code></pre>
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using '{{book.demodb_query_4_return_graph}}' as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_4_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query_4_return_browse}}' as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrederedId, order.Id as OrderId'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_4_browse.png)
 
