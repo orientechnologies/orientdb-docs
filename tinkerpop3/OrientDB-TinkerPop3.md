@@ -51,7 +51,7 @@ It is possible to skip tests:
 $ mvn clean install -DskipTests
 ```
 
-This project follows the branching system of [OrientDB](../gettingstarted/Tutorial-Installation.md#source-code-installation). 
+This project follows the branching system of [OrientDB](../admin/installation/Installation-from-Source.md). 
 
 The build process installs all jars in the local maven repository and creates archives under the `distribution` module inside the `target` directory. At the time of writing, building from branch `develop` gave: 
 
