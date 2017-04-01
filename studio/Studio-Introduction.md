@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['home page']
+   keywords: ['Studio', 'Home Page']
 ---
 
 # Introduction

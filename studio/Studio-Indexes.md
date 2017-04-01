@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Studio', 'index']
+---
 
 # Indexes
 
