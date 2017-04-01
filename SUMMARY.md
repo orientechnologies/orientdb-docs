@@ -86,7 +86,7 @@
 * [Data Modeling](datamodeling/Tutorial-Document-and-graph-model.md)
     * [Multi Tenant](datamodeling/Multi-Tenant.md)
 	
-## PART 1
+## CORE TOPICS
 
 * [OrientDB Programs](programs/Programs.md)
     * [OrientDB Server-Startup Programs](programs/Server-Startup-Programs.md)
@@ -221,6 +221,9 @@
         * [Import from DB-Pedia](etl/Import-from-DBPedia.md) 
         * [Import from Parse (Facebook)](etl/Import-from-PARSE.md) 
     * [Neo4j to OrientDB Importer](neo4j-to-orientdb-importer/README.md)
+	
+## SQL, API, DRIVERS
+
 * [SQL Reference](sql/SQL.md)
   * [SQL Syntax](sql/SQL-Syntax.md)
     * [Projections](sql/SQL-Projections.md)
@@ -279,9 +282,6 @@
   * [Sequences and auto increment](sql/Sequences-and-auto-increment.md) 
   * [Pivoting with Query](sql/Pivoting-With-Query.md) 
   * [Command Cache](sql/Command-Cache.md) 
-  
-### PART 2
-
 * [APIs and Drivers](misc/Programming-Language-Bindings.md)
   * [Java API](java/Java-API.md)  
     * [Document Graph API](java/Java-MultiModel-API.md)
@@ -462,7 +462,7 @@
   * [Rest API](misc/OrientDB-REST.md)
   * [Gremlin API](gremlin/Gremlin.md) 
     
-### PART 3
+## ADVANCED TOPICS
 
 * [Security](security/Security.md) 
   * [Database security](security/Database-Security.md) 
