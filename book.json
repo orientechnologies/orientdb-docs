@@ -63,9 +63,6 @@
     "page-toc"
   ],
   "pluginsConfig": {
-	"theme-default": {
-      "showLevel": true
-    },
     "ga": {
       "token": "UA-28543690-2"
     },
