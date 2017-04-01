@@ -5,7 +5,7 @@ search:
 
 # Plugins
 
-If you're looking for drivers or JDBC connector go to  [Programming-Language-Bindings](../misc/Programming-Language-Bindings.md).
+If you're looking for drivers or JDBC connector go to  [Programming-Language-Bindings](../apis-and-drivers/README.md).
 
 ------
 

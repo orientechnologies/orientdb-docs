@@ -1,10 +1,6 @@
 # Summary 
 
----
-
 * [Home](README.md)
-
----
 
 ## FIRST STEPS
 
@@ -44,8 +40,8 @@
             * [Traverses](gettingstarted/demodb/queries/DemoDB-Queries-Traverses.md)           
         * [Graph Portions](gettingstarted/demodb/DemoDB-Graph-Portions.md)
     * [Basic SQL](gettingstarted/Tutorial-SQL.md)
-     * [Users, Roles and Security](gettingstarted/Users-Roles-Security.md)
-     * [Distributed Architecture](gettingstarted/Distributed-Architecture.md) 
+    * [Users, Roles and Security](gettingstarted/Users-Roles-Security.md)
+    * [Distributed Architecture](gettingstarted/Distributed-Architecture.md) 
     * [Tutorials](gettingstarted/tutorials/README.md)
         * [Working with Graphs](gettingstarted/Tutorial-Working-with-graphs.md) 
         * [Using Schema with Graphs](gettingstarted/Tutorial-Using-schema-with-graphs.md) 
@@ -282,7 +278,7 @@
   * [Sequences and auto increment](sql/Sequences-and-auto-increment.md) 
   * [Pivoting with Query](sql/Pivoting-With-Query.md) 
   * [Command Cache](sql/Command-Cache.md) 
-* [APIs and Drivers](misc/Programming-Language-Bindings.md)
+* [APIs and Drivers](apis-and-drivers/README.md)
   * [Java API](java/Java-API.md)  
     * [Document Graph API](java/Java-MultiModel-API.md)
       * [Database creation and connection](java/Document-API-Database.md)

@@ -14,7 +14,7 @@
 | | [ACID Transactions](../internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
 | | [Functions](../admin/Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
 | | [Caching Levels](../internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
-| | [Common Use Cases](Use-Cases.md) | [Other Drivers](../misc/Programming-Language-Bindings.md) |
+| | [Common Use Cases](Use-Cases.md) | [Other Drivers](../apis-and-drivers/README.md) |
 | | | [Network Binary Protocol](../internals/Network-Binary-Protocol.md) |
 | | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
 

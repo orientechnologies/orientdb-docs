@@ -11,7 +11,7 @@ Current protocol version for 2.1.x: **32**. Look at [Compatibility](#compatibili
 
 The OrientDB binary protocol is the fastest way to interface a client application to an OrientDB Server instance. The aim of this page is to provide a starting point from which to build a language binding, maintaining high-performance.
 
-If you'd like to develop a new binding, please take a look to the available ones before starting a new project from scratch: [Existent Drivers](../misc/Programming-Language-Bindings.md).
+If you'd like to develop a new binding, please take a look to the available ones before starting a new project from scratch: [Existent Drivers](../apis-and-drivers/README.md).
 
 Also, check the available [REST implementations](../misc/OrientDB-REST.md).
 

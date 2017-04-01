@@ -181,7 +181,7 @@
     * [Install as Service on Windows](admin/Windows-Service.md) 
     * [Install with Docker](admin/Docker-Home.md) 
   * [Stress Test Tool](misc/Stress-Test-Tool.md) 
-* [APIs and Drivers](misc/Programming-Language-Bindings.md) 
+* [APIs and Drivers](apis-and-drivers/README.md) 
   * [Functions](admin/Functions.md)
     * [Creating Functions](admin/Functions-Creation.md)
     * [Using Functions](admin/Functions-Use.md)
