@@ -5,7 +5,7 @@
 
 {{book.demodb_query_1_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_1_sql}} 
+<pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} 
 {{book.demodb_query_1_return_graph}} 
 </code></pre>
 
@@ -30,7 +30,7 @@ or
 
 {{book.demodb_query_2_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_2_sql}} 
+<pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}
 {{book.demodb_query_2_return_graph}} 
 </code></pre>
 
@@ -47,7 +47,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using '{{book.demodb_query
 
 {{book.demodb_query_3_text}}:
 
-<pre><code class="lang-sql">{{book.demodb_query_3_sql}} 
+<pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}-IsFromCountry->{Class: Countries, as: country}
 {{book.demodb_query_3_return_graph}} 
 </code></pre>
 
