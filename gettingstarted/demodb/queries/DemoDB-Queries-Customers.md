@@ -84,7 +84,7 @@ MATCH {class: Customers, as: c, where: (OrderedId=1)}<-HasCustomer-{class: Order
 RETURN $pathelements
 ```
 
-### Example 9
+#### Example 9
 
 Calculate the total revenues from Orders associated with Customer with Id 1:
 
