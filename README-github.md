@@ -44,7 +44,7 @@ GitBook does not include admonition boxes by default.  Use the following format 
 
 ### Variables
 
-Variables can be defined into a "variables" tag in the documentation .json files (book.json and book-pdf.json), e.g:
+Variables can be defined into the "variables" tag in the documentation .json files (book.json and book-pdf.json), e.g:
 
 ```
 "variables": {
@@ -64,4 +64,24 @@ To make sure the OrientDB download link points to the latest version, use inside
 $ unzip orientdb-community-{{book.lastGA}}</code></pre>
 ```
 
+### Include Files
 
+To include a file
+
+```
+{% include "./include-file-2.md" %}
+```
+
+### Subsections
+
+After the 3.0 refactor, and to avoid huge confusion in the reader, it is important to avoid situations where
+
+Section1.md has subsection1, 2, 3 (within the file) and SUMMARY.md shows subsection4, 5, 6 as subsections of Section1.md
+
+The above is really confusing. Rather:
+
+- Call Section1.md README.md. Ideally put it in to a specific subfolder
+- Add a very general description (a few sentences) in README.md  (do not add subsections!)
+- Create 1 page for any of the 6 subsections 1 to 6
+- Link all the 6 subsections to SUMMARY.md (under Section1.md)
+- [Example 1](gettingstarted/demodb/), [Example 2](console/)  
