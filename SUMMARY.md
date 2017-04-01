@@ -15,7 +15,7 @@
         * [SQL Changes](release/3.0/SQL-Changes.md)
         * [API Changes](release/3.0/API-Changes.md)
         * [Known Issues](release/3.0/Known-issues.md)
-        * [Migrating to OrientDB 3.0](release/3.0/Migrating-to-OrientDB-3.0.md)
+        * [Upgrading to OrientDB 3.0](release/3.0/Upgrading-to-OrientDB-3.0.md)
     * [How to Report Bugs or Problems](misc/Report-an-issue.md)
     * [How to Get in Touch with OrientDB](misc/Get-in-Touch.md)
     * [How to Contribute to OrientDB](misc/Contribute-to-OrientDB.md)
