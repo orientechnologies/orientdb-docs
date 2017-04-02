@@ -7,7 +7,7 @@ search:
 
 ## Creating an Index
 
-![Property](../images/newIndex.png)
+![Property](../../images/newIndex.png)
 
 ## Rebuilding an Index
 

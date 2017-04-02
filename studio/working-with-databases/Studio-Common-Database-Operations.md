@@ -11,7 +11,7 @@ By default **reader/reader** can read records from the database, **writer/writer
 
 To create a new database, click the "New DB" button from the Home Page:
 
-![Home Page](../images/studio-newDb.png)
+![Home Page](../../images/studio-newDb.png)
 
 Some information is needed to create a new database:
 
@@ -37,7 +37,7 @@ Starting from version 2.2, Studio allows you to import databases from a public r
 These databases contain public data and bookmarked queries that will allow you to start
 playing with OrientDB and OrientDB SQL. 
 
-![Home Page](../images/studio-importPublic.png)
+![Home Page](../../images/studio-importPublic.png)
 
 To install a public database, you will need the Server Credentials. 
 Then, click the download button of the database that you are interested in.

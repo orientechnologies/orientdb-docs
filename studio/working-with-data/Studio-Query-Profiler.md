@@ -26,10 +26,10 @@ This panel shows all the queries executed on a specific server grouped by the co
 - `Last execution`, as the timestamp of the last query execution
 
 
-![Query](../images/studio-queryprofiler-query.png)
+![Query](../../images/studio-queryprofiler-query.png)
 
 ## Command Cache
 Through this panel you can manage the cache of the specific server and consult the cached results of queries by using the `VIEW RESULTS` button.
 You can even filter the queries by the "Query" field and purge the whole cache by using the `PURGE CACHE` button.
 
-![Command Cache](../images/studio-queryprofiler-commandcache.png)
+![Command Cache](../../images/studio-queryprofiler-commandcache.png)

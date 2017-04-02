@@ -16,12 +16,12 @@ Some information is required to create the new class.
 * Abstract 
 
 Here you can find more information about [Classes](../general/Schema.md#class)
-![newClass](../images/newClass.png)
+![newClass](../../images/newClass.png)
 
 
 ## Editing a Class
 
-![Class](../images/class.png)
+![Class](../../images/class.png)
 
 
 ## Dropping a Class

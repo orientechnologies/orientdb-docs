@@ -20,14 +20,14 @@ Other shortcuts are available in the query editor:
 > **Note:**
 > If you have multiple queries in the editor, you can select a single query with text selection and execute it with **Ctrl + Return** or the **Run** button
 
-![Query result](../images/browse.png)
+![Query result](../../images/browse.png)
 
 By clicking any @rid value in the result set, you will go into [document edit](Edit-Document.md) mode if the record is a Document, otherwise you will go into [vertex edit](Edit-Vertex.md).
 
 You can bookmark your queries by clicking the star icon in the results set or in the editor.
 To browse bookmarked queries, click the **Bookmarks** button. Studio will open the bookmarks list on the left, where you can edit/delete or rerun queries.
 
-![Bookmarks](../images/bookmarks.png)
+![Bookmarks](../../images/bookmarks.png)
 
 Studio saves the executed queries in the Local Storage of the browser, in the query settings, you can configure how many queries studio will keep in history. 
 You can also search a previously executed query, delete all the queries from the history or delete a single query.
@@ -38,4 +38,4 @@ From Studio 2.0, you can send the result set of a query to the [Graph Editor](Gr
 
 Studio communicates with the OrientDB Server using [HTTP/RESt+JSON protocol](../misc/OrientDB-REST.md). To see the output in JSON format, press the **RAW** tab.
 
-![Query result](../images/resultRaw.png)
+![Query result](../../images/resultRaw.png)

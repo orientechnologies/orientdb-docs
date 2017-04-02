@@ -7,7 +7,7 @@ search:
 
 OrientDB can work in schema-less mode, schema mode or a mix of both. Here we'll discuss the schema mode. To know more about schema in OrientDB go [here](../general/Schema.md)
 
-![Schema](../images/schema.png)
+![Schema](../../images/schema.png)
 
 Here you can :
 
@@ -23,4 +23,4 @@ Here you can :
 
 When you want to have an overview of all indexes created in your database, just click the **All indexes** button in the Schema UI. This will provide quick access to some information about indexes (name, type, properties, etc) and you can drop or rebuild them from here.
 
-![newClass](../images/indexes.png)
+![newClass](../../images/indexes.png)

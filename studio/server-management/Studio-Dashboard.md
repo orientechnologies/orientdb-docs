@@ -3,10 +3,10 @@ search:
    keywords: ['Studio', 'dashboard']
 ---
 
-# Dashboard
+# _Dashboard_ Panel
 
-Studio 2.2 Enterprise Edition includes a new easy to read and single-page Dashboard with costantly updated reports.
-The Dashboard shows a graphical presentation of the current status and historical trends of each node joining your cluster. Performance indicators are reported in order to enable instantaneous and informed decisions which you can make at a glance.
+Starting from version 2.2, Studio Enterprise Edition includes a new easy-to-read and single-page _Dashboard_ with constantly updated reports.
+The _Dashboard_ shows a graphical presentation of the current status and historical trends of each node joining your cluster. Performance indicators are reported in order to enable instantaneous and informed decisions which you can make at a glance.
 
 Here you can see the Dashboard reporting the status of a cluster composed of two nodes.
 
@@ -22,4 +22,4 @@ For each node you can monitor several information divided in two main sections:
 
 - CRUD operations: includes a `Live Chart` of CRUD operations in real time.
 
-![](../images/studio-dashboard.png)
+![](../../images/studio-dashboard.png)

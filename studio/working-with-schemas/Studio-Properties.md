@@ -7,7 +7,7 @@ search:
 
 ## Creating a Property
 
-![Property](../images/newProperty.png)
+![Property](../../images/newProperty.png)
 
 ## Editing a Property
 

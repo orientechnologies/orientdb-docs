@@ -13,7 +13,7 @@ Represents the database structure as clusters. Each cluster has the following in
 - `Records`, are the total number of records stored in the cluster
 - `Conflict Strategy`, is the conflict strategy used. I empty, the database's strategy is used as default
 
-![Structure](../images/structure.png)
+![Structure](../../images/structure.png)
 
 ##Configuration
 
@@ -29,9 +29,9 @@ Contains the database configuration and custom properties. Here you can display 
 - `minimumClusters`, minimum number of clusters to create whenat class creation
 - `conflictStrategy`, is the database strategy for resolving conflicts
 
-![Configuration](../images/configuration.png)
+![Configuration](../../images/configuration.png)
 
 ##Export
 Allows to export the current database in GZipped JSON format. To import the file into another database, use the [Import Console Command](../console/Console-Command-Import.md).
 
-![Export](../images/import-export.png)
+![Export](../../images/import-export.png)
