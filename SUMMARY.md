@@ -196,7 +196,7 @@
             * [Modifying Data](studio/working-with-data/Studio-Modifying-Data.md)            
                 * [Edit Document](studio/working-with-data/Studio-Edit-Document.md) 
                 * [Edit Vertex](studio/working-with-data/Studio-Edit-Vertex.md) 
-                * [Edit Edge](studio/working-with-data/Studio-Edit-Edge.md.md)
+                * [Edit Edge](studio/working-with-data/Studio-Edit-Edge.md)
         * [Working with Schemas](studio/working-with-schemas/README.md)
             * [_Schema Manager_ Panel](studio/working-with-schemas/Studio-Schema-Manager.md)
             * [Classes](studio/working-with-schemas/Studio-Classes.md)
