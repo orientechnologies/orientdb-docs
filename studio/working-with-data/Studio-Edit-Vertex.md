@@ -3,7 +3,7 @@ search:
    keywords: ['Studio', 'edit vertex']
 ---
 
-Edit Vertex
+# Edit Vertex
 
 
-![Edit Document](../images/editVertex.png)
+![Edit Document](../../images/editVertex.png)

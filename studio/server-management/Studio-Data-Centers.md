@@ -9,5 +9,5 @@ This is the section (available only for the Enterprise Edition) to work with Ori
 
 ## Overview
 
-![Studio-Data-Centers](../images/studio-data-centers.png)
+![Studio-Data-Centers](../../images/studio-data-centers.png)
 

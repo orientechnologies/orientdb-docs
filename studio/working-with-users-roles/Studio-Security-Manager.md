@@ -17,7 +17,7 @@ Here you can manage the database users:
 * Delete Users
 * Edit User: roles can be edited in-line, for name, status and password click the **Edit** button
 
-![Home Page](../images/users.png)
+![Home Page](../../images/users.png)
 
 
 ## Tab Roles
@@ -29,5 +29,5 @@ Here you can manage the database roles:
 * Delete Role
 * Edit Role
 
-![Home Page](../images/roles.png)
+![Home Page](../../images/roles.png)
 

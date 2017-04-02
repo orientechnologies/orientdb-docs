@@ -5,4 +5,4 @@ search:
 
 # Edit Document
 
-![Edit Document](../images/editDocument.png)
+![Edit Document](../../images/editDocument.png)

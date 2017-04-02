@@ -13,11 +13,11 @@ By default all the auditing logs are saved as documents of class `OAuditingLog` 
 
 However, Studio provides a panel to filter the Auditing Log messages on a specific server without using SQL.
 
-![](../images/studio-auditing-log.png)
+![](../../images/studio-auditing-log.png)
 
 Studio Auditing panel helps you also on Auditing configuration of servers, avoiding to edit the `auditing-config.json` file under the database folder.
 
-![](../images/studio-auditing-configuration.png)
+![](../../images/studio-auditing-configuration.png)
 
 
 

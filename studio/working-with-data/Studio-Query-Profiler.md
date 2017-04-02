@@ -3,7 +3,7 @@ search:
    keywords: ['Studio', 'query', 'profiler', 'query profiler']
 ---
 
-# Query Profiler
+# _Query Profiler_ Panel
 
 Starting from version 2.2, Studio Enterprise Edition includes a functionality called _Profiling_. To understand how Profiling works, please refer to the [Profiler](../tuning/Profiler.md) page.
 

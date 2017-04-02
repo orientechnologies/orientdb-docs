@@ -11,4 +11,4 @@ search:
 
 ## Editing a Property
 
-## Removing a Property
+## Dropping a Property
