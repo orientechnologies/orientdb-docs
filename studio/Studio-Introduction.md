@@ -19,11 +19,11 @@ The following is a screen-shot of the Home Page of Studio v.{{book.currentVersio
 
 ![Home Page](../images/studio/studio-login.png)
 
-From _Studio_'s Home Page, you can:
+From the _Studio_ Home Page, you can:
 
-* Connect to an existing database
-* Drop an existing database
-* Create a new database
-* Import a public (OrientDB) database
-* Start a migration to OrientDB using the tool Teleporter
-* Access other the [Server Management](server-management/README.md) features
+* [Connect](working-with-databases/Studio-Common-Database-Operations.md#connecting-to-an-existing-database) to an existing database
+* [Create](working-with-databases/Studio-Common-Database-Operations.md#creating-a-new-database) a new database
+* [Import](working-with-databases/Studio-Common-Database-Operations.md#importing-a-public-database) a public (OrientDB) database
+* [Drop](working-with-databases/Studio-Common-Database-Operations.md#dropping-an-existing-database) an existing database
+* [Start a migration](backups-imports-exports/Studio-Teleporter.md) to OrientDB using the tool Teleporter
+* Access the [Server Management](server-management/README.md) features
