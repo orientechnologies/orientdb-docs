@@ -3,7 +3,7 @@ search:
    keywords: ['Studio', 'backup', 'enterprise']
 ---
 
-# Backup Management (Enterprise Only)
+# _Backup Management_ Panel
 
 Studio 2.2 Enterprise Edition includes a **Backup Manager** that allows you to schedule and perform your backups and easily execute and manage restores you may need.
 You can enjoy this new functionality by reaching the **Backup Management** panel in the Server Management area, this is what you will find:

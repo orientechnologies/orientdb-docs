@@ -5,7 +5,7 @@ search:
 
 # Properties
 
-## Adding a Property
+## Creating a Property
 
 ![Property](../images/newProperty.png)
 

@@ -4,7 +4,7 @@ search:
 ---
 
 
-# Execute a query
+# Executing a Query
 
 Studio supports auto recognition of the language you're using between those supported: [SQL](../sql/SQL.md) and [Gremlin](../gremlin/Gremlin.md). 
 While writing, use the auto-complete feature by pressing Ctrl + Space.
@@ -34,7 +34,7 @@ You can also search a previously executed query, delete all the queries from the
 
 From Studio 2.0, you can send the result set of a query to the [Graph Editor](Graph-Editor.md) by clicking on the circle icon in the result set actions. This allows you to visualize your data graphically.
 
-## Look at the JSON output
+## JSON output
 
 Studio communicates with the OrientDB Server using [HTTP/RESt+JSON protocol](../misc/OrientDB-REST.md). To see the output in JSON format, press the **RAW** tab.
 
