@@ -201,16 +201,25 @@ Boolean value constants are case insensitive, so also `TRUE`, `True` and so on a
 
 - **links**: A link is a pointer to a document in the database
 
-In SQL a link is represented as follows:
+In SQL a link is represented as follows (short and extended notation):
 
 ```
 #<cluster-id>:<cluster-position>
+
+or
+
+{"@rid": "#<cluster-id>:<cluster-position>"}
 ```
 eg.
 ```
 #12:15
+
+or
+
+{"@rid": "#12:15"}
 ```
 
+The bracket notation is mandatory inside JSON, as the short notation is not a valid value in JSON.
 
 - **null**: case insensitive (for consistency with IS NULL and IS NOT NULL conditions, that are case insensitive)
 
