@@ -111,3 +111,12 @@ SQLContext sqlCtx = new SQLContext(ctx);
 
 DataFrame jdbcDF = sqlCtx.read().format("jdbc").options(options).load();
 ```
+
+
+## Custom drivers
+
+OrientDB JDBC driver is compatible with most of the tools that support the JDBC standard. Even if we have tested the OrientDB JDBC driver against the most popular BI/Reporting tools, some tool could use a feature not supported. If you have problems with your tool and the OrientDB JDBC driver, please [create an issue](https://github.com/orientechnologies/orientdb/issues?q=is%3Aopen+is%3Aissue).
+
+For some tool, instead, in order to use OrientDB JDBC driver, you need an additional connector:
+
+QlickView: https://www.tiq-solutions.de/en/solutions/qlik-solutions/jdbc-connector/
