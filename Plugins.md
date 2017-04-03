@@ -43,11 +43,6 @@ With proper mark-up/logic separation, a POJO data model, and a refreshing lack o
 
 ------
 
-<a href="https://github.com/google/guice"><img src="http://www.jaritimonen.com/wp-content/uploads/2012/06/Guice.jpg"/></a>
-<br>
-&nbsp;
-<br>
-
 Guice (pronounced 'juice') is a lightweight dependency injection framework for Java 6 and above, brought to you by Google.
 [OrientDB Guice plugin](https://github.com/xvik/guice-persist-orient) allows to integrate OrientDB inside Guice. Features:
 - Integration through guice-persist (UnitOfWork, PersistService, @Transactional, dynamic finders supported)
