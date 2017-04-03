@@ -23,8 +23,6 @@ If you're looking for drivers or JDBC connector go to  [Programming-Language-Bin
 With proper mark-up/logic separation, a POJO data model, and a refreshing lack of XML, Apache Wicket makes developing web-apps simple and enjoyable again. Swap the boilerplate, complex debugging and brittle code for powerful, reusable components written with plain Java and HTML.
 
 ------
-
-<a href="https://github.com/google/guice"><img src="http://www.jaritimonen.com/wp-content/uploads/2012/06/Guice.jpg"</img></a><br>
  
 Guice (pronounced 'juice') is a lightweight dependency injection framework for Java 6 and above, brought to you by Google.
 [OrientDB Guice plugin](https://github.com/xvik/guice-persist-orient) allows to integrate OrientDB inside Guice. Features:
