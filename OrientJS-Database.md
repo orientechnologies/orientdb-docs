@@ -101,7 +101,7 @@ For more information on the Class API and other methods available, see [Class AP
 
 ### Using the Index API
 
-Methods tied to the Index API are called through the `db.index` object.  These methods all you to create and fetch index properties for a given class.  For instance, say you want create an index on the `Player` class in your baseball database for the players' names,
+Methods tied to the Index API are called through the `db.index` object.  These methods allow you to create and fetch index properties for a given class.  For instance, say you want create an index on the `Player` class in your baseball database for the players' names,
 
 ```js
 var indexName = db.index.create({
