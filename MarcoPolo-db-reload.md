@@ -28,3 +28,17 @@ This function can take one additional option.
 
 ### Example
 
+Consider the use case of a multithreaded application or some similar deployment in which multiple clients are operating on the given OrientDB database.  You might want to set up a basic timer that reloads the database connection periodically from a separate thread.
+
+```elixir
+@doc """ Reload the database connection at set intervals"""
+def reload(conn, interval) do
+
+	# Log Operataion
+	IO.puts("Starting Reload Function")
+
+	# Start Timer
+	timer.apply_interval(interval, MarcoPolo, db_reload, conn)
+
+end
+```

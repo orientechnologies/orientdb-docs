@@ -36,3 +36,24 @@ When this operation is successful, the function returns the tuple `{:ok, passed}
 
 
 ### Example
+
+Consider the use case where you need to remove a series of records from the database.  Rather than calling `delete_record()` individually on each instance, you mght want to create a function to handle the deletions.
+
+```elixir
+@doc """ 
+Function to remove records from the database. It takes as arguments
+the database connection interface and a list of tuples indicating
+the records to remove.  Each tuple follows the pattern {cluster-id, [list of record id's]}."""
+def remove_records(conn, record_list) do
+
+	# Log Operation
+	IO.puts("Remvoing Records")
+
+	# Loop over Cluster
+	for cluster <- record_list do
+		
+
+	end
+end
+```
+
