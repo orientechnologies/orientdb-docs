@@ -77,7 +77,7 @@ SELECT `foo\`bar` from Foo
 *(draft)* 
 In current version, class names are case *insensitive*, all the other identifiers are case sensitive.
 
-###Reserved words
+### Reserved words
 
 In OrientDB SQL the following are reserved words
 
@@ -140,7 +140,7 @@ In OrientDB SQL the following are reserved words
 - WHERE
 - WHILE
 
-###Base types
+### Base types
 
 Accepted base types in OrientDB SQL are:
 - **integer numbers**: 
@@ -223,7 +223,7 @@ nUll
 ...
 ```
 
-###Numbers
+### Numbers
 
 OrientDB can store five different types of numbers
 - Integer: 32bit signed
@@ -319,7 +319,7 @@ The conversion of a number to BigDecimal can be done explicitly, using the `bigD
 
 
 
-###Collections
+### Collections
 
 OrientDB supports two types of collections:
 - **Lists**: ordered, allow duplicates
@@ -336,12 +336,12 @@ A `List` can be converted to a `Set` using the `.asSet()` method:
 [1, 3, 2, 2, 4].asSet() = [1, 3, 2, 4] /*  the order of the elements in the resulting set is not guaranteed */
 ```
 
-###Binary data
+### Binary data
 OrientDB can store binary data (byte arrays) in document fields. There is no native representation of binary data in SQL syntax, insert/update a binary field you have to use `decode(<base64string>, "base64")` function.
 
 To obtain the base64 string representation of a byte array, you can use the function `encode(<byteArray>, "base64")`
 
-###Expressions
+### Expressions
 
 Expressions can be used as:
 
@@ -407,7 +407,7 @@ The result of this filtering is ALWAYS a single value.
 - `<condition>`: A normal SQL condition, that is applied to each element in the `fieldName` collection. The result is a sub-collection that contains only items that match the condition. Eg. `fieldName = [{foo = 1},{foo = 2},{foo = 5},{foo = 8}]`, `fieldName[foo > 4] = [{foo = 5},{foo = 8}]`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
 
 
-###Conditions
+### Conditions
 
 A condition is an expression that returns a boolean value.
 
