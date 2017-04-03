@@ -10,7 +10,7 @@ _Studio_ is a web interface for the administration of OrientDB that comes in bun
 If you run OrientDB in your local machine the web interface can be accessed via the URL:
 
 ```
-http://localhost:2480ss
+http://localhost:2480
 ```
 
 To access Studio on a remote machine, you may want to use an SSH tunnel.
