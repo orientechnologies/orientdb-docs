@@ -8,10 +8,36 @@ search:
 
 When OrientDB executes the ETL module, source components define the source of the data you want to extract.  In the case of some [extractors](Extractor.md) like JDBCExtractor work without source, making this component optional.  The ETL module in OrientDB supports the following types of sources:
 
-- [`"file"`](#file-sources)
 - [`"input"`](#input-sources)
+- [`"file"`](#file-sources)
 - [`"http"`](#http-sources)
 
+
+
+## Input Sources
+
+In the input source component, the ETL module extracts data from console input.  You may find this useful in cases where the ETL module operates in a pipe with other tools.
+
+- Component name: `input`
+
+**Syntax**
+```sh
+oetl.sh "<input>"
+```
+**Example**
+
+- Cat a file, piping its output into the ETL module:
+
+  <pre>
+  $ <code class="lang-sh userinput">cat /etc/csv | $ORIENTDB_HOME/bin/oetl.sh \
+        "{transformers:[{csv:{}}]}"</code>
+  </pre>
+
+If the source isn't configured, _input_ is used by default. It would be easy to write a bash script that loads multiple files from a directory:
+
+```sh
+for f  in $(ls); do echo "processing $f"; cat $f > ORIENTDB_HOME/bin/oetl.sh  ; done
+```
 
 ## File Sources
 
@@ -32,33 +58,14 @@ In the file source component, the variables represent a source file containing t
 - Extract data from the file at `/tmp/actor.tar.gz`:
 
   ```json
-  { 
-     "file": { 
-	    "path": "/tmp/actor.tar.gz", 
-		"lock" : true , 
-		"encoding" : "UTF-8" 
+  {
+     "file": {
+	    "path": "/tmp/actor.tar.gz",
+		"lock" : true ,
+		"encoding" : "UTF-8"
      }
   }
   ```
-
-## Input Sources
-
-In the input source component, the ETL module extracts data from console input.  You may find this useful in cases where the ETL module operates in a pipe with other tools.
-
-- Component name: `input`
-
-**Syntax**
-```sh
-oetl.sh "<input>"
-```
-**Example**
-
-- Cat a file, piping its output into the ETL module:
-
-  <pre>
-  $ <code class="lang-sh userinput">cat /etc/csv | $ORIENTDB_HOME/bin/oetl.sh \
-        "{transformers:[{csv:{}}]}"</code>
-  </pre>
 
 
 ## HTTP Sources
