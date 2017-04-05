@@ -22,3 +22,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, thi
 
 ![](../../../images/demo-dbs/social-travel-agency/query_11_browse.png)
 
+
+### Example 3
+
+{% include "./include-file-4.md" %}

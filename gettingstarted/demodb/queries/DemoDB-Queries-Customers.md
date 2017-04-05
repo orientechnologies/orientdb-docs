@@ -6,24 +6,25 @@
 Find everything that is connected (1st degree) to Customer with Id 1:
 
 ```sql
-MATCH {class: Customers, as: c, where: (OrderedId=1)}--{as: n} RETURN $pathelements
+MATCH {class: Customers, as: c, where: (OrderedId=1)}--{as: n} 
+RETURN $pathelements
 ```
 
 
 #### Example 2
 
-{{book.demodb_query_25_text}}:
+Find all Locations connected to Customer with Id 1:
 
 ```sql
 MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Locations} 
 RETURN $pathelements
-```	
+```
 
 
 #### Example 3
 
-{{book.demodb_query_26_text}}:
-
+Find all Locations connected to Customer with Id 1, and their Reviews (if any)
+ 
 ```sql
 MATCH {class: Customers, as: c, where: (OrderedId=1)}--{class: Locations, as: loc}-HasReview-{class: Reviews, as: r, optional: true} 
 RETURN $pathelements
@@ -68,11 +69,7 @@ RETURN $pathelements
 
 #### Example 7
 
-{{book.demodb_query_30_text}}:
-
-```sql
-SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY ReviewNumbers DESC LIMIT 3
-```
+{% include "./include-file-3.md" %}
 
 
 #### Example 8
@@ -89,12 +86,6 @@ RETURN $pathelements
 Calculate the total revenues from Orders associated with Customer with Id 1:
 
 
-
 #### Example 10
 
-Find the 3 Customers who placed most Orders:
-
-```sql
-SELECT *, in("HasCustomer").size() AS NumberOfOrders FROM Customers ORDER BY NumberOfOrders DESC LIMIT 3
-```
-
+{% include "./include-file-4.md" %}

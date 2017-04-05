@@ -8,8 +8,7 @@ Find the 'year of birth' of the Profiles, and how many Profiles were born in the
 
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">
-SELECT 
+<pre><code class="lang-sql">SELECT 
   count(*) as NumberOfProfiles, 
   Birthday.format('yyyy') AS YearOfBirth 
 FROM Profiles 
@@ -21,8 +20,7 @@ ORDER BY NumberOfProfiles DESC
 
 _Note_: in v. 2.x the corresponding query is:
 
-<pre><code class="lang-sql">
-SELECT 
+<pre><code class="lang-sql">SELECT 
   count(*) as NumberOfProfiles, 
   YearOfBirth 
 FROM (

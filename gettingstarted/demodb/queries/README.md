@@ -18,20 +18,20 @@ The following table can help you navigate through all examples:
 |                            | Among Santo's Friends, find the top 3 Customers that placed the highest number of Orders                                | [Link](DemoDB-Queries-Friendship.md#example-5)               |
 |                            | Among Santo's Friends, find the top 3 Customers that visited the highest number of Places                               | [Link](DemoDB-Queries-Friendship.md#example-6)               |
 |                            | Find all the Friends of Customer identified with OrderedId 1 that are not Customers (so that a product can be proposed) | [Link](DemoDB-Queries-Friendship.md#example-7)               |
-| **Customers**              | {{book.demodb_query_24_text}} | [Link](DemoDB-Queries-Customers.md#example-1)                |
-|                            | {{book.demodb_query_25_text}} | [Link](DemoDB-Queries-Customers.md#example-1)                |
-|                            | {{book.demodb_query_26_text}} | [Link](DemoDB-Queries-Customers.md#example-2)                |
-|                            | {{book.demodb_query_27_text}} | [Link](DemoDB-Queries-Customers.md#example-3)                |
-|                            | {{book.demodb_query_28_text}} | [Link](DemoDB-Queries-Customers.md#example-4)                |
-|                            | {{book.demodb_query_29_text}} | [Link](DemoDB-Queries-Customers.md#example-5)                |
-|                            | {{book.demodb_query_30_text}} | [Link](DemoDB-Queries-Customers.md#example-6)                |
-|                            | {{book.demodb_query_31_text}} | [Link](DemoDB-Queries-Customers.md#example-7)                |
-|                            | {{book.demodb_query_32_text}} | [Link](DemoDB-Queries-Customers.md#example-8)                |
-|                            | {{book.demodb_query_33_text}} | [Link](DemoDB-Queries-Customers.md#example-9)                |
-|                            | {{book.demodb_query_34_text}} | [Link](DemoDB-Queries-Customers.md#example-10)               |
+| **Customers**              | Find everything that is connected (1st degree) to Customer with Id 1                                                    | [Link](DemoDB-Queries-Customers.md#example-1)                |
+|                            | Find all Locations connected to Customer with Id 1                                                                      | [Link](DemoDB-Queries-Customers.md#example-2)                |
+|                            | Find all Locations connected to Customer with Id 1, and their Reviews (if any)                                          | [Link](DemoDB-Queries-Customers.md#example-3)                |
+|                            | Find the other Customers that visited the Locations visited by Customer with Id 1                                       | [Link](DemoDB-Queries-Customers.md#example-4)                |
+|                            | Find all the places where Customer with Id 1 has stayed                                                                 | [Link](DemoDB-Queries-Customers.md#example-5)                |
+|                            | Find all places where Customer with Id 1 has eaten                                                                      | [Link](DemoDB-Queries-Customers.md#example-6)                |
+|                            | Find the 3 Customers who made more reviews                                                                              | [Link](DemoDB-Queries-Customers.md#example-7)                |
+|                            | Find all Orders placed by Customer with Id 1                                                                            | [Link](DemoDB-Queries-Customers.md#example-8)                |
+|                            | Calculate the total revenues from Orders associated with Customer with Id 1                                             | [Link](DemoDB-Queries-Customers.md#example-9)                |
+|                            | Find the 3 Customers who placed most Orders}                                                                            | [Link](DemoDB-Queries-Customers.md#example-10)               |
 | **Countries**              |   | [Link](DemoDB-Queries-Countries.md#example-1)                   |
-| **Orders**                 | Calculate the total revenues from Orders  | [Link](DemoDB-Queries-Orders.md#example-1)                   |
-|                            | Find the year of the Orders, and how many Orders have been placed in the same year | [Link](DemoDB-Queries-Orders.md#example-2)                   |
+| **Orders**                 | Calculate the total revenues from Orders                                                                                | [Link](DemoDB-Queries-Orders.md#example-1)                   |
+|                            | Find the year of the Orders, and how many Orders have been placed in the same year                                      | [Link](DemoDB-Queries-Orders.md#example-2)                   |
+|                            | Find the 3 Customers who placed most Orders                                                                             | [Link](DemoDB-Queries-Orders.md#example-3)                   |
 | **Attractions**            |                                                                        | [Link](DemoDB-Queries-Attractions.md#example-1)                 |
 | **Services**               | Find the 3 Hotels that have been booked most times                                                                      | [Link](DemoDB-Queries-Services.md#example-1)                 |
 |                            | Find the 3 Hotels that have most reviews                                                                                | [Link](DemoDB-Queries-Services.md#example-2)                 |

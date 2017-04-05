@@ -46,9 +46,4 @@ SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY Revi
 
 #### Example 6
 
-Find the 3 Customers who made more reviews:
-
-```sql
-SELECT *, out("MadeReview").size() AS ReviewNumbers FROM `Customers` ORDER BY ReviewNumbers DESC LIMIT 3
-```
- 
+{% include "./include-file-3.md" %}
