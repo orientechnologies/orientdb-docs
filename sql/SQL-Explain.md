@@ -47,7 +47,7 @@ EXPLAIN <command>
   </pre>
 
 >For more information,s ee
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 
 
 

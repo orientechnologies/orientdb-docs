@@ -28,5 +28,5 @@ OPTIMIZE DATABASE [-lwedges] [-noverbose]
 
 >For more information, see
 >- [Lightweight Edges](../java/Lightweight-Edges.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 >- [Console Commands](../console/Console-Commands.md)

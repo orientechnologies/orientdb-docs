@@ -35,7 +35,7 @@ CREATE LINK <link> TYPE [<link-type>] FROM <source-class>.<source-property> TO <
 >
 >- [Relationships](../datamodeling/Concepts.md#relationships)
 >- [Importing from Relational Databases](../admin/Import-RDBMS-to-Document-Model.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 
 ## Conversion from Relational Databases
 

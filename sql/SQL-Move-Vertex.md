@@ -92,7 +92,7 @@ MOVE VERTEX <source> TO <destination> [SET [<field>=<value>]* [,]] [MERGE <JSON>
 >
 >- [`CREATE VERTEX`](SQL-Create-Vertex.md)
 >- [`CREATE EDGE`](SQL-Create-Edge.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 
 ## Use Cases
 

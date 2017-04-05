@@ -29,5 +29,4 @@ FREEZE DATABASE
 
 >To unfreeze a database, use the [`RELEASE DATABASE`](Console-Command-Release-Db.md) command.
 
->For more information on other commands, see [SQL](../sql/SQL.md) and [Console](Console-Commands.md) commands.
-
+>For more information on other commands, please refer to [Console Commands](Console-Commands.md) and [SQL Commands](../sql/SQL-Commands.md).

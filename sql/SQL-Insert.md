@@ -154,4 +154,4 @@ INSERT INTO [CLASS:]<class>|CLUSTER:<cluster>|INDEX:<index>
 
   This inserts all records from the class `Client` where the country is Germany into the class `GermanClient`, with the addition field `copied` to the value `true`.
 
-For more information on SQL, see [SQL commands](SQL.md).
+For more information on SQL, see [SQL Commands](SQL-Commands.md).

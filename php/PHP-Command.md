@@ -5,7 +5,7 @@ search:
 
 # PhpOrient - `command()`
 
-This method issues an [SQL](../sql/SQL.md) command to the database.
+This method issues an [SQL](../sql/README.md) command to the database.
 
 ## Sending Commands
 

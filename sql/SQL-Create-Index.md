@@ -117,4 +117,4 @@ In the event that the `ON` and `<key-type>` clauses both exist, the database val
 > For more information, see
 >- [`DROP INDEX`](SQL-Drop-Index.md)
 >- [Indexes](../indexing/Indexes.md)
->- [SQL commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)

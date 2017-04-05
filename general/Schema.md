@@ -16,7 +16,7 @@ In the case of schema-hybrid mode, you only set constraints for certain fields a
 
 >**NOTE** Changes to the schema are not transactional.  You must execute these commands outside of a transaction. 
 
-You can access the schema through [SQL](../sql/SQL.md#query-the-schema) or through the Java API.  Examples here use the latter.  To access the schema API in Java, you need the Schema instance of the database you want to use.  For example,
+You can access the schema through [SQL](../sql/SQL-Metadata.md#querying-the-schema) or through the Java API.  Examples here use the latter.  To access the schema API in Java, you need the Schema instance of the database you want to use.  For example,
 
 
 ```java

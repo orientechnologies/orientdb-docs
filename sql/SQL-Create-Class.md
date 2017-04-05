@@ -69,6 +69,6 @@ Supported Strategies:
 >- [`ALTER CLASS`](SQL-Alter-Class.md)
 >- [`DROP CLASS`](SQL-Drop-Class.md)
 >- [`CREATE CLUSTER`](SQL-Create-Cluster.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 >- [Console Commands](../console/Console-Commands.md)
 

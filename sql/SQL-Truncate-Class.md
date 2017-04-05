@@ -33,5 +33,5 @@ TRUNCATE CLASS <class> [ POLYMORPHIC ] [ UNSAFE ]
 >- [`DELETE`](SQL-Delete.md)
 >- [`TRUNCATE CLUSTER`](SQL-Truncate-Cluster.md)
 >- [`CREATE CLASS`](SQL-Create-Class.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 >- [Console Commands](../console/Console-Commands.md)

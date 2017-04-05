@@ -27,7 +27,7 @@ GRANT <permission> ON <resource> TO <role>
 
 >For more information, see
 >- [`REVOKE](SQL-Revoke.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 
 
 ## Supported Permissions

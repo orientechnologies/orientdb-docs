@@ -5,9 +5,9 @@ search:
 
 <!-- proofread 2015-01-06 SAM -->
 
-# Administration
+# OrientDB Server Administration
 
-OrientDB has a number of tools to make administration of the database easier. There is the [console](../Tutorial-Run-the-console.md), which allows you to run a large number of [commands](../console/Console-Commands.md).
+OrientDB has a number of tools to make administration of the database easier. There is the [Console](../console/README.md), which allows you to run a large number of [commands](../console/Console-Commands.md).
 
 There is also the [OrientDB Studio](../studio/README.md), which allows you to run queries and visually look at the graph. 
 
@@ -27,4 +27,3 @@ All of OrientDB's administration facilities are aimed to make your usage of Orie
 >- [Trouble shooting](../misc/Troubleshooting.md)
 >- [Performance Tuning](../tuning/Performance-Tuning.md)
 >- [ETL Tools](../etl/ETL-Introduction.md)
->- [Stress Test Tool](../misc/Stress-Test-Tool.md)

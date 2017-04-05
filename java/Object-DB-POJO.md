@@ -186,7 +186,7 @@ Here, you also delete `JavaSimpleTextClass` instances contained in the `simpleCl
 
 ## Executing Queries
 
-While OrientDB is a NoSQL database, it also supports a subset of SQL with extensions, allowing it to work with objects and graphs.  For more information, see [SQL](../sql/SQL.md).  For instance,
+While OrientDB is a NoSQL database, it also supports a subset of SQL with extensions, allowing it to work with objects and graphs.  For more information, see [SQL](../sql/README.md).  For instance,
 
 ```java
 List<Animal> result = db.query(

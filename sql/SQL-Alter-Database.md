@@ -39,7 +39,8 @@ ALTER DATABASE <attribute-name> <attribute-value>
 
 
 
->To create a database, see the [`CREATE DATABASE`](../console/Console-Command-Create-Database.md).  To remove a database, see the [`DROP DATABASE`](../console/Console-Command-Drop-Database.md) command.  For more information on other commands, see [Console](../console/Console-Commands.md) and [SQL](SQL.md) commands.
+>To create a database, see the [`CREATE DATABASE`](../console/Console-Command-Create-Database.md).  To remove a database, see the [`DROP DATABASE`](../console/Console-Command-Drop-Database.md) command.  
+>For more information on other commands, please refer to [Console Commands](../console/Console-Commands.md) and [SQL Commands](SQL-Commands.md).
 
 
 

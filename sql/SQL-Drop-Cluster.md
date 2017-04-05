@@ -28,5 +28,5 @@ DROP CLUSTER <cluster-name>|<cluster-id>
 >- [`CREATE CLUSTER`](SQL-Create-Cluster.md)
 >- [`ALTER CLUSTER`](SQL-Alter-Cluster.md)
 >- [`DROP CLASS`](SQL-Drop-Class.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 >- [Console Commands](../console/Console-Commands.md)

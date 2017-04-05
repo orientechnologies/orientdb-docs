@@ -29,4 +29,4 @@ DROP SEQUENCE <sequence>
 >- [`CREATE SEQUENCE`](SQL-Create-Sequence.md)
 >- [`DROP SEQUENCE`](SQL-Drop-Sequence.md)
 >- [Sequences and auto increment](Sequences-and-auto-increment.md)
->- [SQL commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)

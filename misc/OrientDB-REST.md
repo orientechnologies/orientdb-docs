@@ -425,7 +425,7 @@ Execute a query passing parameters by position:
 }
 ```
 
-Read the [SQL section](../sql/SQL.md) or the [Gremlin introduction](../gremlin/Gremlin.md) for the type of commands.
+Read the [SQL section](../sql/README.md) or the [Gremlin introduction](../gremlin/Gremlin.md) for the type of commands.
 
 #### Example
 

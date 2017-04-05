@@ -97,7 +97,8 @@ ALTER CLASS <class> <attribute-name> <attribute-value>
   orientdb> <code class="lang-sql userinput">ALTER CLASS TheClass ABSTRACT true</code>
   </pre>
 
->For more information see [`CREATE CLASS`](SQL-Create-Class.md), [`DROP CLASS`](SQL-Drop-Class.md), [`ALTER CLUSTER`](SQL-Alter-Cluster.md) commands.  For more information on other commands, see [`Console Commands`](../console/Console-Commands.md) and [SQL](SQL.md) commands.
+>For more information see [`CREATE CLASS`](SQL-Create-Class.md), [`DROP CLASS`](SQL-Drop-Class.md), [`ALTER CLUSTER`](SQL-Alter-Cluster.md) commands.  
+>For more information on other commands, please refer to [Console Commands](../console/Console-Commands.md) and [SQL Commands](SQL-Commands.md).
 
 
 ## Supported Attributes

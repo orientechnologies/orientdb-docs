@@ -1,7 +1,7 @@
 
 # _Browse_ Panel
 
-Studio supports auto recognition of the language you're using between those supported: [SQL](../sql/SQL.md) and [Gremlin](../gremlin/Gremlin.md). 
+Studio supports auto recognition of the language you're using between those supported: [SQL](../sql/README.md) and [Gremlin](../gremlin/Gremlin.md). 
 While writing, use the auto-complete feature by pressing Ctrl + Space.
 
 Other shortcuts are available in the query editor:

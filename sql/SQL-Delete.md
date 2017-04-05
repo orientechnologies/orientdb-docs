@@ -33,6 +33,6 @@ DELETE FROM <Class>|CLUSTER:<cluster>|INDEX:<index> [LOCK <default|record>] [RET
   orientdb> <code class="lang-sql userinput">DELETE FROM Profile WHERE surname.toLowerCase() = 'unknown'</code>
   </pre>
 
-For more information, see [SQL commands](SQL.md).
+For more information, see [SQL Commands](SQL-Commands.md).
 
 

@@ -49,5 +49,5 @@ CREATE FUNCTION <name> <code>
 >For more information, see
 >
 >- [Functions](../admin/Functions.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 >- [Console Commands](../console/Console-Commands.md)

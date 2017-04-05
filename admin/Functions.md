@@ -11,15 +11,15 @@ A **Function** is an executable unit of code that can take parameters and return
 
 OrientDB Functions features:
 - are persistent
-- can be written in [SQL](../sql/SQL.md) or Javascript (Ruby, Scala, Java and other languages are coming)
-- can be executed via [SQL](../sql/SQL.md), [Java](Functions-Use.md#functions-using-the-java-api), [REST](Functions-Use.md#functions-using-the-http-rest-api) and [Studio](https://github.com/orientechnologies/orientdb-studio/wiki)
+- can be written in [SQL](../sql/README.md) or Javascript (Ruby, Scala, Java and other languages are coming)
+- can be executed via [SQL](../sql/README.md), [Java](Functions-Use.md#functions-using-the-java-api), [REST](Functions-Use.md#functions-using-the-http-rest-api) and [Studio](https://github.com/orientechnologies/orientdb-studio/wiki)
 - can call each other
 - supports recursion
 - have automatic mapping of parameters by position and name
 - plugins can inject new objects to being used by functions
 
 
->The [OrientDB SQL](../sql/SQL.md) dialect supports many functions written in the native language.  To get better performance, you can write your own native functions in the Java language and register them to the engine. 
+>The [OrientDB SQL](../sql/README.md) dialect supports many functions written in the native language.  To get better performance, you can write your own native functions in the Java language and register them to the engine. 
 >
 >For more information, see [Custom Functions in Java](../sql/SQL-Functions.md#custom-functions-in-java).
 

@@ -27,7 +27,7 @@ search:
 | [astar()](SQL-Functions.md#astar) |  |  |  |
 
 
-SQL Functions are all the functions bundled with OrientDB [SQL engine](SQL.md). You can create your own [Database Functions](../admin/Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
+SQL Functions are all the functions bundled with OrientDB SQL engine. You can create your own [Database Functions](../admin/Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
 
 SQL Functions can work in 2 ways based on the fact that they can receive 1 or more parameters:
 

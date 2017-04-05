@@ -52,4 +52,4 @@ UPDATE EDGE <edge>
 >For more information, see
 >
 >- [`UPDATE`](SQL-Update.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)

@@ -58,7 +58,7 @@ List<ODocument> result = db.query(
 );
 ```
 
-For more information on the OrientDB syntax, see [SQL](../sql/SQL.md).
+For more information on the OrientDB syntax, see [SQL](../sql/README.md).
 
 >**NOTE**: OrientDB is a Graph Database.  This means that it is very efficient at traversals.  You can use this feature to optimize your queries, such as with [pivoting](../sql/Pivoting-With-Query.md).
 

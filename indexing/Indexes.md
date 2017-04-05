@@ -410,7 +410,7 @@ DELETE FROM INDEX:<index-name>
 
 ## Query the available indexes
 
-To access to the indexes, you can use [SQL](../sql/SQL.md#query-the-available-indexes).
+To access to the indexes, you can use [SQL](../sql/SQL-Metadata.md#querying-the-available-indexes).
 
 ## Create your index engine
 

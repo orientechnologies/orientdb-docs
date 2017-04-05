@@ -60,4 +60,4 @@ This command returns a document containing two fields:
 
 
 >For more information, see
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)

@@ -31,4 +31,4 @@ DROP INDEX <index>|<class>.<property> [ IF EXISTS ]
 >For more information, see
 >- [`CREATE INDEX`](SQL-Create-Index.md)
 >- [Indexes](../indexing/Indexes.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)

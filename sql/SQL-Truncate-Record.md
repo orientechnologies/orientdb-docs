@@ -34,5 +34,5 @@ This command returns the number of records it truncates.
 
 >For more information, see
 >- [`DELETE`](SQL-Delete.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 >- [Console Commands](../console/Console-Commands.md)

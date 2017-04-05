@@ -26,7 +26,7 @@ REVOKE <permission> ON <resource> FROM <role>
 
 
 >For more information, see
->- [SQL commands](SQL.md).
+>- [SQL Commands](SQL-Commands.md).
 
 
 ## Supported Permissions

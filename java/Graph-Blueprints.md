@@ -178,7 +178,7 @@ If the command modifies the schema, (such as in cases like [`CREATE CLASS`](../s
 graph.getRawGraph().getMetadata().getSchema().reload();
 ```
 
->For more information, see [SQL Commands](../sql/SQL.md)
+>For more information, see [SQL Commands](../sql/SQL-Commands)
 
 ### SQL Batch
 

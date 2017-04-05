@@ -37,4 +37,4 @@ CREATE USER <user> IDENTIFIED BY <password> [ROLE <role>]
 >
 >- [Security](../security/Security.md)
 >- [`DROP USER`](SQL-Drop-User.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)

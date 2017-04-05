@@ -27,5 +27,5 @@ TRUNCATE CLUSTER <cluster>
 >For more information, see
 >- [`DELETE`](SQL-Delete.md)
 >- [`TRUNCATE CLASS`](SQL-Truncate-Class.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 >- [Console Commands](../console/Console-Commands.md)

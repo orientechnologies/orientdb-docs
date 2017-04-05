@@ -67,7 +67,7 @@ CREATE VERTEX [<class>] [CLUSTER <cluster>] [SET <field> = <expression>[,]*]
 >For more information, see
 >
 >- [`CREATE EDGE`](SQL-Create-Edge.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 
 ## History
 

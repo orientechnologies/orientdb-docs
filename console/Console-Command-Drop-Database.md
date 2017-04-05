@@ -37,4 +37,4 @@ DROP DATABASE [<database-name> <server-username> <server-user-password>]
 
 >You can create a new database using the [`CREATE DATABASE`](Console-Command-Create-Database.md) command.  To make changes to an existing database, use the [`ALTER DATABASE`](../sql/SQL-Alter-Database.md) command.
 
->For more information on other commands, see [SQL](../sql/SQL.md) and [Console](Console-Commands.md) commands.
+>For more information on other commands, please refer to [Console Commands](Console-Commands.md) and [SQL Commands](../sql/SQL-Commands.md).

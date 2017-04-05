@@ -5,7 +5,7 @@ search:
 
 # SQL - `SELECT`
 
-OrientDB supports the SQL language to execute queries against the database engine.  For more information, see [operators](SQL-Where.md#operators) and [functions](SQL-Where.md#functions).  For more information on the differences between this implementation and the SQL-92 standard, see [OrientDB SQL](SQL.md).
+OrientDB supports the SQL language to execute queries against the database engine.  For more information, see [operators](SQL-Where.md#operators) and [functions](SQL-Where.md#functions).  For more information on the differences between this implementation and the SQL-92 standard, please refer to [this](SQL-Introduction.md) section.
 
 **Syntax**:
 
@@ -276,7 +276,7 @@ orientdb> <code class="lang-sql userinput">SELECT name, OUT("Friend").name AS fr
 --------+-------------
 </pre>
 
->**NOTE**: For more information on other SQL commands, see [SQL commands](SQL.md).
+>**NOTE**: For more information on other SQL commands, see [SQL Commands](SQL-Commands.md).
 
 
 ## Execution planning

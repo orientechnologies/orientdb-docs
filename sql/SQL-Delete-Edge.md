@@ -84,7 +84,7 @@ DELETE EDGE
 >For more information, see
 >
 >- [`DELETE`](SQL-Delete.md)
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)
 
 
 ## Use Cases

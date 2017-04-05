@@ -176,4 +176,4 @@ orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE outE(), inV() F
 
 >For more information, see
 >- [Java-Traverse](../java/Java-Traverse.md) page.
->- [SQL Commands](SQL.md)
+>- [SQL Commands](SQL-Commands.md)

@@ -274,5 +274,5 @@ You now have an OrientDB Document database where relationships are direct and ha
 
 >For more information, see
 >
->- [SQL commands](../sql/SQL.md)
+>- [SQL Commands](../sql/SQL-Commands.md)
 >- [Console-Commands](../console/Console-Commands.md)

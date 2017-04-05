@@ -50,5 +50,5 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`SET`](Console-Command-Set.md)|Changes the value of a property|
 |`HELP`|Prints this help|
 |`EXIT`|Closes the console|
-|[SQL Statements](../sql/Commands.md)|
+|[SQL Commands](../sql/SQL-Commands.md)|
 
