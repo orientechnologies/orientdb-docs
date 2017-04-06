@@ -1,3 +1,4 @@
+<!--email_off-->
 
 # Querying Metadata
 
@@ -8,6 +9,7 @@ OrientDB provides the `metadata:` target to retrieve information about OrientDB'
 ## Querying the Schema
 
 Get all the configured classes:
+
 ```
 select expand(classes) from metadata:schema
 
@@ -35,7 +37,6 @@ select expand(classes) from metadata:schema
 Get all the configured properties for the class OUser:
 
 ```
-
 select expand(properties) from (
    select expand(classes) from metadata:schema
 ) where name = 'OUser'
@@ -48,7 +49,6 @@ select expand(properties) from (
 2   |password|7   |true     |false   |true   |null|null|null  |null        |null
 3   |name    |7   |true     |false   |true   |null|null|null  |null        |null
 ----+--------+----+---------+--------+-------+----+----+------+------------+-----------
-
 ```
 
 Get only the configured `customFields` properties for OUser (assuming you added CUSTOM metadata like foo=bar):
@@ -58,13 +58,11 @@ select customFields from (
     select expand(classes) from metadata:schema 
 ) where name="OUser"
 
-
 ----+------+------------
 #   |@CLASS|customFields
 ----+------+------------
 0   |null  |{foo=bar}
 ----+------+------------
-
 ```
 
 Or, if you wish to get only the configured `customFields`  of an attribute, like if you had a comment for the password attribute for the OUser class. 
@@ -100,3 +98,5 @@ select expand(indexes) from metadata:indexmanager
 2   |#-1:-1|#1:0  |[1]     |UNIQUE   |ORole....|{className:ORole,field:name,keyTy...|com.orientechnologies.orient.core.index.OPropertyIn...
 ----+------+------+--------+---------+---------+------------------------------------+-----------------------------------------
 ```
+
+<!--/email_off-->
