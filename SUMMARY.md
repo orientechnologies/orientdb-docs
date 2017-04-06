@@ -250,6 +250,7 @@
 
 * [SQL Reference](sql/README.md)
     * [Introduction](sql/SQL-Introduction.md)
+        * [Querying Metadata](sql/SQL-Metadata.md)
     * [SQL Syntax](sql/SQL-Syntax.md)
         * [Projections](sql/SQL-Projections.md)
     * [SQL Commands](sql/SQL-Commands.md) 

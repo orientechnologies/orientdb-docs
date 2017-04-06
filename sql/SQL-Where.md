@@ -7,11 +7,11 @@ search:
 
 The Where condition is shared among many SQL commands.
 
-# Syntax
+## Syntax
 
 `[<item>] <operator> <item>`
 
-# Items
+## Items
 
 And `item` can be:
 
@@ -28,7 +28,7 @@ And `item` can be:
 |[$variable](SQL-Where.md#variables)|Context variable prefixed with $|where $depth <= 3|1.2.0|
 
 
-## Record attributes
+### Record attributes
 
 
 |Name|Description|Example|Available since|
@@ -41,9 +41,9 @@ And `item` can be:
 |@fields|returns the number of fields in document|select @fields from V|-|
 |@type|returns the record type between: 'document', 'column', 'flat', 'bytes'|**@type** = 'flat'|0.9.21|
 
-# Operators
+## Operators
 
-## Conditional Operators
+### Conditional Operators
 
 |Apply to|Operator|Description|Example|Available since|
 |--------|---------------|-----------|-------------------|----|
@@ -67,7 +67,7 @@ And `item` can be:
 |any|TRAVERSE[(&lt;minDepth&gt; [,&lt;maxDepth&gt; [,&lt;fields&gt;]]|*This function was born before the SQL Traverse statement and today it's pretty limited. Look at [Traversing graphs](../java/Java-Traverse.md) to know more about traversing in better ways.* <br>true if traversing the declared field(s) at the level from &lt;minDepth&gt; to &lt;maxDepth&gt; matches the condition. A minDepth = 0 means the root node, maxDepth = -1 means no limit: traverse all the graph recursively. If &lt;minDepth&gt; and &lt;maxDepth&gt; are not used, then (0, -1) will be taken. If &lt;fields&gt; is not passed, than any() will be used.|select from profile where any() **traverse(0,7,'followers,followings')** ( address.city.name = 'Rome' )|0.9.10 and 0.9.24 for &lt;fields&gt; parameter|
 
 
-## Logical Operators
+### Logical Operators
 
 
 |Operator|Description|Example|Available since|
@@ -77,7 +77,7 @@ And `item` can be:
 |NOT|true if the condition is false. NOT needs parenthesis on the right with the condition to negate|**not** ( name = 'Luke')|1.2|
 
 
-## Mathematics Operators
+### Mathematics Operators
 
 
 |Apply to|Operator       |Description|Example            |Available since|
@@ -93,15 +93,15 @@ Starting from v1.4 OrientDB supports the `eval()` function to execute complex op
 select eval( "amount * 120 / 100 - discount" ) as finalPrice from Order
 ```
 
-## Methods
+### Methods
 
 Also called "Field Operators", are [are treated on a separate page](SQL-Methods.md).
 
-# Functions
+## Functions
 
 All the [SQL functions are treated on a separate page](SQL-Functions.md).
 
-# Variables
+## Variables
 
 OrientDB supports variables managed in the context of the command/query. By default some variables are created. Below the table with the available variables:
 
