@@ -1,5 +1,5 @@
 
-## Data Model
+# Data Model
 
 `demodb` is the database of an hypothetical Travel Agency that runs a public social platform as well.
 
@@ -20,7 +20,7 @@ Data model of `demodb` v.{{book.demoDBVersion_screenshots}} is reported in the i
 ![](../../images/demo-dbs/social-travel-agency/DataModel.png)
 
 
-### Inheritance
+## Inheritance
 
 Inheritance in the Vertex and Edge classes of `demodb` v.{{book.demoDBVersion_screenshots}} is reported in the image below:
 

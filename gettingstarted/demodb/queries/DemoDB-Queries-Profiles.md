@@ -1,8 +1,8 @@
 
-### Profiles
+# Profiles
 
 
-#### Example 1
+## Example 1
 
 Find the 'year of birth' of the Profiles, and how many Profiles were born in the same year:
 
@@ -32,7 +32,7 @@ ORDER BY NumberOfProfiles DESC
 </code></pre>
 
 
-#### Example 2
+## Example 2
 
 Find the top 3 Profiles that have the highest number of Friends:
 

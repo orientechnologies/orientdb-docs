@@ -1,7 +1,7 @@
 
-### Reviews 
+# Reviews 
 
-#### Example 1
+## Example 1
 
 Find number of Reviews per star:
 
@@ -10,7 +10,7 @@ SELECT Stars, count(*) as count FROM HasReview GROUP BY Stars ORDER BY count DES
 ```
 
 
-#### Example 2
+## Example 2
 
 Find all reviewed Services:
 
@@ -20,7 +20,7 @@ RETURN $pathelements
 ```
 
 
-#### Example 3
+## Example 3
 
 Find all reviewed Services and the Customer who made the review:
 
@@ -30,7 +30,7 @@ RETURN $pathelements
 ```
 
 
-#### Example 4
+## Example 4
 
 Find the numbers of reviews per Service:
 
@@ -39,11 +39,11 @@ SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY Revi
 ```
 
 
-#### Example 5
+## Example 5
 
 {% include "./include-file-2.md" %}
 
 
-#### Example 6
+## Example 6
 
 {% include "./include-file-3.md" %}

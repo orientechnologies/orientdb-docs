@@ -1,7 +1,7 @@
 
-### Orders
+# Orders
 
-#### Example 1
+## Example 1
 
 Calculate the total revenues from Orders:
 
@@ -12,7 +12,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, thi
 ![](../../../images/demo-dbs/social-travel-agency/query_9_browse.png)
 
 
-#### Example 2
+## Example 2
 
 Find the year of the Orders, and how many Orders have been placed in the same year:
 
@@ -23,6 +23,6 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, thi
 ![](../../../images/demo-dbs/social-travel-agency/query_11_browse.png)
 
 
-### Example 3
+## Example 3
 
 {% include "./include-file-4.md" %}

@@ -1,7 +1,7 @@
 
-### Recommendations
+# Recommendations
 
-#### Example 1
+## Example 1
 
 Recommend some friends to Profile 'Isabella Gomez' (friends of friends):
 
@@ -15,7 +15,7 @@ RETURN DISTINCT friendOfFriend.Name
 ![](../../../images/demo-dbs/social-travel-agency/query_recommendation_1_browse.png)
 
 
-#### Example 2
+## Example 2
 
 Recommend some Hotels to Customer with OrderedId 1:
 

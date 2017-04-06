@@ -1,7 +1,7 @@
 
-### Traverses
+# Traverses
 
-#### Example 1
+## Example 1
 
 Traverse everything from Profile 'Santo' up to depth three:
 
@@ -20,7 +20,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), this is the obtained list 
 ![](../../../images/demo-dbs/social-travel-agency/traverse_1_browse.png)
 
 
-#### Example 2
+## Example 2
 
 Traverse everything from Country 'Italy' up to depth three:
 

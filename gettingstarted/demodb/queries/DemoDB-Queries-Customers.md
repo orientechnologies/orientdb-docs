@@ -1,7 +1,7 @@
 
-### Customers 
+# Customers 
 	
-#### Example 1
+## Example 1
 
 Find everything that is connected (1st degree) to Customer with Id 1:
 
@@ -11,7 +11,7 @@ RETURN $pathelements
 ```
 
 
-#### Example 2
+## Example 2
 
 Find all Locations connected to Customer with Id 1:
 
@@ -21,7 +21,7 @@ RETURN $pathelements
 ```
 
 
-#### Example 3
+## Example 3
 
 Find all Locations connected to Customer with Id 1, and their Reviews (if any)
  
@@ -31,7 +31,7 @@ RETURN $pathelements
 ```
 
 
-#### Example 4
+## Example 4
 
 Find the other Customers that visited the Locations visited by Customer with Id 1:
 
@@ -48,7 +48,7 @@ RETURN otherCustomers.OrderedId, loc.Name, loc.Type, profile.Name, profile.Surna
 ```
 
 
-#### Example 5
+## Example 5
 
 Find all the places where Customer with Id 1 has stayed:
 
@@ -58,7 +58,7 @@ RETURN $pathelements
 ```
 
 
-#### Example 6
+## Example 6
 
 Find all places where Customer with Id 1 has eaten:
 
@@ -67,12 +67,12 @@ MATCH {as: n}-HasEaten-{class: Customers, as: c, where: (OrderedId=1)}
 RETURN $pathelements
 ```
 
-#### Example 7
+## Example 7
 
 {% include "./include-file-3.md" %}
 
 
-#### Example 8
+## Example 8
 
 Find all Orders placed by Customer with Id 1:
 
@@ -81,11 +81,11 @@ MATCH {class: Customers, as: c, where: (OrderedId=1)}<-HasCustomer-{class: Order
 RETURN $pathelements
 ```
 
-#### Example 9
+## Example 9
 
 Calculate the total revenues from Orders associated with Customer with Id 1:
 
 
-#### Example 10
+## Example 10
 
 {% include "./include-file-4.md" %}

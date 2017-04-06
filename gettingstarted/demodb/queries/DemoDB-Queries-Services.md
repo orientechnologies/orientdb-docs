@@ -1,7 +1,7 @@
 
-### Services 
+# Services 
 
-#### Example 1
+## Example 1
 
 Find the 3 Hotels that have been booked most times:
 ```sql
@@ -19,7 +19,7 @@ for the visualization in Studio:
 {{Name}} ({{NumberOfBookings}})
 
 
-#### Example 2
+## Example 2
 
 Find the 3 Hotels that have most reviews: 
 ```sql
@@ -33,7 +33,7 @@ Find the 3 Restaurants that have most reviews
 SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Restaurants` ORDER BY ReviewNumbers DESC LIMIT 3
 ```
 
-#### Example 3
+## Example 3
 
 Find the top 3 nationality of the tourists that have eaten at Restaurant with Id 13:
 

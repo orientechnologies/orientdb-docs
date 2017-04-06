@@ -1,7 +1,7 @@
 
-### Shortest Path
+# Shortest Path
 
-#### Example 1
+## Example 1
  
 Find the shortest path between the Profile 'Santo' and the Country 'United States':
 

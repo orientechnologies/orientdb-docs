@@ -1,7 +1,7 @@
 
-### Polymorphism 
+# Polymorphism 
 
-#### Example 1
+## Example 1
 
 Find all Locations (Services + Attractions) connected with Customer with OrderedId 1:
 
@@ -18,6 +18,6 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN location.@R
 ![](../../../images/demo-dbs/social-travel-agency/query_17_browse.png)
 
 
-#### Example 2
+## Example 2
 
 {% include "./include-file-2.md" %}

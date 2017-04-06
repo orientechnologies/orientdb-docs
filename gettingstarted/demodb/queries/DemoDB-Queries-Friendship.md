@@ -1,7 +1,7 @@
 
-### Friendship
+# Friendship
 
-#### Example 1
+## Example 1
 
 Find Santo's Friends:
 
@@ -26,7 +26,7 @@ or
 <pre><code class="lang-sql">SELECT (in('HasFriend').size() + out('HasFriend').size()) AS FriendsNumber FROM `Profiles` WHERE Name='Santo' AND Surname='OrientDB'</code></pre>
 
 
-#### Example 2
+## Example 2
 
 Find Santo's Friends who are also Customers:
 
@@ -43,7 +43,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 ![](../../../images/demo-dbs/social-travel-agency/query_2_browse.png)
 
 
-#### Example 3
+## Example 3
 
 Find Santo's Friends who are also Customers, and the Countries they are from:
 
@@ -60,7 +60,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 ![](../../../images/demo-dbs/social-travel-agency/query_3_browse.png)
 
 
-#### Example 4
+## Example 4
 
 Find Santo's Friends who are also Customers, and the Orders they have placed:
 
@@ -77,7 +77,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 ![](../../../images/demo-dbs/social-travel-agency/query_4_browse.png)
 
 
-#### Example 5
+## Example 5
 
 Among Santo's Friends, find the top 3 Customers that placed the highest number of Orders:
 
@@ -94,7 +94,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, thi
 ![](../../../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
 
-#### Example 6
+## Example 6
 
 Among Santo's Friends, find the top 3 Customers that visited the highest number of Places:
 
@@ -113,7 +113,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, thi
 You may find in a similar way the top 3 Customers, among Santo's Friends, that have stayed at the highest number of Hotels, or have eaten at the highest number of Restaurants. Just use `out("HasStayed").size()` or `out("HasEaten").size()` instead of `out("HasVisited").size()` (you may also consider to modify the alias, from `NumberOfVisits` to `NumberOfHotels` and `NumberOfRestaurants`, so that it is more coherent to these cases).
 
 
-#### Example 7
+## Example 7
 
 {% include "./include-file-1.md" %}
 

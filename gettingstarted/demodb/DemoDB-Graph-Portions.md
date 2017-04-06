@@ -1,12 +1,12 @@
 
-## Graph Portions
+# Graph Portions
 
 This Section includes some screen-shots on "portions" of the `demodb` graph.
 
 {% include "./include-demodb-version-warning.md" %}
 
 
-### Profiles
+## Profiles
 
 The graph below includes vertices in the _Profiles_ class. 
 
@@ -15,14 +15,14 @@ Some profiles have no friends, and ten profile "communities" are easily identifi
 ![](../../images/demo-dbs/social-travel-agency/profiles.png)
 
 
-### Customer-Country Relationship
+## Customer-Country Relationship
 
 The graph below shows the relationships between all customers and their countries of origin:
 
 ![](../../images/demo-dbs/social-travel-agency/customers_countries.png)
 
 
-### Customer-Restaurant Relationship
+## Customer-Restaurant Relationship
 
 Relationships between customers and restaurants are reported in the graph below:
 

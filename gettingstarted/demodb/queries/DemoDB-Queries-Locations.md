@@ -1,7 +1,7 @@
 
-### Locations 
+# Locations 
 
-#### Example 1 
+## Example 1 
 
 Find all Attractions connected with Customer with OrderedId 1:
 
@@ -18,7 +18,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN attraction.
 ![](../../../images/demo-dbs/social-travel-agency/query_15_browse.png)
 
 
-#### Example 2
+## Example 2
 
 Find all Services connected with Customer with OrderedId 1:
 
@@ -35,17 +35,17 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN service.@Ri
 ![](../../../images/demo-dbs/social-travel-agency/query_16_browse.png)
 
 
-#### Example 3
+## Example 3
 
 Find all Locations connected to Customer with Id 1:
 
 
-#### Example 4
+## Example 4
 
 Find all Locations connected to Customer with Id 1, and their Reviews (if any):
 
 
-#### Example 5
+## Example 5
 
 Find all Locations visited by Customer with OrderedId 2:
 
@@ -62,7 +62,7 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN location.@R
 ![](../../../images/demo-dbs/social-travel-agency/query_18_browse.png)
 
 
-#### Example 6
+## Example 6
 
 Find all Locations visited by Santo's friends:
 
