@@ -46,7 +46,7 @@ Created edge '[e[#11:0->#12:0][#11:0-Owns->#12:0]]' in 0,005000 sec(s).
 In the above section, you create a car database and populated it with vertices and edges to map out the relationship between drivers and their cars.  Now you can begin to query this database, showing what those connections are.  For example, what is Luca's car?  You can find out by traversing from the vertex Luca to the outgoing vertices following the `Owns` relationship.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT NAME FROM ( SELECT EXPAND( OUT('Owns') ) FROM Person
+orientdb> <code class="lang-sql userinput">SELECT name FROM ( SELECT EXPAND( OUT('Owns') ) FROM Person
           WHERE name='Luca' )</code>
 
 ----+-------+-----------------+
