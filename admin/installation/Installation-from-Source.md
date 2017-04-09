@@ -1,9 +1,9 @@
 ---
 search:
    keywords: ['source', 'source installation']
----  
+---
 
-## Installation from Source
+# Installation from Source
 
 In addition to downloading the binary packages, you also have the option of compiling OrientDB from the Community Edition source code, available on GitHub.  This process requires that you install [Git](http://www.git-scm.com/) and [Apache Maven](https://maven.apache.org/) on your system.
 
@@ -46,7 +46,7 @@ The directory `orientdb-community-2.2.1-SNAPSHOT.dir` contains the OrientDB dist
 Take a look to [Contribute to OrientDB](Contribute-to-OrientDB.md) if you want to be involved.
 
 
-### Update Permissions
+## Update Permissions
 
 For Linux, Mac OS X and UNIX-based operating system, you need to change the permissions on  some of the files after compiling from source.
 
