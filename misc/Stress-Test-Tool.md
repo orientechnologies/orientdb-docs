@@ -9,7 +9,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 
 ## Syntax
 	StressTester
-		-m [plocal|memory|remote|distributed] (mandatory)
+		-m [plocal|memory|remote] (mandatory)
 		-w <workload-name>:<workload-params>*
 		-c <concurrency level> (number of parallel threads)
 		-tx <operationsPerTransaction>
@@ -22,7 +22,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 	--remote-port <remotePort>
 	--ha-metrics true|false
 
-* the **m** parameter sets the type of database to be stressed (distributed is not yet implemented).
+* the **m** parameter sets the type of database to be stressed.
 * the **c** parameter sets the concurrency level, as the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
 * the **tx** parameter sets the number of operations to be included in a transaction. This value must be lesser than the number of creates divided by the threads number and the iterations number. If the **tx** parameter is not present, all the operations will be executed outside transactions.
 * the **w** parameter defines the workloads. To specify multipel workloads, use the comma (`,`) to separate them, but do not use any space. Workloads are pluggable, the available ones are:
