@@ -15,6 +15,15 @@ Some profiles have no friends, and ten profile "communities" are easily identifi
 ![](../../images/demo-dbs/social-travel-agency/profiles.png)
 
 
+## Customers' Friends
+
+The graph below shows the relationships between all customers and their friends.
+
+All customer vertices are connected to their corresponding profiles in the social platform. The profiles may have friends, or not.
+
+![](../../images/demo-dbs/social-travel-agency/customers_friends.png)
+
+
 ## Customer-Country Relationship
 
 The graph below shows the relationships between all customers and their countries of origin:

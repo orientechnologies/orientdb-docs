@@ -89,3 +89,8 @@ Calculate the total revenues from Orders associated with Customer with Id 1:
 ## Example 10
 
 {% include "./include-file-4.md" %}
+
+
+## Example 11
+
+{% include "./include-file-6.md" %}
