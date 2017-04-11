@@ -134,9 +134,12 @@ Jackrabbit module to use OrientDB as backend.
 
 ------
 
+<!--
 <a href="https://github.com/sakuraiyuta/fuel-orientdb"><img width="100" align="left" src="http://fuelphp.com/addons/shared_addons/themes/fuel/img/logo.png" /></a><br>
 
 &nbsp;&nbsp;Plugin for <a href="http://fuelphp.com">FuelPHP framework</a>.
+-->
+
 
 ------
 
