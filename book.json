@@ -82,18 +82,18 @@
           "text": "Version 2.2.x"
         },
         {
-          "value": "http://orientdb.com/docs/docs_review_30",
+          "value": "http://orientdb.com/docs/3.0.x",
           "text": "Version 3.0-Milestones",
           "selected": true
         },
         {
-          "value": "http://orientdb.com/docs/master",
+          "value": "http://orientdb.com/docs/develop",
           "text": "Version Development"
         }
       ]
     },
     "edit-link": {
-      "base": "https://github.com/orientechnologies/orientdb-docs/edit/docs_review_30",
+      "base": "https://github.com/orientechnologies/orientdb-docs/edit/3.0.x",
       "label": "Edit This Page"
     },
     "github": {
