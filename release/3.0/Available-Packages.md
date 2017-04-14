@@ -1,3 +1,5 @@
+{% include "./include-warning-3.0.md" %}
+
 # Available Packages
 
 Starting from OrientDB 3.0, for each of the available [OrientDB Editions](../../misc/Editions.md), different packages are available for download. Please use the package that best fits your needs.
