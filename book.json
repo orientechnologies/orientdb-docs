@@ -79,8 +79,12 @@
           "selected": true
         },
         {
-          "value": "http://orientdb.com/docs/master",
-          "text": "Version last"
+          "value": "http://orientdb.com/docs/3.0.x",
+          "text": "Version 3.0-Milestones"
+        },
+        {
+          "value": "http://orientdb.com/docs/develop",
+          "text": "Version Development"
         }
       ]
     },
