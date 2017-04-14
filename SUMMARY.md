@@ -13,6 +13,7 @@
         * [History of OrientDB](misc/History.md)
     * [Release 3.0](release/3.0/README.md)
         * [What's new in OrientDB 3.0?](release/3.0/What-is-new-in-OrientDB-3.0.md)
+        * [Available Packages](release/3.0/Available-Packages.md)
         * [SQL Changes](release/3.0/SQL-Changes.md)
         * [API Changes](release/3.0/API-Changes.md)
         * [Known Issues](release/3.0/Known-issues.md)
