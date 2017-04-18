@@ -54,13 +54,19 @@ In v 3.0 TinkerPop is just an alternative graph API. The main graph API provided
 
 ### Support for query on remote transactions
 
-### Support straming of query result set
+### Support streaming of query result set
 
 ### Integration with Tinker Pop 3.x
 
+OrientDB v3.0 is compliant with TinkerPop 3.x through an external plugin.
+
 ### Integration with Tinker Pop 2.x
 
+OrientDB v3.0 is backward compatible with TinkerPop 2.6.x API through an external plugin. If you built your application with OrientDB 2.2 or minor and you don't want to migrate to the new API (the new Multi-Model or the new TinkerPop 3.x APIs), then download the version with TP2 plugin included.
+
 ### Externalization of object API
+
+The Object Database API are now part of a separate module. If your existent application is using it, please include this module. For new application we don't suggest to use the Object Database API, but rather the new Multi-Model API.
 
 ### Improvements of storage caching for reduce latency
 
