@@ -291,6 +291,7 @@
         * [Match](sql/SQL-Match.md)
         * [Move Vertex](sql/SQL-Move-Vertex.md) 
         * [Optimize Database](sql/SQL-Optimize-Database.md) 
+        * [Profile](sql/SQL-Profile.md) 	
         * [Rebuild Index](sql/SQL-Rebuild-Index.md) 
         * [Revoke](sql/SQL-Revoke.md)
         * [Select](sql/SQL-Query.md)
