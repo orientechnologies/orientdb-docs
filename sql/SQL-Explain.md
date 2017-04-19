@@ -13,7 +13,7 @@ EXPLAIN SQL command returns information about query execution planning of a spec
 EXPLAIN <command>
 ```
 
-- **`<command>`** Defines the command that you want to profile.
+- **`<command>`** Defines the command that you want to profile, eg. a SELECT statement
 
 **Examples**
 
