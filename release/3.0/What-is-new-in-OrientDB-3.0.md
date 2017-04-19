@@ -102,6 +102,12 @@ Version 3.0 finally solves this limitation, now you can mix SQL and API operatio
 
 ### Support streaming of query result set
 
+In V 3.0 we re-designed the binary protocol and the ResultSet API to support streaming on query result sets. This means:
+
+- lower latency in query execution
+- much smaller footprint of query result sets, both on the server and on the client
+- (if you are a Java developer) a new, modern Java 8 API based on Streams to manipulate query result sets
+
 ### Integration with Tinker Pop 3.x
 
 OrientDB v3.0 is compliant with TinkerPop 3.x through an external plugin.
