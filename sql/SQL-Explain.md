@@ -46,8 +46,9 @@ EXPLAIN <command>
 
   </pre>
 
->For more information,s ee
+>For more information, see
 >- [SQL Commands](SQL-Commands.md)
+>- [PROFILE](SQL-Profile.md)
 
 
 
