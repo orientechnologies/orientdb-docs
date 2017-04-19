@@ -3,9 +3,35 @@
 
 ## What's new in OrientDB 3.0?
 
-### New database administration API
+### New database administration, accsess and pooling API
 
-### New database access and pooling API
+OrientDB v 3.0 has a new API that is specifically intended to manipulate database instances (ie. creating and dropping databases, checking that a DB exists, creating single db connections and connection pools).
+
+Using this API is as simple as doing:
+
+```java
+OrientDB orientDB = new OrientDB("embedded:/tmp/",OrientDBConfig.defaultConfig());
+orientDB.create("test",ODatabaseType.PLOCAL);
+
+try(ODatabaseDocument db = orientDB.open("test","admin","admin");) {
+     // Enter your code here...
+}
+
+orientDB.close();
+```
+
+You can also instantiate a connection pool as follows:
+
+```java
+ODatabasePool pool = new ODatabasePool(orientDB,"test","admin","admin");
+// OPEN DATABASE
+try (ODatabaseDocument db = pool.acquire() {
+   // YOUR CODE
+   ...
+}
+```
+
+
 
 ### Graph-document concepts unification in core API
 
