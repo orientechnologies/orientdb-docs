@@ -9,50 +9,94 @@
 
 ### Graph-document concepts unification in core API
 
-**ODocument vs. OElement**
-
-OrientDB v 3.0 has a new interface called OElement whose goal si to replace ODocument class as "the" public API for documents.
-> We decided to leave ODocument as it is - a class, not an interface - to make migration easier, but we would have really liked to 
-have ODocument interface
-
-ODocument is still there, but now it implements OElement.
-
-PLEASE, DO NOT USE ODocument, USE OElement instead
-
-ODocument access API (`field(...)`) is now deprecated and replaced by a new API:
- 
-- `doc.getProperty(name)`: retrieves a property value
-- `doc.setProperty(name, value)`: sets a property value
-- `doc.getPropertyNames()`: returns all the property names for current document
-
-Main differences with legacy API:
-
-- characters allowed in property names: any character is allowed as a valid character in property names. 
-  ```java
-  doc.setProperty("foo.bar", "aaa"); //sets 'aaa' as a value of the property "foo.bar"
-  doc.getProperty("foo.bar"); //retrieves the value of "foo.bar" property
-  ```
-  
-  while in the legacy API the dot had the specific meaning of embedded field traversal
-  
-  ```java
-  doc.field("foo.bar", "aaa"); //sets the "bar" property on "foo" embedded property, if any. Otherwise it does nothing
-  doc.field("foo.bar"); //retrieves the value of "bar" property of the embedded property "foo"
-  ```
-  
-  The same is for square brackets
-  
-
 **Core Graph API**
 
 In v 3.0 TinkerPop is just an alternative graph API. The main graph API provided by OrientDB is in the Core module:
 
 ![AddVertex1](../../images/ORecordHierarchy.png)
 
+**Create documets and graphs with the same API**
+
+With the ODatabaseDocument API you can now create simple documents:
+
+```java
+  OElement doc = db.newInstance("ADocumentClass");
+```
+
+or graphs
+
+```java
+  OVertex vertex1 = db.newVertex("AVertexClass");
+  OVertex vertex2 = db.newVertex("AVertexClass");  
+  vertex1.addEdge("AnEdgeClass", vertex2);
+```
+
+**Unified and more powerful API for properties**
+
+Now documents, vertices and edges have a single, unified API to get and set property names:
+
+```java
+  document.setProperty("name", "foo");
+  vertex.setProperty("name", "foo");
+  edge.setProperty("name", "foo");
+  
+  document.getProperty("name");
+  vertex.getProperty("name");
+  edge.getProperty("name");
+```
+  
+> No more `doc.field("name")`  and `vertex.getProperty("name")`!!! 
+
+Property names can now contain **any character**, including blank spaces, dots, brackets and special characters.
+
 
 ### New execution plan based query engine
 
+OrientDB team completely re-wrote the SQL query engine. The new query engine is more strict, more accurate and explicit in the execution plannin and of course faster!
+
+An example of the new execution planning:
+
+```sql
+SELECT sum(Amount), OrderDate 
+FROM Orders 
+WHERE OrderDate > date("2012-12-09", "yyyy-MM-dd")
+GROUP BY OrderDate
+```
+
+```
++ FETCH FROM INDEX Orders.OrderDate
+  OrderDate > date("2012-12-09", "yyyy-MM-dd")
++ EXTRACT VALUE FROM INDEX ENTRY
++ FILTER ITEMS BY CLASS 
+  Orders
++ CALCULATE PROJECTIONS
+  Amount AS _$$$OALIAS$$_1, OrderDate
++ CALCULATE AGGREGATE PROJECTIONS
+      sum(_$$$OALIAS$$_1) AS _$$$OALIAS$$_0, OrderDate
+  GROUP BY OrderDate
++ CALCULATE PROJECTIONS
+  _$$$OALIAS$$_0 AS `sum(Amount)`, OrderDate
+```
+
+You can also obtain statistics about the cost of each step in the query execution:
+
+```
++ FETCH FROM INDEX Orders.OrderDate (1.445μs)
+  OrderDate > date("2012-12-09", "yyyy-MM-dd")
++ EXTRACT VALUE FROM INDEX ENTRY
++ FILTER ITEMS BY CLASS 
+  Orders
++ CALCULATE PROJECTIONS (5.065μs)
+  Amount AS _$$$OALIAS$$_1, OrderDate
++ CALCULATE AGGREGATE PROJECTIONS (3.182μs)
+      sum(_$$$OALIAS$$_1) AS _$$$OALIAS$$_0, OrderDate
+  GROUP BY OrderDate
++ CALCULATE PROJECTIONS (1.116μs)
+  _$$$OALIAS$$_0 AS `sum(Amount)`, OrderDate
+```
+
 ### Support for query on remote transactions
+
 
 ### Support streaming of query result set
 
