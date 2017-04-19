@@ -58,7 +58,7 @@ Apart from being hard to read, this query could also lead to SQL injection, base
 
 OrientDB allows to avoid string concatenation for parameter values, using named or positional parameters.
  
-####Named Parameters
+#### Named Parameters
 
 A named parameter is defined as an identifier preceded by a colon, eg. `:parameter1`  
 
@@ -90,7 +90,7 @@ OResultSet rs = db.query(stm, params);
 ```
 
 
-####Positional Parameters
+#### Positional Parameters
 
 A positional parameter is identified by a `?`, eg.
 
@@ -144,7 +144,7 @@ You can also transform any OResult in an OElement invoking
 OElement toElement()
 ``` 
 There is an important difference between `getElement()` and `toElement()`:
-- getElement() returns a non-empty Optional<OElement> only if the OResult represents a persistent entity
+- getElement() returns a non-empty `Optional<OElement>` only if the OResult represents a persistent entity
 - toElement() acts the same as getElement() (apart from the Optional) when the result of getElement() is not empty. In case it's not true,
 it returns a new (not yet persisted) OElement with the same properties as the OResult.
 
@@ -238,7 +238,7 @@ rs.close();
 > IMPORTANT: if you are migrating from previous versions, please consider that until v 2.2 the newline was a valid delimiter for SQL statements in a script (the semicolon was not mandatory); in v 3.0 a single statement in a script can be split on multiple lines. 
 
 
-###Legacy API
+### Legacy API
 
 The legacy API is still there, but the methods are deprecated. It will be removed in 
 next versions. 
