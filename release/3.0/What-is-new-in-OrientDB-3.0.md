@@ -52,7 +52,7 @@ Property names can now contain **any character**, including blank spaces, dots, 
 
 ### New execution plan based query engine
 
-OrientDB team completely re-wrote the SQL query engine. The new query engine is more strict, more accurate and explicit in the execution plannin and of course faster!
+OrientDB team completely re-wrote the SQL query engine. The new query engine is more strict, more accurate and explicit in the execution planning and of course faster!
 
 An example of the new execution planning:
 
