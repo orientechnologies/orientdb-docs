@@ -31,7 +31,7 @@ try (ODatabaseDocument db = pool.acquire() {
 }
 ```
 
-
+More information [HERE](../../java/Document-API-Database.md)
 
 ### Graph-document concepts unification in core API
 
@@ -75,6 +75,7 @@ Now documents, vertices and edges have a single, unified API to get and set prop
 
 Property names can now contain **any character**, including blank spaces, dots, brackets and special characters.
 
+More information [HERE](../../java/Java-MultiModel-API.md)
 
 ### New execution plan based query engine
 
@@ -121,6 +122,11 @@ You can also obtain statistics about the cost of each step in the query executio
   _$$$OALIAS$$_0 AS `sum(Amount)`, OrderDate
 ```
 
+More information about [SELECT execution planning](../../sql/SQL-Select-Execution.md), [EXPLAIN](../../sql/SQL-Explain.md), [PROFILE](../../sql/SQL-Profile.md)
+
+
+
+
 ### Support for query on remote transactions
 
 Until V 2.2 remote connection did not allow to mix API operations and SQL statemens in the same transaction.
@@ -134,9 +140,13 @@ In V 3.0 we re-designed the binary protocol and the ResultSet API to support str
 - much smaller memory footprint for query result sets, both on the server and on the client
 - (if you are a Java developer) a new, modern Java 8 API based on Streams to manipulate query result sets
 
+More information about [HERE](../../java/Java-Query-API.md)
+
 ### Integration with Tinker Pop 3.x
 
 OrientDB v3.0 is compliant with TinkerPop 3.x through an external plugin.
+
+More information [HERE](../../tinkerpop3/OrientDB-TinkerPop3.md)
 
 ### Integration with Tinker Pop 2.x
 
