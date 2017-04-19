@@ -142,13 +142,13 @@ In V 3.0 we re-designed the binary protocol and the ResultSet API to support str
 
 More information about [HERE](../../java/Java-Query-API.md)
 
-### Integration with Tinker Pop 3.x
+### Integration with Apache TinkerPop 3.x
 
 OrientDB v3.0 is compliant with TinkerPop 3.x through an external plugin.
 
 More information [HERE](../../tinkerpop3/OrientDB-TinkerPop3.md)
 
-### Integration with Tinker Pop 2.x
+### Integration with Apache TinkerPop 2.x
 
 OrientDB v3.0 is backward compatible with TinkerPop 2.6.x API through an external plugin. If you built your application with OrientDB 2.2 or minor and you don't want to migrate to the new API (the new Multi-Model or the new TinkerPop 3.x APIs), then download the version with TP2 plugin included.
 
