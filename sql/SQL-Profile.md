@@ -3,7 +3,7 @@ search:
    keywords: ['SQL', 'PROFILE', 'EXPLAIN', 'command', 'profile']
 ---
 
-# SQL - `EXPLAIN`
+# SQL - `PROFILE`
 
 PROFILE SQL command returns information about query execution planning and statistics for a specific statement.
 The statement is actually executed to provide the execution stats.
