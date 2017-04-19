@@ -97,6 +97,8 @@ You can also obtain statistics about the cost of each step in the query executio
 
 ### Support for query on remote transactions
 
+Until V 2.2 remote connection did not allow to mix API operations and SQL statemens in the same transaction.
+Version 3.0 finally solves this limitation, now you can mix SQL and API operations in a single, remote transaction and the tx isolation will be guaranteed by OrientDB, transparently.
 
 ### Support streaming of query result set
 
