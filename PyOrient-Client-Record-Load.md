@@ -19,7 +19,7 @@ client.record_load(<rid>, <fetch-plan>, <callback>)
 ```
 
 - **`<rid>`** Defines the Record ID of the record you want to load.
-- **`<fetch-plan>`** Defines a [Fetching Strategy](Fetching-Strategy.md) to use.
+- **`<fetch-plan>`** Defines a [Fetching Strategy](Fetching-Strategies.md) to use.
 - **`<callback>`** Defines a function to use as callback with your Fetch Plan.
 
 **Example**

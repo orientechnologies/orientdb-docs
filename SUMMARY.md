@@ -424,8 +424,6 @@
   * [Lucene Full Text](Full-Text-Index.md) 
   * [Lucene Spatial Index](Spatial-Index.md) 
 * [Scaling](Distributed-Architecture.md) 
-  * [Setup a Distributed Database](Tutorial-Setup-a-distributed-database.md) 
-  * [Working with Distributed Graphs](Tutorial-Working-with-distributed-graph-database.md) 
   * [Lifecycle](Distributed-Architecture-Lifecycle.md) 
   * [Configuration](Distributed-Configuration.md) 
     * [Server Manager](Distributed-Server-Manager.md) 
