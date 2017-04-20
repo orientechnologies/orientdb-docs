@@ -18,7 +18,7 @@ Check [what's new](release/3.0/What-is-new-in-OrientDB-3.0.md) and [download the
 |-----------------------|---------------|-------------|
 |[Introduction to OrientDB](introduction/Introduction.md) | [Basic Concepts](datamodeling/Concepts.md)  | [SQL](sql/README.md)| 
 |[Installation](gettingstarted/Tutorial-Installation.md) | [Supported Data Types](general/Types.md) | [Gremlin](gremlin/Gremlin.md) | 
-|[First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](general/Inheritance.md) | [HTTP API](misc/OrientDB-REST.md) |
+|[First Steps](gettingstarted/Tutorial-Working-with-graphs.md) | [Inheritance](general/Inheritance.md) | [HTTP API](misc/OrientDB-REST.md) |
 |[Troubleshooting](misc/Troubleshooting.md) |[Security](security/Security.md)| [Java API](java/Java-API.md)|
 |[Enterprise Edition](ee/Enterprise-Edition.md)| [Indexes](indexing/Indexes.md) | [NodeJS](orientjs/OrientJS.md)|
 | | [ACID Transactions](internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
@@ -30,7 +30,8 @@ Check [what's new](release/3.0/What-is-new-in-OrientDB-3.0.md) and [download the
 
 
 ### Operations
-- [Installation](Tutorial-Installation.md)
+
+- [Installation](gettingstarted/Tutorial-Installation.md)
 - [3rd party Plugins](plugins/Plugins.md)
 - [Upgrade](release/Upgrade.md) 
 - [Configuration](admin/Configuration.md)
@@ -42,7 +43,9 @@ Check [what's new](release/3.0/What-is-new-in-OrientDB-3.0.md) and [download the
 - [Export and Import](admin/Export-and-Import.md)
 
 
-### Quick References
+
+### Quick References 
+
 - [Console](console/README.md)
 - [Studio](studio/README.md) web tool
 - [OrientDB Server](internals/DB-Server.md)
