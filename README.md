@@ -4,6 +4,10 @@
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
+# OrientDB 3.0 M1 is out!
+
+Check [what's new](release/3.0/What-is-new-in-OrientDB-3.0.md) and [download the binary distribution](http://orientdb.com/orientdb-labs/) now
+
 | | |
 |----|-----|
 |![](images/warning.png)|OrientDB {{book.currentVersion}} and this Manual are still in development. Not suitable for production environments.|
