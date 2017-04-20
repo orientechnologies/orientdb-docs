@@ -58,7 +58,7 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
   orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.created DEFAULT "sysdate()"</code>
   </pre>
 
-- Define a unqiue id that cannot be changed after creation:
+- Define a unique id that cannot be changed after creation:
 
   <pre>
   orientdb> <code class="lang-sql userinput">ALTER PROPERTY Client.id DEFAULT "uuid()" READONLY</code>
