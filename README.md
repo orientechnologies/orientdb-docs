@@ -12,7 +12,7 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 
 |Getting Started	|Main Topics    |Developers   |
 |-----------------------|---------------|-------------|
-|[Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](datamodeling/Concepts.md)  | [SQL](sql/README.md)| 
+|[Introduction to OrientDB](introduction/Introduction.md) | [Basic Concepts](datamodeling/Concepts.md)  | [SQL](sql/README.md)| 
 |[Installation](Tutorial-Installation.md) | [Supported Data Types](general/Types.md) | [Gremlin](gremlin/Gremlin.md) | 
 |[First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](general/Inheritance.md) | [HTTP API](misc/OrientDB-REST.md) |
 |[Troubleshooting](misc/Troubleshooting.md) |[Security](security/Security.md)| [Java API](java/Java-API.md)|
