@@ -85,10 +85,6 @@
           "value": "http://orientdb.com/docs/3.0.x",
           "text": "Version 3.0-Milestones",
           "selected": true
-        },
-        {
-          "value": "http://orientdb.com/docs/develop",
-          "text": "Version Development"
         }
       ]
     },
