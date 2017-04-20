@@ -2,12 +2,15 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "variables": {
-    "download_osx": "http://mkt.orientdb.com/CE-2217-OSX",
-    "download_linux": "http://mkt.orientdb.com/CE-2217-linux",
-    "download_windows": "http://mkt.orientdb.com/CE-2217-windows",
-    "download_multiOS": "http://mkt.orientdb.com/CE-2217-multiOS",
-    "lastGA": "2.2.17",
-    "currentVersion": "3.0.0-SNAPSHOT"
+    "download_osx": "http://mkt.orientdb.com/CE-300m1-OSX",
+    "download_linux": "http://mkt.orientdb.com/CE-300m1-linux",
+    "download_windows": "http://mkt.orientdb.com/CE-300m1-windows",
+    "download_multiOS": "http://central.maven.org/maven2/com/orientechnologies/orientdb-community/3.0.0m1/orientdb-community-3.0.0m1.zip",
+    "javadoc":"http://orientdb.com/javadoc/latest/",
+    "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
+    "lastGA": "3.0.0m1",
+    "currentVersion": "3.0.0-M1",
+    "demoDBVersion_screenshots": "0.75"
   },  
   "links": {
     "home": "http://www.orientdb.com",
