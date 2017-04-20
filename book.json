@@ -5,7 +5,7 @@
     "download_osx": "http://mkt.orientdb.com/CE-300m1-OSX",
     "download_linux": "http://mkt.orientdb.com/CE-300m1-linux",
     "download_windows": "http://mkt.orientdb.com/CE-300m1-windows",
-    "download_multiOS": "http://mkt.orientdb.com/CE-300m1-multiOS",
+    "download_multiOS": "http://central.maven.org/maven2/com/orientechnologies/orientdb-community/3.0.0m1/orientdb-community-3.0.0m1.zip",
     "javadoc":"http://orientdb.com/javadoc/latest/",
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
     "lastGA": "3.0.0m1",
