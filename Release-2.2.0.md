@@ -11,7 +11,7 @@ search:
 
 ### Spatial Module
 
-OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Module](Spatial-Module.md).
+OrientDB v2.2 offers a brand new module to handle geospatial information provided as external plugin. Look at [Spatial Index](Spatial-Index.md).
 
 ### Pattern Matching
 
