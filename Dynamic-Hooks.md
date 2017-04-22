@@ -4,9 +4,9 @@ search:
 ---
 
 # Dynamic Hooks
-Dynamic [Hooks](Hook.md) are more flexible than [Java Hooks](Java-Hooks.md), because they can be changed at run-time and can run per document if needed, but are slower than [Java Hooks](Java-Hooks.md). Look at [Hooks](Hook.md) for more information.
+Dynamic [Hooks](Hook.md) are more flexible than [Java Hooks](Java-Hooks.md) because they can be changed at run-time and can run per document if needed, but are slower than [Java Hooks](Java-Hooks.md). Look at [Hooks](Hook.md) for more information.
 
-To execute hooks against your documents, let your classes to extend `OTriggered` base class. Then define a custom property for the event you're interested on. The available events are:
+To execute hooks against your documents, let your classes extend the `OTriggered` base class. Then define a custom property for the event you're interested in. The available events are:
 
 - `onBeforeCreate`, called **before** creating a new document
 - `onAfterCreate`, called **after** creating a new document
@@ -19,19 +19,19 @@ To execute hooks against your documents, let your classes to extend `OTriggered`
 
 Dynamic Hooks can call:
 
-- [Functions](Functions.md), written in SQL, Javascript or any language supported by OrientDB and JVM
+- [Functions](Functions.md) written in SQL, Javascript, or any other language supported by OrientDB and the JVM
 - Java static methods
 
 
 ## Class level hooks
-Class level hooks are defined for all the documents that relate to a class. Below is an example to setup a hook that acts at class level against Invoice documents.
+Class level hooks are defined for all the documents that relate to a class. Below is an example to setup a hook that acts at the class level against Invoice documents.
 
 ```sql
 CREATE CLASS Invoice EXTENDS OTriggered
 ALTER CLASS Invoice CUSTOM onAfterCreate=invoiceCreated
 ```
 
-Now let's create the function `invoiceCreated` in Javascript that prints in the server console the invoice number created.
+Now let's create the function `invoiceCreated` in Javascript that prints on the server console the invoice number created.
 
 ```sql
 CREATE FUNCTION invoiceCreated "print('\\nInvoice created: ' + doc.field('number'));" LANGUAGE Javascript
@@ -50,9 +50,9 @@ Invoice created: 100
 ```
 
 ## Document level hook
-You could need to define a special action only against one or more documents. To do this, let your class to extend `OTriggered` class.
+If you need to define a special action against only one or more documents let your class extend the `OTriggered` class.
 
-Example to execute a trigger, as Javascript function, against an existent Profile class, for all the documents with property `account = 'Premium'`. The trigger will be called to prevent deletion of documents:
+Example: To execute a trigger, as a Javascript function, against an existing Profile class, for all the documents with property `account = 'Premium'`. The trigger will be called to prevent deletion of documents:
 
 ```sql
 ALTER CLASS Profile SUPERCLASS OTriggered
