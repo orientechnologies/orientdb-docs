@@ -26,7 +26,7 @@ As you can see the method is executed against a field/value. Methods can receive
 ### Methods by category
 
 | Conversions | String manipulation | Collections | Misc |
-|-------|-------|-------|-------|-------|
+|-------|-------|-------|-------|
 |[convert()](SQL-Methods.md#convert)|[append()](SQL-Methods.md#append)|[\[\]](SQL-Methods.md)|[exclude()](SQL-Methods.md#exclude)|
 |[asBoolean()](SQL-Methods.md#asboolean)|[charAt()](SQL-Methods.md#charat)|[size()](SQL-Methods.md#size)|[include()](SQL-Methods.md#include)|
 |[asDate()](SQL-Methods.md#asdate)|[indexOf()](SQL-Methods.md#indexof)|[remove()](SQL-Methods.md#remove)|[javaType()](SQL-Methods.md#javatype)|
