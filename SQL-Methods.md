@@ -382,6 +382,11 @@ Applies to the following types:
 SELECT EXPAND( @this.exclude( 'password' ) ) FROM OUser
 ```
 
+Starting from 2.2.19 you can specify a wildcard as ending character to exclude all the fields that start with a certain string. Example to exclude all the outgoing and incloming edges:
+
+```sql
+SELECT EXPAND( @this.exclude( 'out_*', 'in_*' ) ) FROM V
+```
 ---
 
 ### .format()
@@ -439,6 +444,13 @@ Applies to the following types:
 ```sql
 SELECT EXPAND( @this.include( 'name' ) ) FROM OUser
 ```
+
+Starting from 2.2.19 you can specify a wildcard as ending character to include all the fields that start with a certain string. Example to include all the fields that starts with `amount`:
+
+```sql
+SELECT EXPAND( @this.include( 'amount*' ) ) FROM OUser
+```
+
 
 #### History
 
