@@ -24,6 +24,7 @@ As you can see the method is executed against a field/value. Methods can receive
 ## Bundled methods
 
 ### Methods by category
+
 | Conversions | String manipulation | Collections | Misc |
 |-------|-------|-------|-------|-------|
 |[convert()](SQL-Methods.md#convert)|[append()](SQL-Methods.md#append)|[\[\]](SQL-Methods.md)|[exclude()](SQL-Methods.md#exclude)|
@@ -43,6 +44,7 @@ As you can see the method is executed against a field/value. Methods can receive
 
 
 ### Methods by name
+
 |       |       |       |       |       |       
 |-------|-------|-------|-------|-------|
 |[\[\]](SQL-Methods.md)|[append()](SQL-Methods.md#append)|[asBoolean()](SQL-Methods.md#asboolean)|[asDate()](SQL-Methods.md#asdate)|[asDatetime()](SQL-Methods.md#asdatetime)|
