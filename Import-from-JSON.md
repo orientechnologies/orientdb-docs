@@ -1,11 +1,11 @@
 ---
 search:
-   keywords: ['etl', 'ETL', 'ETL example', 'import from JSON']
+   keywords: ['etl', 'ETL', 'ETL example', 'import from JSON', 'JSON']
 ---
 
 
 <!-- proofread 2015-12-11 SAM -->
-# Import form JSON
+# Import from JSON
 
 If you are migrating from MongoDB or any other DBMS that exports data in JSON format, the [JSON extractor](Extractor.md#json) is what you need. For more information look also at: [Import-from-PARSE](Import-from-PARSE.md).
 
