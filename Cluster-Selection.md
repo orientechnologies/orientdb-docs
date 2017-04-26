@@ -16,6 +16,10 @@ When you create a new record and specify the [class](Concepts.md#class) to which
 
 - `local` When the database is run in distributed mode, it selects the master cluster on the current node. This helps to avoid conflicts and reduce network latency with remote calls between nodes.
 
+In distributed mode the local cluster strategy is always selected automatically and can't be changed. The local strategy acts as a wrapper for the underlying strategy (round-robin by default) by filtering the allowed clusters by selecting only those the local server is a master.
+
+But in Studio is never displayed properly, because the underlying name is taken.
+
 Whichever cluster selection strategy works best for your application, you can assign it through the [`ALTER CLASS...CLUSTERSELECTION`](SQL-Alter-Class.md) command.  For example,
 
 <pre>
