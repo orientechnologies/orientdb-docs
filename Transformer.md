@@ -445,7 +445,7 @@ Component description.
   { "log": {} }
   ```
 
-- Log the currnt value with `->` as the prefix:
+- Log the current value with `->` as the prefix:
 
   ```json
   { "log": 
