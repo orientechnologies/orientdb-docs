@@ -56,8 +56,8 @@ The archive consists of the following files:
 
 Download and install OrientDB:
 
-<pre><code class="lang-sh">$ wget {{book.CE_link}} -O {{book.CE_name}}-{{book.lastGA}}.tar.gz</code></pre>	
-$ tar xvf {{book.CE_name}}-{{book.lastGA}}</code></pre>
+<pre><code class="lang-sh">$ wget {{book.CE_link}} -O {{book.CE_name}}-{{book.lastGA}}.tar.gz
+$ tar xvf {{book.CE_name}}-{{book.lastGA}}.tar.gz</code></pre>
 
 For more information on how to install OrientDB, please refer to the [Installation](Tutorial-Installation.md) section.
 
