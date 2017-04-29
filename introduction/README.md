@@ -15,14 +15,3 @@ This Chapter provides an introduction to OrientDB.
 * [How to Get in Touch with OrientDB](../misc/Get-in-Touch.md)
 * [How to Contribute to OrientDB](../misc/Contribute-to-OrientDB.md)
 * [OrientDB Roadmap](../misc/Roadmap.md)
-
-
-test
-{{summary.parts[0].articles[0]}}
-
-test
-{{summary.parts[1].articles[0]}}
-
-
-test
-{{summary.parts[1].articles[1]}}
