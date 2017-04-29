@@ -4,7 +4,7 @@
 
 ## FIRST STEPS
 
-* [Introduction](introduction/Introduction.md) 
+* [Introduction](introduction/README.md) 
     * [About This Manual](misc/About-This-Manual.md)
     * [Overview of OrientDB](misc/Overview.md)
         * [Editions](misc/Editions.md)
