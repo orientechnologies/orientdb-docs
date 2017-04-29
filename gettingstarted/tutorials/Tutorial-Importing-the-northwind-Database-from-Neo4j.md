@@ -16,8 +16,8 @@ For general information on the possible Neo4j to OrientDB migration strategies, 
 
 Please download and install OrientDB:
 
-<pre><code class="lang-sh">$ wget {{ book.download_multiOS }} -O orientdb-community-{{book.lastGA}}.zip
-$ unzip orientdb-community-{{book.lastGA}}</code></pre>
+<pre><code class="lang-sh">$ wget {{book.CE_link}} -O {{book.CE_name}}-{{book.lastGA}}.tar.gz</code></pre>	
+$ tar xvf {{book.CE_name}}-{{book.lastGA}}</code></pre>
 
 Download and install the _Neo4j to OrientDB Importer_:
 

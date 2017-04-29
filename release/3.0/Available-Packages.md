@@ -2,20 +2,20 @@
 
 # Available Packages
 
-Starting from OrientDB 3.0, for each of the available [OrientDB Editions](../../misc/Editions.md), different packages are available for download. Please use the package that best fits your needs.
+Starting from OrientDB 3.0, for each [OrientDB Editions](../../misc/Editions.md), different packages are available for download. Please use the package that best fits your needs.
 
 ## Community Edition
 
 The following are the packages available for OrientDB Community Edition:
 
-- **CE** (orientdb-community-3.0.0m1 [.tar.gz|.zip])
+- **CE** ([{{book.CE_name}}-{{book.lastGA}}.tar.gz]({{book.CE_link}}))
     - OrientDB Community Edition without Gremlin/TinkerPop support 
-- **CE-TP2** (orientdb-community-tp2-3.0.0m1 [.tar.gz|.zip])
+- **CE-TP2** ([{{book.TP2_name}}-{{book.lastGA}}.tar.gz]({{book.TP2_link}}))
     - OrientDB Community Edition that includes support for Gremlin/TinkerPop 2.6
-- **CE-TP3** (orientdb-community-tp3-3.0.0m1 [.tar.gz|.zip])
+- **CE-TP3** ([{{book.TP3_name}}-{{book.lastGA}}.tar.gz]({{book.TP3_link}}))
     - OrientDB Community Edition that includes support for Gremlin/TinkerPop 3.x   
-- **CE-spatial-TP3** (orientdb-community-spatial-3.0.0m1 [.tar.gz|.zip])
-    - Similar to CE-TP3, i.e. OrientDB Community Edition that includes support for Gremlin/TinkerPop 3.x , but with _spatial_ support a sell. _**Warning:**_ this package does include software that is released with LGPL license
+- **CE-spatial-TP3** ([{{book.TP3Spatial_name}}-{{book.lastGA}}.tar.gz]({{book.TP3Spatial_link}}))
+    - Similar to CE-TP3, i.e. OrientDB Community Edition that includes support for Gremlin/TinkerPop 3.x, but with _spatial_ support a sell. _**Warning:**_ this package does include software that is released with LGPL license
  
 ## Enterprise Edition
 
