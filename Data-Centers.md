@@ -40,7 +40,7 @@ Example:
     },
     "asia": {
       "writeQuorum": "majority",
-      "servers": [ "<tokio>", "<singapore>", "<hongkong>" ]
+      "servers": [ "<tokyo>", "<singapore>", "<hongkong>" ]
     }
   },
 ```
@@ -49,7 +49,7 @@ Example:
 
 ## Write Quorum
 
-The most common reason why defining data centers is a good idea is to able to set the consistency at the data center level. A typical scenario is to have synchronous replication between the servers in the same data center where the coordinator server is located and then to propagate changes to the other data centers asynchronously. In this way you can avoid the cost of the replication latency of the servers located at different data centers. In order to activate this mode, set the global `"writeQuorum": "localDataCenter"` and then specify a writeQuorum per data center.
+The most common reason for defining data centers is to be able to set the consistency level per data center.  A typical scenario is to have synchronous replication between the servers in the same data center where the coordinator server is located and then to propagate changes to the other data centers asynchronously. In this way you can avoid the cost of the replication latency of the servers located at different data centers. In order to activate this mode, set the global `"writeQuorum": "localDataCenter"` and then specify a writeQuorum per data center.
 
 For example, if a write operation is executed by a server where its data center's write quorum setting is `majority`, then the used quorum will be `majority` between only the servers located in the same data center.
 
