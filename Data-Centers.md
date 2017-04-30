@@ -9,7 +9,7 @@ Starting from OrientDB Enterprise Edition v2.2.4, you can define how your server
 
 ![Studio-Data-Centers](images/studio-data-centers.png)
 
-All you need is using the tag `"dataCenters"` in your [`default-distributed-config.json`](Distributed-Configuration.html#default-distributed-db-configjson) configuration file. This is the format:
+All you need is to use the tag `"dataCenters"` in your [`default-distributed-config.json`](Distributed-Configuration.html#default-distributed-db-configjson) configuration file. This is the format:
 
 ```json
   "dataCenters": {
@@ -49,11 +49,11 @@ Example:
 
 ## Write Quorum
 
-The most common reason why defining data centers is a good idea is the possibility of defining the consistency at data center level. A typical scenario is having a synchronous replication between the servers in the same data center where the coordinator server is located and then propagate changes to the other data centers in asynchronous way. In this way you can avoid the cost of the latency of the replication to the servers located on different data centers. In order to activate this mode, set the global `"writeQuorum": "localDataCenter"` and then specify a writeQuorum per data center.
+The most common reason why defining data centers is a good idea is to able to set the consistency at the data center level. A typical scenario is to have synchronous replication between the servers in the same data center where the coordinator server is located and then to propagate changes to the other data centers asynchronously. In this way you can avoid the cost of the replication latency of the servers located at different data centers. In order to activate this mode, set the global `"writeQuorum": "localDataCenter"` and then specify a writeQuorum per data center.
 
 For example, if a write operation is executed by a server where its data center's write quorum setting is `majority`, then the used quorum will be `majority` between only the servers located in the same data center.
 
-Example about the configuration of 2 data centers, "rome" and "austin", with rispectively 3 and 2 servers.
+Example about the configuration of 2 data centers, "rome" and "austin", with respectively 3 and 2 servers.
 
 ```json
 {
@@ -79,11 +79,11 @@ Example about the configuration of 2 data centers, "rome" and "austin", with ris
 }
 ```
 
-If a write operation is executed on the server "europe-0", the quorum used will be `majority`, but only between the servers locates in the same data center: namely "europe-0" (the coordinator), "europe-1" and "europe-2". Since the coordinator writes in the database before to distribute the operation, the write operation succeed as soon as at least one between the "europe-1" and "europe-2" servers provide the same result as with "europe-0". The rest of the replication will be executed in background in asycnhronous way.
+If a write operation is executed on the server "europe-0", the quorum used will be `majority`, but only between the servers located in the same data center: namely "europe-0" (the coordinator), "europe-1", and "europe-2". Since the coordinator writes in the database before distributing the operation, the write operation succeeds as soon as at least one other local server ("europe-1" or "europe-2") responds with the same result. The rest of the replication to the other data centers will be executed asynchronously.
 
 ## Consistency
 
-Since multiple data centers can have a local quorum, it is possible having an **Eventual Consistency** between them. It's always suggested to keep the number of servers odd, so you can, eventually, always be consistent. Example of 2 data centers with equal number of servers:
+Since multiple data centers can have a local quorum, it is possible to have **Eventual Consistency** between them. It's always suggested to keep the number of servers odd, so you can, eventually, always be consistent. Example of 2 data centers with an equal number of servers:
 
 ```json
   "dataCenters": {
@@ -99,8 +99,8 @@ Since multiple data centers can have a local quorum, it is possible having an **
 
 In this case if an UPDATE operation is executed by the server "usa-0" (the coordinator), it will reach the quorum only if `all` the servers in the "austin" data center provide the same result. Let's say the result for all these 2 servers was `5` (in the UPDATE operation the result is the updated version of the record). But what happens if all the other 3 servers in "rome" return the version `6`? You have no majority in this case (3 against 3), so the coordinator cannot establish who is the winner. The database become inconsistent.
 
-In order to automatically manage conflicts, the suggested configuration is always to keep an **odd number** of servers if you have or not data centers.
+In order to automatically manage conflicts, the suggested configuration is always to keep an **odd number** of servers whether you use multiple data centers or not.
 
 ## Conflict Resolution Policy
 
-In case of even number of servers, a Conflict Resolution Policy has to be defined. This is not yet available, but it's in our roadmap.
+In case of an even number of servers, a Conflict Resolution Policy has to be defined. This is not yet available, but it's in our roadmap.
