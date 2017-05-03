@@ -30,7 +30,7 @@ This is the list of the known drivers to use OrientDB through different language
     <td>Native implementation.</td>
 </tr>
 <tr>
-    <td><a href="../jdbc-driver/README.html">JDBC driver</a></td>
+    <td><a href="../jdbc-driver/">JDBC driver</a></td>
     <td>Native</td>
     <td>For legacy and reporting/Business Intelligence applications and <a href="https://github.com/kirpi4ik/orientdb-jca">JCA&nbsp;integration</a> for J2EE containers</td>
 </tr>
