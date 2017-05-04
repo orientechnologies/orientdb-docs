@@ -138,5 +138,5 @@ orientdb> <code class="lang-sql userinput">SELECT @RID, city, date FROM V</code>
 According to ISO 8601, Combined date and time in UTC: 2014-12-20T00:00:00. To use this standard change the datetimeformat in the database:
 
 ```sql
-ALTER DATABASE DATETIMEFORMAT yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+ALTER DATABASE DATETIMEFORMAT "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 ```
