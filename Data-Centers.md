@@ -103,13 +103,8 @@ In order to automatically manage conflicts, the suggested configuration is alway
 
 ## Conflict Resolution Policy
 
-In case of an even number of servers or when database are not aligned, OrientDB uses a Conflict Resolution Strategy chain. This default chain is defined as a global setting (`distributed.conflictResolverRepairerChain`):
+In [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) the additional `dc` strategy is supported to let to a configured data center to always win in case of conflict. To use this strategy in the conflict resolution chain, append `dc` at the chain by overwriting the global setting `distributed.conflictResolverRepairerChain`. Example:
 
-`-Ddistributed.conflictResolverRepairerChain=majority,content,version`
+`-Ddistributed.conflictResolverRepairerChain=majority,content,version,dc{winner:asia}`
 
-The Conflict Resolution Strategy implementation are called in chain until a winner is selected. In the default configuration (above):
-- is first checked if there is a **strict majority** for the record in terms of record versions. If the majority exists, the winner is selected
-- if no strict majority was found, the **record content** is analyzed. If the majority is reached by founding a record with different versions but equal content, then that record will be the winner by using the higher version between them
-- if no majority has been found with the content, then the higher version wins (supposing an higher version means the most update record)
-
-At the end of the chain, if no winner is found, the records are untouched and only a manual intervention can decide who is the winner.
+Note the configuration passed in curly brackets `{winner:asia}` containing the name of the data center that will be the winner in case no winner has been found in the chain.
