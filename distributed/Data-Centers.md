@@ -103,7 +103,7 @@ In order to automatically manage conflicts, the suggested configuration is alway
 
 ## Conflict Resolution Policy
 
-In [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) the additional `dc` strategy is supported to let to a configured data center to always win in case of conflict. To use this strategy in the conflict resolution chain, append `dc` at the chain by overwriting the global setting `distributed.conflictResolverRepairerChain`. Example:
+In [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) the additional `dc` [Conflict Resolution Strategy](Distributed-Architecture.md#conflict-resolution-policy) is supported to let to a configured data center to always win in case of conflict. To use this strategy in the conflict resolution chain, append `dc` at the chain by overwriting the global setting `distributed.conflictResolverRepairerChain`. Example:
 
 `-Ddistributed.conflictResolverRepairerChain=majority,content,version,dc{winner:asia}`
 
