@@ -101,7 +101,7 @@ The Conflict Resolution Strategy implementation are called in chain following th
 - if no strict majority was found, the **record content** is analyzed. If the majority is reached by founding a record with different versions but equal content, then that record will be the winner by using the higher version between them
 - if no majority has been found with the content, then the **higher version** wins (supposing an higher version means the most update record)
 
-OrientDB Enterprise Edition supports the additional [Data Center](Data-Center.md) Conflict Resolution (`dc`). 
+OrientDB Enterprise Edition supports the additional [Data Center](Data-Centers.md) Conflict Resolution (`dc`). 
 
 At the end of the chain, if no winner is found, the records are untouched and only a manual intervention can decide who is the winner. In this case a WARNING message is displayed in the console with text `Auto repair cannot find a winner for record <rid> and the following groups of contents: [<records>]`.
 
