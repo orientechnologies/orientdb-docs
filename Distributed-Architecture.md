@@ -83,13 +83,25 @@ If you have 5 servers, and writeQuorum is the majority (N/2+1 = 3), this could h
 - 1 or 2 servers report any error, the TX is still committed (quorum passes) and the 1 or 2 servers will be forced to have the same result as the others
 - 3 servers or more have different results/errors, so the tx is rollbacked on all the servers to the initial state
 
-
 #### What about the visibility during distributed transaction?
 
 During the distributed transaction, in case of rollback, there could be an amount of time when the records appear changed before they are rollbacked.
 
 ## Split brain network problem
 OrientDB guarantees strong consistency if it's configured to have a `writeQuorum` set to a value as the majority of the number of nodes. If you have 5 nodes, it's 3, but if you have 4 nodes, it's still 3 to have a majority. While `writeQuorum` setting can be configured at database and cluster level too, it's not suggested to set a value minor than the majority of nodes, because in case of re-merge of the 2 split networks, you'd have both network partitions with updated data and OrientDB doesn't support (yet) the merging of 2 non read-only networks. So the suggestion is to always provide a `writeQuorum` with a value to, at least, the majority of the nodes.
+
+## Conflict Resolution Policy
+
+In case of an even number of servers or when database are not aligned, OrientDB uses a Conflict Resolution Strategy chain. This default chain is defined as a global setting (`distributed.conflictResolverRepairerChain`):
+
+`-Ddistributed.conflictResolverRepairerChain=majority,content,version`
+
+The Conflict Resolution Strategy implementation are called in chain until a winner is selected. In the default configuration (above):
+- is first checked if there is a **strict majority** for the record in terms of record versions. If the majority exists, the winner is selected
+- if no strict majority was found, the **record content** is analyzed. If the majority is reached by founding a record with different versions but equal content, then that record will be the winner by using the higher version between them
+- if no majority has been found with the content, then the **higher version** wins (supposing an higher version means the most update record)
+
+At the end of the chain, if no winner is found, the records are untouched and only a manual intervention can decide who is the winner. In this case a WARNING message is displayed in the console with text `Auto repair cannot find a winner for record <rid> and the following groups of contents: [<records>]`.
 
 ## Limitations
 OrientDB v2.2.x has some limitations you should notice when you work in Distributed Mode:
