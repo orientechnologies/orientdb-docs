@@ -7,6 +7,10 @@ search:
 
 OrientDB provides driver support through a network binary protocol.  This allows you to manage servers through various API's and drivers.  You can access the database through a C#/.NET application using the OrientDB-NET.binary driver.
 
+## New Alpha SDK
+
+The OrientDB .NET SDK is currently being rewrittewn as a modular SDK. If you would like to check it out and help drive the direction of the new version, navigate to [OrientDB.Net.Core](https://github.com/orientechnologies/OrientDB.Net.Core).
+
 ## Installation
 
 The OrientDB-NET driver is not included by default in your OrientDB installation.  In order to use it, you must install it separately on your system.
