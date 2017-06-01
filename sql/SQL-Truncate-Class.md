@@ -7,7 +7,7 @@ search:
 
 Deletes records of all clusters defined as part of the class.  
 
-By default, every class has an associated cluster with the same name.  This command operates at a lower level that [`DELETE`](SQL-Delete.md).  This commands ignores sub-classes, (That is, their records remain in their clusters).  If you want to also remove all records from the class hierarchy, you need to use the `POLYMORPHIC` keyword.
+By default, every class has an associated cluster with the same name.  This command operates at a lower level than [`DELETE`](SQL-Delete.md).  This commands ignores sub-classes, (That is, their records remain in their clusters).  If you want to also remove all records from the class hierarchy, you need to use the `POLYMORPHIC` keyword.
 
 Truncation is not permitted on vertex or edge classes, but you can force its execution using the `UNSAFE` keyword.  Forcing truncation is strongly discouraged, as it can leave the graph in an inconsistent state.
 

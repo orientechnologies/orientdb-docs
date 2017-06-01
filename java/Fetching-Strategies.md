@@ -74,6 +74,16 @@ Under the default configuration, when a client executes a query or loads a singl
 
 When the client executes a query, set a Fetch Plan with a level different from `0`.  This causes the server to traverse all the records of the return result-set, sending them in response to a single call.  OrientDB loads all connected records into the local client, meaning that the collections remain lazy, but when accessing content, the record is loaded from the local cache to mitigate the need for additional connections.
 
+## Examples using SQL
+
+Acquire Profile and its first level friendships
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT OUT("out_Friend") as friends from Profile fetchplan friends:1</code>
+</pre>
+
+This will provide a result set of Profile records with a field called `friends` that contains an array of vertices connected via an `out_Friend` edge.  Only the `friends` field is part of the fetchplan in this instance, any further fields will be treated as normal.
+
 ## Examples using the Java APIs
 
 ### Execute a query with a custom fetch plan
