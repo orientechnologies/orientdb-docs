@@ -11,7 +11,7 @@ Represents the database structure as clusters. Each cluster has the following in
 - `ID`, is the cluster ID
 - `Name`, is the name of the cluster
 - `Records`, are the total number of records stored in the cluster
-- `Conflict Strategy`, is the conflict strategy used. I empty, the database's strategy is used as default
+- `Conflict Strategy`, is the conflict strategy used. If empty, the database's strategy is used as default
 
 ![Structure](images/structure.png)
 
