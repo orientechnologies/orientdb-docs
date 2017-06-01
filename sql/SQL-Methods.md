@@ -25,7 +25,7 @@ As you can see the method is executed against a field/value. Methods can receive
 
 ### Methods by category
 | Conversions | String manipulation | Collections | Misc |
-|-------|-------|-------|-------|-------|
+|-------|-------|-------|-------|
 |[convert()](SQL-Methods.md#convert)|[append()](SQL-Methods.md#append)|[\[\]](SQL-Methods.md)|[exclude()](SQL-Methods.md#exclude)|
 |[asBoolean()](SQL-Methods.md#asboolean)|[charAt()](SQL-Methods.md#charat)|[size()](SQL-Methods.md#size)|[include()](SQL-Methods.md#include)|
 |[asDate()](SQL-Methods.md#asdate)|[indexOf()](SQL-Methods.md#indexof)|[remove()](SQL-Methods.md#remove)|[javaType()](SQL-Methods.md#javatype)|
@@ -382,6 +382,13 @@ Applies to the following types:
 SELECT EXPAND( @this.exclude( 'password' ) ) FROM OUser
 ```
 
+
+Starting from 2.2.19 you can specify a wildcard as ending character to exclude all the fields that start with a certain string. Example to exclude all the outgoing and incloming edges:
+
+```sql
+SELECT EXPAND( @this.exclude( 'out_*', 'in_*' ) ) FROM V
+```
+
 ---
 
 ### .format()
@@ -438,6 +445,12 @@ Applies to the following types:
 
 ```sql
 SELECT EXPAND( @this.include( 'name' ) ) FROM OUser
+```
+
+Starting from 2.2.19 you can specify a wildcard as ending character to inclide all the fields that start with a certain string. Example to include all the fields that starts with `amonut`:
+
+```sql
+SELECT EXPAND( @this.exclude( 'amount*' ) ) FROM V
 ```
 
 #### History

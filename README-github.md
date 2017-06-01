@@ -60,8 +60,7 @@ Then you can refer to them inside any documentation page, e.g. {{ book.variable_
 To make sure the OrientDB download link points to the latest version, use inside your page the following code:
 
 ```
-<pre><code class="lang-sh">$ wget {{ book.download_multiOS }} -O orientdb-community-{{book.lastGA}}.zip
-$ unzip orientdb-community-{{book.lastGA}}</code></pre>
+<pre><code class="lang-sh">$ wget {{book.CE_link}} -O {{book.CE_name}}-{{book.lastGA}}.tar.gz</code></pre>	
 ```
 
 ### Include Files

@@ -204,7 +204,16 @@ OResultSet instances are automatically closed when you close the ODatabase that 
 
 It is important to always close result sets, even when they are converted to streams (after the stream is consumed).
 
+OResultSet implements `java.lang.AutoCloseable`, so you can use it in a [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) block:
 
+```java
+try(OResultSet rs = db.query("SELECT FROM Foo");) {
+   while(rs.hasNext()){
+      OResult row = rs.next();
+      ...
+   }
+}
+```
 
 ### Batch Scripts
 

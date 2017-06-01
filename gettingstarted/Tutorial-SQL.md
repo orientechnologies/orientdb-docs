@@ -102,7 +102,7 @@ The first query returns the first twenty results, the second returns the next tw
 
 The [`INSERT`](sql/SQL-Insert.md) statement adds new data to a class and cluster.  OrientDB supports three forms of syntax used to insert new data into your database.
 
-- The standard ANSI-93 syntax:
+- The standard ANSI-92 syntax:
   <pre>
   orientdb> <code class="lang-sql userinput">INSERT INTO	Employee(name, surname, gender)
           VALUES('Jay', 'Miner', 'M')</code>

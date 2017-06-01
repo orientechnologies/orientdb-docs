@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['Java API', 'JDBC', 'JDBC driver']
+   keywords: ['JDBC', 'JDBC driver']
 ---
 
 # JDBC Driver

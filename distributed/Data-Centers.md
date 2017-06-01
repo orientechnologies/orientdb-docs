@@ -5,7 +5,7 @@ search:
 
 # Data Centers
 
-Starting from OrientDB Enterprise Edition v2.2.4, you can define how your servers are deployed in multiple **Data Centers**.
+Starting from [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) v2.2.4, you can define how your servers are deployed in multiple **Data Centers**.
 
 ![Studio-Data-Centers](../images/studio-data-centers.png)
 
@@ -103,4 +103,8 @@ In order to automatically manage conflicts, the suggested configuration is alway
 
 ## Conflict Resolution Policy
 
-In case of even number of servers, a Conflict Resolution Policy has to be defined. This is not yet available, but it's in our roadmap.
+In [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) the additional `dc` [Conflict Resolution Strategy](Distributed-Architecture.md#conflict-resolution-policy) is supported to let to a configured data center to always win in case of conflict. To use this strategy in the conflict resolution chain, append `dc` at the chain by overwriting the global setting `distributed.conflictResolverRepairerChain`. Example:
+
+`-Ddistributed.conflictResolverRepairerChain=majority,content,version,dc{winner:asia}`
+
+Note the configuration passed in curly brackets `{winner:asia}` containing the name of the data center that will be the winner in case no winner has been found in the chain.

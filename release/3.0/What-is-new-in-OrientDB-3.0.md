@@ -3,7 +3,7 @@
 
 ## What's new in OrientDB 3.0?
 
-### New database administration, accsess and pooling API
+### New database administration, access and pooling API
 
 OrientDB v 3.0 has a new API that is specifically intended to manipulate database instances (ie. creating and dropping databases, checking that a DB exists, creating single db connections and connection pools).
 

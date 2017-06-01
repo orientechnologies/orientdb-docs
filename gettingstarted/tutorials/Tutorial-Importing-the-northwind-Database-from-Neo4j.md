@@ -16,8 +16,8 @@ For general information on the possible Neo4j to OrientDB migration strategies, 
 
 Please download and install OrientDB:
 
-<pre><code class="lang-sh">$ wget {{ book.download_multiOS }} -O orientdb-community-{{book.lastGA}}.zip
-$ unzip orientdb-community-{{book.lastGA}}</code></pre>
+<pre><code class="lang-sh">$ wget {{book.TP2_link}} -O {{book.TP2_name}}-{{book.lastGA}}.tar.gz
+$ tar xvf {{book.TP2_name}}-{{book.lastGA}}.tar.gz</code></pre>
 
 Download and install the _Neo4j to OrientDB Importer_:
 
@@ -137,7 +137,7 @@ General information on how to connect to a newly imported database can be found 
 
 The following is a partial visualization of the _northwind_ database done with the Graph Editor included in the OrientDB's [Studio](../studio/README.md) tool:
 
-![](images/import_from_neo4j/northwind/northwind_graph_editor.PNG)
+![](../../images/import_from_neo4j/northwind/northwind_graph_editor.PNG)
 
 As you can see from the _Limit_ field, the visualization is limited to 200 vertices.
 
@@ -147,10 +147,10 @@ The following, instead, is the graph returned by the following [MATCH](../sql/SQ
 MATCH {class: Order, where: (orderID = 10344)}--{as: n} RETURN $pathelements
 ```
 
-![](images/import_from_neo4j/northwind/northwind_match_query.PNG)
+![](../../images/import_from_neo4j/northwind/northwind_match_query.PNG)
 
 From Studio's [Schema Manager](studio/Studio-Schema.md), you can check all imported Vertex Classes (node Labels in Neo4j), Edge Classes (Relationship Types in Neo4j), and Indexes:
 
-![](images/import_from_neo4j/northwind/northwind_schema_manager.PNG)
+![](../../images/import_from_neo4j/northwind/northwind_schema_manager.PNG)
 
 `V` and `E` are special classes: they include all Vertices and all Edges.

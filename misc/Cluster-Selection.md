@@ -14,7 +14,7 @@ When you create a new record and specify the [class](../datamodeling/Concepts.md
 
 - `balanced` It checks the number of records in the configured clusters for the class and assigns the new record to whichever is the smallest at the time.  To avoid latency issues on data insertions, OrientDB calculates cluster size every five seconds or longer.
 
-- `local` When the database is run in distributed mode, it selects the master cluster on the current node. This helps to avoid conflicts and reduce network latency with remote calls between nodes.
+- `local` When the database is run in distributed mode, it selects the master cluster on the current node. This helps to avoid conflicts and reduce network latency with remote calls between nodes. In distributed mode the local cluster strategy is always selected automatically and can't be changed. The local strategy acts as a wrapper for the underlying strategy (round-robin by default) by filtering the allowed clusters by selecting only those the local server is a master. In Studio "local" is never displayed properly, because the underlying name is taken.
 
 Whichever cluster selection strategy works best for your application, you can assign it through the [`ALTER CLASS...CLUSTERSELECTION`](../sql/SQL-Alter-Class.md) command.  For example,
 
