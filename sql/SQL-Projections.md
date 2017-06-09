@@ -18,7 +18,7 @@ has three projections:
 
 **A projection** has the following syntax:
 
-`<expression> [ AS <alias> ]`
+`<expression> [<nestedProjection>] [ AS <alias> ]`
 
 - `<expression>` is an expression (see [SQL Syntax](SQL-Syntax.md)) that represents the way to calculate the value of the single projection
 - `<alias>` is the Identifier (see [SQL Syntax](SQL-Syntax.md)) representing the field name used to return the value in the result set
@@ -134,4 +134,147 @@ SELECT items[4] from Node
 
 result:
 [{"@rid":"#-2:0", "items[4]": "John Smith"}] 
+```
+
+### Nested projections
+
+(since v 3.0 M2)
+
+#### Syntax:
+
+
+`":{" ( * | (["!"] <identifier> ["*"] (<comma> ["!"] <identifier> ["*"])* ) ) "}"`
+
+
+A projection can refer to a link or to a collection of links, eg. a LINKLIST or a LINKSET.
+In some cases you can be interested in the expanded object intead of the RID.
+
+Let's clarify this with an example. This is our dataset:
+
+| @rid  | name | surname | parent |
+|-------|------|---------|--------|
+| #12:0 | foo  | fooz    |        |
+| #12:1 | bar  | barz    | #12:0  |
+| #12:2 | baz  | bazz    | #12:1  |
+
+Given this query:
+
+```SQL
+SELECT name, parent FROM TheClass WHERE name = 'baz'
+```
+The result is
+
+```
+{ 
+   "name": "baz",
+   "parent": #12:1
+}
+```
+Now suppose you want to expand the link and retrieve some properties of the linked object.
+You can do it explicitly do it with other projections:
+
+```SQL
+SELECT name, parent.name FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent.name": "bar"
+}
+```
+
+but this will force you to list them one by one, and it's not always possible, especially when you don't know all their names.
+
+Another alternative is to use nested projections, eg.
+
+```SQL
+SELECT name, parent:{name} FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent": {
+      "name": "bar"
+   }
+}
+```
+or with multiple attributes
+```SQL
+SELECT name, parent:{name, surname} FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent": {
+      "name": "bar"
+      "surname": "barz"      
+   }
+}
+```
+
+or using a wildcard
+
+```SQL
+SELECT name, parent:{*} FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent": {
+      "name": "bar"
+      "surname": "barz"      
+      "parent": #12:0
+   }
+}
+```
+
+You can also use the `!` exclude syntax to define which attributes you want to *exclude* from the nested projection:
+
+```SQL
+SELECT name, parent:{!surname} FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent": {
+      "name": "bar"
+      "parent": #12:0
+   }
+}
+```
+
+You can also use a wildcard on the right of property names, to specify the inclusion of attributes that start with a prefix, eg.
+
+```SQL
+SELECT name, parent:{surna*} FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent": {
+      "surname": "barz"      
+   }
+}
+```
+
+or their exclusion
+
+```SQL
+SELECT name, parent:{!surna*} FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent": {
+      "name": "bar",      
+      "parent": #12:0
+   }
+}
 ```
