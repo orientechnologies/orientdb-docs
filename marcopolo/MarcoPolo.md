@@ -7,7 +7,7 @@ search:
 
 OrientDB supports a number of application programming interfaces, natively through the JVM and externally through Java wrappers and the Binary Protocol.  In the event that you need or would prefer to develop your OrientDB application Erlang VM language Elixir, you can do so through the driver [MarcoPolo](https://github.com/MyMedsAndMe/marco_polo).
 
->**NOTE**: OrientDB Documentation for MarcoPolo is currently in development.  If you have a question that is not currently addressed here, please consult the [project documentation](http://hexdocs.pm/marco_polo).
+>For more information on the MarcoPolo Elixir driver, see the [project documentation](http://hexdocs.pm/marco_polo).
 
 ## Getting MarcoPolo
 
