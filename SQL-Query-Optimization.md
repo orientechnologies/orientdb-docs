@@ -46,7 +46,7 @@ For this simple statement, the query executor will perform the following actions
 - return 10 records
 
 > NOTE: the ordering of the result is executed *after* the calculation of the projections, so the result can only be sorted by
-`name` or `surname`, ie. not for `age`
+`name` or `surname`, ie. not by `age`
 
 Some facts:
 
