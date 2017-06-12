@@ -9,7 +9,9 @@ When using traditional queries, such as those called with `db.query()` and `db.s
 
 You can execute Live Queries using the `db.liveQuery()` method with a [`LIVE SELECT`](SQL-Live-Select.md) statement passed as its argument. 
 
-From OrientDB 2.2.x in order to make live query works the token must be enabled. See [here](OrientJS-Server.md#using-tokens)
+
+> IMPORTANT: From OrientDB 2.2.x in order to make live query works the token must be enabled. See [here](OrientJS-Server.md#using-tokens)
+
 ## Understanding Live Queries
 
 Traditional queries provide you with information that is current at the time the query is issued.  In most cases, such as well pulling statistical data on long-dead ball players like Ty Cobb, this behavior is sufficient to your needs.  But, what if about when you need real time information.
