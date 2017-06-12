@@ -56,11 +56,13 @@ SELECT * FROM profile WHERE tags[0-5] CONTAINSALL ['smart', 'new', 'crazy']
 
 ### Condition
 
-Inside the square brackets you can specify a condition. Today only the equals condition is supported.
+Inside the square brackets you can specify a condition. Any SQL condition is supported.
 
 Example:
 ```sql
 employees[label = 'Ferrari']
+
+employees[age > 25 AND name = 'John']
 ```
 
 #### Use in graphs
@@ -87,10 +89,4 @@ As you can see where brackets ([]) follow brackets, the result set is filtered i
 
 NOTE: This doesn't replace the support of GREMLIN. GREMLIN is much more powerful because it does thousands of things more, but it's a simple and, at the same time, powerful tool to traverse relationships.
 
-### Future directions
 
-In the future you will be able to use the full expression of the OrientDB SQL language inside the square brackets [], like:
-```sql
-SELECT out[in.label.trim() = 'Ferrari' AND in.@class='Vehicle'] FROM v WHERE name = 'Tom'
-```
-But for this you have to wait yet :-) Monitor the issue: https://github.com/nuvolabase/orientdb/issues/513
