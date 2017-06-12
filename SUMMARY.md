@@ -285,6 +285,7 @@
         * [HA Status](sql/SQL-HA-Status.md) 
         * [HA Sync Cluster](sql/SQL-HA-Sync-Cluster.md) 
         * [HA Sync Database](sql/SQL-HA-Sync-Database.md) 
+        * [HA Set](sql/SQL-HA-Set.md)
         * [Insert](sql/SQL-Insert.md)
         * [Live Select](sql/SQL-Live-Select.md)
         * [Live Unsubscribe](sql/SQL-Live-Unsubscribe.md)
