@@ -10,7 +10,7 @@ When using traditional queries, such as those called with `db.query()` and `db.s
 You can execute Live Queries using the `db.liveQuery()` method with a [`LIVE SELECT`](SQL-Live-Select.md) statement passed as its argument. 
 
 
-> IMPORTANT: From OrientDB 2.2.x in order to make live query works the token must be enabled. See [here](OrientJS-Server.md#using-tokens)
+> IMPORTANT: From OrientDB 2.2.x in order to make live query work the token must be enabled. See [here](OrientJS-Server.md#using-tokens)
 
 ## Understanding Live Queries
 
