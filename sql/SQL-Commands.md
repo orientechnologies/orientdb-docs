@@ -16,7 +16,7 @@ search:
 | [TRUNCATE CLASS](SQL-Truncate-Class.md) | [MOVE VERTEX](SQL-Move-Vertex.md) | [DROP PROPERTY](SQL-Drop-Property.md) | [DROP DATABASE (console only)](../console/Console-Command-Drop-Database.md) | [HA REMOVE SERVER](SQL-HA-Remove-Server.md) |
 | [TRUNCATE CLUSTER](SQL-Truncate-Cluster.md) | [MATCH](SQL-Match.md) | [CREATE INDEX](SQL-Create-Index.md) | [OPTIMIZE DATABASE](SQL-Optimize-Database.md) | [HA SYNC DATABASE](SQL-HA-Sync-Database.md) |
 | [TRUNCATE RECORD](SQL-Truncate-Record.md) | | [REBUILD INDEX](SQL-Rebuild-Index.md)  | [CREATE USER](SQL-Create-User.md) | [HA SYNC CLUSTER](SQL-HA-Sync-Cluster.md) |
-|  | |[DROP INDEX](SQL-Drop-Index.md)  | [DROP USER](SQL-Drop-User.md) | [PROFILE](SQL-Profile.md) |
-|  | |[CREATE SEQUENCE](SQL-Create-Sequence.md)  | [GRANT](SQL-Grant.md) | |
+|  | |[DROP INDEX](SQL-Drop-Index.md)  | [DROP USER](SQL-Drop-User.md) | [HA SET](SQL-HA-Set.md) |
+|  | |[CREATE SEQUENCE](SQL-Create-Sequence.md)  | [GRANT](SQL-Grant.md) | [PROFILE](SQL-Profile.md) |
 |  | |[ALTER SEQUENCE](SQL-Alter-Sequence.md)  | [REVOKE](SQL-Revoke.md)  | |
 |  | |[DROP SEQUENCE](SQL-Drop-Sequence.md)  | | |
