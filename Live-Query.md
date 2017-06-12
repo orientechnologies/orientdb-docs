@@ -136,7 +136,7 @@ Live Query is currently supported from the following interfaces
 
 ## Enabling LiveQuery
 
-Since version 2.2 the live query are enabled by default, from disable it set the property `query.live.support` to false.
+Since version 2.2 the live query are enabled by default, to disable it set the property `query.live.support` to false.
 
 ## LiveQuery in Java
 
