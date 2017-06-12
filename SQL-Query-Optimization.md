@@ -5,7 +5,7 @@ search:
 
 # SQL Query Optimization
 
-> IMPORTANT: This section refers to OrientDB v 2.2 only. 
+> **IMPORTANT**: This section refers to OrientDB v 2.2 only. 
 
 > Some of these tips are also valid for previous 2.x versions.
 
@@ -122,7 +122,7 @@ CREATE INDEX Person.name on Person (name) NOTUNIQUE
 
 With these index definitions, OrientDB will be able to use only one index to optimize the query. In this case it will choose the index for filtering and will discard the other one.
 
-> THE EXECUTION PLAN **CANNOT** MIX INDEXES FOR SORTING AND FILTERING. IT WILL ALWAYS CHOOSE THE INDEX FOR FILTERING AND WILL IGNORE THE OTHER ONE.
+> **IMPORTANT**: THE EXECUTION PLAN **CANNOT** MIX INDEXES FOR SORTING AND FILTERING. IT WILL ALWAYS CHOOSE THE INDEX FOR FILTERING AND WILL IGNORE THE OTHER ONE.
 
 OrientDB can actually exploit indexes for both filtering and sorting, but it has to be the *same* index:
 
