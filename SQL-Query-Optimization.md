@@ -60,13 +60,13 @@ The most relevant operation here is the scan of 1.000.000 records (likely loadin
 
 ## Case B: Index based filtering
 
-Based on Case A, The first optimization we can do here is adding an index on `age`
+Based on Case A, the first optimization we can do here is adding an index on `age`
 
 ```SQL
 CREATE INDEX Person.age on Person (age) NOTUNIQUE
 ```
 
-With this simple optimization, the query execution plan will become as follows:
+With this simple optimization, the query execution plan becomes as follows:
 
 - fetch records from `Person.age` index, where key = 25
 - calculate projectionis (`name` and `surname`)
@@ -82,5 +82,62 @@ Some facts:
 
 Compared to Case A, OrientDB only fetches from disk 1/100 of the records, 
 so you can expect the original query to be 100 times faster approximately.
+
+## Case C: Index based sorting
+
+Based on Case A (suppose no other indexes are available, ie. we never performed the optimization provided with Case B), another optimization we can do is adding an index on `name` property to speed up the sorting operation.
+
+```SQL
+CREATE INDEX Person.name on Person (name) NOTUNIQUE
+```
+
+With this optimization, the query execution plan becomes as follows:
+
+- fetch records from `Person.name` index in ascending order
+- calculate projectionis (`name` and `surname`)
+- for each record, filter by `age`
+- collect the first 20 valid results
+- discard 10 records (SKIP)
+- return 10 records
+
+Some facts:
+
+- There is no need for sorting here, as the index already provides records sorted by `name`
+- If you are lucky enough, the first 20 records will have `age = 20`, so the query will take ~1/50.000 of the original one...
+- ...but if you are particularly unlucky, to find 20 records that match `age = 20` you will have to scan all the original dataset, so the performance will be the same as the Case A
+
+
+## Case D: Index based filtering + sorting
+
+Let's try to mix Case B and C together and see if we can do better:
+
+The naive approach of using both indexes together won't work:
+
+```SQL
+//WRONG!
+
+CREATE INDEX Person.age on Person (age) NOTUNIQUE
+CREATE INDEX Person.name on Person (name) NOTUNIQUE
+```
+
+With these index definitions, OrientDB will be able to use only one index to optimize the query. In this case it will choose the index for filtering and will discard the other one.
+
+> THE EXECUTION PLAN **CANNOT** MIX INDEXES FOR SORTING AND FILTERING. IT WILL ALWAYS CHOOSE THE INDEX FOR FILTERING AND WILL IGNORE THE OTHER ONE.
+
+OrientDB can actually exploit indexes for both filtering and sorting, but it has to be the *same* index:
+
+```SQL
+//CORRECT
+
+CREATE INDEX Person.age_name on Person (age, name) NOTUNIQUE
+```
+
+With this index, the query execution plan becomes much more efficient:
+
+- fetch records from `Person.age_name` index in ascending order, `where age = 25`
+- discard 10 records (SKIP)
+- return 10 records
+
+This execution will ALWAYS fetch only 20 records from the storage, so the query performance is always 50.000x faster than Case A
 
 
