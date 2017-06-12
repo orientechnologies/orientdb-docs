@@ -214,7 +214,7 @@ Here is a simple example that shows how to use LiveQuery with OrientJS
 
 ```Javascript
 var OrientDB = require('orientjs');
-var server = OrientDB({host: 'localhost', port: 2424});
+var server = OrientDB({host: 'localhost', port: 2424, useToken: true});
 var db = server.use({name: 'test', username: 'admin', password: 'admin'});
 
 db.liveQuery("live select from V")
