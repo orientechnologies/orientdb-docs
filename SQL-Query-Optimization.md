@@ -343,9 +343,55 @@ SELECT FROM Person WHERE surname = 'bar' AND age = 25 AND name = 'foo'
 
 in some cases will only use the index to match the `name` and then will manually filter on `surname` and `age`
 
+
+This is particularly relevant when using parentheses, eg. the following query 
+
+```SQL
+//wrong order of properties + parentheses
+SELECT FROM Person WHERE (surname = 'bar' AND age = 25) AND (name = 'foo')
+```
+
+will likely fail to correctly use the index
+
 > **IMPORTANT**: always try to write your WHERE clause so that the order of the conditions matches the order of the fields in the index definition, this will make it easier for OrientDB to find the right index and use it correctly. 
 
 > **NOTE**: this limitation is completely removed in v 3.0
 
 
+## Understanding EXPLAIN command
 
+EXPLAIN is a very useful tool to understand how a query is performing. To use it, just prefix the query with `explain` keyword, eg.
+
+```
+EXPLAIN SELECT FROM Person WHERE name = 'foo'
+```
+
+The result is a record containing statistics about the query execution, eg.
+
+```json
+{
+    "result": [
+        {
+            "@type": "d",
+            "@version": 0,
+            "documentReads": 2,
+            "fullySortedByIndex": false,
+            "documentAnalyzedCompatibleClass": 2,
+            "recordReads": 2,
+            "fetchingFromTargetElapsed": 0,
+            "indexIsUsedInOrderBy": false,
+            "compositeIndexUsed": 1,
+            "current": "#74:0",
+            "involvedIndexes": [
+                "Person.name_surname_age_karma"
+            ],
+            "limit": -1,
+            "evaluated": 2,
+            "user": "#5:0",
+            "elapsed": 0.655,
+            "resultType": "collection",
+            "resultSize": 1
+        }
+    ]
+}
+```
