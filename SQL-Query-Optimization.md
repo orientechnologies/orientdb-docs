@@ -402,6 +402,7 @@ SELECT FROM (
 ) WHERE prop1 = 'foo' 
 ```
 
+
 ## Understanding EXPLAIN command
 
 EXPLAIN is a very useful tool to understand how a query is performing. To use it, just prefix the query with `explain` keyword, eg.
@@ -438,4 +439,46 @@ The result is a record containing statistics about the query execution, eg.
         }
     ]
 }
+```
+
+> NOTE: In v 2.2, OrientDB will have to execute the query to calculate the `explain`, so if the query takes a lot of time/memory/resources to execute, the `explain` will take a lot as well.
+
+
+
+The first information you can get from this is whether one or more indexes were used to execute the query. Just check **involvedIndexes** property in the result. If this property is not in the result, then the executor did not use any indexes.
+
+Unfortunately, **involvedIndexes** does not give you any information about *how* the index was used, eg. you don't know if it was used for full match or for partial match.
+
+To have some more information, you can check **recordReads** property. It reports how many records were actually fetched an analized.
+
+Another useful information is provided by **fullySortedByIndex**: if it returs `true` it means that no ORDER BY operations were performed in memory, but all the sorting relies on indexes. Unfortunately you do not have the opposite information, ie. if the index was used *only* for sorting and not for filtering.
+
+> **Please note** that all this is going to change in v 3.0. Here you can see the result of an EXPLAIN in OrientDB V 3.0
+
+```SQL
+------------------------------
+-- result of an EXPLAIN in V 3.0
+------------------------------
+
+explain select Name from Monuments 
+where Id < 15 and Name LIKE 'Statua%'
+ORDER BY Name
+SKIP 1 LIMIT 3
+```
+```
++ FETCH FROM INDEX Monuments.Id
+  Id < 15
++ EXTRACT VALUE FROM INDEX ENTRY
++ FILTER ITEMS WHERE 
+  Name LIKE 'Statua%'
++ FILTER ITEMS BY CLASS 
+  Monuments
++ CALCULATE PROJECTIONS
+  Name
++ ORDER BY Name ASC
+  (buffer size: 4)
++ SKIP ( SKIP 1)
++ LIMIT ( LIMIT 3)
+```
+
 ```
