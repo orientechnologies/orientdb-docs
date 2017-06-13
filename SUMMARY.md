@@ -442,6 +442,7 @@
   * [Sequences and auto increment](Sequences-and-auto-increment.md) 
   * [Pivoting with Query](Pivoting-With-Query.md) 
   * [Command Cache](Command-Cache.md) 
+  * [Query Optimization](SQL-Query-Optimization.md)
 * [Indexing](Indexes.md) 
   * [SB-Tree](SB-Tree-index.md) 
   * [Hash](Hash-Index.md) 
