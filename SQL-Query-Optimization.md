@@ -143,4 +143,153 @@ With this index, the query execution plan becomes much more efficient:
 This execution will ALWAYS fetch only 20 records from the storage, so the query performance is always 50.000x faster than Case A
 
 
+## Case E: Equality and Inequality conditions
 
+Let's consider three different statements:
+
+```SQL
+SELECT FROM Person WHERE age = 25
+
+SELECT FROM Person WHERE age <> 25
+
+SELECT FROM Person WHERE age > 25
+```
+
+The first statement has an equality expression; to execute it, OrientDB can use **any type** of index (apart from fulltext and spatial), ie. tree based and hash indexes.
+
+The second statement has a "not equals" condition. OrientDB will *never* use indexes to optimize it. `<>` is equivalent to `!=`
+
+The third statement has a "range" condition (range operators include `>`, `<`, `>=`, `<=`); OrientDB can only use three-based indexes (ie. UNIQUE and NOTUNIQUE) to optimize range queries. Hash indexes will be ignored.
+
+
+## Case F: Composite indexes - full match
+
+A composite index is an index defined on multiple properties. Consider the following
+
+```SQL
+CREATE CLASS Person
+CREATE PROPERTY Person.name STRING
+CREATE PROPERTY Person.surname STRING
+CREATE PROPERTY Person.age INTEGER
+CREATE PROPERTY Person.karma INTEGER
+```
+
+And an index defined as follows:
+
+```SQL
+CREATE INDEX Person.name_surname_age_karma on Person (name, surname, age, karma) NOTUNIQUE
+```
+
+This index can of course be used for a full match, eg.
+
+```SQL
+SELECT FROM Person WHERE name = 'foo' AND surname = 'bar' AND age = 25 AND karma = 100
+```
+
+## Case F - Composite indexes - partial match
+
+Consider the schema and the index defined in Case E. This index can also be used for partial queries, eg.
+the following queries can use that index to optimize the search
+
+```SQL
+SELECT FROM Person WHERE name = 'foo' AND surname = 'bar' AND age = 25 
+
+SELECT FROM Person WHERE name = 'foo' AND surname = 'bar'
+
+SELECT FROM Person WHERE name = 'foo' 
+```
+
+The partial match is allowed only on a prefix of the index definition. 
+The following query **won't** be optimized by the above mentioned index:
+
+```SQL
+//NOT INDEXED
+SELECT FROM Person WHERE surname = 'bar' AND age = 25 AND karma = 100
+
+//NOT INDEXED
+SELECT FROM Person WHERE age = 25 
+
+//NOT INDEXED
+SELECT FROM Person WHERE karma = 100
+```
+
+> IMPORTANT: Only **tree-based** indexes (ie UNIQUE, NOTUNIQUE) can be used for partial match. Hash indexes (eg. UNIQUE_HASH_INDEX, NOTUNIQUE_HASH_INDEX) will be **ignored** for partial match.
+
+
+## Case G - Composite indexes - range queries
+
+Tree-based indexes can be used to optimize both equality and range queries. The same applies to composite indexes, with the only limitation that the range condition has to be on the last property that is used for index search. Let's make it clear with an example:
+
+Given the schema and the index defined in Case E, consider the following query:
+
+```SQL
+SELECT FROM Person WHERE name = 'foo' AND surname = 'bar' AND age = 25 AND karma > 100
+```
+
+This query will be executed using the full index (ie. on properties `name`, `surname`, `age` and `karma`).
+
+Now consider the following:
+
+```SQL
+SELECT FROM Person WHERE name = 'foo' AND surname = 'bar' AND age > 25 AND karma > 100
+```
+
+now the range condition is on `age`, that is the third property in the index definition. In this case, the query will be executed as follows:
+
+- fetch from the index, based on `name`, `surname` and `age`
+- filter the resulting records by `karma`
+
+So if you have 1000 records with the same name, surname and age, but only one has karma > 100, the query will fetch all the 1000 records and filter them one by one, based on `karma` value.
+
+This happens because now the first range condition is `age > 25`, this condition *short-circuits the range query*
+
+The same would have happened if the condition on `karma` was an equality condition (ie. `karma = 100`); all the conditioins after the first range condition are ignored in partial index match.
+
+> **IMPORTANT:** range conditions short-circuit partial index usage
+
+
+## Case H - Composite indexes - partial match and sorting
+
+As discussed in Case D, indexes can be used for filtering and sorting at the same time. This also applies to partial match.
+Consider the domain and the index defined in Case E and the following query:
+
+```
+SELECT FROM Person WHERE name = 'foo' AND surname = 'bar' ORDER BY age
+```
+
+In this case the query executor will use the index for both filtering (partial match on `name` and `surname`) and for sorting.
+
+The conditions for this to happen are following:
+
+- the filtering has to be done based on equality conditions (ie. no range conditions)
+- the sorting has to be executed on a property that, in the index definition, is right next to the properties used for filtering
+
+To make it clear, consider this scheme:
+
+```SQL
+CREATE INDEX theIndex on TheClass (prop1, prop2... propN) NOTUNIQUE
+```
+```SQL
+SELECT FROM TheClass
+WHERE
+prop1 = ...
+AND prop2 = ...
+...
+AND propX = ...
+ORDER BY `propX+1`
+```
+
+```
+          ALL EQUALITY CONDITIONS            NOTHING IN 
+                    |                        THE MIDDLE
+ +------------------+--------------------+     |
+ |                                       |     |
+equality    equality    equality    equality   |        
+condition   condition   condition   condition  |  ORDER BY
+    |           |           |           |      |    |       
+    V           V           V           V      |    V       
+  prop1       prop2       ...         propX    V  propX+1     ....   propN
+  
+```
+
+> **IMPORTANT:** both partial match and sorting are allowed only on tree-based indexes
