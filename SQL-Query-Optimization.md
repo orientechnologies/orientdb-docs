@@ -106,6 +106,8 @@ Some facts:
 - If you are lucky enough, the first 20 records will have `age = 20`, so the query will take ~1/50.000 of the original one...
 - ...but if you are particularly unlucky, to find 20 records that match `age = 20` you will have to scan all the original dataset, so the performance will be the same as the Case A
 
+> **IMPORTANT:** Sorting based on indexes can be **only** performed on tree-based indexes (ie. UNIQUE and NOTUNIQUE indexes). All the other types of indexes (eg. NOTUNIQUE_HASH_INDEX, UNIQUE_HASH_INDEX, LUCENE) *do not* support sorting, so they will be ignored for ORDER BY operations.
+
 
 ## Case D: Index based filtering + sorting
 
@@ -139,5 +141,6 @@ With this index, the query execution plan becomes much more efficient:
 - return 10 records
 
 This execution will ALWAYS fetch only 20 records from the storage, so the query performance is always 50.000x faster than Case A
+
 
 
