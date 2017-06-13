@@ -402,6 +402,24 @@ SELECT FROM (
 ) WHERE prop1 = 'foo' 
 ```
 
+## Case K - Optimization of count(*)
+
+OrientDB can optimize a `count(*)` in some basic cases:
+
+- when it is performed on a class or on a cluster, without further conditions, eg.
+
+```SQL
+SELECT count(*) FROM Person
+```
+
+- when it's performed on an indexed query without further filtering:
+
+```SQL
+--suppose an index is defined on "name"
+SELECT count(*) FROM Person where name = 'a'
+```
+
+
 
 ## Understanding EXPLAIN command
 
@@ -452,6 +470,7 @@ Unfortunately, **involvedIndexes** does not give you any information about *how*
 To have some more information, you can check **recordReads** property. It reports how many records were actually fetched an analized.
 
 Another useful information is provided by **fullySortedByIndex**: if it returs `true` it means that no ORDER BY operations were performed in memory, but all the sorting relies on indexes. Unfortunately you do not have the opposite information, ie. if the index was used *only* for sorting and not for filtering.
+
 
 ## Sneak peek of V 3.0
 
