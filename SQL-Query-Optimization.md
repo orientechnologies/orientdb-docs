@@ -358,6 +358,50 @@ will likely fail to correctly use the index
 > **NOTE**: this limitation is completely removed in v 3.0
 
 
+## Case J - AND vs OR conditions
+
+Consider the following schema:
+
+```SQL
+CREATE CLASS TheClass 
+CREATE PROPERTY TheClass.prop1 STRING
+CREATE PROPERTY TheClass.prop2 STRING
+
+CREATE INDEX TheClass.prop1 on TheClass (prop1) NOTUNIQUE
+CREATE INDEX TheClass.prop2 on TheClass (prop2) NOTUNIQUE
+```
+
+In such a scenario, you can write queries that involve both `prop1` and `prop2` and OrientDB will have to choose which index (or indexes) to use.
+
+A simple case is following:
+
+```SQL
+SELECT FROM TheClass WHERE prop1 = 'foo' OR prop2 = 'bar'
+```
+
+in this case, OrientDB will use both indexes and will merge the results.
+
+> OrientDB can use mutiple indexes when OR conditions are involved
+
+Another possible case is this (please note that in this case an `AND` condition is involved):
+
+```SQL
+SELECT FROM TheClass WHERE prop1 = 'foo' AND prop2 = 'bar'
+```
+in this case OrientDB will use *only one index* (eg. the one defined on `prop1`) and then will apply the rest of the conditions record by record.
+
+The way OrientDB chooses the index depends on how many properties are involved in the indexing. Typically, OrientDB will *try* to use as many properties as possible for indexed query. When two indexes with the same number of properties are available, the choice is simply based on internals (eg. on the order the indexes appear in the schema).
+
+As a general rule, you should not rely on this mechanism, because the general performance of the query is not completely predictable.
+
+A better approach is to re-write the query as a chain of sub-queries, to make sure that he inner query uses the right index. Eg. if you want OrientDB to use the index on `prop2`, you can write the query as follows:
+
+```SQL
+SELECT FROM (
+   SELECT FROM TheClass WHERE prop2 = 'bar'
+) WHERE prop1 = 'foo' 
+```
+
 ## Understanding EXPLAIN command
 
 EXPLAIN is a very useful tool to understand how a query is performing. To use it, just prefix the query with `explain` keyword, eg.
