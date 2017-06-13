@@ -503,3 +503,10 @@ SKIP 1 LIMIT 3
 + SKIP ( SKIP 1)
 + LIMIT ( LIMIT 3)
 ```
+
+In V 3.0 the execution planner will be much smarter (and already is, in the SNAPSHOT release) than in v 2.2:
+
+- the order of the conditions and parentheses does not matter anymore, OrientDB can figure out all the indexes that can be used for a query
+- the choice of the right index for a query is based on statistics collected during query execution
+- the execution planner is much more explicit, so you can exactly know how the query is being executed
+- the EXPLAIN is calculated without executing the query, so it returns immediately, also for very expensive queries
