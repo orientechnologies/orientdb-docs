@@ -476,7 +476,7 @@ Another useful information is provided by **fullySortedByIndex**: if it returs `
 
 > **Please note** that all what was described above is going to change in v 3.0. 
 
-> As a preview, here you can see the result of an EXPLAIN in OrientDB V 3.0
+As a preview, here you can see the result of an EXPLAIN in OrientDB V 3.0
 
 ```SQL
 ------------------------------
