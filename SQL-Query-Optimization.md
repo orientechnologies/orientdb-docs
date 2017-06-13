@@ -453,7 +453,11 @@ To have some more information, you can check **recordReads** property. It report
 
 Another useful information is provided by **fullySortedByIndex**: if it returs `true` it means that no ORDER BY operations were performed in memory, but all the sorting relies on indexes. Unfortunately you do not have the opposite information, ie. if the index was used *only* for sorting and not for filtering.
 
-> **Please note** that all this is going to change in v 3.0. Here you can see the result of an EXPLAIN in OrientDB V 3.0
+## Sneak peek of V 3.0
+
+> **Please note** that all this is going to change in v 3.0. 
+
+> As a preview, here you can see the result of an EXPLAIN in OrientDB V 3.0
 
 ```SQL
 ------------------------------
@@ -479,6 +483,4 @@ SKIP 1 LIMIT 3
   (buffer size: 4)
 + SKIP ( SKIP 1)
 + LIMIT ( LIMIT 3)
-```
-
 ```
