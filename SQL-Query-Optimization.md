@@ -186,7 +186,7 @@ This index can of course be used for a full match, eg.
 SELECT FROM Person WHERE name = 'foo' AND surname = 'bar' AND age = 25 AND karma = 100
 ```
 
-## Case F - Composite indexes - partial match
+## Case G - Composite indexes - partial match
 
 Consider the schema and the index defined in Case E. This index can also be used for partial queries, eg.
 the following queries can use that index to optimize the search
@@ -216,7 +216,7 @@ SELECT FROM Person WHERE karma = 100
 > IMPORTANT: Only **tree-based** indexes (ie UNIQUE, NOTUNIQUE) can be used for partial match. Hash indexes (eg. UNIQUE_HASH_INDEX, NOTUNIQUE_HASH_INDEX) will be **ignored** for partial match.
 
 
-## Case G - Composite indexes - range queries
+## Case H - Composite indexes - range queries
 
 Tree-based indexes can be used to optimize both equality and range queries. The same applies to composite indexes, with the only limitation that the range condition has to be on the last property that is used for index search. Let's make it clear with an example:
 
@@ -248,7 +248,7 @@ The same would have happened if the condition on `karma` was an equality conditi
 > **IMPORTANT:** range conditions short-circuit partial index usage
 
 
-## Case H - Composite indexes - partial match and sorting
+## Case I - Composite indexes - partial match and sorting
 
 As discussed in Case D, indexes can be used for filtering and sorting at the same time. This also applies to partial match.
 Consider the domain and the index defined in Case E and the following query:
@@ -295,7 +295,7 @@ condition   condition   condition   condition  |  ORDER BY
 > **IMPORTANT:** both partial match and sorting are allowed only on tree-based indexes
 
 
-## Case H - IN condition
+## Case J - IN condition
 
 Consider a query like this:
 
@@ -322,7 +322,7 @@ As a general rule, `IN` conditions are optimized using indexes only when all the
 In all the other cases, the `IN` condition is not optimized using indexes
 
 
-## Case I - order of conditions in the WHERE clause
+## Case K - order of conditions in the WHERE clause
 
 In v 2.2, OrientDB SQL executor tries to find the best index based on the conditions defined in the query, but in some cases if fails to find the right combination of conditions to consider for indexed execution. 
 
@@ -358,7 +358,7 @@ will likely fail to correctly use the index
 > **NOTE**: this limitation is completely removed in v 3.0
 
 
-## Case J - AND vs OR conditions
+## Case L - AND vs OR conditions
 
 Consider the following schema:
 
@@ -402,7 +402,7 @@ SELECT FROM (
 ) WHERE prop1 = 'foo' 
 ```
 
-## Case K - Optimization of count(*)
+## Case M - Optimization of count(*)
 
 OrientDB can optimize a `count(*)` in some basic cases:
 
