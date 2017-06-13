@@ -293,3 +293,59 @@ condition   condition   condition   condition  |  ORDER BY
 ```
 
 > **IMPORTANT:** both partial match and sorting are allowed only on tree-based indexes
+
+
+## Case H - IN condition
+
+Consider a query like this:
+
+```SQL
+SELECT FROM Person WHERE name in ['foo', 'bar']
+```
+
+This query can be optimized with an index that is defined on `name` property only (eg. not on an index that is defined on `name` and `surname`).
+
+> this is not a limitation in the index engine, but just a limitation in the implementation of the SQL executor, there is a chance that in next 2.2.x releases it will be addressed. This limitation does not exist in V 3.0.
+
+The same applies to a query on a composite index, eg.
+
+```SQL
+SELECT FROM Person WHERE name = 'foo' AND surname in ['xxx', 'yyy']
+```
+
+This query can be optimized using an index defined on `name` and `surname`.
+
+As a general rule, `IN` conditions are optimized using indexes only when all these conditions apply:
+- the index can be used for a full match (not on partial match)
+- the `IN` condition is defined on the last property in the index definition
+
+In all the other cases, the `IN` condition is not optimized using indexes
+
+
+## Case I - order of conditions in the WHERE clause
+
+In v 2.2, OrientDB SQL executor tries to find the best index based on the conditions defined in the query, but in some cases if fails to find the right combination of conditions to consider for indexed execution. 
+
+An important rule to make OrientDB find the right index (and use it the right way) is to write the conditions in the same order as the properties appear in the index definition.
+
+Consider the schema and index defined in Case E, a query like following
+
+```SQL
+SELECT FROM Person WHERE name = 'foo' AND surname = 'bar' AND age = 25 
+```
+
+Will correctly use the index on all the three properties. A query like following
+
+```SQL
+//wrong order of properties
+SELECT FROM Person WHERE surname = 'bar' AND age = 25 AND name = 'foo'
+```
+
+in some cases will only use the index to match the `name` and then will manually filter on `surname` and `age`
+
+> **IMPORTANT**: always try to write your WHERE clause so that the order of the conditions matches the order of the fields in the index definition, this will make it easier for OrientDB to find the right index and use it correctly. 
+
+> **NOTE**: this limitation is completely removed in v 3.0
+
+
+
