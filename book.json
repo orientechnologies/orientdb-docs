@@ -16,7 +16,7 @@
     "currentVersion": "3.0.0-M1",
     "demoDBVersion_screenshots": "0.75",
 	"javase": "https://docs.oracle.com/javase/8/docs",
-	"javadoc": "https://orientdb.com/javadoc/3.0.x"
+	"javadoc": "https://orientdb.com/javadoc/develop"
   },
   "links": {
     "home": "http://orientdb.com",

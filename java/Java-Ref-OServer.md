@@ -11,7 +11,8 @@ This class allows you to embed and manage a server instance within your applicat
 
 ## Working with `OServer` 
 
-In order to use an embedded server in your application, you need to import the `OServer` class wherever you need it in your code.  It can be found at `com.orientechnologies.orient.server`.  For instance,
+In order to operate on an OrientDB database, you first need to establish a connection with the server.  You have two options in this: you can connect to a running OrientDB Server using [`OrientDB`](Java-Ref-OrientDB.md) or you can embed the server within your application using this class.  It can be found at `com.orientechnologies.orient.server`. For instance,
+
 
 ```java
 /* Import OrientDB Classes */
@@ -27,10 +28,10 @@ This class provides two constructors to create instances of `OServer` in your ap
 
 ```
 // CONSTRUCTOR 1
-public OServer()
+OServer()
 
 // CONSTRUCTOR 2
-public OServer(boolean shutdownEngineOnExit)
+OServer(boolean shutdownEngineOnExit)
 ```
 
 ### Exception
