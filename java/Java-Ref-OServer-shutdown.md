@@ -17,6 +17,10 @@ When you finish working with the given [`OServer`](Java-Ref-OServer.md) instance
 public boolean OServer().shutdown()
 ```
 
+#### Return Value
+
+This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) value. If the value is `true`, it indicates that the server was successfully shut down.
+
 
 ### Example
 

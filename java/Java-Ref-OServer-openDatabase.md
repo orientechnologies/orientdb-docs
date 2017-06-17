@@ -9,11 +9,8 @@ This method opens a database on the OrientDB Server.
 
 ## Opening Databases
 
-In order to operate on databases on a given [`OServer`](Java-Ref-OServer.md) instance, you first need to open the database.  Databases have separate login credentials from the OrientDB Server.  This method opens and returns an `ODatabase` interface of one of three generic database-types:
+In order to operate on databases on a given [`OServer`](Java-Ref-OServer.md) instance, you first need to open the database.  Databases have separate login credentials from the OrientDB Server.  
 
-- `ODatabaseDocumentTx`
-- `OrientGraph`
-- `OObjectDatabaseTx`
 
 ### Syntax
 
@@ -46,3 +43,11 @@ public ODatabaseDocumentTx OServer().openDatabase(ODatabaseDocumentTx database,
 | **`data`** | `ONetworkProtocolData` | Defines the network protocol for the connection. |
 | **`iBypassAccess`** | [`java.lang.Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Defines whether to bypass authentication in opening the database. |
 | **`database`** | `ODatabaseDocumentTx` | Defines the database to open. |
+
+#### Return Value
+
+This method returns an `ODatabase<T>` value, where `T` is a generic for any OrientDB database types.
+
+- `ODatabaseDocumentTx`
+- `OrientGraph`
+- `OObjectDatabaseTx`

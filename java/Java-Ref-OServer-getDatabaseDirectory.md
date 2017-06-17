@@ -17,6 +17,10 @@ When using the PLocal storage-type, OrientDB writes persistent data to the file 
 public String OServer().getDatabaseDirectory()
 ```
 
+#### Return Value
+
+This method returns a [`String`]({{ book.javase }}/api/java/lang/String.html) value.  It provides the path to where the OrientDB Server stores its databases.
+
 ### Example
 
 When OrientDB writes to PLocal storage, it writes the database to the file system in a particular directory.  Occasionally, you may need to operate on this directory or otherwise reference it elsewhere in your application.

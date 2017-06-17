@@ -22,6 +22,10 @@ public boolean OServer().isAllowed(String user, String resource)
 | **`user`** | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Defines the user you want to check. |
 | **`resource`** | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Defines the resource you want to check. |
 
+#### Return Value
+
+This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) value.  If the return value is `true`, it inidcates that the user has permission to access the given resource.
+
 ### Example
 
 Consider the use case of an application that needs to perform several operations on various OrientDB Servers.  In the class that manages the server, you might want to create a method to streamline these operations into a basic check that can be called wherever you need it in the class.

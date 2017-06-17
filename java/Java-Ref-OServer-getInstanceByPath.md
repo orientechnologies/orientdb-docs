@@ -21,6 +21,9 @@ public static OServer OServer().getInstanceByPath(String iPath)
 |---|---|---|
 | **`iPath`** | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Defines the sever path you want to retrieve. | 
 
+#### Return Value
+
+This method returns an [`OServer`](Java-Ref-OServer.md) value.  It provides you with an instance of the OrientDB Server running on the given path.
 
 
 ### Example

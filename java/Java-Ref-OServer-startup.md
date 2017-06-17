@@ -31,6 +31,10 @@ public OServer OServer().startup(InputStream iInputStream)
 | **`iConfiguration`** | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Defines the server configuration, as a string. |
 | **`iInputStream`** | [`java.io.InputStream`]({{ book.javase }}/api/java/io/InputStream.html) | Defines the server configuration, as an input stream. |
 
+#### Return Value
+
+This method returns an [`OServer`](Java-Ref-OServer.md) instance, which provides the started OrientDB embedded server.
+
 
 #### Exceptions
 

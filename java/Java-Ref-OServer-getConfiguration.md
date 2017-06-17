@@ -17,6 +17,10 @@ On occasion you may need to review or otherwise operation on configuration value
 public OServerConfiguration OServer().getConfiguration()
 ```
 
+#### Return Value
+
+This method returns an `OServerConfiguration` value, which provides the current configuration of the OrientDB Server.
+
 ### Example
 
 In cases where you need to operate on an instance of the `OServerConfiguration` class, you can retrieve the current configuration from the OrientDB Server.  You might use a method such as this in the class that manages your [`OServer`](Java-Ref-OServer.md) instance.

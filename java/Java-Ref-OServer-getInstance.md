@@ -21,6 +21,10 @@ public static OServer OServer().getInstance(String iServerId)
 |---|---|---|
 | **`iServerId`** | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Defines the Server ID you want to retrieve. |
 
+#### Return Value
+
+This method returns an [`OServer`](Java-Ref-OServer.md) instance.
+
 ### Example
 
 Imagine you have OrientDB running in a distributed deployment and have an operation that you need to run on several servers in sequence.  You might use a method such as this to convert a list of Server ID's into one of active [`OServer`](Java-Ref-OServer.md) instances.

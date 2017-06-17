@@ -9,7 +9,7 @@ This method creates a new database on the OrientDB Server.  If the database alre
 
 ## Creating Databases
 
-On occasion you may have several processes operating on a given OrientDB Server and not know for certain whether the given database eixsts already on the server.  This method allows you to ensure that a given database exists before you attempt further operations. 
+On occasion you may have several processes operating on a given OrientDB Server and not know for certain whether the given database exists already on the server.  This method allows you to ensure that a given database exists before you attempt further operations. 
 
 ### Syntax
 
@@ -31,6 +31,10 @@ public boolean OrientDB().createIfNotExists(
 | **`name`** | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Defines the database name |
 | **`type`** | `ODatabaseType` | Defines the database type, (PLocal or in-memory) |
 | **`config`** | `OrientDBConfig` | defines the database configuration |
+
+#### Return Value
+
+This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) value.  If the return value is `true`, it indicates that it has created a new database.  If the return value is `false`, it indicates that a database of that name already exists on the server.
 
 
 ### Example

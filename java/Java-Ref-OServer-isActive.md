@@ -17,6 +17,10 @@ You may find occasions where your application receives an [`OServer`](Java-Ref-O
 public boolean OServer().isActive()
 ```
 
+#### Return Value
+
+This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) value.  If the return value is `true`, it indicates that the OrientDB Server instance is active.
+
 ### Example
 
 Imagine you that you have created a basic handler in your application that takes an [`OServer`](Java-Ref-OServer.md) instance as a constructor argument.  When it receives the server instance, it checks whether it is active and activates it in the event that it is not.

@@ -21,6 +21,9 @@ public String OServer().getStoragePath(String iName)
 |---|---|---|
 | **`iName`** | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Defines the name of the storage-type. |
 
+#### Return Value
+
+This method returns a [`String`]({{ book.javase }}/api/java/lang/String.html) value.  It provides the path to OrientDB storages.
 
 
 ### Example
