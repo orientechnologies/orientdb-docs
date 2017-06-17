@@ -278,3 +278,39 @@ SELECT name, parent:{!surna*} FROM TheClass WHERE name = 'baz'
    }
 }
 ```
+
+Nested projection syntax allows for multiple level depth expressions, eg. you can go three levels deep as follows:
+
+```
+SELECT name, parent:{name, surname, parent:{name, surname}} FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "parent": {
+      "name": "bar"
+      "surname": "barz"      
+      "parent": {
+         "name": "foo"
+         "surname": "fooz"      
+      }   
+   }
+}
+```
+
+You can also use expressions and aliases in nested projections:
+
+```
+SELECT name, parent.parent:{name, surname} as grandparent FROM TheClass WHERE name = 'baz'
+```
+
+```
+{ 
+   "name": "baz",
+   "grandparent": {
+      "name": "foo"
+      "surname": "fooz"      
+   }   
+}
+```
