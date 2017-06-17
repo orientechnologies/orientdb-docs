@@ -8,7 +8,7 @@ search:
 This class provides a management environment between your application and the OrientDB Server.
 
 
-## Managing Databases
+## Managing Servers 
 
 In order to operate on an OrientDB database, you first need to establish a connection with the server.  You have two options in this: you can embed the server within your application using the [`OServer`](java/Java-Ref-OServer.md) class or you can connect to a running server using this class.  It can be found at `com.orientechnologies.orient.core.db`.  For instance,
 
@@ -65,7 +65,7 @@ orientdb.close();
 ```
 
 
-### Methods
+## Methods
 
 Once you've instantiated the class in your application, you can call the following methods on it to perform further operations.
 
