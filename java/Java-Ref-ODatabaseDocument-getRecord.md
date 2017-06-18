@@ -29,9 +29,9 @@ This method returns a record instance, which extends the `ORecord` class.  The p
 
 - `ODocument`
 - `OEdge`
-- `OElement`
+- [`OElement`](Java-Ref-OElement.md)
 - `ORecord`
-- `OEdge`
+- `OVertex`
 
 ### Example
 
