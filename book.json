@@ -2,24 +2,24 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "variables": {
-    "download_osx": "http://bit.ly/2sdzbvM",
-    "download_linux": "http://bit.ly/2sdzbvM",
-    "download_windows": "http://bit.ly/2sdzbvM",
-    "download_multiOS": "http://bit.ly/2sdzbvM",
-    "lastGA": "2.2.21",
-    "currentVersion": "2.2.21"
+    "download_osx": "http://bit.ly/2sOJc5V",
+    "download_linux": "http://bit.ly/2ryI3et",
+    "download_windows": "http://bit.ly/2tIPIaU",
+    "download_multiOS": "http://bit.ly/2sOtSX0",
+    "lastGA": "2.2.22",
+    "currentVersion": "2.2.22"
   },
   "links": {
-    "home": "http://orientdb.com",
-    "about": "http://orientdb.com",
+    "home": "https://orientdb.com",
+    "about": "https://orientdb.com",
     "issues": "https://github.com/orientechnologies/orientdb/issues",
-    "contribute": "http://orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
+    "contribute": "https://orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
     "sharing": {
       "google": "https://plus.google.com/108716918285358206552/posts",
       "facebook": "https://www.facebook.com/groups/orientdb/",
       "twitter": "https://twitter.com/OrientDB",
       "gitter": "https://gitter.im/orientechnologies/orientdb",
-      "all": "http://orientdb.com"
+      "all": "https://orientdb.com"
     }
   },
   "pdf": {
@@ -43,7 +43,7 @@
     "edit-link",
     "addcssjs",
     "search",
-	"page-toc"
+    "page-toc"
   ],
   "pluginsConfig": {
     "ga": {
@@ -59,7 +59,7 @@
     },
     "versions": {
       "gitbookConfigURL": "https://raw.githubusercontent.com/orientechnologies/orientdb-docs/3.0.x/book.json",
-	  "types": "branches",
+      "types": "branches",
       "options": [
         {
           "value": "http://orientdb.com/docs/1.7.8/",
