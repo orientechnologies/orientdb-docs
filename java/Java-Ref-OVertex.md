@@ -31,6 +31,13 @@ To create a new instance of this class, it is recommended that you use either th
 
 Once you've created or initialized an `OVertex` instance, you can begin to call methods on it to further define and read data from the vertex.  This method extends the [`OElement`](Java-Ref-OElement.md) class.  Methods available to that class are also available to this one.
 
+| Method | Return Type | Description |
+|---|---|---|
+| [**`addEdge()`**](Java-Ref-OVertex-addEdge.md) | [`OEdge`](Java-Ref-OEdge.md) | Adds an edge to the vertex |
+| [**`getEdges()`**](Java-Ref-OVertex-getEdges.md) | [`Iterable`]({{ book.javase }}/api/java/lang/Iterable.html)[`<OEdge>`](Java-Ref-OEdge.md) | Retrieve connected edges |
+| [**`getVertices()`**](Java-Ref-OVertex-getVertices.md) | [`Iterable`]({{ book.javase }}/api/java/lang/Iterable.html)`<OVertex>` | Retrieve connected vertices |
+| [**`save()`**](#saving-vertices) | `<RET extends ORecord> RET` | Saves changes to the database |
+
 ### Saving Vertices 
 
 When you create or retrieve an `OVertex` instance, you create a snapshot of the record.  Any changes you make to the record remain in your application.  In order to make these changes persistent on the database, you need to call the `save()` method on the element.  For instance,
