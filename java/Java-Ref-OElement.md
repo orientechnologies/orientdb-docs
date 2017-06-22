@@ -59,6 +59,18 @@ public void initAddressBook(Map<String, String> addressBook){
 
 Once you've created or initialized an `OElement` instance, you can begin to call methods on the instance to further define and read data from the record.
 
+| Method | Return Type | Description |
+|---|---|---|
+| [**`asEdge()`**](Java-Ref-OElement-asEdge.md) | [`Optional`]({{ book.javase }}/api/java/util/Optional.html)`<OEdge>` | Returns record as an edge | 
+| [**`asVertex()`**](Java-Ref-OElement-asVertex.md) | [`Optional`]({{ book.javase }}/api/java/util/Optional.html)`<OVertex>`| Returns record as a vertex |
+| [**`getProperty()`**](Java-Ref-OElement-getProperty.md) | `<RET> RET` | Retrieves record data by property name |
+| [**`getPropertyNames()`**](Java-Ref-OElement-getPropertyNames.md) | [`Set`]({{ book.javase }}/api/java/util/Set.html)[`<String>`]({{ book.javase }}/api/java/lang/String.html) | Retrieves defined property names |
+| [**`getSchemaType()`**](Java-Ref-OElement-getSchemaType.md) | [`Optional`]({{ book.javase/api/java/util/Optional.html)`OClass` | Retrieves the type of the current element, (that is, class in the schema, if any) |
+| [**`isEdge()`**](Java-Ref-OElement-isEdge.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether record is an edge |
+| [**`isVertex()`**](Java-Ref-OElement-isVertex.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether record is a vertex |
+| [**`removeProperty()`**](Java-Ref-OElement-removeProperty.md) | `<RET> RET` | Removes a property from the record |
+| [**`save()`**](#saving-elements) | `<RET extends ORecord> RET` | Saves changes to OrientDB record |
+| [**`setProperty()`**](Java-Ref-OElement-setProperty.md) | `void` | Sets data on record property |
 
 ### Saving Elements
 
