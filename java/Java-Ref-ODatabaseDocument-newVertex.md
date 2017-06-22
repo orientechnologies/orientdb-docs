@@ -33,7 +33,7 @@ OVertex ODatabaseDocument().newVertex(String class-name)
 
 #### Return Value
 
-This method returns an `OVertex` instance.  You can call additional methods on this instance to set data to it, then call `save()` to make that data persistent on OrientDB.
+This method returns an [`OVertex`](Java-Ref-OVertex.md) instance.  You can call additional methods on this instance to set data to it, then call `save()` to make that data persistent on OrientDB.
 
 ### Example
 

@@ -28,7 +28,7 @@ This method takes an instance of the `OIdentifiable` interface and returns the c
 This method returns a record instance, which extends the `ORecord` class.  The particular type depends on the record you have stored.  Possible types include,
 
 - `ODocument`
-- `OEdge`
+- [`OEdge`](Java-Ref-OEdge.md)
 - [`OElement`](Java-Ref-OElement.md)
 - `ORecord`
 - `OVertex`

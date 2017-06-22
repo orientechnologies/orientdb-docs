@@ -26,9 +26,9 @@ Whether you are using OrientDB to how a Document or Graph database, this method 
 
 This method returns an instance of the class given as a generic.  The particular class you choose depends on whether you're using OrientDB as a Graph or Document databases.  The recommended methods are:
 
-- **`OElement`** To represent documents in a Document database
-- **`OVertex`** To represent vertices in a Graph database
-- **`OEdge`** TO represent edges in a Graph database
+- [**`OElement`**](Java-Ref-OElement.md) To represent documents in a Document database
+- [**`OVertex`**](Java-Ref-OVertex.md) To represent vertices in a Graph database
+- [**`OEdge`**](Java-Ref-OEdge.md) TO represent edges in a Graph database
 
 You can then take the return value and call additional methods on it to set data.  To make the document, graph or vertex persistent on the database, you must then call the `save()` method.
 

@@ -33,13 +33,13 @@ Edges have their own classes in OrientDB.  When using the first method, the edge
 |---|---|---|
 | **`fromV`** | `OVertex` | Defines the vertex this edge comes from |
 | **`toV`** | `OVertex` | Defines the vertex this edge points to |
-| **`class`** | `OEdge` | Defines the edge class |
+| **`class`** | [`OEdge`](Java-Ref-OEdge.md) | Defines the edge class |
 | **`class-name`** | [`String`]({{ book.javase }}/api/java/lang/String.html)  | Defines the edge class |
 
 
 #### Return Value
 
-This method returns an `OEdge` instance of the edge it creates.
+This method returns an [`OEdge`](Java-Ref-OEdge.md) instance of the edge it creates.
 
 ### Example
 
