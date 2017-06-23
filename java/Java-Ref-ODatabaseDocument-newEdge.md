@@ -31,9 +31,9 @@ Edges have their own classes in OrientDB.  When using the first method, the edge
 
 | Argument | Type | Description
 |---|---|---|
-| **`fromV`** | `OVertex` | Defines the vertex this edge comes from |
-| **`toV`** | `OVertex` | Defines the vertex this edge points to |
-| **`class`** | [`OEdge`](Java-Ref-OEdge.md) | Defines the edge class |
+| **`fromV`** | [`OVertex`](Java-Ref-OVertex.md) | Defines the vertex this edge comes from |
+| **`toV`** | [`OVertex`](Java-Ref-OVertex.md) | Defines the vertex this edge points to |
+| **`class`** | [`OClass`](Java-Ref-OClass.md) | Defines the edge class |
 | **`class-name`** | [`String`]({{ book.javase }}/api/java/lang/String.html)  | Defines the edge class |
 
 

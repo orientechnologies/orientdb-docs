@@ -60,15 +60,20 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 
 
 
+### Managing Classes and Clusters
+
+| Method | Return Type | Description |
+|---|---|---|
+| [**`browseClass`**](Java-Ref-ODatabaseDocument-browseClass.md) | `ORecordIteratorClass<ODocument>` | Retrieves all records of the given database class |
+| [**`browseCluster()`**](Java-Ref-ODatabaseDocument-browseCluster.md) | `<REC extends ORecord> ORecordIteratorCluster<REC>` | Retrieves all records of the given cluster |
+| [**`countClass()`**](Java-Ref-ODatabaseDocument-countClass.md) | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Retrieves the number of records in the given database class |
+| [**`createClass()`**](Java-Ref-ODatabaseDocument-createClass.md) | [`OClass`](Java-Ref-OClass.md) | Creates a new database class |
+| [**`createClassIfNotExists()`**](Java-Ref-ODatabaseDocument-createClassIfNotExists.md) | [`OClass`](Java-Ref-OClass.md) | Creates a new database class, if not exists |
+| [**`createEdgeClass()`**](Java-Ref-ODatabaseDocument-createEdgeClass.md) | [`OClass`](Java-Ref-OClass.md) | Creates a database class as an extension of the `E` edge class |
+| [**`createVertexClass()`**](Java-Ref-ODatabaseDocument-createVertexClass.md) | [`OClass`](Java-Ref-OClass.md) | Creates a database class as an extension of the `V` vertex class |
+
 <!--
-### Manage Classes and Clusters
 - addBlobCluster
-- browseClass
-- browseCluster
-- countClass
-- createClassIfNotExists
-- createEdgeClass
-- createVertexClass
 -->
 
 
@@ -79,7 +84,7 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 | [**`getRecord()`**](Java-Ref-ODatabaseDocument-getRecord.md) | `<RET extends ORecord> RET` | Retrieves a record from the database |
 | [**`getRecordType()`**](Java-Ref-ODatabaseDocument-getRecordType.md) | [`byte`]({{ book.javase }}/api/java/lang/Byte.html) | Returns the default record type |
 | [**`newBlob()`**](Java-Ref-ODatabaseDocument-newBlob.md) | `OBlob` | Creates a new instance of a binary blob containing the given bytes |
-| [**`newEdge()`**](Java-Ref-ODatabaseDocuument-newEdge.md) | `OEdge` | Creates a new edge between the given vertices |
+| [**`newEdge()`**](Java-Ref-ODatabaseDocuument-newEdge.md) | [`OEdge`](Java-Ref-OEdge.md) | Creates a new edge between the given vertices |
 | [**`newElement()`**](Java-Ref-ODatabaseDocument-newElement.md) | [`OElement`](Java-Ref-OElement.md) | Creates a new element (that is, a document, vertex or edge) |
 | [**`newInstance()`**](Java-Ref-ODatabaseDocument-newInstance.md) | `RET` | Creates a new document, vertex or edge |
 | [**`newVertex()`**](Java-Ref-OdatabaseDocument-newVertex.md) | `OVertex` | Creates a new vertex |

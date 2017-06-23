@@ -10,7 +10,7 @@ This class provides a standard interface for handling documents, vertices and ed
 
 ## Managing Elements
 
-When using OrientDB as a Document database, this class represents a document record.  When using OrientDB as a Graph database, this is the superclass to the `OVertex` and [`OEdge`](Java-Ref-OEdge.md) classes, which represent vertices and edges in the database.
+When using OrientDB as a Document database, this class represents a document record.  When using OrientDB as a Graph database, this is the superclass to the [`OVertex`](Java-Ref-OVertex.md) and [`OEdge`](Java-Ref-OEdge.md) classes, which represent vertices and edges in the database.
 
 >**NOTE**: In older versions of OrientDB, documents were represented using the `ODocument` class.  While this class is still around and is the primary implementation of `OElement`, it is recommended that you do not use it directly.  Instead, moving forward use `OElement` for your documents.
 
@@ -62,10 +62,10 @@ Once you've created or initialized an `OElement` instance, you can begin to call
 | Method | Return Type | Description |
 |---|---|---|
 | [**`asEdge()`**](Java-Ref-OElement-asEdge.md) | [`Optional`]({{ book.javase }}/api/java/util/Optional.html)[`<OEdge>`](Java-Ref-OEdge.md) | Returns record as an edge | 
-| [**`asVertex()`**](Java-Ref-OElement-asVertex.md) | [`Optional`]({{ book.javase }}/api/java/util/Optional.html)`<OVertex>`| Returns record as a vertex |
+| [**`asVertex()`**](Java-Ref-OElement-asVertex.md) | [`Optional`]({{ book.javase }}/api/java/util/Optional.html)[`<OVertex>`](Java-Ref-OVertex.md) | Returns record as a vertex |
 | [**`getProperty()`**](Java-Ref-OElement-getProperty.md) | `<RET> RET` | Retrieves record data by property name |
 | [**`getPropertyNames()`**](Java-Ref-OElement-getPropertyNames.md) | [`Set`]({{ book.javase }}/api/java/util/Set.html)[`<String>`]({{ book.javase }}/api/java/lang/String.html) | Retrieves defined property names |
-| [**`getSchemaType()`**](Java-Ref-OElement-getSchemaType.md) | [`Optional`]({{ book.javase/api/java/util/Optional.html)`OClass` | Retrieves the type of the current element, (that is, class in the schema, if any) |
+| [**`getSchemaType()`**](Java-Ref-OElement-getSchemaType.md) | [`Optional`]({{ book.javase/api/java/util/Optional.html)[`<OClass>`](Java-Ref-OClass.md) | Retrieves the type of the current element, (that is, class in the schema, if any) |
 | [**`isEdge()`**](Java-Ref-OElement-isEdge.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether record is an edge |
 | [**`isVertex()`**](Java-Ref-OElement-isVertex.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether record is a vertex |
 | [**`removeProperty()`**](Java-Ref-OElement-removeProperty.md) | `<RET> RET` | Removes a property from the record |

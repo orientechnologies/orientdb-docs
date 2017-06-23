@@ -13,7 +13,7 @@ In a Graph database, edges function as relationships linking different vertices 
 
 ### Syntax
 
-Records in OrientDB have their own classes on the database, which extend the `OClass` class.  All edges are extensions of the `E` database class.  The first method creates the edge as an instance of the default `E` class.  The remaining methods allow you to define the class to which the new edge belongs. 
+Records in OrientDB have their own classes on the database, which extend the [`OClass`](Java-Ref-OClass.md) class.  All edges are extensions of the `E` database class.  The first method creates the edge as an instance of the default `E` class.  The remaining methods allow you to define the class to which the new edge belongs. 
 
 ```
 // METHOD 1 
@@ -29,7 +29,7 @@ OEdge OVertex.addEdge(OVertex toVertex, String name)
 | Argument | Type | Description |
 |---|---|---|
 | **`toVertex`** | [`OVertex`](Java-Ref-OVertex.md) | Defines the vertex the edge connects to |
-| **`type`** | `OClass` | Defines the OrientDB database class the edge belongs to |
+| **`type`** | [`OClass`](Java-Ref-OClass.md) | Defines the OrientDB database class the edge belongs to |
 | **`name`** | [`String`]({{ book.javase }}/api/java/lang/String.html)  | Defines the OrientDB database class the edge belongs to |
 
 #### Return Value

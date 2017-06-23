@@ -28,7 +28,7 @@ OVertex ODatabaseDocument().newVertex(String class-name)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`class`** | `OClass` | Defines the OrientDB class |
+| **`class`** | [`OClass`](Java-Ref-OClass.md) | Defines the OrientDB class |
 | **`class-name`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the name of the OrientDBG class |
 
 #### Return Value
