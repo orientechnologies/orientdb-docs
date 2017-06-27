@@ -10,7 +10,7 @@ This method returns all records in the given database class.  It also returns su
 
 ## Browsing Records by Class
 
-Records in OrientDB belong to a [database class](../general/Schema.html#class), which internally is an implementation of [`OClass`](Java-Ref-OClass.md).  Using this method, you can retrieve all records that belong to a particular database class.
+Records in OrientDB belong to a [database class](../general/Schema.md#class), which internally is an implementation of [`OClass`](Java-Ref-OClass.md).  Using this method, you can retrieve all records that belong to a particular database class.
 
 ### Syntax
 

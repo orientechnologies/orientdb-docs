@@ -65,7 +65,7 @@ Once you've created or initialized an `OElement` instance, you can begin to call
 | [**`asVertex()`**](Java-Ref-OElement-asVertex.md) | [`Optional`]({{ book.javase }}/api/java/util/Optional.html)[`<OVertex>`](Java-Ref-OVertex.md) | Returns record as a vertex |
 | [**`getProperty()`**](Java-Ref-OElement-getProperty.md) | `<RET> RET` | Retrieves record data by property name |
 | [**`getPropertyNames()`**](Java-Ref-OElement-getPropertyNames.md) | [`Set`]({{ book.javase }}/api/java/util/Set.html)[`<String>`]({{ book.javase }}/api/java/lang/String.html) | Retrieves defined property names |
-| [**`getSchemaType()`**](Java-Ref-OElement-getSchemaType.md) | [`Optional`]({{ book.javase/api/java/util/Optional.html)[`<OClass>`](Java-Ref-OClass.md) | Retrieves the type of the current element, (that is, class in the schema, if any) |
+| [**`getSchemaType()`**](Java-Ref-OElement-getSchemaType.md) | [`Optional`]({{ book.javase }}/api/java/util/Optional.html)[`<OClass>`](Java-Ref-OClass.md) | Retrieves the type of the current element, (that is, class in the schema, if any) |
 | [**`isEdge()`**](Java-Ref-OElement-isEdge.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether record is an edge |
 | [**`isVertex()`**](Java-Ref-OElement-isVertex.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether record is a vertex |
 | [**`removeProperty()`**](Java-Ref-OElement-removeProperty.md) | `<RET> RET` | Removes a property from the record |

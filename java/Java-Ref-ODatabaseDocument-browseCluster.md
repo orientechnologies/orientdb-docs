@@ -28,7 +28,7 @@ When you save records to the database, OrientDB stores them in a cluster.  The c
 | Argument | Type | Description |
 |---|---|---|
 | **`name`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the cluster name |
-| **`startPosition`** | [`long`]({{ book.javase/api/java/lang/Long.html) | Defines the starting position for the records you want to retrieve |
+| **`startPosition`** | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Defines the starting position for the records you want to retrieve |
 | **`endPosition`** | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Defines the ending position for the record you want to retrieve |
 
 #### Return Value

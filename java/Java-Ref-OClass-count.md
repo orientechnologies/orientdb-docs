@@ -23,7 +23,7 @@ Long OClass().count(Boolean isPolymorphic)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`isPolymorphic`** | [`Boolean`]({{ book.javase/api/java/lang/Boolean.html) | Determines whether method includes records of subclasses in the count |
+| **`isPolymorphic`** | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether method includes records of subclasses in the count |
 
 #### Return Value
 
