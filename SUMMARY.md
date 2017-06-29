@@ -326,6 +326,7 @@
         * [addSuperClass()](java/Java-Ref-OClass-addSuperClass.md)
         * [count()](java/Java-Ref-OClass-count.md)
         * [createIndex()](java/Java-Ref-OClass-createIndex.md)
+        * [createProperty()](java/Java-Ref-OClass-createProperty.md)
       * [ODatabaseDocument](java/Java-Ref-ODatabaseDocument.md)
         * [browseClass()](java/Java-Ref-ODatabaseDocument-browseClass.md)
         * [browseCluster()](java/Java-Ref-ODatabaseDocument-browseCluster.md)

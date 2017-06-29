@@ -36,6 +36,11 @@ Once you've imported the class to your application, you can use to build particu
 | [**`addCluster()`**](Java-Ref-OClass-addCluster.md) | `OClass` | Adds a cluster to the database class, by its name |
 | [**`addClusterId()`**](Java-Ref-OClass-addClusterId.md) | `OClass` | Add a cluster to the database class, by its Cluster ID |
 
+### Managing Properties
+
+| Method | Return Type | Description |
+|---|---|---|
+| [**`createProperty()`**](Java-Ref-OClass-createProperty.md) | `OProperty` | Creates a property (that is, a field) on the class |
 
 ### Managing Indexes
 
