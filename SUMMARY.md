@@ -247,7 +247,7 @@
     * [Neo4j to OrientDB Importer](neo4j-to-orientdb-importer/README.md)
 	
 ## SQL, API, DRIVERS
-
+ 
 * [SQL Reference](sql/README.md)
     * [Introduction](sql/SQL-Introduction.md)
         * [Querying Metadata](sql/SQL-Metadata.md)
@@ -325,6 +325,7 @@
         * [addClusterId()](java/Java-Ref-OClass-addClusterId.md)
         * [addSuperClass()](java/Java-Ref-OClass-addSuperClass.md)
         * [count()](java/Java-Ref-OClass-count.md)
+        * [createIndex()](java/Java-Ref-OClass-createIndex.md)
       * [ODatabaseDocument](java/Java-Ref-ODatabaseDocument.md)
         * [browseClass()](java/Java-Ref-ODatabaseDocument-browseClass.md)
         * [browseCluster()](java/Java-Ref-ODatabaseDocument-browseCluster.md)
@@ -580,7 +581,7 @@
   * [Gremlin API](gremlin/Gremlin.md) 
 
 ## ADVANCED TOPICS
-
+ 
 * [Security](security/Security.md) 
   * [Database security](security/Database-Security.md) 
   * [Server security](security/Server-Security.md)

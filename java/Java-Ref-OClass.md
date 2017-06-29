@@ -42,3 +42,4 @@ Once you've imported the class to your application, you can use to build particu
 | Method | Return Type | Description |
 |---|---|---|
 | [**`areIndexed()`**](Java-Ref-OClass-areIndexed.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether the given fields are contained as first key fields in the database class indexes |
+| [**`createIndex()`**](Java-Ref-OClass-createIndex.md) | `OIndex<?>` | Creates an index on the given property |
