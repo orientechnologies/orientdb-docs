@@ -50,10 +50,10 @@ The following table can help you navigate through all examples:
 |                            | Find the numbers of reviews per Service                                                                                 | [Link](DemoDB-Queries-Reviews.md#example-4)                  | 
 |                            | Find the 3 Hotels that have most reviews                                                                                | [Link](DemoDB-Queries-Reviews.md#example-5)                  |
 |                            | Find the 3 Customers who made more reviews                                                                              | [Link](DemoDB-Queries-Reviews.md#example-6)                  |
-| **Recommendations**        | Recommend some friends to Profile 'Isabella Gomez' (friends of friends) | [Link](DemoDB-Queries-Recommendations.md#example-1)          |
-|                            | Recommend some Hotels to Customer with OrderedId 1 | [Link](DemoDB-Queries-Recommendations.md#example-2)          |
+| **Recommendations**        | Recommend some friends to Profile 'Isabella Gomez' (friends of friends)                                                 | [Link](DemoDB-Queries-Recommendations.md#example-1)          |
+|                            | Recommend some Hotels to Customer with OrderedId 1                                                                      | [Link](DemoDB-Queries-Recommendations.md#example-2)          |
 | **Business Opportunities** | Find all the Friends of Customer identified with OrderedId 1 that are not Customers (so that a product can be proposed) | [Link](DemoDB-Queries-Business-Opportunities.md#example-1)   |
-|                            | {{book.demodb_query_14_text}}        | [Link](DemoDB-Queries-Business-Opportunities.md#example-2)   |
+|                            | Find all the Customer Friends that are not Customers (so that a product can be proposed)                                | [Link](DemoDB-Queries-Business-Opportunities.md#example-2)   |
 | **Polymorphism**           | Find all Locations (Services + Attractions) connected with Customer with OrderedId 1                                    | [Link](DemoDB-Queries-Polymorphism.md#example-1)             |
 |                            | Find the 3 Services (Hotels + Restaurants) that have most reviews                                                       | [Link](DemoDB-Queries-Polymorphism.md#example-2)             |
 | **Shortest Paths**         | Find the shortest path between the Profile 'Santo' and the Country 'United States'                                      | [Link](DemoDB-Queries-Shortest-Paths.md#example-1)           |
