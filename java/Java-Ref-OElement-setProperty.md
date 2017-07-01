@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['Java API', 'OElement', 'set property', 'setProperty]
+   keywords: ['Java API', 'OElement', 'set property', 'setProperty']
 ---
 
 # OElement - setProperty()
