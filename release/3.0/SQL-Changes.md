@@ -107,13 +107,13 @@ Starting from 3.0, it is mandatory to create the Edge class before executing the
 Starting from 3.0, it is mandatory to specify in the DELETE EDGE statement the Edge class of the edge instance you want to delete. If the Edge class is not specified the DELETE EDGE statement will fail.
 So if until 2.2.x Edge class is optional and you can execute something like
 ```
-delete edge where out=#9:0 and in=#10:1
+DELETE EDGE WHERE out=#9:0 AND in=#10:1
 ```
 in 3.0 Edge Class is mandatory:
 ```
-delete edge <Edge-Class-Name> where out=#9:0 and in=#10:1
+DELETE EDGE <Edge-Class-Name> WHERE out=#9:0 AND in=#10:1
 ```
-If you don't want to get bored in remembering your class hierarchy you can simply specify the 'E' Edge Class.
+To delete all edges from two specific vertices regardless of their Edge class you can simply specify the 'E' Edge Class:
 ```
-delete edge E where out=#9:0 and in=#10:1
+DELETE EDGE E WHERE out=#9:0 AND in=#10:1
 ```
