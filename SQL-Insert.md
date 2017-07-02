@@ -19,7 +19,7 @@ INSERT INTO [CLASS:]<class>|CLUSTER:<cluster>|INDEX:<index>
 ```
 
 - **`CONTENT`** Defines JSON data as an option to set field values.
-- **`RETURN`** Defines an expression to return instead of the number of inserted records.  You can use any valid SQL expression.  The most common use-cases,
+- **`RETURN`** Defines an expression to return instead of the number of inserted records. Valid expressions are:
   - `@rid` Returns the Record ID of the new record.
   - `@this` Returns the entire new record.
 - **`FROM`** Defines where you want to insert the result-set.  Introduced in version 1.7.
