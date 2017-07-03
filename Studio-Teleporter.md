@@ -13,7 +13,7 @@ NOTE: _This feature is available both for the [OrientDB Enterprise Edition](http
 This visual tool consists in a wizard composed of 4 steps, where just **Step 1** and **Step 2** are necessary.
 Let's have a look at each configuration step.
 
-###Step 1
+### Step 1
 
 In the first step you have to type the following required parameters:
 - `Database Driver`, as the driver name of the DBMS from which you want to execute the import. You have to choose among:
@@ -32,7 +32,7 @@ In the first step you have to type the following required parameters:
 After you typed all the required parameters for the migration you can test the connection.
 ![Test Connection](images/studio-teleporter-testconnection.png)
 
-###Step 2
+### Step 2
 
 In the second step you have to specify all the parameters about the OrientDB target database:
 - `Connection protocol`, as the protocol adopted to write in OrientDB. You have to choose among:
@@ -52,15 +52,17 @@ In the second step you have to specify all the parameters about the OrientDB tar
 
 Now we have collected all the minimal info needed for the migration, so you can run your configured job through the `START MIGRATION` button, thus the job progress monitor will be displayed:
 
-![Teleporter Running](images/studio-teleporter-running.png)
+Telpeorter Running image
+![Teleporter Running](images/)
 
 At the end of the migration, statistics and warnings about the process are reported as shown below:
 
-![Teleporter Finished](images/studio-telepoerter-run-finished.png)
+Teleporter Finished
+![Teleporter Finished](images/)
 
 Otherwise you can go on in your migrationg customisation jumping to the next step.
 
-###Step 3
+### Step 3
 
 Here you can exploit Teleporter's filtering features: in the table on the left all the table present in the source database are reported. If you want migrate just a subset of these tables you just have to select and move them in the right table through the specific buttons (you can also drag-and-drop the selected items).
 
@@ -70,5 +72,5 @@ If the right table is empty, no filters will be applied. Instead, if the right t
 
 Here too you can start your migration or go to the 4th and last configuration step.
 
-###Step 4
+### Step 4
 // TODO
