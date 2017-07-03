@@ -30,7 +30,9 @@ In the first step you have to type the following required parameters:
 - `OrientDB URL`, as the URL for the destination OrientDB graph database
 
 After you typed all the required parameters for the migration you can test the connection.
-![Test Connection](images/studio-teleporter-testconnection.png)
+
+Test Connection image
+![Test Connection](images/)
 
 ### Step 2
 
@@ -73,4 +75,10 @@ If the right table is empty, no filters will be applied. Instead, if the right t
 Here too you can start your migration or go to the 4th and last configuration step.
 
 ### Step 4
-// TODO
+
+
+In the last step Teleporter will provide you a Graph Model coming from the translation of the ER-Model inferred from the source database schema. The correspondent Graph Model is built according to basic mapping rules and your choices as well (filters applied, chosen strategy etc.).
+
+You can see two panels, the Graph Panel on the left, containing the Graph Model built from Teleporter, and the Detail Panel on the right, reporting all the details about the current selected element in the left panel.
+
+This step is conceived to make very easy the graph model editing...
