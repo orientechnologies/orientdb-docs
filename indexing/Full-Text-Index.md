@@ -275,39 +275,6 @@ orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_FIELDS(
 
 The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 
-### The LUCENE operator (deprecated)
-
-You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Syntax](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
-
-<pre>
-orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
-</pre>
-
-This query searches for `test`, `tests`, `tester`, and so on from the property `name` of the class `V`.
-The query can use proximity operator _~_, the required (_+_) and prohibit (_-_) operators, phrase queries, regexp queries:
-
-<pre>
-orientdb> <code class='lang-sql userinput'>SELECT FROM Article WHERE content LUCENE "(+graph -rdbms) AND +cloud"</code>
-</pre>
-
-
-### Working with multiple fields
-
-In addition to the standard Lucene query above, you can also query multiple fields.  For example,
-
-<pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
-</pre>
-
-In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
-
-To execute a more complex query on each field, surround your query with parentheses, which causes the query to address specific fields.
-
-<pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Article WHERE [content, author] LUCENE "(content:graph AND author:john)"</code>
-</pre>
-
-Here, the engine parses the query using the [QueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
 
 ### Numeric and date range queries
 
@@ -374,7 +341,48 @@ orientdb> <code class="lang-sql userinput">SELECT name, $name_hl, description, $
 </pre>
 
 
-## Creating a Manual Lucene Index
+### The LUCENE operator (deprecated)
+
+_NOTE_: *LUCENE* operator is translated to *SEARCH_FIELDS* function, but it doesn't support the metadata JSON
+
+You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Syntax](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
+
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
+</pre>
+
+This query searches for `test`, `tests`, `tester`, and so on from the property `name` of the class `V`.
+The query can use proximity operator _~_, the required (_+_) and prohibit (_-_) operators, phrase queries, regexp queries:
+
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT FROM Article WHERE content LUCENE "(+graph -rdbms) AND +cloud"</code>
+</pre>
+
+
+### Working with multiple fields (deprecated)
+
+_NOTE_: define a single Lucene index on the class and use *SEARCH_CLASS* function
+
+In addition to the standard Lucene query above, you can also query multiple fields.  For example,
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
+</pre>
+
+In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
+
+To execute a more complex query on each field, surround your query with parentheses, which causes the query to address specific fields.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Article WHERE [content, author] LUCENE "(content:graph AND author:john)"</code>
+</pre>
+
+Here, the engine parses the query using the [QueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+
+
+## Creating a Manual Lucene Index (deprecated)
+
+_NOTE_: avoid manual Lucene index
 
 The Lucene Engine supports index creation without the need for a class.
 
