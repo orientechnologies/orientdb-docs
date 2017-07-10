@@ -112,17 +112,24 @@ Let's have a deeper look at each of these operations.
 
 2. Edge Class - 1-N Relationship
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggr-edge-rendering.png)
+![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-simple-edge-rendering.png)
 
-Clicking the question poiints...TODO!
+
+Clicking the question points...TODO!
 
 ![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-simple-edge-rel-view.png)
 
 3. Edge Class - N-N Relationship
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-simple-edge-rendering.png)
+Let's suppose we have got the following graph, obtained performing join tables aggregation through the naive-aggregate strategy.
 
-Clicking the question poiints...TODO!
+![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggregated-graph+legend.png)
+
+As you can see we have 2 different kinds of edges...TODO!
+
+![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggr-edge-rendering.png)
+
+Clicking the question points...TODO!
 
 ![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-1.png)
 
@@ -177,6 +184,12 @@ In the just opened window you can choose if add a new property never defined bef
 or re-include some excluded properties if any, selecting the "Include Property" radio button.
 
 ![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-prop-modal2.png)
+
+###### Property Editing
+
+You can edit a property... TODO!
+
+![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-edit-prop-modal.png)
 
 ###### Property Including
 
