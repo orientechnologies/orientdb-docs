@@ -31,7 +31,7 @@ In the first step you have to type the following required parameters:
 
 After you typed all the required parameters for the migration you can test the connection.
 
-![Test Connection](images/studio-teleporter/studio-teleporter-step1-tryConnection.png)
+![Test Connection](../../images/studio-teleporter/studio-teleporter-step1-tryConnection.png)
 
 ### Step 2
 
@@ -50,15 +50,15 @@ In the second step you have to specify all the parameters about the OrientDB tar
   - WARNING
   - ERROR
   
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step2.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step2.png)
 
 Once we have collected all the minimal info needed for the migration, you can run your configured job through the `START MIGRATION` button, then the job progress monitor will be displayed:
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-job-running.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-job-running.png)
 
 At the end of the migration, statistics and warnings about the process are reported as shown below:
 
-![Teleporter Job Completed](images/studio-teleporter/studio-teleporter-job-completed.png)
+![Teleporter Job Completed](../../images/studio-teleporter/studio-teleporter-job-completed.png)
 
 Otherwise you can go on in your migrationg customisation jumping to the next step.
 
@@ -66,18 +66,18 @@ Otherwise you can go on in your migrationg customisation jumping to the next ste
 
 Here you can exploit Teleporter's filtering features: in the panel on the left all the tables present in the source database are reported. If you want migrate just a subset of these tables, you just have to select and move them in the right panel through the specific buttons (you can also drag-and-drop the selected items).
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step3-filtering-1.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step3-filtering-1.png)
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step3-filtering-2.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step3-filtering-2.png)
 
 You can perform the same operations also in the opposite direction, that is excluding some tables during the migration just moving them from the right panel to the left one.
 
 If the right panel is empty, no filters will be applied. Instead, if the right panel is not empty, just the selected tables in the right panel will be imported while all the others will be filtered out. 
 Thus, for example, these two configurations are equivalent:
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step3-filtering-3.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step3-filtering-3.png)
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step3-filtering-4.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step3-filtering-4.png)
 
 Here too you can start your migration or go to the 4th and last configuration step.
 
@@ -89,7 +89,7 @@ This step has two aims:
 - it gives you an idea of how your source database will appear once imported in OrientDB
 - it allows you to edit the graph model
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-only-graph.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-only-graph.png)
 
 You can see two panels, the Graph Model Panel on the left, containing the Graph Model built from Teleporter, and the Details Panel on the right, reporting all the details about the current selected element in the left panel.
 
@@ -117,7 +117,7 @@ Via the Details Panel you can inspect information about:
 
 If you select a Vertex Class, you can inspect the correspondence between each column in the source table and the correspondent property in the translated Vertex class. Columns and properties are strongly bound: you can exclude, include or rename a property, but the bindings with the correspondent column will remain.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-graph+selected-vertex.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-graph+selected-vertex.png)
 
 2. Edge Class
 
@@ -128,35 +128,35 @@ Everytime you select an edge in the graph, you can find out about the original r
 
     Edges coming from 1-N Relationships are represented through a continous arrow.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-simple-edge-rendering.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-simple-edge-rendering.png)
 
    The rendered Relationship involves just two tables of course, the starting table (aka **foreign table**) and the arrival table (aka **parent table**). Clicking the question mark you can also see for each table all the columns involved in the relationship.
 
 <p align="center">
-<img src="images/studio-teleporter/studio-teleporter-step4-simple-edge-rel-view.png" width="580" height="628" />
+<img src="../../images/studio-teleporter/studio-teleporter-step4-simple-edge-rel-view.png" width="580" height="628" />
 </p>
 
   - N-N Relationship
 
     Let's suppose you have got the following graph, obtained performing join tables aggregation through the naive-aggregate strategy.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggregated-graph+legend.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-aggregated-graph+legend.png)
 
    Edges coming from N-N Relationships are represented through a dashed arrow and in the bottom you can see the 2 relationships involving two external tables and the join table between them.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggr-edge-rendering.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-aggr-edge-rendering.png)
 
    Here too, clicking the question mark you can inspect the involved columns for both the relationships.
    
 <p align="center">
-<img src="images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-1.png" width="430" height="465" /> <img src="images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-2.png" width="430" height="465" />
+<img src="../../images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-1.png" width="430" height="465" /> <img src="../../images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-2.png" width="430" height="465" />
 </p>
 
 #### Search Bar
 
 In the Graph Panel a useful search bar is provided to allow you fast vertex selection according to the vertex class name or the source table name.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-search-bar.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-search-bar.png)
 
 In the example above you can see that for each class we have two items, the vertex class name and the source table name. In this case each couple of items are equal because no classes were renamed nor a name resolver was adoted during the basic graph model building.
 
@@ -164,11 +164,11 @@ In the example above you can see that for each class we have two items, the vert
 
 You can rename a class just selecting an element in the graph (vertex or edge) and clicking the "Rename Class" button in the "Edit Class" dropdown menu.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-rename-class-button.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-rename-class-button.png)
 
 Then you just have to choose the new name for the specific class.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-rename-class-modal.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-rename-class-modal.png)
 
 The class name will be updated in the graph, in the search bar and in the Details Panel of course.
 
@@ -181,14 +181,14 @@ We have two ways to exclude a property mapped with a column in the source table:
 2. Dropping the property from the class perspective.
 
 <p align="center">
-<img src="images/studio-teleporter/studio-teleporter-step4-excluded-props.png" width="580" height="628" />
+<img src="../../images/studio-teleporter/studio-teleporter-step4-excluded-props.png" width="580" height="628" />
 </p>
 
 #### Property Dropping
 
 You can also drop a property via the specific button.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-drop-prop-modal.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-drop-prop-modal.png)
 
 You can have 2 different behaviours depending on whether the property is bound with a column in the source table or not. 
 
@@ -200,21 +200,21 @@ You can have 2 different behaviours depending on whether the property is bound w
 
 You can add new properties just clicking the "Add property" button in the "Edit Class" dropdown menu.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-prop-button.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-prop-button.png)
 
 In the just opened window you can choose to add a new property never defined before, selecting the "Add new property" radio button, 
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-prop-modal1.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-prop-modal1.png)
 
 or re-include some excluded properties if any, selecting the "Include Property" radio button.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-prop-modal2.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-prop-modal2.png)
 
 #### Property Editing
 
 You can also edit an existing property: you can choose a different name, type, or just add/remove some constraints.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-edit-prop-modal.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-edit-prop-modal.png)
 
 #### Property Including
 
@@ -225,7 +225,7 @@ We have two ways to include a property mapped with a column in the source table:
 2. Including the property from the OrientDB class perspective through the "Add property" button as shown above.
 
 <p align="center">
-<img src="images/studio-teleporter/studio-teleporter-step4-reincluded-props.png" width="580" height="628" />
+<img src="../../images/studio-teleporter/studio-teleporter-step4-reincluded-props.png" width="580" height="628" />
 </p>
 
 #### Edge Adding
@@ -235,11 +235,11 @@ For example, if you didn't defined some foreign keys between the tables on which
 Sometimes you just want to enrich the model adding new edges. 
 In both the cases you have to select a vertex in the graph and then click the "Add Edge" button in the "Action" dropdown menu. 
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-edge-button.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-edge-button.png)
 
 Then you have to drag the edge till the target vertex and click over it.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-edge-drag.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-edge-drag.png)
 
 A new window will open where you have to specifiy the name of the Edge class for the new edge instance and some mapping info:
 
@@ -250,11 +250,11 @@ A new window will open where you have to specifiy the name of the Edge class for
 
 As said above, when we want to create a new edge instance, we can create a new Edge class
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-edge-modal1.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-edge-modal1.png)
 
 or just choose a preexisting Edge class 
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-add-edge-modal2.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-edge-modal2.png)
 
 #### Edge Dropping
 
@@ -262,11 +262,11 @@ When you select an edge in the graph model, you have 2 choices:
 
 1. Delete the Edge class with all its instances
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-drop-edge-class.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-drop-edge-class.png)
 
 2. Delete only the selected instance of the specific Edge Class
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-drop-edge-instance.png)
+![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-drop-edge-instance.png)
 
 
 
