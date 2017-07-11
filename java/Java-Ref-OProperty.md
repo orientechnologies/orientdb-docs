@@ -23,4 +23,7 @@ import com.orientechnologies.orient.core.metadata.schema.OProperty;
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`getDefaultValue()`**](Java-Ref-OProperty-getDefaultValue.md) | [`String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the default value for the property |
+| [**`getDefaultValue()`**](Java-Ref-OProperty-getDefaultValue.md) | [`String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the default value |
+| [**`getMax()`**](Java-Ref-OProperty-getMax.md) | [`String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the maximum allowed value |
+| [**`setDefaultValue()`**](Java-Ref-OProperty-setDefaultValue.md) | `OProperty` | Defines the default value | 
+| [**`setMax()`**](Java-Ref-OProperty-setMax.md) | `OProperty` | Defines the maximum allowed value |
