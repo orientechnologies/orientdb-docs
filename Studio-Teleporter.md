@@ -116,6 +116,7 @@ Thanks to the details panel you can inspect information about:
 1. Vertex class
 
 If you select a Vertex Class, you can inspect the correspondence between each column in the source table and the correspondent property in the translated Vertex class. Columns and proprties are strongly bound: you can exclude, include or rename a property, but the bindings with the correspondent column will remain.
+
 ![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-graph+selected-vertex.png)
 
 2. Edge Class
@@ -131,8 +132,9 @@ When you select an edge in the graph, you can find out about the original relati
 
    The rendered Relationship involves just two tables of course, the starting table (aka **foreign table**) and the arrival table (aka **parent table**). Clicking the question mark you can also see for each table all the columns involved in the relationhip.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-simple-edge-rel-view.png)
-
+<p align="center">
+<img src="images/studio-teleporter/studio-teleporter-step4-simple-edge-rel-view.png" width="580" height="628" />
+</p>
 
   - N-N Relationship
 
@@ -145,10 +147,10 @@ When you select an edge in the graph, you can find out about the original relati
 ![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggr-edge-rendering.png)
 
    Here too, clicking the question mark you can inspect the involved columns for both the relationhips.
-
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-1.png)
-
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-2.png)
+   
+<p align="center">
+<img src="images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-1.png" width="430" height="465" /> <img src="images/studio-teleporter/studio-teleporter-step4-aggr-edge-rel-view-2.png" width="430" height="465" />
+</p>
 
 #### Search Bar
 
@@ -178,7 +180,9 @@ We have two ways to exclude a property mapped with a column in the source table:
 
 2. Dropping the property from the class perspective.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-excluded-props.png)
+<p align="center">
+<img src="images/studio-teleporter/studio-teleporter-step4-excluded-props.png" width="580" height="628" />
+</p>
 
 #### Property Dropping
 
@@ -220,7 +224,9 @@ We have two ways to include a property mapped with a column in the source table:
 
 2. Including the property from the OrientDB class perspective through the "Add property" button shown above.
 
-![Teleporter Job Running](images/studio-teleporter/studio-teleporter-step4-reincluded-props.png)
+<p align="center">
+<img src="images/studio-teleporter/studio-teleporter-step4-reincluded-props.png" width="580" height="628" />
+</p>
 
 #### Edge Adding
 
