@@ -413,6 +413,7 @@
         * [saveConfiguration()](java/Java-Ref-OServer-saveConfiguration.md)
         * [shutdown()](java/Java-Ref-OServer-shutdown.md)
         * [startup()](java/Java-Ref-OServer-startup.md)
+      * [OType](java/Java-Ref-OType.md)
       * [OVertex](java/Java-Ref-OVertex.md)
         * [addEdge()](java/Java-Ref-OVertex-addEdge.md)
         * [getEdges()](java/Java-Ref-OVertex-getEdges.md)

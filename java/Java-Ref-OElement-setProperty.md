@@ -27,6 +27,4 @@ void OElement().setProperty(String name, Object value, OType field)
 |---|---|---|
 | **`name`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the property name |
 | **`value`** | [`Object`]({{ book.javase }}/api/java/lang/Object.html) | Defines the data you want to set on the property |
-| **`field`** | `OType` | Forced type for the property, (not auto-determined) |
-
-
+| **`field`** | [`OType`](Java-Ref-OType.md) | Forced type for the property, (not auto-determined) |

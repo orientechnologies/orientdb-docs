@@ -42,9 +42,9 @@ OProperty OClass().createProperty(
 | Argument | Type | Description |
 |---|---|---|
 | **`name`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the property name |
-| **`type`** | `OType` | Defines the property type |
+| **`type`** | [`OType`](Java-Ref-OType.md) | Defines the property type |
 | **`linkedClass`** | [`OClass`](Java-Ref-OClass.md) | Defines the class to link to, for use with properties of the type `LINK`, `LINKLIST`, `LINKSET`, `LINMAP`, `EMBEDDED`, `EMBEDDEDLIST`.  You can further spcify the type for embedded classes. |
-| **`linkedType`** | `OType` | Defines the linked type, for use with properties of the types: `EMBEDDEDLIST`, `EMBEDDEDSET` or `EMBEDDEDMAP`.  Set this argument to `null` for all other cases. |
+| **`linkedType`** | [`OType`](Java-Ref-OType.md) | Defines the linked type, for use with properties of the types: `EMBEDDEDLIST`, `EMBEDDEDSET` or `EMBEDDEDMAP`.  Set this argument to `null` for all other cases. |
 | **`isUnsafe`** | Defines whether it should check the persistent data for compatibility.  Only use if all persistent data is compatible with the property. |
 
 #### Return Value
