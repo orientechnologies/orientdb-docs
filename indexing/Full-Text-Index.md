@@ -340,6 +340,60 @@ orientdb> <code class="lang-sql userinput">SELECT name, $name_hl, description, $
 }) = true</code>
 </pre>
 
+### Cross class search (Enterprise Edition)
+
+Bundled with the enterprise edition there's the *SEARH_CROSS* function that is able to search over all the Lucene indexes defined on a database
+
+Suppose to define two indexes:
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX Song.title ON Song (title,author) FULLTEXT ENGINE LUCENE METADATA
+CREATE INDEX Author.name on Author(name,score) FULLTEXT ENGINE LUCENE METADATA
+</code>
+</pre>
+
+Searching for a term on each class implies a lot of different queries to be aggregated.
+
+The *SEARCH_CLASS* function automatically performs the given query to each full-text index configured inside the database.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('beautiful'))
+</code>
+</pre>
+
+The query will be execute over all the indexes configured on each field.
+It is possible to search over a given field of a certain class, just qualify the field names with their class name:
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Song.title:beautiful  Author.name:bob'))
+</code>
+</pre>
+
+Another way is to use the metadata field *_CLASS* present in every index:
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT expand(SEARCH_CROSS('(+_CLASS:Song +title:beautiful) (+_CLASS:Author +name:bob)') )
+</code>
+</pre>
+
+All the options of a Lucene's query are allowed: inline boosting, phrase queries, proximity etc.
+
+The function accepts a metadata JSON as second parameter
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.name:bob Song.title:*tain', {"
+   "allowLeadingWildcard" : true,
+   "boost": {
+        "Author.name": 2.0
+        }
+   }
+)
+</code>
+</pre>
+
+
+
+
 
 ### The LUCENE operator (deprecated)
 
