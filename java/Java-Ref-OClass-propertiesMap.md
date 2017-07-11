@@ -19,6 +19,6 @@ Map<String, OProperty> OClass().properties()
 
 #### Return Value
 
-This method returns a [`Map`]({{ book.javase }}/api/java/util/Map.html) that contains a series of key/value entries, where the key is a [`String`]({{ book.javase }}/api/java/lang/String.html) providng the property name and the value is the `OProperty` instance for each property on the class. 
+This method returns a [`Map`]({{ book.javase }}/api/java/util/Map.html) that contains a series of key/value entries, where the key is a [`String`]({{ book.javase }}/api/java/lang/String.html) providng the property name and the value is the [`OProperty`](Java-Ref-OProperty.md) instance for each property on the class. 
 
 

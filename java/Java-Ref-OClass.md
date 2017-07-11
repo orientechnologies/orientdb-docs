@@ -57,12 +57,12 @@ Once you've imported the class to your application, you can use to build particu
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`createProperty()`**](Java-Ref-OClass-createProperty.md) | `OProperty` | Creates a property (that is, a field) on the class |
+| [**`createProperty()`**](Java-Ref-OClass-createProperty.md) | [`OProperty`](Java-Ref-OProperty.md) | Creates a property (that is, a field) on the class |
 | [**`dropProperty()`**](Java-Ref-OClass-dropProperty.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Removes property from class |
 | [**`existsProperty()`**](Java-Ref-OClass-existsProperty.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether a property exists on the class |
-| [**`getIndexedProperties()`**](Java-Ref-OClass-getIndexedProperties.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)`<OProperty>` | Retrieves a collection of properties that are indexed |
-| [**`getProperty()`**](Java-Ref-OClass-getProperty.md) | `OProperty` | Retrieves the given property |
-| [**`properties()`**](Java-Ref-OClass-properties.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)`<OProperty>` | Retrieves properties on the class |
+| [**`getIndexedProperties()`**](Java-Ref-OClass-getIndexedProperties.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html) [`<OProperty>`](Java-Ref-OProperty.md) | Retrieves a collection of properties that are indexed |
+| [**`getProperty()`**](Java-Ref-OClass-getProperty.md) | [`OProperty`](Java-Ref-OProperty.md) | Retrieves the given property |
+| [**`properties()`**](Java-Ref-OClass-properties.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<OProperty>`](Java-Ref-OProperty.md) | Retrieves properties on the class |
 | [**`propertiesMap()`**](Java-Ref-OClass-propertiesMap.md) | [`Map`]({{ book.javase }}/api/java/util/Map.html) [`<String, `]({{ book.javase }}/api/java/lang/String.html)`OProperty>` | Retrieves properties on the class |
 
 ### Managing Indexes
@@ -75,4 +75,4 @@ Once you've imported the class to your application, you can use to build particu
 | [**`getClassIndex()`**](Java-Ref-OClass-getClassIndex.md) | `OIndex<?>` | Retrieves the requested index instance |
 | [**`getClassIndexes()`**](Java-Ref-OClass-getClassIndexes.md) | [`Set`]({{ book.javase }}/api/java/util/Set.html)`<OIndex<?>>` | Retrieves indexes for the class |
 | [**`getClassInvolvedIndexes()`**](Java-Ref-OClass-getClassInvolvedIndexes.md) | [`Set`]({{ book.javase }}/api/java/util/Set.html)`<OIndex<?>>` | Retrieves indexes that include the given properties as first keys |
-| [**`getIndexedProperties()`**](Java-Ref-OClass-getIndexedProperties.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)`<OProperty>` | Retrieves a collection of properties that are indexed |
+| [**`getIndexedProperties()`**](Java-Ref-OClass-getIndexedProperties.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<OProperty>`](Java-Ref-OProperty.md) | Retrieves a collection of properties that are indexed |

@@ -49,5 +49,5 @@ OProperty OClass().createProperty(
 
 #### Return Value
 
-This method returns the created property as an `OProperty` instance.
+This method returns the created property as an [`OProperty`](Java-Ref-OProperty.md) instance.
 

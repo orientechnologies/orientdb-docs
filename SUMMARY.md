@@ -382,6 +382,7 @@
         * [isVertex()](java/Java-Ref-OElement-isVertex.md)
         * [removeProperty()](java/Java-Ref-OElement-removeProperty.md)
         * [setProperty()](java/Java-Ref-OElement-setProperty.md)
+      * [OProperty](java/Java-Ref-OProperty.md)
       * [OrientDB](java/Java-Ref-OrientDB.md)
         * [create()](java/Java-Ref-OrientDB-create.md)
         * [createIfNotExists()](java/Java-Ref-OrientDB-createIfNotExists.md)	

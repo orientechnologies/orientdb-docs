@@ -9,7 +9,7 @@ This method retrieves the given property instance from the class.
 
 ## Retrieving Properties
 
-In cases where you want to operate on properties rather than the values they contain, you can use this method to retrieve `OProperty` instances for the given property on the class.
+In cases where you want to operate on properties rather than the values they contain, you can use this method to retrieve [`OProperty`](Java-Ref-OProperty.md) instances for the given property on the class.
 
 ### Syntax
 
@@ -23,4 +23,4 @@ OProperty OClass().getProperty(String name)
 
 #### Return Value
 
-This method returns an `OProperty` instance for the requested property on the class.
+This method returns an [`OProperty`](Java-Ref-OProperty.md) instance for the requested property on the class.

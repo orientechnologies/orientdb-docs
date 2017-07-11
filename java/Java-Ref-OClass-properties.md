@@ -19,6 +19,6 @@ Collection<OProperty> OClass().properties()
 
 #### Return Value
 
-This method returns a [`Collection`]({{ book.javase }}/api/java/util/Collection.html) that contains `OProperty` instances for each property configured on the class.
+This method returns a [`Collection`]({{ book.javase }}/api/java/util/Collection.html) that contains [`OProperty`](Java-Ref-OProperty.md) instances for each property configured on the class.
 
 
