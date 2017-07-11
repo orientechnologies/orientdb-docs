@@ -26,6 +26,7 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON
           FULLTEXT ENGINE LUCENE</code>
 </pre>
 
+When multiple properties should be indexed, a single multi-field index should be preferred. A single multi-field index needs less resources, such as file handlers. Moreover, it is easy to write better Lucene queries.
 The default analyzer used by OrientDB when a Lucene index is created id the [StandardAnalyzer](https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
 
 ### Analyzer 
@@ -99,6 +100,7 @@ The FullText Index with the Lucene Engine is configurable through the Java API.
 ## Query parser
 
 It is possible to configure some behavior of the Lucene [query parser](https://lucene.apache.org/core/5_3_2/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+Query parser's behavior can be configured at index creation time and overridden at runtime.
 
 ### Allow Leading Wildcard
 
@@ -137,12 +139,22 @@ It is useful when used in pair with keyword analyzer:
 With *lowercaseExpandedTerms* set to false, these two queries will return different results:
 
 <pre>
-<code class="lang-sql userinput">SELECT from Person WHERE name LUCENE "NAME"
+<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("NAME") = true
 
-SELECT from Person WHERE name LUCENE "name"
+SELECT from Person WHERE WHERE SEARCH_CLASS("name") = true
 
 </code>
 </pre>
+
+### Runtime configuration
+
+It is possible to override the query parser's  configuration given at creation index time at runtime passing a json:
+
+<pre>
+<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("NAME", {"allowLeadingWildcard": true ,  "lowercaseExpandedTerms": false } ) = true
+</code>
+</pre>
+
 
 
 ## Lucene Writer fine tuning (expert)
@@ -180,37 +192,89 @@ For a detailed explanation of config parameters and IndexWriter behaviour
 
 ## Querying Lucene FullText Indexes
 
-You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Syntax](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
+OrientDB 3.0.x introduced search functions: *SEARCH_CLASS*, *SEARCH_FIELDS*, *SEARCH_INDEX*, *SEARCH_MORE*
+Every function accepts as last, optional, parameter a JSON with additional configuration.
+
+### SEARCH_CLASS
+
+The best way to use the search capabilities of OrientDB is to define a single multi-fields index and use *SEARCH_CLASS**.
+In case more than one full-text index is defined over a class, an error is raised.
+
 
 <pre>
-orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful") = true</code>
 </pre>
 
-This query searches for `test`, `tests`, `tester`, and so on from the property `name` of the class `V`.
-The query can use proximity operator _~_, the required (_+_) and prohibit (_-_) operators, phrase queries, regexp queries:
+The function accepts metadata JSON as second parameter:
 
 <pre>
-orientdb> <code class='lang-sql userinput'>SELECT FROM Article WHERE content LUCENE "(+graph -rdbms) AND +cloud"</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
+    "allowLeadingWildcard": true ,
+    "lowercaseExpandedTerms": false,
+    "boost": {
+        "name": 2
+    },
+    "highlight": {
+        "fields": ["name"],
+        "start": "<em>",
+        "end": "</em>"
+    }
+
+}) = true</code>
 </pre>
 
 
-### Working with multiple fields
+### SEARCH_MORE
 
-In addition to the standard Lucene query above, you can also query multiple fields.  For example,
+OrientDB exposes the Lucene's more like this capability with a dedicated function.
+
+The first parameter is the array of RID of elements to be used to calculate similarity, the second parameter the usual metadata JSON used to tune the query behaviour.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_MORE([#25:2, #25:3],{'minTermFreq':1, 'minDocFreq':1} ) = true</code>
 </pre>
 
-In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
-
-To execute a more complex query on each field, surround your query with parentheses, which causes the query to address specific fields.
+It is possible to use a query to gather RID of documents to be used to calculate similarity:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Article WHERE [content, author] LUCENE "(content:graph AND author:john)"</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM City  let $a=(SELECT @rid FROM City WHERE name= 'Rome')  WHERE SEARCH_MORE( $a, { 'minTermFreq':1, 'minDocFreq':1} ) = true</code>
 </pre>
 
-Here, the engine parses the query using the [QueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+Lucene's MLT has a lot of parameter, and all these are exposed through the metadata JSON: http://lucene.apache.org/core/6_6_0/queries/org/apache/lucene/queries/mlt/MoreLikeThis.html
+
+* *fieldNames*: array of field's names to be used to extract content
+* *maxQueryTerms*
+* *minDocFreq*
+* *maxDocFreq*
+* *minTermFreq*
+* *boost*
+* *boostFactor*
+* *maxWordLen*
+* *minWordLen*
+* *maxNumTokensParsed*
+* *stopWords*
+
+
+### SEARCH_INDEX
+
+The *SEARCH_INDEX* function allows to execute the query on a single index. It is useful if more than one index are defined over a class.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_INDEX("City.name", "cas*") = true</code>
+</pre>
+
+The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
+
+### SEARCH_FIELDS
+
+The *SEARCH_FIELDS* function allows to execute query over the index that is defined over one ormore fields:
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_FIELDS(["name", "description"], "name:cas* description:beautiful") = true</code>
+</pre>
+
+The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
+
 
 ### Numeric and date range queries
 
@@ -230,7 +294,7 @@ Then query using ranges:
 
 <pre>
 orientdb> <code class="lang-sql userinput">
-SELECT FROM City WHERE [name,size] LUCENE 'name:cas* AND size:[15000 TO 20000]'
+SELECT FROM City WHERE SEARCH_CLASS('name:cas* AND size:[15000 TO 20000]') = true
 </code>
 </pre>
 
@@ -248,10 +312,8 @@ Then query to retrieve articles published only in a given time range:
 
 <pre>
 orientdb> <code class="lang-sql userinput">
-SELECT FROM Article WHERE createdAt LUCENE '[201612221000 TO 201612221100]'</code>
+SELECT FROM Article WHERE SEARCH_CLASS('[201612221000 TO 201612221100]') =true</code>
 </pre>
-
-
 
 ### Retrieve the Score
 
@@ -262,7 +324,119 @@ To display the score add `$score` in projections.
 SELECT *,$score FROM V WHERE name LUCENE "test*"
 ```
 
-## Creating a Manual Lucene Index
+
+### Highlighting
+
+OrientDB uses the Lucene's highlighter. Highlighting can be configured using the metadata JSON. The highlighted content of a field is stored in a dedicated field.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT name, $name_hl, description, $description_hl FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
+    "highlight": {
+        "fields": ["name", "description"],
+        "start": "<em>",
+        "end": "</em>"
+    }
+
+}) = true</code>
+</pre>
+
+### Cross class search (Enterprise Edition)
+
+Bundled with the enterprise edition there's the *SEARH_CROSS* function that is able to search over all the Lucene indexes defined on a database
+
+Suppose to define two indexes:
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX Song.title ON Song (title,author) FULLTEXT ENGINE LUCENE METADATA
+CREATE INDEX Author.name on Author(name,score) FULLTEXT ENGINE LUCENE METADATA
+</code>
+</pre>
+
+Searching for a term on each class implies a lot of different queries to be aggregated.
+
+The *SEARCH_CLASS* function automatically performs the given query to each full-text index configured inside the database.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('beautiful'))
+</code>
+</pre>
+
+The query will be execute over all the indexes configured on each field.
+It is possible to search over a given field of a certain class, just qualify the field names with their class name:
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Song.title:beautiful  Author.name:bob'))
+</code>
+</pre>
+
+Another way is to use the metadata field *_CLASS* present in every index:
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT expand(SEARCH_CROSS('(+_CLASS:Song +title:beautiful) (+_CLASS:Author +name:bob)') )
+</code>
+</pre>
+
+All the options of a Lucene's query are allowed: inline boosting, phrase queries, proximity etc.
+
+The function accepts a metadata JSON as second parameter
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.name:bob Song.title:*tain', {"
+   "allowLeadingWildcard" : true,
+   "boost": {
+        "Author.name": 2.0
+        }
+   }
+)
+</code>
+</pre>
+
+
+
+
+
+### The LUCENE operator (deprecated)
+
+_NOTE_: *LUCENE* operator is translated to *SEARCH_FIELDS* function, but it doesn't support the metadata JSON
+
+You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Syntax](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
+
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
+</pre>
+
+This query searches for `test`, `tests`, `tester`, and so on from the property `name` of the class `V`.
+The query can use proximity operator _~_, the required (_+_) and prohibit (_-_) operators, phrase queries, regexp queries:
+
+<pre>
+orientdb> <code class='lang-sql userinput'>SELECT FROM Article WHERE content LUCENE "(+graph -rdbms) AND +cloud"</code>
+</pre>
+
+
+### Working with multiple fields (deprecated)
+
+_NOTE_: define a single Lucene index on the class and use *SEARCH_CLASS* function
+
+In addition to the standard Lucene query above, you can also query multiple fields.  For example,
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
+</pre>
+
+In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
+
+To execute a more complex query on each field, surround your query with parentheses, which causes the query to address specific fields.
+
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT FROM Article WHERE [content, author] LUCENE "(content:graph AND author:john)"</code>
+</pre>
+
+Here, the engine parses the query using the [QueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+
+
+## Creating a Manual Lucene Index (deprecated)
+
+_NOTE_: avoid manual Lucene index
 
 The Lucene Engine supports index creation without the need for a class.
 
