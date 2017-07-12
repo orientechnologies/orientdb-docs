@@ -89,7 +89,7 @@ With this configuration, the underlying Lucene index will works in different way
 
 The FullText Index with the Lucene Engine is configurable through the Java API.
 
-<pre><code class="">
+<pre><code class="lang-java">
     OSchema schema = databaseDocumentTx.getMetadata().getSchema();
     OClass oClass = schema.createClass("Foo");
     oClass.createProperty("name", OType.STRING);
@@ -142,20 +142,8 @@ With *lowercaseExpandedTerms* set to false, these two queries will return differ
 <code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("NAME") = true
 
 SELECT from Person WHERE WHERE SEARCH_CLASS("name") = true
-
 </code>
 </pre>
-
-### Runtime configuration
-
-It is possible to override the query parser's  configuration given at creation index time at runtime passing a json:
-
-<pre>
-<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("NAME", {"allowLeadingWildcard": true ,  "lowercaseExpandedTerms": false } ) = true
-</code>
-</pre>
-
-
 
 ## Lucene Writer fine tuning (expert)
 
@@ -207,8 +195,7 @@ orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("
 
 The function accepts metadata JSON as second parameter:
 
-<pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
+<pre>orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
     "allowLeadingWildcard": true ,
     "lowercaseExpandedTerms": false,
     "boost": {
@@ -219,9 +206,9 @@ orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("
         "start": "<em>",
         "end": "</em>"
     }
-
 }) = true</code>
 </pre>
+
 
 
 ### SEARCH_MORE
@@ -230,14 +217,14 @@ OrientDB exposes the Lucene's more like this capability with a dedicated functio
 
 The first parameter is the array of RID of elements to be used to calculate similarity, the second parameter the usual metadata JSON used to tune the query behaviour.
 
-<pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_MORE([#25:2, #25:3],{'minTermFreq':1, 'minDocFreq':1} ) = true</code>
+<pre>orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_MORE([#25:2, #25:3],{'minTermFreq':1, 'minDocFreq':1} ) = true</code>
 </pre>
 
 It is possible to use a query to gather RID of documents to be used to calculate similarity:
 
-<pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM City  let $a=(SELECT @rid FROM City WHERE name= 'Rome')  WHERE SEARCH_MORE( $a, { 'minTermFreq':1, 'minDocFreq':1} ) = true</code>
+<pre>orientdb> <code class="lang-sql userinput">SELECT FROM City
+    let $a=(SELECT @rid FROM City WHERE name= 'Rome')
+    WHERE SEARCH_MORE( $a, { 'minTermFreq':1, 'minDocFreq':1} ) = true</code>
 </pre>
 
 Lucene's MLT has a lot of parameter, and all these are exposed through the metadata JSON: http://lucene.apache.org/core/6_6_0/queries/org/apache/lucene/queries/mlt/MoreLikeThis.html
@@ -254,6 +241,32 @@ Lucene's MLT has a lot of parameter, and all these are exposed through the metad
 * *maxNumTokensParsed*
 * *stopWords*
 
+### Query parser's runtime configuration
+
+It is possible to override the query parser's  configuration given at creation index time at runtime passing a json:
+
+<pre>
+<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("bob",{
+        "allowLeadingWildcard": true ,
+        "lowercaseExpandedTerms": false
+    } ) = true
+</code>
+</pre>
+
+The same can be done for query analyzer, overriding the configuration given at index creation's time:
+
+<pre>
+<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("bob",{
+        "customAnalysis": true ,
+        "query": "org.apache.lucene.analysis.standard.StandardAnalyzer",
+        "name_query": "org.apache.lucene.analysis.en.EnglishAnalyzer"
+    } ) = true
+</code>
+</pre>
+
+The *customAnalysis* flag is mandatory to enable the runtime configuration of query analyzers.
+The runtime configuration is _per query_ and it isn't stored nor reused for a subsequent query.
+The custom configuration can be used with all the functions.
 
 ### SEARCH_INDEX
 
@@ -320,25 +333,31 @@ SELECT FROM Article WHERE SEARCH_CLASS('[201612221000 TO 201612221100]') =true</
 When the lucene index is used in a query, the results set carries a context variable for each record representing the score.
 To display the score add `$score` in projections.
 
-```
+<pre>
+orientdb> <code class="lang-sql userinput">
 SELECT *,$score FROM V WHERE name LUCENE "test*"
-```
-
+</pre>
 
 ### Highlighting
 
 OrientDB uses the Lucene's highlighter. Highlighting can be configured using the metadata JSON. The highlighted content of a field is stored in a dedicated field.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT name, $name_hl, description, $description_hl FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
+orientdb> <code class="lang-sql userinput">SELECT name, $name_hl, description, $description_hl FROM City
+WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
     "highlight": {
         "fields": ["name", "description"],
         "start": "<em>",
         "end": "</em>"
     }
-
 }) = true</code>
 </pre>
+
+Parameters
+* *fields*: array of field names to be highlighted
+* *start*: start delimiter for highlighted text (default \<B>)
+* *end*: end delimiter for highlighted text (default \</B>)
+* *maxNumFragments*: maximum number of text's fragments to highlight
 
 ### Cross class search (Enterprise Edition)
 
@@ -390,10 +409,6 @@ orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.n
 )
 </code>
 </pre>
-
-
-
-
 
 ### The LUCENE operator (deprecated)
 
