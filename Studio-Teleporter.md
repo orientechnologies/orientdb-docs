@@ -8,8 +8,7 @@ search:
 In Studio 2.2 you can configure the execution of the new Teleporter plugin, which allows you to import your relational database into OrientDB in few simple steps.
 If you are interested in a detailed description of the tool, of its inner workings and features you can view the [Teleporter Documentation](Teleporter-Home.md).
 
-**NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.com/download/). **But beware**: in **community edition** you can migrate your source relational database but **you cannot enjoy the synchronize feature**, only available in the enterprise edition.
-
+**NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.com/download/). **But beware**: in **Community Edition** you can migrate your source relational database but **you cannot enjoy the synchronize feature**, only available in the **Enterprise Edition**.
 
 This visual tool consists in a wizard composed of 4 steps, where just **Step 1** and **Step 2** are strictly necessary in order to perform your migration.
 Let's have a look at each configuration step.
