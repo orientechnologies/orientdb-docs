@@ -163,6 +163,7 @@
     * [Configuration](admin/Configuration.md) 
     * [Upgrade](release/Upgrade.md)
         * [Backward Compatibility](misc/Backward-compatibility.md)
+        * [Upgrading a Distributed Environment](release/Upgrading-Distributed-Environment.md)
     * [Logs](admin/Logging.md)
     * [Event Scheduler](admin/Scheduler.md)
     * [Functions](admin/Functions.md)
