@@ -19,7 +19,7 @@
     * [How to Get in Touch with OrientDB](misc/Get-in-Touch.md)
     * [How to Contribute to OrientDB](misc/Contribute-to-OrientDB.md)
     * [OrientDB Roadmap](misc/Roadmap.md)
-* [Getting Started](gettingstarted/Getting-Started.md)
+* [Getting Started](gettingstarted/README.md)
     * [Installation](gettingstarted/Tutorial-Installation.md)
     * [Run the server](gettingstarted/Tutorial-Run-the-server.md) 
     * [Run the console](gettingstarted/Tutorial-Run-the-console.md) 
@@ -61,7 +61,7 @@
 	        * [Importing the Open Beer Database into OrientDB](gettingstarted/tutorials/Import-the-Database-of-Beers.md) 
 	        * [Importing the *northwind* Database from Neo4j](gettingstarted/tutorials/Tutorial-Importing-the-northwind-Database-from-Neo4j.md)
             * [Importing the *movie* Database from Neo4j](gettingstarted/tutorials/Tutorial-Importing-the-Movie-Database-from-Neo4j.md) 
-* [General Information](general/General.md)
+* [General Information](general/README.md)
     * [Supported Types](general/Types.md)
     * [Schema](general/Schema.md)
     * [Inheritance](general/Inheritance.md)
@@ -90,7 +90,7 @@
 	
 ## CORE TOPICS
 
-* [OrientDB Programs](programs/Programs.md)
+* [OrientDB Programs](programs/README.md)
     * [OrientDB Server-Startup Programs](programs/Server-Startup-Programs.md)
         * [server](programs/server.md)
         * [dserver](programs/dserver.md)
