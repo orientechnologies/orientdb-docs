@@ -11,7 +11,7 @@ OrientDB adheres to the [Apache TinkerPop](http://tinkerpop.apache.org) standard
 In version pior 3.0, OrientDB uses the [TinkerPop 2.x](https://github.com/tinkerpop/blueprints) implementation as the default for [Java Graph API](../java/Graph-Database-Tinkerpop.md).
 
 Starting from version 3.0, OrientDB ships it's own 
-APIs for handling Graphs ([Multi-Model API](../java/Java-MultiModel-API.md)). Those APIs are used to implements the TinkerPop 3 interfaces.
+APIs for handling Graphs ([Multi-Model API](../java/Java-MultiModel-API.md)). Those APIs are used to implement the TinkerPop 3 interfaces.
 
 The OrientDB TinkerPop development happens [here](https://github.com/orientechnologies/orientdb-gremlin)
 
