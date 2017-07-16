@@ -25,5 +25,13 @@ import com.orientechnologies.orient.core.metadata.schema.OProperty;
 |---|---|---|
 | [**`getDefaultValue()`**](Java-Ref-OProperty-getDefaultValue.md) | [`String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the default value |
 | [**`getMax()`**](Java-Ref-OProperty-getMax.md) | [`String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the maximum allowed value |
+| [**`getMin()`**](Java-Ref-OProperty-getMin.md) | [`String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the minimum allowed value |
+| [**`getName()`**](Java-Ref-OProperty-getName.md) | [`String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the property name |
+| [**`getType()`**](Java-Ref-OProperty-getType.md) | [`OType`](Java-Ref-OType.md) | Retrieves the property type |
+| [**`isMandatory()`**](Java-Ref-OProperty-isMandatory.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether the class requires you to set a value on this property | 
+| [**`isNotNull()`**](Java-Ref-OProperty-isNotNull.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether the class permits `null` values |
 | [**`setDefaultValue()`**](Java-Ref-OProperty-setDefaultValue.md) | `OProperty` | Defines the default value | 
 | [**`setMax()`**](Java-Ref-OProperty-setMax.md) | `OProperty` | Defines the maximum allowed value |
+| [**`setMin()`**](Java-Ref-OProperty-setMin.md) | `OProperty` | Defines the minimum allowed value |
+| [**`setName()`**](Java-Ref-OProperty-setName.md) | `OProperty` | Defines the property name |
+| [**`setType()`**](Java-Ref-OProperty-setType.md) | `OProperty` | Defines the property type |
