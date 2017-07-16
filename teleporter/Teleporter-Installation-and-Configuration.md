@@ -6,15 +6,11 @@ search:
 # Installation and Configuration
 
 ## Installation
-Teleporter is really easy to install, you just have to download the installation package available [here](http://orientdb.com/teleporter/) and follow these few instructions:
 
-1. Download the package.
-2. Move `orientdb-teleporter-<version>.jar` contained in *plugins/* folder to the *$ORIENTDB_HOME/plugins* folder.
-3. Move both the scripts `oteleporter.sh` and `oteleporter.bat` (for Windows users) contained in *bin/* folder to the *$ORIENTDB_HOME/bin* folder.
-4. Move the `jdbc-drivers.json` configuration file contained in *config/* folder to the *$ORIENTDB_HOME/config* folder.
+Teleporter is out-of-the-box both in Community and Enterprise Edition, so you don't need any configuration or modification.
+**But beware**: in **Community Edition** you can migrate your source relational database but **you cannot enjoy the synchronize feature**, only available in the **Enterprise Edition**.
 
-Now Teleporter is ready, you can run the tool through the script as described in the [Home page](Teleporter-Home.md) or just execute it via OrientDB Studio as described [here.](../studio/Studio-Teleporter.md)
-
+You can run the tool through the script as described in the [Home page](Teleporter-Home.md) or just execute it via OrientDB Studio as described [here.](../studio/Studio-Teleporter.md)
 
 ## Driver Configuration.
 
