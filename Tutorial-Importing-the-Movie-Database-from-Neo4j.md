@@ -71,190 +71,132 @@ The following sections include a comparison of the Neo4j's Cypher and OrientDB's
 
 ### Find the actor named "Tom Hanks"
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (tom:Person {name: "Tom Hanks"}) 
 RETURN tom
+```
 
-</td>
-<td>
+OrientDB's MATCH:
 
+```
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')} 
 RETURN $pathElements
-
-</td>
-</tr>
-</table>
-
+```
 
 ### Find the movie with title "Cloud Atlas"
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (cloudAtlas:Movie {title: "Cloud Atlas"}) 
 RETURN cloudAtlas
+```
 
-</td>
-<td>
+OrientDB's MATCH:
 
+```
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')} 
 RETURN $pathElements
-
-</td>
-</tr>
-</table>
+```
 
 ### Find 10 people
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (people:Person) 
 RETURN people.name 
 LIMIT 10
+```
 
-</td>
-<td>
+OrientDB's MATCH:
 
+```
 MATCH {class: Person, as: people} 
 RETURN people.name
 LIMIT 10
-
-</td>
-</tr>
-</table>
-
+``` 
 
 ### Find the movies released in the 1990s
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (nineties:Movie) 
 WHERE nineties.released > 1990 AND nineties.released < 2000 
 RETURN nineties.title
+```
 
-</td>
-<td>
+OrientDB's MATCH:
 
+```
 MATCH {class: Movie, as: nineties, WHERE: (released > 1990 AND released < 2000 )} 
 RETURN nineties.title
-
-</td>
-</tr>
-</table>
+```
 
 ### List all Tom Hanks movies
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (tom:Person {name: "Tom Hanks"})-[:ACTED_IN]->(tomHanksMovies) 
 RETURN tom, tomHanksMovies
+```
 
-</td>
-<td>
+OrientDB's MATCH:
 
+```
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: tomHanksMovies}
 RETURN $pathElements
-
-</td>
-</tr>
-</table>
-
+```
 
 ### Find out who directed "Cloud Atlas"
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (cloudAtlas {title: "Cloud Atlas"})<-[:DIRECTED]-(directors)
 RETURN directors.name
+```
 
-</td>
-<td>
+OrientDB's MATCH:
 
+```
 MATCH {class: Movie, as: cloudAtlas, where: (title = 'Cloud Atlas')}<-DIRECTED-{as: directors}
 RETURN directors.name
-
-</td>
-</tr>
-</table>
+```
 
 ### Find Tom Hanks' co-actors
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (tom:Person {name:"Tom Hanks"})-[:ACTED_IN]->(m)<-[:ACTED_IN]-(coActors) 
 RETURN DISTINCT coActors.name
+```
 
-</td>
-<td>
+OrientDB's MATCH:
 
+```
 MATCH {class: Person, as: tom, where: (name = 'Tom Hanks')}-ACTED_IN->{as: m}<-ACTED_IN-{class: Person,as: coActors}
 RETURN coActors.name
-
-</td>
-</tr>
-</table>
+```
 
 ### Find how people are related to "Cloud Atlas"
 
-<table>
-<tr>
-    <th width="50%">Neo4j's Cypher</th>
-    <th width="50%">OrientDB's MATCH</th>
-</tr>
-<tr>
-<td>
+Neo4j's Cypher:
 
+```
 MATCH (people:Person)-[relatedTo]-(:Movie {title: "Cloud Atlas"}) 
 RETURN people.name, Type(relatedTo), relatedTo
+```
 
-</td>
-<td>
 
+OrientDB's MATCH:
+
+```
 MATCH {class: Person, as: people}--{as: m, where: (title = 'Cloud Atlas')}
 RETURN $pathElements
-
-</td>
-</tr>
-</table>
+```
