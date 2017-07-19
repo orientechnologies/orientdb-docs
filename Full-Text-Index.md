@@ -101,6 +101,7 @@ With this configuration, the underlying Lucene index will works in different way
 * *description*: indexed with StandardAnalyzer with a given set of stopwords
 
 
+
 ### Java API
 
 The FullText Index with the Lucene Engine is configurable through the Java API.
@@ -194,6 +195,30 @@ For a detailed explanation of config parameters and IndexWriter behaviour
 
 * indexWriterConfig : https://lucene.apache.org/core/5_0_0/core/org/apache/lucene/index/IndexWriterConfig.html
 * indexWriter: https://lucene.apache.org/core/5_0_0/core/org/apache/lucene/index/IndexWriter.html
+
+
+## Index lifecycle
+
+Starting from 2.2.24, Lucene indexes are lazy. If the index is in idle mode, no reads and no writes, it will be closed.
+Intervals are fully configurable.
+
+* *flushIndexInterval*: flushing index interval in milliseconds, default to 10000 (10s)
+* *closeAfterInterval*: closing index interval in millisecons, default to 20000 (20s)
+* *firstFlushAfter*: first flush time in milliseconds, default to 10000 (10s)
+
+To configure the index lifecycle, just pass the parameters in the JSON of metadata:
+
+<pre>
+<code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
+{
+  "flushIndexInterval": 20000,
+  "closeAfterInterval": 20000,
+  "firstFlushAfter": 20000
+}
+</code>
+</pre>
+
+
 
 ## Querying Lucene FullText Indexes
 
