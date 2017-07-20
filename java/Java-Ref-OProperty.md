@@ -30,6 +30,7 @@ import com.orientechnologies.orient.core.metadata.schema.OProperty;
 | [**`getType()`**](Java-Ref-OProperty-getType.md) | [`OType`](Java-Ref-OType.md) | Retrieves the property type |
 | [**`isMandatory()`**](Java-Ref-OProperty-isMandatory.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether the class requires you to set a value on this property | 
 | [**`isNotNull()`**](Java-Ref-OProperty-isNotNull.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether the class permits `null` values |
+| [**`isReadonly()`**](Java-Ref-OProperty-isReadonly.md) | [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether you can write data to the property |
 | [**`setDefaultValue()`**](Java-Ref-OProperty-setDefaultValue.md) | `OProperty` | Defines the default value | 
 | [**`setMax()`**](Java-Ref-OProperty-setMax.md) | `OProperty` | Defines the maximum allowed value |
 | [**`setMin()`**](Java-Ref-OProperty-setMin.md) | `OProperty` | Defines the minimum allowed value |
