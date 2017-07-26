@@ -10,9 +10,11 @@ Creates a new edge in the database.
 **Syntax**
 
 ```sql
-CREATE EDGE <class> [CLUSTER <cluster>] FROM <rid>|(<query>)|[<rid>]* TO <rid>|(<query>)|[<rid>]*
-                    [SET <field> = <expression>[,]*]|CONTENT {<JSON>}
-                    [RETRY <retry> [WAIT <pauseBetweenRetriesInMs]] [BATCH <batch-size>]
+CREATE EDGE <class> [CLUSTER <cluster>] 
+FROM <rid> | ( <query> ) | [ <rid> (, <rid>)* ] 
+TO <rid> | ( <query> ) | [ <rid> (, <rid>)* ] 
+[ SET <field> = <expression>[,]* ] | CONTENT {<JSON>}
+[RETRY <retry> [WAIT <pauseBetweenRetriesInMs]] [BATCH <batch-size>]
 ```
 
 - **`<class>`** Defines the class name for the edge.  Use the default edge class `E` in the event that you don't want to use sub-types.
