@@ -7,6 +7,8 @@ search:
 
 (Since v2.2) Asks for a re-synchronization of a cluster when running in HA. OrientDB will select the best server to provide the cluster.
 
+**Warning:** starting from version 2.2.25, `HA SYNC CLUSTER <cluster-name>` will trigger an automatic rebuild of the indices defined on the Class the cluster `<cluster-name>` belongs to. Depending on the number of defined indices and amount of data included in the Class this operation can take some time. Furthermore it is important to wait that the sync cluster operation has finished before performing any database operations that involve that cluster.
+
 **Syntax**
 
 ```
