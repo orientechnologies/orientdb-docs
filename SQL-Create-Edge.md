@@ -38,6 +38,13 @@ andExecutionException` error.  This makes it easier to integrate edge creation i
   orientdb> <code class="lang-sql userinput">CREATE EDGE FROM #10:3 TO #11:4</code>
   </pre>
 
+- Create an edge of the class `E` between multiple vertices:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">CREATE EDGE FROM [#10:3, #10:4] TO [#11:4, #11:5] </code>
+  </pre>
+
+
 - Create a new edge type and an edge of the new type:
 
   <pre>
