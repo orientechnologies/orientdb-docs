@@ -108,3 +108,12 @@ In [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) the ad
 `-Ddistributed.conflictResolverRepairerChain=majority,content,version,dc{winner:asia}`
 
 Note the configuration passed in curly brackets `{winner:asia}` containing the name of the data center that will be the winner in case no winner has been found in the chain.
+
+
+## Client Reconnection
+
+Starting from OrientDB v2.2.25, when a client has lost its connection to the server, it's able to transparently reconnect to another server in the same Data Center of the server where it was connected. If no other server is available for the same Data Center, then it will try to reconnect to a server in another Data Center and, one by one, will try until one server is reachable. If no servers are reachable, then a connection error is thrown. You can change this strategy by forcing the reconnection to be only against the same Data Center. In this case, if no servers are available in the same Data Center, a connection error is thrown. This is the setting:
+
+```
+-Dnetwork.retry.strategy=same-dc
+```
