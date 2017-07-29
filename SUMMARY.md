@@ -184,7 +184,7 @@
 * [APIs and Drivers](Programming-Language-Bindings.md) 
   * [Functions](Functions.md)
     * [Creation](Functions-Creation.md)
-    * [Using Functions](Functions-Use.md)
+    * [Usage](Functions-Use.md)
     * [Accessing the Database](Functions-DB-Access.md)
     * [Server-side Functions](Functions-Server.md)
   * [Available Plugins and Tools](Plugins.md) 

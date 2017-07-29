@@ -5,94 +5,114 @@ search:
 
 # Using Functions
 
-## Call Functions via SQL
+Once you have created a function, whether using [Studio](Studio-Functions.md) or the OrientDB SQL [`CREATE FUNCTION`](SQL-Create-Function.md) command, you can begin to use it to operate on the database.
 
-All the database functions are automatically registered in the SQL Engine. 
+## Calling Functions in SQL
 
-**Examples**
+Calling custom functions works the same as calling the standard SQL [functions](SQL-Functions.md) that OrientDB ships by default.  For instance, consider the earlier example of a `factorial()` function.
 
-- Calling the sum function from SQL with static parameters:
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT factorial(5,3)</code>
+</pre>
 
-  ```sql
-  SELECT SUM(3,4)
-  ```
-  
-- Calling the sum function from SQL with parameters taken from database:
+This works well if you want to pass specific values to the function.  You can also pass values from the database to the function.  For instance, using `sum()` you might want to combine salary fields with bonuses.
 
-  ```sql
-  SELECT SUM(salary,bonus) AS total FROM Employee
-  ```
+<pre>
+orientdb> <code class="lang-sql userinput">SELECT sum(salary, bonus) AS total FROM Employee</code>
+</pre>
 
-  In this case the function SUM is invoked for each record in the Employee class by passing the value of the fields `salary` and `bonus`.
 
-## Functions using the Java API
+## Calling Functions from Java
 
-Using OrientDB functions from the Java API is relatively straightforward:
+When working in Java you can use functions from OrientDB, both as general functions in your application and working with content from the database.  In order to use functions in your application, you first need to retrieve it from the database.
 
 1. Get the reference to the Function Manager
 1. Get the function you want to use.
 1. Execute the function.
 
-**Examples**
+For instance, imagine you want to retrieve the `factorial()` function created in the example.  You would need to open a database and retrieve an `OFunction` instance from your database.
 
-- Passing the parameters by position:
+```java
+// Open Database
+ODatabaseDocument db = new ODatabaseDocumentTx("plocal:/tmp/db");
+db.open("admin", "admin");
 
-  ```java
-  ODatabaseDocumentTx db = new ODatabaseDocumentTx("local:/tmp/db");
-  db.open("admin", "admin");
-  OFunction sum = db.getMetadata().getFunctionLibrary().getFunction("sum");
-  Number result = sum.execute(3, 5);
-  ```
+// Retrieve Function
+OFunction factorial = db.getMetadata().getFunctionLibrary().getFunction("factorial");
 
-- Using the Blueprints Graph API:
-
-
-  ```java
-  OFunction sum = graph.getRawGraph().getMetadata().getFunctionLibrary().getFunction("sum");
-  ```
-
-- Execute the function by passing the parameters by name:
-
- ```java
-  Map<String,Object> params = new  HashMap<String,Object>();
-  params.put("a", 3);
-  params.put("b", 5);
-  Number result = sum.execute(params);
-  ```
-
-## Functions using the HTTP REST API
-
-OrientDB exposes functions as a REST service, through which it can receive parameters.  Parameters are passed by position in the URL.  Beginning with OrientDB version 2.1, you can also pass parameters in the request payload as JSON.  In which case, the mapping is not positional, but by name.
-
-**Examples**
-
-- Execute the `sum` function, passing `3` and `5` as parameters in the URL:
-
-  ```
-  http://localhost:2480/function/demo/sum/3/5
-  ```
-  
-- Execute the `sum` function, passing `3` and `5` in the request's payload:
-
-  ```json
-  {"a": 3, "b": 5}
-  ```
-  
-Each example returns an HTTP 202 OK with an envelope containing the result of the calculation:
-
-```json
-{"result":[{"@type":"d","@version":0,"value":2}]}
+// Use Factorial Function
+Number result = factorial.execute(24);
 ```
 
-You can only call functions with the HTTP GET method if you delcare it as `idempotent`.  You can call any functions using the HTTP POST method.
+Alternatively, you can retrieve the function using the Blueprints Graph API:
 
-When executing functions with the HTTP POST method, encode the content and set the HTTP request header to: `"Content-Type: application/json"`.
+```java
+// Retrieve Function
+OFunction factorial = graph.getRawGraph().getMetadata().getFunctionLibrary().getFunction("factorial");
+
+// Use Factorial Function
+Number result = factorial.execute(24);
+```
+
+Whichever approach you use to retrieve a function from OrientDB, you can define the arguments passed to the function by their position or by mapping the argument names to values in a map.  You might find this latter method more useful to avoid confusion when working with complex functions that take several arguments, but it works just as well in cases where the function takes a single argument alone.
+
+```java
+// Report Factorials from List
+public void reportFactorials(List<Number> inputValues) {
+
+	// Retrieve Factorial Function
+	ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/tmp/db");
+	db.open("admin", "admin");
+	OFunction factorial = db.getMetadata().getFunctionLibrary().getFunction("factorial");
+
+	// Loop over Input Values
+	for (int i = 0; i < inputValues.size(); i++) {
+		
+		// Fetch Number
+		Number number = list.get(i);
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("num", number);
+
+		// Calculate Factorial
+		Number result = factorial(number);
+
+		// Report Results
+		System.out.println(String.format("Factorial of %d: %d", number, result));
+
+	}
+}
+```
+
+## Calling Functions from the HTTP REST API
+
+Functions in OrientDB are accessible to REST services.  They receive parameters by position through the URL.  Beginning in version 2.1, OrientDb also supports defining parameters in JSON through the request payload.
+
+For instance, imagine you created the `factorial()` function used in the previous examples on the `OpenBeer` example database.  Using cURL, you can execute the function and retrieve the result of say the factorial of 10:
+
+<pre>
+$ <code class="lang-sh userinput">curl --user admin:admin \
+      http://localhost:2480/function/OpenBeer/factorial/10</code>
+{"result":[{"@type":"d","@version":0,"value":3628800.0,"@fieldTypes":"value=d"}]}
+</pre>
+
+Similarly, you can perform the same operation pasing the arguments in a JSON payload:
+
+<pre>
+$ <code class="lang-sh userinput">curl --user admin:admin --data '{"num": 10}' \
+      http://localhost:2480/function/OpenBeer/factorial</code>
+{"result":[{"@type":"d","@version":0,"value":3628800.0,"@fieldTypes":"value=d"}]
+</pre>
+
+Whichever method you use, the OrientDB REST API returns an HTTP 202 OK with an envelope containing the results of the operation.
+
+Note that you can only call idempotent functions using the HTTP GET method.  When the function is non-idempotent, you need to use the HTTP POST method.  When making requests using HTTP POST, encode the content and set the HTTP request header to `"Content-Typpe: application/json"`.
+
 
 >For more information, see 
 >- [HTTP REST Protocol](OrientDB-REST.md#function). 
 >- [Server-side Functions](Functions-Server.md)
 
-### Function Return Values in HTTP
+### HTTP Return Values 
 
 When calling a function through a REST service, OrientDB returns the results as JSON to the client through HTTP.  There may be differences in the results, depending on the return value of function.
 
@@ -103,13 +123,13 @@ For instance,
   ```javascript
   return 31;
   ```
-  
+
   Would return the result:
-  
+
   ```json
   {"result":[{"@type":"d","@version":0,"value":31}]}
   ```
-  
+
 - Function that returns a JavaScript object:
 
   ```
@@ -129,7 +149,7 @@ For instance,
   ```
 
   Would return the result:
-  
+
   ```json
   {"result":[{"@type":"d","@version":0,"value":[1,2,3]}]}
   ```
@@ -141,7 +161,7 @@ For instance,
   ```
 
   Would return the result:
-  
+
   ```json
   {
     "result": [
@@ -174,6 +194,3 @@ For instance,
     ]
   }
   ```
-
-
-
