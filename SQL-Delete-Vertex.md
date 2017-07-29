@@ -66,7 +66,6 @@ In the case you want to delete one or more classes of vertices and all the conne
   orientdb> <code class="lang-sql userinput">TRUNCATE CLASS Attachment UNSAFE</code>
   </pre>
 
-
 ## History
 
 ### Version 2.1
