@@ -85,7 +85,7 @@ public void reportFactorials(List<Number> inputValues) {
 
 ## Calling Functions from the HTTP REST API
 
-Functions in OrientDB are accessible to REST services.  They receive parameters by position through the URL.  Beginning in version 2.1, OrientDb also supports defining parameters in JSON through the request payload.
+Functions in OrientDB are accessible to REST services.  They receive parameters by position through the URL.  Beginning in version 2.1, OrientDB also supports defining parameters in JSON through the request payload.
 
 For instance, imagine you created the `factorial()` function used in the previous examples on the `OpenBeer` example database.  Using cURL, you can execute the function and retrieve the result of say the factorial of 10:
 
@@ -95,7 +95,7 @@ $ <code class="lang-sh userinput">curl --user admin:admin \
 {"result":[{"@type":"d","@version":0,"value":3628800.0,"@fieldTypes":"value=d"}]}
 </pre>
 
-Similarly, you can perform the same operation pasing the arguments in a JSON payload:
+Similarly, you can perform the same operation passing the arguments in a JSON payload:
 
 <pre>
 $ <code class="lang-sh userinput">curl --user admin:admin --data '{"num": 10}' \
