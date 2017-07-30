@@ -56,7 +56,15 @@ DELETE VERTEX <vertex> [WHERE <conditions>] [LIMIT <MaxRecords>>] [BATCH <batch-
 
   This feature was introduced in version 2.1.
 
+## Quick deletion of an entire class
 
+In the case you want to delete one or more classes of vertices and all the connected edges resides only on particular classes, you could use the `TRUNCATE CLASS` command against both vertex and edge classes by specifying the `UNSAFE` keyword. `TRUNCATE CLASS` is much faster than `DELETE VERTEX`, because it doesn't take in consideration the removal of the edges. Use `TRUNCATE CLASS` only when you are certain that there will not be broken edges on other vertices instances. Example of deleting all the instances of vertices classes `Email` and `Attachment` and the edge class that connect them `HasAttachment`:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">TRUNCATE CLASS Email UNSAFE</code>
+  orientdb> <code class="lang-sql userinput">TRUNCATE CLASS HasAttachment UNSAFE</code>
+  orientdb> <code class="lang-sql userinput">TRUNCATE CLASS Attachment UNSAFE</code>
+  </pre>
 
 ## History
 

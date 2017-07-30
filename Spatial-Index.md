@@ -394,6 +394,11 @@ CREATE INDEX <name> ON <class-name> (geometry-field) SPATIAL ENGINE LUCENE
 ## Legacy
 
 Before v2.2, OrientDB was able to only index Points. Other Shapes like rectangles and polygons are managed starting from v2.2 (look above). This is the legacy section for databases created before v2.2.
+**NOTE:** If you are migrating to 2.2.x from 2.1.x and you are going to index null values, remember to add `ignoreNullValues: true` to the index definition:
+
+```json
+CREATE INDEX Place.l_lon ON Place(latitude,longitude) SPATIAL ENGINE LUCENE METADATA {ignoreNullValues: true}
+```
 
 ### How to create a Spatial Index
 
