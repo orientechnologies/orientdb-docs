@@ -51,7 +51,7 @@ Here, the function receives the `client` interface and array of Record ID's, it 
 
 ### Loading Records with Cache
 
-In addition to the standard record loads, where PyOrient queries the database and returns the single requested record, you can also implement a [Fetch Plan](Fetching Strategies.md) through this method.  When you need to traverse connected records, this feature allows you to take advantage of early loads, ensuring that the client only needs to make one request, rather than sending a series of additional requests for the connected records.
+In addition to the standard record loads, where PyOrient queries the database and returns the single requested record, you can also implement a [Fetch Plan](Fetching-Strategies.md) through this method.  When you need to traverse connected records, this feature allows you to take advantage of early loads, ensuring that the client only needs to make one request, rather than sending a series of additional requests for the connected records.
 
 Consider the example of a smart home database.  In each room of your house you have installed a series of Arduino- or Micro Python-based devices to record environmental conditions, such as light and noise levels, pollen count, smoke and carbon monoxide detectors and so on.  Every fifteen minutes your application checks in with these devices and takes an average of their readings, logging its findings to OrientDB.
 

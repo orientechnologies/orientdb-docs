@@ -35,4 +35,4 @@ ALTER SEQUENCE <sequence> [START <start-point>] [INCREMENT <increment>] [CACHE <
 >- [`CREATE SEQUENCE`](SQL-Create-Sequence.md)
 >- [`DROP SEQUENCE`](SQL-Drop-Sequence.md)
 >- [Sequences and Auto-increment](Sequences-and-auto-increment.md)
->- [SQL Commands](SQL).
+>- [SQL Commands](SQL.md).

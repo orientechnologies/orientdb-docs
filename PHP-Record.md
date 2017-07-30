@@ -28,4 +28,4 @@ $record = new Record()
 | [**`recordSerialize()`**](PHP-Record-recordSerialize.md) | Returns record in serialized format |
 | [**`setOClass()`**](PHP-Record-setOClass.md) | Sets the class |
 | [**`setOData()`**](PHP-Record-setOData.md) | Sets record data |
-| [**`setRid()`**](PHP-Record-setRidmd) | Sets the Record ID |
+| [**`setRid()`**](PHP-Record-setRid.md) | Sets the Record ID |

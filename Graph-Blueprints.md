@@ -172,7 +172,7 @@ int modified = graph.command(
           new OCommandSQL("UPDATE Customer SET local = true WHERE 'Rome' IN out('lives').name")).execute());
 ```
 
-If the command modifies the schema, (such as in cases like [`CREATE CLASS`](SQL-Create-Class.md), [`ALTER CLASS`](SQL-Alter-Class.md), [`DROP CLASS`](SQL-Drop-Class.md), [`CREATE PROPERTY`](SQL-Create-Proeprty-md), [`ALTER PROPERTY`](SQL-Alter-Property.md), and [`DROP PROPERTY`](SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
+If the command modifies the schema, (such as in cases like [`CREATE CLASS`](SQL-Create-Class.md), [`ALTER CLASS`](SQL-Alter-Class.md), [`DROP CLASS`](SQL-Drop-Class.md), [`CREATE PROPERTY`](SQL-Create-Property-md), [`ALTER PROPERTY`](SQL-Alter-Property.md), and [`DROP PROPERTY`](SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
 
 ```java
 graph.getRawGraph().getMetadata().getSchema().reload();

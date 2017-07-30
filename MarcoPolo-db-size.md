@@ -9,7 +9,7 @@ This function returns the size of the database.
 
 ## Sizing the Database
 
-In certain situations you may find it useful to size the database or to count the number of records it contains.  The [`db_countrecords()`](MarcoParco-db-countrecords.md) function returns the record count.  This function returns the size.
+In certain situations you may find it useful to size the database or to count the number of records it contains.  The [`db_countrecords()`](MarcoPolo-db-countrecords.md) function returns the record count.  This function returns the size.
 
 ### Syntax
 

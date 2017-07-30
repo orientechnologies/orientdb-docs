@@ -45,7 +45,7 @@ end
 
 | Function | Description |
 |---|---|
-| [`create_db()`](MarcoPolo-create_db.md) | Creates a database. |
+| [`create_db()`](MarcoPolo-create-db.md) | Creates a database. |
 | [`db_exists?()`](MarcoPolo-db-exists.md) | Determines if database exists. |
 | [`distrib_config()`](MarcoPolo-distrib-config.md) | Fetches distributed server configuration. |
 | [`drop_db()`](MarcoPolo-drop-db.md) | Removes a database. |
