@@ -378,6 +378,7 @@
 	  * [Date](MarcoPolo-Date.md)
 	  * [DateTime](MarcoPolo-DateTime.md)
 	  * [Document](MarcoPolo-Document.md)
+      * [FetchPlan](MarcoPolo-FetchPlan.md)
 	  * [RID](MarcoPolo-RID.md)
   * [Scala API](Scala-Language.md) 
   * [HTTP API](OrientDB-REST.md) 
