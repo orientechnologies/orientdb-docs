@@ -7,7 +7,7 @@ search:
 
 >**NOTE**: Local storage is no longer available as of Version 2.0.
 
-Local storage is the first version of disk-based storage engine, but has been replaced by [plocal](internals/Paginated-Local-Storage.md). Don't create new databases using **local**, but rather [plocal](internals/Paginated-Local-Storage.md). Local storage has been kept only for compatibility purpose.
+Local storage is the first version of disk-based storage engine, but has been replaced by [plocal](/internals/Paginated-Local-Storage.md). Don't create new databases using **local**, but rather [plocal](/internals/Paginated-Local-Storage.md). Local storage has been kept only for compatibility purpose.
 
 A **local** storage is composed of multiple [Cluster](#Cluster) and [Data Segments](#Data_Segment).
 

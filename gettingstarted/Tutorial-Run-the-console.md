@@ -114,6 +114,6 @@ The `CONNECT` command takes a specific syntax for its URL.  That is, `remote:loc
 - **Database**: The third part of the address is the name of the database that you want to use.  In the case of the example, this is `GratefulDeadConcerts`.
 
 
-For more detailed information about the commands, see [Console Commands](console/Console-Commands.md).
+For more detailed information about the commands, see [Console Commands](/console/Console-Commands.md).
 
 > **Note**: The OrientDB distribution comes with the bundled database `GratefulDeadConcerts` which represents the Graph of the [Grateful Dead's](http://en.wikipedia.org/wiki/Grateful_Dead) concerts. This database can be used by anyone to start exploring the features and characteristics of OrientDB.

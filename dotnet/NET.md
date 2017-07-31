@@ -13,7 +13,7 @@ OrientDB provides driver support through a network binary protocol.  This allows
 
 The OrientDB-NET driver is not included by default in your OrientDB installation.  In order to use it, you must install it separately on your system.
 
->For information on how to install OrientDB itself, see [Installing OrientDB](../Tutorial-Installation.md).
+>For information on how to install OrientDB itself, see [Installing OrientDB](/gettingstarted/Tutorial-Installation.md).
 
 ### Installing from NuGet
 

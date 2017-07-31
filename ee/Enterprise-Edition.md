@@ -37,7 +37,7 @@ Explore the Enterprise Edition features:
 * [Cluster Management](../studio/Studio-Cluster-Management.md)
 * [Query Profiler](../studio/Studio-Query-Profiler.md)
 * [Backup Management](../studio/Studio-Backup-Management.md)
-* [Studio Auditing](../studio/Studio-Auditing.md)
+* [Studio Auditing](/studio/server-management/Studio-Auditing.md)
 * [Teleporter](../studio/Studio-Teleporter.md)
 * [Data Centers](../distributed/Data-Centers.md) 
 

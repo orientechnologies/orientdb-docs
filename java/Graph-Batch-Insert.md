@@ -17,7 +17,7 @@ For a basic use case, where your graph fits in the following constraints:
 - vertices are identified by a numeric (Long) id
 - no properties on vertices and edges
 
-OrientDB provides an API called [OGraphBatchInsertBasic]({{javadoc}}com/orientechnologies/orient/graph/batch/OGraphBatchInsertBasic.html).
+OrientDB provides an API called [OGraphBatchInsertBasic]({{ javadoc }}/com/orientechnologies/orient/graph/batch/OGraphBatchInsertBasic.html).
 
 This API is designed for fast batch import of simple graphs, starting from an empty (or non existing) DB. 
 
@@ -62,7 +62,7 @@ For a use case, where your graph fits in the following constraints:
 - vertices are identified by a numeric (Long) id
 - edges and/or vertices have properties 
 
-OrientDB provides an API called [OGraphBatchInsert]({{javadoc}}com/orientechnologies/orient/graph/batch/OGraphBatchInsert.html).
+OrientDB provides an API called [OGraphBatchInsert]({{ javadoc }}/com/orientechnologies/orient/graph/batch/OGraphBatchInsert.html).
 
 This API is designed for fast batch import of simple graphs, starting from an empty (or non existing) DB. 
 

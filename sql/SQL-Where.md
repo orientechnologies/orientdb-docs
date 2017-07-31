@@ -19,7 +19,7 @@ And `item` can be:
 |**What**|**Description**|**Example**|**Available since**|
 |--------|---------------|-----------|-------------------|
 |field|Document field|where *price* > 1000000|0.9.1|
-|field&lt;indexes&gt;|Document field part. To know more about field part look at the full syntax: [Document_Field_Part](../java/Document-Field-Part.md)|where tags[name='Hi'] or tags[0-3] IN ('Hello') and employees IS NOT NULL|1.0rc5|
+|field&lt;indexes&gt;|Document field part. To know more about field part look at the full syntax: [properties](/java/Document-API-Property.md)|where tags[name='Hi'] or tags[0-3] IN ('Hello') and employees IS NOT NULL|1.0rc5|
 |record attribute|Record attribute name with @ as prefix|where *@class* = 'Profile'|0.9.21|
 |column|The number of the column. Useful in Column Database|where *column(1)* > 300|0.9.1|
 |any()|Represents any field of the Document. The condition is true if ANY of the fields matches the condition|where *any()* like 'L%'|0.9.10|

@@ -1,6 +1,6 @@
 # Schema 
 
-You can use the Object API in schema-less or in schema-full mode, provided the requirements given in [POJO](Object-DB-Pojo.md) are followed. Schema-less means that you can create the class without defining properties.
+You can use the Object API in schema-less or in schema-full mode, provided the requirements given in [POJO](/java/Object-DB-POJO.md) are followed. Schema-less means that you can create the class without defining properties.
 
 For instance,
 
@@ -23,7 +23,7 @@ Note in the above example that the class Person is not declared before it gets u
 
 In schema-full mode, you need to declare the classes you're using. Each class contains one or more properties. The mode is similar to the classic Relational database approach, where you need to create tables before storing records.
 
->For more information on schemas in the Java API, see [Schemas](Schemas.md).
+>For more information on schemas in the Java API, see [Schemas](/general/Schema.md).
 
 
 ## Schema Generation
@@ -62,7 +62,7 @@ Schema can be generated manually for single classes or entire packages.  The syn
 
 ### Automatic Schema Generation
 
-By setting the `automaticSchemaGeneration` property to true the schema will be generated automatically on every class [declaration](Object-2-Record-Java-Binding#declare-persistent-class).
+By setting the `automaticSchemaGeneration` property to true the schema will be generated automatically on every class [declaration](Object-2-Record-Java-Binding.md#declare-persistent-class).
 
 ```java
 db.setAutomaticSchemaGeneration(true);

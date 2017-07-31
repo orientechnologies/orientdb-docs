@@ -14,8 +14,8 @@ Here you can :
 * Browse all the Classes of your database
 * Create a new Class
 * Rename/Drop a Class
-* Change the [cluster selection](../sql/SQL-Alter-Class.md) for a Class 
-* [Edit](Class.md) a class by clicking on a class row in the table
+* Change the [cluster selection](/sql/SQL-Alter-Class.md) for a Class 
+* Edit a class by clicking on a class row in the table
 * View all indexes created
 
 

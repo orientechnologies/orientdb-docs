@@ -5,7 +5,7 @@ search:
 
 # Setting up a Distributed Graph Database
 
-In addition to the standard deployment architecture, where it runs as a single, standalone database instance, you can also deploy OrientDB using [Distributed Architecutre](Distributed-Architecture.md).  In this environment, it shares the database across multiple server instances.
+In addition to the standard deployment architecture, where it runs as a single, standalone database instance, you can also deploy OrientDB using [Distributed Architecutre](/gettingstarted/Distributed-Architecture.md).  In this environment, it shares the database across multiple server instances.
 
 ## Launching Distributed Server Cluster
 

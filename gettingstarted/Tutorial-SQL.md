@@ -30,7 +30,7 @@ Additionally, OUser is a class. By default, OrientDB executes queries against cl
   orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:Ouser</code>
   </pre>
 
-- **Record ID** To execute against one or more [Record ID's](Concepts.md#recordId), use the identifier(s) as your target.  For example.
+- **Record ID** To execute against one or more [Record ID's](/datamodeling/Concepts.md#record-id), use the identifier(s) as your target.  For example.
 
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT FROM #10:3</code>
@@ -100,7 +100,7 @@ The first query returns the first twenty results, the second returns the next tw
 
 ## `INSERT`
 
-The [`INSERT`](sql/SQL-Insert.md) statement adds new data to a class and cluster.  OrientDB supports three forms of syntax used to insert new data into your database.
+The [`INSERT`](/sql/SQL-Insert.md) statement adds new data to a class and cluster.  OrientDB supports three forms of syntax used to insert new data into your database.
 
 - The standard ANSI-92 syntax:
   <pre>

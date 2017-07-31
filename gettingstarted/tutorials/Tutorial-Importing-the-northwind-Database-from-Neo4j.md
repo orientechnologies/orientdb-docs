@@ -7,7 +7,7 @@ search:
 
 In this tutorial we will use the [_Neo4j to OrientDB Importer_](../../orientdb-neo4j-importer/README.md) to import the Neo4j *northwind* example database into OrientDB.
 
-For general information on the possible Neo4j to OrientDB migration strategies, please refer to the [Import from Neo4j](Import-from-Neo4j-into-OrientDB.md) section. 
+For general information on the possible Neo4j to OrientDB migration strategies, please refer to the [Import from Neo4j](/admin/Import-from-Neo4j-into-OrientDB.md) section. 
 
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc.
 
@@ -141,7 +141,7 @@ The following is a partial visualization of the _northwind_ database done with t
 
 As you can see from the _Limit_ field, the visualization is limited to 200 vertices.
 
-The following, instead, is the graph returned by the following [MATCH](../sql/SQL-Match.md) query (the query returns all nodes connected to the Order with `orderID` 10344):
+The following, instead, is the graph returned by the following [MATCH](/sql/SQL-Match.md) query (the query returns all nodes connected to the Order with `orderID` 10344):
 
 ```sql
 MATCH {class: Order, where: (orderID = 10344)}--{as: n} RETURN $pathelements

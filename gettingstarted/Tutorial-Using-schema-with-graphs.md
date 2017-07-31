@@ -167,4 +167,4 @@ document #14:0 of class 'Country'
 
 This shows that the constraints effectively blocked the creation, generating a set of errors to explain why it was blocked.
 
-You now have a typed graph with constraints.  For more information, see [Graph Schema](java/Graph-Schema.md).
+You now have a typed graph with constraints.  For more information, see [Graph Schema](/java/Graph-Schema.md).

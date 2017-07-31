@@ -6,7 +6,7 @@ search:
 # _Security Manager_ Panel
 
 The _Security Manager_ panel allows you to manage _Database_ Users and Roles in a graphical way.
-For detailed information about Security in OrientDB, visit [here](../security/Security.md)
+For detailed information about Security in OrientDB, visit [here](/security/Security.md)
 
 ## Tab Users
 
