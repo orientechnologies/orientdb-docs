@@ -16,7 +16,7 @@ To add a new User, click the **Add Role** button, complete the information for t
 
 To add a new security rule for the selected role, click the *Add Rule* button.
 This will ask you the string of the resource that you want to secure. For a list of 
-available resources, see [Resources](../../gettingstarted/Database-Security.md#resources)
+available resources, see [Resources](/security/Database-Security.md#resources)
 
 Then you can configure the CRUD permissions on the newly created resource.
 

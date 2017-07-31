@@ -114,7 +114,7 @@ Following the masthead, the database server begins to print log messages to stan
 
 By default, OrientDB listens on two different ports for external connections.
 
-- **Binary**: OrientDB listens on port `2424` for binary connections from the console and for clients and drivers that support the [Network Binary Protocol](Network-Binary-Protocol.md).
+- **Binary**: OrientDB listens on port `2424` for binary connections from the console and for clients and drivers that support the [Network Binary Protocol](/internals/Network-Binary-Protocol.md).
 
 - **HTTP**: OrientDB listens on port `2480` for HTTP connections from [OrientDB Studio Web Tool](http://www.orientechnologies.com/docs/last/orientdb-studio.wiki/Home-page.html) and clients and drivers that support the [HTTP/REST protocol](OrientDB-REST.md), or similar tools, such as [cURL](http://en.wikipedia.org/wiki/cURL).
 
