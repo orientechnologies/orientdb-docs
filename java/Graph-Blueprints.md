@@ -172,13 +172,13 @@ int modified = graph.command(
           new OCommandSQL("UPDATE Customer SET local = true WHERE 'Rome' IN out('lives').name")).execute());
 ```
 
-If the command modifies the schema, (such as in cases like [`CREATE CLASS`](../sql/SQL-Create-Class.md), [`ALTER CLASS`](../sql/SQL-Alter-Class.md), [`DROP CLASS`](../sql/SQL-Drop-Class.md), [`CREATE PROPERTY`](SQL-Create-Proeprty-md), [`ALTER PROPERTY`](../sql/SQL-Alter-Property.md), and [`DROP PROPERTY`](../sql/SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
+If the command modifies the schema, (such as in cases like [`CREATE CLASS`](/sql/SQL-Create-Class.md), [`ALTER CLASS`](/sql/SQL-Alter-Class.md), [`DROP CLASS`](/sql/SQL-Drop-Class.md), [`CREATE PROPERTY`](/sql/SQL-Create-Proeprty-md), [`ALTER PROPERTY`](/sql/SQL-Alter-Property.md), and [`DROP PROPERTY`](/sql/SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
 
 ```java
 graph.getRawGraph().getMetadata().getSchema().reload();
 ```
 
->For more information, see [SQL Commands](../sql/SQL-Commands)
+>For more information, see [SQL Commands](/sql/SQL-Commands.md)
 
 ### SQL Batch
 
@@ -224,7 +224,7 @@ The TinkerPop Blueprints API is quite raw and doesn't provide ad hoc methods for
 - Getting incoming and outgoing vertices without browsing the edges.
 - Executing a query using an SQL-like language integrated in the engine.
 
-The [`OrientGraph`]({javadoc}com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class provides the method `.getRawGraph()` to return the underlying Document database. For instance,
+The [`OrientGraph`]({{ javadoc }}/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class provides the method `.getRawGraph()` to return the underlying Document database. For instance,
 
 ```java
 final OrientGraph graph = new OrientGraph("plocal:C:/temp/graph/db");

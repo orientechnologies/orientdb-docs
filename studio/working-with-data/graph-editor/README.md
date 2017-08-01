@@ -8,9 +8,9 @@ search:
 Since Studio 2.0 we have a new brand graph editor.  Not only you can visualize your data in a graph way
 but you can also interact with the graph and modify it.
 
-To populate the graph area just type a query in the query editor or use the functionality **Send To Graph** from the [Browse UI](Query.md)
+To populate the graph area just type a query in the query editor or use the functionality **Send To Graph** from the [Browse UI](../browse/Studio-Browse-Querying.md)
 
-![GraphEditor](../../../images/GraphEditor.png)
+![GraphEditor](/images/GraphEditor.png)
 
 
 Supported operations in the Graph Editor are:

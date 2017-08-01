@@ -1,6 +1,6 @@
 # Working with POJO
 
-With the Object API, Plain Old Java Objects, or POJO's, are automatically bound to the database as documents.  For information on the particulars of object-to-record bindings, see [POJO Bindings](Object-2-Record.md).
+With the Object API, Plain Old Java Objects, or POJO's, are automatically bound to the database as documents.  For information on the particulars of object-to-record bindings, see [POJO Bindings](/java/Object-2-Record-Java-Binding.md).
 
 
 >Bear in mind that the behavior of POJO operations can vary depending on whether you've begun a transaction.  For more information, see [Transactions](../internals/Transactions.md).
