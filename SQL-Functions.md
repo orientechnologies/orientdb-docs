@@ -743,9 +743,27 @@ SELECT name, list(roles.name) AS roles FROM OUser
 ---
 ### map()
 
-Adds a value to a map. The first time the map is created. If ```<value>``` is a map, then is merged with the map, otherwise the pair ```<key>``` and ```<value>``` is added to the map as new entry.
+With two or less parameters, it works as an aggregate function and adds a value to a map. The first time the map is created. If ```<value>``` is a map, then is merged with the map, otherwise the pair ```<key>``` and ```<value>``` is added to the map as new entry.
 
 Syntax: ```map(<key>, <value>)```
+
+
+With more than 2 params, it creates a map from single key/value pairs, eg.
+
+```sql
+SELECT map("name", "foo", "surname", "bar") as theMap
+```
+returns
+
+```
+{
+   "theMap": {
+       "name": "foo",
+       "surname": "bar"
+    }
+}
+```
+
 
 Available since: 1.2.0
 
