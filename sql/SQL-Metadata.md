@@ -5,6 +5,8 @@
 OrientDB provides the `metadata:` target to retrieve information about OrientDB's metadata:
 - `schema`, to get classes and properties
 - `indexmanager`, to get information about indexes
+- `database`, to get information about the database
+- `storage`, to get information about the storage
 
 ## Querying the Schema
 
