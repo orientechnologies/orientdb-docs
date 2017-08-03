@@ -99,4 +99,20 @@ select expand(indexes) from metadata:indexmanager
 ----+------+------+--------+---------+---------+------------------------------------+-----------------------------------------
 ```
 
+## Querying database and storage metadata
+
+Querying database metadata:
+
+```
+SELECT FROM metadata:database
+```
+
+
+Querying storage metadata:
+
+```
+SELECT FROM metadata:storage
+```
+
+
 <!--/email_off-->
