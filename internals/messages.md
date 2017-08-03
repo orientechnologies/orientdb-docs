@@ -53,6 +53,35 @@ message QueryRequest {
 }
 ```
 
+```
+message QueryResponse {
+   string queryId,
+   boolean changedDataInTx,
+   boolean hasExecutionPlan,
+   Result executionPlan,
+   int32 numberOfElements,
+   Result result[],
+   boolean hasNexPage,
+   int32  numberOfQueryStas,
+   QueryStat queryStat,
+}
+```
+
+```
+message QueryStat {
+    string key,
+    i64 value,
+}
+```
+
+```
+message Result {
+    byte resulttype,
+    Record record,
+}
+```
+
+
 ### Record Encoding
 
 ```
@@ -103,8 +132,13 @@ Value for valuetype {
     DATE(19) => date,v
     CUSTOM(20) => Custom,
     DECIMAL(21) => decimal,
-    LIKNBAG(22) => LinkBag,
+    LIKNBAG(22) => LinkBag, v
     ANY(23) => /*reserved ignore */, 
+}
+```
+```
+message float {
+   
 }
 ```
 
