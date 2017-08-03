@@ -61,12 +61,15 @@ message Record {
     Document|Vertex|Edge|Blob content,
 }
 ```
+
+```
 message Document {
     var_string class,
     varint numberOfFileds,
     Field fields[],
 }
 ```
+
 ```
 message Field {
     var_string name,
@@ -74,6 +77,7 @@ message Field {
     Value value,
 }
 ```
+
 ```
 Value for valuetype {
     NULL(-1) => null,v
