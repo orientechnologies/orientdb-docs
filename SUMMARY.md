@@ -617,6 +617,7 @@
       * [Date](marcopolo/MarcoPolo-Date.md)
       * [DateTime](marcopolo/MarcoPolo-DateTime.md)
       * [Document](marcopolo/MarcoPolo-Document.md)
+      * [FetchPlan](marcopolo/MarcoPolo-FetchPlan.md)
       * [RID](marcopolo/MarcoPolo-RID.md)
   * [Javascript (legacy)](js/Javascript-Command.md) 
     * [Javascript API](js/Javascript-Driver.md)

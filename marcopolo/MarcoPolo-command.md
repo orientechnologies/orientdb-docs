@@ -39,7 +39,7 @@ When issuing queries or commands using this function, there are a series of addi
 
 When the query or command is successful it returns the tuple `{:ok, values}`.  The `values` variable is a map with the following keys:
 
-- **`:response`** Provides the return value given by OrientDB.  This varies depending the query.  For instance, [`SELECT`](SQL-Query.md) returns a list of records, [`CREATE CLUSTER`](SQL-Create-Cluster.md) returns the new cluster's Cluster ID.
+- **`:response`** Provides the return value given by OrientDB.  This varies depending the query.  For instance, [`SELECT`](/sql/SQL-Query.md) returns a list of records, [`CREATE CLUSTER`](/sql/SQL-Create-Cluster.md) returns the new cluster's Cluster ID.
 
 - **`:linked_records`** Provides a set of additional records fetched by OrientDB.  The `:fetch_plan` option controls the number of records retrieved to this value. 
 

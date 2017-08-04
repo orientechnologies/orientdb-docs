@@ -49,4 +49,4 @@ NOTE: *the key/value pairs must not contain any space. This is valid `HA SET ROL
 >For more information, see
 >- [Distributed Architecture](Distributed-Architecture.md)
 >- [SQL Commands](SQL.md)
->- [Console Commands](Console-Commands.md)
+>- [Console Commands](/console/Console-Commands.md)
