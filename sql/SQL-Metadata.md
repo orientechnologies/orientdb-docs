@@ -5,6 +5,8 @@
 OrientDB provides the `metadata:` target to retrieve information about OrientDB's metadata:
 - `schema`, to get classes and properties
 - `indexmanager`, to get information about indexes
+- `database`, to get information about the database
+- `storage`, to get information about the storage
 
 ## Querying the Schema
 
@@ -98,5 +100,21 @@ select expand(indexes) from metadata:indexmanager
 2   |#-1:-1|#1:0  |[1]     |UNIQUE   |ORole....|{className:ORole,field:name,keyTy...|com.orientechnologies.orient.core.index.OPropertyIn...
 ----+------+------+--------+---------+---------+------------------------------------+-----------------------------------------
 ```
+
+## Querying database and storage metadata
+
+Querying database metadata:
+
+```
+SELECT FROM metadata:database
+```
+
+
+Querying storage metadata:
+
+```
+SELECT FROM metadata:storage
+```
+
 
 <!--/email_off-->
