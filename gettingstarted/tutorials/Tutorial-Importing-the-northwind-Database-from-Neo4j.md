@@ -24,7 +24,7 @@ Download and install the _Neo4j to OrientDB Importer_:
 <pre><code class="lang-sh">$ wget http://central.maven.org/maven2/com/orientechnologies/orientdb-neo4j-importer/{{book.lastGA}}/orientdb-neo4j-importer-{{book.lastGA}}.tar.gz
 $ tar xfv orientdb-neo4j-importer-{{book.lastGA}}.tar.gz -C orientdb-community-{{book.lastGA}} --strip-components=1 </code></pre>
 
-For further information on the OrientDB's installation, please refer to this [section](../gettingstarted/Tutorial-Installation.md).
+For further information on the OrientDB's installation, please refer to this [section](/gettingstarted/Tutorial-Installation.md).
 
 For further information on the _Neo4j to OrientDB Importer_ installation, please refer to this [section](../../orientdb-neo4j-importer/README.md#installation).
 
@@ -149,8 +149,8 @@ MATCH {class: Order, where: (orderID = 10344)}--{as: n} RETURN $pathelements
 
 ![](../../images/import_from_neo4j/northwind/northwind_match_query.PNG)
 
-From Studio's [Schema Manager](studio/Studio-Schema.md), you can check all imported Vertex Classes (node Labels in Neo4j), Edge Classes (Relationship Types in Neo4j), and Indexes:
+From Studio's [Schema Manager](/studio/working-with-schemas/README.md), you can check all imported Vertex Classes (node Labels in Neo4j), Edge Classes (Relationship Types in Neo4j), and Indexes:
 
-![](../../images/import_from_neo4j/northwind/northwind_schema_manager.PNG)
+![](/images/import_from_neo4j/northwind/northwind_schema_manager.PNG)
 
 `V` and `E` are special classes: they include all Vertices and all Edges.

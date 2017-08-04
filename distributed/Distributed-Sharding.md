@@ -66,7 +66,7 @@ In order to keep things simple, the entire OrientDB Distributed Configuration is
 
 OrientDB automatically creates a new [cluster](../datamodeling/Concepts.md#cluster) per each class as soon as a node joins the distributed cluster. These cluster names have the node name as suffix: `<class>_<node>`. Example: `client_usa`. When a node goes down, the [clusters](../datamodeling/Concepts.md#cluster) who’s master was the node to crash are reassigned to other servers. As soon as the node is up and running again OrientDB will reassign the [clusters](../datamodeling/Concepts.md#cluster) who’s master crashed back to that same node again following the convention `<class>_<node>`.
 
-This is defined as "Cluster Locality". The local node is always selected when a new record is created. This avoids conflicts and allows for the insert of records in parallel on multiple nodes. This also means that in distributed mode you can't select the [cluster selection strategy](cluster-selection.md), because "local" strategy is always injected to all the cluster automatically.
+This is defined as "Cluster Locality". The local node is always selected when a new record is created. This avoids conflicts and allows for the insert of records in parallel on multiple nodes. This also means that in distributed mode you can't select the [cluster selection strategy](/misc/Cluster-Selection.md), because "local" strategy is always injected to all the cluster automatically.
 
 If you want to permanently change the mastership of a [cluster](../datamodeling/Concepts.md#cluster), rename the cluster by changing it’s suffix to that of the node you want assign as master.
 

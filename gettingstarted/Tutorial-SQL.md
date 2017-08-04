@@ -14,7 +14,7 @@ Why SQL?  Because SQL is ubiquitous in the database development world. It is fam
 
 ## `SELECT`
 
-The [`SELECT`](sql/SQL-Query.md) statement queries the database and returns results that match the given parameters.  For instance, earlier in [Getting Started](Tutorial-Introduction-to-the-NoSQL-world.md), two queries were presented that gave the same results: `BROWSE CLUSTER ouser` and `BROWSE CLASS OUser`. Here is a third option, available through a [`SELECT`](sql/SQL-Query.md) statement.
+The [`SELECT`](sql/SQL-Query.md) statement queries the database and returns results that match the given parameters.  For instance, earlier in [Getting Started](Tutorial-Introduction-to-the-NoSQL-world.md), two queries were presented that gave the same results: `BROWSE CLUSTER ouser` and `BROWSE CLASS OUser`. Here is a third option, available through a [`SELECT`](/sql/SQL-Query.md) statement.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM OUser</code>
@@ -45,17 +45,17 @@ Additionally, OUser is a class. By default, OrientDB executes queries against cl
 
 ### `WHERE`
 
-Much like the standard implementation of SQL, OrientDB supports [`WHERE`](sql/SQL-Where.md) conditions to filter the returning records too.  For example,
+Much like the standard implementation of SQL, OrientDB supports [`WHERE`](/sql/SQL-Where.md) conditions to filter the returning records too.  For example,
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM OUser WHERE name LIKE 'l%'</code>
 </pre>
 
-This returns all `OUser` records where the name begins with `l`.  For more information on supported operators and functions, see [`WHERE`](sql/SQL-Where.md).
+This returns all `OUser` records where the name begins with `l`.  For more information on supported operators and functions, see [`WHERE`](/sql/SQL-Where.md).
 
 ### `ORDER BY`
 
-In addition to [`WHERE`](sql/SQL-Where.md), OrientDB also supports `ORDER BY` clauses. This allows you to order the results returned by the query according to one or more fields, in either ascending or descending order.
+In addition to [`WHERE`](/sql/SQL-Where.md), OrientDB also supports `ORDER BY` clauses. This allows you to order the results returned by the query according to one or more fields, in either ascending or descending order.
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM Employee WHERE city='Rome' ORDER BY surname ASC, name ASC</code>
@@ -126,7 +126,7 @@ Each of these queries adds Jay Miner to the `Employee` class. You can choose whi
 
 ## `UPDATE`
 
-The [`UPDATE`](sql/SQL-Update.md) statement changes the values of existing data in a class and cluster.  In OrientDB there are two forms of syntax used to update data on your database.
+The [`UPDATE`](/sql/SQL-Update.md) statement changes the values of existing data in a class and cluster.  In OrientDB there are two forms of syntax used to update data on your database.
 
 - The standard ANSI-92 syntax:
 
@@ -145,7 +145,7 @@ Each of these statements updates the `Employee` class, changing the `local` prop
 
 ## `DELETE`
 
-The [`DELETE`](sql/SQL-Delete.md) statement removes existing values from your class and cluster.  OrientDB supports the standard ANSI-92 compliant syntax for these statements:
+The [`DELETE`](/sql/SQL-Delete.md) statement removes existing values from your class and cluster.  OrientDB supports the standard ANSI-92 compliant syntax for these statements:
 
 <pre>
 orientdb> <code class="lang-sql userinput">DELETE FROM Employee WHERE city <> 'London'
@@ -155,5 +155,5 @@ Here, entries are removed from the `Employee` class where the employee in questi
 
 **See also:**
 
-  - [The SQL Reference](sql/README.md)
-  - [The Console Command Reference](console/Console-Commands.md)
+  - [The SQL Reference](/sql/README.md)
+  - [The Console Command Reference](/console/Console-Commands.md)

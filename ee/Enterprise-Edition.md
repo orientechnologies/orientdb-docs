@@ -32,12 +32,12 @@ Before v2.2, the Enterprise Edition front end was the **Workbench** application.
 
 Explore the Enterprise Edition features:
 
-* [Dashboard](../studio/Studio-Dashboard.md)
-* [Server Management](../studio/Studio-Server-Management.md)
-* [Cluster Management](../studio/Studio-Cluster-Management.md)
-* [Query Profiler](../studio/Studio-Query-Profiler.md)
-* [Backup Management](../studio/Studio-Backup-Management.md)
+* [Dashboard](/studio/server-management/Studio-Dashboard.md)
+* [Server Management](/studio/server-management/Studio-Server-Management.md)
+* [Cluster Management](/studio/server-management/Studio-Cluster-Management.md)
+* [Query Profiler](/studio/Studio-Query-Profiler.md)
+* [Backup Management](/studio/Studio-Backup-Management.md)
 * [Studio Auditing](/studio/server-management/Studio-Auditing.md)
-* [Teleporter](../studio/Studio-Teleporter.md)
-* [Data Centers](../distributed/Data-Centers.md) 
+* [Teleporter](/studio/Studio-Teleporter.md)
+* [Data Centers](/distributed/Data-Centers.md) 
 

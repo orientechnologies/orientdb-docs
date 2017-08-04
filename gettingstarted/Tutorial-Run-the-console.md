@@ -7,7 +7,7 @@ search:
 
 # Running the OrientDB Console
 
-Once the server is running there are various methods you can use to connect to your database server to an individual databases.  Two such methods are the [Network Binary](Network-Binary-Protocol.md) and [HTTP/REST](OrientDB-REST.d) protocols.  In addition to these OrientDB provides a command-line interface for connecting to and working with the database server.
+Once the server is running there are various methods you can use to connect to your database server to an individual databases.  Two such methods are the [Network Binary](Network-Binary-Protocol.md) and [HTTP/REST](/misc/OrientDB-REST.md) protocols.  In addition to these OrientDB provides a command-line interface for connecting to and working with the database server.
 
 ![consoleOverview](images/runConsole-connectToDatabase.png)
 
@@ -95,7 +95,7 @@ Found 1 databases:
 
 To connect to this database or to a different one, use the `CONNECT` command from the console and specify the server URL, username, and password.  By default, each database has an `admin` user with a password of `admin`.
 
->**Warning**: Always [change the default password](Security.md#word-with-suers) on production databases.
+>**Warning**: Always [change the default password](/security/Security.md#word-with-suers) on production databases.
 
 The above `LIST DATABASES` command shows a `GratefulDeadConcerts` installed on the local server.  To connect to this database, run the following command:
 
