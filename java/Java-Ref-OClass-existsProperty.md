@@ -23,7 +23,4 @@ boolean OClass().existsProperty(String name)
 
 #### Return Value
 
-This method returns a [`Boolean`]({{ bok.javase }}/api/java/lang/Boolean.html) result.  The return value is `true` when the given property name exists on the class.
-
-
-
+This method returns a [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) result.  The return value is `true` when the given property name exists on the class.

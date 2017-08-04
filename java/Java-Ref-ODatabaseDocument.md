@@ -84,9 +84,9 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 | [**`getRecord()`**](Java-Ref-ODatabaseDocument-getRecord.md) | `<RET extends ORecord> RET` | Retrieves a record from the database |
 | [**`getRecordType()`**](Java-Ref-ODatabaseDocument-getRecordType.md) | [`byte`]({{ book.javase }}/api/java/lang/Byte.html) | Returns the default record type |
 | [**`newBlob()`**](Java-Ref-ODatabaseDocument-newBlob.md) | `OBlob` | Creates a new instance of a binary blob containing the given bytes |
-| [**`newEdge()`**](Java-Ref-ODatabaseDocuument-newEdge.md) | [`OEdge`](Java-Ref-OEdge.md) | Creates a new edge between the given vertices |
+| [**`newEdge()`**](Java-Ref-ODatabaseDocument-newEdge.md) | [`OEdge`](Java-Ref-OEdge.md) | Creates a new edge between the given vertices |
 | [**`newElement()`**](Java-Ref-ODatabaseDocument-newElement.md) | [`OElement`](Java-Ref-OElement.md) | Creates a new element (that is, a document, vertex or edge) |
 | [**`newInstance()`**](Java-Ref-ODatabaseDocument-newInstance.md) | `RET` | Creates a new document, vertex or edge |
-| [**`newVertex()`**](Java-Ref-OdatabaseDocument-newVertex.md) | `OVertex` | Creates a new vertex |
+| [**`newVertex()`**](Java-Ref-ODatabaseDocument-newVertex.md) | `OVertex` | Creates a new vertex |
 
 

@@ -13,7 +13,7 @@ In deployments where high availability is a concern, OrientDB can run distribute
 
 When using this deployment architecture, the OrientDB Server pushes data to clients whenever changes occur in the distributed configuration.  In the event that you would like to review or operate on this configuration from within your Elixir application, this function allows you to retrieve it as a [`Document`](MarcoPolo-Document.md) instance.
 
->For more information on managing these deployments, see [Distributed Architecture](Distributed-Architecture.md).
+>For more information on managing these deployments, see [Distributed Architecture](/distributed/Distributed-Architecture.md).
 
 ### Syntax
 

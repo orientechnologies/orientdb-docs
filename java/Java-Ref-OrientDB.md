@@ -10,7 +10,7 @@ This class provides a management environment between your application and the Or
 
 ## Managing Servers 
 
-In order to operate on an OrientDB database, you first need to establish a connection with the server.  You have two options in this: you can embed the server within your application using the [`OServer`](java/Java-Ref-OServer.md) class or you can connect to a running server using this class.  It can be found at `com.orientechnologies.orient.core.db`.  For instance,
+In order to operate on an OrientDB database, you first need to establish a connection with the server.  You have two options in this: you can embed the server within your application using the [`OServer`](Java-Ref-OServer.md) class or you can connect to a running server using this class.  It can be found at `com.orientechnologies.orient.core.db`.  For instance,
 
 ```java
 import com.orientechnologies.orient.core.db.OrientDB;
@@ -72,7 +72,7 @@ Once you've instantiated the class in your application, you can call the followi
 | Method | Return Type | Description |
 |---|---|---|
 | [**`close()`**](#closing-databases) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Closes the current context with all related databases and pools. |
-| [**`create()`**](java/Java-Ref-OrientDB-create.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) |  Creates a new database. |
+| [**`create()`**](Java-Ref-OrientDB-create.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) |  Creates a new database. |
 | [**`createIfNotExists()`**](Java-Ref-OrientDB-createIfNotExists.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Creates a new database if it doesn't exist. |
 | [**`drop()`**](Java-Ref-OrientDB-drop.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Removes a database from the server. |
 | [**`exists()`**](Java-Ref-OrientDB-exists.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Checks whether database exists. |

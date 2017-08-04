@@ -32,7 +32,7 @@ When issuing queries or commands using this function, there are a series of addi
 
 - **`:timeout`** Defines the timeout value in milliseconds.  In the event that the query takes longer than the allotted time, MarcoPolo sends an exit signal to the calling process.
 
-- **`:fetch_plan`** Defines a [fetch plan](Fetching-Strategies.md), which is only available when using this function with idempotent queries.  It is a mandatory argument with fetch queries.
+- **`:fetch_plan`** Defines a [fetch plan](/java/Fetching-Strategies.md), which is only available when using this function with idempotent queries.  It is a mandatory argument with fetch queries.
 
 
 #### Return Values

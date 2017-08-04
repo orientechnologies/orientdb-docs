@@ -14,5 +14,5 @@ In addition to the Elixir type conversion as described in [Types](MarcoPolo-Type
 | [**`MarcoPolo.DateTime`**](MarcoPolo-DateTime.md) | Defines date and time |
 | [**`MarcoPolo.Document`**](MarcoPolo-Document.md) | Defines an OrientDB Document |
 | [**`MarcoPolo.FetchPlan`**](MarcoPolo-FetchPlan.md) | Provides functions for traversing records |
-| [**`MarcoPolo.RID`**](MarcoPolo-RID.md) | Defines a [Record ID](Concepts.md#record-id) |
+| [**`MarcoPolo.RID`**](MarcoPolo-RID.md) | Defines a [Record ID](/datamodeling/Concepts.md#record-id) |
 
