@@ -141,5 +141,5 @@ This shows that the first node has realigned itself with the second node.
 
 This process is repeatable with N server nodes, where every server is a master.  There is no limit to the number of running servers.  With many servers spread across a slow network, you can tune the network timeouts to be more permissive and let a large, distributed cluster of servers work properly.
 
-For more information, [Distributed Architecture](Distributed-Architecture.md#how-does-it-work).
+For more information, [Distributed Architecture](Distributed-Architecture.md).
 

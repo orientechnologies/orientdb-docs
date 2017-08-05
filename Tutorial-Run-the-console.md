@@ -59,7 +59,7 @@ WHERE:
 
 There are some console commands, such as `LIST DATABASES` or `CREATE DATABASE`, which you can only run while connected to a server instance.  For other commands, however, you must also connect to a database, before they run without error.
 
->Before you can connect to a fresh server instance and fully control it, you need to know the [root password](Security.md#orientdb-server-security) for the database.  The root password is located in the configuration file at `config/orientdb-server-config.xml`.  You can find it by searching for the `<users>` element.  If you want to change it, edit the configuration file and restart the server.
+>Before you can connect to a fresh server instance and fully control it, you need to know the [root password](Server-Security.md) for the database.  The root password is located in the configuration file at `config/orientdb-server-config.xml`.  You can find it by searching for the `<users>` element.  If you want to change it, edit the configuration file and restart the server.
 
 >```xml
 >...
@@ -93,7 +93,7 @@ Found 1 databases:
 
 To connect to this database or to a different one, use the `CONNECT` command from the console and specify the server URL, username, and password.  By default, each database has an `admin` user with a password of `admin`.
 
->**Warning**: Always [change the default password](Security.md#word-with-suers) on production databases.
+>**Warning**: Always [change the default password](Database-Security.md#users) on production databases.
 
 The above `LIST DATABASES` command shows a `GratefulDeadConcerts` installed on the local server.  To connect to this database, run the following command:
 

@@ -3,11 +3,9 @@ search:
    keywords: ["tutorial", "graph"]
 ---
 
-<!-- proofread 2015-11-26 SAM -->
 # Working with Graphs
 
-
-In graph databases, the database system graphs data into network-like structures consisting of vertices and edges. In the OrientDB [Graph model](Tutorial-Document-and-graph-model.md#graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge, as an entity that links two vertices.
+In graph databases, the database system graphs data into network-like structures consisting of vertices and edges. In the OrientDB [Graph model](Tutorial-Document-and-graph-model.md#the-graph-model), the database represents data through the concept of a property graph, which defines a vertex as an entity linked with other vertices and an edge, as an entity that links two vertices.
 
 OrientDB ships with a generic vertex persistent class, called `V`, as well as a class for edges, called `E`. As an example, you can create a new vertex using the [`INSERT`](SQL-Insert.md) command with `V`.
 
@@ -101,7 +99,7 @@ orientdb> <code class="lang-sql userinput">CREATE EDGE Eat FROM ( SELECT FROM Pe
 
 #### Creating Edges from Record ID
 
-In the event that you know the [Record ID](Concepts.md#recordid) of the vertices, you can connect them directly with a shorter and faster command. For example, the person Bill also eats at the restaurant Dante and the person Jay eats at the restaurant Charlie. Create edges in the class `Eat` to represent these connections. 
+In the event that you know the [Record ID](Concepts.md#record-id) of the vertices, you can connect them directly with a shorter and faster command. For example, the person Bill also eats at the restaurant Dante and the person Jay eats at the restaurant Charlie. Create edges in the class `Eat` to represent these connections. 
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE EDGE Eat FROM #11:1 TO #12:0</code>

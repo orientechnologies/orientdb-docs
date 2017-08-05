@@ -5,7 +5,7 @@ search:
 
 
 # Upgrading
-_____
+
 
 OrientDB uses the Semantic Versioning System (http://semver.org), where the version numbers follow this format MAJOR.MINOR.PATCH,
 Here are the meanings of the increments:
@@ -74,7 +74,7 @@ Make sure OrientDB is not running.  From the old OrientDB installation location,
 #### Moving Databases to an External Location
 Make sure OrientDB is not running.  Using the earlier example of `/data/databases`, from the old OrientDB installation location, move each database directory under `databases` to the `/data/databases` location. 
 
-Now, follow the instructions under [New Databases](#new-dbs) to create a symbolic link from within the new OrientDB installation to the `/data/databases` directory.
+Now, follow the instructions under [New Databases](#new-databases) to create a symbolic link from within the new OrientDB installation to the `/data/databases` directory.
 
 ### External Storage Advantages
 If you store your databases separately from the OrientDB installation, not only will you be able to upgrade more easily in the future, but you may even be able to improve performance by using a data volume that is mounted on a disk that's faster than the volume where the main installation resides.

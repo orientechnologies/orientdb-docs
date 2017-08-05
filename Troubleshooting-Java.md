@@ -87,7 +87,7 @@ Another way is to embed the dependencies in configuration in the Maven pom.xml f
 </Embed-Dependency>
 ```
 
-Including only the jars you need. Look at [Which library do I use?](Java-API.md#which_library_do_i_use?)
+Including only the jars you need. Look at [Which library do I use?](Java-API.md#supported-librarires)
 
 ## Database instance has been released to the pool. Get another database instance from the pool with the right username and password
 

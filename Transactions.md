@@ -9,10 +9,10 @@ A transaction comprises a unit of work performed within a database management sy
  - to provide reliable units of work that allow correct recovery from failures and keep a database consistent even in cases of system failure, when execution stops (completely or partially) and many operations upon a database remain uncompleted, with unclear status
  - to provide isolation between programs accessing a database concurrently. If this isolation is not provided, the program's outcome are possibly erroneous.
 
-A database transaction, by definition, must be [atomic](Transactions.md#Atomicity), [consistent](Transactions.md#Consistency), [isolated](Transactions.md#Isolation) and [durable](Transactions.md#Durability). Database practitioners often refer to these properties of database transactions using the acronym [ACID](Transactions.md#acid-properties).
+A database transaction, by definition, must be [atomic](#atomicity), [consistent](#consistency), [isolated](#isolation) and [durable](#durability). Database practitioners often refer to these properties of database transactions using the acronym [ACID](#acid-properties).
 --- [Wikipedia](http://en.wikipedia.org/wiki/Database_transaction)
 
-OrientDB is an [ACID](Transactions.md#acid-properties) compliant DBMS.
+OrientDB is an [ACID](#acid-properties) compliant DBMS.
 
 >**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap memory) on JVM. For transactions involving many records, consider to split it in multiple transactions.
 

@@ -52,10 +52,10 @@ This lock is needed in case of you work on OS which uses aggressive swapping lik
 This usually happens because the database has been corrupted by a hw/sw crash or a hard kill of the process during the writing to disk. If this happens on index clusters just rebuild indexes, otherwise re-import a previously exported database.
 
 #### Class 'OUSER' or 'OROLE' was not found in current database
-Look at: [Restore admin user](Security.md#restore-admin-user).
+Look at: [Restore admin user](Server-Security.md#restoring-the-user-admin).
 
 #### User 'admin' was not found in current database
-Look at: [Restore admin user](Security.md#restore-admin-user).
+Look at: [Restore admin user](Security.md#restoring-the-user-admin).
 
 #### WARNING: Connection re-acquired transparently after XXXms and Y retries: no errors will be thrown at application level
 

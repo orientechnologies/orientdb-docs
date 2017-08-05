@@ -160,7 +160,7 @@ Here, record `A` contains the reference to record `B` in the property `customer`
 
 With the Graph API, [Edges](Concepts.md#edge) are represented with two links stored on both vertices to handle the bidirectional relationship.
 
-#### 1:1 and 1:*n* Referenced Relationships
+#### 1:1 and *n*:1 Referenced Relationships
 
 OrientDB expresses relationships of these kinds using links of the `LINK` type.
 
