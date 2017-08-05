@@ -144,8 +144,8 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`INFO`](Console-Command-Info.md)|Displays information about current status|
 |[`INFO CLASS`](Console-Command-Info-Class.md)|Displays information about a class|
 |[`INSERT`](Console-Command-Insert.md)|Inserts a new record in the current database using the SQL syntax. To know more about the [SQL syntax go here](SQL-Query.md)|
-|[`JS`](Javascript-Command.md#via_console)|Executes a Javascript in the console|
-|[`JSS`](Javascript-Command.md#via_console)|Executes a Javascript in the server|
+|[`JS`](Javascript-Command.md#via-console)|Executes a Javascript in the console|
+|[`JSS`](Javascript-Command.md#via-console)|Executes a Javascript in the server|
 |[`LIST DATABASES`](Console-Command-List-Databases.md)|List the available databases|
 |[`LIST CONNECTIONS`](Console-Command-List-Connections.md)|List the available connections|
 |[`LOAD RECORD`](Console-Command-Load-Record.md)|Loads a record in memory and set it as the current one|

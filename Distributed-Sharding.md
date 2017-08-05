@@ -5,7 +5,7 @@ search:
 
 # Sharding
 
-_NOTE: Sharding is a new feature with some [limitations](Distributed-Sharding.md#limitation). Please read them before using it._
+>**NOTE**: Sharding is a new feature with some [limitations](Distributed-Sharding.md#limitation). Please read them before using it.
 
 OrientDB supports sharding of data at class level, by using multiple [clusters](Concepts.md#cluster) per [class](Concepts.md#class), where each cluster has own list of server where data is replicated. From a logical point of view all the records stored in clusters that are part of the same class, are records of that class.
 
@@ -97,7 +97,7 @@ _NOTE: if something happens during the iteration of the resultset, you could end
 
 If the local node has the requested record, the record is read directly from the storage. If it's not present on local server, a forward is executed to any of the nodes that have the requested record. This means a network call to between nodes.
 
-In case of queries, OrientDB checks where the query target are located and send the query to all the involved servers. This operation is equivalent to a [Map-Reduce](Distributed-Sharding.md#map-reduce). If the query target is 100% managed on local node, the query is simply executed on local node without paying the cost of network call.
+In case of queries, OrientDB checks where the query target are located and send the query to all the involved servers. This operation is equivalent to a [Map-Reduce](Distributed-Sharding.md#mapreduce). If the query target is 100% managed on local node, the query is simply executed on local node without paying the cost of network call.
 
 All the query works by aggregating the result sets from all the involved nodes. 
 

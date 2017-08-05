@@ -108,7 +108,7 @@ Where:
 - `regexp`: If a command is executed that matches the regular expression then the command is logged.
 - `message`: The optional message that's recorded when the command is logged. It supports the dynamic binding of values, see "Customizing the Message", below.
 
-#### Customing the Message
+#### Customize the Message
 - The variable `${command}` will be substituted in the specified message, if command auditing is enabled.
 
 ### "schema"

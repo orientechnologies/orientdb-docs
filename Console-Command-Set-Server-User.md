@@ -16,7 +16,7 @@ SET SERVER USER <user-name> <user-password> <user-permissions>
 - **`<user-permissions>`** Defines the [permissions](Server-Security.md#server-resources) for the server user.
 
 
->For more information on security, see [OrientDB Server Security](Security.md#orientdb-server-security).  Feature introduced in version 2.2.
+>For more information on security, see [OrientDB Server Security](Server-Security.md).  Feature introduced in version 2.2.
 
 **Example**
 

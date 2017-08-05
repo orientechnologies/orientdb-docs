@@ -5,7 +5,7 @@ search:
 
 # Database Security
 
-OrientDB uses a security model based on well-known concepts of users and roles.  That is, a database has its own users.  Each [User](#user) has one or more roles.  [Roles](#roles) are a combination of the working mode and a set of permissions.
+OrientDB uses a security model based on well-known concepts of users and roles.  That is, a database has its own users.  Each [User](#users) has one or more roles.  [Roles](#roles) are a combination of the working mode and a set of permissions.
 
 ![Security overview](http://www.orientdb.org/images/orientdb-dbsecurity.png)
 
@@ -81,7 +81,7 @@ To disable a user, use [`UPDATE`](SQL-Update.md) to switch its status from `ACTI
 orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED' WHERE name <> 'admin'</code>
 </pre>
 
->**NOTE**: In the event that, due to accident or database corruption, you lose the user `admin` and need to restore it on the database, see [Restoring the admin User`](Server-Security.md#restoring-the-admin-user).
+>**NOTE**: In the event that, due to accident or database corruption, you lose the user `admin` and need to restore it on the database, see [Restoring the admin User`](Server-Security.md#restoring-the-user-admin).
 
 
 ## Roles
@@ -234,7 +234,7 @@ OrientDB checks record-level security using a hook that injects the check before
 - **Update Documents**: Checks if the current user, or its roles, are listed in the `_allow` or `_allowUpdate` field.  If not, OrientDB raises an `OSecurityException` exception.
 - **Delete Documents**: Checks if the current user, or its roles, are listed in the `_allow` or `_allowDelete` field.  If not, OrientDB raises an `OSecurityException` exception.
 
-The allow fields, (that is, `_allow`, `_allowRead`, `_allowUpdate`, and `_allowDelete`) can contain instances of `OUser` and `ORole` records, as both classes extend `OIdentity`.  Use the class `OUser` to allow single [users](#user) and use the class `ORole` to allow all users that are a part of that [role](#role).
+The allow fields, (that is, `_allow`, `_allowRead`, `_allowUpdate`, and `_allowDelete`) can contain instances of `OUser` and `ORole` records, as both classes extend `OIdentity`.  Use the class `OUser` to allow single [users](#users) and use the class `ORole` to allow all users that are a part of that [role](#roles).
 
 ### Using the API
 

@@ -9,7 +9,7 @@ Starting from [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterpr
 
 ![Studio-Data-Centers](images/studio-data-centers.png)
 
-All you need is to use the tag `"dataCenters"` in your [`default-distributed-config.json`](Distributed-Configuration.html#default-distributed-db-configjson) configuration file. This is the format:
+All you need is to use the tag `"dataCenters"` in your [`default-distributed-config.json`](Distributed-Configuration.md#default-distributed-db-configjson) configuration file. This is the format:
 
 ```json
   "dataCenters": {
@@ -24,7 +24,7 @@ All you need is to use the tag `"dataCenters"` in your [`default-distributed-con
   },
 ```
 
-NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+>**NOTE:** This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support).
 
 Example:
 

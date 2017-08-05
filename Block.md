@@ -48,7 +48,7 @@ In a `"let"` block, you can define variables to the ETL process context.
 		"expression": "$fileDirectory.append($fileName )"
      } 
   }
-```
+  ```
 
 ## Code Blocks
 
@@ -77,7 +77,7 @@ In the `"code"` block, you can configure code snippets to execute in any JVM-sup
   }
   ```
 
-## Console Block
+## Console Blocks
 
 In a `"console"` block, you can define commands OrientDB executes through the [Console](Console-Commands.md).
 

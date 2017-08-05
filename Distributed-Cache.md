@@ -4,11 +4,11 @@ OrientDB has own more [Cache](Caching.md) levels. When OrientDB runs in [Distrib
 
 ### Distributed 2nd Level cache
 
-You can also have a shared cache among servers, by enabling the Hazelcast's 2nd level cache. To enable it set the **cache.level2.impl** property in [orientdb-dserver-config.xml](Distributed-Configuration.md#orientdb-dserver-configxml) file with value **com.orientechnologies.orient.server.hazelcast.OHazelcastCache**:
+You can also have a shared cache among servers, by enabling the Hazelcast's 2nd level cache. To enable it set the **cache.level2.impl** property in [orientdb-dserver-config.xml](Distributed-Configuration.md#orientdb-server-configxml) file with value **com.orientechnologies.orient.server.hazelcast.OHazelcastCache**:
 
 Note that this will slow down massive insertion but will improve query and lookup operations.
 
-Example in **[orientdb-dserver-config.xml](Distributed-Configuration.md#orientdb-dserver-configxml)** file:
+Example in **[orientdb-dserver-config.xml](Distributed-Configuration.md#orientdb-server-configxml)** file:
 ```xml
 ...
 <properties>

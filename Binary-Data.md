@@ -124,7 +124,7 @@ However managing big chunks of binary data means having big `byte[]` structures 
 
 Continuing from the last example we could handle not a single reference against one `ORecordBytes` record but multiple references. A One-To-Many relationship. For this purpose the `LINKLIST` type fits perfect because maintains the order.
 
-To avoid OrientDB caches in memory large records use the massive insert intent and keep in the collection the [RID](Concepts.md#rid), not the entire records.
+To avoid OrientDB caches in memory large records use the massive insert intent and keep in the collection the [RID](Concepts.md#record-id), not the entire records.
 
 Example to store in OrientDB the file content:
 ```java

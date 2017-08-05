@@ -20,7 +20,7 @@ Main topics:
 
 ## orientdb-server-config.xml
 
-To enable and configure the clustering between nodes, add and enable the **OHazelcastPlugin** plugin. It is configured as a [Server Plugin](DB-Server.md#handlers). The default configuration is reported below.
+To enable and configure the clustering between nodes, add and enable the **OHazelcastPlugin** plugin. It is configured as a [Server Plugin](DB-Server.md#plugins). The default configuration is reported below.
 
 File **orientdb-server-config.xml**:
 ```xml
@@ -97,7 +97,7 @@ Where:
 |**readYourWrites**|Whether the write quorum is satisfied only when also the local node responded. This assures current the node can read its writes. Disable it to improve replication performance if such consistency is not important. Can be <code>true</code> or <code>false</code>|<code>true</code>|
 |**newNodeStrategy**|Strategy to use when a new node joins the cluster. Default is `static` that means the server is automatically registered under `servers` list in configuration. If it is `dynamic`, then the node is not registered. This affects the strategy when a node is unreachable. If it is not registered (dynamic), it is removed from the configuration, so it does not concur in the quorum. Available since v2.2.13|<code>static</code>|
 |**dataCenters**|(Since v2.2.4) Optional (and only available in the [Enterprise Edition](http://orientdb.com/orientdb-enterprise), contains the definition of the data centers. For more information look at [Data Centers](Data-Centers.md)|-|
-|**servers**|(Since v2.1) Optional, contains the map of server roles in the format <code>server-name</code> : <code>role</code>. <code>*</code> means any server. Available roles are "MASTER" (default) and "REPLICA". For more information look at [Server roles](Distributed-Architecture.md#server_roles)|-|
+|**servers**|(Since v2.1) Optional, contains the map of server roles in the format <code>server-name</code> : <code>role</code>. <code>*</code> means any server. Available roles are "MASTER" (default) and "REPLICA". For more information look at [Server roles](Distributed-Architecture.md#server-roles)|-|
 |**clusters**|if the object containing the clusters' configuration as map <code>cluster-name</code> : <code>cluster-configuration</code>. <code>*</code> means all the clusters and is the cluster's default configuration|-|
 
 The **cluster** configuration inherits database configuration, so if you declare "writeQuorum" at database level, all the clusters will inherit that setting unless they define your own. Settings can be:

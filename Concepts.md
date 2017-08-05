@@ -93,11 +93,11 @@ Classes can be schema-less, schema-full or a mix.  They can inherit from other c
 
 Each class has its own [cluster](Concepts.md#cluster).  A class must have at least one cluster defined, which functions as its default cluster.  But, a class can support multiple clusters.  When you execute a query against a class, it automatically propagates to all clusters that are part of the class.  When you create a new record, OrientDB selects the cluster to store it in using a [configurable strategy](Cluster-Selection.md).
 
-When you create a new class, by default, OrientDB creates a new [persistent cluster](Concepts.md#physical_cluster) with the same name as the class, in lowercase.
+When you create a new class, by default, OrientDB creates a new [persistent cluster](#cluster) with the same name as the class, in lowercase.
 
 ### Abstract Class
 
-The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](SQL-Create-Class.md#abstract-class).
+The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](SQL-Create-Class.md).
 
 This concept is essential to Object Orientation, without the typical spamming of the database with always empty, auto-created clusters.
 
@@ -214,7 +214,7 @@ In OrientDB, all Edges in the Graph model are bidirectional.  This differs from 
 
 ## Database
 
-The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](Java-API.md#database-types).
+The database is an interface to access the real Storage.  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](Java-API.md).
 
 Each server or Java VM can handle multiple database instances, but the database name must be unique. You can't manage two databases at the same time, even if they are in different directories.  To handle this case, use the `$` dollar character as a separator instead of the `/` slash character.  OrientDB binds the entire name, so it becomes unique, but at the file system level it converts `$` with `/`, allowing multiple databases with the same name in different paths.  For example,
 
