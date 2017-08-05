@@ -48,7 +48,7 @@ With OrientDB, the Graph model uses [Edges](Tutorial-Working-with-graphs.md) to 
 Class POST ->* (collection of edges) Class COMMENT
 ```
 ## (1) Export to CSV
-If you're using an RDBMS or any other source, export your data in [CSV](Transformer.md#csv) format. The ETL module is also able to extract from [JSON](Extractor.md#json) and an RDBMS directly through [JDBC](Extractor.md#jdbc) drivers. However, for the sake of simplicity, in this example we're going to use [CSV](Transformer.md#csv) as the source format.
+If you're using an RDBMS or any other source, export your data in [CSV](Transformer.md#csv-transformer) format. The ETL module is also able to extract from [JSON](Extractor.md#json-extractor) and an RDBMS directly through [JDBC](Extractor.md#jdbc-extractor) drivers. However, for the sake of simplicity, in this example we're going to use [CSV](Transformer.md#csv-transformer) as the source format.
 
 Consider having 2 CSV files:
 #### File posts.csv

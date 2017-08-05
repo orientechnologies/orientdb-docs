@@ -47,7 +47,7 @@ Given that the Relational Model doesn't use concepts from Object Oriented Progra
   Table POST    <- (foreign key) Table COMMENT
   ```
 
-  In OrientDB, it follows the Object Oriented Model, so you have a collection of [links](Concepts.md#Relationships) connecting instances of `Post` and `Comment`. 
+  In OrientDB, it follows the Object Oriented Model, so you have a collection of [links](Concepts.md#relationships) connecting instances of `Post` and `Comment`. 
 
   ```
   Class POST ->* (collection of links) Class COMMENT

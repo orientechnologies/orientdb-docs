@@ -4,10 +4,9 @@ search:
 ---
 
 
-<!-- proofread 2015-12-11 SAM -->
 # Import from JSON
 
-If you are migrating from MongoDB or any other DBMS that exports data in JSON format, the [JSON extractor](Extractor.md#json) is what you need. For more information look also at: [Import-from-PARSE](Import-from-PARSE.md).
+If you are migrating from MongoDB or any other DBMS that exports data in JSON format, the [JSON extractor](Extractor.md#json-extractor) is what you need. For more information look also at: [Import-from-PARSE](Import-from-PARSE.md).
 
 This is the input file stored in `/tmp/database.json` file:
 
