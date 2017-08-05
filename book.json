@@ -2,12 +2,12 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "variables": {
-    "download_osx": "http://bit.ly/orientdb-ce-tele-2-2-23-osx",
-    "download_linux": "http://bit.ly/orientdb-ce-tele-2-2-23-linux",
-    "download_windows": "http://bit.ly/orientdb-ce-tele-2-2-23-win",
-    "download_multiOS": "http://bit.ly/orientdb-ce-tele-2-2-23",
-    "lastGA": "2.2.23",
-    "currentVersion": "2.2.23"
+    "download_osx": "http://bit.ly/orientdb-ce-imps-2-2-25-osx",
+    "download_linux": "http://bit.ly/orientdb-ce-imps-2-2-25-linux",
+    "download_windows": "http://bit.ly/orientdb-ce-imps-2-2-25-win",
+    "download_multiOS": "http://bit.ly/orientdb-ce-imps-2-2-25",
+    "lastGA": "2.2.25",
+    "currentVersion": "2.2.25"
   },
   "links": {
     "home": "https://orientdb.com",
