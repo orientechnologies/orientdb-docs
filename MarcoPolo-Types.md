@@ -47,16 +47,16 @@ Here, an integer in your application is sent to OrientDB as a long integer.  Whe
 
 ### Date and Time Types
 
-- **Date**: Using [Date](MarcoPolo-Structs.md#date), `%MarcoPolo.Date{year: 2017, month: 5, day: 5}`
+- **Date**: Using [Date](MarcoPolo-Date.md), `%MarcoPolo.Date{year: 2017, month: 5, day: 5}`
   - Typed in OrientDB as `java.util.Date`
   - Returned to MarcoPolo as `%MarcoPolo.Date{year: 2017 month: 5 day: 5}`
-- **DateTime**: Using [DateTime](MarcoPolo-Structs.md#datetime), `%MarcoPolo.DateTime{year: 2017,i month: 5, day: 5, hour: 15, minute: 30, sec: 0, msec: 0}`
+- **DateTime**: Using [DateTime](MarcoPolo-DateTime.md), `%MarcoPolo.DateTime{year: 2017,i month: 5, day: 5, hour: 15, minute: 30, sec: 0, msec: 0}`
   - Typed in OrientDB as `java.util.Date`
   - Returned to MarcoPolo as `%MarcoPolo.DateTime{year: 2017,i month: 5, day: 5, hour: 15, minute: 30, sec: 0, msec: 0}`
 
 ### Embedded Types
 
-- **Document**: Using [Document](MarcoPolo-Structs.md#document), `%MarcoPolo.Document{}`
+- **Document**: Using [Document](MarcoPolo-Document.md), `%MarcoPolo.Document{}`
   - Typed in OrientDB as `ORecord`
   - Returned to MarcoPolo as the same value.
 - **List**: `[1, "foo", {:float, 3.14}]`
@@ -71,7 +71,7 @@ Here, an integer in your application is sent to OrientDB as a long integer.  Whe
 
 ### Link Types
 
-- **Link**: Using [RID](MarcoPolo-Structs.md#rid), `%MarcoPolo.RID{cluster_id: 21, position: 3}` 
+- **Link**: Using [RID](MarcoPolo-RID.md), `%MarcoPolo.RID{cluster_id: 21, position: 3}` 
   - Typed in OrientDB as `ORID` 
   - Returned to MarcoPolo as `%MarcoPolo.RID{cluster_id: 21, position: 3}`
 - **Link List**: `{:link_list, [%MarcoPolo.RID{}, ...]}` 

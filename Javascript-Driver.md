@@ -5,12 +5,12 @@ search:
 
 # Javascript API
 
-### This API has been deprecated, please use HTTP calls from the browser by using the [HTTP RESTful protocol](OrientDB-REST.md).
+## This API has been deprecated, please use HTTP calls from the browser by using the [HTTP RESTful protocol](OrientDB-REST.md).
 ------------
 
 This driver wraps the most common use cases in database usage. All parameters required by methods or constructor are Strings. This library works on top of [HTTP RESTful protocol](OrientDB-REST.md).
 
-*Note: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting](Javascript-Driver.md#cross-site-scripting).*
+>**Note**: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting](Javascript-Driver.md#cross-site-scripting).
 
 The full source code is available here: **[oriendb-api.js](https://github.com/nuvolabase/orientdb/blob/master/server/src/site/js/orientdb-api.js)**.
 
@@ -43,7 +43,7 @@ var orientServer = new ODatabase('http://localhost:2480/demo');
 ```
 
 Once created database instance is ready to be used. Every method return the operation result when it succeeded, null elsewhere. <br/>
-In case of null result the database instance will have the error message obtainable by the [getErrorMessage()](#Errors) method.
+In case of null result the database instance will have the error message obtainable by the [getErrorMessage()](#errors) method.
 
 ### Open
 
@@ -393,7 +393,7 @@ Return Example:
 ### Server Information
 
 Method that retrieves server informations, it returns the server informations in JSON format.<br/>
-*Note: Server information needs [root](Security.md#orientdb_server_security) username and password.*
+*Note: Server information needs [root](Server-Security.md) username and password.*
 
 Syntax: <code>&lt;databaseInstance&gt;.serverInfo()</code>
 
@@ -608,7 +608,7 @@ orientServer.close();
 ### Change server URL
 
 Method that changes server URL in the database instance.<br/>
-You'll need to call the [open](#Open) method to reconnect to the new server.
+You'll need to call the [open](#open) method to reconnect to the new server.
 
 Syntax: <code>&lt;databaseInstance&gt;.setDatabaseUrl(&lt;newDatabaseUrl&gt;)</code>
 
@@ -620,7 +620,7 @@ orientServer.setDatabaseUrl('http://localhost:3040')
 ### Change database name
 
 Method that changes database name in the database instance.<br/>
-You'll need to call the [open](#Open) method to reconnect to the new database.
+You'll need to call the [open](#open) method to reconnect to the new database.
 
 Syntax: <code>&lt;databaseInstance&gt;.setDatabaseName(&lt;newDatabaseName&gt;)</code>
 

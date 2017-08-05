@@ -16,7 +16,7 @@ If you'd like to develop a new binding, please take a look to the available ones
 Also, check the available [REST implementations](OrientDB-REST.md).
 
 Before starting, please note that:
-- **[Record](Concepts.md#wiki-record)** is an abstraction of **[Document](Concepts.md#wiki-document)**. However, keep in mind that in OrientDB you can handle structures at a lower level than Documents. These include positional records, raw strings, raw bytes, etc.
+- **[Record](Concepts.md#record)** is an abstraction of **[Document](Concepts.md#document)**. However, keep in mind that in OrientDB you can handle structures at a lower level than Documents. These include positional records, raw strings, raw bytes, etc.
 
 For more in-depth information please look at the Java classes:
 - Client side: [OStorageRemote.java](https://github.com/nuvolabase/orientdb/tree/master/client/src/main/java/com/orientechnologies/orient/client/remote/OStorageRemote.java)
@@ -32,8 +32,8 @@ For more in-depth information please look at the Java classes:
 After the connection has been established, a client can <b>Connect</b> to the server or request the opening of a database <b>Database Open</b>. Currently, only TCP/IP raw sockets are supported. For this operation use socket APIs appropriate to the language you're using. After the <b>Connect</b> and <b>Database Open</b> all the client's requests are sent to the server until the client closes the socket. When the socket is closed, OrientDB Server instance frees resources the used for the connection.
 
 The first operation following the socket-level connection must be one of:
-- [Connect to the server](#connect) to work with the OrientDB Server instance
-- [Open a database](#db_open) to open an existing database
+- [Connect to the server](#connection) to work with the OrientDB Server instance
+- [Open a database](#request_db_open) to open an existing database
 
 In both cases a [Session-Id](#session-id) is sent back to the client. The server assigns a unique Session-Id to the client. This value must be used for all further operations against the server. You may open a database after connecting to the server, using the same Session-Id
 
@@ -138,7 +138,7 @@ The CSV format is the default for all the versions 0.* and 1.* or for any client
 # Request
 
 Each request has own format depending of the operation requested. The operation requested is indicated in the first byte:
-- *1 byte* for the operation. See [Operation types](#Operation_types) for the list
+- *1 byte* for the operation. See [Operation types](#operation-types) for the list
 - **4 bytes** for the [Session-Id](#session-id) number as Integer
 - **N bytes** optional token bytes only present if the REQUEST_CONNECT/REQUEST_DB_OPEN return a token.
 - **N bytes** = message content based on the operation type
@@ -304,7 +304,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 
 ## REQUEST_DB_OPEN
 
-This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#wikiCluster) in the opened databse.
+This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](Concepts.md#cluster) in the opened databse.
 
 ```
 Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(support-push:boolean)(collect-stats:boolean)(database-name:string)(user-name:string)(user-password:string)
@@ -357,7 +357,7 @@ Response: empty
 
 - **database-name** - the name of the database to create. Example: "MyDatabase".
 - **database-type** - the type of the database to create. Can be either `document` or `graph` (since version 8). Example: "document".
-- **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to create. It can be one of the [supported types](Concepts.md#database-url):
   - `plocal` - persistent database
   - `memory` - volatile database
 - **backup-path** - path of the backup file to restore located on the server's file system (since version 36). This is used when a database is created starting from a previous backup
@@ -387,7 +387,7 @@ Response: (result:boolean)
 #### Request
 
 - **database-name** - the name of the target database. *Note* that this was empty before `1.0rc1`.
-- **storage-type** - specifies the storage type of the database to be checked for existence. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to be checked for existence. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#database-url):
   - `plocal` - persistent database
   - `memory` - volatile database
 
@@ -423,7 +423,7 @@ Response: empty
 #### Request
 
 - **database-name** - the name of the database to remove.
-- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#wiki-Database_URL):
+- **storage-type** - specifies the storage type of the database to create. Since `1.5-snapshot`. It can be one of the [supported types](Concepts.md#database-url):
   - `plocal` - persistent database
   - `memory` - volatile database
 
@@ -514,7 +514,7 @@ Response: 0000000000001000
 ```
 ## REQUEST_RECORD_LOAD
 
-Loads a record by its [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md).
+Loads a record by its [Record ID](Concepts.md#record-id), according to a [fetch plan](Fetching-Strategies.md).
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(fetch-plan:string)(ignore-cache:boolean)(load-tombstones:boolean)
@@ -523,7 +523,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 
 #### Request
 
-- **cluster-id**, **cluster-position** - the RecordID of the record.
+- **cluster-id**, **cluster-position** - the Record ID of the record.
 - **fetch-plan** - the [fetch plan](Fetching-Strategies.md) to use or an empty string.
 - **ignore-cache** - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
 - **load-tombstones** - a flag which indicates whether information about deleted record should be loaded. The flag is applied only to autosharded storage and ignored otherwise.
@@ -542,7 +542,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 
 ## REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
 
-Loads a record by [RecordID](Concepts.md#RecordID), according to a [fetch plan](Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
+Loads a record by [Record ID](Concepts.md#record-id), according to a [fetch plan](Fetching-Strategies.md). The record is only loaded if the persistent version is more recent of the version specified in the request.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(version:int)(fetch-plan:string)(ignore-cache:boolean)
@@ -551,7 +551,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 
 #### Request
 
-- **cluster-id**, **cluster-position** - the RecordID of the record.
+- **cluster-id**, **cluster-position** - the Record ID of the record.
 - **version** - the version of the record to fetch.
 - **fetch-plan** - the [fetch plan](Fetching-Strategies.md) to use or an empty string.
 - **ignore-cache** - if true tells the server to ignore the cache, if false tells the server to not ignore the cache. Available since protocol v.9 (introduced in release 1.0rc9).
@@ -570,7 +570,7 @@ Response: [(payload-status:byte)[(record-type:byte)(record-version:int)(record-c
 
 ## REQUEST_RECORD_CREATE
 
-Creates a new record. Returns the RecordID of the newly created record.. New records can have version > 0 (since `1.0`) in case the RecordID has been recycled.
+Creates a new record. Returns the Record ID of the newly created record.. New records can have version > 0 (since `1.0`) in case the Record ID has been recycled.
 
 ```
 Request: (cluster-id:short)(record-content:bytes)(record-type:byte)(mode:byte)
@@ -594,7 +594,7 @@ In versions before `2.0`, the response started with an additional **datasegment-
 
 #### Response
 
-- **cluster-id**, **cluster-position** - the RecordID of the newly created record.
+- **cluster-id**, **cluster-position** - the Record ID of the newly created record.
 - **record-version** - the version of the newly created record.
 
 The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
@@ -602,7 +602,7 @@ The last part of response (from `count-of-collection-changes` on) refers to [Rid
 
 ## REQUEST_RECORD_UPDATE
 
-Updates the record identified by the given [RecordID](Concepts.md#RecordID). Returns the new version of the record.
+Updates the record identified by the given [Record ID](Concepts.md#record-id). Returns the new version of the record.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(update-content:boolean)(record-content:bytes)(record-version:int)(record-type:byte)(mode:byte)
@@ -611,7 +611,7 @@ Response: (record-version:int)(count-of-collection-changes)[(uuid-most-sig-bits:
 
 #### Request
 
-- **cluster-id**, **cluster-position** - the RecordID of the record to update.
+- **cluster-id**, **cluster-position** - the Record ID of the record to update.
 - **update-content** - can be:
   - true - the content of the record has been changed and should be updated in the storage.
   - false - the record was modified but its own content has not changed: related collections (e.g. RidBags) have to be updated, but the record version and its contents should not be updated.
@@ -635,7 +635,7 @@ The last part of response (from `count-of-collection-changes` on) refers to [Rid
 
 ## REQUEST_RECORD_DELETE
 
-Delete a record identified by the given [RecordID](Concepts.md#RecordID). During the optimistic transaction the record will be deleted only if the given version and the version of the record on the server match. This operation returns true if the record is deleted successfully, false otherwise.
+Delete a record identified by the given [Record ID](Concepts.md#record-id). During the optimistic transaction the record will be deleted only if the given version and the version of the record on the server match. This operation returns true if the record is deleted successfully, false otherwise.
 
 ```
 Request: (cluster-id:short)(cluster-position:long)(record-version:int)(mode:byte)
@@ -644,7 +644,7 @@ Response: (has-been-deleted:boolean)
 
 #### Request
 
-- **cluster-id**, **cluster-position** - the RecordID of the record to delete.
+- **cluster-id**, **cluster-position** - the Record ID of the record to delete.
 - **record-version** - the version of the record to delete.
 - **mode** - can be:
   - `0` - **synchronous**. It's the default mode which waits for the answer before the response is sent.
@@ -653,7 +653,7 @@ Response: (has-been-deleted:boolean)
 
 #### Response
 
-- **has-been-deleted** - true if the record is deleted successfully, false if it's not or if the record with the given RecordID doesn't exist.
+- **has-been-deleted** - true if the record is deleted successfully, false if it's not or if the record with the given Record ID doesn't exist.
 
 
 ## REQUEST_COMMAND
@@ -747,7 +747,7 @@ The first byte means that there's another entry next. The values of the rest of 
 ##### Update
 
 - **operation-type** - has the value 1.
-- **cluster-id**, **cluster-position** - the RecordID of the record to update.
+- **cluster-id**, **cluster-position** - the Record ID of the record to update.
 - **record-type** - the type of the record to update (`d` for document, `b` for raw bytes and `f` for flat data).
 - **entry-content** - has the form `(version:int)(update-content:boolean)(record-content:bytes)` where:
   - **update-content** - can be:
@@ -759,7 +759,7 @@ The first byte means that there's another entry next. The values of the rest of 
 ###### Delete
 
 - **operation-type** - has the value 2.
-- **cluster-id**, **cluster-position** - the RecordID of the record to update.
+- **cluster-id**, **cluster-position** - the Record ID of the record to update.
 - **record-type** - the type of the record to update (`d` for document, `b` for raw bytes and `f` for flat data).
 - **entry-content** - has the form `(version:int)` where:
   - **version** - the version of the record to delete.
@@ -783,9 +783,9 @@ The response contains two parts:
 - a map of "temporary" client-generated record ids to "real" server-provided record ids for each **created** record (not guaranteed to have the same order as the records in the request).
 - a map of **updated** record ids to update record versions.
 
-If the version of a created record is not `0`, then the RecordID of the created record will also appear in the list of "updated" records, along with its new version. This is a [known bug](https://github.com/orientechnologies/orientdb/issues/4660).
+If the version of a created record is not `0`, then the Record ID of the created record will also appear in the list of "updated" records, along with its new version. This is a [known bug](https://github.com/orientechnologies/orientdb/issues/4660).
 
-Look at [Optimistic Transaction](Transactions.md#wiki-Optimistic_Transaction) to know how temporary [RecordID](Concepts.md#RecordID)s are managed.
+Look at [Optimistic Transaction](Transactions.md#optimistic-transaction) to know how temporary [Record ID](Concepts.md#record-id)s are managed.
 
 The last part of response (from `count-of-collection-changes` on) refers to [RidBag](RidBag.md) management. Take a look at [the main page](RidBag.md) for more details.
 
@@ -943,10 +943,10 @@ Where:
 - *TREE SIZE* as signed integer (4 bytes) containing the size of the tree. Only the root node has this value updated, so to know the size of the collection you need to load the root node and get this field. other nodes can contain not updated values because upon rotation of pieces of the tree (made during tree rebalancing) the root can change and the old root will have the "old" size as dirty.
 - *NODE SIZE* as signed integer (4 bytes) containing number of entries in this node. It's always <= to the page-size defined at the tree level and equals for all the nodes. By default page-size is 16 items
 - *COLOR* as 1 byte containing 1=Black, 0=Red. To know more about the meaning of this look at [Red-Black Trees](http://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-- **PARENT RID** as [RID](Concepts.md#RecordID) (10 bytes) of the parent node record
-- **LEFT RID** as [RID](Concepts.md#RecordID) (10 bytes) of the left node record
-- **RIGHT RID** as [RID](Concepts.md#RecordID) (10 bytes) of the right node record
-- **RID LIST** as the list of [RIDs](Concepts.md#RecordID) containing the references to the records. This is pre-allocated to the configured page-size. Since each [RID](Concepts.md#RecordID) takes 10 bytes, a page-size of 16 means 16 x 10bytes = 160bytes
+- **PARENT RID** as [RID](Concepts.md#record-id) (10 bytes) of the parent node record
+- **LEFT RID** as [RID](Concepts.md#record-id) (10 bytes) of the left node record
+- **RIGHT RID** as [RID](Concepts.md#record-id) (10 bytes) of the right node record
+- **RID LIST** as the list of [RIDs](Concepts.md#record-id) containing the references to the records. This is pre-allocated to the configured page-size. Since each [RID](Concepts.md#record-id) takes 10 bytes, a page-size of 16 means 16 x 10bytes = 160bytes
 
 The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. To compute it: 39 bytes + 10 * PAGE-SIZE bytes. For a page-size = 16 you'll have 39 + 160 = 199 bytes.
 

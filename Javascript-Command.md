@@ -35,7 +35,7 @@ db.command( new OCommandScript("Javascript", "print('hello world')") ).execute()
 
 JavaScript code can be executed on the client-side, the console, or server-side:
 - Use [<code>js</code>](Console-Command-Js.md) to execute the script on the **client-side** running it in the console
-- use [<code>jss</code>](Console-Command-Jss.md) to execute the script on the **server-side**. This feature is disabled by default. To enable it look at [Enable Server side scripting](#Enable_Server_side_scripting).
+- use [<code>jss</code>](Console-Command-Jss.md) to execute the script on the **server-side**. This feature is disabled by default. To enable it look at [Enable Server side scripting](#enable-server-side-scripting).
  
 Note: if you want to call a server-side Javascript function that was previously created in studio remember to add `commit()` after your insert or update operations. For example if you want to execute this function:
 

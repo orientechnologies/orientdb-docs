@@ -8,8 +8,8 @@ search:
 
 When the ETL module executes, Loaders handle the saving of records.  They run at the last stage of the process.  The ETL module in OrientDB supports the following loaders:
 
-- [Output](#output)
-- [OrientDB](#orientdb)
+- [Output](#output-loader)
+- [OrientDB](#orientdb-loader)
 
 ## Output Loader
 

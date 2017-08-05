@@ -9,12 +9,12 @@ search:
 
 Local storage is the first version of disk-based storage engine, but has been replaced by [plocal](Paginated-Local-Storage.md). Don't create new databases using **local**, but rather [plocal](Paginated-Local-Storage.md). Local storage has been kept only for compatibility purpose.
 
-A **local** storage is composed of multiple [Cluster](#Cluster) and [Data Segments](#Data_Segment).
+A **local** storage is composed of multiple [Clusters](#local-physical-cluster) and [Data Segments](#data-segment).
 
 ![](http://www.orientdb.org/images/orientdb-storage.png)
 
 
-## <a name="wiki-Local_Physical_Cluster">Local Physical Cluster</a>
+## Local Physical Cluster
 
 The cluster is mapped 1-by-2 to files in the underlying File System. The local physical cluster uses two or more files: One or more files with extension "ocl" (OrientDB Cluster) and only one file with the extension "och" (OrientDB Cluster Holes).
 
@@ -29,7 +29,7 @@ The second file is the "Hole" file that stores the holes in the cluster caused b
 **NOTE (again, but very important): You can move real files in your file system only by using the OrientDB APIs.**
 
 
-# <a name="wiki-Data_Segment">Data Segment</a>
+# Data Segment
 
 OrientDB uses **data segments** to store the record content. The data segment behaves similar to the physical cluster files: it uses two or more files. One or multiple files with the extension "oda" (OrientDB Data) and only one file with the extension "odh" (OrientDB Data Holes).
 

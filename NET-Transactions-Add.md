@@ -5,7 +5,7 @@ search:
 
 # OrientDB-NET - `Add<T>()`
 
-This method adds records to the database.  The new records remain part of the transaction and can either be removed or made persistent, through [`Commit()`](NET-Transactions.md#commit) or [`Revert()`](NET-Transactions.md#revert).
+This method adds records to the database.  The new records remain part of the transaction and can either be removed or made persistent, through [`Commit()`](NET-Transactions.md#commit) or [`Revert()`](NET-Transactions.md#reset).
 
 ## Adding Records
 
