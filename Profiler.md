@@ -15,7 +15,7 @@ When you incur in problems, the best way to produce information about OrientDB i
 java ... -Dprofiler.autoDump.reset=true -Dprofiler.autoDump.interval=60 -Dprofiler.enabled=true ...
 ```
 
-This will dump the profiler in the console every 60 seconds and resets the metrics after the dump. For more information about settings look at [Parameters](Performance-Tuning.md#parameters).
+This will dump the profiler in the console every 60 seconds and resets the metrics after the dump. For more information about settings look at [Parameters](Configuration.md#parameters).
 
 ## Retrieve profiler metrics via HTTP
 

@@ -42,7 +42,7 @@ UPDATE <class>|CLUSTER:<cluster>|<recordID>
 - `LIMIT` Defines the maximum number of records to update.
 - `TIMEOUT` Defines the time you want to allow the update run before it times out.
 
->**NOTE**: The [Record ID](Concepts.md#recordid) must have a `#` prefix.  For instance, `#12:3`.
+>**NOTE**: The [Record ID](Concepts.md#record-id) must have a `#` prefix.  For instance, `#12:3`.
 
 **Examples**:
 

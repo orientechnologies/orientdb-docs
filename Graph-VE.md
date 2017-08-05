@@ -150,7 +150,7 @@ props.put("born", "Victoria, TX");
 vertex.setProperties(props);
 ```
 
-### Creating Element and Properties Together
+### Creating Elements and Properties Together
 
 In addition to the above methods, using the OrientDB Blueprint implementation, you can also set the initial properties while creating vertices or edges.
 

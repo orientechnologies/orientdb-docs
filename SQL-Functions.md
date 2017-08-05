@@ -24,7 +24,7 @@ search:
 |[traversedElement()](SQL-Functions.md#traversedelement) | [mode()](SQL-Functions.md#mode)                        | [unionall()](SQL-Functions.md#unionall)|  |
 |[traversedVertex()](SQL-Functions.md#traversedvertex) | [median()](SQL-Functions.md#median)                      | [flatten()](SQL-Functions.md#flatten)|  |
 |[traversedEdge()](SQL-Functions.md#traversededge) | [percentile()](SQL-Functions.md#percentile)                  | [last()](SQL-Functions.md#last)| |
-|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricDifference)|-|
+|[shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](SQL-Functions.md#symmetricdifference)|-|
 |[dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)|  |  |
 |[astar()](SQL-Functions.md#astar) |  |  |  |
 
@@ -41,7 +41,7 @@ search:
 | [map()](SQL-Functions.md#map)|[min()](SQL-Functions.md#min) | [max()](SQL-Functions.md#max) | [median()](SQL-Functions.md#median) |
 | [mode()](SQL-Functions.md#mode)|[out()](SQL-Functions.md#out) |[outE()](SQL-Functions.md#oute) | [outV()](SQL-Functions.md#outv) |
 | [percentile()](SQL-Functions.md#percentile)|[set()](SQL-Functions.md#set) | [shortestPath()](SQL-Functions.md#shortestpath) |[stddev()](SQL-Functions.md#stddev)|
-|[sum()](SQL-Functions.md#sum)|[symmetricDifference()](SQL-Functions.md#symmetricDifference) |[sysdate()](SQL-Functions.md#sysdate)|  [traversedElement()](SQL-Functions.md#traversedelement) | 
+|[sum()](SQL-Functions.md#sum)|[symmetricDifference()](SQL-Functions.md#symmetricdifference) |[sysdate()](SQL-Functions.md#sysdate)|  [traversedElement()](SQL-Functions.md#traversedelement) | 
 | [traversedEdge()](SQL-Functions.md#traversededge)|[traversedVertex()](SQL-Functions.md#traversedvertex) | [unionall()](SQL-Functions.md#unionall) |  [uuid()](SQL-Functions.md#uuid)|
 | [variance()](SQL-Functions.md#variance) | | | |
 
@@ -319,7 +319,7 @@ This function has two meanings:
 
 Syntax: ```expand(<field>)```
 
-Since version 2.1 the preferred operator to unwind collections is [UNWIND](SQL-Query.md#unwind). Expand usage for this use case will probably be deprecated in next releases
+Since version 2.1 the preferred operator to unwind collections is [UNWIND](SQL-Query.md#unwinding). Expand usage for this use case will probably be deprecated in next releases
 
 #### Example
 

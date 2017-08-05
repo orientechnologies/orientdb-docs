@@ -29,5 +29,5 @@ DROP USER <user>
 
 >For more information, see,
 >- [`CREATE USER`](SQL-Create-User.md)
->- [SQL commands](SQL)
+>- [SQL commands](SQL.md)
 

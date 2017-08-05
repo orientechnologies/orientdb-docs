@@ -14,14 +14,14 @@ Local connection is much faster than remote. So use "plocal" based on the storag
 Even though supports properties on edges, this is much expensive because it creates a new record per edge. So if you need them you've to know that the database will be bigger and insertion time will be much longer.
 
 ## Set properties all together
-It's much lighter to set properties in block than one by one. Look at this paragraph: [Graph-Database-Tinkerpop#setting-multiple-properties](Graph-Database-Tinkerpop.md#setting-multiple-properties).
+It's much lighter to set properties in block than one by one. Look at this paragraph: [Setting Multiple Properties](Graph-VE.md#setting-multiple-properties).
 
 ## Set properties on vertex and edge creation
-It's even faster if you set properties directly on creation of vertices and edges. Look at this paragraph: [Graph-Database-Tinkerpop#create-element-and-properties](Graph-Database-Tinkerpop.md#create-element-and-properties).
+It's even faster if you set properties directly on creation of vertices and edges. Look at this paragraph: [Creating Elements and Properties](Graph-VE.md#creating-elements-and-properties-together).
 
 ## Massive Insertion
 
-See [Generic improvement on massive insertion](Performance-Tuning.md#massive_insertion). To access to the underlying database use:
+See [Generic improvement on massive insertion](Performance-Tuning.md#massive-insertion). To access to the underlying database use:
 
     database.getRawGraph().declareIntent( new OIntentMassiveInsert() );
 
@@ -94,7 +94,7 @@ db.declareIntent( null );
 
 ## Cache management
 
-Graph Database, by default, caches the most used elements. For massive insertion is strongly suggested to disable cache to avoid to keep all the element in memory. [Massive Insert Intent](Performance-Tuning.md#use_the_massive_insert_intent) automatically sets it to false.
+Graph Database, by default, caches the most used elements. For massive insertion is strongly suggested to disable cache to avoid to keep all the element in memory. [Massive Insert Intent](Performance-Tuning.md#use-the-massive-insert-intent) automatically sets it to false.
 ```java
 graph.setRetainObjects(false);
 ```

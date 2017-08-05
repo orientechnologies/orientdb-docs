@@ -25,8 +25,8 @@ TRAVERSE <[class.]field>|*|any()|all()
          [STRATEGY <strategy>]
 ```
 
-- **[`<fields>`](#Fields)** Defines the fields you want to traverse.
-- **[`<target>`](#Target)** Defines the target you want to traverse.  This can be a class, one or more clusters, a single Record ID, set of Record ID's, or a sub-query.
+- **[`<fields>`](#fields)** Defines the fields you want to traverse.
+- **[`<target>`](#target)** Defines the target you want to traverse.  This can be a class, one or more clusters, a single Record ID, set of Record ID's, or a sub-query.
 - **`MAXDEPTH`** Defines the maximum depth of the traversal.  `0` indicates that you only want to traverse the root node.  Negative values are invalid.
 - **`WHILE`** Defines the condition for continuing the traversal while it is true.  
 - **`LIMIT`** Defines the maximum number of results the command can return.

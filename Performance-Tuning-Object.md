@@ -9,4 +9,4 @@ This guide is specific for the Object Database. Please be sure to read the gener
 
 ## Massive Insertion
 
-See [Generic improvement on massive insertion](Performance-Tuning.md#massive_insertion).
+See [Generic improvement on massive insertion](Performance-Tuning.md#massive-insertion).

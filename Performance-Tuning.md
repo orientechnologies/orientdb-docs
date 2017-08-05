@@ -125,14 +125,15 @@ When you've multiple threads could be a bottleneck since a lot of time is spent 
 
 The configurations is very simple, just 2 parameters:
 
-- **minPool**, is the initial size of the connection pool. The default value is configured as global parameters "client.channel.minPool" (see [parameters](#Parameters))
-- **maxPool**, is the maximum size the connection pool can reach. The default value is configured as global parameters "client.channel.maxPool" (see [parameters](#Parameters))
+- **minPool**, is the initial size of the connection pool. The default value is configured as global parameters "client.channel.minPool" (see [parameters](Configuration.md#parameters))
+- **maxPool**, is the maximum size the connection pool can reach. The default value is configured as global parameters "client.channel.maxPool" (see [parameters](Configuration.md#parameters))
 
 At first connection the **minPool** is used to pre-create network connections against the server. When a client thread is asking for a connection and all the pool is busy, then it tries to create a new connection until **maxPool** is reached.
 
 If all the pool connections are busy, then the client thread will wait for the first free connection.
 
 Example of configuration by using database properties:
+
 ```java
 database = new ODatabaseDocumentTx("remote:localhost/demo");
 database.setProperty("minPool", 2);
@@ -147,7 +148,7 @@ If you see a lot of messages like:
 ```
 WARNING: Connection re-acquired transparently after XXXms and Y retries: no errors will be thrown at application level
 ```
-means that probably default timeouts are too low and server side operation need more time to complete. It's strongly suggested you enlarge your timeout only after tried to enlarge the [Network Connection Pool](#Network_Connection_Pool). The timeout parameters to tune are:
+means that probably default timeouts are too low and server side operation need more time to complete. It's strongly suggested you enlarge your timeout only after tried to enlarge the [Network Connection Pool](#network-connection-pool). The timeout parameters to tune are:
 - <code>network.lockTimeout</code>, the timeout in ms to acquire a lock against a channel. The default is 15 seconds.
 - <code>network.socketTimeout</code>, the TCP/IP Socket timeout in ms. The default is 10 seconds.
 

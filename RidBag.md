@@ -30,7 +30,7 @@ RidBag could be configured with OGlobalConfiguration.
 + `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` (`ridBag.embeddedToSbtreeBonsaiThreshold`) - The threshold of LINKBAG conversion to sbtree-based implementation. _Default value: 40_.
 + `RID_BAG_SBTREEBONSAI_TO_EMBEDDED_THRESHOLD` (`ridBag.sbtreeBonsaiToEmbeddedToThreshold`) - The threshold of LINKBAG conversion to embedded implementation. _Disabled by default_.
 
-Setting `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to `-1` forces using of sbtree-based RidBag. Look at [Concurrency on adding edges]( Concurrency.md#concurrency-on-adding-edges) to know more about impact on graphs of this setting.
+Setting `RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to `-1` forces using of sbtree-based RidBag. Look at [Concurrency on adding edges]( Concurrency.md#concurrency-when-adding-edges) to know more about impact on graphs of this setting.
 
 |    |    |
 |----|----|
@@ -122,7 +122,7 @@ __Response:__
 (size:int)
 ```
 
-##Iteration over tree-based RidBag
+## Iteration over tree-based RidBag
 Iteration over tree-based RidBag could be implemented with **REQUEST_SBTREE_BONSAI_GET_ENTRIES_MAJOR** and **REQUEST_SBTREE_BONSAI_FIRST_KEY**.
 
 Server doesn't know anything about client changes. So iterator implementation should apply changes to the result before returning result to the user.
@@ -132,7 +132,7 @@ The algorithm of fetching records from server is following:
 2. Fetch portion of data with _getEtriesMajor_ operation.
 3. Repeat __step 2__ while _getEtriesMajor_ returns any result.
 
-##Serialization of rid bag changes
+## Serialization of rid bag changes
 ```
 (changesSize:int)[(link:rid)(changeType:byte)(value:int)]*
 ```
@@ -140,7 +140,7 @@ changes could be 2 types:
 - **Diff** - value defines how the number of entries is changed for specific link.
 - **Absolute** - sets the number of entries of specified link. The number defined by value field.
 
-##Serialization of collection pointer
+## Serialization of collection pointer
 ```
 (fileId:long)(pageIndex:long)(pageOffset:int)
 ```

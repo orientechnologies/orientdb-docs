@@ -107,7 +107,7 @@ Alternatively, in your Java application use the following call before opening th
 OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 ```
 
->For more information, see [Concurrency on Adding Edges](Concurrency.md#concurrency-on-adding-edges).
+>For more information, see [Concurrency on Adding Edges](Concurrency.md#concurrency-when-adding-edges).
 
 | ![NOTE](images/warning.png) | When running a distributed database, the SB Tree index algorithm is not supported.|
 |----|----|
@@ -124,7 +124,7 @@ OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 
 - Command uses the Blueprints API.  If you are in Java using the `OGraphDatabase` API, you may experience some differences in how OrientDB manages edges.
 
-  >To force the command to work with the older API, change the GraphDB settings, as described in [Graph backwards compatibility](SQL-Alter-Database.md#use-graphdb-create-with-releases-before-14).
+  >To force the command to work with the older API, change the GraphDB settings, as described in [Graph backwards compatibility](SQL-Alter-Database.md).
 
 ### 1.2
 
