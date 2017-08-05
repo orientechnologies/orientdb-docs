@@ -647,7 +647,7 @@ HTTP response: returns a JSON object containing the result text
 }
 ```
 
-_Fail::
+**Fail::**
 ```json
 {
   "responseText": "Error message"
@@ -665,7 +665,7 @@ Syntax: `http://<server>:<port>/listDatabases`
 
 To let to the Studio to display the database list by default the permission to list the database is assigned to guest. Remove this permission if you don't want anonymous user can display it.
 
-For more details see [Server Resources](Security.md#serverResources)
+For more details see [Server Resources](Server-Security.md#server-resources)
 
 Example of configuration of "guest" server user:
 a15b5e6bb7d06bd5d6c35db97e51400b
@@ -701,7 +701,7 @@ This is a key way to retrieve data from the database, especially when combined w
 Syntax: `http://<server>:[<port>]/document/<database>/<record-id>[/<fetchPlan>]`
 
 Where:
-- `<record-id>` [See Concepts: RecordID](Concepts.md#recordID)
+- `<record-id>` See Concepts: [Record ID](Concepts.md#record-id)
 - `<fetchPlan>` Optional, is the fetch plan used. 0 means the root record, -1 infinite depth, positive numbers is the depth level. Look at [Fetching Strategies](Fetching-Strategies.md) for more information.
 
 #### Example
@@ -739,7 +739,7 @@ Check if a document exists
 Syntax: `http://<server>:[<port>]/document/<database>/<record-id>`
 
 Where:
-- `<record-id>` [See Concepts: RecordID](Concepts.md#recordID)
+- `<record-id>` See Concepts: [Record ID](Concepts.md#record-id)
 
 #### Example
 
@@ -1026,7 +1026,7 @@ Where:
 - *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
 
 Other key points:
-- To use commands that change the database (non-idempotent), see the [POST – Command section](#postCommand)
+- To use commands that change the database (non-idempotent), see the [POST – Command section](#post---command)
 - The command-text included in the URL must be encoded as per a normal URL
 - See the [SQL section](SQL.md) for the type of queries that can be sent
 

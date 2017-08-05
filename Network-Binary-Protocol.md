@@ -5,7 +5,7 @@ search:
 
 # Binary Protocol
 
-Current protocol version for 2.1.x: **32**. Look at [compatibility](#Compatibility) for retro-compatibility.
+Current protocol version for 2.1.x: **32**. Look at [compatibility](#compatibility) for retro-compatibility.
 
 # Table of content
 - [Introduction](#introduction)

@@ -86,7 +86,7 @@ The close() method doesn't close the database but release it to the owner pool. 
 
 ## Database URL
 
-In the example above a database of type Database Object Transactional has been created using the storage: remote:localhost/petshop. This address is a [URL](http://it.wikipedia.org/wiki/Uniform_Resource_Locator). To know more about database and storage types go to [Database URL](Concepts.md#database_url).
+In the example above a database of type Database Object Transactional has been created using the storage: remote:localhost/petshop. This address is a [URL](http://it.wikipedia.org/wiki/Uniform_Resource_Locator). To know more about database and storage types go to [Database URL](Concepts.md#database-url).
 
 In this case the storage resides in the same computer of the client, but we're using the **remote** storage type. For this reason we need a OrientDB Server instance up and running. If we would open the database directly bypassing the server we had to use the **local** storage type such as "plocal:/usr/local/database/petshop/petshop" where, in this case, the storage was located in the /usr/local/database/petshop folder on the local file system.
 
