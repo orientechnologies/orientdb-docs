@@ -44,7 +44,7 @@ This panel shows the Server settings divided in two boxes:
 ![Configuration](images/studio-configuration.png)
 
 ## Storages
-This panel shows the [storages](Concepts.md#storage) used by the server. Below the information reported per storage:
+This panel shows the [storages](Concepts.md#database) used by the server. Below the information reported per storage:
 - `Name`, is the storage name
 - `Type`, where `OLocalPaginatedStorage` (plocal) means persstent and `ODirectMemoryStorage` (memory) is in memory only
 - `Path`, as the path on server's file system where the storage is located

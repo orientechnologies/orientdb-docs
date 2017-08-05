@@ -55,7 +55,7 @@ This usually happens because the database has been corrupted by a hw/sw crash or
 Look at: [Restore admin user](Server-Security.md#restoring-the-user-admin).
 
 #### User 'admin' was not found in current database
-Look at: [Restore admin user](Security.md#restoring-the-user-admin).
+Look at: [Restore admin user](Server-Security.md#restoring-the-user-admin).
 
 #### WARNING: Connection re-acquired transparently after XXXms and Y retries: no errors will be thrown at application level
 
