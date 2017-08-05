@@ -58,7 +58,7 @@ The products below all support the [TinkerPop Blueprints API](https://github.com
 
 The table below reports the time to complete the [Blueprints Test Suite](https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model-Test-Suite). This is **not a benchmark between GraphDBs** and unfortunately doesn't exist a public benchmark shared by all the vendors :-(
 
-So this table is just to give an idea about the performance of each implementation in every single module it supports. The support is based on the compliance level reported in the table [above](#Blueprints_support). For the test default settings were used. To run these tests on your own machine follow these [simple instructions](#Run_the_tests).
+So this table is just to give an idea about the performance of each implementation in every single module it supports. The support is based on the compliance level reported in the table [above](#blueprints-support). For the test default settings were used. To run these tests on your own machine follow these [simple instructions](#run-the-tests).
 
 Lower means faster. In **bold** the fastest implementation for each module.
 

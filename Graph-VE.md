@@ -71,7 +71,7 @@ Edge lucaKnowsMarko = graph.addEdge(null, luca, marko, "knows");
 System.out.println("Created edge: " + lucaKnowsMarko.getId());
 ```
 
-For more information on optimizing edge creation through concurrent threads and clients, see [Concurrency on Adding Edges](Concurrency.md#concurrency-on-adding-edges).
+For more information on optimizing edge creation through concurrent threads and clients, see [Concurrency on Adding Edges](Concurrency.md#concurrency-when-adding-edges).
 
 ### Retrieving Edges
 

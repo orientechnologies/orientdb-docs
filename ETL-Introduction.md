@@ -3,7 +3,6 @@ search:
    keywords: ['etl', 'ETL']
 ---
 
-<!-- proofread 2015-12-11 SAM -->
 # ETL
 
 The Extractor Transformer and Loader, or ETL, module for OrientDB provides support for moving data to and from OrientDB databases using [ETL processes](http://en.wikipedia.org/wiki/Extract,_transform,_load).
@@ -85,4 +84,4 @@ Examples:
 - [Import from JSON](Import-from-JSON.md)
 - [Import DBPedia](Import-from-DBPedia.md)
 - [Import from a DBMS](Import-from-DBMS.md)
-- [Import from Parse (Facebook)](Import-from-PARSE.html)
+- [Import from Parse (Facebook)](Import-from-PARSE.md)

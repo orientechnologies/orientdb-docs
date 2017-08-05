@@ -57,7 +57,7 @@ orientdb> <code class="lang-sql userinput">SELECT factorial(10)</code>
 </pre>
 
 
-### Using OrientDB Console
+### Using OrientDB SQL 
 
 In the event that you prefer working from shell environments, OrientDB also provides the [`CREATE FUNCTION`](SQL-Create-Function.md) SQL command.  For instance, take the above example creating a `factorial()` function.
 

@@ -8,7 +8,7 @@ search:
 This feature allows you to define custom executable units of code that takes parameters from the database or query and return a modified result-set.
 
 
->**NOTE**: This guide refers to the last available release of OrientDB. For past revisions look at [Compatibility](Functions.md#wiki-compatibility).
+>**NOTE**: This guide refers to the last available release of OrientDB. For past revisions look at [Compatibility](#compatibility).
 
 ## Understanding Functions
 
@@ -27,7 +27,7 @@ OrientDB Functions are executable units of code.  They allow you to use the Func
 
 >The [OrientDB SQL](SQL.md) dialect supports many functions written in the native language.  To get better performance, you can write your own native functions in the Java language and register them to the engine. 
 >
->For more information, see [Custom Functions in Java](SQL-Functions.md#cutom-functions-in-java).
+>For more information, see [Custom Functions in Java](SQL-Functions.md#custom-functions-in-java).
 
 
 ## Compatibility

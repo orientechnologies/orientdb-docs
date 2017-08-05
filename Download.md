@@ -1,4 +1,4 @@
-The OrientDB development team is very active so if you've started learning OrientDB right now we suggest to clone the source repository and use the "develop" branch (latest SNAPSHOT). Follow these [instructions](https://github.com/orientechnologies/orientdb/wiki/Download#compile-it-by-your-own). Is a snapshot stable enough? All the SNAPSHOTs pass the thousands of test cases, so the answer is YES. However don't worry, we usually create a new stable release from the SNAPSHOT about every 3 months. If however you're afraid of using a SNAPSHOT yet, it's ok: use a [stable one](http://www.orientdb.com/download/) and follow the **[Installation instructions](Installation.md)**.
+The OrientDB development team is very active so if you've started learning OrientDB right now we suggest to clone the source repository and use the "develop" branch (latest SNAPSHOT). Follow these [instructions](https://github.com/orientechnologies/orientdb/wiki/Download#compile-it-by-your-own). Is a snapshot stable enough? All the SNAPSHOTs pass the thousands of test cases, so the answer is YES. However don't worry, we usually create a new stable release from the SNAPSHOT about every 3 months. If however you're afraid of using a SNAPSHOT yet, it's ok: use a [stable one](http://www.orientdb.com/download/) and follow the **[Installation instructions](Tutorial-Installation.md)**.
 
 
 |Release |Status|Suggested for|Maven Repository|GIT branch|
@@ -44,7 +44,7 @@ This is the place where you can always find the last version automatically compi
 
 ## Via MAVEN repository ##
 
-If you want to use OrientDB through Java the best and easy way is through Apache Maven. If you want to use the client/server version you need the [Full distribution](#Full_distribution).
+If you want to use OrientDB through Java the best and easy way is through Apache Maven. If you want to use the client/server version you need the [Full distribution]#full-distribution).
 
 Add this snippet in your pom.xml file:
 
@@ -163,7 +163,7 @@ Every time you compile a new version, assure to have the permissions to execute 
 
 Below the badges you can use in your web site, application and presentation to say to the world "Hey, I'm using OrientDB!". The best would be linking that button to the web site: <http://www.orientdb.com>
 
-Once used you can tell us your story to be published between the [Production deployments page](Production-Deployments.md).
+Once used you can tell us your story to be published between the [Production deployments page]Production-Deployments.md).
 
 <table>
   <tr><td>Description</td><td>Image normal size</td><td>Image small size</td></tr>

@@ -7,10 +7,10 @@ search:
 
 The Document Database in OrientDB is the foundation of higher level implementations, like the [Object Database](Object-Database.md) and the [Graph Database](Graph-Database-Tinkerpop.md).  The Document API supports:
 
-- [Multi-thread Access](#Multi-threading)
+- [Multi-thread Access](Java-Multi-Threading.md)
 - [Transactions](Transactions.md)
-- [Queries](#Query)
-- [Traverse](#Traverse)
+- [Queries](Document-API-Documents.md#querying-documents)
+- [Traverse](Document-API-Documents.md#traversing-documents)
 
 
 It is also very flexible and can be used in schema-full, schema-less or mixed schema modes.
@@ -176,7 +176,7 @@ OrientDB manages transactions at the database-level.  Currently, it does not sup
 
 ### Optimistic approach
 
-In its current release, OrientDB uses [Optimistic Transactions](Transactions.md#optimistic-transactions), in which no lock is kept and all operations are checked on the commit.  This improves concurrency, but can throw an `OConcurrentModificationException` exception in cases where the records are modified by concurrent client threads.  In this scenario, the client code can reload the updated records and repeat the transaction.
+In its current release, OrientDB uses [Optimistic Transactions](Transactions.md#optimistic-transaction), in which no lock is kept and all operations are checked on the commit.  This improves concurrency, but can throw an `OConcurrentModificationException` exception in cases where the records are modified by concurrent client threads.  In this scenario, the client code can reload the updated records and repeat the transaction.
 
 When optimistic transactions run, they keep all changes in memory on the client.  If you're using remote storage, it sends no changes to the server until you call the `commit()` method.  All changes transfer in a block to reduce network latency, speed up the execution and increase concurrency.  This differs from most Relational Databases, where changes are sent immediately to the server during transactions.
 

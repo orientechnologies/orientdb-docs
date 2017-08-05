@@ -123,7 +123,7 @@ SELECT @this.toJSON('fetchPlan:in_*:-2') FROM #10:20
 ```
 
 >**NOTES:**:
->- To avoid looping, the record already traversed by fetching are exported only by their [RIDs](Concepts.md#recordid) (RecordID) form
+>- To avoid looping, the record already traversed by fetching are exported only by their [RIDs](Concepts.md#record-id) (RecordID) form
 >- "fetchPlan" setting is case sensitive
 
 
