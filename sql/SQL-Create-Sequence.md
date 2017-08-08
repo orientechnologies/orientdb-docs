@@ -40,5 +40,5 @@ CREATE SEQUENCE <sequence> TYPE <CACHED|ORDERED> [START <start>]
 >- [`ALTER SEQUENCE`](SQL-Alter-Sequence.md)
 >- [DROP SEQUENCE](SQL-Drop-Sequence.md)
 >- [Sequences and Auto-increment](Sequences-and-auto-increment.md)
->- [SQL commands](SQL).
+>- [SQL commands](SQL-Commands.md).
 
