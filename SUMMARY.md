@@ -87,6 +87,7 @@
         * [3rd Party Plugins](plugins/Plugins.md)
 * [Data Modeling](datamodeling/Tutorial-Document-and-graph-model.md)
     * [Multi Tenant](datamodeling/Multi-Tenant.md)
+    * [Basic Concepts](datamodeling/Concepts.md)
 	
 ## CORE TOPICS
 
