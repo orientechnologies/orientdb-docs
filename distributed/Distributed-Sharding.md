@@ -64,7 +64,7 @@ In order to keep things simple, the entire OrientDB Distributed Configuration is
 
 ## Cluster Locality 
 
-OrientDB automatically creates a new [cluster](../datamodeling/Concepts.md#cluster) per each class as soon as a node joins the distributed cluster. These cluster names have the node name as suffix: `<class>_<node>`. Example: `client_usa`. When a node goes down, the [clusters](../datamodeling/Concepts.md#cluster) who’s master was the node to crash are reassigned to other servers. As soon as the node is up and running again OrientDB will reassign the [clusters](../datamodeling/Concepts.md#cluster) who’s master crashed back to that same node again following the convention `<class>_<node>`.
+OrientDB automatically creates a new [cluster](Concepts.md#cluster) per each class as soon a new insert operation is performed on a class where the local server has no ownership. When a node goes down, the [clusters](Concepts.md#cluster) where the node was master are reassigned to other servers. As soon as that node returns up and running, OrientDB will reassign the ownership of a cluster to the server specified in the `owner` property if specified, otherwise to the server name indicated as suffix of the cluster (`<class>_<node>`). For example the cluster `customer_usa` will be assigned automatically to the server `usa` if exists in the cluster.
 
 This is defined as "Cluster Locality". The local node is always selected when a new record is created. This avoids conflicts and allows for the insert of records in parallel on multiple nodes. This also means that in distributed mode you can't select the [cluster selection strategy](/misc/Cluster-Selection.md), because "local" strategy is always injected to all the cluster automatically.
 
