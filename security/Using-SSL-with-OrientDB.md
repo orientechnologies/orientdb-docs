@@ -8,7 +8,7 @@ search:
 Beginning with version 1.7, OrientDB provides support for securing its HTTP and BINARY protocols through SSL.  For distributed SSL, see the HazelCast documentation.
 
 For more information on securing OrientDB, see the following pages:
-- [Database security](../gettingstarted/Database-Security.md)
+- [Database security](Database-Security.md)
 - [Server security](Server-Security.md)
 - [Database Encryption](Database-Encryption.md)
 

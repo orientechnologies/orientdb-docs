@@ -11,9 +11,9 @@ OrientDB uses a security model based on well-known concepts of users and roles. 
 
 
 >For more information on security, see:
->- [Server security](../security/Server-Security.md)
->- [Database Encryption](../security/Database-Encryption.md)
->- [Secure SSL connections](../security/Using-SSL-with-OrientDB.md)
+>- [Server security](Server-Security.md)
+>- [Database Encryption](Database-Encryption.md)
+>- [Secure SSL connections](Using-SSL-with-OrientDB.md)
 >- [Record Level Security](Database-Security.md#record-level-security)
 
 
@@ -234,7 +234,7 @@ OrientDB checks record-level security using a hook that injects the check before
 - **Update Documents**: Checks if the current user, or its roles, are listed in the `_allow` or `_allowUpdate` field.  If not, OrientDB raises an `OSecurityException` exception.
 - **Delete Documents**: Checks if the current user, or its roles, are listed in the `_allow` or `_allowDelete` field.  If not, OrientDB raises an `OSecurityException` exception.
 
-The allow fields, (that is, `_allow`, `_allowRead`, `_allowUpdate`, and `_allowDelete`) can contain instances of `OUser` and `ORole` records, as both classes extend `OIdentity`.  Use the class `OUser` to allow single [users](#users) and use the class `ORole` to allow all users that are a part of that [role](#role).
+The allow fields, (that is, `_allow`, `_allowRead`, `_allowUpdate`, and `_allowDelete`) can contain instances of `OUser` and `ORole` records, as both classes extend `OIdentity`.  Use the class `OUser` to allow single [users](#users) and use the class `ORole` to allow all users that are a part of that [role](#roles).
 
 ### Using the API
 

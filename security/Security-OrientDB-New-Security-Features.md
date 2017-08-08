@@ -20,23 +20,23 @@ All *authenticators* can be configured in the "authentication" section of the [s
 
 
 ### Current Implementations
-Currently, OrientDB provides a [Kerberos authenticator](#kerb-auth), a [password authenticator](#pw-auth) for authenticating users in the *security.json* file, a [server config authenticator](#sc-auth) for authenticating users in the *orientdb-server-config.xml* file, and a [symmetric key authenticator](#sk-auth) (Enterprise-only).  Additional *authenticators* may be provided in the future, and it's very easy to build new ones.
+Currently, OrientDB provides a [Kerberos authenticator](#okerberosauthenticator), a [password authenticator](#odefaultpasswordauthenticator) for authenticating users in the *security.json* file, a [server config authenticator](#oserverconfigauthenticator) for authenticating users in the *orientdb-server-config.xml* file, and a [symmetric key authenticator](#symmetric-key-authenticator) (Enterprise-only).  Additional *authenticators* may be provided in the future, and it's very easy to build new ones.
 
-#### <a id="kerb-auth"></a>OKerberosAuthenticator
+#### OKerberosAuthenticator
 This *authenticator* provides support for Kerberos authentication and full browser SPNEGO support.  See the [security configuration](Security-Config.md) page for full details on configuring this *authenticator* for Kerberos.
 
 Also, see [Kerberos client examples](Security-Kerberos-Client-Examples.md) to see how to use the OrientDB clients with Kerberos.
 
-#### <a id="pw-auth"></a>ODefaultPasswordAuthenticator
+#### ODefaultPasswordAuthenticator
 The `ODefaultPasswordAuthenticator` supports adding server users with passwords and resources to the *security.json* configuration file.  The main purpose of this is to allow having server users in a single file (along with all the other security settings) without having to maintain them in the separate *orientdb-server-config.xml* file.  See the example in the [security configuration](Security-Config.md) page.
 
-#### <a id="sc-auth"></a>OServerConfigAuthenticator
+#### OServerConfigAuthenticator
 The `OServerConfigAuthenticator` is similar to `ODefaultPasswordAuthenticator` in that it supports server users with passwords and resources, but it's designed to be used with the users in the *orientdb-server-config.xml* configuration file instead.
 
-#### <a id="su-auth"></a>OSystemUserAuthenticator
+#### OSystemUserAuthenticator
 The `OSystemUserAuthenticator` supports the new *system user* type that's stored in the system database.
 
-#### <a id="sk-auth"></a>Symmetric Key Authenticator
+#### Symmetric Key Authenticator
 The `Symmetric Key Authenticator` provides support for authenticating users via a shared symmetric key.
 
 There are two versions of the `Symmetric Key Authenticator`, one that enables authenticating server users and one that enables authenticating system users.
