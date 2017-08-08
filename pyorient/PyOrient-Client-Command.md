@@ -34,5 +34,5 @@ for sensor in pollen_sensors:
          sensor.get_data()))
 ```
 
-Here, the application iterates through an array of pollen sensors.  For each entry, it issues an [`INSERT`](/sql/SQL-Insert.md) statement to OrientDB, retrieving the identifier and data from the sensor object and using the Python `time` module to timestamp the entry.
+Here, the application iterates through an array of pollen sensors.  For each entry, it issues an [`INSERT`](../sql/SQL-Insert.md) statement to OrientDB, retrieving the identifier and data from the sensor object and using the Python `time` module to timestamp the entry.
 

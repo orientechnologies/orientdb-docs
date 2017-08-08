@@ -19,7 +19,7 @@ client.data_cluster_count([<cluster-ids>])
 
 - **`<cluster-ids>`** Defines an array of Cluster ID's.
 
->For more information, see [Clusters](../Tutorial-Clusters.md).
+>For more information, see [Clusters](../gettingstarted/Tutorial-Clusters.md).
 
 **Example**
 

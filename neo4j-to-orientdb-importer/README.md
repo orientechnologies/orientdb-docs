@@ -220,14 +220,14 @@ You can connect to the newly imported database through [Studio](../studio/README
 
 Please secure your database by removing the default users, if you don't need them, or by creating new users.
 
-For further information on using OrientDB, please refer to the [Getting Started Guide](Tutorial-Introduction-to-the-NoSQL-world.md).
+For further information on using OrientDB, please refer to the [Getting Started Guide](../gettingstarted/Tutorial-Introduction-to-the-NoSQL-world.md).
  
 
 ## Query Strategies
 
 This section includes a few strategies that you can use to query your data after the import.
 
-As first thing, please be aware that in OrientDB you can query your data using both [SQL](http://orientdb.com/docs/master/Commands.html) or pattern matching. In case you are familiar with Neo4j's Cypher query language, it may be more easy for you to use our pattern matching (see our [MATCH](http://orientdb.com/docs/master/SQL-Match.html) syntax for more details). However, keep in mind that depending on your specific use case, our SQL can be of great help.
+As first thing, please be aware that in OrientDB you can query your data using both [SQL](../sql/README.md) or pattern matching. In case you are familiar with Neo4j's Cypher query language, it may be more easy for you to use our pattern matching (see our [MATCH](../sql/SQL-Match.md) syntax for more details). However, keep in mind that depending on your specific use case, our SQL can be of great help.
 
 
 ### Counting all nodes

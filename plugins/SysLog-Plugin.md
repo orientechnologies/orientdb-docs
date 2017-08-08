@@ -17,7 +17,7 @@ Allows sending event logs to the [Operating System's SYSLOG daemon](https://en.w
 
 ## Configuration
 
-This plugin is configured as a [Server plugin](../internals/DB-Server.md#handlers). The plugin can be easily configured by changing parameters in the `orientdb-server-config.xml` file.:
+This plugin is configured as a [Server plugin](../internals/DB-Server.md#plugins). The plugin can be easily configured by changing parameters in the `orientdb-server-config.xml` file.:
 
 <table>
   <tr><th>Name</th><th>Description</th><th>Type</th><th>Example</th><th>Since</th></tr>

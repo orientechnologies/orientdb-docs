@@ -3,10 +3,9 @@ search:
    keywords: ['concepts', 'cluster', 'cluster selection']
 ---
 
-<!-- proofread 2015-11-26 SAM -->
 # Cluster Selection
 
-When you create a new record and specify the [class](../datamodeling/Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](../datamodeling/Concepts.md#cluster), where it stores the physical data of the record. There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
+When you create a new record and specify the [class](../datamodeling/Concepts.md#class) to which it belongs, OrientDB automatically selects a [cluster](../datamodeling/Concepts.md#clusters), where it stores the physical data of the record. There are a number of configuration strategies available for you to use in determining how OrientDB selects the appropriate cluster for the new record.
 
 - `default`  It selects the cluster using the `defaultClusterId` property from the class.  Prior to version 1.7, this was the default method.
 

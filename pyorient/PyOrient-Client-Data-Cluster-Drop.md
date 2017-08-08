@@ -19,7 +19,7 @@ client.data_cluster_drop(<cluster-id>)
 
 - **`<cluster-id>`** Defines the ID of the cluster.
 
->For more information, see [Clusters](Tutorial-Clusters.md).
+>For more information, see [Clusters](../gettingstarted/Tutorial-Clusters.md).
 
 **Example**
 

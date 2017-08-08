@@ -29,7 +29,7 @@ client.query_async(<query>, <limit>, <fetch-plan>, <callback>)
 
 - **`<query>`** Defines the SQL query.
 - **`<limit>`** Defines a limit for the result-set.
-- **`<fetch-plan>`** Defines a [Fetching Strategy](Fetching-Strategy.md)
+- **`<fetch-plan>`** Defines a [Fetching Strategy](../java/Fetching-Strategies.md)
 - **`<callback>`** Defines the callback function or method.
 
 **Example**

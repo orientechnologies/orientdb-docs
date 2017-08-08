@@ -19,7 +19,7 @@ client.data_cluster_data_range(<cluster-id>)
 
 - **`<cluster-id>`** Defines an integer for the Cluster ID.
 
->For more information, see [Clusters](Tutorial-Clusters.md).
+>For more information, see [Clusters](../gettingstarted/Tutorial-Clusters.md).
 
 **Example**
 

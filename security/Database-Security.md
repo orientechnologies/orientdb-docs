@@ -81,7 +81,7 @@ To disable a user, use [`UPDATE`](../sql/SQL-Update.md) to switch its status fro
 orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED' WHERE name &lt;&gt; 'admin'</code>
 </pre>
 
->**NOTE**: In the event that, due to accident or database corruption, you lose the user `admin` and need to restore it on the database, see [Restoring the admin User`](../security/Server-Security.md#restoring-the-admin-user).
+>**NOTE**: In the event that, due to accident or database corruption, you lose the user `admin` and need to restore it on the database, see [Restoring the admin User`](../security/Server-Security.md#restoring-the-user-admin).
 
 
 ## Roles

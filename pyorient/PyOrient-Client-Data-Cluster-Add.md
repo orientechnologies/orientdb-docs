@@ -23,7 +23,7 @@ client.data_cluster_add(<cluster-name>, <cluster-type>)
   - *`pyorient.CLUSTER_TYPE_PHYSICAL`* Creates a physical cluster.
   - *`pyorient.CLUSTER_TYPE_MEMORY`* Creates an in-memory cluster.
 
->For more information, see [Clusters](Tutorial-Clusters.md).
+>For more information, see [Clusters](../gettingstarted/Tutorial-Clusters.md).
 
 **Example**
 

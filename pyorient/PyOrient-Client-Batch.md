@@ -5,7 +5,7 @@ search:
 
 # PyOrient Client - `batch()`
 
-This methods allows you to execute a series of SQL commands as a [batch](SQL-batch.md) operation.
+This methods allows you to execute a series of SQL commands as a [batch](../sql/SQL-batch.md) operation.
 
 ## Executing Batch Operations
 
@@ -53,6 +53,6 @@ cmd = ';'.join(batch_cmds)
 results = cleint.batch(cmd)
 ```
 
-Here, you have an array of record objects for each sensor in the house.  Iterating over that array, you extract the node name and zone, then take a reading from the sensor and use it in defining a [`CREATE VERTEX`](SQL-Create-Vertex.md) batch command.  Once you have a command for each sensor, it joins the batch commands with a commit message, creating a string object to pass to `batch()`.
+Here, you have an array of record objects for each sensor in the house.  Iterating over that array, you extract the node name and zone, then take a reading from the sensor and use it in defining a [`CREATE VERTEX`](../sql/SQL-Create-Vertex.md) batch command.  Once you have a command for each sensor, it joins the batch commands with a commit message, creating a string object to pass to `batch()`.
 
 
