@@ -76,7 +76,7 @@ In the case you want to delete one or more classes of vertices and all the conne
 
 ### Version 1.4
 
-- Command begins using the Blueprints API.  When working in Java using the OGraphDatabase API, you may experience differences in how the database manages edges.  To force the command to work with the older API, change the Graph DB settings using [`ALTER DATABASE`](SQL-Alter-Database.md#use-graphdb-created-with-releases-before-14).
+- Command begins using the Blueprints API.  When working in Java using the OGraphDatabase API, you may experience differences in how the database manages edges.  To force the command to work with the older API, change the Graph DB settings using [`ALTER DATABASE`](SQL-Alter-Database.md).
 
 ### Version 1.1
 

@@ -304,7 +304,7 @@ This function has two meanings:
 
 Syntax: ```expand(<field>)```
 
-Since version 2.1 the preferred operator to unwind collections is [UNWIND](SQL-Query.md#unwind). Expand usage for this use case will probably be deprecated in next releases
+Since version 2.1 the preferred operator to unwind collections is [UNWIND](SQL-Query.md#unwinding). Expand usage for this use case will probably be deprecated in next releases
 
 #### Example
 

@@ -40,7 +40,7 @@ For out(), in(), both() also a shortened *arrow* syntax is supported:
   - `{...}.in("EdgeClass"){...}` can be written as `{...}<-EdgeClass-{...}`
   - `{...}.both(){...}` can be written as `{...}--{...}`
   - `{...}.both("EdgeClass"){...}` can be written as `{...}-EdgeClass-{...}`
-- **`<whileCondition>`** Defines a condition that the statement must meet to allow the traversal of this path.  It supports the normal SQL [`WHERE`](SQL-Where.md) clause.  You can also use the `$currentMatch`, `$matched` and `$depth` [context variables](#context-variables).  For more information, see [Deep Traversal While Condition](#deep-traversal-while-condition), below.
+- **`<whileCondition>`** Defines a condition that the statement must meet to allow the traversal of this path.  It supports the normal SQL [`WHERE`](SQL-Where.md) clause.  You can also use the `$currentMatch`, `$matched` and `$depth` [context variables](#context-variables).  For more information, see [Deep Traversal While Condition](#deep-traversal), below.
 - **`<maxDepth>`** Defines the maximum depth for this single path.
 - **`RETURN <expression> [ AS <alias> ]`** Defines elements in the pattern that you want returned.  It can use one of the following:
   - Aliases defined in the `as:` block.

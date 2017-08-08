@@ -38,15 +38,15 @@ NOTE: *the key/value pairs must not contain any space. This is valid `HA SET ROL
   <pre>
   orientdb> <code class='lang-sql userinput'>HA SET OWNER customer=usa0</code>
   </pre>
-  
+
 - Set the status of database `crm` to OFFLINE for server `china`:
 
   <pre>
   orientdb> <code class='lang-sql userinput'>HA SET DBSTATUS china=OFFLINE</code>
   </pre>
 
-  
+
 >For more information, see
->- [Distributed Architecture](Distributed-Architecture.md)
->- [SQL Commands](SQL.md)
->- [Console Commands](/console/Console-Commands.md)
+>- [Distributed Architecture](../distributed/Distributed-Architecture.md)
+>- [SQL Commands](SQL-Commands.md)
+>- [Console Commands](../console/Console-Commands.md)
