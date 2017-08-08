@@ -28,7 +28,7 @@ Displays all the active connections to the server. Each connection reports the f
 - `Last Execution Time`, is the execution time o last request
 - `Total Working Time`, is the total execution time taken by current connection so far
 - `Connected Since`, is the date when the connection has been created
-- `Protocol`, is the protocol between [HTTP](../misc/OrientDB-REST.md) and [Binary](../internals/Network-Binary-Protocol.md)
+- `Protocol`, is the protocol between [HTTP](../../misc/OrientDB-REST.md) and [Binary](../../internals/Network-Binary-Protocol.md)
 - `Client ID`, a text representing the client connection
 - `Driver`, the driver name
 
@@ -44,7 +44,7 @@ This panel shows the Server settings divided in two boxes:
 ![Configuration](../images/studio-configuration.png)
 
 ## Storages
-This panel shows the [storages](../datamodeling/Concepts.md#storage) used by the server. Below the information reported per storage:
+This panel shows the [storages](../../datamodeling/Concepts.md) used by the server. Below the information reported per storage:
 - `Name`, is the storage name
 - `Type`, where `OLocalPaginatedStorage` (plocal) means persstent and `ODirectMemoryStorage` (memory) is in memory only
 - `Path`, as the path on server's file system where the storage is located

@@ -25,12 +25,12 @@ TRAVERSE <[class.]field>|*|any()|all()
          [STRATEGY <strategy>]
 ```
 
-- **[`<fields>`](#Fields)** Defines the fields you want to traverse.
-- **[`<target>`](#Target)** Defines the target you want to traverse.  This can be a class, one or more clusters, a single Record ID, set of Record ID's, or a sub-query.
+- **[`<fields>`](#fields)** Defines the fields you want to traverse.
+- **[`<target>`](#target)** Defines the target you want to traverse.  This can be a class, one or more clusters, a single Record ID, set of Record ID's, or a sub-query.
 - **`MAXDEPTH`** Defines the maximum depth of the traversal.  `0` indicates that you only want to traverse the root node.  Negative values are invalid.
 - **`WHILE`** Defines the condition for continuing the traversal while it is true.  
 - **`LIMIT`** Defines the maximum number of results the command can return.
-- **[`STRATEGY`](../java/Java-Traverse.md#traversing-strategies)** Defines strategy for traversing the graph.
+- **[`STRATEGY`](../java/Java-Traverse.md#traversal-strategies)** Defines strategy for traversing the graph.
 
 >**NOTE**: The use of the [`WHERE`](SQL-Where.md) clause has been deprecated for this command.
 
@@ -47,7 +47,7 @@ In a social network-like domain, a user profile is connected to friends through 
   orientdb> <code class="lang-sql userinput">TRAVERSE * FROM #10:1234</code>
   </pre>
 
-- Specify fields and depth up to the third level, using the [`BREADTH_FIRST`](../java/Java-Traverse.md#traversing-strategies) strategy:
+- Specify fields and depth up to the third level, using the [`BREADTH_FIRST`](../java/Java-Traverse.md#traversal-strategies) strategy:
 
   <pre>
   orientdb> <code class="lang-sql userinput">TRAVERSE out("Friend") FROM #10:1234 WHILE $depth &lt;= 3 
