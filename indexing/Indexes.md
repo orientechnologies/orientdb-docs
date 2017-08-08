@@ -164,22 +164,16 @@ CREATE INDEX <name> [ON <class-name> (prop-names)] <type> [<key-type>]
 
 **Examples:**
 
-- Creating custom indexes:
+- Creating custom indexes, deprecated since 3.0:
 
   <pre>
   orientdb> <code class="lang-sql userinput">CREATE INDEX mostRecentRecords UNIQUE date</code>
   </pre>
 
-- Creating automatic indexes bound to the property `id` of the class `User`:
-
-  <pre>
-  orientdb> <code class="lang-sql userinput">CREATE PROPERTY User.id BINARY</code>
-  orientdb> <code class="lang-sql userinput">CREATE INDEX User.id UNIQUE</code>
-  </pre>
-
 - Creating another index for the property `id` of the class `User`:
 
   <pre>
+  orientdb> <code class="lang-sql userinput">CREATE PROPERTY User.id BINARY</code>
   orientdb> <code class="lang-sql userinput">CREATE INDEX indexForId ON User (id) UNIQUE</code>
   </pre>
 
