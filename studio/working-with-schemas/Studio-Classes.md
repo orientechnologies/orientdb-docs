@@ -15,7 +15,7 @@ Some information is required to create the new class.
 * Alias (Optional)
 * Abstract 
 
-Here you can find more information about [Classes](../general/Schema.md#class)
+Here you can find more information about [Classes](../../general/Schema.md#class)
 ![newClass](../../images/newClass.png)
 
 

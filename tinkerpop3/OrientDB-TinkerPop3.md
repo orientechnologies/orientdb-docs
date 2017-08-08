@@ -29,7 +29,7 @@ Since TinkePop stack has been removed as dependency from OrientDB community, sta
 
 It contains all the feature of OrientDB Community plus the integration with the Tinkerpop stack:
 
-- [Gremlin Console](#gremlin)
+- [Gremlin Console](#gremlin-console)
 - [Gremlin Server](#gremlin-server)
 - [Gremlin Driver](#gremlin-server)
 
@@ -99,7 +99,7 @@ gremlin> :plugin use tinkerpop.orientdb
 
 ### Open the graph database
 
-Before playing with [Gremlin](http://gremlindocs.com) you need a valid **[OrientGraph](/java/Graph-Database-Tinkerpop.md#work_with_graphdb)** instance that points to an OrientDB database. To know all the database types look at [Storage types](../datamodeling/Concepts.md#database-url).
+Before playing with [Gremlin](http://gremlindocs.com) you need a valid [**OrientGraph**](../java/Tutorial-Java.md#use-case-graph-api) instance that points to an OrientDB database. To know all the database types look at [Storage types](../datamodeling/Concepts.md#database-url).
 
 When you're working with a local or an in-memory database, if the database does not exist it's created for you automatically. Using the remote connection you need to create the database on the target server before using it. This is due to security restrictions.
 
@@ -147,7 +147,7 @@ gremlin> graph = OrientGraph.open("remote:localhost/demodb");
 
 #### Use security
 
-OrientDB supports security by creating multiple users and roles associated with certain privileges. To know more look at [Security](/security/Security.md). To open the graph database with a different user than the default, pass the user and password as additional parameters:
+OrientDB supports security by creating multiple users and roles associated with certain privileges. To know more look at [Security](../security/Security.md). To open the graph database with a different user than the default, pass the user and password as additional parameters:
 
 ```java
 gremlin> graph = OrientGraph.open("remote:localhost/demodb","reader","reader");
@@ -269,7 +269,7 @@ gremlin> g = graph.traversal()
 
 #### Retrieve a vertex
 
-To retrieve a vertex by its ID, use the **V(id)** method passing the [RecordId](Concepts.md#recordid) as an argument (with or without the prefix '#'). This example retrieves the first vertex created in the above example.
+To retrieve a vertex by its ID, use the **V(id)** method passing the [RecordId](../datamodeling/Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first vertex created in the above example.
 
 ```java
 gremlin> g.V('#33:0')
@@ -290,7 +290,7 @@ gremlin> g.V()
 
 #### Retrieve an edge
 
-Retrieving an edge is very similar to retrieving a vertex.  Use the `E(id)` method passing the [RecordId](/datamodeling/Concepts.md#recordid) as an argument (with or without the prefix '#'). This example retrieves the first edge created in the previous example.
+Retrieving an edge is very similar to retrieving a vertex.  Use the `E(id)` method passing the [RecordId](../datamodeling/Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first edge created in the previous example.
 
 ```java
 gremlin> g.E('145:0')

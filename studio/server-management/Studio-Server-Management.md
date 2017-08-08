@@ -35,7 +35,7 @@ It displays all the active connections to the server. For each connection report
 - `Last Execution Time`, is the execution time o last request
 - `Total Working Time`, is the total execution time taken by current connection so far
 - `Connected Since`, is the date when the connection has been created
-- `Protocol`, is the protocol among [HTTP](../misc/OrientDB-REST.md) and [Binary](../internals/Network-Binary-Protocol.md)
+- `Protocol`, is the protocol among [HTTP](../../misc/OrientDB-REST.md) and [Binary](../../internals/Network-Binary-Protocol.md)
 - `Client ID`, a text representing the client connection
 - `Driver`, the driver name
 - `Commands`, a command button to `Interrupt` or `Kill` each session.
@@ -43,7 +43,7 @@ It displays all the active connections to the server. For each connection report
 ![Connections](../../images/studio-server-management-connections.png)
 
 ## Metrics
-This panel shows all the metrics in 4 different tabs. To learn more about the available metrics please refer to the [Profiler](../tuning/Profiler.md) section.
+This panel shows all the metrics in 4 different tabs. To learn more about the available metrics please refer to the [Profiler](../../tuning/Profiler.md) section.
 
 - `Chronos`
 

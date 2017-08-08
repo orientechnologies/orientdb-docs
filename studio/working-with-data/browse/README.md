@@ -1,7 +1,7 @@
 
 # _Browse_ Panel
 
-Studio supports auto recognition of the language you're using between those supported: [SQL](/sql/README.md) and [Gremlin](/gremlin/Gremlin.md). 
+Studio supports auto recognition of the language you're using between those supported: [SQL](../../../sql/README.md) and [Gremlin](../../../gremlin/Gremlin.md). 
 While writing, use the auto-complete feature by pressing Ctrl + Space.
 
 Other shortcuts are available in the query editor:
@@ -27,11 +27,11 @@ To browse bookmarked queries, click the **Bookmarks** button. _Studio_ will open
 _Studio_ saves the executed queries in the Local Storage of the browser, in the query settings, you can configure how many queries _Studio_ will keep in history. 
 You can also search a previously executed query, delete all the queries from the history or delete a single query.
 
-Starting from _Studio_ v.2.0, you can send the result set of a query to the [Graph Editor](/studio/working-with-data/graph-editor/README.md) by clicking on the circle icon in the result set actions. This allows you to visualize your data graphically.
+Starting from _Studio_ v.2.0, you can send the result set of a query to the [Graph Editor](../graph-editor/README.md) by clicking on the circle icon in the result set actions. This allows you to visualize your data graphically.
 
 ## JSON Output
 
-Studio communicates with the OrientDB Server using [HTTP/RESt+JSON protocol](/misc/OrientDB-REST.md). To see the output in JSON format, press the **RAW** tab.
+Studio communicates with the OrientDB Server using [HTTP/RESt+JSON protocol](../../../misc/OrientDB-REST.md). To see the output in JSON format, press the **RAW** tab.
 
 ![Query result](../../../images/resultRaw.png)
 

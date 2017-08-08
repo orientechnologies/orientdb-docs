@@ -5,11 +5,11 @@ search:
 
 # _Query Profiler_ Panel
 
-Starting from version 2.2, Studio Enterprise Edition includes a functionality called _Profiling_. To understand how Profiling works, please refer to the [Profiler](../tuning/Profiler.md) page.
+Starting from version 2.2, Studio Enterprise Edition includes a functionality called _Profiling_. To understand how Profiling works, please refer to the [Profiler](../../tuning/Profiler.md) page.
 
 In the above section you can choose the server in order to investigate queries executed on it and manage the local cache.
 
-NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+>**NOTE**: This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support).
 
 
 ## Query

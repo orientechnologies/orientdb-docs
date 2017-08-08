@@ -18,8 +18,8 @@ Represents the database structure as clusters. Each cluster has the following in
 ##Configuration
 
 Contains the database configuration and custom properties. Here you can display and change the following settings:
-- `dateFormat`, is the [date format](/general/Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd
-- `dateTimeFormat` is the [datetime format](/general/Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd HH:mm:ss
+- `dateFormat`, is the [date format](../../general/Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd
+- `dateTimeFormat` is the [datetime format](../../general/Managing-Dates.md) used in the database by default. Example: yyyy-MM-dd HH:mm:ss
 - `localeCountry`, is the country used. "NO" means no country set
 - `localeLanguage`, is the language used. "no" means no language set
 - `charSet`,	is the charset used. Default is *UTF-8*
@@ -32,6 +32,6 @@ Contains the database configuration and custom properties. Here you can display 
 ![Configuration](/images/configuration.png)
 
 ##Export
-Allows to export the current database in GZipped JSON format. To import the file into another database, use the [Import Console Command](/console/Console-Command-Import.md).
+Allows to export the current database in GZipped JSON format. To import the file into another database, use the [Import Console Command](../../console/Console-Command-Import.md).
 
 ![Export](../../images/import-export.png)

@@ -10,7 +10,7 @@ search:
 Teleporter is out-of-the-box both in Community and Enterprise Edition, so you don't need any configuration or modification.
 **But beware**: in **Community Edition** you can migrate your source relational database but **you cannot enjoy the synchronize feature**, only available in the **Enterprise Edition**.
 
-You can run the tool through the script as described in the [Home page](Teleporter-Home.md) or just execute it via OrientDB Studio as described [here.](../studio/Studio-Teleporter.md)
+You can run the tool through the script as described in the [Home page](Teleporter-Home.md) or just execute it via OrientDB Studio as described [here.](../studio/backups-imports-exports/Studio-Teleporter.md)
 
 ## Driver Configuration.
 

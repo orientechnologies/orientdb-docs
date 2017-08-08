@@ -6,7 +6,7 @@ search:
 # Cluster Management
 This is the section (available only for the Enterprise Edition) to work with OrientDB Cluster as DBA/DevOps.
 
-NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+>**NOTE**: This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support).
 
 On the top of the page are reported the number of active nodes joining your cluster.
 
@@ -34,6 +34,6 @@ Through the box above you can change in real time the current cluster configurat
 - `Failure Available Nodes Less Quorum`
 - `Server Roles`, roles may be "Master" or "Replica"
 
-To learn more about these configuration parameters please visit the [Distributed Configuration](../distributed/Distributed-Configuration.md) section.
+To learn more about these configuration parameters please visit the [Distributed Configuration](../../distributed/Distributed-Configuration.md) section.
 
 ![Databases](../images/studio-cluster-management-databases.png)
