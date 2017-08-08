@@ -7,7 +7,7 @@ search:
 
 This method executes a script on the database.
 
->**NOTE**: In order for this to work, you must first enable scripting on OrientDB.  For more information, see [JavaScript](Javascript-Command.md).
+>**NOTE**: In order for this to work, you must first enable scripting on OrientDB.  For more information, see [JavaScript](../js/Javascript-Command.md).
 
 ## Scripting the Database
 

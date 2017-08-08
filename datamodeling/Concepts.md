@@ -132,7 +132,7 @@ orientdb> <code class="lang-sql userinput">SELECT FROM CLUSTER:invoice2012</code
 Due to the optimization, this query runs significantly faster, because OrientDB can narrow the search to the targeted cluster.
 
 
-## Cluster (data file)
+## Cluster
 
 Where classes provide you with a logical framework for organizing data, clusters provide physical or in-memory space in which OrientDB actually stores the data.  It is comparable to the collection in Document databases and the table in Relational databases.
 

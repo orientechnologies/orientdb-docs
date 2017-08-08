@@ -26,7 +26,7 @@ load_record(<conn>, <record-id>, <opts>)
 
 This function supports a series of additional options defined through the final argument.
 
-- **`:fetch_plan`** Defines a [fetch plan](Fetching-Strategies.md). 
+- **`:fetch_plan`** Defines a [fetch plan](../java/Fetching-Strategies.md). 
 - **`:ignore_cache`** Defines whether you want to ignore the cache.  It defaults to `true`.
 - **`:load_tombstones`** Defines whether you want to load information on deleted records.  It defaults to `false`.
 - **`:if_version_not_latest`** Defines whether you want to load the record in cases where the provided version is not the latest.  This functionality was introduced in version 2.1 of OrientDB. 

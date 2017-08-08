@@ -5,7 +5,7 @@ search:
 
 # MarcoPolo - `live_query()`
 
-This function subscribes to a [live query](/java/Live-Query.md)
+This function subscribes to a [live query](../java/Live-Query.md)
 
 ## Subscribing to Live Queries
 
