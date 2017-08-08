@@ -147,7 +147,7 @@ If you see a lot of messages like:
 ```
 WARNING: Connection re-acquired transparently after XXXms and Y retries: no errors will be thrown at application level
 ```
-means that probably default timeouts are too low and server side operation need more time to complete. It's strongly suggested you enlarge your timeout only after tried to enlarge the [Network Connection Pool](#Network_Connection_Pool). The timeout parameters to tune are:
+means that probably default timeouts are too low and server side operation need more time to complete. It's strongly suggested you enlarge your timeout only after tried to enlarge the [Network Connection Pool](#network-connection-pool). The timeout parameters to tune are:
 - <code>network.lockTimeout</code>, the timeout in ms to acquire a lock against a channel. The default is 15 seconds.
 - <code>network.socketTimeout</code>, the TCP/IP Socket timeout in ms. The default is 10 seconds.
 
