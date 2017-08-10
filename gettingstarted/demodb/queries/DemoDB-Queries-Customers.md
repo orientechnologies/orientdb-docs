@@ -85,6 +85,14 @@ RETURN $pathelements
 
 Calculate the total revenues from Orders associated with Customer with Id 1:
 
+```sql
+SELECT sum(Amount) 
+FROM (
+  SELECT expand(in('HasCustomer'))
+  FROM Customers
+  WHERE OrderedId=2
+)
+```
 
 ## Example 10
 
