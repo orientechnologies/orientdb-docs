@@ -19,20 +19,29 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 
 If you would like only to count them, you can execute a query like the following:
 
-<pre><code class="lang-sql">SELECT COUNT(*) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} RETURN friend)</code></pre>
+<pre><code class="lang-sql">SELECT COUNT(*) 
+FROM (
+  MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} RETURN friend
+)
+</code></pre>
 
 or
 
-<pre><code class="lang-sql">SELECT (in('HasFriend').size() + out('HasFriend').size()) AS FriendsNumber FROM `Profiles` WHERE Name='Santo' AND Surname='OrientDB'</code></pre>
+<pre><code class="lang-sql">SELECT 
+  (in('HasFriend').size() + out('HasFriend').size()) AS FriendsNumber 
+FROM `Profiles` 
+WHERE Name='Santo' AND Surname='OrientDB'
+</code></pre>
 
 
 ## Example 2
 
 Find Santo's Friends who are also Customers:
 
-<pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}
+```sql
+MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}
 RETURN $pathelements
-</code></pre>
+```
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
@@ -52,9 +61,10 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 
 Find Santo's Friends who are also Customers, and the Orders they have placed:
 
-<pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}<-HasCustomer-{Class: Orders, as: order} 
+```sql
+MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer}<-HasCustomer-{Class: Orders, as: order} 
 RETURN $pathelements
-</code></pre>
+```
 
 In the _Graph Editor_ included in [Studio](../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
@@ -69,32 +79,46 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using _'RETURN friend.@Rid
 
 Among Santo's Friends, find the top 3 Customers that placed the highest number of Orders:
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
-
-<pre><code class="lang-sql">SELECT *, OrderedId as Customer_OrderedId, in('HasCustomer').size() as NumberOfOrders, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfOrders DESC LIMIT 3</code></pre>
-
-![](../../../images/demo-dbs/social-travel-agency/query_5_graph.png)
-
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">SELECT OrderedId as Customer_OrderedId, in('HasCustomer').size() as NumberOfOrders, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfOrders DESC LIMIT 3</code></pre>
+```sql
+SELECT 
+  OrderedId as Customer_OrderedId, 
+  in('HasCustomer').size() as NumberOfOrders, 
+  out('HasProfile').Name as Friend_Name, 
+  out('HasProfile').Surname as Friend_Surname 
+FROM (
+  SELECT expand(customer) 
+  FROM (
+    MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer
+  )
+) 
+ORDER BY NumberOfOrders DESC 
+LIMIT 3
+```
  
 ![](../../../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
 
 ## Example 6
 
-Among Santo's Friends, find the top 3 Customers that visited the highest number of Places:
-
-In the _Graph Editor_ included in [Studio](../studio/README.md), using the query below, this is the obtained graph:
-
-<pre><code class="lang-sql">SELECT *, OrderedId as Customer_OrderedId, out('HasVisited').size() as NumberOfVisits, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfVisits DESC LIMIT 3</code></pre>
-
-![](../../../images/demo-dbs/social-travel-agency/query_6_graph.png)
-
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
-<pre><code class="lang-sql">SELECT OrderedId as Customer_OrderedId, out('HasVisited').size() as NumberOfVisits, out('HasProfile').Name as Friend_Name, out('HasProfile').Surname as Friend_Surname FROM (SELECT expand(customer) FROM (MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer)) ORDER BY NumberOfVisits DESC LIMIT 3</code></pre>
+```sql
+SELECT 
+  OrderedId as Customer_OrderedId, 
+  out('HasVisited').size() as NumberOfVisits, 
+  out('HasProfile').Name as Friend_Name, 
+  out('HasProfile').Surname as Friend_Surname 
+FROM (
+  SELECT expand(customer) 
+  FROM (
+    MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer
+  )
+) 
+ORDER BY NumberOfVisits DESC 
+LIMIT 3
+```
 
 ![](../../../images/demo-dbs/social-travel-agency/query_6_browse.png)
 
