@@ -63,7 +63,7 @@ RETURN $pathelements
 Find all places where Customer with Id 1 has eaten:
 
 ```sql
-MATCH {as: n}-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} 
+MATCH {as: n}<-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} 
 RETURN $pathelements
 ```
 
@@ -85,6 +85,14 @@ RETURN $pathelements
 
 Calculate the total revenues from Orders associated with Customer with Id 1:
 
+```sql
+SELECT sum(Amount) 
+FROM (
+  SELECT expand(in('HasCustomer'))
+  FROM Customers
+  WHERE OrderedId=2
+)
+```
 
 ## Example 10
 

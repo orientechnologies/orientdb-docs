@@ -16,7 +16,13 @@ In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, thi
 
 Find the year of the Orders, and how many Orders have been placed in the same year:
 
-<pre><code class="lang-sql">SELECT count(*) as OrdersCount, OrderDate.format('yyyy') AS OrderYear FROM Orders GROUP BY OrderYear ORDER BY OrdersCount DESC</code></pre>
+<pre><code class="lang-sql">SELECT 
+  count(*) as OrdersCount, 
+  OrderDate.format('yyyy') AS OrderYear 
+FROM Orders 
+GROUP BY OrderYear 
+ORDER BY OrdersCount DESC
+</code></pre>
 
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, this is the visualized result:
 
