@@ -6,13 +6,53 @@ search:
 
 # Lucene FullText Index
 
-In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the Lucene Engine. Beginning from version 2.0, this plugin is packaged with OrientDB distribution.
+In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the Lucene Engine.
+[Lucene](http://lucene.apache.org/) is written in Java and embedded inside OrientDB.
+
+[Lucene's documentation](http://lucene.apache.org/core/6_6_0/index.html)
+
+How Lucene's works?
+
+Let's look at a sample corpus of five documents:
+* My sister is coming for the holidays.
+* The holidays are a chance for family meeting.
+* Who did your sister meet?
+* It takes an hour to make fudge.
+* My sister makes awesome fudge.
+
+What does Lucene do? Lucene is a full text search library.
+Search has two principal stages: indexing and retrieval.
+
+During indexing, each document is broken into words, and the list of documents containing each word is stored in a list called the _postings list_.
+The posting list for the word _my_ is:
+
+_my_ --> 1,5
+
+Posting list for others terms:
+
+_fudge_ --> 4,5
+_sister_ --> 1,2,3,5
+_fudge_ --> 4,5
+
+The index consists of all the posting lists for the words in the corpus.
+Indexing must be done before retrieval, and we can only retrieve documents that were indexed.
+
+Retrieval is the process starting with a query and ending with a ranked list of documents.
+Say the query is "my fudge".
+In order to find matches for the query, we break it into the individual words, and go to the posting lists.
+The full list of documents containing the keywords is [1,4,5].
+Note that the query is broken into words (terms) and each term is matched with the terms in the index.
+Lucene's default operator is *OR*, so it retrieves the documents tha contain _my_ *OR* _fudge_.
+If we want to retrieve documents that contain both _my_ and _fudge_, rewrite the query: "+my +fudge".
+
+Lucene doesn't work as a LIKE operator on steroids, it works on single terms. Terms are produced analyzing the provided text, so the right analyzer should be configured.
+On the other side, it offers a complete query language, well documented (here)[https://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html]:
 
 **Syntax**:
-
+To create an index based on Lucene
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE</code>
-                                                                                                                  </pre>
+orientdb> <code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE [{json metadata}]</code>
+</pre>
 
 The following SQL statement will create a FullText index on the property `name` for the class `City`, using the Lucene Engine.
 
@@ -28,9 +68,63 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON
 </pre>
 
 When multiple properties should be indexed, a single multi-field index should be preferred. A single multi-field index needs less resources, such as file handlers. Moreover, it is easy to write better Lucene queries.
-The default analyzer used by OrientDB when a Lucene index is created id the [StandardAnalyzer](https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
+The default analyzer used by OrientDB when a Lucene index is created id the [StandardAnalyzer](https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
 
-### Analyzer 
+## Two minutes tutorial
+
+Open studio or console and create a sample dataset:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+CREATE CLASS Item;
+CREATE PROPERTY Item.text STRING;
+CREATE INDEX Item.text ON Item(text) FULLTEXT ENGINE LUCENE;
+INSERT INTO Item (text) VALUES ('My sister is coming for the holidays.');
+INSERT INTO Item (text) VALUES ('The holidays are a chance for family meeting.');
+INSERT INTO Item (text) VALUES ('Who did your sister meet?');
+INSERT INTO Item (text) VALUES ('It takes an hour to make fudge.');
+INSERT INTO Item (text) VALUES ('My sister makes awesome fudge.');
+</code>
+</pre>
+
+Search all documents that contain _sister_:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+SELECT FROM Item WHERE SEARCH_CLASS("sister") = true</code>
+</pre>
+
+Search all documents that contain _sister_ *AND* _coming_:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+SELECT FROM Item WHERE SEARCH_CLASS("+sister +coming") = true</code>
+</pre>
+
+Search all documents that contain _sister_ but *NOT* _coming_:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+SELECT FROM Item WHERE SEARCH_CLASS("+sister -coming") = true</code>
+</pre>
+
+Search all documents that contain the phrase _sister meet_:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+SELECT FROM Item WHERE SEARCH_CLASS(' "sister meet" ') = true</code>
+</pre>
+
+Search all documents that contain terms starting with _meet_:
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+SELECT FROM Item WHERE SEARCH_CLASS('meet*') = true</code>
+</pre>
+
+To better understand how the query parser work, read carefully the official documentation and play with the above documents.
+
+## Analyzer
 
 In addition to the StandardAnalyzer, full text indexes can be configured to use different analyzer by the `METADATA` operator through [`CREATE INDEX`](../sql/SQL-Create-Index.md).
 
@@ -53,7 +147,7 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
           }</code>
 </pre>
 
-`EnglishAnalyzer` will be used to analyze text while indexing and the `StandardAnalyzer` will be used to analyze query terms.
+`EnglishAnalyzer` will be used to analyze text while indexing and the `StandardAnalyzer` will be used to analyze query text.
 
 A very detailed configuration, on multi-field index configuration, could be:
 
@@ -85,18 +179,19 @@ With this configuration, the underlying Lucene index will works in different way
 * *author*: indexed and searched with KeywordhAnalyzer
 * *description*: indexed with StandardAnalyzer with a given set of stopwords
 
+Analysis is the foundation of Lucene. By default the StandardAnalyzer removes english stop-words and punctuation and lowercase the generated terms:
 
-### Java API
+_The holidays are a chance for family meeting!_
 
-The FullText Index with the Lucene Engine is configurable through the Java API.
+Would produce
 
-<pre><code class="lang-java">
-    OSchema schema = databaseDocumentTx.getMetadata().getSchema();
-    OClass oClass = schema.createClass("Foo");
-    oClass.createProperty("name", OType.STRING);
-    oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
-</code>
-</pre>
+* _holidays_
+* _are_
+* _chance_
+* _for_
+* _family_
+* _meeting_
+
 
 ## Query parser
 
@@ -145,61 +240,6 @@ With *lowercaseExpandedTerms* set to false, these two queries will return differ
 SELECT from Person WHERE WHERE SEARCH_CLASS("name") = true
 </code>
 </pre>
-
-## Lucene Writer fine tuning (expert)
-
-It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter 
-
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
-    FULLTEXT ENGINE LUCENE METADATA {
-        "directory_type": "nio",
-        "use_compound_file": false,
-        "ram_buffer_MB": "16",
-        "max_buffered_docs": "-1",
-        "max_buffered_delete_terms": "-1",
-        "ram_per_thread_MB": "1024",
-        "default": "org.apache.lucene.analysis.standard.StandardAnalyzer"
-    }
-</code>
-</pre>
-
-* *directory_type*: configure the acces type to the Lucene's index
-    * *nio* (_default)_: the index is opened with *NIOFSDirectory*
-    * *mmap*:  the index is opened with *MMapDirectory*
-    * *ram*: index will be created in memory with *RAMDirectory*
-* *use_compound_file*: default is false
-* *ram_buffer_MB*: size of the document's buffer in MB, default value is 16 MB (which means flush when buffered docs consume approximately 16 MB RAM)
-* *max_buffered_docs*: size of the document's buffer in number of docs, disabled by default (because IndexWriter flushes by RAM usage by default) 
-* *max_buffered_delete_terms*: disabled by default (because IndexWriter flushes by RAM usage by default).
-* *ram_per_thread_MB*: default value is 1945
-
-For a detailed explanation of config parameters and IndexWriter behaviour
-
-* indexWriterConfig : https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/index/IndexWriterConfig.html
-* indexWriter: https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/index/IndexWriter.html
-
-## Index lifecycle
-
-Starting from 2.2.24, Lucene indexes are lazy. If the index is in idle mode, no reads and no writes, it will be closed.
-Intervals are fully configurable.
-
-* *flushIndexInterval*: flushing index interval in milliseconds, default to 20000 (10s)
-* *closeAfterInterval*: closing index interval in millisecons, default to 120000 (12m)
-* *firstFlushAfter*: first flush time in milliseconds, default to 10000 (10s)
-
-To configure the index lifecycle, just pass the parameters in the JSON of metadata:
-
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
-{
-  "flushIndexInterval": 200000,
-  "closeAfterInterval": 200000,
-  "firstFlushAfter": 20000
-}
-</code>
-</pre>
-
 
 ## Querying Lucene FullText Indexes
 
@@ -314,7 +354,7 @@ The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 
 ### Numeric and date range queries
 
-If the index is defined over a numeric field (INTEGER, LONG, DOUBLE) or a date field (DATE, DATETIME), the engine supports [range queries](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Range_Searches)
+If the index is defined over a numeric field (INTEGER, LONG, DOUBLE) or a date field (DATE, DATETIME), the engine supports [range queries](http://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Range_Searches)
 Suppose to have a `City` class witha multi-field Lucene index defined:
 
 <pre>
@@ -432,6 +472,73 @@ orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.n
 )
 </code>
 </pre>
+
+## Lucene Writer fine tuning (expert)
+
+It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter
+
+<pre>
+<code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+    FULLTEXT ENGINE LUCENE METADATA {
+        "directory_type": "nio",
+        "use_compound_file": false,
+        "ram_buffer_MB": "16",
+        "max_buffered_docs": "-1",
+        "max_buffered_delete_terms": "-1",
+        "ram_per_thread_MB": "1024",
+        "default": "org.apache.lucene.analysis.standard.StandardAnalyzer"
+    }
+</code>
+</pre>
+
+* *directory_type*: configure the acces type to the Lucene's index
+    * *nio* (_default)_: the index is opened with *NIOFSDirectory*
+    * *mmap*:  the index is opened with *MMapDirectory*
+    * *ram*: index will be created in memory with *RAMDirectory*
+* *use_compound_file*: default is false
+* *ram_buffer_MB*: size of the document's buffer in MB, default value is 16 MB (which means flush when buffered docs consume approximately 16 MB RAM)
+* *max_buffered_docs*: size of the document's buffer in number of docs, disabled by default (because IndexWriter flushes by RAM usage by default)
+* *max_buffered_delete_terms*: disabled by default (because IndexWriter flushes by RAM usage by default).
+* *ram_per_thread_MB*: default value is 1945
+
+For a detailed explanation of config parameters and IndexWriter behaviour
+
+* indexWriterConfig : https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/index/IndexWriterConfig.html
+* indexWriter: https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/index/IndexWriter.html
+
+## Index lifecycle
+
+Starting from 2.2.24, Lucene indexes are lazy. If the index is in idle mode, no reads and no writes, it will be closed.
+Intervals are fully configurable.
+
+* *flushIndexInterval*: flushing index interval in milliseconds, default to 20000 (10s)
+* *closeAfterInterval*: closing index interval in millisecons, default to 120000 (12m)
+* *firstFlushAfter*: first flush time in milliseconds, default to 10000 (10s)
+
+To configure the index lifecycle, just pass the parameters in the JSON of metadata:
+
+<pre>
+<code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
+{
+  "flushIndexInterval": 200000,
+  "closeAfterInterval": 200000,
+  "firstFlushAfter": 20000
+}
+</code>
+</pre>
+
+## Create index using the Java API
+
+The FullText Index with the Lucene Engine is configurable through the Java API.
+
+<pre><code class="lang-java">
+    OSchema schema = databaseDocumentTx.getMetadata().getSchema();
+    OClass oClass = schema.createClass("Foo");
+    oClass.createProperty("name", OType.STRING);
+    oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
+</code>
+</pre>
+
 
 ### The LUCENE operator (deprecated)
 
