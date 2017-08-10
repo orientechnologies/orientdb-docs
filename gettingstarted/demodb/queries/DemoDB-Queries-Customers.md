@@ -63,7 +63,7 @@ RETURN $pathelements
 Find all places where Customer with Id 1 has eaten:
 
 ```sql
-MATCH {as: n}-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} 
+MATCH {as: n}<-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} 
 RETURN $pathelements
 ```
 

@@ -102,6 +102,8 @@ LIMIT 3
 
 ## Example 6
 
+Among Santo's Friends, find the top 3 Customers that visited the highest number of Places:
+
 In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 ```sql
