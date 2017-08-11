@@ -259,7 +259,8 @@ The function accepts metadata JSON as second parameter:
         "start": "<em>",
         "end": "</em>"
     }
-}) = true</code></pre>
+}) = true
+</code></pre>
 
 The query shows query parser's configuration override, boost of field *name* with highlight. Highlight and boost will be explained later.
 
