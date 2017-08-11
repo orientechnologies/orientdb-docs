@@ -7,7 +7,7 @@ search:
 
 In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the [Lucene Engine](http://lucene.apache.org/) .
 Apache LuceneTM is a high-performance, full-featured text search engine library written entirely in Java.
-Check the [Lucene's documentation](http://lucene.apache.org/core/6_6_0/index.html) for a full overview of its capabilities
+Check the [Lucene documentation](http://lucene.apache.org/core/6_6_0/index.html) for a full overview of its capabilities.
 
 ## How Lucene's works?
 
@@ -51,22 +51,17 @@ On the other side, it offers a complete query language, well documented (here)[h
 ## Index creation
 
 To create an index based on Lucene
-<pre>
-<code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE [{json metadata}]</code>
-</pre>
+<pre><code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE [{json metadata}]</code></pre>
 
 The following SQL statement will create a FullText index on the property `name` for the class `City`, using the Lucene Engine.
 
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE</code>
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE</code>
 </pre>
 
 Indexes can also be created on *n*-properties.  For example, create an index on the properties `name` and `description` on the class `City`.
 
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, description)
-          FULLTEXT ENGINE LUCENE</code>
-</pre>
+<pre><code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, description)
+          FULLTEXT ENGINE LUCENE</code></pre>
 
 When multiple properties should be indexed, define a *single multi-field index* over the class.
 A single multi-field index needs less resources, such as file handlers.
@@ -78,8 +73,7 @@ The StandardAnalyzer usually works fine with western languages, but Lucene offer
 
 Open studio or console and create a sample dataset:
 
-<pre>
-<code class="lang-sql userinput">
+<pre><code class="lang-sql userinput">
 CREATE CLASS Item;
 CREATE PROPERTY Item.text STRING;
 CREATE INDEX Item.text ON Item(text) FULLTEXT ENGINE LUCENE;
@@ -88,43 +82,27 @@ INSERT INTO Item (text) VALUES ('The holidays are a chance for family meeting.')
 INSERT INTO Item (text) VALUES ('Who did your sister meet?');
 INSERT INTO Item (text) VALUES ('It takes an hour to make fudge.');
 INSERT INTO Item (text) VALUES ('My sister makes awesome fudge.');
-</code>
-</pre>
+</code></pre>
 
 Search all documents that contain _sister_:
 
-<pre>
-<code class="lang-sql userinput">
-SELECT FROM Item WHERE SEARCH_CLASS("sister") = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM Item WHERE SEARCH_CLASS("sister") = true</code></pre>
 
 Search all documents that contain _sister_ *AND* _coming_:
 
-<pre>
-<code class="lang-sql userinput">
-SELECT FROM Item WHERE SEARCH_CLASS("+sister +coming") = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM Item WHERE SEARCH_CLASS("+sister +coming") = true</code></pre>
 
 Search all documents that contain _sister_ but *NOT* _coming_:
 
-<pre>
-<code class="lang-sql userinput">
-SELECT FROM Item WHERE SEARCH_CLASS("+sister -coming") = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM Item WHERE SEARCH_CLASS("+sister -coming") = true</code></pre>
 
 Search all documents that contain the phrase _sister meet_:
 
-<pre>
-<code class="lang-sql userinput">
-SELECT FROM Item WHERE SEARCH_CLASS(' "sister meet" ') = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM Item WHERE SEARCH_CLASS(' "sister meet" ') = true</code></pre>
 
 Search all documents that contain terms starting with _meet_:
 
-<pre>
-<code class="lang-sql userinput">
-SELECT FROM Item WHERE SEARCH_CLASS('meet*') = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM Item WHERE SEARCH_CLASS('meet*') = true</code></pre>
 
 To better understand how the query parser work, read carefully the official documentation and play with the above documents.
 
@@ -133,31 +111,25 @@ To better understand how the query parser work, read carefully the official docu
 In addition to the StandardAnalyzer, full text indexes can be configured to use different analyzer by the `METADATA` operator through [`CREATE INDEX`](../sql/SQL-Create-Index.md).
 
 Configure the index on `City.name` to use the `EnglishAnalyzer`:
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
                 "analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer"
-            }</code>
-</pre>
+            }</code></pre>
 
 
 Configure the index on `City.name` to use different analyzers for indexing and querying.
 
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
                 "index": "org.apache.lucene.analysis.en.EnglishAnalyzer",
                 "query": "org.apache.lucene.analysis.standard.StandardAnalyzer"
-          }</code>
-</pre>
+          }</code></pre>
 
 `EnglishAnalyzer` will be used to analyze text while indexing and the `StandardAnalyzer` will be used to analyze query text.
 
 A very detailed configuration, on multi-field index configuration, could be:
 
-<pre>
-<code class="lang-sql userinput">
-    CREATE INDEX Song.fulltext ON Song(name, lyrics, title, author, description)
+<pre><code class="lang-sql userinput">CREATE INDEX Song.fulltext ON Song(name, lyrics, title, author, description)
             FULLTEXT ENGINE LUCENE METADATA {
                 "default": "org.apache.lucene.analysis.standard.StandardAnalyzer",
                 "index": "org.apache.lucene.analysis.core.KeywordAnalyzer",
@@ -173,8 +145,7 @@ A very detailed configuration, on multi-field index configuration, could be:
                   "the",
                   "is"
                 ]
-            }</code>
-</pre>
+            }</code></pre>
 
 With this configuration, the underlying Lucene index will works in different way on each field:
 
@@ -205,7 +176,6 @@ Read the full (documentation)[http://lucene.apache.org/core/6_6_0/].
 It is possible to configure some behavior of the Lucene [query parser](https://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
 Query parser's behavior can be configured at index creation time and overridden at runtime.
 
-
 ### Allow Leading Wildcard
 
 Lucene by default doesn't support leading wildcard: [Lucene wildcard support](https://wiki.apache.org/lucene-java/LuceneFAQ#What_wildcard_search_support_is_available_from_Lucene.3F)
@@ -218,13 +188,10 @@ It is possible to override this behavior with a dedicated flag on meta-data:
 }
 ```
 
-<pre>
-<code class="lang-sql userinput">
-    CREATE INDEX City.name ON City(name)
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
                 "allowLeadingWildcard": true
-            }</code>
-</pre>
+            }</code></pre>
 
 
 
@@ -250,23 +217,18 @@ It is useful when used in pair with keyword analyzer:
 }
 ```
 
-<pre>
-<code class="lang-sql userinput">
-    CREATE INDEX City.name ON City(name)
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
               "lowercaseExpandedTerms": false,
               "default" : "org.apache.lucene.analysis.core.KeywordAnalyzer"
-            }</code>
-</pre>
+            }</code></pre>
 
 With *lowercaseExpandedTerms* set to false, these two queries will return different results:
 
-<pre>
-<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("NAME") = true
+<pre><code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("NAME") = true
 
 SELECT from Person WHERE WHERE SEARCH_CLASS("name") = true
-</code>
-</pre>
+</code></pre>
 
 ## Querying Lucene FullText Indexes
 
@@ -279,15 +241,10 @@ The best way to use the search capabilities of OrientDB is to define a single mu
 In case more than one full-text index are defined over a class, an error is raised in case of *SEARCH_CLASSI* invocation.
 
 Suppose to have this index
-<pre>
-<code class="lang-sql userinput">
-    CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code>
-</pre>
+<pre><code class="lang-sql userinput">CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code</pre>
 
 
-<pre>
-<code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful") = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful") = true</code></pre>
 
 The function accepts metadata JSON as second parameter:
 
@@ -302,8 +259,7 @@ The function accepts metadata JSON as second parameter:
         "start": "<em>",
         "end": "</em>"
     }
-}) = true</code>
-</pre>
+}) = true</code></pre>
 
 The query shows query parser's configuration override, boost of field *name* with highlight. Highlight and boost will be explained later.
 
@@ -313,15 +269,13 @@ OrientDB exposes the Lucene's _more like this_ capability with a dedicated funct
 
 The first parameter is the array of RID of elements to be used to calculate similarity, the second parameter the usual metadata JSON used to tune the query behaviour.
 
-<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_MORE([#25:2, #25:3],{'minTermFreq':1, 'minDocFreq':1} ) = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_MORE([#25:2, #25:3],{'minTermFreq':1, 'minDocFreq':1} ) = true</code></pre>
 
 It is possible to use a query to gather RID of documents to be used to calculate similarity:
 
 <pre><code class="lang-sql userinput">SELECT FROM City
     let $a=(SELECT @rid FROM City WHERE name = 'Rome')
-    WHERE SEARCH_MORE( $a, { 'minTermFreq':1, 'minDocFreq':1} ) = true</code>
-</pre>
+    WHERE SEARCH_MORE( $a, { 'minTermFreq':1, 'minDocFreq':1} ) = true</code></pre>
 
 Lucene's MLT has a lot of parameter, and all these are exposed through the metadata JSON: http://lucene.apache.org/core/6_6_0/queries/org/apache/lucene/queries/mlt/MoreLikeThis.html
 
@@ -341,24 +295,19 @@ Lucene's MLT has a lot of parameter, and all these are exposed through the metad
 
 It is possible to override the query parser's  configuration given at creation index time at runtime passing a json:
 
-<pre>
-<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("bob",{
+<pre><code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("bob",{
         "allowLeadingWildcard": true ,
         "lowercaseExpandedTerms": false
-    } ) = true
-</code>
-</pre>
+    } ) = true</code></pre>
 
 The same can be done for query analyzer, overriding the configuration given at index creation's time:
 
-<pre>
-<code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("bob",{
+<pre><code class="lang-sql userinput">SELECT from Person WHERE SEARCH_CLASS("bob",{
         "customAnalysis": true ,
         "query": "org.apache.lucene.analysis.standard.StandardAnalyzer",
         "name_query": "org.apache.lucene.analysis.en.EnglishAnalyzer"
     } ) = true
-</code>
-</pre>
+</code></pre>
 
 The *customAnalysis* flag is mandatory to enable the runtime configuration of query analyzers.
 The runtime configuration is _per query_ and it isn't stored nor reused for a subsequent query.
@@ -368,9 +317,7 @@ The custom configuration can be used with all the functions.
 
 The *SEARCH_INDEX* function allows to execute the query on a single index. It is useful if more than one index are defined over a class.
 
-<pre>
-<code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_INDEX("City.name", "cas*") = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_INDEX("City.name", "cas*") = true</code></pre>
 
 The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 
@@ -378,44 +325,32 @@ The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 
 The *SEARCH_FIELDS* function allows to execute query over the index that is defined over one ormore fields:
 
-<pre>
-<code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_FIELDS(["name", "description"], "name:cas* description:beautiful") = true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_FIELDS(["name", "description"], "name:cas* description:beautiful") = true</code></pre>
 
 The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
-
 
 ### Numeric and date range queries
 
 If the index is defined over a numeric field (INTEGER, LONG, DOUBLE) or a date field (DATE, DATETIME), the engine supports [range queries](http://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Range_Searches)
 Suppose to have a `City` class witha multi-field Lucene index defined:
 
-<pre>
-<code class="lang-sql userinput">
+<pre><code class="lang-sql userinput">
 CREATE CLASS CITY EXTENDS V
 CREATE PROPERTY CITY.name STRING
 CREATE PROPERTY CITY.size INTEGER
 CREATE INDEX City.name ON City(name,size) FULLTEXT ENGINE LUCENE
-</code>
-</pre>
+</code></pre>
 
 Then query using ranges:
 
-<pre>
-<code class="lang-sql userinput">
-SELECT FROM City WHERE SEARCH_CLASS('name:cas* AND size:[15000 TO 20000]') = true
-</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS('name:cas* AND size:[15000 TO 20000]') = true</code></pre>
 
 Ranges can be applied to DATE/DATETIME field as well. Create a Lucene index over a property:
 
-<pre>
-<code class="lang-sql userinput">
-CREATE CLASS Article EXTENDS V
+<pre><code class="lang-sql userinput">CREATE CLASS Article EXTENDS V
 CREATE PROPERTY Article.createdAt DATETIME
 CREATE INDEX Article.createdAt  ON Article(createdAt) FULLTEXT ENGINE LUCENE
-</code>
-</pre>
+</code></pre>
 
 Then query to retrieve articles published only in a given time range:
 
@@ -461,50 +396,36 @@ Bundled with the enterprise edition there's the *SEARH_CROSS* function that is a
 
 Suppose to define two indexes:
 
-<pre>
-<code class="lang-sql userinput">CREATE INDEX Song.title ON Song (title,author) FULLTEXT ENGINE LUCENE METADATA
+<pre><code class="lang-sql userinput">CREATE INDEX Song.title ON Song (title,author) FULLTEXT ENGINE LUCENE METADATA
 CREATE INDEX Author.name on Author(name,score) FULLTEXT ENGINE LUCENE METADATA
-</code>
-</pre>
+</code></pre>
 
 Searching for a term on each class implies a lot of different queries to be aggregated.
 
 The *SEARCH_CLASS* function automatically performs the given query to each full-text index configured inside the database.
 
-<pre>
-<code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('beautiful'))
-</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('beautiful'))</code></pre>
 
 The query will be execute over all the indexes configured on each field.
 It is possible to search over a given field of a certain class, just qualify the field names with their class name:
 
-<pre>
-<code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Song.title:beautiful  Author.name:bob'))
-</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Song.title:beautiful  Author.name:bob'))</code></pre>
 
 Another way is to use the metadata field *_CLASS* present in every index:
 
-<pre>
-<code class="lang-sql userinput">SELECT expand(SEARCH_CROSS('(+_CLASS:Song +title:beautiful) (+_CLASS:Author +name:bob)') )
-</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT expand(SEARCH_CROSS('(+_CLASS:Song +title:beautiful) (+_CLASS:Author +name:bob)') )</code></pre>
 
 All the options of a Lucene's query are allowed: inline boosting, phrase queries, proximity etc.
 
 The function accepts a metadata JSON as second parameter
 
-<pre>
-<code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.name:bob Song.title:*tain', {"
+<pre><code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.name:bob Song.title:*tain', {"
    "allowLeadingWildcard" : true,
    "boost": {
         "Author.name": 2.0
         }
    }
-)
-</code>
-</pre>
+)</code></pre>
 
 Highlight isn't supported yet.
 
@@ -512,8 +433,7 @@ Highlight isn't supported yet.
 
 It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter
 
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
     FULLTEXT ENGINE LUCENE METADATA {
         "directory_type": "nio",
         "use_compound_file": false,
@@ -522,9 +442,7 @@ It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter
         "max_buffered_delete_terms": "-1",
         "ram_per_thread_MB": "1024",
         "default": "org.apache.lucene.analysis.standard.StandardAnalyzer"
-    }
-</code>
-</pre>
+    }</code></pre>
 
 * *directory_type*: configure the acces type to the Lucene's index
     * *nio* (_default)_: the index is opened with *NIOFSDirectory*
@@ -552,15 +470,13 @@ Intervals are fully configurable.
 
 To configure the index lifecycle, just pass the parameters in the JSON of metadata:
 
-<pre>
-<code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE METADATA
 {
   "flushIndexInterval": 200000,
   "closeAfterInterval": 200000,
   "firstFlushAfter": 20000
 }
-</code>
-</pre>
+</code></pre>
 
 ## Create index using the Java API
 
@@ -571,9 +487,7 @@ The FullText Index with the Lucene Engine is configurable through the Java API.
     OClass oClass = schema.createClass("Foo");
     oClass.createProperty("name", OType.STRING);
     oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
-</code>
-</pre>
-
+</code></pre>
 
 ### The LUCENE operator (deprecated)
 
