@@ -8,4 +8,7 @@ FROM `Customers`
 ORDER BY ReviewNumbers DESC 
 LIMIT 3
 ```
- 
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_32_browse.png)
