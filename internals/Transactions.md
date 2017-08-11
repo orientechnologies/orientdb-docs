@@ -9,10 +9,10 @@ A transaction comprises a unit of work performed within a database management sy
  - to provide reliable units of work that allow correct recovery from failures and keep a database consistent even in cases of system failure, when execution stops (completely or partially) and many operations upon a database remain uncompleted, with unclear status
  - to provide isolation between programs accessing a database concurrently. If this isolation is not provided, the program's outcome are possibly erroneous.
 
-A database transaction, by definition, must be [atomic](Transactions.md#Atomicity), [consistent](Transactions.md#Consistency), [isolated](Transactions.md#Isolation) and [durable](Transactions.md#Durability). Database practitioners often refer to these properties of database transactions using the acronym [ACID](Transactions.md#acid-properties).
+A database transaction, by definition, must be [atomic](#atomicity), [consistent](#consistency), [isolated](#isolation) and [durable](#durability). Database practitioners often refer to these properties of database transactions using the acronym [ACID](#acid-properties).
 --- [Wikipedia](http://en.wikipedia.org/wiki/Database_transaction)
 
-OrientDB is an [ACID](Transactions.md#acid-properties) compliant DBMS.
+OrientDB is an [ACID](#acid-properties) compliant DBMS.
 
 >**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap memory) on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
@@ -144,12 +144,12 @@ try{
 }
 ```
 
-In Optimistic transaction new records take temporary [RecordID](../datamodeling/Concepts.md#recordid)s to avoid to ask to the server a new [RecordID](../datamodeling/Concepts.md#recordid) every time. Temporary [RecordID](../datamodeling/Concepts.md#recordid)s have Cluster Id -1 and Cluster Position < -1. When a new transaction begun the counter is reset to -1:-2. So if you create 3 new records you'll have:
+In Optimistic transaction new records take temporary [Record ID](../datamodeling/Concepts.md#record-id)s to avoid to ask to the server a new [Record ID](../datamodeling/Concepts.md#record-id) every time. Temporary [Record ID](../datamodeling/Concepts.md#record-id)s have Cluster Id -1 and Cluster Position < -1. When a new transaction begun the counter is reset to -1:-2. So if you create 3 new records you'll have:
 - -1:-2
 - -1:-3
 - -1:-4
 
-At commit time, these temporary records [RecordID](../datamodeling/Concepts.md#recordid)s will be converted in the final ones.
+At commit time, these temporary records [Record ID](../datamodeling/Concepts.md#record-id)s will be converted in the final ones.
 
 ### Pessimistic Transaction
 
@@ -160,13 +160,13 @@ OrientDB doesn't support nested transaction. If further `begin()` are called aft
 
 ## Record IDs
 
-OrientDB uses temporary [RecordID](../datamodeling/Concepts.md#recordid)s with transaction as scope that will be transformed to finals once the transactions is successfully committed to the database. This avoid to ask for a free slot every time a client creates a record.
+OrientDB uses temporary [Record ID's](../datamodeling/Concepts.md#record-id) with transaction as scope that will be transformed to finals once the transactions is successfully committed to the database. This avoid to ask for a free slot every time a client creates a record.
 
 ## Tuning
 
 In some situations transactions can improve performance, typically in the client/server scenario. If you use an Optimistic Transaction, the OrientDB engine optimizes the network transfer between the client and server, saving both CPU and bandwidth.
 
-For further information look at [Transaction tuning](../tuning/Performance-Tuning.md#wise_use_of_transactions) to know more.
+For further information look at [Transaction tuning](../tuning/Performance-Tuning.md#wise-use-of-transactions) to know more.
 
 ## Distributed environment
 

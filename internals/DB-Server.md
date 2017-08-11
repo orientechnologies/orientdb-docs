@@ -21,9 +21,9 @@ OrientDB Server is part of Community and Enterprise distributions. To install Or
 
 ## Start the server
 
-To start the server, execute bin/server.sh (or bin/server.bat on Microsoft Windows systems). By default both the binary and http interfaces are active. If you want to disable one of these change the [Server configuration](#Configuration).
+To start the server, execute bin/server.sh (or bin/server.bat on Microsoft Windows systems). By default both the binary and http interfaces are active. If you want to disable one of these change the [Server configuration](#configuration).
 
-Upon startup, the server runs on port 2424 for the binary protocol and 2480 for the http one. If a port is busy the next free one will be used. The default range is 2424-2430 (binary) and 2480-2490 (http). These default ranges can be changed in in [Server configuration](#Configuration).
+Upon startup, the server runs on port 2424 for the binary protocol and 2480 for the http one. If a port is busy the next free one will be used. The default range is 2424-2430 (binary) and 2480-2490 (http). These default ranges can be changed in in [Server configuration](#configuration).
 
 ## Stop the server
 
@@ -71,19 +71,19 @@ Available plugins:
 - [EMail Plugin](../plugins/Mail-Plugin.md)
 - [JMX Plugin](../plugins/JMX-Plugin.md)
 - [Distributed-Server-Manager](../distributed/Distributed-Server-Manager.md)
-- [Server-side script interpreter](../js/Javascript-Command.md#enable_server_side_scripting)
+- [Server-side script interpreter](../js/Javascript-Command.md#enable-server-side-scripting)
 - [Write your own](../plugins/Extend-Server.md)
 
 ### Protocols
 
-Contains the list of protocols used by the [listeners section](#Listeners).
+Contains the list of protocols used by the [listeners section](#listeners).
 The protocols supported today are:
 - **binary**: the Raw binary protocol used by OrientDB clients and console application.
 - **http**: the HTTP RESTful protocol used by [OrientDB Studio](../studio/README.md) and direct raw access from any language and browsers.
 
 ### Listeners
 
-You can configure multiple listeners by adding items under the <code>&lt;listeners&gt;</code> tag and selecting the ip-address and TCP/IP port to bind. The protocol used must be listed in the [protocols section](#Protocols). Listeners can be configured with single port or port range. If a range of ports is specified, then it will try to acquire the first port available. If no such port is available, then an error is thrown.
+You can configure multiple listeners by adding items under the <code>&lt;listeners&gt;</code> tag and selecting the ip-address and TCP/IP port to bind. The protocol used must be listed in the [protocols section](#protocols). Listeners can be configured with single port or port range. If a range of ports is specified, then it will try to acquire the first port available. If no such port is available, then an error is thrown.
 By default the Server configuration activates connections from both the protocols:
 - **binary**: by default the binary connections are listened to the port range 2424-2430.
 - **http**: by default the HTTP connections are listened to the port range 2480-2490.

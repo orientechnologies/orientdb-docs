@@ -56,4 +56,4 @@ the Map should have as key, in case of positional perameters the numeric positio
 (language:string)(text:string)(has-simple-parameters:boolean)(simple-paremeters:bytes[])(has-complex-parameters:boolean)(complex-parameters:bytes[])
 ```
 **language** the language of the script present in the text field.
-All the others paramenters are serialized as the [SQL Commands](#SQL_Commands)
+All the others paramenters are serialized as the [SQL Commands](../sql/SQL-Commands.md)
