@@ -241,7 +241,7 @@ The best way to use the search capabilities of OrientDB is to define a single mu
 In case more than one full-text index are defined over a class, an error is raised in case of *SEARCH_CLASSI* invocation.
 
 Suppose to have this index
-<pre><code class="lang-sql userinput">CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code</pre>
+<pre><code class="lang-sql userinput">CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code></pre>
 
 
 <pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful") = true</code></pre>
