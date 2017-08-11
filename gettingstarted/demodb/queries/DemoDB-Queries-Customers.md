@@ -10,25 +10,14 @@ MATCH {class: Customers, as: c, where: (OrderedId=1)}--{as: n}
 RETURN $pathelements
 ```
 
-
 ## Example 2
 
-Find all Locations connected to Customer with Id 1:
-
-```sql
-MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Locations} 
-RETURN $pathelements
-```
+{% include "./include-file-7.md" %}
 
 
 ## Example 3
 
-Find all Locations connected to Customer with Id 1, and their Reviews (if any)
- 
-```sql
-MATCH {class: Customers, as: c, where: (OrderedId=1)}--{class: Locations, as: loc}-HasReview-{class: Reviews, as: r, optional: true} 
-RETURN $pathelements
-```
+{% include "./include-file-8.md" %}
 
 
 ## Example 4

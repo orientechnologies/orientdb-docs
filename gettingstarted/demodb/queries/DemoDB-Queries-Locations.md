@@ -13,7 +13,7 @@ In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'R
 
 ![](../../../images/demo-dbs/social-travel-agency/query_15_graph.png)
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN attraction.@Rid as Attaction_RID, attraction.Name as Attaction_Name, attraction.Type as Attaction_Type'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN attraction.@Rid as Attraction_RID, attraction.Name as Attraction_Name, attraction.Type as Attraction_Type'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_15_browse.png)
 
@@ -37,21 +37,22 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN servi
 
 ## Example 3
 
-Find all Locations connected to Customer with Id 1:
+{% include "./include-file-7.md" %}
 
 
 ## Example 4
 
-Find all Locations connected to Customer with Id 1, and their Reviews (if any):
+{% include "./include-file-8.md" %}
 
 
 ## Example 5
 
 Find all Locations visited by Customer with OrderedId 2:
 
-<pre><code class="lang-sql">MATCH {Class: Locations, as: location}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=2)}
+```sql
+MATCH {Class: Locations, as: location}<-HasVisited-{class: Customers, as: customer, where: (OrderedId=2)}
 RETURN $pathelements
-</code></pre>
+```
 
 In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
@@ -71,3 +72,10 @@ MATCH {Class: Profiles, as: profile, where: (Name='Santo' and Surname='OrientDB'
 RETURN $pathelements
 ```
 
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
+
+![](../../../images/demo-dbs/social-travel-agency/query_27_graph.png)
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'location.@Rid as Location_RID, location.Name as Location_Name, location.Type as Location_Type, friend.Name as Friend_Name, friend.Surname as Friend_Surname'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../../../images/demo-dbs/social-travel-agency/query_27_browse.png)
