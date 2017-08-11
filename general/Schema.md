@@ -3,7 +3,6 @@ search:
    keywords: ['concept', 'schema', 'class', 'property', 'relationship', 'edge', 'vertex']
 ---
 
-<!-- proofread 2015-11-26 SAM -->
 # Schema
 
 While OrientDb can work in a schema-less mode, you may find it necessary at times to enforce a schema on your data model.  OrientDB supports both schema-full and schema-hybrid solutions.
@@ -134,7 +133,7 @@ CLASS=Invoice                 CLASS=Customer
   RID=5:23                       RID=10:2
 ```
 
-In the example, Record A contains the reference to Record B in the property `customer`.  Both records are accessible by any other records since each has a [Record ID](../datamodeling/Concepts.md#recordid).
+In the example, Record A contains the reference to Record B in the property `customer`.  Both records are accessible by any other records since each has a [Record ID](../datamodeling/Concepts.md#record-id).
 
 #### 1:1 and *n*:1 Reference Relationships
 
@@ -179,7 +178,7 @@ Here, you have two classes: `Order` and `OrderItem` and a 1:*n* referenced relat
 
 ### Embedded Relationships
 
-In the case of embedded relationships, OrientDB contains the relationship within the record.  Embedded relationships are stronger than referenced relationships, but the embedded record does not have its own [Record ID](../datamodeling/Concepts.md#recordid).  Because of this, you cannot reference them directly through other records.  The relationship is only accessible through the container record.  If the container record is deleted, then the embedded record is also deleted.
+In the case of embedded relationships, OrientDB contains the relationship within the record.  Embedded relationships are stronger than referenced relationships, but the embedded record does not have its own [Record ID](../datamodeling/Concepts.md#record-id).  Because of this, you cannot reference them directly through other records.  The relationship is only accessible through the container record.  If the container record is deleted, then the embedded record is also deleted.
 
 ```
                   address

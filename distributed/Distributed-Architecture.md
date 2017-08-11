@@ -24,7 +24,7 @@ Below you can find a presentation of the OrientDB replication. _NOTE: Starting f
 - [Replication](Replication.md) of databases
 - [Sharding](Distributed-Sharding.md)
 - [Data Centers](Data-Centers.md)
-- [Tutorial to setup a distributed database](/gettingstarted/Tutorial-Setup-a-distributed-database.md)
+- [Tutorial to setup a distributed database](../gettingstarted/tutorials/Tutorial-Setup-a-distributed-database.md)
 - [Tuning](Distributed-Configuration-Tuning.md)
 
 ## Basic concepts

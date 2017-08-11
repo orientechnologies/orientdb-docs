@@ -4,7 +4,7 @@ search:
 ---
 
 # Auditing
-Starting in OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). This page refers to the Auditing feature and how to work with it. The Studio web tool provides a GUI for Auditing that makes configuration easier. Look at the [Auditing page in Studio](../studio/Studio-Auditing.md).
+Starting in OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). This page refers to the Auditing feature and how to work with it. The Studio web tool provides a GUI for Auditing that makes configuration easier. Look at the [Auditing page in Studio](../studio/server-management/Studio-Auditing.md).
 
 By default all the auditing logs are saved as documents of class `AuditingLog`. If your account has enough privileges, you can directly query the auditing log. Example on retrieving the last 20 logs: `select from AuditingLog order by @rid desc limit 20`.
 
@@ -108,7 +108,7 @@ Where:
 - `regexp`: If a command is executed that matches the regular expression then the command is logged.
 - `message`: The optional message that's recorded when the command is logged. It supports the dynamic binding of values, see "Customizing the Message", below.
 
-#### Customing the Message
+#### Customizing the Message
 - The variable `${command}` will be substituted in the specified message, if command auditing is enabled.
 
 Example:
@@ -122,11 +122,11 @@ under "Command Auditing" section.
 ### "schema"
 Where:
 - `onCreateClassEnabled`: If `true`, enables auditing of class creation events. The default is `false`.
-- `onCreateClassMessage`: A custom message stored in the `note` field of the auditing record on class creation events. It supports the dynamic binding of values, look at [Customize the message](Auditing.md#customize-the-message).
+- `onCreateClassMessage`: A custom message stored in the `note` field of the auditing record on class creation events. It supports the dynamic binding of values, look at [Customize the message](Auditing.md#customizing-the-message).
 - `onDropClassEnabled`: If `true`, enables auditing of class drop events. The default is `false`.
-- `onDropClassMessage`: A custom message stored in the `note` field of the auditing record on drop class events. It supports the dynamic binding of values, look at [Customize the message](Auditing.md#customize-the-message).
+- `onDropClassMessage`: A custom message stored in the `note` field of the auditing record on drop class events. It supports the dynamic binding of values, look at [Customize the message](Auditing.md#customizing-the-message).
 
-#### Customing the Message
+#### Customizing the Message
 - The variable `${class}` will be substituted in the specified message, if create class or drop class auditing is enabled.
 
 

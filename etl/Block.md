@@ -3,7 +3,6 @@ search:
    keywords: ['etl', 'ETL', 'block']
 ---
 
-<!-- proofread 2015-12-11 SAM -->
 # ETL - Blocks
 
 When OrientDB executes the ETL module, blocks in the ETL configuration define components to execute in the process. The ETL module in OrientDB supports the following types of blocks:
@@ -48,7 +47,7 @@ In a `"let"` block, you can define variables to the ETL process context.
 		"expression": "$fileDirectory.append($fileName )"
      } 
   }
-```
+  ```
 
 ## Code Blocks
 

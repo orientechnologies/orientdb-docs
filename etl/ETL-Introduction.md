@@ -69,9 +69,9 @@ When the ETL module initializes, it pulls `/tmp/mydb` from the command-line to d
 - [Loaders](Loader.md)
 
 Examples:
-- [Import the database of Beers](../Import-the-Database-of-Beers.md)
-- [Import from CSV to a Graph](../Import-from-CSV-to-a-Graph.md)
+- [Import the database of Beers](../gettingstarted/tutorials/Import-the-Database-of-Beers.md)
+- [Import from CSV to a Graph](Import-from-CSV-to-a-Graph.md)
 - [Import from JSON](Import-from-JSON.md)
 - [Import DBPedia](Import-from-DBPedia.md)
 - [Import from a DBMS](Import-from-DBMS.md)
-- [Import from Parse (Facebook)](Import-from-PARSE.html)
+- [Import from Parse (Facebook)](Import-from-PARSE.md)

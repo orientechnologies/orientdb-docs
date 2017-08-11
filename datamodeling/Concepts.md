@@ -93,14 +93,13 @@ Classes can be schema-less, schema-full or a mix.  They can inherit from other c
 
 Each class has its own [clusters (data files)](Concepts.md#cluster).  A non-abstract class (see below) must have at least one cluster defined, which functions as its default cluster.  But, a class can support multiple clusters.  When you execute a query against a class, it automatically propagates to all clusters that are part of the class.  When you create a new record, OrientDB selects the cluster to store it in using a [configurable strategy](../misc/Cluster-Selection.md).
 
-When you create a new class, by default, OrientDB creates new [persistent clusters](Concepts.md#physical_cluster) with the same name as the class, in lowercase, suffixed with underscore and an integer.
-As a default, OrientDB creates as many clusters per class as many cores (processors) the host machine has.
+When you create a new class, by default, OrientDB creates new [persistent clusters](Concepts.md#database-url) with the same name as the class, in lowercase, suffixed with underscore and an integer.  As a default, OrientDB creates as many clusters per class as many cores (processors) the host machine has.
 
 Eg. for class `Person`, OrientDB will create clusters `person`, `person_1`, `person_2` and so on so forth.
 
 ### Abstract Class
 
-The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](../sql/SQL-Create-Class.md#abstract-class).
+The concept of an Abstract Class is one familiar to Object-Oriented programming.  In OrientDB, this feature has been available since version 1.2.0.  Abstract classes are classes used as the foundation for defining other classes.  They are also classes that cannot have instances. For more information on how to create an abstract class, see [CREATE CLASS](../sql/SQL-Create-Class.md).
 
 This concept is essential to Object Orientation, without the typical spamming of the database with always empty, auto-created clusters.
 
@@ -138,7 +137,7 @@ Where classes provide you with a logical framework for organizing data, clusters
 
 When you create a new class, the [`CREATE CLASS`](../sql/SQL-Create-Class.md) process also creates physical clusters that serve as the default location in which to store data for that class.  OrientDB forms the cluster names using the class name, with all lower case letters.  Beginning with version 2.2, OrientDB creates additional clusters for each class, (one for each CPU core on the server), to improve performance of parallelism.
 
->For more information, see the [Clusters Tutorial](Tutorial-Clusters.md).
+>For more information, see the [Clusters Tutorial](../gettingstarted/Tutorial-Clusters.md).
 
 
 
@@ -217,7 +216,7 @@ In OrientDB, all Edges in the Graph model are bidirectional.  This differs from 
 
 ## Database
 
-The database is an interface to access the real [Storage](Concepts.md#storage).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](../java/Java-API.md#database-types).
+The database is an interface to access the real [Storage](Concepts.md#database-url).  IT understands high-level concepts such as queries, schemas, metadata, indices and so on.  OrientDB also provides multiple database types.  For more information on these types, see [Database Types](../java/Java-API.md#component-architecture).
 
 Each server or Java VM can handle multiple database instances, but the database name must be unique. You can't manage two databases at the same time, even if they are in different directories.  To handle this case, use the `$` dollar character as a separator instead of the `/` slash character.  OrientDB binds the entire name, so it becomes unique, but at the file system level it converts `$` with `/`, allowing multiple databases with the same name in different paths.  For example,
 

@@ -39,7 +39,7 @@ If you have a slow network and you have a synchronous (default) replication, you
 In order to maintain the consistency, the `writeQuorum` should be set to the majority (the default setting), defined as N/2+1, where N is the number of MASTER servers. If you have 5 nodes the majority is 3. With 4 nodes is still 3. Setting the `writeQuorum` to 3 instead of 4 or 5 allows to reduce the latency cost and still maintain the consistency.
 
 ### Asynchronous replication
-To speed up things, you can setup [Asynchronous Replication](Distributed-Configuration.html#asynchronous-replication-mode) to remove the latency bottleneck. In this case the coordinator server node execute the operation locally and gives the answer to the client. The entire replication will be in background. In case the quorum is not reached, the changes will be rollbacked transparently.
+To speed up things, you can setup [Asynchronous Replication](Distributed-Configuration.md#asynchronous-replication-mode) to remove the latency bottleneck. In this case the coordinator server node execute the operation locally and gives the answer to the client. The entire replication will be in background. In case the quorum is not reached, the changes will be rollbacked transparently.
 
 ## Scale up on reads
 If you already set the `writeQuorum` to the majority to the nodes, you can leave the `readQuorum` to 1 (the default). This speeds up all the reads.

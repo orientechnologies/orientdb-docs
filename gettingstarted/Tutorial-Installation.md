@@ -125,7 +125,7 @@ OrientDB for internal components like engines, operators, factories uses Java SP
 
 To learn more about how to install OrientDB on specific environments, please refer to the guides below:
 
-- [Install with Docker](/admin/Docker-Home.md)
+- [Install with Docker](../admin/Docker-Home.md)
 - [Install with Ansible](https://github.com/migibert/orientdb-role)
 - [Install on Linux Ubuntu](http://famvdploeg.com/blog/2013/01/setting-up-an-orientdb-server-on-ubuntu/)
 - [Install on JBoss AS](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+JBoss+AS)

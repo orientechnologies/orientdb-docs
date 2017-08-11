@@ -3,7 +3,6 @@ search:
    keywords: ['etl', 'ETL', 'ETL example', 'import from CSV']
 ---
 
-<!-- proofread 2015-12-11 SAM -->
 # Import from a CSV file to a Graph
 
 This example describes the process for importing from a CSV file into OrientDB as a Graph. For the sake of simplicity, consider only these 2 entities:
@@ -43,7 +42,7 @@ So, with an RDBMS you have:
 ```
 Table POST    <- (foreign key) Table COMMENT
 ```
-With OrientDB, the Graph model uses [Edges](../Tutorial-Working-with-graphs.md) to manage relationships:
+With OrientDB, the Graph model uses [Edges](../gettingstarted/Tutorial-Working-with-graphs.md) to manage relationships:
 ```
 Class POST ->* (collection of edges) Class COMMENT
 ```

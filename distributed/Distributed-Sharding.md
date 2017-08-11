@@ -30,7 +30,7 @@ For example, consider a configuration where the Client [class](../datamodeling/C
 ![image](http://www.orientdb.org/images/distributed-sharding-replica-class.png)
 
 ## Configuration
-In order to keep things simple, the entire OrientDB Distributed Configuration is stored on a single JSON file. The [distributed database configuration](Distributed-Configuration.md#default-distributed-db-configjson) for [Multiple servers per cluster](Distributed-Sharding.md#Multiple-servers-per-cluster) JSON object looks somethings like this:
+In order to keep things simple, the entire OrientDB Distributed Configuration is stored on a single JSON file. The [distributed database configuration](Distributed-Configuration.md#default-distributed-db-configjson) for [Multiple servers per cluster](#multiple-servers-per-cluster) JSON object looks somethings like this:
 
 ```json
 {
@@ -64,9 +64,9 @@ In order to keep things simple, the entire OrientDB Distributed Configuration is
 
 ## Cluster Locality 
 
-OrientDB automatically creates a new [cluster](Concepts.md#cluster) per each class as soon a new insert operation is performed on a class where the local server has no ownership. When a node goes down, the [clusters](Concepts.md#cluster) where the node was master are reassigned to other servers. As soon as that node returns up and running, OrientDB will reassign the ownership of a cluster to the server specified in the `owner` property if specified, otherwise to the server name indicated as suffix of the cluster (`<class>_<node>`). For example the cluster `customer_usa` will be assigned automatically to the server `usa` if exists in the cluster.
+OrientDB automatically creates a new [cluster](../datamodeling/Concepts.md#cluster) per each class as soon a new insert operation is performed on a class where the local server has no ownership. When a node goes down, the [clusters](../datamodeling/Concepts.md#cluster) where the node was master are reassigned to other servers. As soon as that node returns up and running, OrientDB will reassign the ownership of a cluster to the server specified in the `owner` property if specified, otherwise to the server name indicated as suffix of the cluster (`<class>_<node>`). For example the cluster `customer_usa` will be assigned automatically to the server `usa` if exists in the cluster.
 
-This is defined as "Cluster Locality". The local node is always selected when a new record is created. This avoids conflicts and allows for the insert of records in parallel on multiple nodes. This also means that in distributed mode you can't select the [cluster selection strategy](/misc/Cluster-Selection.md), because "local" strategy is always injected to all the cluster automatically.
+This is defined as "Cluster Locality". The local node is always selected when a new record is created. This avoids conflicts and allows for the insert of records in parallel on multiple nodes. This also means that in distributed mode you can't select the [cluster selection strategy](../misc/Cluster-Selection.md), because "local" strategy is always injected to all the cluster automatically.
 
 If you want to permanently change the mastership of a [cluster](../datamodeling/Concepts.md#cluster), rename the cluster by changing it’s suffix to that of the node you want assign as master.
 
@@ -96,7 +96,7 @@ _NOTE: if something happens during the iteration of the resultset, you could end
 
 If the local node has the requested record, then the record is read directly from local storage. If it's not present on the local server, a forward is executed to any of the nodes that have the requested record. This means a network call is made between nodes.
 
-In the case of queries, OrientDB checks for servers where the query targets are located and sends the query to all the involved servers. This operation is equivalent to a [Map-Reduce](Distributed-Sharding.md#map-reduce). If the query target is 100% managed on local node, the query is simply executed on local node without paying the cost of network call.
+In the case of queries, OrientDB checks for servers where the query targets are located and sends the query to all the involved servers. This operation is equivalent to a [Map-Reduce](Distributed-Sharding.md#mapreduce). If the query target is 100% managed on local node, the query is simply executed on local node without paying the cost of network call.
 
 All queries work by aggregating the result sets from all the involved nodes. 
 
