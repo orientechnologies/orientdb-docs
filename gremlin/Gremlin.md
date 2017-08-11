@@ -26,11 +26,11 @@ Launch the **gremlin.sh** (or gremlin.bat on Windows OS) console script located 
 
 # Open the graph database
 
-Before playing with [Gremlin](http://gremlindocs.com) you need a valid **[OrientGraph](../java/Graph-Database-Tinkerpop.md#work_with_graphdb)** instance that points to an OrientDB database. To know all the database types look at [Storage types](../datamodeling/Concepts.md#storage).
+Before playing with [Gremlin](http://gremlindocs.com) you need a valid **[OrientGraph](../java/Graph-Database-Tinkerpop.md)** instance that points to an OrientDB database. To know all the database types look at [Storage types](../datamodeling/Concepts.md#database-url).
 
 When you're working with a local or an in-memory database, if the database does not exist it's created for you automatically. Using the remote connection you need to create the database on the target server before using it. This is due to security restrictions.
 
-Once created the **[OrientGraph](../java/Graph-Database-Tinkerpop.md#work_with_graphdb)** instance with a proper URL is necessary to assign it to a variable. [Gremlin](http://gremlindocs.com) is written in Groovy, so it supports all the Groovy syntax, and both can be mixed to create very powerful scripts!
+Once created the **[OrientGraph](../java/Graph-Database-Tinkerpop.md)** instance with a proper URL is necessary to assign it to a variable. [Gremlin](http://gremlindocs.com) is written in Groovy, so it supports all the Groovy syntax, and both can be mixed to create very powerful scripts!
 
 Example with a local database (see below for more information about it):
 ```java
