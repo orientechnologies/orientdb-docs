@@ -52,19 +52,19 @@ On the other side, it offers a complete query language, well documented (here)[h
 
 To create an index based on Lucene
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE [{json metadata}]</code>
+<code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE [{json metadata}]</code>
 </pre>
 
 The following SQL statement will create a FullText index on the property `name` for the class `City`, using the Lucene Engine.
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE</code>
+<code class="lang-sql userinput">CREATE INDEX City.name ON City(name) FULLTEXT ENGINE LUCENE</code>
 </pre>
 
 Indexes can also be created on *n*-properties.  For example, create an index on the properties `name` and `description` on the class `City`.
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, description)
+<code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, description)
           FULLTEXT ENGINE LUCENE</code>
 </pre>
 
@@ -79,7 +79,7 @@ The StandardAnalyzer usually works fine with western languages, but Lucene offer
 Open studio or console and create a sample dataset:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 CREATE CLASS Item;
 CREATE PROPERTY Item.text STRING;
 CREATE INDEX Item.text ON Item(text) FULLTEXT ENGINE LUCENE;
@@ -94,35 +94,35 @@ INSERT INTO Item (text) VALUES ('My sister makes awesome fudge.');
 Search all documents that contain _sister_:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT FROM Item WHERE SEARCH_CLASS("sister") = true</code>
 </pre>
 
 Search all documents that contain _sister_ *AND* _coming_:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT FROM Item WHERE SEARCH_CLASS("+sister +coming") = true</code>
 </pre>
 
 Search all documents that contain _sister_ but *NOT* _coming_:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT FROM Item WHERE SEARCH_CLASS("+sister -coming") = true</code>
 </pre>
 
 Search all documents that contain the phrase _sister meet_:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT FROM Item WHERE SEARCH_CLASS(' "sister meet" ') = true</code>
 </pre>
 
 Search all documents that contain terms starting with _meet_:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT FROM Item WHERE SEARCH_CLASS('meet*') = true</code>
 </pre>
 
@@ -134,7 +134,7 @@ In addition to the StandardAnalyzer, full text indexes can be configured to use 
 
 Configure the index on `City.name` to use the `EnglishAnalyzer`:
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+<code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
                 "analyzer": "org.apache.lucene.analysis.en.EnglishAnalyzer"
             }</code>
@@ -144,7 +144,7 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
 Configure the index on `City.name` to use different analyzers for indexing and querying.
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+<code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
                 "index": "org.apache.lucene.analysis.en.EnglishAnalyzer",
                 "query": "org.apache.lucene.analysis.standard.StandardAnalyzer"
@@ -156,7 +156,7 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
 A very detailed configuration, on multi-field index configuration, could be:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
     CREATE INDEX Song.fulltext ON Song(name, lyrics, title, author, description)
             FULLTEXT ENGINE LUCENE METADATA {
                 "default": "org.apache.lucene.analysis.standard.StandardAnalyzer",
@@ -219,7 +219,7 @@ It is possible to override this behavior with a dedicated flag on meta-data:
 ```
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
     CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
                 "allowLeadingWildcard": true
@@ -251,7 +251,7 @@ It is useful when used in pair with keyword analyzer:
 ```
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
     CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
               "lowercaseExpandedTerms": false,
@@ -280,18 +280,18 @@ In case more than one full-text index are defined over a class, an error is rais
 
 Suppose to have this index
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
     CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code>
 </pre>
 
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful") = true</code>
+<code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful") = true</code>
 </pre>
 
 The function accepts metadata JSON as second parameter:
 
-<pre>orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
+<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
     "allowLeadingWildcard": true ,
     "lowercaseExpandedTerms": false,
     "boost": {
@@ -313,12 +313,12 @@ OrientDB exposes the Lucene's _more like this_ capability with a dedicated funct
 
 The first parameter is the array of RID of elements to be used to calculate similarity, the second parameter the usual metadata JSON used to tune the query behaviour.
 
-<pre>orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_MORE([#25:2, #25:3],{'minTermFreq':1, 'minDocFreq':1} ) = true</code>
+<pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_MORE([#25:2, #25:3],{'minTermFreq':1, 'minDocFreq':1} ) = true</code>
 </pre>
 
 It is possible to use a query to gather RID of documents to be used to calculate similarity:
 
-<pre>orientdb> <code class="lang-sql userinput">SELECT FROM City
+<pre><code class="lang-sql userinput">SELECT FROM City
     let $a=(SELECT @rid FROM City WHERE name = 'Rome')
     WHERE SEARCH_MORE( $a, { 'minTermFreq':1, 'minDocFreq':1} ) = true</code>
 </pre>
@@ -369,7 +369,7 @@ The custom configuration can be used with all the functions.
 The *SEARCH_INDEX* function allows to execute the query on a single index. It is useful if more than one index are defined over a class.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_INDEX("City.name", "cas*") = true</code>
+<code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_INDEX("City.name", "cas*") = true</code>
 </pre>
 
 The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
@@ -379,7 +379,7 @@ The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 The *SEARCH_FIELDS* function allows to execute query over the index that is defined over one ormore fields:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_FIELDS(["name", "description"], "name:cas* description:beautiful") = true</code>
+<code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_FIELDS(["name", "description"], "name:cas* description:beautiful") = true</code>
 </pre>
 
 The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
@@ -391,7 +391,7 @@ If the index is defined over a numeric field (INTEGER, LONG, DOUBLE) or a date f
 Suppose to have a `City` class witha multi-field Lucene index defined:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 CREATE CLASS CITY EXTENDS V
 CREATE PROPERTY CITY.name STRING
 CREATE PROPERTY CITY.size INTEGER
@@ -402,7 +402,7 @@ CREATE INDEX City.name ON City(name,size) FULLTEXT ENGINE LUCENE
 Then query using ranges:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT FROM City WHERE SEARCH_CLASS('name:cas* AND size:[15000 TO 20000]') = true
 </code>
 </pre>
@@ -410,7 +410,7 @@ SELECT FROM City WHERE SEARCH_CLASS('name:cas* AND size:[15000 TO 20000]') = tru
 Ranges can be applied to DATE/DATETIME field as well. Create a Lucene index over a property:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 CREATE CLASS Article EXTENDS V
 CREATE PROPERTY Article.createdAt DATETIME
 CREATE INDEX Article.createdAt  ON Article(createdAt) FULLTEXT ENGINE LUCENE
@@ -420,7 +420,7 @@ CREATE INDEX Article.createdAt  ON Article(createdAt) FULLTEXT ENGINE LUCENE
 Then query to retrieve articles published only in a given time range:
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT FROM Article WHERE SEARCH_CLASS('[201612221000 TO 201612221100]') =true</code>
 </pre>
 
@@ -430,7 +430,7 @@ When the lucene index is used in a query, the results set carries a context vari
 To display the score add `$score` in projections.
 
 <pre>
-orientdb> <code class="lang-sql userinput">
+<code class="lang-sql userinput">
 SELECT *,$score FROM V WHERE name LUCENE "test*"
 </pre>
 
@@ -439,7 +439,7 @@ SELECT *,$score FROM V WHERE name LUCENE "test*"
 OrientDB uses the Lucene's highlighter. Highlighting can be configured using the metadata JSON. The highlighted content of a field is stored in a dedicated field.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT name, $name_hl, description, $description_hl FROM City
+<code class="lang-sql userinput">SELECT name, $name_hl, description, $description_hl FROM City
 WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
     "highlight": {
         "fields": ["name", "description"],
@@ -462,7 +462,7 @@ Bundled with the enterprise edition there's the *SEARH_CROSS* function that is a
 Suppose to define two indexes:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX Song.title ON Song (title,author) FULLTEXT ENGINE LUCENE METADATA
+<code class="lang-sql userinput">CREATE INDEX Song.title ON Song (title,author) FULLTEXT ENGINE LUCENE METADATA
 CREATE INDEX Author.name on Author(name,score) FULLTEXT ENGINE LUCENE METADATA
 </code>
 </pre>
@@ -472,7 +472,7 @@ Searching for a term on each class implies a lot of different queries to be aggr
 The *SEARCH_CLASS* function automatically performs the given query to each full-text index configured inside the database.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('beautiful'))
+<code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('beautiful'))
 </code>
 </pre>
 
@@ -480,14 +480,14 @@ The query will be execute over all the indexes configured on each field.
 It is possible to search over a given field of a certain class, just qualify the field names with their class name:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Song.title:beautiful  Author.name:bob'))
+<code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Song.title:beautiful  Author.name:bob'))
 </code>
 </pre>
 
 Another way is to use the metadata field *_CLASS* present in every index:
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT expand(SEARCH_CROSS('(+_CLASS:Song +title:beautiful) (+_CLASS:Author +name:bob)') )
+<code class="lang-sql userinput">SELECT expand(SEARCH_CROSS('(+_CLASS:Song +title:beautiful) (+_CLASS:Author +name:bob)') )
 </code>
 </pre>
 
@@ -496,7 +496,7 @@ All the options of a Lucene's query are allowed: inline boosting, phrase queries
 The function accepts a metadata JSON as second parameter
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.name:bob Song.title:*tain', {"
+<code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.name:bob Song.title:*tain', {"
    "allowLeadingWildcard" : true,
    "boost": {
         "Author.name": 2.0
@@ -582,14 +582,14 @@ _NOTE_: *LUCENE* operator is translated to *SEARCH_FIELDS* function, but it does
 You can query the Lucene FullText Index using the custom operator `LUCENE` with the [Query Parser Syntax](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description) from the Lucene Engine.
 
 <pre>
-orientdb> <code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
+<code class='lang-sql userinput'>SELECT FROM V WHERE name LUCENE "test*"</code>
 </pre>
 
 This query searches for `test`, `tests`, `tester`, and so on from the property `name` of the class `V`.
 The query can use proximity operator _~_, the required (_+_) and prohibit (_-_) operators, phrase queries, regexp queries:
 
 <pre>
-orientdb> <code class='lang-sql userinput'>SELECT FROM Article WHERE content LUCENE "(+graph -rdbms) AND +cloud"</code>
+<code class='lang-sql userinput'>SELECT FROM Article WHERE content LUCENE "(+graph -rdbms) AND +cloud"</code>
 </pre>
 
 
@@ -600,7 +600,7 @@ _NOTE_: define a single Lucene index on the class and use *SEARCH_CLASS* functio
 In addition to the standard Lucene query above, you can also query multiple fields.  For example,
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
+<code class="lang-sql userinput">SELECT FROM Class WHERE [prop1, prop2] LUCENE "query"</code>
 </pre>
 
 In this case, if the word `query` is a plain string, the engine parses the query using [MultiFieldQueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/MultiFieldQueryParser.html) on each indexed field.
@@ -608,7 +608,7 @@ In this case, if the word `query` is a plain string, the engine parses the query
 To execute a more complex query on each field, surround your query with parentheses, which causes the query to address specific fields.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM Article WHERE [content, author] LUCENE "(content:graph AND author:john)"</code>
+<code class="lang-sql userinput">SELECT FROM Article WHERE [content, author] LUCENE "(content:graph AND author:john)"</code>
 </pre>
 
 Here, the engine parses the query using the [QueryParser](http://lucene.apache.org/core/6_3_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
@@ -629,19 +629,19 @@ CREATE INDEX <name> FULLTEXT ENGINE LUCENE  [<key-type>] [METADATA {<metadata>}]
 For example, create a manual index using the [`CREATE INDEX`](../sql/SQL-Create-Index.md) command:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX Manual FULLTEXT ENGINE LUCENE STRING, STRING</code>
+<code class="lang-sql userinput">CREATE INDEX Manual FULLTEXT ENGINE LUCENE STRING, STRING</code>
 </pre>
 
 Once you have created the index `Manual`, you can insert values in index using the [`INSERT INTO INDEX:...`](../sql/SQL-Insert.md) command.
 
 <pre>
-orientdb> <code class="lang-sql userinput">INSERT INTO INDEX:Manual (key, rid) VALUES(['Enrico', 'Rome'], #5:0)</code>
+<code class="lang-sql userinput">INSERT INTO INDEX:Manual (key, rid) VALUES(['Enrico', 'Rome'], #5:0)</code>
 </pre>
 
 You can then query the index through [`SELECT...FROM INDEX:`](../sql/SQL-Query.md):
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT FROM INDEX:Manual WHERE key LUCENE "Enrico"</code>
+<code class="lang-sql userinput">SELECT FROM INDEX:Manual WHERE key LUCENE "Enrico"</code>
 </pre>
 
 Manual indexes could be created programmatically using the Java API
