@@ -6,8 +6,8 @@
 
 |Getting Started	|Main Topics    |Developers   |
 |-----------------------|---------------|-------------|
-| [Introduction to OrientDB](Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](../datamodeling/Concepts.md)  | [SQL](../sql/SQL.md) | 
-| [Installation](Tutorial-Installation.md) | [Supported Data Types](../general/Types.md) | [Gremlin](../gremlin/Gremlin.md) | 
+| [Introduction to OrientDB](../gettingstarted/Tutorial-Introduction-to-the-NoSQL-world.md) | [Basic Concepts](../datamodeling/Concepts.md)  | [SQL](../sql/README.md) | 
+| [Installation](../gettingstarted/Tutorial-Installation.md) | [Supported Data Types](../general/Types.md) | [Gremlin](../gremlin/Gremlin.md) | 
 | [First Steps](Tutorial-Introduction-to-the-NoSQL-world.md) | [Inheritance](../general/Inheritance.md) | [HTTP API](../misc/OrientDB-REST.md) |
 | [Troubleshooting](../misc/Troubleshooting.md) |[Security](../security/Security.md) | [Java API](../java/Java-API.md) |
 | [Enterprise Edition](../ee/Enterprise-Edition.md) | [Indexes](../indexing/Indexes.md) | [NodeJS](https://github.com/orientechnologies/orientjs) |

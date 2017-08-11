@@ -13,7 +13,7 @@ OrientDB uses Java reflection and [Javassist](http://www.javassist.org/) Proxy t
 
 So the Object Database class works as wrapper of the underlying [Document-Database](Document-Database.md).
 
-*NOTE: In case a non-proxied object is found it will be serialized, proxied and bounded to a corresponding Record.*
+>**NOTE**: In case a non-proxied object is found it will be serialized, proxied and bounded to a corresponding Record.
 
 # Requirements
 
@@ -115,7 +115,7 @@ Field '<code>String name</code>' -> <code>getName()</code> and <code>setName(Str
 Since v1.2 Orient provides the possibility of custom binding extending the OObjectMethodFilter class and registering it to the wanted class.
 - The custom implementation must provide the <code>public boolean isHandled(Method m)</code> to let Orient know what methods will be managed by the ProxyHandler and what methods won't.
 - The custom implementation must provide the <code>public String getFieldName(Method m)</code> to let orient know how to parse a field name starting from the accessing method name.
-In the case those two methods are not provided the [default binding](Object-2-Record-Java-Binding.md#default_binding) will be used
+In the case those two methods are not provided the [default binding](#default-binding) will be used
 
 The custom MethodFilter can be registered by calling <code>OObjectEntityEnhancer.getInstance().registerClassMethodFilter(Class&lt;?&gt;, customMethodFilter);</code>
 
@@ -297,14 +297,14 @@ When the <code>db.save( c )</code> is called, the ODatabaseObjectTx instance alr
 
 In a typical Front-End application you need to load objects, display them to the user, capture the changes and save them back to the database. Usually this is implemented by using a database pool in order to avoid leaving a database instance open for the entire life cycle of the user session.
 
-The database pool manages a configurable number of database instances. These instances are recycled for all database operations, so the list of connected POJOs is cleared at every release of the database pool instance. This is why the database instance doesn't know the POJO used by the application and in this mode if you save a previously loaded POJO it will appear as a NEW one and is therefore created as new instance in the database with a new [RecordID](../datamodeling/Concepts.md#recordid).
+The database pool manages a configurable number of database instances. These instances are recycled for all database operations, so the list of connected POJOs is cleared at every release of the database pool instance. This is why the database instance doesn't know the POJO used by the application and in this mode if you save a previously loaded POJO it will appear as a NEW one and is therefore created as new instance in the database with a new [RecordID](../datamodeling/Concepts.md#record-id).
 
 This is why OrientDB needs to store the record information inside the POJO itself. This is retrieved when the POJO is saved so it is known if the POJO already has own identity (has been previously loaded) or not (it's new).
 
-To save the [Record Identity](../datamodeling/Concepts.md#recordid) you can use the [JPA](http://java.sun.com/developer/technicalArticles/J2EE/jpa) **[@Id](http://download.oracle.com/javaee/5/api/javax/persistence/Id.html)** annotation above the property interested. You can declare it as:
+To save the [Record Identity](../datamodeling/Concepts.md#record-id) you can use the [JPA](http://java.sun.com/developer/technicalArticles/J2EE/jpa) **[@Id](http://download.oracle.com/javaee/5/api/javax/persistence/Id.html)** annotation above the property interested. You can declare it as:
 - **Object**, the suggested, in this case OrientDB will store the ORecordId instance
 - **String**, in this case OrientDB will store the string representation of the ORecordId
-- **Long**, in this case OrientDB will store the right part of the [RecordID](../datamodeling/Concepts.md#recordid). This works only if you've a schema for the class. The left side will be rebuilt at save time by getting the class id.
+- **Long**, in this case OrientDB will store the right part of the [RecordID](../datamodeling/Concepts.md#record-id). This works only if you've a schema for the class. The left side will be rebuilt at save time by getting the class id.
 
 Example:
 
@@ -333,7 +333,7 @@ public class Customer{
 }
 ```
 
-OrientDB will save the [Record Identity](../datamodeling/Concepts.md#recordid) in the **id** property even if getter/setter methods are not created.
+OrientDB will save the [Record Identity](../datamodeling/Concepts.md#record-id) in the **id** property even if getter/setter methods are not created.
 
 If you work with transactions you also need to store the Record Version in the POJO to allow MVCC. Use the [JPA](http://java.sun.com/developer/technicalArticles/J2EE/jpa) **[@Version](http://download.oracle.com/javaee/5/api/javax/persistence/Version.html)** annotation above the property interested. You can declare it as:
 - **java.lang.Object** (suggested) - a **com.orientechnologies.orient.core.version.OSimpleVersion** is used

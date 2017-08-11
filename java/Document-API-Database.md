@@ -7,7 +7,7 @@ search:
 
 Before you can execute any operation on a Document Database, you first need to create an instance of an OrientDB context, to do this you need a valid url and eventually an server username and password.
 
- The URL defines where OrientDB looks for the database and what kind it should use.  For instance, `embedded` refers to a database that is in the current system instead `remote` to a database either on a remote server or accessed through localhost.  For more information, see [Database URL](../datamodeling/Concepts.md#database_url).
+ The URL defines where OrientDB looks for the database and what kind it should use.  For instance, `embedded` refers to a database that is in the current system instead `remote` to a database either on a remote server or accessed through localhost.  For more information, see [Database URL](../datamodeling/Concepts.md#database-url).
 
 ## Managing Database Instances
 
@@ -56,7 +56,7 @@ Roles:
 - Role `reader` - read only permissions
 - Role `writer` - read/write permissions, but no schema manipulation
 
-For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](../gettingstarted/Database-Security.md)
+For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](../security/Database-Security.md)
 
 For creating database instances on remote servers, You need the user and password to access the remote OrientDB Server instance.  By default, OrientDB creates the `root` user when the server asking the password at first starts.
 

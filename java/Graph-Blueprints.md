@@ -138,7 +138,7 @@ The OrientDB Blueprints implementation allows you to execute commands using SQL,
 
 ### SQL Queries
 
-It is possible to have parameters in a query using [prepared queries](Document-Database.md#prepared-query).
+It is possible to have parameters in a query using [prepared queries](Document-API-Documents.md#prepared-queries).
 
 ```java
 for (Vertex v : (Iterable<Vertex>) graph.command(new OCommandSQL(
@@ -172,13 +172,13 @@ int modified = graph.command(
           new OCommandSQL("UPDATE Customer SET local = true WHERE 'Rome' IN out('lives').name")).execute());
 ```
 
-If the command modifies the schema, (such as in cases like [`CREATE CLASS`](/sql/SQL-Create-Class.md), [`ALTER CLASS`](/sql/SQL-Alter-Class.md), [`DROP CLASS`](/sql/SQL-Drop-Class.md), [`CREATE PROPERTY`](/sql/SQL-Create-Proeprty-md), [`ALTER PROPERTY`](/sql/SQL-Alter-Property.md), and [`DROP PROPERTY`](/sql/SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
+If the command modifies the schema, (such as in cases like [`CREATE CLASS`](../sql/SQL-Create-Class.md), [`ALTER CLASS`](../sql/SQL-Alter-Class.md), [`DROP CLASS`](../sql/SQL-Drop-Class.md), [`CREATE PROPERTY`](../sql/SQL-Create-Property.md), [`ALTER PROPERTY`](../sql/SQL-Alter-Property.md), and [`DROP PROPERTY`](../sql/SQL-Drop-Property.md), remember you need to force the schema update of the database instance you're using by calling the `.reload()` method.
 
 ```java
 graph.getRawGraph().getMetadata().getSchema().reload();
 ```
 
->For more information, see [SQL Commands](/sql/SQL-Commands.md)
+>For more information, see [SQL Commands](../sql/SQL-Commands.md)
 
 ### SQL Batch
 
@@ -238,7 +238,3 @@ try {
 ### Security
 
 If you want to use OrientDB security, use the construction that retrieves the Database URL, user and password.  For more information on OrientDB security, see [Security](../security/Security.md).  By default, it uses the `admin` user.
-
-
-
-

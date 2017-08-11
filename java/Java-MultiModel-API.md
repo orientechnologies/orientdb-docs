@@ -102,7 +102,7 @@ interface hierarchy.
 
 ### Summary
 
-- [Database creation and connection](Java-MultiModel-Database-API.md)
+<!--- [Database creation and connection](Java-MultiModel-Database-API.md)-->
 - [Manipulating data in Java](Java-MultiModel-Data-API.md)
 - [Running SQL statements in Java](Java-Query-API.md)
-- [Defining Database Schema](Java-MultiModel-Schema-API.md)
+<!--- [Defining Database Schema](Java-MultiModel-Schema-API.md)-->

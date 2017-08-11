@@ -8,7 +8,7 @@ Java Hooks are the fastest [hooks](../internals/Hook.md). Write a Java Hook if y
 
 ### The ORecordHook interface
 
-A hook is an implementation of the interface [ORecordHook]({{ source_repository }}core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHook.java):
+A hook is an implementation of the interface [ORecordHook]({{ book.source_repository }}core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHook.java):
 
 ```java
 public interface ORecordHook {
@@ -24,7 +24,7 @@ public interface ORecordHook {
 
 ### The ORecordHookAbstract abstract class
 
-OrientDB comes with an abstract implementation of the [ORecordHook]({{ source_repository }}core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHook.java) interface called [ORecordHookAbstract.java]({{ source_repository }}core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHookAbstract.java). It switches the callback event, calling separate methods for each one:
+OrientDB comes with an abstract implementation of the [ORecordHook]({{ book.source_repository }}core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHook.java) interface called [ORecordHookAbstract.java]({{ book.source_repository }}core/src/main/java/com/orientechnologies/orient/core/hook/ORecordHookAbstract.java). It switches the callback event, calling separate methods for each one:
 
 ```java
 public abstract class ORecordHookAbstract implements ORecordHook {
@@ -155,7 +155,7 @@ public class HookTest extends ORecordHookAbstract {
 ```
 
 
-For more information take a look to the [HookTest.java]({{source_repository}}tests/src/test/java/com/orientechnologies/orient/test/database/auto/HookTest.java) source code.
+For more information take a look to the [HookTest.java]({{ book.source_repository }}tests/src/test/java/com/orientechnologies/orient/test/database/auto/HookTest.java) source code.
 
 ### Install server-side hooks
 

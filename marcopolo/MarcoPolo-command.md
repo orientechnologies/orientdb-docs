@@ -9,7 +9,7 @@ This function executes a query or command on the database.
 
 ## Sending Commands
 
-OrientDB SQL differentiates between idempotent queries (such as [`SELECT`](SQL-Query.md) and non-idempotent commands, such as [`INSERT`](SQL-Insert.md).  The MarcoPolo Elixir API does not make this distinction, providing this function for use with both queries and commands..
+OrientDB SQL differentiates between idempotent queries (such as [`SELECT`](../sql/SQL-Query.md) and non-idempotent commands, such as [`INSERT`](../sql/SQL-Insert.md).  The MarcoPolo Elixir API does not make this distinction, providing this function for use with both queries and commands..
 
 ### Syntax
 
@@ -32,14 +32,14 @@ When issuing queries or commands using this function, there are a series of addi
 
 - **`:timeout`** Defines the timeout value in milliseconds.  In the event that the query takes longer than the allotted time, MarcoPolo sends an exit signal to the calling process.
 
-- **`:fetch_plan`** Defines a [fetch plan](/java/Fetching-Strategies.md), which is only available when using this function with idempotent queries.  It is a mandatory argument with fetch queries.
+- **`:fetch_plan`** Defines a [fetch plan](../java/Fetching-Strategies.md), which is only available when using this function with idempotent queries.  It is a mandatory argument with fetch queries.
 
 
 #### Return Values
 
 When the query or command is successful it returns the tuple `{:ok, values}`.  The `values` variable is a map with the following keys:
 
-- **`:response`** Provides the return value given by OrientDB.  This varies depending the query.  For instance, [`SELECT`](/sql/SQL-Query.md) returns a list of records, [`CREATE CLUSTER`](/sql/SQL-Create-Cluster.md) returns the new cluster's Cluster ID.
+- **`:response`** Provides the return value given by OrientDB.  This varies depending the query.  For instance, [`SELECT`](../sql/SQL-Query.md) returns a list of records, [`CREATE CLUSTER`](../sql/SQL-Create-Cluster.md) returns the new cluster's Cluster ID.
 
 - **`:linked_records`** Provides a set of additional records fetched by OrientDB.  The `:fetch_plan` option controls the number of records retrieved to this value. 
 

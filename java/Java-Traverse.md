@@ -21,7 +21,7 @@ The main concepts in traversal are:
 
 - **Predicate** Defines an operation you want to execute against each traversed document.  If the predicate returns `true`, the document is returned, otherwise it is skipped.
 
-- **Strategy**: Defines how you want to traverse the graph, which can be [`DEPTH_FIRST`](#depthfirst-stragety) or [`BREADTH_FIRST`](#breadthfirst-strategy).
+- **Strategy**: Defines how you want to traverse the graph, which can be [`DEPTH_FIRST`](#depth_first-strategy) or [`BREADTH_FIRST`](#breadth_first-strategy).
 
 
 ## Traversal Strategies
@@ -44,7 +44,7 @@ The diagram below shows the ordered steps OrientDB executes while traversing a g
 With this strategy, OrientDB inspects all neighboring nodes, then for each of those neighboring nodes in turn it inspects their neighboring nodes, which were unvisited, and so on.
 
 
-Compare **BREADTH_FIRST** with the equivalent, but more memory-efficient iterative deepening depth first search and contrast it with [`DEPTH_FIRST`](#depth-first-search) search. For more information, see [Breadth-First algorithm](http://en.wikipedia.org/wiki/Breath-first_search).
+Compare **BREADTH_FIRST** with the equivalent, but more memory-efficient iterative deepening depth first search and contrast it with [`DEPTH_FIRST`](#depth_first-strategy) search. For more information, see [Breadth-First algorithm](http://en.wikipedia.org/wiki/Breath-first_search).
 
 The diagram below shows the ordered steps OrientDB executes while traversing a graph using `BREADTH_FIRST` strategy.
 

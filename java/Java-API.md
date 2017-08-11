@@ -16,9 +16,9 @@ OrientDB is written completely in the Java language.  This means that you can us
 
 OrientDB provides four different Java API's that allow you to work with OrientDB.
 
-- [**TinkerPop 2.6 Graph API**](#tinkerpop-2.6-graph-api) Use this Java API if you work with graphs and want portable code across TinkerPop Blueprints implementations.  It is easiest to switch to this when migrating from other Graph Databases, such as Neo4J or Titan.  If you used TinkerPop standard on these, you can use OrientDB as a drop-in replacement.
-- [**TinkerPop 3.x Graph-Gremlin API**](#tinkerpop-3.x-graph-gremlin-api) Implementation of TinkerPop 3.x java API
-- [**MultiModel API**](#multimodel-api) Java API with Document and Graph concepts with schema-less and schemaful structures.
+- [**TinkerPop 2.6 Graph API**](#tinkerpop-26-graph-api) Use this Java API if you work with graphs and want portable code across TinkerPop Blueprints implementations.  It is easiest to switch to this when migrating from other Graph Databases, such as Neo4J or Titan.  If you used TinkerPop standard on these, you can use OrientDB as a drop-in replacement.
+- [**TinkerPop 3.x Graph-Gremlin API**](#tinkerpop-3x-graph-gremlin-api) Implementation of TinkerPop 3.x java API
+- [**MultiModel API**](#multi-model-api) Java API with Document and Graph concepts with schema-less and schemaful structures.
 - [**Object API**](#object-api) Use this Java API if you need a full Object Oriented abstraction that binds all database entities to POJO (that is, Plain Old Java Objects).
 
 
@@ -40,7 +40,7 @@ With this Java API, you can use OrientDB as a Graph Database, allowing you to wo
 
 API: [Graph API](Graph-Database-Tinkerpop.md)
 
-###TinkerPop 3.x Graph-Gremlin API
+### TinkerPop 3.x Graph Gremlin API
 
 
 ### Document API (legacy)

@@ -9,7 +9,7 @@ This class provides a standard interface for handling database classes.
 
 ## Managing Database Classes
 
-OrientDB draws from the Object Oriented programming paradigm in the concept of a [class](../general/Schema.html#class), which for the prposes of clarity is called a *database class* in this Reference guide, to avoid confusion with classes in Java.  Database classes are loosely comparable with tables in Relational databases.  But, unlike tables, database classes are not required to follow a schema unless you want them to follow a schema.  In Java, database classes implement the `OClass` class.
+OrientDB draws from the Object Oriented programming paradigm in the concept of a [class](../general/Schema.md#class), which for the prposes of clarity is called a *database class* in this Reference guide, to avoid confusion with classes in Java.  Database classes are loosely comparable with tables in Relational databases.  But, unlike tables, database classes are not required to follow a schema unless you want them to follow a schema.  In Java, database classes implement the `OClass` class.
 
 This class is available at `com.orientechnologies.orient.core.metadata.schema`.
 

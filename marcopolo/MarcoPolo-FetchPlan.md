@@ -5,7 +5,7 @@ search:
 
 # MarcoPolo - `FetchPlan`
 
-This struct defines a [fetching strategy](Fetching-Strategies.md) for you to use queries.  It provides functions that you may find useful when traversing records.
+This struct defines a [fetching strategy](../java/Fetching-Strategies.md) for you to use queries.  It provides functions that you may find useful when traversing records.
 
 ## Working with Fetch Plans
 

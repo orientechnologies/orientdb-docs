@@ -12,7 +12,7 @@ Allows to execute script on the server.
 
 ## Configuration
 
-This plugin is configured as a [Server handler](../internals/DB-Server.md#handlers). The plugin can be configured in easy way by changing parameters:
+This plugin is configured as a [Server handler](../internals/DB-Server.md#plugins). The plugin can be configured in easy way by changing parameters:
 
 <table>
   <tr><th>Name</th><th>Description</th><th>Type</th><th>Example</th><th>Since</th></tr>

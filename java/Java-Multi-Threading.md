@@ -13,7 +13,7 @@ The `ODocument`, `OrientVertex` and `OrientEdge` classes are also not thread-saf
 
 |![](../images/warning.png)|Implicit usage of multiple database instances from the same thread is no longer allowed.  Any attempt to manage multiple instances in the same thread must explicitly call the `db.activateOnCurrentThread()` method against the database instance **before** you use it.|
 
-- [Multi-threading with OrientDB](Java-Mutli-Threading-Usage.md)
+- [Multi-threading with OrientDB](Java-Multi-Threading-Usage.md)
 - [Multi Version Concurrency Control](Java-Multi-Threading-Concurrency.md)
 
 

@@ -50,7 +50,7 @@ class MyLiveQueryListener implements OLiveResultListener {
 
 ## Statement
 
-In order to actually execute a Live Query, you can use the `db.query()` method, passing itan `OLiveQuery` object as an argument with a [`LIVE QUERY`](SQL-Live-Query.md) SQL statement.  For instance, assume you have an active `ODatabaseDocumentTx` instance tied to the `db` object and that you want a Live Query to update a webpage that shows current messages for a user with the Record ID #12:40.
+In order to actually execute a Live Query, you can use the `db.query()` method, passing itan `OLiveQuery` object as an argument with a [`LIVE QUERY`](../sql/SQL-Live-Select.md) SQL statement.  For instance, assume you have an active `ODatabaseDocumentTx` instance tied to the `db` object and that you want a Live Query to update a webpage that shows current messages for a user with the Record ID #12:40.
 
 ```java
 // Instantiate Query Listener

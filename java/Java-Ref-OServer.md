@@ -7,7 +7,7 @@ search:
 
 This class allows you to embed and manage a server instance within your application.  Once you start the server, you can interact with it and manage data the same as you would standard instances of the OrientDB Server.
 
->For more information, see [Embedding the Server](/internals/Embedded-Server.md).  For the complete `OServer` documentation, see the [Javadocs]({{ book.javadoc }}/com/orientechnologies/orient/server/OServer.html).
+>For more information, see [Embedding the Server](../internals/Embedded-Server.md).  For the complete `OServer` documentation, see the [Javadocs]({{ book.javadoc }}/com/orientechnologies/orient/server/OServer.html).
 
 ## Working with `OServer` 
 
