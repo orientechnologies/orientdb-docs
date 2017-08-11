@@ -8,6 +8,6 @@ ORDER BY NumberOfCustomers DESC
 LIMIT 3
 </code></pre>
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_19_browse.png)

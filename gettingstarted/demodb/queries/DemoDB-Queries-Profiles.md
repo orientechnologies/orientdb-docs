@@ -1,12 +1,9 @@
 
 # Profiles
 
-
 ## Example 1
 
 Find the 'year of birth' of the Profiles, and how many Profiles were born in the same year:
-
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 <pre><code class="lang-sql">SELECT 
   count(*) as NumberOfProfiles, 
@@ -15,6 +12,8 @@ FROM Profiles
 GROUP BY YearOfBirth 
 ORDER BY NumberOfProfiles DESC
 </code></pre>
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_8_browse.png)
 
@@ -36,13 +35,13 @@ ORDER BY NumberOfProfiles DESC
 
 Find the top 3 Profiles that have the highest number of Friends:
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
-
 <pre><code class="lang-sql">SELECT 
   @rid as Profile_RID, Name, Surname, (out('HasFriend').size() + in('HasFriend').size()) AS FriendsNumber 
 FROM `Profiles` 
 ORDER BY FriendsNumber DESC 
 LIMIT 3
 </code></pre>
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_12_browse.png)
