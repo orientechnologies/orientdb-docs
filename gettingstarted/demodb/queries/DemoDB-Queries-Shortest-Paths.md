@@ -15,11 +15,11 @@ SELECT expand(path) FROM (
 )
 ```
 
-In the _Graph Editor_ included in [Studio](../studio/README.md), this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), this is the obtained graph:
  
 ![](../../../images/demo-dbs/social-travel-agency/shortestpath_1_graph.png)
 
-In the _Browse Tab_ of [Studio](../studio/README.md), this is the obtained list of records:
+In the _Browse Tab_ of [Studio](../../../studio/README.md), this is the obtained list of records:
 
 ![](../../../images/demo-dbs/social-travel-agency/shortestpath_1_browse.png)
 

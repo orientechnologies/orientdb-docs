@@ -5,7 +5,7 @@ search:
 
 # Setting up a Distributed Graph Database
 
-In addition to the standard deployment architecture, where it runs as a single, standalone database instance, you can also deploy OrientDB using [Distributed Architecutre](/gettingstarted/Distributed-Architecture.md).  In this environment, it shares the database across multiple server instances.
+In addition to the standard deployment architecture, where it runs as a single, standalone database instance, you can also deploy OrientDB using [Distributed Architecutre](../Distributed-Architecture.md).  In this environment, it shares the database across multiple server instances.
 
 ## Launching Distributed Server Cluster
 
@@ -27,7 +27,7 @@ Unlike the standard standalone deployment of OrientDB, there is a different scri
 $ <code class="lang-sh userinput">./bin/dserver.sh</code>
 </pre>
 
-Bear in mind that OrientDB uses the same `orientdb-server-config.xml` configuration file, regardless of whether it's running as a server or distributed server.  For more information, see [Distributed Configuration](Distributed-Configuration.md).
+Bear in mind that OrientDB uses the same `orientdb-server-config.xml` configuration file, regardless of whether it's running as a server or distributed server.  For more information, see [Distributed Configuration](../../distributed/Distributed-Configuration.md).
 
 The first time you start OrientDB as a distributed server, it generates the following output:
 
@@ -52,7 +52,7 @@ You need to give the node a name here.  OrientDB stores it in the `nodeName` par
 
 When OrientDB starts as a distributed server instance, it loads all databases in the `database` directory and configures them to run in distributed mode.  For this reason, the first load, OrientDB copies the default distributed configuration, (that is, the `default-distributed-db-config.json` configuration file), into each database's directory, renaming it `distributed-config.json`.  On subsequent starts, each database uses this file instead of the default configuration file.  Since the shape of the cluster changes every time nodes join or leave, the configuration is kept up to date by each distributed server instance.
 
-For more information on working with the `default-distributed-db-config.json` configuration file, see [Distributed Configuration](/distributed/Distributed-Configuration.md).
+For more information on working with the `default-distributed-db-config.json` configuration file, see [Distributed Configuration](../../distributed/Distributed-Configuration.md).
 
 ### Starting Additional Server Nodes
 

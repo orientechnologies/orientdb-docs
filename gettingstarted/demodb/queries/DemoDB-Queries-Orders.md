@@ -7,7 +7,7 @@ Calculate the total revenues from Orders:
 
 <pre><code class="lang-sql">SELECT sum(Amount) AS TotalRevenuesFromOrders FROM Orders;</code></pre>
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, this is the visualized result:
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the visualized result:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_9_browse.png)
 
@@ -24,7 +24,7 @@ GROUP BY OrderYear
 ORDER BY OrdersCount DESC
 </code></pre>
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using the query above, this is the visualized result:
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the visualized result:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_11_browse.png)
 

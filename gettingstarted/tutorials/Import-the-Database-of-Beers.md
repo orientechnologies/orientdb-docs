@@ -8,7 +8,7 @@ search:
 
 ![](../../images/beers.jpg)
 
-In this tutorial we will use the OrientDB's [ETL](/etl/ETL-Introduction.md) module to import, as a graph, the [Open Beer Database](https://openbeerdb.com/).
+In this tutorial we will use the OrientDB's [ETL](../../etl/ETL-Introduction.md) module to import, as a graph, the [Open Beer Database](https://openbeerdb.com/).
 
 _Note_: You can access directly the converted database, result of this ETL tutorial, in the following ways:
 
@@ -59,7 +59,7 @@ Download and install OrientDB:
 <pre><code class="lang-sh">$ wget {{book.CE_link}} -O {{book.CE_name}}-{{book.lastGA}}.tar.gz
 $ tar xvf {{book.CE_name}}-{{book.lastGA}}.tar.gz</code></pre>
 
-For more information on how to install OrientDB, please refer to the [Installation](/gettingstarted/Tutorial-Installation.md) section.
+For more information on how to install OrientDB, please refer to the [Installation](../Tutorial-Installation.md) section.
 
 
 ### Graph Data Model
@@ -75,7 +75,7 @@ The model above consists of the following nodes (or vertices) and relationships 
 - **Nodes**: Beer, Category, Style, Brewery;
 - **Relationships**: HasCategory, HasStyle, HasBrewery.
 
-For more informations on the Graph Model in OrientDB, please refer to the [Graph Model](/datamodeling/Tutorial-Document-and-graph-model.md#the-graph-model) section.
+For more informations on the Graph Model in OrientDB, please refer to the [Graph Model](../../datamodeling/Tutorial-Document-and-graph-model.md#the-graph-model) section.
 
 
 ## ETL Process
@@ -84,7 +84,7 @@ The ETL module for OrientDB provides support for moving data to and from OrientD
 
 The ETL module consists of a script, `oetl.sh`, that takes in input a single JSON configuration file.
 
-For more information on the ETL module, please refer to the [ETL](etl/ETL-Introduction.md) section.
+For more information on the ETL module, please refer to the [ETL](../../etl/ETL-Introduction.md) section.
 
 
 ### Import Beer Categories
@@ -293,11 +293,11 @@ Now that the database has been imported we can execute some queries and create s
 
 The following are some ways we can use to access the newly imported `OpenBeer` database:
 
-- [Console](/console/README.md)
-- [Gremlin Console](/gremlin/Gremlin.md)
-- [Studio](/studio/README.md)
-- [APIs & Drivers](/apis-and-drivers/README.md)
-- some external tools, like [Gephy](/plugins/Gephi.md)
+- [Console](../../console/README.md)
+- [Gremlin Console](../../gremlin/Gremlin.md)
+- [Studio](../../studio/README.md)
+- [APIs & Drivers](../../apis-and-drivers/README.md)
+- some external tools, like [Gephy](../../plugins/Gephi.md)
 - some external visualization libraries for graph rendering
 
 If we want to query all *Category* vertices we can execute the following query:
@@ -306,7 +306,7 @@ If we want to query all *Category* vertices we can execute the following query:
 SELECT * FROM Category
 ```
 
-The following is the visualization we can create using the Studio's [Graph Editor](studio/Graph-Editor.md):
+The following is the visualization we can create using the Studio's [Graph Editor](../../studio/working-with-data/graph-editor/README.md):
 
 ![](../../images/etl/openbeerdb/studio_graph_beer_class_category.png)
 
@@ -316,27 +316,27 @@ If we want to find all nodes directly connected to a specific beer (e.g. the bee
 SELECT EXPAND( BOTH() ) FROM Beer WHERE name = 'Petrus Dubbel Bruin Ale'
 ```
 
-Alternatively, we can use the [MATCH](sql/SQL-Match.md) syntax:
+Alternatively, we can use the [MATCH](../../sql/SQL-Match.md) syntax:
 
 ```
 MATCH {class: Beer, where: (name = 'Petrus Dubbel Bruin Ale')}--{as: n} RETURN $pathelements
 ```
 
-If we execute the first query in the [Browse](/studio/working-with-data/browse/README.md) tab of Studio we get the following result, from where we can see that there are three nodes connected to this beer, having *@rid* *11:4*, *14:262* and *12:59*:
+If we execute the first query in the [Browse](../../studio/working-with-data/browse/README.md) tab of Studio we get the following result, from where we can see that there are three nodes connected to this beer, having *@rid* *11:4*, *14:262* and *12:59*:
 
 ![](../../images/etl/openbeerdb/studio_browse_expand_beer.png)
 
-We can send the result of this `SELECT` query to the [Graph Editor](/studio/working-with-data/graph-editor/README.md) by clicking the icon "_Send to Graph_", or create a new visualization directly from the _Graph Editor_. 
+We can send the result of this `SELECT` query to the [Graph Editor](../../studio/working-with-data/graph-editor/README.md) by clicking the icon "_Send to Graph_", or create a new visualization directly from the _Graph Editor_. 
 
 The following is the visualization of the `MATCH` query above, executed directly on the _Graph Editor_:
 
 ![](../../images/etl/openbeerdb/studio_graph_specific_beer.png)
 
-The same resultset can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](/java/Graph-Database-Tinkerpop.md):
+The same resultset can be visualized using an external graph library. For instance, the following graph has been obtained using the library [vis.js](http://visjs.org) where the input *visjs* dataset has been created with a java program created using the OrientDB's Java [Graph API](../../java/Graph-Database-Tinkerpop.md):
 
 ![](/images/etl/openbeerdb/library_visjs_expand_beer.png)
 
-We can also query bigger portions of the graph. For example, to query all beer *Category* nodes and for each of them all the connected *Style* nodes, we can use a [MATCH](/sql/SQL-Match.md) query like the following:
+We can also query bigger portions of the graph. For example, to query all beer *Category* nodes and for each of them all the connected *Style* nodes, we can use a [MATCH](../../sql/SQL-Match.md) query like the following:
 
 ```
 MATCH 
@@ -344,7 +344,7 @@ MATCH
 RETURN $elements
 ```
 
-The following is the visualization of the `MATCH` query above in the [Graph Editor](studio/Graph-Editor.md):
+The following is the visualization of the `MATCH` query above in the [Graph Editor](../../studio/working-with-data/graph-editor/README.md):
 
 ![](../../images/etl/openbeerdb/studio_graph_class_category_and_style.png)
 

@@ -7,7 +7,7 @@ search:
 
 When OrientDB joins a distributed cluster, all clients connecting to the server node are constantly notified about this state.  This ensures that, in the event that server node fails, the clients can switch transparently to the next available server.
 
-You can check this through the console.  When OrientDB runs in a distributed configuration, the current cluster shape is visible through the [`INFO`](/console/Console-Command-Info.md) command.
+You can check this through the console.  When OrientDB runs in a distributed configuration, the current cluster shape is visible through the [`INFO`](../../console/Console-Command-Info.md) command.
 
 
 <pre>
@@ -141,5 +141,5 @@ This shows that the first node has realigned itself with the second node.
 
 This process is repeatable with N server nodes, where every server is a master.  There is no limit to the number of running servers.  With many servers spread across a slow network, you can tune the network timeouts to be more permissive and let a large, distributed cluster of servers work properly.
 
-For more information, [Distributed Architecture](Distributed-Architecture.md#how-does-it-work).
+For more information, [Distributed Architecture](../../distributed/Distributed-Architecture.md).
 

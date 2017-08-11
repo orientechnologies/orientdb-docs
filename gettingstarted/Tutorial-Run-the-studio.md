@@ -6,7 +6,7 @@ search:
 # Run the Studio
 
 If you're more comfortable interacting with database systems through a graphical interface then you can accomplish the most common database tasks with OrientDB Studio, the web interface.
-![ConnectToStudio](images/runStudio.png)
+![ConnectToStudio](/images/runStudio.png)
 
 ## Connecting to Studio
 
@@ -20,7 +20,7 @@ $ <code class="lang-sh userinput">firefox http://localhost:2480</code>
 
 From here you can create a new database, connect to or drop an existing database, import a public database and navigate to the Server management interface.
 
->For more information on the OrientDB Studio, see [Studio](/studio/README.md).
+>For more information on the OrientDB Studio, see [Studio](../studio/README.md).
 
 
 

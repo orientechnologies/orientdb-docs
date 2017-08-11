@@ -3,8 +3,6 @@ search:
    keywords: ["tutorial", "server"]
 ---
 
-<!-- proofread 2015-11-26 SAM -->
-
 # Running the OrientDB Server
 
 When you finish installing OrientDB, whether you build it from source or download the binary package, you are ready to launch the database server.  You can either start it through the system daemon or through the provided server script.  This article only covers the latter.
@@ -93,8 +91,7 @@ List of params
 - -u | --user **ROOT USERNAME** : root's username; deafult to  **root**
 - -p | --password **ROOT PASSWORD** : root's user password; **mandatory**
 
-**NOTE**
-On Windows systems password is always **mandatory** because the script isn't able to discover the pid of the OrientDB's process.
+>**NOTE**: On Windows systems password is always **mandatory** because the script isn't able to discover the pid of the OrientDB's process.
 
 ### Server Log Messages
 
@@ -102,7 +99,7 @@ Following the masthead, the database server begins to print log messages to stan
 
 1. The database server loads its configuration file from the file `$ORIENTDB_HOME/config/orientdb-server-config.xml`.
 
-   >For more information on this step, see [OrientDB Server](/internals/DB-Server.md).
+   >For more information on this step, see [OrientDB Server](../internals/DB-Server.md).
 
 1. The database server loads the `temp` database into memory.  You can use this database for storing temporary data.
 
@@ -114,9 +111,9 @@ Following the masthead, the database server begins to print log messages to stan
 
 By default, OrientDB listens on two different ports for external connections.
 
-- **Binary**: OrientDB listens on port `2424` for binary connections from the console and for clients and drivers that support the [Network Binary Protocol](/internals/Network-Binary-Protocol.md).
+- **Binary**: OrientDB listens on port `2424` for binary connections from the console and for clients and drivers that support the [Network Binary Protocol](../internals/Network-Binary-Protocol.md).
 
-- **HTTP**: OrientDB listens on port `2480` for HTTP connections from [OrientDB Studio Web Tool](http://www.orientechnologies.com/docs/last/orientdb-studio.wiki/Home-page.html) and clients and drivers that support the [HTTP/REST protocol](/misc/OrientDB-REST.md), or similar tools, such as [cURL](http://en.wikipedia.org/wiki/cURL).
+- **HTTP**: OrientDB listens on port `2480` for HTTP connections from [OrientDB Studio Web Tool](http://www.orientechnologies.com/docs/last/orientdb-studio.wiki/Home-page.html) and clients and drivers that support the [HTTP/REST protocol](../misc/OrientDB-REST.md), or similar tools, such as [cURL](http://en.wikipedia.org/wiki/cURL).
 
 If you would like the database server to listen at different ports or IP address, you can define these values in the configuration file `config/orientdb-server-config.xml`.
 

@@ -6,7 +6,7 @@
 
 Find the 'year of birth' of the Profiles, and how many Profiles were born in the same year:
 
-In the _Browse Tab_ of [Studio](/studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 <pre><code class="lang-sql">SELECT 
   count(*) as NumberOfProfiles, 
@@ -36,7 +36,7 @@ ORDER BY NumberOfProfiles DESC
 
 Find the top 3 Profiles that have the highest number of Friends:
 
-In the _Browse Tab_ of [Studio](../studio/README.md), using the query below, this is the obtained list of records:
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
 
 <pre><code class="lang-sql">SELECT 
   @rid as Profile_RID, Name, Surname, (out('HasFriend').size() + in('HasFriend').size()) AS FriendsNumber 

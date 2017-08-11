@@ -5,9 +5,10 @@ search:
 
 <!-- proofread 2015-11-26 SAM -->
 
+
 # Running the OrientDB Console
 
-Once the server is running there are various methods you can use to connect to your database server to an individual databases.  Two such methods are the [Network Binary](Network-Binary-Protocol.md) and [HTTP/REST](/misc/OrientDB-REST.md) protocols.  In addition to these OrientDB provides a command-line interface for connecting to and working with the database server.
+Once the server is running there are various methods you can use to connect to your database server to an individual databases.  Two such methods are the [Network Binary](../internals/Network-Binary-Protocol.md) and [HTTP/REST](../misc/OrientDB-REST.md) protocols.  In addition to these OrientDB provides a command-line interface for connecting to and working with the database server.
 
 ![consoleOverview](images/runConsole-connectToDatabase.png)
 
@@ -61,7 +62,7 @@ WHERE:
 
 There are some console commands, such as `LIST DATABASES` or `CREATE DATABASE`, which you can only run while connected to a server instance.  For other commands, however, you must also connect to a database, before they run without error.
 
->Before you can connect to a fresh server instance and fully control it, you need to know the [root password](Security.md#orientdb-server-security) for the database.  The root password is located in the configuration file at `config/orientdb-server-config.xml`.  You can find it by searching for the `<users>` element.  If you want to change it, edit the configuration file and restart the server.
+>Before you can connect to a fresh server instance and fully control it, you need to know the [root password](../security/Server-Security.md) for the database.  The root password is located in the configuration file at `config/orientdb-server-config.xml`.  You can find it by searching for the `<users>` element.  If you want to change it, edit the configuration file and restart the server.
 
 >```xml
 >...
@@ -95,7 +96,7 @@ Found 1 databases:
 
 To connect to this database or to a different one, use the `CONNECT` command from the console and specify the server URL, username, and password.  By default, each database has an `admin` user with a password of `admin`.
 
->**Warning**: Always [change the default password](/security/Security.md#word-with-suers) on production databases.
+>**Warning**: Always [change the default password](../security/Database-Security.md#users) on production databases.
 
 The above `LIST DATABASES` command shows a `GratefulDeadConcerts` installed on the local server.  To connect to this database, run the following command:
 
@@ -114,6 +115,6 @@ The `CONNECT` command takes a specific syntax for its URL.  That is, `remote:loc
 - **Database**: The third part of the address is the name of the database that you want to use.  In the case of the example, this is `GratefulDeadConcerts`.
 
 
-For more detailed information about the commands, see [Console Commands](/console/Console-Commands.md).
+For more detailed information about the commands, see [Console Commands](../console/Console-Commands.md).
 
 > **Note**: The OrientDB distribution comes with the bundled database `GratefulDeadConcerts` which represents the Graph of the [Grateful Dead's](http://en.wikipedia.org/wiki/Grateful_Dead) concerts. This database can be used by anyone to start exploring the features and characteristics of OrientDB.

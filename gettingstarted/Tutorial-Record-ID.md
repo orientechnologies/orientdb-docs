@@ -13,7 +13,7 @@ Now that you understand how [classes](Tutorial-Classes.md) model your data in Or
 - How many records your database in OrientDB is capable of managing (thousands of trillions). 
 - How to directly access any record in your database by using its Record ID with [console](Tutorial-Run-the-console.md) and [studio](Tutorial-Run-the-studio.md).
 
-In OrientDB, each record has its own self-assigned unique ID within the database called [Record ID](Concepts.md#wiki-RecordID) or RID. It is composed of two parts:
+In OrientDB, each record has its own self-assigned unique ID within the database called [Record ID](../datamodeling/Concepts.md#record-id) or RID. It is composed of two parts:
 
 ```
 #<cluster-id>:<cluster-position>
@@ -30,13 +30,13 @@ Each database can have a maximum of 32,767 clusters, or 2<sup>15</sup> - 1.  Eac
 
 ## Loading Records
 
-Each record has a [Record ID](Concepts.md#RecordID), which notes the physical position of the record inside the database. What this implies is that when you load a record by its RID, the load is significantly faster than it would be otherwise.
+Each record has a [Record ID](../datamodeling/Concepts.md#record-id), which notes the physical position of the record inside the database. What this implies is that when you load a record by its RID, the load is significantly faster than it would be otherwise.
 
 In document and relational databases the more data that you have, the slower the database responds. OrientDB handles relationships as physical links (edges) to the records. The relationship is only assigned once (when the edge is created), thus a look-up by RID takes a constant order of time `O(1)`. You can compare this to relational databases, which compute the relationship every time the database is run `O(log N)`.  In OrientDB, the size of a database does not effect the traverse speed. The speed remains constant, whether for one record or one hundred billion records. This is a critical feature in the age of Big Data.
 
 ### Console Load
 
-To directly load a record, use the [`LOAD RECORD`](console/Console-Command-Load-Record.md) command in the console.
+To directly load a record, use the [`LOAD RECORD`](../console/Console-Command-Load-Record.md) command in the console.
 
 <pre>
 orientdb> <code class="lang-sql userinput">LOAD RECORD #34:0</code>
@@ -57,13 +57,13 @@ DOCUMENT @class:Company @rid:#34:0 @version:2
 +----+-----------+---------------------+
 </pre>
 
-The [`LOAD RECORD`](console/Console-Command-Load-Record.md) command returns some useful information about this record. It shows that:
+The [`LOAD RECORD`](../console/Console-Command-Load-Record.md) command returns some useful information about this record. It shows that:
 
-- The record is a [document](Concepts.md#document). OrientDB supports different types of records, but document is the only type covered in this chapter.
+- The record is a [document](../datamodeling/Concepts.md#document). OrientDB supports different types of records, but document is the only type covered in this chapter.
 
 - It belongs to the `Company` class.
 
-- Its current version is `2`. OrientDB uses an [MVCC system](internals/Transactions.md#Optimistic-Transaction).  Every time you update a record, its version increments by one.
+- Its current version is `2`. OrientDB uses an [MVCC system](../internals/Transactions.md#optimistic-transaction).  Every time you update a record, its version increments by one.
 
 - We have different field types: 
    - floats for `salary` and `salary2`
