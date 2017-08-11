@@ -1,4 +1,3 @@
-
 ---
 search:
    keywords: ['index', 'FULLTEXT', 'full text', 'Lucene']
@@ -6,12 +5,11 @@ search:
 
 # Lucene FullText Index
 
-In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the Lucene Engine.
-[Lucene](http://lucene.apache.org/) is written in Java and embedded inside OrientDB.
+In addition to the standard FullText Index, which uses the SB-Tree index algorithm, you can also create FullText indexes using the [Lucene Engine](http://lucene.apache.org/) .
+Apache LuceneTM is a high-performance, full-featured text search engine library written entirely in Java.
+Check the [Lucene's documentation](http://lucene.apache.org/core/6_6_0/index.html) for a full overview of its capabilities
 
-[Lucene's documentation](http://lucene.apache.org/core/6_6_0/index.html)
-
-How Lucene's works?
+## How Lucene's works?
 
 Let's look at a sample corpus of five documents:
 * My sister is coming for the holidays.
@@ -31,7 +29,9 @@ _my_ --> 1,5
 Posting list for others terms:
 
 _fudge_ --> 4,5
+
 _sister_ --> 1,2,3,5
+
 _fudge_ --> 4,5
 
 The index consists of all the posting lists for the words in the corpus.
@@ -48,7 +48,8 @@ If we want to retrieve documents that contain both _my_ and _fudge_, rewrite the
 Lucene doesn't work as a LIKE operator on steroids, it works on single terms. Terms are produced analyzing the provided text, so the right analyzer should be configured.
 On the other side, it offers a complete query language, well documented (here)[https://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html]:
 
-**Syntax**:
+## Index creation
+
 To create an index based on Lucene
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE INDEX <name> ON <class-name> (prop-names) FULLTEXT ENGINE LUCENE [{json metadata}]</code>
@@ -67,8 +68,11 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON
           FULLTEXT ENGINE LUCENE</code>
 </pre>
 
-When multiple properties should be indexed, a single multi-field index should be preferred. A single multi-field index needs less resources, such as file handlers. Moreover, it is easy to write better Lucene queries.
-The default analyzer used by OrientDB when a Lucene index is created id the [StandardAnalyzer](https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
+When multiple properties should be indexed, define a *single multi-field index* over the class.
+A single multi-field index needs less resources, such as file handlers.
+Moreover, it is easy to write better Lucene queries.
+The default analyzer used by OrientDB when a Lucene index is created is the [StandardAnalyzer](https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html).
+The StandardAnalyzer usually works fine with western languages, but Lucene offers analyzer for different languages and use cases.
 
 ## Two minutes tutorial
 
@@ -124,7 +128,7 @@ SELECT FROM Item WHERE SEARCH_CLASS('meet*') = true</code>
 
 To better understand how the query parser work, read carefully the official documentation and play with the above documents.
 
-## Analyzer
+## Customize Analyzers
 
 In addition to the StandardAnalyzer, full text indexes can be configured to use different analyzer by the `METADATA` operator through [`CREATE INDEX`](../sql/SQL-Create-Index.md).
 
@@ -152,7 +156,8 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
 A very detailed configuration, on multi-field index configuration, could be:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CREATE INDEX City.name_description ON City(name, lyrics, title,author, description)
+orientdb> <code class="lang-sql userinput">
+    CREATE INDEX Song.fulltext ON Song(name, lyrics, title, author, description)
             FULLTEXT ENGINE LUCENE METADATA {
                 "default": "org.apache.lucene.analysis.standard.StandardAnalyzer",
                 "index": "org.apache.lucene.analysis.core.KeywordAnalyzer",
@@ -176,8 +181,8 @@ With this configuration, the underlying Lucene index will works in different way
 * *name*: indexed with StandardAnalyzer, searched with KeywordAnalyzer (it's a strange choice, but possible)
 * *lyrics*: indexed with EnglishAnalyzer, searched with default query analyzer StandardAnalyzer
 * *title*:  indexed and searched with EnglishAnalyzer
-* *author*: indexed and searched with KeywordhAnalyzer
-* *description*: indexed with StandardAnalyzer with a given set of stopwords
+* *author*: indexed and searched with KeywordAnalyzer
+* *description*: indexed with StandardAnalyzer with a given set of stop-words that overrides the internal set
 
 Analysis is the foundation of Lucene. By default the StandardAnalyzer removes english stop-words and punctuation and lowercase the generated terms:
 
@@ -192,11 +197,14 @@ Would produce
 * _family_
 * _meeting_
 
+Each analyzer has its set of stop-words and tokenize the text in a different way.
+Read the full (documentation)[http://lucene.apache.org/core/6_6_0/].
 
 ## Query parser
 
-It is possible to configure some behavior of the Lucene [query parser](https://lucene.apache.org/core/5_3_2/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
+It is possible to configure some behavior of the Lucene [query parser](https://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html)
 Query parser's behavior can be configured at index creation time and overridden at runtime.
+
 
 ### Allow Leading Wildcard
 
@@ -209,6 +217,16 @@ It is possible to override this behavior with a dedicated flag on meta-data:
   "allowLeadingWildcard": true
 }
 ```
+
+<pre>
+orientdb> <code class="lang-sql userinput">
+    CREATE INDEX City.name ON City(name)
+            FULLTEXT ENGINE LUCENE METADATA {
+                "allowLeadingWildcard": true
+            }</code>
+</pre>
+
+
 
 Use this flag carefully, as stated in the Lucene FAQ: 
 > Note that this can be an expensive operation: it requires scanning the list of tokens in the index in its entirety to look for those that match the pattern.
@@ -232,6 +250,15 @@ It is useful when used in pair with keyword analyzer:
 }
 ```
 
+<pre>
+orientdb> <code class="lang-sql userinput">
+    CREATE INDEX City.name ON City(name)
+            FULLTEXT ENGINE LUCENE METADATA {
+              "lowercaseExpandedTerms": false,
+              "default" : "org.apache.lucene.analysis.core.KeywordAnalyzer"
+            }</code>
+</pre>
+
 With *lowercaseExpandedTerms* set to false, these two queries will return different results:
 
 <pre>
@@ -248,8 +275,14 @@ Every function accepts as last, optional, parameter a JSON with additional confi
 
 ### SEARCH_CLASS
 
-The best way to use the search capabilities of OrientDB is to define a single multi-fields index and use *SEARCH_CLASS**.
-In case more than one full-text index is defined over a class, an error is raised.
+The best way to use the search capabilities of OrientDB is to define a single multi-fields index and use the *SEARCH_CLASS* function.
+In case more than one full-text index are defined over a class, an error is raised in case of *SEARCH_CLASSI* invocation.
+
+Suppose to have this index
+<pre>
+orientdb> <code class="lang-sql userinput">
+    CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code>
+</pre>
 
 
 <pre>
@@ -272,11 +305,11 @@ The function accepts metadata JSON as second parameter:
 }) = true</code>
 </pre>
 
-
+The query shows query parser's configuration override, boost of field *name* with highlight. Highlight and boost will be explained later.
 
 ### SEARCH_MORE
 
-OrientDB exposes the Lucene's more like this capability with a dedicated function.
+OrientDB exposes the Lucene's _more like this_ capability with a dedicated function.
 
 The first parameter is the array of RID of elements to be used to calculate similarity, the second parameter the usual metadata JSON used to tune the query behaviour.
 
@@ -286,7 +319,7 @@ The first parameter is the array of RID of elements to be used to calculate simi
 It is possible to use a query to gather RID of documents to be used to calculate similarity:
 
 <pre>orientdb> <code class="lang-sql userinput">SELECT FROM City
-    let $a=(SELECT @rid FROM City WHERE name= 'Rome')
+    let $a=(SELECT @rid FROM City WHERE name = 'Rome')
     WHERE SEARCH_MORE( $a, { 'minTermFreq':1, 'minDocFreq':1} ) = true</code>
 </pre>
 
@@ -473,6 +506,8 @@ orientdb> <code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.n
 </code>
 </pre>
 
+Highlight isn't supported yet.
+
 ## Lucene Writer fine tuning (expert)
 
 It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter
@@ -503,16 +538,16 @@ It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter
 
 For a detailed explanation of config parameters and IndexWriter behaviour
 
-* indexWriterConfig : https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/index/IndexWriterConfig.html
-* indexWriter: https://lucene.apache.org/core/6_3_0/core/org/apache/lucene/index/IndexWriter.html
+* indexWriterConfig : https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/index/IndexWriterConfig.html
+* indexWriter: https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/index/IndexWriter.html
 
 ## Index lifecycle
 
-Starting from 2.2.24, Lucene indexes are lazy. If the index is in idle mode, no reads and no writes, it will be closed.
+Lucene indexes are lazy. If the index is in idle mode, no reads and no writes, it will be closed.
 Intervals are fully configurable.
 
 * *flushIndexInterval*: flushing index interval in milliseconds, default to 20000 (10s)
-* *closeAfterInterval*: closing index interval in millisecons, default to 120000 (12m)
+* *closeAfterInterval*: closing index interval in milliseconds, default to 120000 (12m)
 * *firstFlushAfter*: first flush time in milliseconds, default to 10000 (10s)
 
 To configure the index lifecycle, just pass the parameters in the JSON of metadata:
