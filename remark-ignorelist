@@ -1,0 +1,15 @@
+SUMMARY_old.md
+_book
+*~
+*#
+.#*
+deploy/*
+node_modules
+npm-debug.log
+Icon*
+.idea/
+*.swp
+legacy
+TODO
+old
+*.pdf
