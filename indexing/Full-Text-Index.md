@@ -46,7 +46,7 @@ Lucene's default operator is *OR*, so it retrieves the documents tha contain _my
 If we want to retrieve documents that contain both _my_ and _fudge_, rewrite the query: "+my +fudge".
 
 Lucene doesn't work as a LIKE operator on steroids, it works on single terms. Terms are produced analyzing the provided text, so the right analyzer should be configured.
-On the other side, it offers a complete query language, well documented (here)[https://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html]:
+On the other side, it offers a complete query language, well documented [here](https://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/QueryParser.html):
 
 ## Index creation
 
@@ -73,8 +73,7 @@ The StandardAnalyzer usually works fine with western languages, but Lucene offer
 
 Open studio or console and create a sample dataset:
 
-<pre><code class="lang-sql userinput">
-CREATE CLASS Item;
+<pre><code class="lang-sql userinput">CREATE CLASS Item;
 CREATE PROPERTY Item.text STRING;
 CREATE INDEX Item.text ON Item(text) FULLTEXT ENGINE LUCENE;
 INSERT INTO Item (text) VALUES ('My sister is coming for the holidays.');
@@ -210,13 +209,6 @@ Lucene's QueryParser applies a lower case filter on expanded queries by default.
 
 It is useful when used in pair with keyword analyzer:
 
-```json
-{
-  "lowercaseExpandedTerms": false,
-  "default" : "org.apache.lucene.analysis.core.KeywordAnalyzer"
-}
-```
-
 <pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
             FULLTEXT ENGINE LUCENE METADATA {
               "lowercaseExpandedTerms": false,
@@ -243,6 +235,7 @@ In case more than one full-text index are defined over a class, an error is rais
 Suppose to have this index
 <pre><code class="lang-sql userinput">CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code></pre>
 
+A query that retrieve cities with the name starting with cas and description containing the word beautiful:
 
 <pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_CLASS("+name:cas*  +description:beautiful") = true</code></pre>
 
@@ -262,7 +255,7 @@ The function accepts metadata JSON as second parameter:
 }) = true
 </code></pre>
 
-The query shows query parser's configuration override, boost of field *name* with highlight. Highlight and boost will be explained later.
+The query shows query parser's configuration overrides, boost of field *name* with highlight. Highlight and boost will be explained later.
 
 ### SEARCH_MORE
 
@@ -335,8 +328,7 @@ The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 If the index is defined over a numeric field (INTEGER, LONG, DOUBLE) or a date field (DATE, DATETIME), the engine supports [range queries](http://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Range_Searches)
 Suppose to have a `City` class witha multi-field Lucene index defined:
 
-<pre><code class="lang-sql userinput">
-CREATE CLASS CITY EXTENDS V
+<pre><code class="lang-sql userinput">CREATE CLASS CITY EXTENDS V
 CREATE PROPERTY CITY.name STRING
 CREATE PROPERTY CITY.size INTEGER
 CREATE INDEX City.name ON City(name,size) FULLTEXT ENGINE LUCENE
@@ -355,10 +347,7 @@ CREATE INDEX Article.createdAt  ON Article(createdAt) FULLTEXT ENGINE LUCENE
 
 Then query to retrieve articles published only in a given time range:
 
-<pre>
-<code class="lang-sql userinput">
-SELECT FROM Article WHERE SEARCH_CLASS('[201612221000 TO 201612221100]') =true</code>
-</pre>
+<pre><code class="lang-sql userinput">SELECT FROM Article WHERE SEARCH_CLASS('[201612221000 TO 201612221100]') =true</code></pre>
 
 ### Retrieve the Score
 
@@ -366,14 +355,12 @@ When the lucene index is used in a query, the results set carries a context vari
 To display the score add `$score` in projections.
 
 <pre>
-<code class="lang-sql userinput">
-SELECT *,$score FROM V WHERE name LUCENE "test*"
+<code class="lang-sql userinput">SELECT *,$score FROM V WHERE name LUCENE "test*"</code>
 </pre>
 
 ### Highlighting
 
-OrientDB uses the Lucene's highlighter. Highlighting can be configured using the metadata JSON. The highlighted content of a field is stored in a dedicated field.
-
+OrientDB uses the Lucene's highlighter. Highlighting can be configured using the metadata JSON. The highlighted content of a field is returned in a dedicated field suffixed with *_hl*:
 <pre>
 <code class="lang-sql userinput">SELECT name, $name_hl, description, $description_hl FROM City
 WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
@@ -403,7 +390,7 @@ CREATE INDEX Author.name on Author(name,score) FULLTEXT ENGINE LUCENE METADATA
 
 Searching for a term on each class implies a lot of different queries to be aggregated.
 
-The *SEARCH_CLASS* function automatically performs the given query to each full-text index configured inside the database.
+The *SEARCH_CLASS* function automatically performs the given query on each full-text index configured inside the database.
 
 <pre><code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('beautiful'))</code></pre>
 
@@ -418,7 +405,7 @@ Another way is to use the metadata field *_CLASS* present in every index:
 
 All the options of a Lucene's query are allowed: inline boosting, phrase queries, proximity etc.
 
-The function accepts a metadata JSON as second parameter
+The function accepts a metadata JSON as second parameter:
 
 <pre><code class="lang-sql userinput">SELECT  EXPAND(SEARCH_CROSS('Author.name:bob Song.title:*tain', {"
    "allowLeadingWildcard" : true,
@@ -483,8 +470,7 @@ To configure the index lifecycle, just pass the parameters in the JSON of metada
 
 The FullText Index with the Lucene Engine is configurable through the Java API.
 
-<pre><code class="lang-java">
-    OSchema schema = databaseDocumentTx.getMetadata().getSchema();
+<pre><code class="lang-java">OSchema schema = databaseDocumentTx.getMetadata().getSchema();
     OClass oClass = schema.createClass("Foo");
     oClass.createProperty("name", OType.STRING);
     oClass.createIndex("City.name", "FULLTEXT", null, null, "LUCENE", new String[] { "name"});
@@ -537,9 +523,10 @@ The Lucene Engine supports index creation without the need for a class.
 
 **Syntax**:
 
-```sql
-CREATE INDEX <name> FULLTEXT ENGINE LUCENE  [<key-type>] [METADATA {<metadata>}]
-```
+<pre>
+<code class="lang-sql userinput">CREATE INDEX <name> FULLTEXT ENGINE LUCENE  [<key-type>] [METADATA {<metadata>}]
+</code>
+</pre>
 
 For example, create a manual index using the [`CREATE INDEX`](../sql/SQL-Create-Index.md) command:
 
@@ -561,10 +548,10 @@ You can then query the index through [`SELECT...FROM INDEX:`](../sql/SQL-Query.m
 
 Manual indexes could be created programmatically using the Java API
 
-```java
-ODocument meta = new ODocument().field("analyzer", StandardAnalyzer.class.getName());
+<pre><code class="lang-java">ODocument meta = new ODocument().field("analyzer", StandardAnalyzer.class.getName());
 OIndex<?> index = databaseDocumentTx.getMetadata().getIndexManager()
-        .createIndex("apiManual", OClass.INDEX_TYPE.FULLTEXT.toString(),
-            new OSimpleKeyIndexDefinition(1, OType.STRING, OType.STRING), null, null, meta, OLuceneIndexFactory.LUCENE_ALGORITHM);
+     .createIndex("apiManual", OClass.INDEX_TYPE.FULLTEXT.toString(),
+         new OSimpleKeyIndexDefinition(1, OType.STRING, OType.STRING), null, null, meta, OLuceneIndexFactory.LUCENE_ALGORITHM);
 
-```
+</code></pre>
+
