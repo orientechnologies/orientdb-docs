@@ -11,3 +11,5 @@ Icon*
 *.swp
 legacy
 TODO
+old
+*.pdf

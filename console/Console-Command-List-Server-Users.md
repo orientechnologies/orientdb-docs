@@ -3,13 +3,11 @@ search:
    keywords: ['console', 'command', 'list', 'server', 'users', 'LIST SERVER USERS']
 ---
 
-<!-- proofread 2015-01-07 SAM -->
-
 # Console - LIST SERVER USERS
 
 >This feature was introduced in OrientDB version 2.2.
 
-Displays all configured users on the server. In order to display the users, the current system user that is running the console must have permissions to read the `$ORINETDB_HOME/config/orientdb-server-config.xml` configuration file. For more information, see [OrientDB Server Security](../security/Security.md#orientdb-server-security).
+Displays all configured users on the server. In order to display the users, the current system user that is running the console must have permissions to read the `$ORIENTDB_HOME/config/orientdb-server-config.xml` configuration file. For more information, see [OrientDB Server Security](../security/Server-Security.md).
 
 **Syntax:**
 

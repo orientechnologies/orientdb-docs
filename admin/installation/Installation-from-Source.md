@@ -43,7 +43,7 @@ total 199920
 $
 ```
 The directory `orientdb-community-2.2.1-SNAPSHOT.dir` contains the OrientDB distribution uncompressed.
-Take a look to [Contribute to OrientDB](/misc/Contribute-to-OrientDB.md) if you want to be involved.
+Take a look to [Contribute to OrientDB](../../misc/Contribute-to-OrientDB.md) if you want to be involved.
 
 
 ## Update Permissions

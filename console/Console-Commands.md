@@ -34,8 +34,8 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`INDEXES`](Console-Command-Indexes.md)|Displays information about indexes|
 |[`INFO`](Console-Command-Info.md)|Displays information about current status|
 |[`INFO CLASS`](Console-Command-Info-Class.md)|Displays information about a class|
-|[`JS`](../js/Javascript-Command.md#via_console)|Executes a Javascript in the console|
-|[`JSS`](../js/Javascript-Command.md#via_console)|Executes a Javascript in the server|
+|[`JS`](../js/Javascript-Command.md#via-console)|Executes a Javascript in the console|
+|[`JSS`](../js/Javascript-Command.md#via-console)|Executes a Javascript in the server|
 |[`LIST DATABASES`](Console-Command-List-Databases.md)|List the available databases|
 |[`LIST CONNECTIONS`](Console-Command-List-Connections.md)|List the available connections|
 |[`LOAD RECORD`](Console-Command-Load-Record.md)|Loads a record in memory and set it as the current one|
