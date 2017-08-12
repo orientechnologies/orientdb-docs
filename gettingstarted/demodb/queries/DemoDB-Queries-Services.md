@@ -12,9 +12,14 @@ ORDER BY NumberOfBookings DESC
 LIMIT 3
 ```
 
-in a similar way:
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
 
-Find the 3 Restaurants that have been used most times
+![](../../../images/demo-dbs/social-travel-agency/query_21_browse.png)
+
+In a similar way:
+
+Find the 3 Restaurants that have been used most times:
+
 ```sql
 SELECT 
   Name, Type, in("HasEaten").size() AS VisitsNumber 
@@ -22,6 +27,10 @@ FROM Restaurants
 ORDER BY VisitsNumber DESC 
 LIMIT 3
 ```
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_22_browse.png)
 
 
 ## Example 2
@@ -35,16 +44,26 @@ ORDER BY ReviewNumbers DESC
 LIMIT 3
 ```
 
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_23_browse.png)
+
 In a similar way:
 
-Find the 3 Restaurants that have most reviews 
+Find the 3 Restaurants that have most reviews :
+
 ```sql
 SELECT 
   Name, Type, out("HasReview").size() AS ReviewNumbers 
 FROM `Restaurants` 
-ORDER BY ReviewNumbers 
-DESC LIMIT 3
+ORDER BY ReviewNumbers DESC 
+LIMIT 3
 ```
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_24_browse.png)
+
 
 ## Example 3
 
@@ -69,6 +88,10 @@ ORDER BY CountryCount DESC
 LIMIT 3
 ```
 
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_25_browse.png)
+
 In a similar way:
 
 Find the top 3 nationality of the tourists that stayed at Hotel with Id 627:
@@ -90,3 +113,7 @@ GROUP BY Name
 ORDER BY CountryCount DESC 
 LIMIT 3
 ```
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_26_browse.png)

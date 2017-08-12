@@ -9,4 +9,6 @@ ORDER BY NumberOfOrders
 DESC LIMIT 3
 ```
 
- 
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the visualized result:
+
+![](../../../images/demo-dbs/social-travel-agency/query_20_browse.png)

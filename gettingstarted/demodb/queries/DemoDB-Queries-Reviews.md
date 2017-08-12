@@ -6,7 +6,11 @@
 Find number of Reviews per star:
 
 ```sql
-SELECT Stars, count(*) as count FROM HasReview GROUP BY Stars ORDER BY count DESC
+SELECT 
+  Stars, count(*) as count 
+FROM HasReview 
+GROUP BY Stars 
+ORDER BY count DESC
 ```
 
 
@@ -35,7 +39,10 @@ RETURN $pathelements
 Find the numbers of reviews per Service:
 
 ```sql
-SELECT *, out("HasReview").size() AS ReviewNumbers FROM `Services` ORDER BY ReviewNumbers DESC 
+SELECT 
+  out("HasReview").size() AS ReviewNumbers 
+FROM `Services` 
+ORDER BY ReviewNumbers DESC 
 ```
 
 

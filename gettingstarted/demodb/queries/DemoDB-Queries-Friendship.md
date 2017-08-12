@@ -5,9 +5,10 @@
 
 Find Santo's Friends:
 
-<pre><code class="lang-sql">MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} 
+```sql
+MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} 
 RETURN $pathelements
-</code></pre>
+```
 
 In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 
@@ -79,8 +80,6 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN frien
 
 Among Santo's Friends, find the top 3 Customers that placed the highest number of Orders:
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
-
 ```sql
 SELECT 
   OrderedId as Customer_OrderedId, 
@@ -96,15 +95,15 @@ FROM (
 ORDER BY NumberOfOrders DESC 
 LIMIT 3
 ```
- 
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records (only few records are shown in the image below):
+
 ![](../../../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
 
 ## Example 6
 
 Among Santo's Friends, find the top 3 Customers that visited the highest number of Places:
-
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query below, this is the obtained list of records (only few records are shown in the image below):
 
 ```sql
 SELECT 
@@ -121,6 +120,8 @@ FROM (
 ORDER BY NumberOfVisits DESC 
 LIMIT 3
 ```
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_6_browse.png)
 

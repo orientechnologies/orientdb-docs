@@ -12,7 +12,8 @@ Find all the Customer Friends that are not Customers (so that a product can be p
 
 In the _Graph Editor_ included in [Studio](../../../studio/README.md), using the query below, this is the obtained graph:
 
-<pre><code class="lang-sql">SELECT * FROM (
+```sql
+SELECT * FROM (
   SELECT expand(customerFriend) 
   FROM ( 
     MATCH 
@@ -20,7 +21,8 @@ In the _Graph Editor_ included in [Studio](../../../studio/README.md), using the
     RETURN customerFriend
   )
 ) 
-WHERE in('HasProfile').size()=0"</code></pre>
+WHERE in('HasProfile').size()=0"
+```
 
 ![](../../../images/demo-dbs/social-travel-agency/query_14_graph.png)
 
