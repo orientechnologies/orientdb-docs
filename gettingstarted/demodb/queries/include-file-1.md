@@ -1,6 +1,7 @@
 Find all the Friends of Customer identified with OrderedId 1 that are not Customers (so that a product can be proposed):
 
-<pre><code class="lang-sql">SELECT 
+```sql
+SELECT 
   @Rid as Friend_RID, 
   Name as Friend_Name, 
   Surname as Friend_Surname 
@@ -11,7 +12,8 @@ FROM (
   )
 ) 
 WHERE in('HasProfile').size()=0
-</code></pre>
+ORDER BY Friend_Name ASC
+```
 
 In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records (only few records are shown in the image below):
 

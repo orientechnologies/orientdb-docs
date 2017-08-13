@@ -40,7 +40,7 @@ Find the 3 Services (Hotels + Restaurants) that have most reviews:
 
 ```sql
 SELECT 
-  @rid,
+  @rid as Service_RID,
   Name as Service_Name,
   Type as Service_Type,
   out("HasReview").size() AS ReviewNumbers 

@@ -13,6 +13,10 @@ GROUP BY Stars
 ORDER BY count DESC
 ```
 
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_33_browse.png)
+
 
 ## Example 2
 
@@ -40,10 +44,18 @@ Find the numbers of reviews per Service:
 
 ```sql
 SELECT 
+  @rid as Service_RID,
+  Name as Service_Name,
+  Type as Service_Type,
   out("HasReview").size() AS ReviewNumbers 
 FROM `Services` 
-ORDER BY ReviewNumbers DESC 
+ORDER BY ReviewNumbers DESC
 ```
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/query_34_browse.png)
+
 
 
 ## Example 5
