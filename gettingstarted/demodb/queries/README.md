@@ -57,5 +57,6 @@ The following table can help you navigate through all examples:
 | **Polymorphism**           | Find all Locations (Services + Attractions) connected with Customer with OrderedId 1                                    | [Link](DemoDB-Queries-Polymorphism.md#example-1)             |
 |                            | Find the 3 Services (Hotels + Restaurants) that have most reviews                                                       | [Link](DemoDB-Queries-Polymorphism.md#example-2)             |
 | **Shortest Paths**         | Find the shortest path between the Profile 'Santo' and the Country 'United States'                                      | [Link](DemoDB-Queries-Shortest-Paths.md#example-1)           |
+|                            | Find the shortest path between the Profile 'Santo' and the Restaurant 'Malga Granezza'                                  | [Link](DemoDB-Queries-Shortest-Paths.md#example-2)           |
 | **Traverses**              | Traverse everything from Profile 'Santo' up to depth three                                                              | [Link](DemoDB-Queries-Traverses.md#example-1)                |
 |                            | Traverse everything from Country 'Italy' up to depth three                                                              | [Link](DemoDB-Queries-Traverses.md#example-2)                |

@@ -23,3 +23,25 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), this is the obtained
 
 ![](../../../images/demo-dbs/social-travel-agency/shortestpath_1_browse.png)
 
+
+## Example 2
+ 
+Find the shortest path between the Profile 'Santo' and the Restaurant 'Malga Granezza':
+
+```sql
+SELECT expand(path) FROM (
+  SELECT shortestPath($from, $to) AS path 
+  LET 
+    $from = (SELECT FROM Profiles WHERE Name='Santo' and Surname='OrientDB'), 
+    $to = (SELECT FROM Restaurants WHERE Name='Malga Granezza') 
+  UNWIND path
+)
+```
+
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), this is the obtained graph:
+ 
+![](../../../images/demo-dbs/social-travel-agency/shortestpath_2_graph.png)
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), this is the obtained list of records:
+
+![](../../../images/demo-dbs/social-travel-agency/shortestpath_2_browse.png)
