@@ -80,7 +80,7 @@ And this is the final version of our class
 
 ![NewClass](images/idea-main2.png)
 
-This is the full sources code:
+This is the full source code:
 
 ```java
 import com.orientechnologies.orient.core.db.ODatabaseSession;
@@ -177,4 +177,4 @@ public class Main {
 ```
 
 
-Now you are ready for the [Next Step - Create your First Graph and Run Queries >>>](java-3.md)
+Now you are ready for the [Next Step - Create your First Graph and Run Queries >>>](java-4.md)
