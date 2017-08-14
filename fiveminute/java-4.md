@@ -62,7 +62,8 @@ We will use a [SELECT](../SQL/SQL-Query.md) for this.
 
 ```java
   private static void executeAQuery(ODatabaseSession db) {
-    OResultSet rs = db.query("SELECT out('FriendOf').out('FriendOf') from Person where name = 'Alice'");
+    String query = "SELECT out('FriendOf').out('FriendOf') from Person where name = ?";
+    OResultSet rs = db.query(query, "Alice");
 
     while (rs.hasNext()) {
       OResult item = rs.next();
@@ -77,7 +78,8 @@ or, if you prefer Java Streams API:
 
 ```java
   private static void executeAQuery(ODatabaseSession db) {
-    OResultSet rs = db.query("SELECT expand(out('FriendOf').out('FriendOf')) from Person where name = 'Alice'");
+    String query = "SELECT out('FriendOf').out('FriendOf') from Person where name = ?";
+    OResultSet rs = db.query(query, "Alice");
     rs.stream().forEach(x -> System.out.println("friend: " + x.getProperty("name")));
     rs.close();
   }
@@ -184,7 +186,8 @@ public class Main {
   }
 
   private static void executeAQuery(ODatabaseSession db) {
-    OResultSet rs = db.query("SELECT out('FriendOf').out('FriendOf') from Person where name = 'Alice'");
+    String query = "SELECT out('FriendOf').out('FriendOf') from Person where name = ?";
+    OResultSet rs = db.query(query, "Alice");
 
     while (rs.hasNext()) {
       OResult item = rs.next();
