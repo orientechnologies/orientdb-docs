@@ -4,7 +4,7 @@ If you are a Java Developer and it's the first time you approach OrientDB, then 
 
 Ready? Let's start!
 
-## Step 0/5 - Download and Install
+## Step 1/5 - Download and Install
 
 Download OrientDB from the following URL:
 
