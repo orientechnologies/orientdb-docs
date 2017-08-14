@@ -3,7 +3,7 @@
 
 In the [previous step](java-2.md) you created your Java application scaffolding in IntelliJ Idea, now it's time to create a Java class that connects to the database and does basic operations
 
-We will write a very simple applicaiton with two classes:
+We will write a very simple application with two classes:
 
 - **Person**: a vertex type containing information about people
 - **FriendOf**: an edge class that connects people together
