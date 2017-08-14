@@ -20,6 +20,8 @@ Let's create a simple Java class
 - Give the class the name you prefer and click **OK**
 - create a *main* method
 
+#### Connecting to the DB
+
 Now it's time to connect to OrientDB
 
 - Create an OrientDB object to manage the remote server
@@ -61,6 +63,8 @@ Here we are actually connecting to the database. The three parameters are:
 By default, when you create a new database, OrientDB creates three users for you: `admin`, `reader`, `writer`; the passwords
 for these users are the same as the user names, eg. the password for `admin` is `admin`. You can change it later of course, and you can
 define more users if needed.
+
+#### Creating the schema
 
 Now it's time to create a schema for our db. Do you remember? We are creating a graph of people who are friends, so we need a `Person` 
 vertex class and a `FriendOf` edge class.
