@@ -6,53 +6,9 @@ Now it's time to insert and query some data
 
 ## Step 5/5 - Create and Query a Graph
 
-First of all, let's refactor a little bit the code from the previous step. We will create a `createSchema()` method to isolate the logics for schema creation
-
-```java
-import com.orientechnologies.orient.core.db.ODatabaseSession;
-import com.orientechnologies.orient.core.db.OrientDB;
-import com.orientechnologies.orient.core.db.OrientDBConfig;
-import com.orientechnologies.orient.core.metadata.schema.OClass;
-import com.orientechnologies.orient.core.metadata.schema.OType;
-
-public class Main {
-
-  public static void main(String[] args) {
-
-    OrientDB orient = new OrientDB("remote:localhost", OrientDBConfig.defaultConfig());
-    ODatabaseSession db = orient.open("test", "admin", "admin");
-    
-    createSchema(db);
-
-    db.close();
-    orient.close();
-
-  }
-
-  private static void createSchema(ODatabaseSession db) {
-    OClass person = db.getClass("Person");
-
-    if (person == null) {
-      person = db.createVertexClass("Person");
-    }
-
-    if (person.getProperty("name") == null) {
-      person.createProperty("name", OType.STRING);
-      person.createIndex("Person_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
-    }
-
-    if (db.getClass("FriendOf") == null) {
-      db.createEdgeClass("FriendOf");
-    }
-
-  }
-
-}
-```
-
-Now we can concentrate concentrate on our business.
-
 First of all, let's create three vertices: Alice, Bob and Jim
+
+We are good Java developers, aren't we? Let's encaplusate a single vertex creation in a method:
 
 ```java
   private static OVertex createPerson(ODatabaseSession db, String name, String surname) {
@@ -64,9 +20,9 @@ First of all, let's create three vertices: Alice, Bob and Jim
   }
 ```
 
-Please consider that in the previous section we just defined the schema for `name` property, we never mentioned that people have a `surname`!!! 
+*Wow, we never mentioned that people have a `surname`!!! In the previous section we just defined the schema for `name` property...*
 
-OrientDB can work schemaful (with all the property names and types defined), schemaless (schema-free, no schema defined) or schema-mixed like in this case, where we define a part of the schema (ie. the `name`) but we leave the developer the ability to add new properties at run time, without having to deal with further schema definitions.
+OrientDB can work *schemaful* (with all the property names and types defined), *schemaless* (schema-free, no schema defined) or *schema-mixed* like in this case, where we define a part of the schema (ie. the `name`) but we leave the developer the ability to add new properties at run time, without having to deal with further schema definitions.
 
 Now let's create the three vertices:
 
@@ -211,9 +167,9 @@ We will use a [MATCH](../SQL/SQL-MATCH.md) for this.
   }
 ```
 
-### Good job!!! You wrote your first OrientDB Java program!
+### Good job!!! This is your first OrientDB Java program!
 
-There is the full source code of the main class:
+Here is the full source code of the main class:
 
 ```java
 import com.orientechnologies.orient.core.db.ODatabaseSession;
