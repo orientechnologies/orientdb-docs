@@ -177,3 +177,4 @@ public class Main {
 ```
 
 
+Now you are ready for the [Next Step - Create your First Graph and Run Queries >>>](java-3.md)
