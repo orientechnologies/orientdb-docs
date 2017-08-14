@@ -62,7 +62,7 @@ We will use a [SELECT](../SQL/SQL-Query.md) for this.
 
 ```java
   private static void executeAQuery(ODatabaseSession db) {
-    String query = "SELECT out('FriendOf').out('FriendOf') from Person where name = ?";
+    String query = "SELECT expand(out('FriendOf').out('FriendOf')) from Person where name = ?";
     OResultSet rs = db.query(query, "Alice");
 
     while (rs.hasNext()) {
@@ -78,7 +78,7 @@ or, if you prefer Java Streams API:
 
 ```java
   private static void executeAQuery(ODatabaseSession db) {
-    String query = "SELECT out('FriendOf').out('FriendOf') from Person where name = ?";
+    String query = "SELECT expand(out('FriendOf').out('FriendOf')) from Person where name = ?";
     OResultSet rs = db.query(query, "Alice");
     rs.stream().forEach(x -> System.out.println("friend: " + x.getProperty("name")));
     rs.close();
@@ -186,7 +186,7 @@ public class Main {
   }
 
   private static void executeAQuery(ODatabaseSession db) {
-    String query = "SELECT out('FriendOf').out('FriendOf') from Person where name = ?";
+    String query = "SELECT expand(out('FriendOf').out('FriendOf')) from Person where name = ?";
     OResultSet rs = db.query(query, "Alice");
 
     while (rs.hasNext()) {
