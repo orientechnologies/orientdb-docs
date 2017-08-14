@@ -1,7 +1,7 @@
 
 # OrientDB for Java Developers in Five Minutes
 
-In the [previous step](java-2.md) you created your Java applicaiton scaffolding in IntelliJ Idea, now it's time to create a Java class that connects to the database and does basic operations
+In the [previous step](java-2.md) you created your Java application scaffolding in IntelliJ Idea, now it's time to create a Java class that connects to the database and does basic operations
 
 We will write a very simple applicaiton with two classes:
 
