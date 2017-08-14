@@ -41,7 +41,7 @@ You will see OrientDB starting
          `,`    ,:`                                   
          .,.   :,,                                    
          .,,  ,,,                                     
-    .    .,.:::::  ````                                 :::::::::     :::::::::   
+    .    .,.:::::   `  `                                :::::::::     :::::::::   
     ,`   .::,,,,::.,,,,,,`;;                      .:    ::::::::::    :::    :::  
     `,.  ::,,,,,,,:.,,.`  `                       .:    :::      :::  :::     ::: 
      ,,:,:,,,,,,,,::.   `        `         ``     .:    :::      :::  :::     ::: 
@@ -100,6 +100,18 @@ You will see this page:
 - enter "test" as database name 
 - enter the root password
 
-![StudioLogin](images/studio-create-database.png)
+![StudioCreateDb](images/studio-create-database.png)
 
 - Then click on "CREATE DATABASE"
+
+**Good job! You just created your first database!** 
+
+Now, to make sure that everything is OK, try to enter the following query
+
+```sql
+SELECT * FROM OUser
+```
+
+and click the green "RUN" button. You should see the three default users that OrienDB creates for you: admin, reader and writer
+
+![StudioBrowser](images/studio-browser-2.png)
