@@ -8,6 +8,9 @@ Now it's time to insert and query some data
 
 First of all, let's create three vertices: Alice, Bob and Jim
 
+
+#### Creating vertices 
+
 We are good Java developers, aren't we? Let's encaplusate a single vertex creation in a method:
 
 ```java
@@ -34,6 +37,8 @@ Now let's create the three vertices:
   }
 ```
 
+#### Creating edges
+
 Suppose that Alice is a friend of Bob and that Bob is a friend of Jim:
 
 ```
@@ -49,70 +54,8 @@ Let's create the edges in the database:
 
 Please cosider that edges are plain documents, so you can get/set properties on them exactly like for vertices.
 
-This is the final result:
 
-```java
-import com.orientechnologies.orient.core.db.ODatabaseSession;
-import com.orientechnologies.orient.core.db.OrientDB;
-import com.orientechnologies.orient.core.db.OrientDBConfig;
-import com.orientechnologies.orient.core.metadata.schema.OClass;
-import com.orientechnologies.orient.core.metadata.schema.OType;
-import com.orientechnologies.orient.core.record.OEdge;
-import com.orientechnologies.orient.core.record.OVertex;
-
-public class Main {
-
-  public static void main(String[] args) {
-
-    OrientDB orient = new OrientDB("remote:localhost", OrientDBConfig.defaultConfig());
-    ODatabaseSession db = orient.open("test", "admin", "admin");
-
-    createSchema(db);
-
-    createPeople(db);
-
-    db.close();
-    orient.close();
-
-  }
-
-  private static void createSchema(ODatabaseSession db) {
-    OClass person = db.getClass("Person");
-
-    if (person == null) {
-      person = db.createVertexClass("Person");
-    }
-
-    if (person.getProperty("name") == null) {
-      person.createProperty("name", OType.STRING);
-      person.createIndex("Person_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
-    }
-
-    if (db.getClass("FriendOf") == null) {
-      db.createEdgeClass("FriendOf");
-    }
-
-  }
-
-  private static void createPeople(ODatabaseSession db){
-    OVertex alice = createPerson(db, "Alice", "Foo");
-    OVertex bob = createPerson(db, "Bob", "Bar");
-    OVertex jim = createPerson(db, "Jim", "Baz");
-
-    OEdge edge1 = alice.addEdge(bob, "FriendOf");
-    OEdge edge2 = bob.addEdge(jim, "FriendOf");
-  }
-
-  private static OVertex createPerson(ODatabaseSession db, String name, String surname) {
-    OVertex result = db.newVertex("Person");
-    result.setProperty("name", name);
-    result.setProperty("surname", surname);
-    result.save();
-    return result;
-  }
-}
-
-```
+#### Executing queries
 
 Last step of this journey: let's write and execute a simple query that finds friends of friends (FoaF) of a person.
 We will use a [SELECT](../SQL/SQL-Query.md) for this.
