@@ -118,3 +118,60 @@ you will see the two newly created classes: `Person` and `FriendOf`
 
 ![NewClass](images/studio-schema.png)
 
+Just to make it a bit more realistic, let's also create some basic schema for our `Person` class. 
+
+We will just add a `name` to the Person and we will create an index on it. 
+
+```java
+    OClass person = db.getClass("Person");
+
+    if (person == null) {
+      person = db.createVertexClass("Person");
+    }
+    
+    if (person.getProperty("name") == null) {
+      person.createProperty("name", OType.STRING);
+      person.createIndex("Person_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
+    }
+
+```
+
+And this is the final result:
+
+```java
+import com.orientechnologies.orient.core.db.ODatabaseSession;
+import com.orientechnologies.orient.core.db.OrientDB;
+import com.orientechnologies.orient.core.db.OrientDBConfig;
+import com.orientechnologies.orient.core.metadata.schema.OClass;
+import com.orientechnologies.orient.core.metadata.schema.OType;
+
+public class Main {
+
+  public static void main(String[] args) {
+
+    OrientDB orient = new OrientDB("remote:localhost", OrientDBConfig.defaultConfig());
+    ODatabaseSession db = orient.open("test", "admin", "admin");
+
+    OClass person = db.getClass("Person");
+
+    if (person == null) {
+      person = db.createVertexClass("Person");
+    }
+    
+    if (person.getProperty("name") == null) {
+      person.createProperty("name", OType.STRING);
+      person.createIndex("Person_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
+    }
+
+    if (db.getClass("FriendOf") == null) {
+      db.createEdgeClass("FriendOf");
+    }
+
+    db.close();
+    orient.close();
+
+  }
+}
+```
+
+
