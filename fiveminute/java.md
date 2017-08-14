@@ -85,4 +85,4 @@ Root password [BLANK=auto generate it]: *
 The first time you start the server, you will be asked to enter a root password (twice). You can choose the password you prefer, 
 just make sure to remember it, as you will need it alter.
 
-Go to the [Next Step - Create a Database >>>](java-1.md)
+Now you are ready for the [Next Step - Create a Database >>>](java-1.md)
