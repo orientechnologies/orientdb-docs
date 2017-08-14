@@ -131,6 +131,8 @@ We will just add a `name` to the Person and we will create an index on it.
     
     if (person.getProperty("name") == null) {
       person.createProperty("name", OType.STRING);
+      
+      //                     index name                index type          property name
       person.createIndex("Person_name_index", OClass.INDEX_TYPE.NOTUNIQUE, "name");
     }
 
