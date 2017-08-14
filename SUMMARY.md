@@ -19,7 +19,7 @@
     * [How to Get in Touch with OrientDB](misc/Get-in-Touch.md)
     * [How to Contribute to OrientDB](misc/Contribute-to-OrientDB.md)
     * [OrientDB Roadmap](misc/Roadmap.md)
-* [OrientDB in Five Minutes]
+* [OrientDB in Five Minutes](fiveminute/README.md)
     * [In Java](fiveminute/java.md)    
 * [Getting Started](gettingstarted/README.md)
     * [Installation](gettingstarted/Tutorial-Installation.md)
