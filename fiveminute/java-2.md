@@ -40,4 +40,4 @@ Click on "automatically import dependencies" if needed
 
 ![IdeaNew](images/idea-pom.png)
 
-Go to the [Next Step >>>](java-3.md)
+Now you are ready for the [Next Step - Open a DB Connection and Create your First Graph >>>](java-3.md)
