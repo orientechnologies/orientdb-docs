@@ -1,5 +1,8 @@
+# OrientDB for Java Developers in Five Minutes
 
-## Minute 1 - create a db
+In the [Previous Step](java.md) you installed and started OrientDB on your machine, now it's time to create a database
+
+## Step 2/5 - Create a DB
 
 Open your favourite browser (modern browser, no IE please!) and enter the following URL:
 
@@ -29,3 +32,6 @@ SELECT * FROM OUser
 and click the green "RUN" button. You should see the three default users that OrienDB creates for you: admin, reader and writer
 
 ![StudioBrowser](images/studio-browser-2.png)
+
+
+Now you are ready for the [Next Step - Create your Java Application >>>](java-2.md)
