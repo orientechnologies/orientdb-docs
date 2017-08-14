@@ -1,6 +1,6 @@
 # OrientDB for Java Developers in Five Minutes
 
-In the [previous step](java1.md) you created your first database, now it's time to create a Java application that can connect to the DB,
+In the [previous step](java-1.md) you created your first database, now it's time to create a Java application that can connect to the DB,
 query and manipulate it.
 
 From now on, for this tutorial we will use IntelliJ Idea, but you can use any IDE that supports Java 8 and Maven.
@@ -18,3 +18,26 @@ Open IntelliJ Idea and:
 - click **Next**
 
 ![IdeaNew](images/idea-new-maven.png)
+
+- choose your **GroupId** and **ArtifactId** (we will use "test" "test", as this is what we are doing  ;-) )
+- click **Next** twice
+
+![IdeaNew](images/idea-new-maven2.png)
+
+Now open **pom.xml** file and add the following dependency:
+
+```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.orientechnologies</groupId>
+            <artifactId>orientdb-client</artifactId>
+            <version>3.0.0m2</version>
+        </dependency>
+    </dependencies>
+```
+
+Click on "automatically import dependencies" if needed
+
+![IdeaNew](images/idea-pom.png)
+
+Go to the [Next Step >>>](java-3.md)
