@@ -1,5 +1,5 @@
 
-# Shortest Path
+# Shortest Paths
 
 ## Example 1
  

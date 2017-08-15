@@ -1,51 +1,31 @@
 
 # Locations 
 
-## Example 1 
+## Example 1
 
-Find all Attractions connected with Customer with OrderedId 1:
+Find all Locations visited by Santo:
 
-<pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions, as: attraction}
+```sql
+MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}<-HasProfile-{Class: Customers, as: customer}-HasVisited->{class: Locations, as: location} 
 RETURN $pathelements
-</code></pre>
+```
 
-In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using the query above, this is the obtained graph:
 
-![](../../../images/demo-dbs/social-travel-agency/query_15_graph.png)
-
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN attraction.@Rid as Attraction_RID, attraction.Name as Attraction_Name, attraction.Type as Attraction_Type'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
-
-![](../../../images/demo-dbs/social-travel-agency/query_15_browse.png)
+![](../../../images/demo-dbs/social-travel-agency/query_35_graph.png)
 
 
-## Example 2
-
-Find all Services connected with Customer with OrderedId 1:
-
-<pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}
-RETURN $pathelements
-</code></pre>
-
-In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
-
-![](../../../images/demo-dbs/social-travel-agency/query_16_graph.png)
-
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN service.@Rid as Service_RID, service.Name as Service_Name, service.Type as Service_Type'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
-
-![](../../../images/demo-dbs/social-travel-agency/query_16_browse.png)
-
-
-## Example 3
+## Example 1
 
 {% include "./include-file-7.md" %}
 
 
-## Example 4
+## Example 2
 
 {% include "./include-file-8.md" %}
 
 
-## Example 5
+## Example 3
 
 Find all Locations visited by Customer with OrderedId 2:
 
@@ -63,7 +43,7 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN locat
 ![](../../../images/demo-dbs/social-travel-agency/query_18_browse.png)
 
 
-## Example 6
+## Example 4
 
 Find all Locations visited by Santo's friends:
 
