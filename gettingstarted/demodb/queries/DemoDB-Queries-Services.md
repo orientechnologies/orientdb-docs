@@ -5,9 +5,10 @@
 
 Find all Services connected with Customer with OrderedId 1:
 
-<pre><code class="lang-sql">MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}
+```sql
+MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}
 RETURN $pathelements
-</code></pre>
+```
 
 In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
 

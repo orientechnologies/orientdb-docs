@@ -16,13 +16,14 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query abov
 
 Find the year of the Orders, and how many Orders have been placed in the same year:
 
-<pre><code class="lang-sql">SELECT 
+```sql
+SELECT 
   count(*) as OrdersCount, 
   OrderDate.format('yyyy') AS OrderYear 
 FROM Orders 
 GROUP BY OrderYear 
 ORDER BY OrdersCount DESC
-</code></pre>
+```
 
 In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the visualized result:
 
@@ -32,3 +33,25 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query abov
 ## Example 3
 
 {% include "./include-file-4.md" %}
+
+
+## Example 4
+
+Find the top 3 Customers in terms of spending:
+
+```sql
+SELECT 
+  customer.OrderedId as customerOrderedId, 
+  SUM(order.Amount) as totalAmount 
+FROM (
+  MATCH {Class: Customers, as: customer}<-HasCustomer-{class: Orders, as: order} 
+  RETURN customer, order
+) 
+GROUP BY customerOrderedId 
+ORDER BY totalAmount DESC 
+LIMIT 3
+```
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the visualized result:
+
+![](../../../images/demo-dbs/social-travel-agency/query_36_browse.png)
