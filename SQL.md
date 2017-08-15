@@ -42,6 +42,7 @@ SELECT FROM INDEX:myIndex WHERE key = 'Jay'
 - [Pagination](Pagination.md)
 - [Pivoting-With-Query](Pivoting-With-Query.md)
 - [SQL batch](SQL-batch.md)
+- [SQL-Match](SQL-Match.md) for pattern matching.
 
 ## OrientDB SQL dialect
 
