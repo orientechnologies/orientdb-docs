@@ -20,7 +20,9 @@
     * [How to Contribute to OrientDB](misc/Contribute-to-OrientDB.md)
     * [OrientDB Roadmap](misc/Roadmap.md)
 * [OrientDB in Five Minutes](fiveminute/README.md)
+
 #### Java
+
     * [Install](fiveminute/java.md)   
     * [Create a DB](fiveminute/java-1.md)   
     * [Create the Java Application](fiveminute/java-2.md)   
