@@ -654,6 +654,7 @@
 * [Troubleshooting](misc/Troubleshooting.md) 
     * [Java](misc/Troubleshooting-Java.md) 
     * [Memory Leak Detector](troubleshooting/Leak-Detector.md) 
+    * [Direct Memory Tracing](troubleshooting/Direct-Memory-Tracing.md)
 * [Performance Tuning](tuning/Performance-Tuning.md)
     * [Tuning the Graph API](tuning/Performance-Tuning-Graph.md) 
     * [Tuning the Document API](tuning/Performance-Tuning-Document.md) 
