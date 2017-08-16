@@ -21,8 +21,8 @@ Imported Neo4j items are:
 
 Currently, the _Neo4j to OrientDB Importer_ supports, and has been tested with, the following versions:
 
-- OrientDB: 2.2.x 
-- Neo4j: 3.0.x
+- OrientDB: 2.2.x, 3.0.x
+- Neo4j: 3.x
 
 
 ## Limitations
@@ -83,6 +83,7 @@ After Installation, the _Neo4j to OrientDB Importer_ can be launched using the p
 		-neo4jdbdir <neo4jdbdir> (mandatory)
 		[-odbdir <odbdir>]
         [-o true|false]
+        [-i true|false]
 
 Where:
 
@@ -93,6 +94,8 @@ Where:
 * **odbdir** (optional) is the full path to a directory where the Neo4j database will be migrated. The directory will be created by the import tool. In case the directory exists already, the _Neo4j to OrientDB Importer_ will behave accordingly to the value of the option `o` (see below). The default value of `odbdir` is `$ORIENTDB_HOME/databases/neo4j_import`.  
 
 * **o** (optional). If `true` the `odbdir` directory will be overwritten, if it exists. If `false` and the `odbdir` directory exists, a warning will be printed and the program will exit. The default value of `o` is `false`.
+
+* **i** (optional). If `true` a unique index on the property `Neo4jRelID` will be created, for all migrated edge classes. This will allows you to query relationships by original Neo4j relationship Ids. The default value of `i` is `false`.
 
 If the _Neo4j to OrientDB Importer_ is launched without parameters, it fails because **-neo4jlibdir** and **-neo4jdbdir** are mandatory.
 
@@ -188,13 +191,6 @@ Below some migration best practices.
 During the migration, a log file is created.
 
 The log can be found at `path_to_orientDB/log/orientdb-neo4j-importer.log`.
-
-
-## Migration Tuning
-
-The parameter `-XX:MaxDirectMemorySize=4g` is hardcoded inside the start scripts `orientdb-neo4j-importer.sh` and `orientdb-neo4j-importer.bat`.
-
-Depending on the amount of available memory on your system, you may want to increase this value.
 
 
 ## Migration Monitoring
