@@ -187,6 +187,7 @@
     * [Usage](Functions-Use.md)
     * [Accessing the Database](Functions-DB-Access.md)
     * [Server-side Functions](Functions-Server.md)
+    * [Database](Functions-Database.md)
   * [Available Plugins and Tools](Plugins.md) 
   * [Java API](Java-API.md) 
     * [Java API Introduction](Tutorial-Java.md) 
