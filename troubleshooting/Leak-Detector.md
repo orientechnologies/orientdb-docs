@@ -41,3 +41,7 @@ The leak detection procedure looks as follows:
 6. Wait for the workload cycle to finish.
 7. Stop the OrientDB instance.
 8. Inspect the OrientDB log for leaks detected at shutdown.
+
+## See Also
+
+[Direct Memory Allocations Tracing](Direct-Memory-Tracing.md)
