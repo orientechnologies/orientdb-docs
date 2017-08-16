@@ -95,7 +95,7 @@ Where:
 
 * **o** (optional). If `true` the `odbdir` directory will be overwritten, if it exists. If `false` and the `odbdir` directory exists, a warning will be printed and the program will exit. The default value of `o` is `false`.
 
-* **i** (optional). If `true` a unique index on the property `Neo4jRelID` will be created, for all migrated edge classes. This will allows you to query relationships by original Neo4j relationship Ids. The default value of `i` is `false`.
+* **i** (optional). If `true` a unique index on the property `Neo4jRelID` will be created, for all migrated edge classes. This allows you to query relationships by original Neo4j relationship Ids. The default value of `i` is `false`.
 
 If the _Neo4j to OrientDB Importer_ is launched without parameters, it fails because **-neo4jlibdir** and **-neo4jdbdir** are mandatory.
 
