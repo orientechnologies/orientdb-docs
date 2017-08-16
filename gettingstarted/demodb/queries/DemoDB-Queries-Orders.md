@@ -3,9 +3,17 @@
 
 ## Example 1
 
-Calculate the total revenues from Orders:
+Calculate the total revenues from Orders, and the min, max and average Order amount:
 
-<pre><code class="lang-sql">SELECT sum(Amount) AS TotalRevenuesFromOrders FROM Orders;</code></pre>
+```sql
+SELECT 
+  count(*) as OrdersNumber, 
+  sum(Amount) AS TotalRevenuesFromOrders, 
+  min(Amount) as MinAmount,
+  (sum(Amount)/count(*)) as AverageAmount,
+  max(Amount) as MaxAmount
+FROM Orders
+```
 
 In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the visualized result:
 
