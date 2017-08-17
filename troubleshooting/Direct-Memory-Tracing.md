@@ -2,7 +2,7 @@
 
 OrientDB uses off-heap memory pool for its file cache allocations. Direct memory allocations tracing allows to trace allocations done by this pool.
 
-> Use direct memory allocations tracing for debugging and troubleshooting purposes only, since it significantly slowdowns OrientDB off-heap memory management infrastructure. Never leave the leak detector turned on in a production setup.
+> Use direct memory allocations tracing for debugging and troubleshooting purposes only, since it significantly slowdowns OrientDB off-heap memory management infrastructure. Never leave the tracer turned on in a production setup.
 
 ## Activating Allocations Tracing
 
@@ -10,7 +10,7 @@ To activate allocations tracing provide the `memory.directMemory.trace=true` con
 
     java ... -Dmemory.directMemory.trace=true ...
 
-Tracing may be turned on or off at startup time only, at runtime changing the `memory.directMemory.trace` setting will have no effect.
+Alternatively, you may enable/disable the tracer at runtime by changing the value of `OGlobalConfiguration#DIRECT_MEMORY_TRACE` setting or by invoking `startTracing`/'stopTracing' operation on the `com.orientechnologies.common.directmemory:type=OByteBufferPoolMXBean` JMX bean.
 
 ## Inspecting the Log
 
@@ -43,6 +43,8 @@ You may change the "spamness" of the tracer by adjusting the value of `memory.di
 * `low` – for low aggregation which provides more details.
 * `medium` (default) – provides medium level of details.
 * `high` – provides low level of details.
+
+Alternatively, you may adjust the aggregation level at runtime by changing the value of `OGlobalConfiguration#DIRECT_MEMORY_TRACE_AGGREGATION` setting or by changing the value of the `TraceAggregation` attribute on the `com.orientechnologies.common.directmemory:type=OByteBufferPoolMXBean` JMX bean.
 
 ## See Also
 
