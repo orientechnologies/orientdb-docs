@@ -685,6 +685,7 @@
     * [Dynamic Hooks](internals/Dynamic-Hooks.md) 
     * [Java (Native) Hooks](java/Java-Hooks.md)
   * [Server](internals/DB-Server.md) 
+    * [Server Status](internals/Server-Status.md) 
   * [Web Server](internals/Web-Server.md) 
   * [Binary Protocol](internals/Network-Binary-Protocol.md) 
     * [CSV Serialization](internals/Record-CSV-Serialization.md) 
