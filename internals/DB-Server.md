@@ -29,6 +29,9 @@ Upon startup, the server runs on port 2424 for the binary protocol and 2480 for 
 
 To stop a running server, press CTRL+C in the open shell that runs the Server instance or soft kill the process to be sure that the opened databases close softly. Soft killing on Windows can be done by closing the window. On Unix-like systems, a simple kill is enough (Do not use kill -9 unless you want to force a hard shutdown).
 
+## Dump the server status
+In order to display the internal status of an OrientDB server, you can send an interrupt to the process. In Unix based OS you can do that by executing `kill -5 <orientdb-server-pid>`. To know more about this topic, please visit the [Server Status] page.
+
 ## Connect to the server
 
 ### By Console
