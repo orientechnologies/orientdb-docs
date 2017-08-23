@@ -20,7 +20,10 @@
       "twitter": "https://twitter.com/OrientDB",
       "gitter": "https://gitter.im/orientechnologies/orientdb",
       "all": "https://orientdb.com"
-    }
+    },
+	"javase": "https://docs.oracle.com/javase/8/docs",
+	"javadoc": "https://orientdb.com/javadoc/2.2.x"
+
   },
   "pdf": {
     "toc": true,
