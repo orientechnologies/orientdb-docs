@@ -81,6 +81,16 @@ DELETE EDGE
 
   This feature was introduced in version 2.1.
 
+
+- To delete edges from sub-query given a class:
+
+  <pre>
+  orientdb> <code class="lang-sql userinput">DELETE EDGE E WHERE @rid IN (SELECT @rid FROM E)</code>
+  </pre>
+
+
+
+
 >For more information, see
 >
 >- [`DELETE`](SQL-Delete.md)
