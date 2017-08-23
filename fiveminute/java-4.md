@@ -58,7 +58,7 @@ Please cosider that edges are plain documents, so you can get/set properties on 
 #### Executing queries
 
 Last step of this journey: let's write and execute a simple query that finds friends of friends (FoaF) of a person.
-We will use a [SELECT](../SQL/SQL-Query.md) for this.
+We will use a [SELECT](../sql/SQL-Query.md) for this.
 
 ```java
   private static void executeAQuery(ODatabaseSession db) {
@@ -86,7 +86,7 @@ or, if you prefer Java Streams API:
 ```
 
 Let's try a more complex query, let's find all the people that are friends of both Alice and Jim.
-We will use a [MATCH](../SQL/SQL-MATCH.md) for this.
+We will use a [MATCH](../sql/SQL-Match.md) for this.
 
 ```java
   private static void executeAnotherQuery(ODatabaseSession db) {
@@ -225,7 +225,7 @@ public class Main {
 ## Next steps:
 
 You may be interested in:
-- [More details about the Java Multi-Model API](java/Java-MultiModel-API.md)
-- [Full SQL Syntax](sql/README.md)
+- [More details about the Java Multi-Model API](../java/Java-MultiModel-API.md)
+- [Full SQL Syntax](../sql/README.md)
 
 

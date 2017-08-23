@@ -14,7 +14,7 @@ Alternatively, you may enable/disable the tracer at runtime by changing the valu
 
 ## Inspecting the Log
 
-After activation of the tracing, information about relevant events will be written to [regular OrientDB log](/admin/Logging.md). Related log entries are marked with the `DIRECT-TRACE` label. General format of the log entry looks like:
+After activation of the tracing, information about relevant events will be written to [regular OrientDB log](../admin/Logging.md). Related log entries are marked with the `DIRECT-TRACE` label. General format of the log entry looks like:
 
     DIRECT-TRACE $event: $name = $before + $delta = $after, buffer = $buffer_id
 
@@ -49,4 +49,4 @@ Alternatively, you may adjust the aggregation level at runtime by changing the v
 ## See Also
 
 * [Memory Leak Detector](Leak-Detector.md)
-* [Logging](/admin/Logging.md)
+* [Logging](../admin/Logging.md)
