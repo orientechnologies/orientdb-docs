@@ -66,10 +66,10 @@ That retrieves all the CRITICAL logs of March 2012, 20th at 10am.
 
 # Join multiple hours #
 
-If you need multiple hours/days/months as result set you can use the UNION function to create a unique result set:
+If you need multiple hours/days/months as result set you can use the `unionAll()` function to create a unique result set:
 ```sql
 SELECT expand( records ) from (
-  SELECT union( month[3].day[20].hour[10].logs, month[3].day[20].hour[11].logs ) AS records
+  SELECT unionAll( month[3].day[20].hour[10].logs, month[3].day[20].hour[11].logs ) AS records
   FROM Year WHERE year = "2012"
 )
 ```
@@ -85,7 +85,7 @@ So putting all together this query will extract all the logs of all the hours in
 
 ```sql
 SELECT expand( logs ) FROM (
-  SELECT union( logs ) AS logs FROM (
+  SELECT unionAll( logs ) AS logs FROM (
     TRAVERSE hour FROM (
      SELECT expand( month[3].day[20] ) FROM Year WHERE year = "2012"
     )

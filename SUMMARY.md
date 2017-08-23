@@ -501,6 +501,7 @@
     * [Java (Native) Hooks](Java-Hooks.md) 
     * [Java Hook Tutorial](Tutorial-Java-Hooks.md) 
   * [Server](DB-Server.md) 
+    * [Server Status](Server-Status.md) 
     * [Embed the Server](Embedded-Server.md) 
     * [Web Server](Web-Server.md)
   * [System Database](System-Database.md)
