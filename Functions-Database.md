@@ -48,7 +48,20 @@ As demonstrated in the example above, once you've retrieved the database interfa
 
 | Method | Description |
 |---|---|
+| [**`addEdge()`**](Functions-Database-addEdge.md) | Adds edge to graph |
+| [**`command()`**](Functions-Database-command.md) | Issues SQL command |
+| [**`delete()`**](Functions-Database-delete.md) | Removes records |
+| [**`getEdge()`**](Functions-Database-getEdge.md) | Retrieves edges |
+| [**`getVertex()`**](Functions-Database-getVertex.md) | Retrieves vertices |
+| [**`load()`**](Functions-Database-load.md) | Retrieves records |
 | [**`query()`**](Functions-Database-query.md) | Queries the database |
+
+### Database Methods
+
+| Method | Description |
+|---|---|
+| [**`open()`**](Functions-Database-open.md) | Opens the database |
+| [**`close()`**](Functions-Database-close.md) | Closes the database |
 
 
 ### Class Methods
@@ -56,12 +69,14 @@ As demonstrated in the example above, once you've retrieved the database interfa
 | Method | Description |
 |---|---|
 | [**`browseClass()`**](Functions-Database-browseClass.md) | Returns all records in a class |
+| [**`countClass()`**](Functions-Database-countClass.md) | Counts records in given class |
 
 ### Cluster Methods
 
 | Method | Description |
 |---|---|
 | [**`browseCluster()`**](Functions-Database-browseCluster.md) | Returns all records in a cluster |
+| [**`dropCluster()`**](Functions-Database-dropCluster.md) | Removes cluster |
 | [**`getClusterIdByName()`**](Functions-Database-getClusterIdByName.md) | Retrieves  the Cluster ID for the given cluster |
 | [**`getClusterNameById()`**](Functions-Database-getClusterNameById.md) | Retrieves logical cluster name  |
 | [**`getClusterNames()`**](Functions-Database-getClusterNames.md) | Retrieve cluster names |
