@@ -50,14 +50,14 @@ In a social network-like domain, a user profile is connected to friends through 
 - Specify fields and depth up to the third level, using the [`BREADTH_FIRST`](Java-Traverse.md#traversing-strategies) strategy:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">TRAVERSE out("Friend") FROM #10:1234 WHILE $depth &lt;= 3 
+  orientdb> <code class="lang-sql userinput">TRAVERSE out("Friend") FROM #10:1234 MAXDEPTH 3 
             STRATEGY BREADTH_FIRST</code>
   </pre>
 
 - Execute the same command, this time filtering for a minimum depth to exclude the first target vertex:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE out("Friend") FROM #10:1234 WHILE $depth &lt;= 3) 
+  orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE out("Friend") FROM #10:1234 MAXDEPTH 3) 
             WHERE $depth >= 1</code>
   </pre>
 
@@ -66,7 +66,7 @@ In a social network-like domain, a user profile is connected to friends through 
 - Combine traversal with [`SELECT`](SQL-Query.md) command to filter the result-set.  Repeat the above example, filtering for users in Rome:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE out("Friend") FROM #10:1234 WHILE $depth &lt;= 3) 
+  orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE out("Friend") FROM #10:1234 MAXDEPTH 3) 
             WHERE city = 'Rome'</code>
   </pre>
 
@@ -74,14 +74,14 @@ In a social network-like domain, a user profile is connected to friends through 
 
   <pre>
   orientdb> <code class='lang-sql userinput'>SELECT FROM (TRAVERSE out("Actors"), out("Movies") FROM (SELECT FROM 
-            Movie WHERE producer = "J.J. Abrams") WHILE $depth &lt;= 3) WHERE 
+            Movie WHERE producer = "J.J. Abrams") MAXDEPTH 3) WHERE 
             @class = 'Movie'</code>
   </pre>
 
 - Display the current path in the traversal:
 
   <pre>
-  orientdb> <code class='lang-sql userinput'>SELECT $path FROM ( TRAVERSE out() FROM V WHILE $depth &lt;= 10 )</code>
+  orientdb> <code class='lang-sql userinput'>SELECT $path FROM ( TRAVERSE out() FROM V MAXDEPTH 10 )</code>
   </pre>
 
 
@@ -131,8 +131,7 @@ When you already know traversal information, such as relationship names and dept
 For example, this query traverses the `follow` relationship on Twitter accounts, getting the second level of friendship:
 
 <pre>
-orientdb> <code class='lang-sql userinput'>SELECT FROM (TRAVERSE out('follow') FROM TwitterAccounts WHILE 
-          $depth &lt;= 2) WHERE $depth = 2</code>
+orientdb> <code class='lang-sql userinput'>SELECT FROM (TRAVERSE out('follow') FROM TwitterAccounts MAXDEPTH 2) WHERE $depth = 2</code>
 </pre>
 
 But, you could also express this same query using [`SELECT`](SQL-Query.md) operation, in a way that is also shorter and faster:
@@ -168,7 +167,7 @@ In a domain for emails, to find all messages sent on January 1, 2012 from the us
 
 <pre>
 orientdb> <code class="lang-sql userinput">SELECT FROM (TRAVERSE outE(), inV() FROM (SELECT FROM User WHERE 
-          name = 'Luca') WHILE $depth <= 2 AND (@class = 'Message' or 
+          name = 'Luca') MAXDEPTH 2 AND (@class = 'Message' or 
           (@class = 'SentMessage' AND sentOn = '01/01/2012') )) WHERE 
           @class = 'Message'</code>
 </pre>
@@ -217,7 +216,7 @@ SELECT FROM <target> WHERE <field> TRAVERSE[(<minDeep> [,<maxDeep> [,<fields>]])
 
   <pre>
   orientdb> <code class='lang-sql userinput'>SELECT FROM Profile LET $temp = (SELECT FROM (TRAVERSE * FROM $current
-            WHILE $depth &lt;= 3) WHERE city = 'Rome') WHERE $temp.size() > 0</code>
+            MAXDEPTH 3) WHERE city = 'Rome') WHERE $temp.size() > 0</code>
   </pre>
 
 - Consider an example using the Graph Query, with the following schema:
@@ -232,7 +231,7 @@ SELECT FROM <target> WHERE <field> TRAVERSE[(<minDeep> [,<maxDeep> [,<fields>]])
  
   <pre>
   orientdb> <code class='lang-sql userinput'>SELECT DISTINCT(in.lid) AS lid,distinct(in.fid) AS fid FROM 
-            (TRAVERSE outE(), inV() FROM #10:11 WHILE $depth &lt;=1) WHERE 
+            (TRAVERSE outE(), inV() FROM #10:11 MAXDEPTH 1) WHERE 
             @class = 'Friends'</code>
   </pre>
 
@@ -240,7 +239,7 @@ SELECT FROM <target> WHERE <field> TRAVERSE[(<minDeep> [,<maxDeep> [,<fields>]])
 
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT distinct(in.lid) AS lid, distinct(in.fid) AS fid FROM 
-            (TRAVERSE outE(), inV() FROM #10:11 WHILE $depth &lt;=3) WHERE 
+            (TRAVERSE outE(), inV() FROM #10:11 WHILE MAXDEPTH 3) WHERE 
             @class = 'Friends'</code>
   </pre>
 
