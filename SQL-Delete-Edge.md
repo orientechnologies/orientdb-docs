@@ -127,6 +127,12 @@ orientdb> <code class="lang-sql userinput">DELETE EDGE E WHERE @rid IN (SELECT F
 
 This removes the edge from your database.
 
+To delete edges from sub-query given a class:
+
+<pre>
+orientdb> <code class="lang-sql userinput">DELETE EDGE E WHERE @rid IN (SELECT @rid FROM E)</code>
+</pre>
+
 ### Deleting Edges through Java
 
 When a `User` node follows a `company` node, we create an edge between the user and the company of the type `followCompany` and `CompanyFollowedBy` classes.  We can then remove the relevant edges through Java.
