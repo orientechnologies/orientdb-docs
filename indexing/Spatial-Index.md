@@ -121,6 +121,35 @@ Result
 
 ```
 
+### ST_AsGeoJSON
+
+Syntax : ST_AsGeoJSON(geom)
+
+Example
+
+```SQL
+select ST_AsGeoJSON(ST_GeomFromText("POINT (12.4684635 41.8914114)"))
+
+Result
+----------
+{"type":"Point","coordinates":[12.468464,41.891411]}
+```
+
+### ST_GeomFromGeoJSON
+
+Syntax : ST_GeomFromGeoJSON(getJsonText)
+
+Example
+
+```SQL
+select ST_GeomFromGeoJSON('{"type":"Point","coordinates":[12.4684635,41.8914114]}')
+
+Result
+----------------------------------------------------------------------------------
+{"@type":"d","@version":0,"@class":"OPoint","coordinates":[12.4684635,41.8914114]}
+
+
+
 ### ST_Equals
 
 Returns true if geom1 is spatially equal to geom2
