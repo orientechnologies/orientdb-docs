@@ -63,3 +63,13 @@ LIMIT 3
 In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the visualized result:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_36_browse.png)
+
+
+## Example 5
+
+{% include "./include-file-9.md" %}
+
+
+## Example 6
+
+{% include "./include-file-10.md" %}

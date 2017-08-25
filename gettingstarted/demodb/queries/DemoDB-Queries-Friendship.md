@@ -20,19 +20,22 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN frien
 
 If you would like only to count them, you can execute a query like the following:
 
-<pre><code class="lang-sql">SELECT COUNT(*) 
+```sql
+SELECT COUNT(*) 
 FROM (
-  MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} RETURN friend
+  MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend} 
+  RETURN friend
 )
-</code></pre>
+```
 
 or
 
-<pre><code class="lang-sql">SELECT 
-  (in('HasFriend').size() + out('HasFriend').size()) AS FriendsNumber 
+```sql
+SELECT 
+  both('HasFriend').size() AS FriendsNumber 
 FROM `Profiles` 
 WHERE Name='Santo' AND Surname='OrientDB'
-</code></pre>
+```
 
 
 ## Example 2
@@ -89,14 +92,15 @@ SELECT
 FROM (
   SELECT expand(customer) 
   FROM (
-    MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer
+    MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} 
+    RETURN customer
   )
 ) 
 ORDER BY NumberOfOrders DESC 
 LIMIT 3
 ```
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_5_browse.png)
 
@@ -114,14 +118,15 @@ SELECT
 FROM (
   SELECT expand(customer) 
   FROM (
-    MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} RETURN customer
+    MATCH {Class: Profiles, as: profile, where: (Name='Santo' AND Surname='OrientDB')}-HasFriend-{Class: Profiles, as: friend}<-HasProfile-{class: Customers, as: customer} 
+    RETURN customer
   )
 ) 
 ORDER BY NumberOfVisits DESC 
 LIMIT 3
 ```
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_6_browse.png)
 
@@ -162,7 +167,7 @@ SELECT
 FROM (
   SELECT expand(customerFriend) 
   FROM (
-    MATCH {Class:Customers, as: customer}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend} 
+    MATCH {Class:Customers, as: customer}-HasProfile-{Class:Profiles, as: profile}-HasFriend-{Class:Profiles, as: customerFriend}     
     RETURN customerFriend
   )
 ) 

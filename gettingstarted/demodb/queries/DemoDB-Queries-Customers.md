@@ -3,12 +3,17 @@
 	
 ## Example 1
 
-Find everything that is connected (1st degree) to Customer with Id 1:
+Find everything that is connected (1st degree) to Customer with OrderedId 1:
 
 ```sql
 MATCH {class: Customers, as: c, where: (OrderedId=1)}--{as: n} 
 RETURN $pathelements
 ```
+
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
+
+![](../../../images/demo-dbs/social-travel-agency/query_37_graph.png)
+
 
 ## Example 2
 
@@ -22,39 +27,57 @@ RETURN $pathelements
 
 ## Example 4
 
-Find the other Customers that visited the Locations visited by Customer with Id 1:
+Find the other Customers that visited the Locations visited by Customer with OrderedId 1:
 
 ```sql
-MATCH {class: Customers, as: c, where: (OrderedId=1)}--{class: Locations, as: loc}--{class: Customers, as: otherCustomers, where: (OrderedId<>1)} 
-RETURN otherCustomers.OrderedId, loc.Name, loc.Type
+MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{class: Locations, as: loc}--{class: Customers, as: otherCustomers, where: (OrderedId<>1)} 
+RETURN $pathelements
 ```
 
-if we want to return also also their Profile names, surnames and emails:
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
+
+![](../../../images/demo-dbs/social-travel-agency/query_40_graph.png)
+
+If we want to return also also their Profile names, surnames and emails:
 
 ```sql
-MATCH {class: Customers, as: c, where: (OrderedId=1)}--{class: Locations, as: loc}--{class: Customers, as: otherCustomers, where: (OrderedId<>1)}-HasProfile->{class: Profiles, as: profile} 
-RETURN otherCustomers.OrderedId, loc.Name, loc.Type, profile.Name, profile.Surname, profile.Email
+MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{class: Locations, as: loc}--{class: Customers, as: otherCustomers, where: (OrderedId<>1)}-HasProfile->{class: Profiles, as: profile} 
+RETURN otherCustomers.OrderedId, profile.Name, profile.Surname, profile.Email
+ORDER BY `otherCustomers.OrderedId` ASC
 ```
+
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN otherCustomers.OrderedId, profile.Name, profile.Surname, profile.Email'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+
+![](../../../images/demo-dbs/social-travel-agency/query_40_browse.png)
 
 
 ## Example 5
 
-Find all the places where Customer with Id 1 has stayed:
+Find all the places where Customer with OrderedId 2 has stayed:
 
 ```sql
-MATCH {as: n}<-HasStayed-{class: Customers, as: c, where: (OrderedId=1)} 
+MATCH {as: n}<-HasStayed-{class: Customers, as: c, where: (OrderedId=2)} 
 RETURN $pathelements
 ```
+
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
+
+![](../../../images/demo-dbs/social-travel-agency/query_41_graph.png)
 
 
 ## Example 6
 
-Find all places where Customer with Id 1 has eaten:
+Find all places where Customer with OrderedId 1 has eaten:
 
 ```sql
 MATCH {as: n}<-HasEaten-{class: Customers, as: c, where: (OrderedId=1)} 
 RETURN $pathelements
 ```
+
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'RETURN $pathelements'_ as `RETURN` clause, this is the obtained graph:
+
+![](../../../images/demo-dbs/social-travel-agency/query_42_graph.png)
+
 
 ## Example 7
 
@@ -63,25 +86,13 @@ RETURN $pathelements
 
 ## Example 8
 
-Find all Orders placed by Customer with Id 1:
+{% include "./include-file-9.md" %}
 
-```sql
-MATCH {class: Customers, as: c, where: (OrderedId=1)}<-HasCustomer-{class: Orders, as: o} 
-RETURN $pathelements
-```
 
 ## Example 9
 
-Calculate the total revenues from Orders associated with Customer with Id 1:
+{% include "./include-file-10.md" %}
 
-```sql
-SELECT sum(Amount) 
-FROM (
-  SELECT expand(in('HasCustomer'))
-  FROM Customers
-  WHERE OrderedId=2
-)
-```
 
 ## Example 10
 
