@@ -1,5 +1,5 @@
 
-## Custom Console Commands
+# Custom Console Commands
 
 In addition to the commands implemented by OrientDB, you can also develop custom commands to extend features in your particular implementation. To do this, edit the [OConsoleDatabaseApp](https://github.com/orientechnologies/orientdb/blob/master/tools/src/main/java/com/orientechnologies/orient/console/OConsoleDatabaseApp.java) class and add to it a new method.  There's an auto-discovery system in place that adds the new method to the available commands. To provide a description of the command, use annotations. The command name must follow the Java code convention of separating words using camel-case.
 

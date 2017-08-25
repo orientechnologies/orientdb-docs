@@ -1,10 +1,10 @@
 
-## Console Modes
+# Console Modes
 
 There are two modes available to you, while executing commands through the OrientDB Console: interactive mode and batch mode.
 
 
-### Interactive Mode
+## Interactive Mode
 
 By default, the Console starts in interactive mode.  In this mode, the Console loads to an `orientdb>` prompt.  From there you can execute commands and SQL statements as you might expect in any other database console.
 
@@ -24,7 +24,7 @@ orientdb>
 From here, you can begin running SQL statements or commands.  For a list of these commands, see [commands](Console-Commands.md#console-commands).
 
 
-### Batch mode
+## Batch mode
 
 When the Console runs in batch mode, it takes commands as arguments on the command-line or as a text file and executes the commands in that file in order.  Use the same `console.sh` or `console.bat` file found in `bin` at the OrientDB installation directory.
 
@@ -44,7 +44,7 @@ When the Console runs in batch mode, it takes commands as arguments on the comma
   </pre>
 
 
-#### Ignoring Errors
+### Ignoring Errors
 
 When running commands in batch mode, you can tell the console to ignore errors, allowing the script to continue the execution, with the `ignoreErrors` setting.
 
@@ -56,7 +56,7 @@ $ <code class="lang-sh userinput">vim commands.txt</code>
 </pre>
 
 
-#### Enabling Echo
+### Enabling Echo
 
 Regardless of whether you call the commands as an argument or through a file, when you run console commands in batch mode, you may also need to display them as they execute.  You can enable this feature using the `echo` setting, near the start of your commands list.
 
@@ -68,7 +68,7 @@ $ <code class='lang-sh userinput'>vim commands.txt</code>
 </pre>
 
 
-### Enabling Date in prompt
+## Enabling Date in prompt
 
 Starting from v2.2.9, to enable the date in the prompt, set the variable `promptDateFormat` with the date format following the [SimpleDateFormat specs](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html).
 

@@ -3,6 +3,11 @@ search:
    keywords: ['import', 'Neo4j', 'migration', 'GraphML', 'movie', 'cypher', 'tutorial']
 ---
 
+| | |
+|----|-----|
+|![](../../images/warning.png)| This is a legacy strategy to migrate from Neo4j. The new strategy is to migrate using the [Neo4j to OrientDB Importer](../../neo4j-to-orientdb-importer/README.md). 
+
+
 # Tutorial: Importing the *movie* Database from Neo4j
 
 In this tutorial we will follow the steps described in the [Import from Neo4j using GraphML](../../admin/Import-from-Neo4j-using-GraphML.md) section to import the Neo4j's *movie* example database into OrientDB.

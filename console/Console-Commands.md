@@ -1,5 +1,5 @@
 
-## Console Commands
+# Console Commands
 
 OrientDB implements a number of SQL statements and commands that are available through the Console. In the event that you need information while working in the console, you can access it using either the `HELP` or `?` command.
 
