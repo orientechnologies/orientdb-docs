@@ -1,7 +1,7 @@
 Calculate the total revenues from Orders associated with Customer with Id 2:
 
 ```sql
-SELECT sum(Amount) 
+SELECT sum(Amount) as TotalAmount 
 FROM (
   SELECT expand(in('HasCustomer'))
   FROM Customers
