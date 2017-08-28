@@ -14,7 +14,7 @@
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
     "lastGA": "3.0.0m1",
     "currentVersion": "3.0.0-M1",
-    "demoDBVersion_screenshots": "0.75"
+    "demoDBVersion_screenshots": "0.76"
   },  
   "links": {
     "home": "http://www.orientdb.com",
