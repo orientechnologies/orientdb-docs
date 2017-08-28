@@ -27,6 +27,10 @@ MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r}
 RETURN $pathelements
 ```
 
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using the query above, this is the obtained graph:
+
+![](../../../images/demo-dbs/social-travel-agency/query_45_graph.png)
+
 
 ## Example 3
 
@@ -36,6 +40,10 @@ Find all reviewed Services and the Customer who made the review:
 MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r}<-MadeReview-{class: Customers, as: c} 
 RETURN $pathelements 
 ```
+
+In the _Graph Editor_ included in [Studio](../../../studio/README.md), using the query above, this is the obtained graph:
+
+![](../../../images/demo-dbs/social-travel-agency/query_46_graph.png)
 
 
 ## Example 4
@@ -55,7 +63,6 @@ ORDER BY ReviewNumbers DESC
 In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:
 
 ![](../../../images/demo-dbs/social-travel-agency/query_34_browse.png)
-
 
 
 ## Example 5
