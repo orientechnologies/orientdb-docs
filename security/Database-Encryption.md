@@ -7,7 +7,7 @@ search:
 
 Beginning with version 2.2, OrientDB can encrypt records on disk.  This prevents unauthorized users from accessing database content or even from bypassing OrientDB security.  OrientDB does not save the encryption key to the database.  You must provide it at run-time.  In the event that you lose the encryption key, the database, (or at least the parts of the database you have encrypted), you lose access to its content.
 
-> **NOTE**: As of 2.2 this feature is in beta.  It will be final with 2.2 GA.
+> **NOTE**: Encryption at rest is not supported on remote protocol yet. It can be used only with plocal. 
 
 Encryption works through the encryption interface.  It acts at the cluster (collection) level.  OrientDB supports two algorithms for encryption:
 
