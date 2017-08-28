@@ -15,17 +15,17 @@ In the _Graph Editor_ included in [Studio](../../../studio/README.md), using the
 ![](../../../images/demo-dbs/social-travel-agency/query_35_graph.png)
 
 
-## Example 1
+## Example 2
 
 {% include "./include-file-7.md" %}
 
 
-## Example 2
+## Example 3
 
 {% include "./include-file-8.md" %}
 
 
-## Example 3
+## Example 4
 
 Find all Locations visited by Customer with OrderedId 2:
 
@@ -43,7 +43,7 @@ In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN locat
 ![](../../../images/demo-dbs/social-travel-agency/query_18_browse.png)
 
 
-## Example 4
+## Example 5
 
 Find all Locations visited by Santo's friends:
 
