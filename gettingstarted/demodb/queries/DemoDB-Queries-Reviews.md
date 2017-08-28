@@ -7,10 +7,10 @@ Find number of Reviews per star:
 
 ```sql
 SELECT 
-  Stars, count(*) as count 
+  Stars, count(*) as Count 
 FROM HasReview 
 GROUP BY Stars 
-ORDER BY count DESC
+ORDER BY Count DESC
 ```
 
 In the _Browse Tab_ of [Studio](../../../studio/README.md), using the query above, this is the obtained list of records:

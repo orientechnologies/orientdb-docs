@@ -1,5 +1,5 @@
 
-# Business-Opportunities 
+# Business Opportunities 
 
 ## Example 1
 
@@ -13,7 +13,7 @@ Find all the Customer Friends that are not Customers (so that a product can be p
 In the _Graph Editor_ included in [Studio](../../../studio/README.md), using the query below, this is the obtained graph:
 
 ```sql
-SELECT DISTINCT FROM (
+SELECT DISTINCT * FROM (
   SELECT expand(customerFriend) 
   FROM ( 
     MATCH 
