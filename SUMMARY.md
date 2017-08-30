@@ -114,6 +114,7 @@
                 * [List Clusters](console/Console-Command-Clusters.md) 
                 * [List Servers](console/Console-Command-List-Servers.md) 
                 * [List Server Users](console/Console-Command-List-Server-Users.md)
+                * [Check Database](console/Console-Command-Check-Database.md) 
                 * [Config](console/Console-Command-Config.md) 
                 * [Config Get](console/Console-Command-Config-Get.md) 
                 * [Config Set](console/Console-Command-Config-Set.md) 
