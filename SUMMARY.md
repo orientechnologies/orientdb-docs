@@ -41,6 +41,7 @@
     * [List Clusters](Console-Command-Clusters.md) 
     * [List Servers](Console-Command-List-Servers.md) 
     * [List Server Users](Console-Command-List-Server-Users.md) 
+    * [Check Database](Console-Command-Check-Database.md) 
     * [Commit](Console-Command-Commit.md) 
     * [Config](Console-Command-Config.md) 
     * [Config Get](Console-Command-Config-Get.md) 
