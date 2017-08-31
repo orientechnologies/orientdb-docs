@@ -144,15 +144,6 @@ The `item` data structure has the following shape:
 Maps can have keys with the following types:
 
 - STRING
-- SHORT
-- INTEGER
-- LONG
-- BYTE
-- DATE
-- DATETIME
-- DECIMAL
-- FLOAT
-- DOUBLE
 
 As of now though, **all keys are converted to STRINGs**.
 
@@ -168,7 +159,7 @@ An EMBEDDEDMAP is serialized as an header and a list of values.
 
 The link is stored as two 64 bit integers: the cluster id and the record's position in the cluster.
 
-    (cluster-id:int64)(record-position:int64)
+    (cluster-id:varint)(record-position:varint)
 
 ### LINKLIST, LINKSET
 
@@ -181,15 +172,6 @@ Link collections (lists and sets) are serialized as the size of the collection a
 Maps of links can have keys with the following types:
 
 - STRING
-- SHORT
-- INTEGER
-- LONG
-- BYTE
-- DATE
-- DATETIME
-- DECIMAL
-- FLOAT
-- DOUBLE
 
 As of now though, **all keys are converted to STRINGs**.
 
@@ -217,4 +199,37 @@ Decimals are converted to integers and stored as the scale and the value. For ex
 
 ### LINKBAG
 
-No documentation yet. :(
+LinkBag is a dynamic collection of links that change the way to store link from inside a document to an outside structure following the number of entries in the collection.
+
+The collection is made by two parts an header and a content:
+
+      (config:byte)(uuid-low:int64)?(uuid-high:int64)?(content:rid-bag-content)
+      
+The header formate by:
+ - **config** is a byte where the first bit if 1 means embedded content if 0 means link to external collection and the second bit if is 1 are present uuid-low and uuid-high parts if 0 are missing
+ - **uuid-low** to ignore
+ - **uuid-hig** to ignore
+      
+in case RidBag Embedded the content is:
+
+      (n-entries:int32)[(cluster-id:int16)(cluster-position:int64)]*
+
+where:
+ - **n-entries** is the number of link present
+ - **cluster-id** is the clusterId  for the link
+ - **cluster-position** is the clusterPosition for the link
+
+
+RidBag Tree
+
+      (filed-id:int64)(page-index:int64)(page-offset:int32)(n-changes)[(cluster-id:int16)(cluster-position:int64)(change-type:byte)(change:int32)]*
+
+where:
+ - **filed-id**  part of extern collection identifier 
+ - **page-index** part of extern collection identifier
+ - **page-offeset** part of extern collection identifier
+ - **n-changes** number of changes happened for the collection in update
+ - **cluster-id** the cluster id of the change
+ - **cluster-position** the cluster position of the change
+ - **change-type** the type of the change 1 abusolute change, 0 diff change
+ - **chage** an int that define the change type
