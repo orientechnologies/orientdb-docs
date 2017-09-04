@@ -41,8 +41,8 @@ In the second step you have to specify the parameters about the OrientDB target 
   - INFO
   - WARNING
   - ERROR
-- `Overwrite Database`, flag to overwrite OrientDB target database if it already exists.
-- `Create indices on edges`, flag to create indices on imported edges in OrientDB. In this way an index will be built for each Edge class on `'Neo4jRelId'` property.
+- `Overwrite Database`, checkbox to overwrite OrientDB target database if it already exists.
+- `Create indices on edges`, checkbox to create indices on imported edges in OrientDB. In this way an index will be built for each Edge class on `'Neo4jRelId'` property.
 
 ![Neo4jImporter Step 2](images/studio-neo4j-importer/studio-neo4jimporter-step2.png)
 
@@ -50,7 +50,7 @@ Once we have collected all the info, you can run your configured job through the
 
 ![Job Running](images/studio-neo4j-importer/studio-neo4jimporter-job-running.png)
 
-At the end of the migration, statistics and warnings about the process are reported as shown below:
+At the end of the migration, statistics about the process are reported as shown below:
 
 ![Migration Job Completed](images/studio-neo4j-importer/studio-neo4jimporter-job-completed.png)
 
@@ -63,9 +63,9 @@ Internally, the *Neo4j to OrientDB Importer* makes use of:
 
 The migration consists of four phases:
 
-- **Phase 1**: Initialization of the connection to Neo4j
+- **Phase 1**: Connection initialization to Neo4j
 - **Phase 2**: Migration of nodes and relationships present in the source graph database
-- **Phase 3**: Schema info migration
+- **Phase 3**: Schema migration
 - **Phase 4**: Shutdown of the connection to Neo4j and summary info reporting
 
 #### General Migration Details
