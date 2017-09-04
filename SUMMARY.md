@@ -144,7 +144,7 @@
     * [Data Centers](Studio-Data-Centers.md) (Enterprise Edition)
     * [Query Profiler](Studio-Query-Profiler.md) (Enterprise Edition)
     * [Studio Auditing](Studio-Auditing.md) (Enterprise Edition)
-    * [Studio](Studio-Backup-Management.md) (Enterprise Edition)
+    * [Studio Backup Management](Studio-Backup-Management.md) (Enterprise Edition)
     * [Teleporter](Studio-Teleporter.md)
     * [Neo4j to OrientDB Importer](Studio-Neo4j-Importer.md)
   * [Teleporter](Teleporter-Home.md) migration tool
