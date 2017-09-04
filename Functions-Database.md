@@ -48,13 +48,20 @@ As demonstrated in the example above, once you've retrieved the database interfa
 
 | Method | Description |
 |---|---|
-| [**`addEdge()`**](Functions-Database-addEdge.md) | Adds edge to graph |
+| [**`addEdge()`**](Functions-Database-addEdge.md) | Adds edges to the graph |
+| [**`addVertex()`**](Functions-Database-addVertex.md) | Adds vertices to the graph |
 | [**`command()`**](Functions-Database-command.md) | Issues SQL command |
 | [**`delete()`**](Functions-Database-delete.md) | Removes records |
 | [**`getEdge()`**](Functions-Database-getEdge.md) | Retrieves edges |
+| [**`getEdgeBaseType()`**](Functions-Database-getEdgeBaseType.md) | Retrieves the base class for edges, which is `E` by default |
+| [**`getEdgeType()`**](Functions-Database-getEdgeType.md) | Retrieves the given edge class |
 | [**`getVertex()`**](Functions-Database-getVertex.md) | Retrieves vertices |
+| [**`getVertexBaseType()`**](Functions-Database-getVertexBaseType.md) | Retrieves the base class for vertices, which is `V` by default |
+| [**`getVertexType()`**](Functions-Database-getEdgeType.md) | Retrieves the given edge class |
 | [**`load()`**](Functions-Database-load.md) | Retrieves records |
 | [**`query()`**](Functions-Database-query.md) | Queries the database |
+| [**`removeEdge()`**](Functions-Database-removeEdge.md) | Removes edges from a graph |
+| [**`removeVertex()`**](Functions-Database-removeVertex.md) | Removes vertices from a graph |
 
 ### Database Methods
 
