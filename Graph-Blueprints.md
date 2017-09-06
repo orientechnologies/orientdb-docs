@@ -220,7 +220,7 @@ graph.command(
 	);
 ```
 
-You can also use the same parameter multiple times in the same query, eg. people the following is valid:
+You can also use the same parameter multiple times in the same query, eg. the following is valid:
 
 ```java
 Map<String, Object> params = new HashMap<String, Object>();
