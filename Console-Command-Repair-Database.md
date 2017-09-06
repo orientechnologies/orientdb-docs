@@ -5,15 +5,16 @@ search:
 
 # Console - `REPAIR DATABASE`
 
-Repairs the database.
+Repairs a database. To check if a database needs to be repaired, you can use the [Check Database Command](Console-Command-Check-Database.md).
 
 **Syntax**
 
 ```sql
 REPAIR DATABASE [--fix-graph [-skipVertices=<vertices>] [-skipEdges=<edges>]]
-                [--fix-links] [-v]]
+                [--fix-links]
                 [--fix-ridbags]
                 [--fix-bonsai]
+                [-v]
 ```
 
 - **`[--fix-graph]`** Fixes the database as graph. All broken edges are removed and all corrupted vertices repaired. This mode takes the following optional parameters:
@@ -22,6 +23,7 @@ REPAIR DATABASE [--fix-graph [-skipVertices=<vertices>] [-skipEdges=<edges>]]
 - **`[--fix-links]`** Fixes links. It removes any reference to not existent records. The optional `[-v]` tells to print more information.
 - **`[--fix-ridbags]`** Fixes the ridbag structures only (collection of references). 
 - **`[--fix-bonsai]`** Fixes the bonsai structures only (internal representation of trees)
+- **`[-v]`** Verbose mode
 
 **Examples**
 

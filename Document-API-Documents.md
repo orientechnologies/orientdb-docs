@@ -51,7 +51,7 @@ While OrientDB is a NoSQL database implementation, it does support a subset of S
 
 ```java
 List<ODocument> result = db.query(
-   new OSQLQuery<ODocument>(
+   new OSQLSynchQuery<ODocument>(
       "SELECT FROM Animal WHERE id = 10
       AND NAME LIKE 'G%'"
    )

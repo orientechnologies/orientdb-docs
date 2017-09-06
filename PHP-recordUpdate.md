@@ -9,7 +9,7 @@ This method updates records on the database.
 
 ## Updating Records
 
-Your applications users may occasionally want to make changes to the database.  Using this method you can update existing records on the database.  In the event that you attempt to update a record that does not exist, this method creates it for you.
+Your applications users may occasionally want to make changes to the database.  Using this method you can update existing records on the database.
 
 ### Syntax
 
