@@ -187,7 +187,7 @@ SELECT * FROM testClass WHERE prop1 = ?
 For deep understanding of query optimization look at [the unit test](https://github.com/orientechnologies/orientdb/blob/master/tests/src/test/java/com/orientechnologies/orient/test/database/auto/SQLSelectIndexReuseTest.java).
 
 
-### Use parameters instead of hard-wired values
+### Use parameters instead of hardwired values
 
 Query parsing is not an extremely expensive operation, but zero cost is better than low cost, right?
 
