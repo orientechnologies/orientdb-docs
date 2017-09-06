@@ -53,15 +53,13 @@ As demonstrated in the example above, once you've retrieved the database interfa
 | [**`command()`**](Functions-Database-command.md) | Issues SQL command |
 | [**`delete()`**](Functions-Database-delete.md) | Removes records |
 | [**`getEdge()`**](Functions-Database-getEdge.md) | Retrieves edges |
-| [**`getEdgeBaseType()`**](Functions-Database-getEdgeBaseType.md) | Retrieves the base class for edges, which is `E` by default |
-| [**`getEdgeType()`**](Functions-Database-getEdgeType.md) | Retrieves the given edge class |
 | [**`getVertex()`**](Functions-Database-getVertex.md) | Retrieves vertices |
-| [**`getVertexBaseType()`**](Functions-Database-getVertexBaseType.md) | Retrieves the base class for vertices, which is `V` by default |
-| [**`getVertexType()`**](Functions-Database-getEdgeType.md) | Retrieves the given edge class |
+| [**`isUseLightweightEdges()`**](Functions-Database-isUseLightweightEdges.md) | Check if database uses [Lightweight Edges](Lightweight-Edges.md) |
 | [**`load()`**](Functions-Database-load.md) | Retrieves records |
 | [**`query()`**](Functions-Database-query.md) | Queries the database |
 | [**`removeEdge()`**](Functions-Database-removeEdge.md) | Removes edges from a graph |
 | [**`removeVertex()`**](Functions-Database-removeVertex.md) | Removes vertices from a graph |
+| [**`setUseLightweightEdges()`**](Functions-Database-setUseLightweightEdges.md) | Enable or disable the use of [Lightweight Edges](Lightweight-Edges.md) |
 
 ### Database Methods
 
@@ -77,6 +75,15 @@ As demonstrated in the example above, once you've retrieved the database interfa
 |---|---|
 | [**`browseClass()`**](Functions-Database-browseClass.md) | Returns all records in a class |
 | [**`countClass()`**](Functions-Database-countClass.md) | Counts records in given class |
+| [**`createEdgeType()`**](Functions-Database-createEdgeType.md) | Creates a new class for edges |
+| [**`createVertexType()`**](Functions-Database-createVertexType.md) | Creates a new class for vertices |
+| [**`dropEdgeType()`**](Functions-Database-dropEdgeType.md) | Removes an edge class |
+| [**`dropVertexType()`**](Functions-Database-dropVertexType.md) | Removes a vertex class |
+| [**`getEdgeBaseType()`**](Functions-Database-getEdgeBaseType.md) | Retrieves the base class for edges, which is `E` by default |
+| [**`getEdgeType()`**](Functions-Database-getEdgeType.md) | Retrieves the given edge class |
+| [**`getVertexBaseType()`**](Functions-Database-getVertexBaseType.md) | Retrieves the base class for vertices, which is `V` by default |
+| [**`getVertexType()`**](Functions-Database-getEdgeType.md) | Retrieves the given edge class |
+
 
 ### Cluster Methods
 
@@ -97,7 +104,9 @@ As demonstrated in the example above, once you've retrieved the database interfa
 |---|---|
 | [**`begin()`**](Functions-Database-begin.md) | Initiates a transaction |
 | [**`commit()`**](Functions-Database-commit.md) | Commits a transaction |
+| [**`isAutoStartTx()`**](Functions-Database-isAutoStartTx) | Checks whether transaction auto-start is enabled |
 | [**`rollback()`**](Functions-Database-rollback.md) | Reverts a transaction |
+| [**`setAutoStartTx()`**](Functions-Database-setAutoStartTx.md) | Enables transaction auto-start |
 
 ### User Methods
 
@@ -105,3 +114,12 @@ As demonstrated in the example above, once you've retrieved the database interfa
 |---|---|
 | [**`getUser()`**](Functions-Database-getUser.md) | Retrieves the current user |
 | [**`setUser()`**](Functions-Database-setUser.md) | Sets the user |
+
+### Size Methods
+
+| Method | Description |
+|---|---|
+| [**`countClass()`**](Functions-Database-countClass.md) | Counts records in given class |
+| [**`countEdges()`**](Functions-Database-countEdges.md) | Counts edge records |
+| [**`countVertices()`**](Functions-Database-countVertices.md) | Counts vertex records |
+
