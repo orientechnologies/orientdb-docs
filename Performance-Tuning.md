@@ -187,6 +187,37 @@ SELECT * FROM testClass WHERE prop1 = ?
 For deep understanding of query optimization look at [the unit test](https://github.com/orientechnologies/orientdb/blob/master/tests/src/test/java/com/orientechnologies/orient/test/database/auto/SQLSelectIndexReuseTest.java).
 
 
+### Use parameters instead of hard-wired values
+
+Query parsing is not an extremely expensive operation, but zero cost is better than low cost, right?
+
+When you execute an SQL query, OrientDB parses the query text and produces an [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree). This structure is cached at storage level, so if you execute the query again, OrientDB will avoid to parse it again and will just pick the AST from the cache.
+
+In most cases, your application will execute a very limited number of queries, but with different condition values, eg.
+
+```sql
+SELECT FROM Person WHERE name = 'Joe';
+SELECT FROM Person WHERE name = 'Jenny';
+SELECT FROM Person WHERE name = 'Frank';
+SELECT FROM Person WHERE name = 'Anne';
+```
+
+With these queries, OrientDB has to perform parsing operations each time.
+
+Re-writing the query as follows:
+
+```sql
+SELECT FROM Person WHERE name = ?;
+```
+
+or 
+
+```sql
+SELECT FROM Person WHERE name = :theName;
+```
+
+and passing the name as a parameter (see the docs for your language driver, eg [TinkerPop API](Graph-Blueprints.md)) allows OrientDB to parse the query only once and then cache it. The second time you execute the same query, even with different parameters, there will be no parsing at all.
+
 ### Parallel queries
 
 Starting from v2.2, the OrientDB SQL executor will decide if execute or not a query in parallel. To tune parallel query execution these are the new settings:
