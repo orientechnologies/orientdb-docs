@@ -180,6 +180,59 @@ graph.getRawGraph().getMetadata().getSchema().reload();
 
 >For more information, see [SQL Commands](SQL.md)
 
+### Prepared statements
+
+Hardwiring values in a command/query is not a good practice, it can lead to SQL injection and it's inefficient in terms of query parsing.
+
+OrientDB allows you to define named and positional parameters for queries and to pass the parameter values to the `execute()` method
+
+#### Positional parameters
+
+Positional parameters are represented in the query string as question marks `?`. 
+The `execute()` method accepts positional parameters as single values, or as an `Object[]`
+
+eg.
+
+```java
+graph.command(
+          new OCommandSQL("UPDATE Customer SET local = true WHERE name = ? and surname = ?")
+	  ).execute("John", "Smith")
+	);
+```
+
+The parameters are assigned in the same order as they appear in the query.
+
+#### Named parameters
+
+Positional parameters are represented in the query string as a name prefixed by a colon: `:<paramName>`. 
+The `execute()` method accepts positional parameters as a `Map<String, Object>`, where the key is the parameter name (without the `:`) and the value is the parameter value.
+
+eg.
+
+```java
+Map<String, Object> params = new HashMap<String, Object>();
+params.put("theName", "John");
+params.put("theSurname", "Smith");
+
+graph.command(
+          new OCommandSQL("UPDATE Customer SET local = true WHERE name = :theName and surname = :theSurname")
+	  ).execute(params)
+	);
+```
+
+You can also use the same parameter multiple times in the same query, eg. people the following is valid:
+
+```java
+Map<String, Object> params = new HashMap<String, Object>();
+params.put("theName", "John");
+
+graph.command(
+          new OCommandSQL("UPDATE Customer SET local = true WHERE name = :theName and surname = :theName")
+	  ).execute(params)
+	);
+```
+
+
 ### SQL Batch
 
 To execute multiple SQL commands in a batch, use the `OCommandScript` and SQL as the language.  This is recommended when creating edges on the server-side, to minimize the network roundtrip.
