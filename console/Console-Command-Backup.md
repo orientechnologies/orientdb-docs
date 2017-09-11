@@ -24,6 +24,10 @@ BACKUP DATABASE <output-file> [-incremental] [-compressionLevel=<compressionLeve
 - **-`compressionLevel`** Defines the level of compression for the backup file.  Valid levels are `0` to `9`.  The default is `9`.  Available in 1.7 or later.
 - **`-bufferSize`** Defines the compression buffer size.  By default, this is set to 1MB.  Available in 1.7 or later.
 
+**Permissions:**
+
+In order to enable a user to execute this command, you must add `"database.backup"` as resource to the [database user](Database-Security.md#users).
+
 **Example:**
 
 - Backing up a database:
