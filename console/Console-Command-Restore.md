@@ -20,6 +20,9 @@ RESTORE DATABASE <backup-file>|<incremental-backup-directory>
 - **`<backup-file>`** Defines the database file you want to restore.
 - **`<incremental-backup-directory>`** Defines the database directory you want to restore from an incremental backup. Available only in [OrientDB Enterprise Edition](../ee/Enterprise-Edition.md) version 2.2 and major.
 
+**Permissions:**
+
+In order to enable a user to execute this command, you must add the permission of `create` for the resource `database.restore` to the [database user](Database-Security.md#users).
 
 **Example of full restore**
 
