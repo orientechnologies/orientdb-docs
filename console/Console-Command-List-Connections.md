@@ -15,6 +15,7 @@ LIST CONNECTIONS
 ```
 
 **Permissions**
+
 In order to enable a user to execute this command, you must add `"server.info"` as resource to the [server user](Console-Command-Set-Server-User.md).
 
 **Example**
