@@ -26,7 +26,7 @@ BACKUP DATABASE <output-file> [-incremental] [-compressionLevel=<compressionLeve
 
 **Permissions:**
 
-In order to enable a user to execute this command, you must add `"database.backup"` as resource to the [database user](Database-Security.md#users).
+In order to enable a user to execute this command, you must add the permission of `create` for the resource `database.backup` to the [database user](Database-Security.md#users).
 
 **Example:**
 
