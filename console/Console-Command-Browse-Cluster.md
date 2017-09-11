@@ -17,6 +17,10 @@ BROWSE CLUSTER <cluster-name>
 
 - **`<cluster-name>`** Defines the cluster for the records you want to display.
 
+**Permissions:**
+
+In order to enable a user to execute this command, you must add the permission of `read` for the resource `database.cluster.<class>` to the [database user](Database-Security.md#users).
+
 **Example:**
 
 - Browse records associated with the cluster `City`:
