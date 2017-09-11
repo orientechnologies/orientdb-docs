@@ -13,7 +13,8 @@ Displays all active connections to the OrientDB Server.  Command introduced in v
 LIST CONNECTIONS
 ```
 
-** Permissions **
+**Permissions**
+
 In order to enable a user to execute this command, you must add `"server.info"` as resource to the [server user](Console-Command-Set-Server-User.md).
 
 **Example**
