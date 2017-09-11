@@ -14,8 +14,11 @@ Displays all records associated with the given class.
 ```
 BROWSE CLASS <class-name>
 ```
-
 - **`<class-name>`** Defines the class for the records you want to display.
+
+**Permissions:**
+
+In order to enable a user to execute this command, you must add the permission of `read` for the resource `database.class.<class>` to the [database user](Database-Security.md#users).
 
 **Example:**
 
