@@ -378,6 +378,39 @@ Parameters
 * *end*: end delimiter for highlighted text (default \</B>)
 * *maxNumFragments*: maximum number of text's fragments to highlight
 
+### Sorting
+
+Documents retrieved by a search call are ordered by their score. It is possible to configure the way the document are sorted.
+Read carefully the official documentation about sorting : https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/Sort.html
+
+<pre>
+<code class="lang-sql userinput">SELECT name, description, size FROM City
+WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
+    "sort": [ { 'field': 'size', reverse:true, type:'INT' }]
+}) = true</code>
+</pre>
+
+Sort over multiple fields is possible:
+
+
+<pre>
+<code class="lang-sql userinput">SELECT name, description, size FROM City
+WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
+    "sort": [
+        { 'field': 'size', reverse:true, type:'INT' },
+        { 'field': 'name', reverse:false, type:'STRING' },
+        { reverse:false, type:'DOC' },
+        ]
+}) = true</code>
+</pre>
+
+Sort configuraton:
+* *field*: is the field name. Could be absent only if the sort type is DOC or INDEX
+* *reverse*: if set to true, will sort for the given field in reverse order
+* *type*: look to https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/SortField.Type.html
+
+*CUSTOM* type is not supported
+
 ### Cross class search (Enterprise Edition)
 
 Bundled with the enterprise edition there's the *SEARH_CROSS* function that is able to search over all the Lucene indexes defined on a database
