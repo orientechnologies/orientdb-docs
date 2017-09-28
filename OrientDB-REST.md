@@ -1105,6 +1105,74 @@ Syntax: `http://<server>:[<port>]/server/<setting-name>/<setting-value>`
 ### Example on changing the default timeout for query to 10 seconds
     localhost:2480/server/configuration.command.timeout/10000
 
+
+## DISTRIBUTED
+
+### GET - Status
+Shows the status of the OrientDB Server in distributed mode. Server authentication required.
+
+Syntax: `http://<ip>:<port>/distributed/stats`
+
+HTTP Response:
+
+```
+{
+    "localName": "cluster",
+    "localId": "f3e70ed0-3f9a-4a64-afa4-ccd82368c774",
+    "members": [
+        {
+            "id": 0,
+            "uuid": "f3e70ed0-3f9a-4a64-afa4-ccd82368c774",
+            "name": "node1",
+            "publicAddress": null,
+            "startedOn": "2017-09-28 11:03:49:167",
+            "status": "ONLINE",
+            "connections": 0,
+            "listeners": [
+                {
+                    "protocol": "ONetworkProtocolBinary",
+                    "listen": "192.168.14.1:2424"
+                },
+                {
+                    "protocol": "ONetworkProtocolHttpDb",
+                    "listen": "192.168.14.1:2480"
+                }
+            ],
+            "user_replicator": "-9131097675098168918",
+            "databases": [
+                "GratefulDeadConcerts"
+            ],
+            "usedMemory": 104192088,
+            "freeMemory": 105523112,
+            "maxMemory": 3817865216,
+            "latencies": {},
+            "messages": {},
+            "cpu": 0.25265485966884516
+        }
+    ],
+    "clusterStats": {
+        "node1": {
+            "realtime": {
+                "from": 1506589429001,
+                "to": 9223372036854775807,
+                "chronos": {},
+                "statistics": {},
+                "counters": {},
+                "sizes": {},
+                "texts": {},
+                "tips": {}
+            }
+        }
+    },
+    "databasesStatus": {
+        "GratefulDeadConcerts": {
+            "node1": "ONLINE"
+        }
+    }
+}
+```
+
+
 ## Connection
 
 ### POST - Connection
