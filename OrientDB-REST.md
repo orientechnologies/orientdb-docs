@@ -1109,7 +1109,7 @@ Syntax: `http://<server>:[<port>]/server/<setting-name>/<setting-value>`
 ## DISTRIBUTED
 
 ### GET - Status
-Shows the status of the OrientDB Server in distributed mode. Server authentication required.
+Shows the status of the OrientDB Server in distributed mode only with Enterprise Edition. Server authentication required.
 
 Syntax: `http://<ip>:<port>/distributed/stats`
 
