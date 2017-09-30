@@ -78,7 +78,7 @@ When OrientDB starts to serialize records goes recursively from the root A. When
 #### com.orientechnologies.common.concur.lock.OLockException: File '/tmp/databases/demo/default.0.oda' is locked by another process, maybe the database is in use by another process. Use the remote mode with a OrientDB server to allow multiple access to the same database
 
 Both errors have the same meaning: a "plocal" database can't be opened by multiple JVM at the same time. To fix:
-- check if there's no process using OrientDB (most of the times a OrientDB Server is running i the background). Just shutdown that server and retry
+- check if there's no process using OrientDB (most of the times a OrientDB Server is running in the background). Just shutdown that server and retry
 - if you need multiple access to the same database, don't use "plocal" directly, but rather start a server and access to the database by using "remote" protocol. In this way the server is able to share the same database with multiple clients.
 
 
