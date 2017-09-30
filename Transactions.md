@@ -14,7 +14,7 @@ A database transaction, by definition, must be [atomic](#atomicity), [consistent
 
 OrientDB is an [ACID](#acid-properties) compliant DBMS.
 
->**NOTE**: OrientDB keeps the transaction on client RAM, so the transaction size is affected by the available RAM (Heap memory) on JVM. For transactions involving many records, consider to split it in multiple transactions.
+>**NOTE**: OrientDB keeps the transaction on sever RAM, so the transaction size is affected by the available RAM (Heap memory) on JVM. For transactions involving many records, consider to split it in multiple transactions.
 
 ## ACID properties
 ### Atomicity
