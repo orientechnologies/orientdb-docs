@@ -141,7 +141,7 @@ In order to install the service:
 1. Open the Windows command shell
 1. Go to _%ORIENTDB_HOME%\service_, for example typing in the shell <code>> cd D:\orientdb-graphed-1.0rc5\service</code>
 1. Execute the *installService.bat* specifying the *jvm.dll* location and the OrientDB Home as full paths, for example typing in the shell <code>> installService.bat "C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll" D:\orientdb-graphed-1.0rc5</code>
-1. Open the Windows Services Management Console - from the taskbar, click on *Start*, *Control Panel*, *Administrative Tools* and then *Service* - and check the existance of a service with the same name specified as value of the <code>--DisplayName</code> parameter (in this case **OrientDB GraphEd 1.0rc5**). You can also use _%ORIENTDB_HOME%\service\OrientDBGraphw.exe_ to manage and monitor the *OrientDBGraph* service.
+1. Open the Windows Services Management Console - from the taskbar, click on *Start*, *Control Panel*, *Administrative Tools* and then *Service* - and check the existance of a service with the same name specified as value of the <code>--DisplayName</code> parameter (in this case **OrientDB GraphEd X.X.X**). You can also use _%ORIENTDB_HOME%\service\OrientDBGraphw.exe_ to manage and monitor the *OrientDBGraph* service.
 
 
 
