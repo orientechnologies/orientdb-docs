@@ -86,33 +86,34 @@ ODatabaseDocumentTx db = new ODatabaseDocumentTx
 
 ### Using Database Pools
 
-It is not always the best practice to create database instances every time you need them.  In cases where your application needs to scale to many database connections, such as in the case of a web app, it's often better to pool the instances together to improve performance.  By default, OrientDB provides a global pool declared with a maximum of twenty instances.  You can use it with: `ODatabaseDocumentPool.global()`, for instance,
+It is not always the best practice to create database instances every time you need them.  In cases where your application needs to scale to many database connections, such as in the case of a web app, it's often better to pool the instances together to improve performance:
 
 ```java
 // OPEN DATABASE
-ODatabaseDocumentTx db = ODatabaseDocumentPool.global()
-      .acquire("remote:localhost/petshop", 
-      "admin", "admin_passwd");
+OPartitionedDatabasePool pool =  new OPartitionedDatabasePool(url , "admin", "admin_passswrd");
+ODatabaseDocumentTx db = pool.acquire();
+
 try {
    // YOUR CODE
    ...
 } finally {
    db.close()
 }
+
+// eventually close the pool with pool.close()
 ```
 
 Remember to close the database instance using the `.close()` database method as you would with classic non-pooled databases.  In cases like the above example, closing the database instance does not actually close it.  Rather, closing it releases the instance back to the pool, where it's made available to future requests.
 
 >**NOTE**: It's best practice to use the `try`/`finally` blocks here, as it helps you to ensure the database instances are returned to the pool rather than left open.
 
-### Using Custom Pools
+### Database pool size
 
-In addition to the standard database pools, you can also set up custom database pools, with defined minimum and maximum managed instances.  Bear in mind, when using deployments of this kind, you need to close the pool when it's no longer needed.  For instance,
+You can manually define the size of the database pool (ie. the minimum and maximum number of database instances in the pool) explicitly passing these values to the constructor.  Bear in mind, when using deployments of this kind, you need to close the pool when it's no longer needed:
 
 ```java
 // CREATE A NEW POOL WITH 1 - 10 INSTANCES
-ODatabaseDocumentPool pool = new ODatabaseDocumentPool();
-pool.setup(1, 10);
+OPartitionedDatabasePool pool =  new OPartitionedDatabasePool(url , "admin", "admin_passswrd", 1, 10);
 ...
 pool.close()
 ```

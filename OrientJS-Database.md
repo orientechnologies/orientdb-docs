@@ -58,7 +58,7 @@ var db = new ODatabase({
    port:     2424,
    username: 'admin',
    password: 'admin',
-   name:     'GratefulDeadCocnerts'
+   name:     'GratefulDeadConcerts'
 });
 
 db.open().then(function() {

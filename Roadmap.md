@@ -15,13 +15,13 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 ```
 - Development started on.: June 2016
 - Expected first M1......: January 2017
-- Expected first M2......: February 2017
-- Expected first RC......: March 2017
-- Expected final GA......: March/April 2017
+- Expected first M2......: August 2017
+- Expected first RC......: October 2017
+- Expected final GA......: November 2017
 ```
 
 ### Status
-Last update: December 14, 2016
+Last update: September 14, 2017
 
 For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://github.com/orientechnologies/orientdb/issues/6005).
 
@@ -34,16 +34,17 @@ For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://git
 | Core | Improved DISKCACHE algorithm| 60%  |
 | Core | Index per cluster | 0% |
 | Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
+| Core | Indexing of embedded properties | 20% |
+| Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 100%|
 | SQL | Distributed SQL Executor | 70% |
 | SQL | Multi-line queries in batch scripts | 100% |
 | Java API | New factories | 100% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
-| Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 70% |
-| Remote protocol | Support for server-side transactions | 10% |
-| Remote protocol | Support for server-side cursors | 90% |
-| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
-| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |0% |
-| Distributed | Auto-Sharding | 10% |
+| Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 100% |
+| Remote protocol | Support for server-side transactions | 100% |
+| Remote protocol | Support for server-side cursors | 100% |
+| Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |30% |
+| Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |30% |
 | Distributed | Optimized network protocol to send only the delta between updates| 50% |
 
 
@@ -55,17 +56,15 @@ For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://git
 ```
 
 ### Status
-Last update: April 12, 2015
+Last update: September 14, 2017
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 0%|
-| Core | Indexing of embedded properties | 0% |
 | Core | Override of properties | 0% |
 | Core | Enhance isolation level also for remote commands| 0% |
+| Distributed | Auto-Sharding | 10% |
 | Distributed | Optimized replication for cross Data Center | 0% |
 | Distributed | Replication of in-memory databases | 0% |
 | Lucene | Faceted search | 20% |
-| Java API | [ODocument.update()](https://github.com/orientechnologies/orientdb/issues/4813)  | 0% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | New functions (strings, maths) | 40% |
