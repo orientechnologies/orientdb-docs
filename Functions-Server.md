@@ -24,20 +24,20 @@ var params = request.getParameters();
 
 |Method signature|Description|Return type|
 |----------------|-----------|-----------|
-|`getContent()`|Returns the request content.|String|
-|`getUser()`|Gets the request user name.|String|
-|`getContentType()`|Returns the request content type.|String|
-|`getHttpVersion()`|Return the request HTTP version.|String|
-|`getHttpMethod()`|Return the request HTTP method called.|String|
-|`getIfMatch()`|Return the request IF-MATCH header.|String|
-|`isMultipart()`|Returns if the request is multi-part. |boolean|
-|`getArguments()`|Returns the request arguments passed in REST form. Example: `/2012/10/26`.|String[]|
-|`getArgument(<position>)`|Returns the request argument by position, or `null` if not found.|String|
-|`getParameters()`|Returns the request parameters.|String|
-|`getParameter(<name>`)|Returns the request parameter by name or null if not found.|String|
-|`hasParameters(<name>*`)|Returns the number of parameters found between those passed.|Integer|
-|`getSessionId()`|Returns the session-id.|String|
-|`getURL()`|Returns the request URL.|String|
+| [**`getContent()`**](Functions-Server-getContent.md) |Returns the request content.|String|
+|[**`getUser()`**](Functions-Server-getUser.md)|Gets the request user name.|String|
+|[**`getContentType()`**](Functions-Server-getContentType.md)|Returns the request content type.|String|
+|[**`getHttpVersion()`**](Functions-Server-getHttpVersion.md)|Return the request HTTP version.|String|
+|[**`getHttpMethod()`**](Functions-Server-getHttpMethod.md)|Return the request HTTP method called.|String|
+|[**`getIfMatch()`**](Functions-Server-getIfMatch.md)|Return the request IF-MATCH header.|String|
+|[**`isMultipart()`**](Functions-Server-isMultipart.md)|Returns if the request is multi-part. |boolean|
+|[**`getArguments()`**](Functions-Server-getArguments.md)|Returns the request arguments passed in REST form. Example: `/2012/10/26`.|String[]|
+|[**`getArgument(<position>)`**](Functions-Server-getArgument.md)|Returns the request argument by position, or `null` if not found.|String|
+|[**`getParameters()`**](Functions-Server-getParameters.md)|Returns the request parameters.|String|
+|[**`getParameter(<name>)`**](Functions-Server-getParameter.md)|Returns the request parameter by name or null if not found.|String|
+|[**`hasParameters(<name>, ...)`**](Functions-Server-hasParameters.md)|Returns the number of parameters found between those passed.|Integer|
+|[**`getSessionId()`**](Functions-Server-getSessionId.md)|Returns the session-id.|String|
+|[**`getURL()`**](Functions-Server-getURL.md)|Returns the request URL.|String|
 
 
 
@@ -70,28 +70,26 @@ if( roles == null || roles.length == 0 ){
 
 |Method signature|Description|Return type|
 |----------------|-----------|-----------|
-|`getHeader()`|Returns the response additional headers.|String|
-|`setHeader(String header)`|Sets the response additional headers to send back. To specify multiple headers use the line breaks. |Request object|
-|`getContentType()`|Returns the response content type. If null will be automatically detected.|String|
-|`setContentType(String contentType)`|Sets the response content type.  If null will be automatically detected.|Request object|
-|`getCharacterSet()`|Returns the response character set used.|String|
-|`setCharacterSet(String characterSet)`|Sets the response character set.|Request object|
-|`getHttpVersion()`| Returns the HTTP version. |String|
-|`writeStatus(int httpCode, String reason)`|Sets the response status as HTTP code and reason.|Request object|
-|`writeStatus(int httpCode, String reason)`|Sets the response status as HTTP code and reason.|Request object|
-|`writeHeaders(String contentType)`|Sets the response headers using the keep-alive.|Request object|
-|`writeHeaders(String contentType, boolean keepAlive)`|Sets the response headers specifying when using the keep-alive or not.|Request object|
-|`writeLine(String content)`|Writes a line in the response. A line feed will be appended at the end of the content.|Request object|
-|`writeContent(String content)` |Writes content directly to the response. |Request object|
-|`writeRecords(List<OIdentifiable> records)` |Writes records as response. The records are serialized in JSON format. |Request object|
-|`writeRecords( List<OIdentifiable> records, String fetchPlan)`|Writes records as response specifying a fetch-plan to serialize nested records. The records are serialized in JSON format. |Request object|
-|`writeRecord(ORecord record)` | Writes a record as response. The record is serialized in JSON format.|Request object|
-|`writeRecord(ORecord record, String fetchPlan)` | Writes a record as response. The record is serialized in JSON format.|Request object|
-|`send(int code, String reason, String contentType, Object content)` | Sends the complete HTTP response in one call.|Request object|
-|`send(int code, String reason, String contentType, Object content, String headers)` |Sends the complete HTTP response in one call specifying additional headers. Keep-alive is set. |Request object|
-|`send(int code, String reason, String contentType, Object content, String headers, boolean keepAlive)` | Sends the complete HTTP response in one call specifying additional headers. |Request object|
-|`sendStream(int code, String reason, String contentType, InputStream content, long size)` | Sends the complete HTTP response in one call specifying a stream as content.|Request object |
-|`flush()`| Flushes the content to the TCP/IP socket. |Request object|
+| [**`getHeader()`**](Functions-Server-getHeader.md) |Returns the response additional headers.|String|
+| [**`setHeader(String header)`**](Functions-Server-setHeader.md) |Sets the response additional headers to send back. To specify multiple headers use the line breaks. |Request object|
+|[**`getContentType()`**](Functions-Server-getContentType.md)|Returns the response content type. If null will be automatically detected.|String|
+|[**`setContentType(String contentType)`**](Functions-Server-setContentType.md)|Sets the response content type.  If null will be automatically detected.|Request object|
+|[**`getCharacterSet()`**](Functions-Server-getCharacterSet.md)|Returns the response character set used.|String|
+|[**`setCharacterSet(String characterSet)`**](Functions-Server-setCharacterSet.md)|Sets the response character set.|Request object|
+|[**`getHttpVersion()`**](Functions-Server-getHttpVersion.md)| Returns the HTTP version. |String|
+|[**`writeStatus(int httpCode, String reason)`**](Functions-Server-writeStatus.md)|Sets the response status as HTTP code and reason.|Request object|
+|[**`writeHeaders(String contentType, boolean keepAlive)`**](Functions-Server-writeHeaders.md)|Sets the response headers specifying when using the keep-alive or not.|Request object|
+|[**`writeLine(String content)`**](Functions-Server-writeLine.md) |Writes a line in the response. A line feed will be appended at the end of the content.|Request object|
+|[**`writeContent(String content)`**](Functions-Server-writeContent.md) |Writes content directly to the response. |Request object|
+|[**`writeRecords(List<OIdentifiable> records)`**](Functions-Server-writeRecords.md) |Writes records as response. The records are serialized in JSON format. |Request object|
+|[**`writeRecords(List<OIdentifiable> records, String fetchPlan)`**](Functions-Server-writeRecords.md)|Writes records as response specifying a fetch-plan to serialize nested records. The records are serialized in JSON format. |Request object|
+|[**`writeRecord(ORecord record)`**](Functions-Server-writeRecord.md) | Writes a record as response. The record is serialized in JSON format.|Request object|
+|[**`writeRecord(ORecord record, String fetchPlan)`**](Functions-Server-writeRecord.md) | Writes a record as response. The record is serialized in JSON format.|Request object|
+|[**`send(int code, String reason, String contentType, Object content)`**](Functions-Server-send.md) | Sends the complete HTTP response in one call.|Request object|
+|[**`send(int code, String reason, String contentType, Object content, String headers)`**](Functions-Server-send.md) |Sends the complete HTTP response in one call specifying additional headers. Keep-alive is set. |Request object|
+|[**`send(int code, String reason, String contentType, Object content, String headers, boolean keepAlive)`**](Functions-Server-send.md) | Sends the complete HTTP response in one call specifying additional headers. |Request object|
+|[**`sendStream(int code, String reason, String contentType, InputStream content, long size)`**](Functions-Server-sendStream.md) | Sends the complete HTTP response in one call specifying a stream as content.|Request object |
+|[**`flush()`**](Functions-Server-flush.md)| Flushes the content to the TCP/IP socket. |Request object|
 
 
 
@@ -108,6 +106,6 @@ if( util.exists(year) ){
 
 |Method signature|Description|Return type|
 |----------------|-----------|-----------|
-|`exists(<variable>)`|Returns trues if any of the passed variables are defined. In JS, for example, a variable is defined if it's not null and not equal to `undefined`.|Boolean|
+|[**`exists(<variable>)`**](Functions-Server-exists.md)|Returns trues if any of the passed variables are defined. In JS, for example, a variable is defined if it's not null and not equal to `undefined`.|Boolean|
 
 
