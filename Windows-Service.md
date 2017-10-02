@@ -19,14 +19,15 @@ At the moment, the only way to properly shut down an OrientDB server instance (n
 This tutorial is focused on Windows, so you have to download *procrun*. [Procrun](http://commons.apache.org/daemon/procrun.html) is a set of applications, which allow Windows users to wrap (mostly) Java applications (e.g. Tomcat) as a Windows service. The service can be set to automatically start, when the machine boots and will continue to run with no user logged onto the machine.
 
 1. Point you browser to the [Apache Commons Daemon download page](http://commons.apache.org/daemon/download_daemon.cgi).
-1. Click on **Browse native binaries download area...**: you will see the index **commons/daemon/binaries/** (even if the title in the page reports **Index of dist/commons**).
+1. Click on **browse download area**: you will see the index **commons/daemon/**.
+1. Click on **binaries/**: you will see the index **commons/daemon/binaries/**.
 1. Click on **windows**. Now you can see the index of **commons/daemon/binaries/windows**.
-1. Click on **commons-daemon-1.0.7-bin-windows.zip**. The download starts.
+1. Click on **commons-daemon-1.0.15-bin-windows.zip**. The download starts.
 1. Unzip the file in a directory of your choice.
 The content of the archive is depicted below:
 
 ```
-commons-daemon-1.0.7-bin-windows
+commons-daemon-1.0.15-bin-windows
 |
 \---amd64
     |
@@ -93,10 +94,10 @@ set ORIENTDB_SETTINGS=-Dprofiler.enabled=true -Dcache.level1.enabled=false -Dcac
 set JAVA_OPTS_SCRIPT=-XX:+HeapDumpOnOutOfMemoryError
 
 rem Install service
-OrientDBGraphX.X.X.exe //IS --DisplayName="OrientDB GraphEd X.X.X" ^
+OrientDBGraph.exe //IS --DisplayName="OrientDB GraphEd X.X.X" ^
 --Description="OrientDB Graph Edition, aka GraphEd, contains OrientDB server integrated with the latest release of the TinkerPop Open Source technology stack supporting property graph data model." ^
 --StartClass=com.orientechnologies.orient.server.OServerMain --StopClass=com.orientechnologies.orient.server.OServerShutdownMain ^
---Classpath="%ORIENTDB_HOME%\lib\*" --JvmOptions=-Dfile.encoding=%ORIENTDB_ENCODING%;-Djava.util.logging.config.file="%LOG_FILE%";-Dorientdb.config.file="%CONFIG_FILE%";-Dorientdb.www.path="%WWW_PATH%";-Dlog.console.level=%LOG_CONSOLE_LEVEL%;-Dlog.file.level=%LOG_FILE_LEVEL%;-Dorientdb.build.number="@BUILD@";-DORIENTDB_HOME="%ORIENTDB_HOME%" ^
+--Classpath="%ORIENTDB_HOME%\lib\*;%ORIENTDB_HOME%\plugins\*" --JvmOptions=-Dfile.encoding=%ORIENTDB_ENCODING%;-Djava.util.logging.config.file="%LOG_FILE%";-Dorientdb.config.file="%CONFIG_FILE%";-Dorientdb.www.path="%WWW_PATH%";-Dlog.console.level=%LOG_CONSOLE_LEVEL%;-Dlog.file.level=%LOG_FILE_LEVEL%;-Dorientdb.build.number="@BUILD@";-DORIENTDB_HOME="%ORIENTDB_HOME%" ^
 --StartMode=jvm --StartPath="%ORIENTDB_HOME%\bin" --StopMode=jvm --StopPath="%ORIENTDB_HOME%\bin" --StopParams=-p#%ROOT_PASSWORD% --Jvm="%JVM_DLL%" --LogPath="%ORIENTDB_HOME%\log" --Startup=auto
 
 EXIT /B
@@ -150,12 +151,27 @@ In order to install the service:
 
 1. Open the Windows command shell
 1. Go to _%ORIENTDB_HOME%\service_, for example typing in the shell <code>> cd D:\orientdb-graphed-1.0rc5\service</code>
+<<<<<<< HEAD
 1. Execute the *installService.bat* specifying the *jvm.dll* location and the OrientDB Home as full paths, for example typing in the shell <code>> installService.bat "C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll" D:\orientdb-graphed-1.0rc5 ROOT_PASSWORD</code>
 1. Open the Windows Services Management Console - from the taskbar, click on *Start*, *Control Panel*, *Administrative Tools* and then *Service* - and check the existance of a service with the same name specified as value of the <code>--DisplayName</code> parameter (in this case **OrientDB GraphEd 1.0rc5**). You can also use _%ORIENTDB_HOME%\service\OrientDBGraphw.exe_ to manage and monitor the *OrientDBGraph* service.
+=======
+1. Execute the *installService.bat* specifying the *jvm.dll* location and the OrientDB Home as full paths, for example typing in the shell <code>> installService.bat "C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll" D:\orientdb-graphed-1.0rc5</code>
+1. Open the Windows Services Management Console - from the taskbar, click on *Start*, *Control Panel*, *Administrative Tools* and then *Service* - and check the existance of a service with the same name specified as value of the <code>--DisplayName</code> parameter (in this case **OrientDB GraphEd X.X.X**). You can also use _%ORIENTDB_HOME%\service\OrientDBGraphw.exe_ to manage and monitor the *OrientDBGraph* service.
+>>>>>>> 2.2.x
 
 
+## Uninstallation
 
-### Other resources
+Create the file **%ORIENTDB_HOME%\service\uninstallService.bat** with the content depicted below and run this file:
+
+```
+:: OrientDB Windows Service Uninstallation
+@echo off
+rem Uninstall service
+OrientDBGraph.exe //DS
+```
+
+## Other resources
 To learn more about how to install OrientDB on specific environment please follow the guide below:
 - [Install on Linux Ubuntu](http://famvdploeg.com/blog/2013/01/setting-up-an-orientdb-server-on-ubuntu/)
 - [Install on JBoss AS](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+JBoss+AS)

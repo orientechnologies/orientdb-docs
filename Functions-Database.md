@@ -54,20 +54,19 @@ As demonstrated in the example above, once you've retrieved the database interfa
 | [**`delete()`**](Functions-Database-delete.md) | Removes records |
 | [**`getEdge()`**](Functions-Database-getEdge.md) | Retrieves edges |
 | [**`getVertex()`**](Functions-Database-getVertex.md) | Retrieves vertices |
-| [**`isUseLightweightEdges()`**](Functions-Database-isUseLightweightEdges.md) | Check if database uses [Lightweight Edges](Lightweight-Edges.md) |
 | [**`load()`**](Functions-Database-load.md) | Retrieves records |
 | [**`query()`**](Functions-Database-query.md) | Queries the database |
 | [**`removeEdge()`**](Functions-Database-removeEdge.md) | Removes edges from a graph |
 | [**`removeVertex()`**](Functions-Database-removeVertex.md) | Removes vertices from a graph |
-| [**`setUseLightweightEdges()`**](Functions-Database-setUseLightweightEdges.md) | Enable or disable the use of [Lightweight Edges](Lightweight-Edges.md) |
 
 ### Database Methods
 
 | Method | Description |
 |---|---|
+| [**`isUseLightweightEdges()`**](Functions-Database-isUseLightweightEdges.md) | Check if database uses [Lightweight Edges](Lightweight-Edges.md) |
 | [**`open()`**](Functions-Database-open.md) | Opens the database |
 | [**`close()`**](Functions-Database-close.md) | Closes the database |
-
+| [**`setUseLightweightEdges()`**](Functions-Database-setUseLightweightEdges.md) | Enable or disable the use of [Lightweight Edges](Lightweight-Edges.md) |
 
 ### Class Methods
 
@@ -104,7 +103,7 @@ As demonstrated in the example above, once you've retrieved the database interfa
 |---|---|
 | [**`begin()`**](Functions-Database-begin.md) | Initiates a transaction |
 | [**`commit()`**](Functions-Database-commit.md) | Commits a transaction |
-| [**`isAutoStartTx()`**](Functions-Database-isAutoStartTx) | Checks whether transaction auto-start is enabled |
+| [**`isAutoStartTx()`**](Functions-Database-isAutoStartTx.md) | Checks whether transaction auto-start is enabled |
 | [**`rollback()`**](Functions-Database-rollback.md) | Reverts a transaction |
 | [**`setAutoStartTx()`**](Functions-Database-setAutoStartTx.md) | Enables transaction auto-start |
 

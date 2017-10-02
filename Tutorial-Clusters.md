@@ -9,10 +9,10 @@ search:
 
 The [Cluster](Concepts.md#cluster) is a place where a group of records are stored. Like the [Class](Concepts.md#class), it is comparable with the collection in traditional document databases, and in relational databases with the table.  However, this is a loose comparison given that unlike a table, clusters allow you to store the data of a class in different physical locations.
 
-To list all the configured clusters on your system, use the [`CLUSTERS`](Console-Command-Clusters.md) command in the console:
+To list all the configured clusters on your system, use the [`LIST CLUSTERS`](Console-Command-Clusters.md) command in the console:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CLUSTERS</code>
+orientdb> <code class="lang-sql userinput">LIST CLUSTERS</code>
 
 CLUSTERS:
 -------------+------+-----------+-----------+

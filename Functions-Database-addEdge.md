@@ -24,3 +24,8 @@ var edge = db.addEdge(<record-id>, <out>, <in>, <label>)
 - **`<label>`** Defines a name or label for the edge.
 
 >**NOTE**: You can use the [`getVertex()`](Functions-Database-getVertex.md) method to retrieve the in and out vertices to connect the edge.
+
+### Example
+
+Imagine a social networking application that  
+
