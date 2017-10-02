@@ -145,8 +145,18 @@ In order to install the service:
 1. Open the Windows Services Management Console - from the taskbar, click on *Start*, *Control Panel*, *Administrative Tools* and then *Service* - and check the existance of a service with the same name specified as value of the <code>--DisplayName</code> parameter (in this case **OrientDB GraphEd X.X.X**). You can also use _%ORIENTDB_HOME%\service\OrientDBGraphw.exe_ to manage and monitor the *OrientDBGraph* service.
 
 
+## Uninstallation
 
-### Other resources
+Create the file **%ORIENTDB_HOME%\service\uninstallService.bat** with the content depicted below and run this file:
+
+```
+:: OrientDB Windows Service Uninstallation
+@echo off
+rem Uninstall service
+OrientDBGraph.exe //DS
+```
+
+## Other resources
 To learn more about how to install OrientDB on specific environment please follow the guide below:
 - [Install on Linux Ubuntu](http://famvdploeg.com/blog/2013/01/setting-up-an-orientdb-server-on-ubuntu/)
 - [Install on JBoss AS](http://team.ops4j.org/wiki/display/ORIENT/Installation+on+JBoss+AS)
