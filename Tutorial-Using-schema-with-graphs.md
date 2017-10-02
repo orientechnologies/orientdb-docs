@@ -81,7 +81,7 @@ orientdb> <code class="lang-sql userinput">CREATE VERTEX Country SET name='UK'</
 Created vertex 'Country#14:0{name:UK} v1' in 0,004000 sec(s).
 
 
-orientdb> <code class="lang-sql userinput">CREATE EDGE Lives FROM ( SELECT FROM Person ) TO ( SELECT FROM Country</code>
+orientdb> <code class="lang-sql userinput">CREATE EDGE Lives FROM ( SELECT FROM Person ) TO ( SELECT FROM Country )</code>
 
 Created edge '[e[#11:0->#14:0][#11:0-Lives->#14:0]]' in 0,006000 sec(s).
 </pre>
