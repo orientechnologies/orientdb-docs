@@ -119,7 +119,7 @@ echo     installService JVM_DLL_location OrientDB_Home root_password
 EXIT /B
 ```
 
-The script requires two input parameters:
+The script requires three input parameters:
 
 1. The location of jvm.dll, for example _C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll_
 1. The location of the OrientDB installation folder, for example *D:\orientdb-graphed-1.0rc5*
