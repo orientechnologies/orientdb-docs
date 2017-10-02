@@ -19,14 +19,15 @@ At the moment, the only way to properly shut down an OrientDB server instance (n
 This tutorial is focused on Windows, so you have to download *procrun*. [Procrun](http://commons.apache.org/daemon/procrun.html) is a set of applications, which allow Windows users to wrap (mostly) Java applications (e.g. Tomcat) as a Windows service. The service can be set to automatically start, when the machine boots and will continue to run with no user logged onto the machine.
 
 1. Point you browser to the [Apache Commons Daemon download page](http://commons.apache.org/daemon/download_daemon.cgi).
-1. Click on **Browse native binaries download area...**: you will see the index **commons/daemon/binaries/** (even if the title in the page reports **Index of dist/commons**).
+1. Click on **browse download area**: you will see the index **commons/daemon/**.
+1. Click on **binaries/**: you will see the index **commons/daemon/binaries/**.
 1. Click on **windows**. Now you can see the index of **commons/daemon/binaries/windows**.
-1. Click on **commons-daemon-1.0.7-bin-windows.zip**. The download starts.
+1. Click on **commons-daemon-1.0.15-bin-windows.zip**. The download starts.
 1. Unzip the file in a directory of your choice.
 The content of the archive is depicted below:
 
 ```
-commons-daemon-1.0.7-bin-windows
+commons-daemon-1.0.15-bin-windows
 |
 \---amd64
     |
