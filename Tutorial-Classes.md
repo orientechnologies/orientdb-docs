@@ -12,10 +12,10 @@ The [Class](Concepts.md#class) is a concept drawn from the Object-oriented progr
 
 >For more information on classes in general, see [Wikipedia](http://en.wikipedia.org/wiki/Class_in_object-oriented_programming).
 
-To list all the configured classes on your system, use the [`CLASSES`](Console-Command-Classes.md) command in the console:
+To list all the configured classes on your system, use the [`LIST CLASSES`](Console-Command-Classes.md) command in the console:
 
 <pre>
-orientdb> <code class="lang-sql userinput">CLASSES</code>
+orientdb> <code class="lang-sql userinput">LIST CLASSES</code>
 
 CLASSES:
 -------------------+------------+----------+-----------+
