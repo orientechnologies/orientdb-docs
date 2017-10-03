@@ -26,6 +26,9 @@ MATCH
     [optional: (true | false)]
   }*
 RETURN [DISTINCT] <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
+GROUP BY <expression> [, <expression>]*
+ORDER BY <expression> [, <expression>]*
+SKIP <number>
 LIMIT <number>
 ```
 
