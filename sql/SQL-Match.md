@@ -53,23 +53,7 @@ For out(), in(), both() also a shortened *arrow* syntax is supported:
   - `$pathElements` (since 2.2.1) Indicating that all the elements that would be returned by the $paths have to be returned flattened, without duplicates.
 - **`optional`** (since 2.2.4) if set to true, allows to evaluate and return a pattern even if that particular node does not match the pattern itself (ie. there is no value for that node in the pattern). In current version, optional nodes are allowed only on right terminal nodes, eg. `{} --> {optional:true}` is allowed, `{optional:true} <-- {}` is not.
  
-**BNF Syntax**
 
-```
-MatchStatement     := ( <MATCH> MatchExpression ( <COMMA> MatchExpression )* <RETURN> Expression (<AS> Identifier)? ( <COMMA> Expression (<AS> Identifier)? )* ( Limit )? )
-	
-MatchExpression	   := ( MatchFilter ( ( MatchPathItem | MultiMatchPathItem ) )* )
-	
-MatchPathItem	   := ( MethodCall ( MatchFilter )? )
-	
-MatchPathItemFirst := ( FunctionCall ( MatchFilter )? )
-	
-MultiMatchPathItem := ( <DOT> <LPAREN> MatchPathItemFirst ( MatchPathItem )* <RPAREN> ( MatchFilter )? )
-	
-MatchFilter        := ( <LBRACE> ( MatchFilterItem ( <COMMA> MatchFilterItem )* )? <RBRACE> )
-	
-MatchFilterItem    := ( ( <CLASS> <COLON> Expression )  | ( <AS> <COLON> Identifier ) | ( <WHERE> <COLON> <LPAREN> ( WhereClause ) <RPAREN> ) | ( <WHILE> <COLON> <LPAREN> ( WhereClause ) <RPAREN> ) | ( <MAXDEPTH> <COLON> Integer ) )
-```
 
 **Examples**
 
@@ -82,7 +66,8 @@ The following examples are based on this sample data-set from the class `People`
 - Find all people with the name John:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: people, where: (name = 'John')} 
+  orientdb> <code class="lang-sql userinput">MATCH 
+                {class: Person, as: people, where: (name = 'John')} 
             RETURN people</code>
 
   ---------
@@ -96,8 +81,9 @@ The following examples are based on this sample data-set from the class `People`
 - Find all people with the name John and the surname Smith:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: people, where: (name = 'John' AND 
-            surname = 'Smith')} RETURN people</code>
+  orientdb> <code class="lang-sql userinput">MATCH 
+                {class: Person, as: people, where: (name = 'John' AND surname = 'Smith')} 
+	    RETURN people</code>
 
   -------
   people
@@ -110,8 +96,8 @@ The following examples are based on this sample data-set from the class `People`
 - Find people named John with their friends:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person, where: 
-            (name = 'John')}.both('Friend') {as: friend} 
+  orientdb> <code class="lang-sql userinput">MATCH 
+                  {class: Person, as: person, where: (name = 'John')}.both('Friend') {as: friend} 
             RETURN person, friend</code>
 
   --------+---------
@@ -129,9 +115,10 @@ The following examples are based on this sample data-set from the class `People`
 - Find friends of friends:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person, where: (name = 'John' AND
-            surname = 'Doe')}.both('Friend').both('Friend')
-			{as: friendOfFriend} RETURN person, friendOfFriend</code>
+  orientdb> <code class="lang-sql userinput">MATCH 
+                    {class: Person, as: person, where: (name = 'John' AND surname = 'Doe')}
+		    .both('Friend').both('Friend') {as: friendOfFriend} 
+		RETURN person, friendOfFriend</code>
 
   --------+----------------
    person | friendOfFriend 
