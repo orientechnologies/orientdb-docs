@@ -1,6 +1,8 @@
 node("master") {
     ansiColor('xterm') {
-
+        properties([[$class: 'BuildDiscarderProperty', 
+                 strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', 
+                            artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10']]])
         sh "rm -rf ./*"
 
         stage('Source checkout') {
