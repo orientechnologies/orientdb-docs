@@ -24,6 +24,7 @@ MATCH
     [while: (<whileCondition>)],
     [maxDepth: <number>],    
     [depthAlias: <identifier> ], 
+    [pathAlias: <identifier> ],     
     [optional: (true | false)]
   }*
 RETURN [DISTINCT] <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
@@ -47,6 +48,7 @@ For out(), in(), both() also a shortened *arrow* syntax is supported:
 - **`<whileCondition>`** Defines a condition that the statement must meet to allow the traversal of this path.  It supports the normal SQL [`WHERE`](SQL-Where.md) clause.  You can also use the `$currentMatch`, `$matched` and `$depth` [context variables](#context-variables).  For more information, see [Deep Traversal While Condition](#deep-traversal), below.
 - **`<maxDepth>`** Defines the maximum depth for this single path.
 - **`<depthAlias>`** (since 3.0M3) This is valid only if you have a `while` or a `maxDepth`. It defines the alias to be used to store the depth of this traversal. This alias can be used in the `RETURN` block to retrieve the depth of current traversal.
+- **`<pathAlias>`** (since 3.0M3) This is valid only if you have a `while` or a `maxDepth`. It defines the alias to be used to store the elements traversed to reach this alias. This alias can be used in the `RETURN` block to retrieve the elements traversed to reach this alias.
 - **`RETURN <expression> [ AS <alias> ]`** Defines elements in the pattern that you want returned.  It can use one of the following:
   - Aliases defined in the `as:` block.
   - `$matches` Indicating all defined aliases.
