@@ -11,7 +11,7 @@ node("master") {
         }
 
         stage('Generate docs for branch ${env.BRANCH_NAME}') {
-            docker.image("orientdb/jenkins-slave-gitbook:20160511").inside() {
+            docker.image("orientdb/jenkins-slave-gitbook:20160511").inside("--memory=5g") {
                 sh "rm -rf _/book/*"
                 sh "gitbook install --gitbook 3.2.2 . "
                 sh "gitbook build --gitbook 3.2.2 ."
