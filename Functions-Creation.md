@@ -64,7 +64,9 @@ In the event that you prefer working from shell environments, OrientDB also prov
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE FUNCTION factorial "if (num === 0) return 1; 
           else return num * factorial(num - 1)" 
-		  PARAMETERS [num]</code>
+		  PARAMETERS [num]
+		  LANGUAGE javascript
+		  </code> 
 </pre>
 
 #### Managing Functions
