@@ -10,7 +10,7 @@ node("master") {
     checkout scm
     echo "building docs for branch  ${env.BRANCH_NAME}"
 
-    docker.image("orientdb/jenkins-slave-gitbook:6.0.0").inside("--memory=5g") {
+    docker.image("orientdb/jenkins-slave-gitbook:6.0.0").inside("--memory=2g") {
         sh "rm -rf _/book/*"
         sh "gitbook install --gitbook 3.1.1 . "
         sh "gitbook build --gitbook 3.1.1 ."
