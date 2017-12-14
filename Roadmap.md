@@ -16,27 +16,22 @@ This page contains the roadmap with the main enhancements for the OrientDB produ
 - Development started on.: June 2016
 - Expected first M1......: January 2017
 - Expected first M2......: August 2017
-- Expected first RC......: October 2017
-- Expected final GA......: November 2017
+- Expected first RC......: December 2017
+- Expected final GA......: end of January 2018
 ```
 
 ### Status
-Last update: September 14, 2017
+Last update: December 14, 2017
 
 For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://github.com/orientechnologies/orientdb/issues/6005).
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
-| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 30% |
-| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 30% |
+| Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 100% |
 | Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
-| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 3%  |
-| Core | Improved DISKCACHE algorithm| 60%  |
-| Core | Index per cluster | 0% |
-| Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
-| Core | Indexing of embedded properties | 20% |
+| Core | Improved DISKCACHE algorithm| 100%  |
+| Core | Indexing of embedded properties | 40% |
 | Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 100%|
-| SQL | Distributed SQL Executor | 70% |
 | SQL | Multi-line queries in batch scripts | 100% |
 | Java API | New factories | 100% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
@@ -45,26 +40,31 @@ For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://git
 | Remote protocol | Support for server-side cursors | 100% |
 | Remote protocol | [Push messages on schema change](https://github.com/orientechnologies/orientdb/issues/3496) |30% |
 | Remote protocol | [Push messages on record change](https://github.com/orientechnologies/orientdb/issues/3496) |30% |
-| Distributed | Optimized network protocol to send only the delta between updates| 50% |
 
 
 ## Release 3.1
 ```
 - Development started on.: -
-- Expected first RC......: TBD
-- Expected final GA......: TBD
+- Expected first RC......: Q2 2018
+- Expected final GA......: Q3 2018
 ```
 
 ### Status
-Last update: September 14, 2017
+Last update: December 14, 2017
 
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
+| Core | [WAL Compaction](https://github.com/orientechnologies/orientdb/issues/5277) | 30% |
+| Core | Index per cluster | 0% |
 | Core | Override of properties | 0% |
+| Core | [Compression of used space on serialization](https://github.com/orientechnologies/orientdb/issues/3742)| 3%  |
 | Core | Enhance isolation level also for remote commands| 0% |
+| Core | [New data structure to manage edges](https://github.com/orientechnologies/orientdb/issues/4491)| 0% |
 | Distributed | Auto-Sharding | 10% |
 | Distributed | Optimized replication for cross Data Center | 0% |
 | Distributed | Replication of in-memory databases | 0% |
+| Distributed | Optimized network protocol to send only the delta between updates| 50% |
 | Lucene | Faceted search | 20% |
+| SQL | Distributed SQL Executor | 70% |
 | SQL | [shortestPaths() function](https://github.com/orientechnologies/orientdb/issues/4474) | 0% |
 | SQL | New functions (strings, maths) | 40% |
