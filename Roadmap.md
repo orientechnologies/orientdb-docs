@@ -28,12 +28,12 @@ For a more detailed an updated view, look at the [Roadmap 3.0 issue](https://git
 | Module | Feature | Status                     |
 |--------|---------|----------------------------|
 | Core | [Multi-Threads WAL](https://github.com/orientechnologies/orientdb/issues/2989) | 100% |
-| Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 0% |
+| Core | [Index rebuild avoid using WAL](https://github.com/orientechnologies/orientdb/issues/4568)| 100% |
 | Core | Improved DISKCACHE algorithm| 100%  |
 | Core | Indexing of embedded properties | 40% |
 | Core | [Parallel Transactions](https://github.com/orientechnologies/orientdb/issues/1677)| 100%|
 | SQL | Multi-line queries in batch scripts | 100% |
-| Java API | New factories | 100% |
+| Java API | New Multi-Model API | 100% |
 | Java API | [Improve SQL UPDATE syntax](https://github.com/orientechnologies/orientdb/issues/4814)  | 100% |
 | Java API | [Support for TinkerPop 3](https://github.com/orientechnologies/orientdb/issues/2441) | 100% |
 | Remote protocol | Support for server-side transactions | 100% |
