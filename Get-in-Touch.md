@@ -20,7 +20,7 @@ Feel free to ask your questions on StackOverflow under "orientdb" and "orient-db
 ## Gitter.io
 [![Gitter chat](https://badges.gitter.im/orientechnologies/orientdb.png)](https://gitter.im/orientechnologies/orientdb)
 
-The best Web Chat, where we have an open channel. Use this is you have a question about OrientDB.
+The best Web Chat, where we have an open channel. Use this if you have a question about OrientDB.
 
 ## IRC
 `#orientdb`
