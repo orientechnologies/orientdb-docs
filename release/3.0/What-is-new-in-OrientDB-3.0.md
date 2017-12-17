@@ -41,7 +41,7 @@ In v 3.0 TinkerPop is just an alternative graph API. The main graph API provided
 
 ![AddVertex1](../../images/ORecordHierarchy.png)
 
-**Create documets and graphs with the same API**
+**Create documents and graphs with the same API**
 
 With the ODatabaseDocument API you can now create simple documents:
 
@@ -129,7 +129,7 @@ More information about [SELECT execution planning](../../sql/SQL-Select-Executio
 
 ### Support for query on remote transactions
 
-Until V 2.2 remote connection did not allow to mix API operations and SQL statemens in the same transaction.
+Until V 2.2 remote connection did not allow to mix API operations and SQL statements in the same transaction.
 Version 3.0 finally solves this limitation, now you can mix SQL and API operations in a single, remote transaction and the tx isolation will be guaranteed by OrientDB, transparently.
 
 ### Support streaming of query result set
