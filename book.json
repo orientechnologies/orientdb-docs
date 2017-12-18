@@ -12,8 +12,8 @@
     "TP3Spatial_link": "http://bit.ly/2plzMKF",
     "javadoc":"http://orientdb.com/javadoc/latest/",
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
-    "lastGA": "3.0.0m2",
-    "currentVersion": "3.0.0m2",
+    "lastGA": "3.0.0RC1",
+    "currentVersion": "3.0.0RC1",
     "demoDBVersion_screenshots": "0.76",
 	"javase": "https://docs.oracle.com/javase/8/docs",
 	"javadoc": "https://orientdb.com/javadoc/develop"
