@@ -157,6 +157,9 @@ It was replaced by a much more flexible syntax: nested projections
 
 See [full syntax here](../../sql/SQL-Projections.md#nested-projections)
 
+### Other changes in SQL
+
+See [SQL changes](SQL-Changes.md)
 
 # Release notes
 
