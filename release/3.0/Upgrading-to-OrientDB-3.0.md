@@ -46,6 +46,8 @@ When migrating from v 2.2 to v 3.0, review your queries and make sure that you a
 
 ## SQL
 
+See [full SQL reference](sql/SQL-Syntax.html)
+
 ### UPDATE ADD/PUT/INCREMENT
 
 In v 2.2 there was a specific syntax for:
@@ -75,6 +77,85 @@ or to concatenate multiple values:
 UPDATE AClass SET aListProperty =  aListProperty || ["a value to add", "another value"]
 ```
 
+#### UPDATE PUT:
+
+The UPDATE PUT syntax is actually redundant, even in v 2.2. It can be replaced with dot notation or with square bracket notation:
+
+```
+UPDATE AClass PUT aMapProperty = "a key to add", "a value to add"
+```
+can be written as:
+```
+UPDATE AClass SET aMapProperty["a key to add"] = "a value to add"
+```
+or
+```
+UPDATE AClass SET aMapProperty.`a key to add` = "a value to add"
+```
+
+#### UPDATE INCREMENT
+
+The INCREMENT syntax is limited to *adding* numbers to numbers. In v 3.0 we removed this option and replaced it with a much more flexible set of operators:
+
+```
++=  // add and set
+-=  // subtract and set
+*=  // multiply and set
+/=  // divide and set
+...
+```
+
+The following:
+
+```
+UPDATE AClass INCREMENT aNumberProperty = 15
+```
+can be written as
+```
+UPDATE AClass SET aNumberProperty += 15
+```
+that is equivalent to
+```
+UPDATE AClass SET aNumberProperty = aNumberProperty + 15
+```
+
+
+But also the following are valid
+```
+UPDATE AClass SET aNumberProperty -= 15 
+```
+equivalent to
+```
+UPDATE AClass SET aNumberProperty = aNumberProperty - 15 
+```
+and so on so forth
+
+### eval() function
+
+V 2.2 did not support expressions in SQL projections and filters, so you had to use `eval()` function to explicitly calculate them.
+
+V 3.0 has full support for expressions in SQL, so you can re-write your queries removing the `eval()` function, eg.
+
+```
+SELECT eval(' age + 10 ') as ageInTenYears FROM Person
+```
+can be written as follows in v 3.0
+```
+SELECT age + 10 as ageInTenYears FROM Person
+```
+
+The same applies to WHERE conditions, eg. the following query is valid in v 3.0
+
+```
+SELECT FROM Person WHERE age + 10 < 50
+```
+
+### FETCH PLAN
+
+In v 3.0 FETCH PLAN is deprecated, and no longer works in most of the scenarios.
+It was replaced by a much more flexible syntax: nested projections
+
+See [full syntax here](sql/SQL-Projections.html#nested-projections)
 
 
 # Release notes
