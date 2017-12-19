@@ -46,7 +46,7 @@ When migrating from v 2.2 to v 3.0, review your queries and make sure that you a
 
 ## SQL
 
-See [full SQL reference](sql/SQL-Syntax.html)
+See [full SQL reference](../../sql/SQL-Syntax.html)
 
 ### UPDATE ADD/PUT/INCREMENT
 
@@ -155,7 +155,7 @@ SELECT FROM Person WHERE age + 10 < 50
 In v 3.0 FETCH PLAN is deprecated, and no longer works in most of the scenarios.
 It was replaced by a much more flexible syntax: nested projections
 
-See [full syntax here](sql/SQL-Projections.html#nested-projections)
+See [full syntax here](../../sql/SQL-Projections.html#nested-projections)
 
 
 # Release notes
