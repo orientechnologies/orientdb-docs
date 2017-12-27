@@ -114,13 +114,6 @@ In addition to the above, you can use the following context variables in travers
   <pre>
   orientdb> <code class="lang-sql userinput">SELECT $path FROM (TRAVERSE * FROM V)</code>
   </pre>
-- **`$stack`** Gives a list of operations in the stack.  Use it to access the traversal history.  It's a `List<OTraverseAbstractProcess<?>>`, where the process implementations are:
-  - *`OTraverseRecordSetProcess`*  The base target of traversal, usually the first given.
-  - *`OTraverseRecordProcess`* The traversed record.
-  - *`OTraverseFieldProcess`* The traversal through the record's fields.
-  - *`OTraverseMultiValueProcess`* Use on fields that are multivalue, such as arrays, collections and maps.
-- **`$history`** Gives a set of records traversed as `SET<ORID>`.
-
 
 ## Use Cases
 
