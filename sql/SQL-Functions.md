@@ -25,6 +25,7 @@ search:
 | [shortestPath()](SQL-Functions.md#shortestpath) | [variance()](SQL-Functions.md#variance)| [symmetricDifference()](#symmetricdifference)|-|
 | [dijkstra()](SQL-Functions.md#dijkstra) | [stddev()](SQL-Functions.md#stddev)|  |  |
 | [astar()](SQL-Functions.md#astar) |  |  |  |
+| [bothV()](SQL-Functions.md#astar) |  |  |  |
 
 
 SQL Functions are all the functions bundled with OrientDB SQL engine. You can create your own [Database Functions](../admin/Functions.md) in any language supported by JVM. Look also to [SQL Methods](SQL-Methods.md).
@@ -191,6 +192,22 @@ Get all the incoming and outgoing edges of type "Friend" from the Profiles with 
 
 ```sql
 SELECT bothE('Friend') FROM Profile WHERE nickname = 'Jay'
+```
+
+---
+### bothV()
+
+Get the adjacent outgoing and incoming vertices starting from the current record as Edge.
+
+Syntax: ```bothV()```
+
+Available since: 1.4.0
+
+#### Example
+
+Get both incoming and outgoing vertices from all the edges:
+```sql
+SELECT bothV() FROM E
 ```
 
 ### outV()
