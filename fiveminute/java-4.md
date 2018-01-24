@@ -217,7 +217,7 @@ public class Main {
 
     while (rs.hasNext()) {
       OResult item = rs.next();
-      System.out.println("friend: " + item.getProperty("name"));
+      System.out.println("friend: " + item.getProperty("friend"));
     }
 
     rs.close();
