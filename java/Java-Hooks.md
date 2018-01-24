@@ -205,7 +205,11 @@ Once implemented create a `.jar` file containing your class and put it under the
 
 Change the `orientdb-server-config.xml` file adding your hook inside the `<hooks>` tag. The position can be one of following values `FIRST`, `EARLY`, `REGULAR`, `LATE`, `LAST`:
 ```xml
-<hook class="org.orientdb.test.MyHook" position="REGULAR"/>
+<orient-server>
+   
+  <hooks>
+    <hook class="org.orientdb.test.MyHook" position="REGULAR"/>
+  <hooks>
 ```
 
 #### Configurable hooks
