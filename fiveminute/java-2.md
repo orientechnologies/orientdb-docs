@@ -31,9 +31,26 @@ Now open **pom.xml** file and add the following dependency:
         <dependency>
             <groupId>com.orientechnologies</groupId>
             <artifactId>orientdb-client</artifactId>
-            <version>3.0.0m2</version>
+            <version>3.0.0RC1</version>
         </dependency>
     </dependencies>
+```
+
+and enable Java 8 as target compiler
+
+```
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 ```
 
 Click on "automatically import dependencies" if needed
