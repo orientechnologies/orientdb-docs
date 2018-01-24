@@ -47,6 +47,10 @@ You can specify only the class you're interested or the classes you want to excl
 
 ```java
 public class MyHook extends ODocumentHookAbstract {
+  public MyHook(ODatabaseDocument database){
+     super(database);
+  }
+  
   public MyHook() {
     setIncludeClasses("Client", "Provider");
   }
@@ -57,6 +61,10 @@ Example to get called for all the changes on documents of any class but `Log`:
 
 ```java
 public class MyHook extends ODocumentHookAbstract {
+  public MyHook(ODatabaseDocument database){
+     super(database);
+  }
+  
   public MyHook() {
     setExcludeClasses("Log");
   }
@@ -80,6 +88,10 @@ Hooks can be installed on certain database instances, but in most cases you'll n
 
 ```java
 public class MyHook extends ODocumentHookAbstract implements ODatabaseLifecycleListener {
+  public MyHook(ODatabaseDocument database){
+     super(database);
+  }
+  
   public MyHook() {
     // REGISTER MYSELF AS LISTENER TO THE DATABASE LIFECYCLE
     Orient.instance().addDbLifecycleListener(this);
