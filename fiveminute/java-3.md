@@ -72,10 +72,10 @@ vertex class and a `FriendOf` edge class.
 Let's also add a little check to make sure that the classes do not already exist
 
 ```java
-    if (db.getClass("Person") != null) {
+    if (db.getClass("Person") == null) {
       db.createVertexClass("Person");
     }
-    if (db.getClass("FriendOf") != null) {
+    if (db.getClass("FriendOf") == null) {
       db.createEdgeClass("FriendOf");
     }
 ```
