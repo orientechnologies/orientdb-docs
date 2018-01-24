@@ -78,7 +78,7 @@ It is not always the best practice to create database instances every time you n
 OrientDB orientDB = new OrientDB("remote:localhost","root","root_passwd",OrientDBConfig.defaultConfig());
 ODatabasePool pool = new ODatabasePool(orientDB,"test","admin","admin");
 // OPEN DATABASE
-try (ODatabaseDocument db = pool.acquire() {
+try (ODatabaseDocument db = pool.acquire()) {
    // YOUR CODE
    ...
 }
