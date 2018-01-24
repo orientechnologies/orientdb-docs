@@ -49,7 +49,9 @@ Let's create the edges in the database:
 
 ```java
     OEdge edge1 = alice.addEdge(bob, "FriendOf");
+    edge1.save();
     OEdge edge2 = bob.addEdge(jim, "FriendOf");
+    edge2.save();
 ```
 
 Please cosider that edges are plain documents, so you can get/set properties on them exactly like for vertices.
@@ -174,7 +176,9 @@ public class Main {
     OVertex jim = createPerson(db, "Jim", "Baz");
 
     OEdge edge1 = alice.addEdge(bob, "FriendOf");
+    edge1.save();
     OEdge edge2 = bob.addEdge(jim, "FriendOf");
+    edge2.save();
   }
 
   private static OVertex createPerson(ODatabaseSession db, String name, String surname) {
