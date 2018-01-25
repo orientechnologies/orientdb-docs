@@ -129,7 +129,7 @@ or a projection.
 The content (the properties) of an OResult can be retrieved using `getProperty(String)`. OResult also
 provides a `getPropertyNames()` method that returns all the property names in current row.
 
-You can extract a persistent entity from an OResult (in case it actyally represents a vertex, an edge or a document)
+You can extract a persistent entity from an OResult (in case it actually represents a vertex, an edge or a document)
  using the following methods
 
 ```java
