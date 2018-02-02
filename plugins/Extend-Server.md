@@ -485,7 +485,7 @@ Where:
 
 To test it open a browser at this address:
 ```java
-http://localhost/hello/demo/Luca
+http://localhost:2480/hello/<your-db-name>/Luca
 ```
 
 You will see:
