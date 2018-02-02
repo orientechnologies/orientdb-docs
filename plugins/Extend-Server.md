@@ -34,7 +34,6 @@ package orientdb.test;
 public class PrinterHandler extends OServerPluginAbstract {
   private boolean	log = false;
 
-  @Override
   public void config(OServer oServer, OServerParameterConfiguration[] iParams) {
     for (OServerParameterConfiguration p : iParams) {
       if (p.name.equalsIgnoreCase("log"))
@@ -42,7 +41,6 @@ public class PrinterHandler extends OServerPluginAbstract {
     }
 
     Orient.getTimer().schedule( new TimerTask() {
-      @Override
       public void run() {
         if( log )
           System.out.println("It's the PrinterHandler!");
@@ -50,7 +48,6 @@ public class PrinterHandler extends OServerPluginAbstract {
     }, 5000, 5000);
   }
 
-  @Override
   public String getName() {
     return "PrinterHandler";
   }
@@ -119,21 +116,18 @@ public class OPowPlugin extends OServerPluginAbstract {
     public OPowPlugin() {
     }
 
-    @Override
     public String getName() {
         return "pow-plugin";
     }
 
-    @Override
     public void startup() {
         super.startup();
         OSQLEngine.getInstance().registerFunction("pow", new OSQLFunctionAbstract("pow", 2, 3) {
-            @Override
+
             public String getSyntax() {
                 return "pow(<base>, <power> [, <mod>])";
             }
 
-            @Override
             public Object execute(Object iThis, OIdentifiable iCurrentRecord, Object iCurrentResult, final Object[] iParams, OCommandContext iContext) {
                 if (iParams[0] == null || iParams[1] == null) {
                     return null;
@@ -202,12 +196,10 @@ public class OPowPlugin extends OServerPluginAbstract {
         return bits;
     }
 
-    @Override
     public void config(OServer oServer, OServerParameterConfiguration[] iParams) {
 
     }
 
-    @Override
     public void shutdown() {
         super.shutdown();
     }
@@ -357,7 +349,6 @@ As more complete example let's create a distributed record manager by installing
 public class DistributedRecordHook extends OServerHandlerAbstract implements ORecordHook {
   private boolean log = false;
 
-  @Override
   public void config(OServer oServer, OServerParameterConfiguration[] iParams) {
     for (OServerParameterConfiguration p : iParams) {
       if (p.name.equalsIgnoreCase("log"))
@@ -365,7 +356,6 @@ public class DistributedRecordHook extends OServerHandlerAbstract implements ORe
     }
   }
 
-  @Override
   public void onAfterClientRequest(final OClientConnection iConnection, final byte iRequestType) {
     if (iRequestType == OChannelBinaryProtocol.REQUEST_DB_OPEN)
       iConnection.database.registerHook(this);
@@ -373,7 +363,6 @@ public class DistributedRecordHook extends OServerHandlerAbstract implements ORe
       iConnection.database.unregisterHook(this);
   }
 
-  @Override
   public boolean onTrigger(TYPE iType, ORecord<?> iRecord) {
     try {
       if (log)
@@ -386,7 +375,6 @@ public class DistributedRecordHook extends OServerHandlerAbstract implements ORe
     return false;
   }
 
-  @Override
   public String getName() {
     return "DistributedRecordHook";
   }
@@ -431,7 +419,6 @@ public class OServerCommandGetHello extends OServerCommandAuthenticatedDbAbstrac
     }
   }
 
-  @Override
   public boolean execute(final OHttpRequest iRequest, OHttpResponse iResponse) throws Exception {
     // CHECK THE SYNTAX. 3 IS THE NUMBER OF MANDATORY PARAMETERS
     String[] urlParts = checkSyntax(iRequest.url, 3, "Syntax error: hello/<database>/<name>");
@@ -456,7 +443,6 @@ public class OServerCommandGetHello extends OServerCommandAuthenticatedDbAbstrac
     return false;
   }
 
-  @Override
   public String[] getNames() {
     return new String[]{"GET|hello/* POST|hello/*"};
   }
@@ -500,7 +486,6 @@ Below a more complex example taken by official distribution. It is the command t
 public class OServerCommandGetQuery extends OServerCommandAuthenticatedDbAbstract {
   private static final String[] NAMES = { "GET|query/*" };
 
-  @Override
   public boolean execute(OHttpRequest iRequest, OHttpResponse iResponse) throws Exception {
     String[] urlParts = checkSyntax(
         iRequest.url,
@@ -532,7 +517,6 @@ public class OServerCommandGetQuery extends OServerCommandAuthenticatedDbAbstrac
     return false;
   }
 
-  @Override
   public String[] getNames() {
     return NAMES;
   }
