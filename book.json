@@ -2,12 +2,12 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "variables": {
-    "download_osx": "http://bit.ly/orientdb-ce-imps-2-2-31-osx",
-    "download_linux": "http://bit.ly/orientdb-ce-imps-2-2-31-linux",
-    "download_windows": "http://bit.ly/orientdb-ce-imps-2-2-31-win",
-    "download_multiOS": "http://bit.ly/orientdb-ce-imps-2-2-31",
-    "lastGA": "2.2.31",
-    "currentVersion": "2.2.31"
+    "download_osx": "http://bit.ly/orientdb-ce-imps-2-2-32-osx",
+    "download_linux": "http://bit.ly/orientdb-ce-imps-2-2-32-linux",
+    "download_windows": "http://bit.ly/orientdb-ce-imps-2-2-32-win",
+    "download_multiOS": "http://bit.ly/orientdb-ce-imps-2-2-32",
+    "lastGA": "2.2.32",
+    "currentVersion": "2.2.32"
   },
   "links": {
     "home": "https://orientdb.com",
