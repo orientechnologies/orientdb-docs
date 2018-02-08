@@ -53,7 +53,7 @@ In addition to the cluster selection strategies listed above, you can also devel
 
    Bear in mind that the method `getCluster()` also receives the `ODocument` cluster to insert. You may find this useful, if you want to assign the `clusterId` variable, based on the Document content.
 
-1. Register the implementation as a service.  You can do this by creating a new file under `META-INF/service`.  Use the filename `com.orientechnologies.orient.core.metadata.schema.clusterselection.OClusterSelectionStrategy`.  For its contents, code your class with the full package.  For instance,
+1. Register the implementation as a service.  You can do this by creating a new file under `META-INF/services`.  Use the filename `com.orientechnologies.orient.core.metadata.schema.clusterselection.OClusterSelectionStrategy`.  For its contents, code your class with the full package.  For instance,
 
    ``` java
    mypackage.RandomSelectionStrategy
