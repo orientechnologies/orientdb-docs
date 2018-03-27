@@ -39,7 +39,7 @@ For this reason in OrientDB when this situation happens a `OConcurrentModificati
 
 ## Optimistic Concurrency in OrientDB
 
-Optimistic concurrency control is used in environments with low data contention.  That is, where conflicts are rare and transactions can complete without the expense of managing locks and without having transactions wait for locks to clear. This means a reduced throughput over other concurrency control methods.
+Optimistic concurrency control is used in environments with low data contention.  That is, where conflicts are rare and transactions can complete without the expense of managing locks and without having transactions wait for locks to clear. This means an increased throughput over other concurrency control methods.
 
 OrientDB uses OCC for both [Atomic Operations](Concurrency.md#atomic-operations) and [Transactions](Concurrency.md#transactions).
 
@@ -80,7 +80,7 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 
 OrientDB supports optimistic transactions. The database does not use locks when transactions are running, but when the transaction commits, each record (document or graph element) version is checked to see if there have been updates from another client. For this reason, you need to code your applications to be concurrency-proof.
 
-Optimistic concurrency requires that you retire the transaction in the event of conflicts.  For example, consider a case where you want to connect a new vertex to an existing vertex:
+Optimistic concurrency requires that you retry the transaction in the event of conflicts.  For example, consider a case where you want to connect a new vertex to an existing vertex:
 
 ```java
 int maxRetries = 10;
