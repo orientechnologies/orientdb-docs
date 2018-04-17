@@ -41,7 +41,7 @@ If you are in a transaction, you have to invoke `save()` and then `commit()` to 
 ##### Basic usage:
 
 ```java
-ODatabaseDocument db = ... 
+ODatabaseSession db = ... 
 OElement element = db.newInstance("Person");
 element.setProperty("name", "John");
 element.save();
@@ -50,7 +50,7 @@ element.save();
 ##### Document lifecycle - non transactional:
 
 ```java
-ODatabaseDocument db = ... //transaction not begun
+ODatabaseSession db = ... //transaction not begun
 
 OElement element = db.newInstance("Person");
 
@@ -72,7 +72,7 @@ System.out.println(element.getIdentity()); //this will print the valid, final RI
 example 1:
 
 ```java
-ODatabaseDocument db = ... 
+ODatabaseSession db = ... 
 db.begin()
 
 OElement element = db.newInstance("Person");
@@ -99,7 +99,7 @@ System.out.println(element.getIdentity()); //this will print the valid, final RI
 example 2:
 
 ```java
-ODatabaseDocument db = ... 
+ODatabaseSession db = ... 
 db.begin()
 
 OElement element = db.newInstance("Person");
@@ -315,14 +315,14 @@ An `OVertex` represents a node in the graph, while an `OEdge` represents a conne
  
 ##### Creating a Vertex
  
-ODatabaseDocument provides a specific API to create vertices, that is `newVertex(String)`. The String parameter represents a class 
+ODatabaseSession provides a specific API to create vertices, that is `newVertex(String)`. The String parameter represents a class 
 name (the type of the vertex). There is also a short version,  `newVertex()`, that is an alias for `newVertex("V")`.
 
 > IMPORTANT: the class passed as parameter to `newVertex()` has to be V or a subclass of V.
 
 Here is an example on how to create a vertex
 ```java
-ODatabaseDocument db ...
+ODatabaseSession db ...
 OVertex v = db.newVertex("Person");
 ```
 
