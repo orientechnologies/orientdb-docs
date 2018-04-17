@@ -5,7 +5,7 @@
 
 ### Querying the database in SQL
 
-ODatabaseDocument provides some methods interact with the database via SQL statements and scripts:
+ODatabaseSession provides some methods interact with the database via SQL statements and scripts:
 
 ```java
   OResultSet query(String query, Object... positionalParamas)
@@ -28,7 +28,7 @@ DDL (CREATE CLASS, CREATE PROPERTY...)
 The typical usage can be described with an exmaple
 
 ```java
-ODatabaseDocument db;
+ODatabaseSession db;
 ...
 String statement = "SELECT FROM V WHERE name = ? and surnanme = ?";
 OResultSet rs = db.query(statement, "John", "Smith");
@@ -152,7 +152,7 @@ it returns a new (not yet persisted) OElement with the same properties as the OR
 You can safely use OElement/Vertex/Edge instances to update data, as long as you have an open db connection, eg.
 
 ```java
-ODatabaseDocument db;
+ODatabaseSession db;
 ...
 String statement = "SELECT FROM V WHERE name = ? and surnanme = ?";
 OResultSet rs = db.query(statement, "John", "Smith");
@@ -184,7 +184,7 @@ the elements for which the corresponding `isElement/Vertex/Edge()` returns true;
 Sample usage:
  
 ```java
-ODatabaseDocument db;
+ODatabaseSession db;
 ...
 String statement = "SELECT FROM V WHERE name = ? and surnanme = ?";
 OResultSet rs = db.query(statement, "John", "Smith");
@@ -223,7 +223,7 @@ with external plugins).
 Here is an example on how to run a SQL script from Java API:
 
 ```java
-ODatabaseDocument db;
+ODatabaseSession db;
 ...
 String script = 
 "BEGIN;"+
