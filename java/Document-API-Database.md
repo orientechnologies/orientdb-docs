@@ -18,14 +18,12 @@ When you finish with a database instance, you must close it in order to free up 
 OrientDB orientDB = new OrientDB("embedded:/tm/", OrientDBConfig.defaultConfig());
 
 
-try(ODatabaseDocumentTx db = orientDB.open("test","admin","admin");) {
+try(ODatabaseSession db = orientDB.open("test","admin","admin");) {
      // Enter your code here...
 }
-// close the context when you shutdown the application or don't need anymore access to the database.
-orientDB.close();
 ```
 
->Remember, the `ODatabaseDocument` class is not thread-safe.  When using multiple threads, use separate instances of this class.  This way, they share the same storage instance, (with the same Database URL), and the same level-2 cache.
+>Remember, the `ODatabaseSession` class is not thread-safe.  When using multiple threads, use separate instances of this class.  This way, they share the same storage instance, (with the same Database URL), and the same level-2 cache.
 >
 >For more information, see [Multi-Threading with Java](Java-Multi-Threading.md).
 
@@ -78,7 +76,7 @@ It is not always the best practice to create database instances every time you n
 OrientDB orientDB = new OrientDB("remote:localhost","root","root_passwd",OrientDBConfig.defaultConfig());
 ODatabasePool pool = new ODatabasePool(orientDB,"test","admin","admin");
 // OPEN DATABASE
-try (ODatabaseDocument db = pool.acquire()) {
+try (ODatabaseSession db = pool.acquire()) {
    // YOUR CODE
    ...
 }
