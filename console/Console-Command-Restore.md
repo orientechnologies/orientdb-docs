@@ -22,7 +22,7 @@ RESTORE DATABASE <backup-file>|<incremental-backup-directory>
 
 **Permissions:**
 
-In order to enable a user to execute this command, you must add the permission of `create` for the resource `database.restore` to the [database user](Database-Security.md#users).
+In order to enable a user to execute this command, you must add the permission of `create` for the resource `database.restore` to the [database user](../security/Database-Security.md#users).
 
 **Example of full restore**
 

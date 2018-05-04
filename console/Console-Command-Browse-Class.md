@@ -19,7 +19,7 @@ BROWSE CLASS <class-name>
 
 **Permissions:**
 
-In order to enable a user to execute this command, you must add the permission of `read` for the resource `database.class.<class>` to the [database user](Database-Security.md#users).
+In order to enable a user to execute this command, you must add the permission of `read` for the resource `database.class.<class>` to the [database user](../security/Database-Security.md#users).
 
 **Example:**
 
