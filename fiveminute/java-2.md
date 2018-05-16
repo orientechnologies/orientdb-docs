@@ -31,7 +31,7 @@ Now open **pom.xml** file and add the following dependency:
         <dependency>
             <groupId>com.orientechnologies</groupId>
             <artifactId>orientdb-client</artifactId>
-            <version>3.0.0RC1</version>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
 ```
