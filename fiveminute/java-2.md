@@ -35,6 +35,7 @@ Now open **pom.xml** file and add the following dependency:
         </dependency>
     </dependencies>
 ```
+>>IMPORTANT: make sure you are using the same client version as the server you are using.
 
 and enable Java 8 as target compiler
 
