@@ -64,10 +64,6 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 Check out our [Get in Touch](misc/Get-in-Touch.md) page for different ways of getting in touch with us. 
 
 
-## PDF
-This documentation is also available in [PDF format](OrientDB-Manual.pdf).
-
-
 ## Past Releases
 - [v2.2.x](https://orientdb.com/docs/2.2/)
 - [v2.1.x](https://orientdb.com/docs/2.1/)
