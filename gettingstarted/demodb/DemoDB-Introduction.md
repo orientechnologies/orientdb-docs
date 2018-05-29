@@ -26,8 +26,8 @@ The demo database is located in the `databases` directory under your `$ORIENTDB_
 
 It is possible to connect to `demodb` using the three standard OrientDB Users:
 
-- `read` / `read`
-- `write` / `write`
+- `reader` / `reader`
+- `writer` / `writer`
 - `admin` / `admin`
 
 
