@@ -29,4 +29,22 @@ Long OClass().count(Boolean isPolymorphic)
 
 This method returns a [`Long`]({{ book.javase }}/api/java/lang/Long.html) instance, which provides the number of records in the database class or class and subclasses.
 
+### Example
+
+Imagine a social media application where the user accounts are defined by a dedicated class.  You might use the `count()` method to report membership on the webpage.
+
+```java	
+private ODatabaseDocument;
+private Logger logger;
+
+public Long getUserCount(){
+
+   // Retrieve the User OClass
+   OClass userCls = db.getClass("users");
+
+   // Return User Count
+   return userCls.count();
+}
+```
+This method uses the [`getClass()`](Java-Ref-ODatabaseDocument-getClass.md) method to retrieve the user class name, the executes the `count()` method to return the number of records on the class.
 

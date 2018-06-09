@@ -14,7 +14,7 @@ OrientDB supports polymorphism in database classes.  This means that you can reg
 ### Syntax
 
 ```
-OClass ODatabaseDocument().addSuperClass(OClass superClass)
+OClass OClass().addSuperClass(OClass superClass)
 ```
 
 | Argument | Type | Description |
@@ -25,4 +25,32 @@ OClass ODatabaseDocument().addSuperClass(OClass superClass)
 
 This method returns an [`OClass`](Java-Ref-OClass.md) instance.
 
+### Example
 
+Imagine you want a method to provision a database for your application.  You might want to add a series of classes in sequence and then add them to the relevant superclass.
+
+```java
+private ODatabaseDocument db;
+private Logger logger;
+
+public void provisionSubClasses(OClass superCls, List<OClass> classes){
+
+    // Log Operation
+	logger.info(String.format( 
+		"Adding subclasses to %s",
+		superCls.getName()));
+
+	// Iterate over subclasses 
+	for(OClass cls : classes){
+
+		// Log Debug Message
+		logger.debug(String.format(
+		   "Adding subclass '%s',
+		   cls.getName()));
+
+		// Add Superclass to Class
+		cls.addSuperClass(superCls);
+	}
+	logger.debug("Done");
+}
+```

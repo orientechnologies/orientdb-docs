@@ -26,3 +26,35 @@ OClass OClass().addCluster(String name)
 
 This method returns the updated [`OClass`](Java-Ref-OClass.md) instance.
 
+
+### Examples
+
+Consider the use case of a method that provisions a database for your application.  You might run this as part of the installation process or to set up a new database for a particular process.
+
+```java
+public ODatabaseDocument db;
+private Logger logger;
+
+// Provision Class with new Clusters
+public void provisionClassClusters(OClass cls, List<String> clusters){
+
+   // Log Operation
+   logger.info("Adding clusters to class");
+
+   // Iterator over List of Clusters
+   for(String name : clusters){
+
+      logger.debug(
+	     String.format("Creating Cluster '%s' on class '%s'",
+		    name,
+			cls.getName());
+      cls.addCluster(name);
+   }
+   logger.debug("Done");
+}
+```
+
+This method takes an [`OClass`](Java-Ref-OClass.md) instance and a [`List`]({{ javase }}/java/util/List.html)[`<String>`]({{ javase }}/java/lang/String.html) instance, which contains a list of new cluster names.
+
+
+

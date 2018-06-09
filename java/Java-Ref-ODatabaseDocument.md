@@ -58,12 +58,17 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 - setValidationEnabled
 -->
 
+| Method | Return Type | Description |
+|---|---|---|
+| [**`close()`**](Java-Ref-ODatabaseDocument-close.md) | `void` | Closes the database. |
+| [**`save()`**](Java-Ref-ODatabaseDocument-save.md) | `T` | Saves the given entity to the database. |
 
 
 ### Managing Classes and Clusters
 
 | Method | Return Type | Description |
 |---|---|---|
+| [**`addCluster()`**](Java-Ref-ODatabaseDocument-addCluster.md) | [`int`]({{ javase }}/java/lang/Integer.html) | Adds a cluster to the database. |
 | [**`browseClass`**](Java-Ref-ODatabaseDocument-browseClass.md) | `ORecordIteratorClass<ODocument>` | Retrieves all records of the given database class |
 | [**`browseCluster()`**](Java-Ref-ODatabaseDocument-browseCluster.md) | `<REC extends ORecord> ORecordIteratorCluster<REC>` | Retrieves all records of the given cluster |
 | [**`countClass()`**](Java-Ref-ODatabaseDocument-countClass.md) | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Retrieves the number of records in the given database class |
@@ -88,5 +93,17 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 | [**`newElement()`**](Java-Ref-ODatabaseDocument-newElement.md) | [`OElement`](Java-Ref-OElement.md) | Creates a new element (that is, a document, vertex or edge) |
 | [**`newInstance()`**](Java-Ref-ODatabaseDocument-newInstance.md) | `RET` | Creates a new document, vertex or edge |
 | [**`newVertex()`**](Java-Ref-ODatabaseDocument-newVertex.md) | `OVertex` | Creates a new vertex |
+
+### Transactions
+
+| Method | Return Type | Description |
+|---|---|---|
+| [**`begin()`**](Java-Ref-ODatabaseDocument-begin.md) | `ODatabase<T>` | Initiates a transaction |
+| [**`commit()`**](Java-Ref-ODatabaseDocument-commit.md) | `ODatabase<T>` | Commits a transaction |
+| [**`rollback()`**](Java-Ref-ODatabaseDocument-rollback.md) | `ODatabase<T>` | Reverts changes |
+
+
+
+
 
 
