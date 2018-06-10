@@ -17,7 +17,7 @@ This class is availabe at `com.orientechnologies.orient.core.metadata.schema`:
 import com.orientechnologies.orient.core.metadata.schema.OType;
 ```
 
-For more information on types, see [Types](../general/Types.md).
+For more information on types, see [Types](../../general/Types.md).
 
 
 
