@@ -13,8 +13,23 @@ Every time you update a record, the version number for that record gets incremen
 
 Below are examples of how to properly manage version concurrency.
 
+## Database Retry API
 
-## Database API
+```
+   ORID id = ...///
+   // As first parameter you set the number of wanted retry, at second paramenter a lambda with your business logic 
+   session.executeWithRetry(10, (currentSession) -> {
+      currentSession.begin();
+      OElement loaded = currentSession.load(id);
+      loaded.setProperty("two", "three");
+      currentSession.save(loaded);
+      currentSession.commit();
+      return null;
+    });
+```
+
+
+## Database API Custom Retry
 
 ```java
 for (int retry = 0; retry < maxRetries; ++retry) {
@@ -35,7 +50,7 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 }
 ```
 
-## Tinkerpop Graph API
+## Tinkerpop Graph API Custom Retry
 
 ```java
 for (int retry = 0; retry < maxRetries; ++retry) {
@@ -58,7 +73,7 @@ for (int retry = 0; retry < maxRetries; ++retry) {
 ```
 
 
-## Transactions
+## Transactions Custom Retry
 
 There is a similar procedure used with transactions:
 

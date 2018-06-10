@@ -8,16 +8,14 @@ Ready? Let's start!
 
 Download OrientDB from the following URL:
 
-[http://orientdb.com/download.php?file=orientdb-community-3.0.0m2.tar.gz](http://orientdb.com/download.php?file=orientdb-community-3.0.0m2.tar.gz)
-
-(you can find all the other download options here, if needed http://orientdb.com/orientdb-labs/)
+[https://orientdb.com/download](https://orientdb.com/download)
 
 Unzip it on your FileSystem and open a shell in the directory.
 
 Now type 
 
 ```
-cd orientdb-community-3.0.0m2
+cd orientdb-3.0.0
 cd bin
 ```
 
@@ -61,7 +59,7 @@ You will see OrientDB starting
                  `                                    
 
 2017-08-14 14:11:12:824 INFO  Loading configuration from: /Users/luigidellaquila/temp/orient/orientdb-community-3.0.0m2/config/orientdb-server-config.xml... [OServerConfigurationLoaderXml]
-2017-08-14 14:11:12:932 INFO  OrientDB Server v3.0.0m2 (build 4abea780acc12595bad8cbdcc61ff96980725c3b) is starting up... [OServer]
+2017-08-14 14:11:12:932 INFO  OrientDB Server v3.0.0 (build 4abea780acc12595bad8cbdcc61ff96980725c3b) is starting up... [OServer]
 2017-08-14 14:11:12:951 INFO  OrientDB auto-config DISKCACHE=12.373MB (heap=1.963MB direct=524.288MB os=16.384MB) [orientechnologies]
 2017-08-14 14:11:12:994 INFO  Databases directory: /Users/luigidellaquila/temp/orient/orientdb-community-3.0.0m2/databases [OServer]
 2017-08-14 14:11:13:017 INFO  Creating the system database 'OSystem' for current server [OSystemDatabase]
