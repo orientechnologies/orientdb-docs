@@ -9,7 +9,7 @@ This method retrieves the vertex that connects to this edge.
 
 ## Retrieving Vertices
 
-Edges provide links between vertices.  The link connects from one vertex to another.  This method allows you to retrieve the [`OVertex`](Java-Ref-OVertex.md) instance that links to the edge.  To access the vertex that links from the edge, see the [`getFrom()`](Java-Ref-OEdge-getFrom.md) method.
+Edges provide links between vertices.  The link connects from one vertex to another.  This method allows you to retrieve the [`OVertex`](../OVertex.md) instance that links to the edge.  To access the vertex that links from the edge, see the [`getFrom()`](getFrom.md) method.
 
 ### Syntax
 
@@ -19,4 +19,4 @@ OVertex OEdge().getTo()
 
 #### Return Value
 
-This method returns the [`OVertex`](Java-Ref-OVertex.md) instance that links to the edge.
+This method returns the [`OVertex`](../OVertex.md) instance that links to the edge.
