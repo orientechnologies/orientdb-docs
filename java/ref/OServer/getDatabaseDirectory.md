@@ -9,7 +9,7 @@ This method returns the root directory for databases handled by the OrientDB Ser
 
 ## Retrieving Database Directories
 
-When using the PLocal storage-type, OrientDB writes persistent data to the file system, with one directory for each database.  This method returns the root directory that the given [`OServer`](Java-Ref-OServer.md) instance uses in storing databases.
+When using the PLocal storage-type, OrientDB writes persistent data to the file system, with one directory for each database.  This method returns the root directory that the given [`OServer`](../OServer.md) instance uses in storing databases.
 
 ### Syntax
 

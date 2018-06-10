@@ -9,7 +9,7 @@ This method tests whether the server instance is currently active.
 
 ## Checking Server Active
 
-You may find occasions where your application receives an [`OServer`](Java-Ref-OServer.md) instance as a return value from other operations or threads.  This method provides you with a simple check to determine whether the server instance is currently active using the boolean return value.
+You may find occasions where your application receives an [`OServer`](../OServer.md) instance as a return value from other operations or threads.  This method provides you with a simple check to determine whether the server instance is currently active using the boolean return value.
 
 ### Syntax
 
@@ -23,7 +23,7 @@ This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) 
 
 ### Example
 
-Imagine you that you have created a basic handler in your application that takes an [`OServer`](Java-Ref-OServer.md) instance as a constructor argument.  When it receives the server instance, it checks whether it is active and activates it in the event that it is not.
+Imagine you that you have created a basic handler in your application that takes an [`OServer`](../OServer.md) instance as a constructor argument.  When it receives the server instance, it checks whether it is active and activates it in the event that it is not.
 
 ```java
 // IMPORTS

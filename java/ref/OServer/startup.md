@@ -9,7 +9,7 @@ This method starts the given server instance.
 
 ## Starting the Server
 
-When you initialize an instance of [`OServer`](Java-Ref-OServer.md), it prepares the server within your application, but does not start it until you tell it you're ready to start.
+When you initialize an instance of [`OServer`](../OServer.md), it prepares the server within your application, but does not start it until you tell it you're ready to start.
 
 ### Syntax
 
@@ -33,7 +33,7 @@ public OServer OServer().startup(InputStream iInputStream)
 
 #### Return Value
 
-This method returns an [`OServer`](Java-Ref-OServer.md) instance, which provides the started OrientDB embedded server.
+This method returns an [`OServer`](../OServer.md) instance, which provides the started OrientDB embedded server.
 
 
 #### Exceptions

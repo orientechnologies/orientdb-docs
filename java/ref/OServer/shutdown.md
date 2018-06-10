@@ -9,7 +9,7 @@ This method shuts down the OrientDB Server instance.
 
 ## Shutting Down the Server
 
-When you finish working with the given [`OServer`](Java-Ref-OServer.md) instance, you need to shut it down in order to free up resources.  This method lets you shutdown an embedded server from within your application.
+When you finish working with the given [`OServer`](../OServer.md) instance, you need to shut it down in order to free up resources.  This method lets you shutdown an embedded server from within your application.
 
 ### Syntax
 
@@ -24,7 +24,7 @@ This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) 
 
 ### Example
 
-Imagine you have a handler class for the [`OServer`](Java-Ref-OServer.md) instances that you use in managing common operations with the OrientDB Server.  You might want to pass additional information to your logs when shutting down the server, like the user or process calling for the restart.
+Imagine you have a handler class for the [`OServer`](../OServer.md) instances that you use in managing common operations with the OrientDB Server.  You might want to pass additional information to your logs when shutting down the server, like the user or process calling for the restart.
 
 
 ```java

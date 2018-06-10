@@ -7,11 +7,11 @@ search:
 
 This class allows you to embed and manage a server instance within your application.  Once you start the server, you can interact with it and manage data the same as you would standard instances of the OrientDB Server.
 
->For more information, see [Embedding the Server](../internals/Embedded-Server.md).  For the complete `OServer` documentation, see the [Javadocs]({{ book.javadoc }}/com/orientechnologies/orient/server/OServer.html).
+>For more information, see [Embedding the Server](../../internals/Embedded-Server.md).  For the complete `OServer` documentation, see the [Javadocs]({{ book.javadoc }}/com/orientechnologies/orient/server/OServer.html).
 
 ## Working with `OServer` 
 
-In order to operate on an OrientDB database, you first need to establish a connection with the server.  You have two options in this: you can connect to a running OrientDB Server using [`OrientDB`](Java-Ref-OrientDB.md) or you can embed the server within your application using this class.  It can be found at `com.orientechnologies.orient.server`. For instance,
+In order to operate on an OrientDB database, you first need to establish a connection with the server.  You have two options in this: you can connect to a running OrientDB Server using [`OrientDB`](OrientDB.md) or you can embed the server within your application using this class.  It can be found at `com.orientechnologies.orient.server`. For instance,
 
 
 ```java
@@ -53,12 +53,12 @@ Once you've initialized the class in your application, you can call the followin
 
 | Method | Return Type | Description | 
 |---|---|---|
-| [**`getInstance()`**](Java-Ref-OServer-getInstance.md) | [`OServer`](Java-Ref-OServer.md) | Retrieves a server instance by ID. |
-| [**`getInstanceByPath()`**](Java-Ref-OServer-getInstanceByPath.md) | [`OServer`](Java-Ref-OServer.md) | Retrieve a server instance by its path. |
-| [**`isActive()`**](Java-Ref-OServer-isActive.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Checks whether server is active. |
-| [**`restart()`**](Java-Ref-OServer-restart.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Restarts the server. |
-| [**`shutdown()`**](Java-Ref-OServer-shutdown.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Shuts down the server. |
-| [**`startup()`**](Java-Ref-OServer-startup.md) | [`OServer`](Java-Ref-OServer.md) | Starts the server. |
+| [**`getInstance()`**](OServer/getInstance.md) | [`OServer`](OServer.md) | Retrieves a server instance by ID. |
+| [**`getInstanceByPath()`**](OServer/getInstanceByPath.md) | [`OServer`](OServer.md) | Retrieve a server instance by its path. |
+| [**`isActive()`**](OServer/isActive.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Checks whether server is active. |
+| [**`restart()`**](OServer/restart.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Restarts the server. |
+| [**`shutdown()`**](OServer/shutdown.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Shuts down the server. |
+| [**`startup()`**](OServer/startup.md) | [`OServer`](OServer.md) | Starts the server. |
 
 <!--
 # Managing Server
@@ -74,8 +74,8 @@ getSecurity
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`getDatabaseDirectory()`**](Java-Ref-OServer-getDatabaseDirectory.md) | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the root database directory. |
-| [**`openDatabase()`**](Java-Ref-OServer-openDatabase.md) | `ODatabase<T>` | Opens the given database. | 
+| [**`getDatabaseDirectory()`**](OServer/getDatabaseDirectory.md) | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the root database directory. |
+| [**`openDatabase()`**](OServer/openDatabase.md) | `ODatabase<T>` | Opens the given database. | 
 
 <!-- Methods
 getSystemDatabase
@@ -87,20 +87,20 @@ getDatabasePoolFactory
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`existsStoragePath()`**](Java-Ref-OServer-existsStoragePath.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether storage path exists. |
-| [**`getAvailableStorageNames()`**](Java-Ref-OServer-getAvailableStorageNames.md) | [`Map`]({{ book.javase }}/api/java/util/Map.html)[`<String,`]({{ book.javase }}/api/java/lang/String.html)[` String>`]({{ book.javase }}/api/java/lang.String.html) | Retrieves a map of available storage types. |
-| [**`getStoragePath()`**](Java-Ref-OServer-getStoragePath.md) | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the storage path. |
+| [**`existsStoragePath()`**](OServer/existsStoragePath.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether storage path exists. |
+| [**`getAvailableStorageNames()`**](OServer/getAvailableStorageNames.md) | [`Map`]({{ book.javase }}/api/java/util/Map.html)[`<String,`]({{ book.javase }}/api/java/lang/String.html)[` String>`]({{ book.javase }}/api/java/lang.String.html) | Retrieves a map of available storage types. |
+| [**`getStoragePath()`**](OServer/getStoragePath.md) | [`java.lang.String`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the storage path. |
 
 
 #### User Management
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`addTemporaryUser()`**](Java-Ref-OServer-addTemporaryUser.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Adds a temporary user to the server. |
-| [**`addUser()`**](Java-Ref-OServer-addUser.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Adds a user to the server. |
-| [**`authenticate()`**](Java-Ref-OServer-authenticate.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Authenticates a user on the server. |
-| [**`dropUser()`**](Java-Ref-OServer-dropUser.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Removes user from the server. |
-| [**`isAllowed()`**](Java-Ref-OServer-isAllowed.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Checks whether user can access a given resource. |
+| [**`addTemporaryUser()`**](OServer/addTemporaryUser.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Adds a temporary user to the server. |
+| [**`addUser()`**](OServer/addUser.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Adds a user to the server. |
+| [**`authenticate()`**](OServer/authenticate.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Authenticates a user on the server. |
+| [**`dropUser()`**](OServer/dropUser.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Removes user from the server. |
+| [**`isAllowed()`**](OServer/isAllowed.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Checks whether user can access a given resource. |
 
 
 <!--
@@ -113,8 +113,8 @@ getUser
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`getConfiguration()`**](Java-Ref-OServer-getConfiguration.md) | `OServerConfiguration` | Retrieves the server configuration. |
-| [**`saveConfiguration()`**](Java-Ref-OServer-saveConfiguration.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Saves the server configuration to disk. |
+| [**`getConfiguration()`**](OServer/getConfiguration.md) | `OServerConfiguration` | Retrieves the server configuration. |
+| [**`saveConfiguration()`**](OServer/saveConfiguration.md) | [`void`]({{ book.javase }}/api/java/lang/Void.html) | Saves the server configuration to disk. |
 
 <!--
 

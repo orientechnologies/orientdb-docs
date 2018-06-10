@@ -9,7 +9,7 @@ This method restarts the OrientDB Server instance.
 
 ## Restarting the Server
 
-When you have an instance of [`OServer`](Java-Ref-OServer.md) that's already running, calling this method lets you stop the server and restart it.
+When you have an instance of [`OServer`](../OServer.md) that's already running, calling this method lets you stop the server and restart it.
 
 ### Syntax
 
@@ -31,7 +31,7 @@ This method throws the following exceptions:
 
 ### Example
 
-Imagine you have a handler class for the [`OServer`](Java-Ref-OServer.md) instances that you use in managing common operations with the OrientDB Server.  You might want to pass additional information to your logs when restarting the server, like the user or process calling for the restart.
+Imagine you have a handler class for the [`OServer`](../OServer.md) instances that you use in managing common operations with the OrientDB Server.  You might want to pass additional information to your logs when restarting the server, like the user or process calling for the restart.
 
 ```java
 // IMPORTS 

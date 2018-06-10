@@ -9,7 +9,7 @@ This method retrieves the given instance of an OrientDB Server by its Server ID.
 
 ## Retrieving `OServer` Instances
 
-In addition to starting an embedded instance of the OrientDB Server, you can also retrieve a particular [`OServer`](Java-Ref-OServer.md) instance, as identified by its Server ID.  If you want to retrieve the server instance by its path, see the [`getInstaceByPath()`](Java-Ref-OServer-getInstanceByPath.md) method.
+In addition to starting an embedded instance of the OrientDB Server, you can also retrieve a particular [`OServer`](../OServer.md) instance, as identified by its Server ID.  If you want to retrieve the server instance by its path, see the [`getInstaceByPath()`](getInstanceByPath.md) method.
 
 ### Syntax
 
@@ -23,11 +23,11 @@ public static OServer OServer().getInstance(String iServerId)
 
 #### Return Value
 
-This method returns an [`OServer`](Java-Ref-OServer.md) instance.
+This method returns an [`OServer`](../OServer.md) instance.
 
 ### Example
 
-Imagine you have OrientDB running in a distributed deployment and have an operation that you need to run on several servers in sequence.  You might use a method such as this to convert a list of Server ID's into one of active [`OServer`](Java-Ref-OServer.md) instances.
+Imagine you have OrientDB running in a distributed deployment and have an operation that you need to run on several servers in sequence.  You might use a method such as this to convert a list of Server ID's into one of active [`OServer`](../OServer.md) instances.
 
 ```java
 /**

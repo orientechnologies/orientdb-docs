@@ -31,7 +31,7 @@ This method throws the following exception:
 
 Consider the use case of a web application.  You may want to provide administrators and scripts access to manage server users, such as remove credentials when an administrator leaves the company.
 
-In the class that manages your [`OServer`](Java-Ref-OServer.md) instances, you might want a method to streamline this process and log the event for you.
+In the class that manages your [`OServer`](../OServer.md) instances, you might want a method to streamline this process and log the event for you.
 
 ```java
 /**
