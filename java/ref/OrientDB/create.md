@@ -9,7 +9,7 @@ This method lets you create a new database on the connected OrientDB Server.
 
 ## Creating Databases
 
-Using this method, you can create new databases on the OrientDB Server.  In the event that you want to connect to an existing database, use the [`open()`](Java-Ref-OrientDB-open.md) method.  If you want to only create the database if it does not exist already, use the [`createIfNotExists()`](Java-Ref-OrientDB-createIfNotExists.md) method.
+Using this method, you can create new databases on the OrientDB Server.  In the event that you want to connect to an existing database, use the [`open()`](open.md) method.  If you want to only create the database if it does not exist already, use the [`createIfNotExists()`](createIfNotExists.md) method.
 
 ### Syntax
 

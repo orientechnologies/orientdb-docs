@@ -9,7 +9,7 @@ This method opens the given database on the OrientDB Server.
 
 ## Openning Databases
 
-The [`OrientDB`](Java-Ref-OrientDB.md) class allows you to operate on an OrientDB Server, but eventually you're going to want to start working with an actual database.  This method allows you to open a Document database on the server.
+The [`OrientDB`](../OrientDB.md) class allows you to operate on an OrientDB Server, but eventually you're going to want to start working with an actual database.  This method allows you to open a Document database on the server.
 
 ### Syntax
 
@@ -33,7 +33,7 @@ public ODatabaseDocument OrientDB().open(String name, String user,
 
 #### Return Value 
 
-Both methods return an `ODatabaseDocument` instance.
+Both methods return an [`ODatabaseDocument`](../ODatabaseDocument.md) instance.
 
 ### Example
 
