@@ -19,4 +19,4 @@ OType OProperty.getLinkedType()
 
 #### Return Type
 
-This method returns an [`OType`](Java-Ref-OType.md) instance that corresponds to the property type.
+This method returns an [`OType`](../OType.md) instance that corresponds to the property type.

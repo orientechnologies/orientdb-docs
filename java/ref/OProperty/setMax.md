@@ -11,7 +11,7 @@ This method sets the maximum allowed value for the property.
 
 Properties can enforce constraints on the data you store in them.  This can be limited to the data-type of the stored value.  It can also extend to constraints on the actual data.
 
-OrientDB calculates the maximum allowed values in different ways, depending on what [`OType`](Java-Ref-OType.md) you have set for the property:
+OrientDB calculates the maximum allowed values in different ways, depending on what [`OType`](../OType.md) you have set for the property:
 
 - **String** The maximum value is the maximum allowed number of characters. 
 - **Number** The maximum value is the largest allowed number. 
@@ -34,4 +34,4 @@ OProperty OProperty().setMax(String max)
 
 #### Return Value
 
-This method returns the updated [`OProperty`](Java-Ref-OProperty.md) instance.
+This method returns the updated [`OProperty`](../OProperty.md) instance.

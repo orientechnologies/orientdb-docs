@@ -11,7 +11,7 @@ This method retrieves the minimum allowed value for the property.
 
 Properties can enforce constraints on the data you store in them.  This can be limited to the data-type of the stored value.  It can also extend to constraints on the actual data.
 
-OrientDB calculates the minimum allowed values in different ways, depending on what [`OType`](Java-Ref-OType.md) you have set for the property:
+OrientDB calculates the minimum allowed values in different ways, depending on what [`OType`](../OType.md) you have set for the property:
 
 - **String** The minimum value is the minimum allowed number of characters. 
 - **Number** The minimum value is the smallest allowed number. 

@@ -9,7 +9,7 @@ This method retrieves the name of the property.
 
 ## Retrieving the Property Name
 
-OrientDB differentiates between properties by the property name.  Using this method you can retrieve the name from an [`OProperty`](Java-Ref-OProperty.md) instance.
+OrientDB differentiates between properties by the property name.  Using this method you can retrieve the name from an [`OProperty`](../OProperty.md) instance.
 
 ### Syntax
 

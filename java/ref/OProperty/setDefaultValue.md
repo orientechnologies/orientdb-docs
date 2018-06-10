@@ -27,7 +27,7 @@ OProperty OProperty().setDefaultValue(String value)
 
 #### Return Value
 
-This method returns the updated [`OProperty`](Java-Ref-OProperty.md) instance.
+This method returns the updated [`OProperty`](../OProperty.md) instance.
 
 
 

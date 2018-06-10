@@ -17,8 +17,8 @@ OrientDB enforces typing for properties.  Each property in a database class is s
 OProperty OProperty.setLinkedType(OType <type>)
 ```
 
-- **`<type>`** Defines the [`OType`](Java-Ref-OType.md) instance.
+- **`<type>`** Defines the [`OType`](../OType.md) instance.
 
 #### Return Type
 
-This method returns an [`OProperty`](Java-Ref-OProperty.md) instance that corresponds to the property type.
+This method returns an [`OProperty`](../OProperty.md) instance that corresponds to the property type.

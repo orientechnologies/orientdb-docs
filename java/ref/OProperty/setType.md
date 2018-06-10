@@ -21,8 +21,8 @@ OProperty OProperty().setType(OType type)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`type`** | [`OType`](Java-Ref-OType.md) | Defines the new type for the property |
+| **`type`** | [`OType`](../OType.md) | Defines the new type for the property |
 
 #### Return Type
 
-This method returns the updated [`OProperty`](Java-Ref-OProperty.md) instance.
+This method returns the updated [`OProperty`](../OProperty.md) instance.
