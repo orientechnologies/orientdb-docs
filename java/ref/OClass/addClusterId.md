@@ -24,5 +24,5 @@ OClass OClass().addClusterId(int name)
 
 #### Return Type
 
-This method returns the updated [`OClass`](Java-Ref-OClass.md) instance.
+This method returns the updated [`OClass`](../OClass.md) instance.
 

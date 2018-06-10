@@ -9,7 +9,7 @@ This method removes a property from the class.
 
 ## Removing Properties
 
-Occasionally, you may encounter situations where you need to rework class instances from within your application.  Using this method you can remove properties from the [`OClass`](Java-Ref-OClass.md) instance.
+Occasionally, you may encounter situations where you need to rework class instances from within your application.  Using this method you can remove properties from the [`OClass`](../OClass.md) instance.
 
 ### Syntax
 

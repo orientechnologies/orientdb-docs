@@ -24,7 +24,7 @@ OClass OClass().addCluster(String name)
 
 #### Return Type
 
-This method returns the updated [`OClass`](Java-Ref-OClass.md) instance.
+This method returns the updated [`OClass`](../OClass.md) instance.
 
 
 ### Examples
@@ -54,7 +54,7 @@ public void provisionClassClusters(OClass cls, List<String> clusters){
 }
 ```
 
-This method takes an [`OClass`](Java-Ref-OClass.md) instance and a [`List`]({{ javase }}/java/util/List.html)[`<String>`]({{ javase }}/java/lang/String.html) instance, which contains a list of new cluster names.
+This method takes an [`OClass`](../OClass.md) instance and a [`List`]({{ javase }}/java/util/List.html)[`<String>`]({{ javase }}/java/lang/String.html) instance, which contains a list of new cluster names.
 
 
 

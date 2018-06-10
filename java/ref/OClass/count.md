@@ -46,5 +46,6 @@ public Long getUserCount(){
    return userCls.count();
 }
 ```
-This method uses the [`getClass()`](Java-Ref-ODatabaseDocument-getClass.md) method to retrieve the user class name, the executes the `count()` method to return the number of records on the class.
+
+This method uses the [`getClass()`](../ODatabaseDocument/getClass.md) method to retrieve the user class name, the executes the `count()` method to return the number of records on the class.
 

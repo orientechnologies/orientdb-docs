@@ -5,7 +5,7 @@ search:
 
 # OClass - getAllSuperClasses()
 
-This method retrieves [`OClass`](Java-Ref-OClass.md) instances for all classes registered as superclasses of this class.
+This method retrieves [`OClass`](../OClass.md) instances for all classes registered as superclasses of this class.
 
 ## Retrieving Super Classes
 
@@ -19,4 +19,4 @@ Collection<OClass> OClass().getAllSuperClasses()
 
 #### Return Value
 
-This method returns a [`Collection`]({{ book.javase }}/api/java/util/Collection.html) instance that contains instances of [`OClass`](Java-Ref-OClass.md) for each class that is a superclass of this class.
+This method returns a [`Collection`]({{ book.javase }}/api/java/util/Collection.html) instance that contains instances of [`OClass`](../OClass.md) for each class that is a superclass of this class.

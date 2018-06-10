@@ -19,4 +19,4 @@ Collection<OProperty> OClass().getIndexedProperties()
 
 #### Return Value
 
-This method returns a [`Collection`]({{ book.javase }}/api/java/util/Collection.html) instance that contains instances of [`OProperty`](Java-Ref-OProperty.md) that correspond to properties that have indexes.
+This method returns a [`Collection`]({{ book.javase }}/api/java/util/Collection.html) instance that contains instances of [`OProperty`](../OProperty.md) that correspond to properties that have indexes.

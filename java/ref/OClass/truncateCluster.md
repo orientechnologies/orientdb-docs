@@ -25,7 +25,7 @@ OClass OClass().truncateCluster(String name)
 
 #### Return Value
 
-This method returns an updated [`OClass`](Java-Ref-OClass.md) instance.
+This method returns an updated [`OClass`](../OClass.md) instance.
 
 
 

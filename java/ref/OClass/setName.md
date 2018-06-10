@@ -9,7 +9,7 @@ This method sets the name for the class.
 
 ## Setting the Class Name
 
-Database classes in OrientDB have names, allowing you to reference them and request the [`OClass`](Java-Ref-OClass.md) instance using a simple string.  This method allows you to define the string OrientDB uses as its class name.
+Database classes in OrientDB have names, allowing you to reference them and request the [`OClass`](../OClass.md) instance using a simple string.  This method allows you to define the string OrientDB uses as its class name.
 
 ### Syntax
 
@@ -23,4 +23,4 @@ OClass OClass().setName(String name)
 
 #### Return Value
 
-This method returns the updated [`OClass`](Java-Ref-OClass.md) instance.
+This method returns the updated [`OClass`](../OClass.md) instance.

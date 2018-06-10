@@ -19,8 +19,8 @@ OClass OClass().removeSuperClass(OClass class)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`class`** | [`OClass`](Java-Ref-OClass.md) | Defines the superclass that you want to remove |
+| **`class`** | [`OClass`](../OClass.md) | Defines the superclass that you want to remove |
 
 #### Return Value
 
-This method returns the updated [`OClass`](Java-Ref-OClass.md) instance.
+This method returns the updated [`OClass`](../OClass.md) instance.
