@@ -23,11 +23,11 @@ OrientDB stores the particular data for each record in fields, also called prope
 
 #### Return Value
 
-OrientDB stores typed data.  The return value this method returns is of the type that coresponds to the given property. For more information, see [Supported Data Types](../general/Types.md).
+OrientDB stores typed data.  The return value this method returns is of the type that coresponds to the given property. For more information, see [Supported Data Types](../../../general/Types.md).
 
 ### Example
 
-Records often contain more data that you need to operate on in a particular instance.  For instance, imagine you have a web application that serves blogs.  You don't need the entire record when you're only rendering a link.  You might use a method like the one below to create a link from an [`OElement`](Java-Ref-OElement.md):
+Records often contain more data that you need to operate on in a particular instance.  For instance, imagine you have a web application that serves blogs.  You don't need the entire record when you're only rendering a link.  You might use a method like the one below to create a link from an [`OElement`](../OElement.md):
 
 ```java
 // GENERATE LINK

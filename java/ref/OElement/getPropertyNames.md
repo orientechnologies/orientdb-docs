@@ -9,7 +9,7 @@ This method returns the property names set for the given record.
 
 ## Retrieving Property Names
 
-In cases where you have a record and don't know what properties it provides, this method allows you retrieve a set of strings containing the property names.  You can then use [`getProperty()`](Java-Ref-OElement-getProperty.md) to retrieve the data you want.
+In cases where you have a record and don't know what properties it provides, this method allows you retrieve a set of strings containing the property names.  You can then use [`getProperty()`](getProperty.md) to retrieve the data you want.
 
 ### Syntax
 

@@ -9,7 +9,7 @@ This method removes a property from the record.
 
 ## Removing Properties
 
-In the event that you would like to remove a property from a record with the corresponding data, you can do so using this method.  If you would like instead to add or retrieve a property to the record, see [`setProperty`](Java-Ref-OElement-setProperty.md) or [`getProperty()`](Java-Ref-OElement-getProperty.md).
+In the event that you would like to remove a property from a record with the corresponding data, you can do so using this method.  If you would like instead to add or retrieve a property to the record, see [`setProperty`](setProperty.md) or [`getProperty()`](getProperty.md).
 
 ### Syntax
 

@@ -9,7 +9,7 @@ This method determines whether the record is an edge.
 
 ## Checking Edges
 
-When OrientDB is serving as a Graph database, [`OElement`](Java-Ref-OElement.md) serves as the superclass to both edges and vertices.  Using this method you can check whether or not the element is an edge on the database.  To determine whether the record is a vertex, see [`isVertex`](Java-Ref-OElement-isVertex.md).
+When OrientDB is serving as a Graph database, [`OElement`](../OElement.md) serves as the superclass to both edges and vertices.  Using this method you can check whether or not the element is an edge on the database.  To determine whether the record is a vertex, see [`isVertex`](isVertex.md).
 
 ### Syntax
 
