@@ -19,7 +19,7 @@ Once you've imported the class to your application, you can use one of the const
 
 ### Example
 
-In order to operate on an instance of this class, you need to create it on the OrientDB Server, then open it through an [`OrientDB()`](Java-Ref-OrientDB.md) or [`OServer`](Java-Ref-OServer.md) instance.  For example, in your own application you might want to streamline the startup process, so that it creates a working database in the event that one isn't ready, then opens it.
+In order to operate on an instance of this class, you need to create it on the OrientDB Server, then open it through an [`OrientDB()`](OrientDB.md) or [`OServer`](OServer.md) instance.  For example, in your own application you might want to streamline the startup process, so that it creates a working database in the event that one isn't ready, then opens it.
 
 ```java
 // INITIALIZE VARIABLES
@@ -41,7 +41,7 @@ public static ODatabaseDocument openDatabase(String name) {
 }
 ```
 
-Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to determine of the database exists, runs theh [`create()`](Java-Ref-OrientDB-create.md) if it doesn't, then uses [`open()`](Java-Ref-OrientDB-open.md) with default credentials to open the `ODatabaseDocument` instance in your application.
+Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of the database exists, runs theh [`create()`](OrientDB/create.md) if it doesn't, then uses [`open()`](OrientDB/open.md) with default credentials to open the `ODatabaseDocument` instance in your application.
 
 
 ## Methods
@@ -60,24 +60,24 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`close()`**](Java-Ref-ODatabaseDocument-close.md) | `void` | Closes the database. |
-| [**`command()`**](Java-Ref-ODatabaseDocument-command.md) | [`OResultSet`](Java-Ref-OResultSet.md) | Executes idempotent or non-idempotent query. |
-| [**`save()`**](Java-Ref-ODatabaseDocument-save.md) | `T` | Saves the given entity to the database. |
+| [**`close()`**](ODatabaseDocument/close.md) | `void` | Closes the database. |
+| [**`command()`**](ODatabaseDocument/command.md) | [`OResultSet`](OResultSet.md) | Executes idempotent or non-idempotent query. |
+| [**`save()`**](ODatabaseDocument/save.md) | `T` | Saves the given entity to the database. |
 
 
 ### Managing Classes and Clusters
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`addCluster()`**](Java-Ref-ODatabaseDocument-addCluster.md) | [`int`]({{ book.javase }}/api/java/lang/Integer.html) | Adds a cluster to the database. |
-| [**`browseClass`**](Java-Ref-ODatabaseDocument-browseClass.md) | `ORecordIteratorClass<ODocument>` | Retrieves all records of the given database class |
-| [**`browseCluster()`**](Java-Ref-ODatabaseDocument-browseCluster.md) | `<REC extends ORecord> ORecordIteratorCluster<REC>` | Retrieves all records of the given cluster |
-| [**`countClass()`**](Java-Ref-ODatabaseDocument-countClass.md) | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Retrieves the number of records in the given database class |
-| [**`countClusterElements()`**](Java-Ref-ODatabaseDocument-countClusterElements.md) | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Counts all entities in the specified cluster. |
-| [**`createClass()`**](Java-Ref-ODatabaseDocument-createClass.md) | [`OClass`](Java-Ref-OClass.md) | Creates a new database class |
-| [**`createClassIfNotExists()`**](Java-Ref-ODatabaseDocument-createClassIfNotExists.md) | [`OClass`](Java-Ref-OClass.md) | Creates a new database class, if not exists |
-| [**`createEdgeClass()`**](Java-Ref-ODatabaseDocument-createEdgeClass.md) | [`OClass`](Java-Ref-OClass.md) | Creates a database class as an extension of the `E` edge class |
-| [**`createVertexClass()`**](Java-Ref-ODatabaseDocument-createVertexClass.md) | [`OClass`](Java-Ref-OClass.md) | Creates a database class as an extension of the `V` vertex class |
+| [**`addCluster()`**](ODatabaseDocument/addCluster.md) | [`int`]({{ book.javase }}/api/java/lang/Integer.html) | Adds a cluster to the database. |
+| [**`browseClass`**](ODatabaseDocument/browseClass.md) | `ORecordIteratorClass<ODocument>` | Retrieves all records of the given database class |
+| [**`browseCluster()`**](ODatabaseDocument/browseCluster.md) | `<REC extends ORecord> ORecordIteratorCluster<REC>` | Retrieves all records of the given cluster |
+| [**`countClass()`**](ODatabaseDocument/countClass.md) | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Retrieves the number of records in the given database class |
+| [**`countClusterElements()`**](ODatabaseDocument/countClusterElements.md) | [`long`]({{ book.javase }}/api/java/lang/Long.html) | Counts all entities in the specified cluster. |
+| [**`createClass()`**](ODatabaseDocument/createClass.md) | [`OClass`](OClass.md) | Creates a new database class |
+| [**`createClassIfNotExists()`**](ODatabaseDocument/createClassIfNotExists.md) | [`OClass`](OClass.md) | Creates a new database class, if not exists |
+| [**`createEdgeClass()`**](ODatabaseDocument/createEdgeClass.md) | [`OClass`](OClass.md) | Creates a database class as an extension of the `E` edge class |
+| [**`createVertexClass()`**](ODatabaseDocument/createVertexClass.md) | [`OClass`](OClass.md) | Creates a database class as an extension of the `V` vertex class |
 
 <!--
 - addBlobCluster
@@ -88,22 +88,22 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`delete()`**](Java-Ref-ODatabaseDocument-delete.md) | `ODatabase<T>` | Removes a record from the database |
-| [**`getRecord()`**](Java-Ref-ODatabaseDocument-getRecord.md) | `<RET extends ORecord> RET` | Retrieves a record from the database |
-| [**`getRecordType()`**](Java-Ref-ODatabaseDocument-getRecordType.md) | [`byte`]({{ book.javase }}/api/java/lang/Byte.html) | Returns the default record type |
-| [**`newBlob()`**](Java-Ref-ODatabaseDocument-newBlob.md) | `OBlob` | Creates a new instance of a binary blob containing the given bytes |
-| [**`newEdge()`**](Java-Ref-ODatabaseDocument-newEdge.md) | [`OEdge`](Java-Ref-OEdge.md) | Creates a new edge between the given vertices |
-| [**`newElement()`**](Java-Ref-ODatabaseDocument-newElement.md) | [`OElement`](Java-Ref-OElement.md) | Creates a new element (that is, a document, vertex or edge) |
-| [**`newInstance()`**](Java-Ref-ODatabaseDocument-newInstance.md) | `RET` | Creates a new document, vertex or edge |
-| [**`newVertex()`**](Java-Ref-ODatabaseDocument-newVertex.md) | `OVertex` | Creates a new vertex |
+| [**`delete()`**](ODatabaseDocument/delete.md) | `ODatabase<T>` | Removes a record from the database |
+| [**`getRecord()`**](ODatabaseDocument/getRecord.md) | `<RET extends ORecord> RET` | Retrieves a record from the database |
+| [**`getRecordType()`**](ODatabaseDocument/getRecordType.md) | [`byte`]({{ book.javase }}/api/java/lang/Byte.html) | Returns the default record type |
+| [**`newBlob()`**](ODatabaseDocument/newBlob.md) | `OBlob` | Creates a new instance of a binary blob containing the given bytes |
+| [**`newEdge()`**](ODatabaseDocument/newEdge.md) | [`OEdge`](OEdge.md) | Creates a new edge between the given vertices |
+| [**`newElement()`**](ODatabaseDocument/newElement.md) | [`OElement`](OElement.md) | Creates a new element (that is, a document, vertex or edge) |
+| [**`newInstance()`**](ODatabaseDocument/newInstance.md) | `RET` | Creates a new document, vertex or edge |
+| [**`newVertex()`**](ODatabaseDocument/newVertex.md) | [`OVertex`](OVertex.md) | Creates a new vertex |
 
 ### Managing Transactions
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`begin()`**](Java-Ref-ODatabaseDocument-begin.md) | `ODatabase<T>` | Initiates a transaction |
-| [**`commit()`**](Java-Ref-ODatabaseDocument-commit.md) | `ODatabase<T>` | Commits a transaction |
-| [**`rollback()`**](Java-Ref-ODatabaseDocument-rollback.md) | `ODatabase<T>` | Reverts changes |
+| [**`begin()`**](ODatabaseDocument/begin.md) | `ODatabase<T>` | Initiates a transaction |
+| [**`commit()`**](ODatabaseDocument/commit.md) | `ODatabase<T>` | Commits a transaction |
+| [**`rollback()`**](ODatabaseDocument/rollback.md) | `ODatabase<T>` | Reverts changes |
 
 
 ### Managing Intents
@@ -111,4 +111,4 @@ Here, the method uses the [`exists`](Java-Ref-OrientDB-exists.md) method to dete
 
 | Method | Return Type | Description |
 |---|---|---|
-| [**`declareIntent()`**](Java-Ref-ODatabaseDocument-declareIntent.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Declares an intent for the database. |
+| [**`declareIntent()`**](ODatabaseDocument/declareIntent.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Declares an intent for the database. |

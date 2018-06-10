@@ -9,7 +9,7 @@ This method executes a generic command.
 
 ## Executing Commands
 
-Using this method you can issue a command to the OrientDB database.  The command can either be idempotent or non-idempotent.  The return value is an [`OResultSet`](Java-Ref-OResultSet.md) instance.  Note that you need to close the result-set after usage to free up resources.
+Using this method you can issue a command to the OrientDB database.  The command can either be idempotent or non-idempotent.  The return value is an [`OResultSet`](../OResultSet.md) instance.  Note that you need to close the result-set after usage to free up resources.
 
 ### Syntax
 
@@ -24,6 +24,6 @@ OResultSet ODatabaseDocument().command(String query, Map args)
 
 ### Return Value
 
-This method returns an [`OResultSet`](Java-Ref-OResultSet.md) instance, which contains the result-set of your query.  Note that you need to close it when you're done to free up resources.
+This method returns an [`OResultSet`](../OResultSet.md) instance, which contains the result-set of your query.  Note that you need to close it when you're done to free up resources.
 
 

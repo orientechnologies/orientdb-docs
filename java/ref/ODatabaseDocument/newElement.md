@@ -9,9 +9,9 @@ This method creates a new record on the database.
 
 ## Creating Elements
 
-When you use OrientDB to host a Document database, the [`OElement`](Java-Ref-OElement.md) class represents a document in the database.  With Graph databases, [`OElement`](Java-Ref-OElement.md) is the superclass to `OVertex` and `OEdge`.  This method allows you to create a new element within your application.   You can then set data on the element and save it to the database. 
+When you use OrientDB to host a Document database, the [`OElement`](../OElement.md) class represents a document in the database.  With Graph databases, [`OElement`](../OElement.md) is the superclass to [`OVertex`](../OVertex.md) and [`OEdge`](../OEdge.md).  This method allows you to create a new element within your application.   You can then set data on the element and save it to the database. 
 
->**NOTE**: In version 2.2.x and earlier, OrientDB Document databases used the `ODocument` class to represent documents.  While it still exists as the main implementation of [`OElement`](Java-Ref-OElement.md), it is recommended that you no longer use it directly.  Instead, from now on use the [`OElement`](Java-Ref-OElement.md) class for documents.
+>**NOTE**: In version 2.2.x and earlier, OrientDB Document databases used the `ODocument` class to represent documents.  While it still exists as the main implementation of [`OElement`](../OElement.md), it is recommended that you no longer use it directly.  Instead, from now on use the [`OElement`](../OElement.md) class for documents.
 
 ### Syntax
 
@@ -31,7 +31,7 @@ OElement ODatabaseDocument().newElement(String class)
 
 #### Return Value
 
-This method returns an [`OElement`](Java-Ref-OElement.md) instance.  You can then call additional methods on the element to add and configure the data it contains.  When you are ready to make the changes persistent on OrientDB, call the [`save()`](Java-Ref-OElement.md#saving-elements) method on the element.
+This method returns an [`OElement`](../OElement.md) instance.  You can then call additional methods on the element to add and configure the data it contains.  When you are ready to make the changes persistent on OrientDB, call the [`save()`](../OElement.md#saving-elements) method on the element.
 
 ### Example
 

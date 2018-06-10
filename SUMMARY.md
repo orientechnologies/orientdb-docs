@@ -367,6 +367,7 @@
         * [setName()](java/ref/OClass/setName.md)
         * [truncate()](java/ref/OClass/truncate.md)
         * [truncateCluster()](java/ref/OClass/truncateCluster.md)
+	  * [OCluster](java/ref/OCluster.md)
       * [ODatabaseDocument](java/ref/ODatabaseDocument.md)
 		* [addCluster()](java/ref/ODatabaseDocument/addCluster.md)
 		* [begin()](java/ref/ODatabaseDocument/begin.md)

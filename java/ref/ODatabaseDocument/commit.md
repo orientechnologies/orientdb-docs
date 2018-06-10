@@ -9,7 +9,7 @@ This method saves changes made in a transaction onto the database.
 
 ## Beginning Transactions
 
-OrientDB supports the use of ACID transactions.   This allows you to isolate database operations into units of work that you can commit or rollback later, depending on whether later conditions are met.  Using this method you can commit a transaction.  To initiate a transaction or revert the changes,  see [`begin()`](Java-Ref-ODatabaseDocument-begin.md) and [`rollback()`](Java-Ref-ODatabaseDocument-rollback.md) methods.
+OrientDB supports the use of ACID transactions.   This allows you to isolate database operations into units of work that you can commit or rollback later, depending on whether later conditions are met.  Using this method you can commit a transaction.  To initiate a transaction or revert the changes,  see [`begin()`](begin.md) and [`rollback()`](rollback.md) methods.
 
 ### Syntax
 

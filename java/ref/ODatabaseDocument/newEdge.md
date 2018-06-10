@@ -9,7 +9,7 @@ This method creates a new edge between the given vertices.
 
 ## Creating Edges
 
-When using OrientDB as a Graph database, this method allows you to create new edges on the database and connect them to related vertices.  To create new vertices on the database, see the [`newVertex()`](Java-Ref-ODatabaseDocument-newVertex.md) method.
+When using OrientDB as a Graph database, this method allows you to create new edges on the database and connect them to related vertices.  To create new vertices on the database, see the [`newVertex()`](newVertex.md) method.
 
 ### Syntax
 
@@ -31,15 +31,15 @@ Edges have their own classes in OrientDB.  When using the first method, the edge
 
 | Argument | Type | Description
 |---|---|---|
-| **`fromV`** | [`OVertex`](Java-Ref-OVertex.md) | Defines the vertex this edge comes from |
-| **`toV`** | [`OVertex`](Java-Ref-OVertex.md) | Defines the vertex this edge points to |
-| **`class`** | [`OClass`](Java-Ref-OClass.md) | Defines the edge class |
+| **`fromV`** | [`OVertex`](../OVertex.md) | Defines the vertex this edge comes from |
+| **`toV`** | [`OVertex`](../OVertex.md) | Defines the vertex this edge points to |
+| **`class`** | [`OClass`](../OClass.md) | Defines the edge class |
 | **`class-name`** | [`String`]({{ book.javase }}/api/java/lang/String.html)  | Defines the edge class |
 
 
 #### Return Value
 
-This method returns an [`OEdge`](Java-Ref-OEdge.md) instance of the edge it creates.
+This method returns an [`OEdge`](../OEdge.md) instance of the edge it creates.
 
 ### Example
 

@@ -19,7 +19,7 @@ ODatabase<T> ODatabaseDocument().delete(ORID rid)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`rid`** | [`ORID`](Java-Ref-ORID.md) | Record ID to delete |
+| **`rid`** | [`ORID`](../ORID.md) | Record ID to delete |
 
 #### Return Type
 

@@ -9,7 +9,7 @@ This method creates a new vertex on the database.
 
 ## Creating Vertices
 
-When using OrientDB to host a Graph database, this method allows you to create vertices on the database.  To create new edges, see the [`newEdge()`](Java-Ref-ODatabaseDocument-newEdge.md) method.
+When using OrientDB to host a Graph database, this method allows you to create vertices on the database.  To create new edges, see the [`newEdge()`](newEdge.md) method.
 
 ### Syntax
 
@@ -28,12 +28,12 @@ OVertex ODatabaseDocument().newVertex(String class-name)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`class`** | [`OClass`](Java-Ref-OClass.md) | Defines the OrientDB class |
+| **`class`** | [`OClass`](../OClass.md) | Defines the OrientDB class |
 | **`class-name`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the name of the OrientDBG class |
 
 #### Return Value
 
-This method returns an [`OVertex`](Java-Ref-OVertex.md) instance.  You can call additional methods on this instance to set data to it, then call `save()` to make that data persistent on OrientDB.
+This method returns an [`OVertex`](../OVertex.md) instance.  You can call additional methods on this instance to set data to it, then call `save()` to make that data persistent on OrientDB.
 
 ### Example
 

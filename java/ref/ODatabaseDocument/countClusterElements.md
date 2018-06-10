@@ -9,7 +9,7 @@ This method counts all entities in the specified cluster.
 
 ## Counting Cluster Elements
 
-A cluster is the physical or in-memory container in which records are stored.  Whenever you create an [`OClass`](Java-Ref-OClass.md) instance, OrientDB simultaneously creates a default [`OCluster`](Java-Ref-OCluster.md) in which to store data of that class.  Often a class will have several clusters, allowing you to better organize the data they contain.  Using this method you can determine the number of records stored in each cluster, as identified by its Cluster ID, (that is, the first number in the Record ID) or by an array of Cluster ID's.
+A cluster is the physical or in-memory container in which records are stored.  Whenever you create an [`OClass`](../OClass.md) instance, OrientDB simultaneously creates a default [`OCluster`](../OCluster.md) in which to store data of that class.  Often a class will have several clusters, allowing you to better organize the data they contain.  Using this method you can determine the number of records stored in each cluster, as identified by its Cluster ID, (that is, the first number in the Record ID) or by an array of Cluster ID's.
 
 ### Syntax
 

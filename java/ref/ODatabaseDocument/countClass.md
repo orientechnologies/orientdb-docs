@@ -9,7 +9,7 @@ This method returns the number of records in a given database class.
 
 ## Counting Records by Class
 
-OrientDB organizes data by a database class, which is an instance of the [`OClass`](Java-Ref-OClass.md) class.  Using this method, you can retrieve a count of the number of records in a given database class.
+OrientDB organizes data by a database class, which is an instance of the [`OClass`](../OClass.md) class.  Using this method, you can retrieve a count of the number of records in a given database class.
 
 ### Syntax
 

@@ -9,9 +9,9 @@ This method creates a database class, which extends the `E` class on the databas
 
 ## Creating Edge Classes
 
-OrientDB borrows from the Object Oriented programming paradigm the concept of classes, which in these Reference pages is called a *database class*, to avoid confusion with classes in Java.  Internally, each database class is an instance of [`OClass`](Java-Ref-OClass.md).  Using this method, you can create new database classes on the database, which extend the `E` edge class.
+OrientDB borrows from the Object Oriented programming paradigm the concept of classes, which in these Reference pages is called a *database class*, to avoid confusion with classes in Java.  Internally, each database class is an instance of [`OClass`](../OClass.md).  Using this method, you can create new database classes on the database, which extend the `E` edge class.
 
-To create a vertex class instead, see [`createVertexClass()`](Java-Ref-ODatabaseDocument-createVertexClass.md).
+To create a vertex class instead, see [`createVertexClass()`](createVertexClass.md).
 
 ### Syntax
 
@@ -25,7 +25,7 @@ default OClass ODatabaseDocument().createEdgeClass(String name)
 
 #### Return Value
 
-This method returns an [`OClass`](Java-Ref-OClass.md) instance for the new database class.
+This method returns an [`OClass`](../OClass.md) instance for the new database class.
 
 
 

@@ -9,7 +9,7 @@ This method creates a database class on the database.
 
 ## Creating Database Class
 
-OrientDB borrows from the Object Oriented programming paradigm the concept of classes, which in these Reference pages is called a *database class*, to avoid confusion with classes in Java.  Internally, each database class is an instance of [`OClass`](Java-Ref-OClass.md).  Using this method, you can create new database classes on the database.
+OrientDB borrows from the Object Oriented programming paradigm the concept of classes, which in these Reference pages is called a *database class*, to avoid confusion with classes in Java.  Internally, each database class is an instance of [`OClass`](../OClass.md).  Using this method, you can create new database classes on the database.
 
 This method is implemented through the superclass `ODatabase`.
 
@@ -28,4 +28,4 @@ default OClass ODatabaseDocument().createClass(
 
 #### Return Value
 
-This method returns an [`OClass`](Java-Ref-OClass.md) instance for the new database class.
+This method returns an [`OClass`](../OClass.md) instance for the new database class.
