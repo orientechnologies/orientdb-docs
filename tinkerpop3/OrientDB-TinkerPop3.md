@@ -371,6 +371,85 @@ gremlin>
 
 ## Gremlin Server
 
+There are two ways to use OrientDB inside the Gremlin Server
+
+- Use the OrientDB-TP3 distribution that embedd the Gremlin Server
+- Install the OrientDB-Gremlin Driver into a GremlinServer
+
+### OrientDB-TP3
+
+Dowload the latest version of OrientDB-TP3 [here](https://orientdb.com/download-2/).
+and start OrientDB to automatically start the embedded Gremlin Server.
+The configuration of the Gremlin Server is in `$ORIENTDB_HOME/config`.
+
+### Install OrientDB-Gremlin  
+
+Download the latest Gremlin Server distribution [here](https://tinkerpop.apache.org/)
+
+and then install the OrientDB Gremlin driver with 
+
+```sh
+bin/gremlin-server.sh -i com.orientechnologies orientdb-gremlin ${version}
+```
+
+
+
+#### OrientDB Gremlin Server configuration
+
+
+YAML configuration example
+
+```
+host: localhost
+port: 8182
+scriptEvaluationTimeout: 30000
+channelizer: org.apache.tinkerpop.gremlin.server.channel.WebSocketChannelizer
+graphs: {
+  graph : conf/orientdb-empty.properties
+}
+scriptEngines: {
+  gremlin-groovy: {
+    plugins: { org.apache.tinkerpop.gremlin.server.jsr223.GremlinServerGremlinPlugin: {},
+               org.apache.tinkerpop.gremlin.orientdb.jsr223.OrientDBGremlinPlugin: {},
+               org.apache.tinkerpop.gremlin.jsr223.ImportGremlinPlugin: {classImports: [java.lang.Math], methodImports: [java.lang.Math#*]},
+               org.apache.tinkerpop.gremlin.jsr223.ScriptFileGremlinPlugin: {files: [ scripts/empty-sample.groovy]}}}}
+serializers:
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0, config: { ioRegistries: [org.apache.tinkerpop.gremlin.orientdb.io.OrientIoRegistry] }}             # application/vnd.gremlin-v3.0+gryo
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV3d0, config: { serializeResultToString: true }}                                                                       # application/vnd.gremlin-v3.0+gryo-stringd
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0, config: { ioRegistries: [org.apache.tinkerpop.gremlin.orientdb.io.OrientIoRegistry] }}         # application/json
+processors:
+  - { className: org.apache.tinkerpop.gremlin.server.op.session.SessionOpProcessor, config: { sessionTimeout: 28800000 }}
+  - { className: org.apache.tinkerpop.gremlin.server.op.traversal.TraversalOpProcessor, config: { cacheExpirationTime: 600000, cacheMaxSize: 1000 }}
+metrics: {
+  consoleReporter: {enabled: true, interval: 180000},
+  csvReporter: {enabled: true, interval: 180000, fileName: /tmp/gremlin-server-metrics.csv},
+  jmxReporter: {enabled: true},
+  slf4jReporter: {enabled: true, interval: 180000}}
+strictTransactionManagement: false
+maxInitialLineLength: 4096
+maxHeaderSize: 8192
+maxChunkSize: 8192
+maxContentLength: 65536
+maxAccumulationBufferComponents: 1024
+resultIterationBatchSize: 64
+writeBufferLowWaterMark: 32768
+writeBufferHighWaterMark: 65536
+ssl: {
+  enabled: false}
+
+```
+
+
+Graph Configuration properties example
+
+```
+gremlin.graph=org.apache.tinkerpop.gremlin.orientdb.OrientFactory
+orient-url=plocal:/tmp/graph
+orient-user=admin
+orient-pass=admin
+```
+
+
 
 ## OrientDB TinkerPop Graph API
 
