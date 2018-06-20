@@ -166,6 +166,8 @@ If you insert all the edges in the given order, you will be sure that:
 - Edge1 will have @RID = #10:0
 - Edge2 will have @RID = #10:1
 
+> NOTE: When using transactions, the order of RID assignment can change, so this technique could not work. 
+
 This said, you can use the Document API to create the graph structure:
 
 ```
