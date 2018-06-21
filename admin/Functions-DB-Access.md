@@ -9,8 +9,6 @@ When you create a function for OrientDB, it always binds the special variable `o
 
 | Function | Description |
 |---|---|
-| `orient.getGraph()` | Returns the current [transactional graph database](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instance. |
-| `orient.getGraphNoTx()` | Returns the current [non-transactional graph database](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraphNoTx.html) instance. |
 | `orient.getDatabase()` | Returns the current [document database](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html) instance. |
 
 ## Executing Queries
@@ -32,24 +30,15 @@ Create a new function with the name `getUserRoles` with the parameter `user`.  T
   Here, the function binds the `name` parameter as a variable in JavaScript.  You can use this variable to build your query.
 
 
-## Executing Commands
-
-OrientDB accepts commands written in any language that the JVM supports.  By default, however, OrientDB only supports SQL and JavaScript.
-
 ### SQL Commands
 
 Execute an SQL command within the function:
 
 ```javascript
-var gdb = orient.getGraph();
-var results = gdb.command( "sql", "SELECT FROM Employee WHERE company = ?", [ "Orient Technologies" ] );
+var results = orient.getDatabase().command("SELECT FROM Employee WHERE company = ?", [ "Orient Technologies" ] );
 ```
 
-The command returns an array of objects:
-
-- When it returns vertices: The result is an `OrientVertex` instance.
-- When it returns edges: The result is an `OrientEdge` instance.
-- When it returns records: The result is an `OIdentifiable` (or, any subclass of it) instance.
+The command returns an array of OElement objects
 
 
 ## Creating Repository Classes
@@ -90,7 +79,7 @@ function user_create( name, role ){
          db.commit();
          return result;
       }catch ( err ){
-         db.rollback();
+         db.rollback()
          response.send(500, "Error on creating new user", "text/plain", err.toString() );
       }
    }
