@@ -149,7 +149,7 @@ There is an important difference between `getElement()` and `toElement()`:
 it returns a new (not yet persisted) OElement with the same properties as the OResult.
 
 
-You can safely use OElement/Vertex/Edge instances to update data, as long as you have an open db connection, eg.
+You can safely use [`OElement`](ref/OElement.md), [`OVertex`](ref/OVertex.md) and [`OEdge`](ref/OEdge.md) instances to update data, as long as you have an open database connection, that is, 
 
 ```java
 ODatabaseSession db;
@@ -167,7 +167,7 @@ rs.close();
 
 ### Streamin API
  
-OResultSet provides an API to convert it to a Java 8 stream:
+[`OResultSet`](ref/OResultSet.md) provides an API to convert it to a Java 8 stream:
 
 ```
 Stream<OResult> stream() 
@@ -176,11 +176,11 @@ Stream<OVertex> vertexStream()
 Stream<OEdge> edgeStream()
 ```
 
-IMPORTANT: please consider that the resulting streams **consume** the OResultSet.
+IMPORTANT: please consider that the resulting streams **consume** the [`OResultSet`](ref/OResultSet.md).
 
 `elementStream()`, `vertexStream()` and `edgeStream()` filter the stream returning only
 the elements for which the corresponding `isElement/Vertex/Edge()` returns true;
-  
+
 Sample usage:
  
 ```java
@@ -195,16 +195,15 @@ rs.close();
  
 ### Closing the OResultSet
 
-OResultSet is implemented as a paginated structure, that holds some iterators open during the iteration.
-This is true both in remote and in embedded usage.
+[`OResultSet`](ref/OResultSet.md) is implemented as a paginated structure, that holds some iterators open during the iteration.  This is true both in remote and in embedded usage.
 
-You should always invoke OResultSet.close() at the end of the execution, to free resources.
+You should always invoke `OResultSet.close()` at the end of the execution, to free resources.
 
-OResultSet instances are automatically closed when you close the ODatabase that returned them.
+[`OResultSet`](ref/OResultSet.md) instances are automatically closed when you close the ODatabase that returned them.
 
 It is important to always close result sets, even when they are converted to streams (after the stream is consumed).
 
-OResultSet implements `java.lang.AutoCloseable`, so you can use it in a [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) block:
+[`OResultSet`](ref/OResultSet.md) implements `java.lang.AutoCloseable`, so you can use it in a [try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) block:
 
 ```java
 try(OResultSet rs = db.query("SELECT FROM Foo");) {
@@ -217,8 +216,7 @@ try(OResultSet rs = db.query("SELECT FROM Foo");) {
 
 ### Batch Scripts
 
-The `db.execute()` API is intended to execute scripts (SQL by default, but it can be extended to other languages - like Gremiln - 
-with external plugins).
+The `db.execute()` API is intended to execute scripts (SQL by default, but it can be extended to other languages - like Gremiln - with external plugins).
  
 Here is an example on how to run a SQL script from Java API:
 
@@ -250,8 +248,7 @@ rs.close();
 ### Legacy API
 
 The legacy API is still there, but the methods are deprecated. It will be removed in 
-next versions. 
-It is available only in the ODatabaseDocumentTx implementation, with the following methods
+next versions.  It is available only in the `ODatabaseDocumentTx` implementation, with the following methods
 
 ```java
 @deprecated
@@ -259,6 +256,3 @@ public <RET extends OCommandRequest> RET command(OCommandRequest iCommand)
 @deprecated
 public <RET extends List<?>> RET query(OQuery<?> iCommand, Object... iArgs)
 ```
-
-
-
