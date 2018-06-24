@@ -11,26 +11,25 @@ will be represented in Java as an object in this hierarchy.
 
 - **ORecord**: this is a pre-existing interface, common to all the persistent records.
   Its main goal is to provide an abstraction to obtain low level information (eg. identity) and behavior 
-  (eg. save and delete) for persistent entries  
+  (eg. save and delete) for persistent entries
 - **OBlob**: represents BLOB (binary) records
-- **OElement**: represents plain documents (so also vertices and edges). It includes methods
+- [**`OElement`**](ref/OElement.md): represents plain documents (so also vertices and edges). It includes methods
   to manipulate properties and to check if current element is a vertex or an edge.
-  
+
   *Attention: until v 2.2 the Document API relied on ODocument class only. ODocument is still there
   as the main implementation of OElement, but please don't use it directly, always use OElement instead*
-- **OVertex**: is the basic interface for vertices, it includes methods to manipulate and traverse connected edges and vertices
-- **OEdge**: is the basic interface for edges, it includes methods to retrieve info regarding connected vertices
+- [**`OVertex`**](ref/OVertex.md): is the basic interface for vertices, it includes methods to manipulate and traverse connected edges and vertices
+- [**`OEdge`**](ref/OEdge.md): is the basic interface for edges, it includes methods to retrieve info regarding connected vertices
 
 An ORecord has an identity and a version number, for the basic details see [Basic Concepts](../datamodeling/Concepts.md)
 
 
 ### Creating a document
 
-`ODatabaseDocument` class provides the following methods to create plain documents:
+[`ODatabaseDocument`](ref/ODatabaseDocument) class provides the following methods to create plain documents:
 
-- `newInstance(String)`: creates a basic OElement of a given class.
-- `newInstance()`: creates a basic OElement, with no schema associated (no Class). This method 
- should be used only to create embedded documents, not to create stand-alone documents.
+- `newInstance(String)`: creates a basic [`OElement`](ref/OElement.md) of a given class.
+- `newInstance()`: creates a basic [`OElement`](ref/OElement.md), with no schema associated (no Class). This method should be used only to create embedded documents, not to create stand-alone documents.
 
 To make the element persistent, you have to invoke the save() method on it. 
 
@@ -135,9 +134,8 @@ doc1.setProperty("theLink", doc2);
 
 When doing save/commit operations, OrientDB manages a tree of connected documents as a single persistent entity.
 
-When you invoke the save() method on a document, OrientDB will save all the documents that are in the same tree. In the example above
-  both `doc1` and `doc2` will be saved. If you change the example as follows:
-  
+When you invoke the `save()` method on a document, OrientDB will save all the documents that are in the same tree. In the example above both `doc1` and `doc2` will be saved. If you change the example as follows:
+
 ```java
 OElement doc1 = db.newInstance("Person");
 OElement doc2 = db.newInstance("Person");
@@ -223,7 +221,7 @@ System.out.println(doc.getProperty("name")); //prints "John"
    doc.field("foo", embedded);
    System.out.println(doc.field("foo.bar")); // prints "value1"
    ```
-   
+
    ```java
    // NEW API
    OElement element = ...
@@ -238,7 +236,7 @@ System.out.println(doc.getProperty("name")); //prints "John"
    System.out.println(((OElement)doc.getProperty("foo")).getProperty("bar")); // prints "value2"
    ```
 
-  
+
 ##### Setting a property value
 
 The basic way to set a property value on a document is using `setProperty(String, Object)` method:
@@ -265,11 +263,10 @@ If for some reason the conversion cannot be applied, at save time OrientDB will 
 
 ##### Setting a property value with explicit type
 
-OElement also provides a method to explicitly control the type of the property value:  `setProperty(String, Object, OType)`.
-This is particularly useful when you do not have a schema but you want to perform specific checks or you want to save embedded
+[`OElement`](ref/OElement.md) also provides a method to explicitly control the type of the property value:  `setProperty(String, Object, OType)`.  This is particularly useful when you do not have a schema but you want to perform specific checks or you want to save embedded
 documents.
 
-Eg. to set a property value as an embedded document, without definint the schema, you have to do the following:
+For instance, to set a property value as an embedded document, without definint the schema, you have to do the following:
 
 ```java
 OElement doc = db.newInstance("Person");
@@ -315,8 +312,7 @@ An `OVertex` represents a node in the graph, while an `OEdge` represents a conne
  
 ##### Creating a Vertex
  
-ODatabaseSession provides a specific API to create vertices, that is `newVertex(String)`. The String parameter represents a class 
-name (the type of the vertex). There is also a short version,  `newVertex()`, that is an alias for `newVertex("V")`.
+ODatabaseSession provides a specific API to create vertices, that is `newVertex(String)`. The String parameter represents a class name (the type of the vertex). There is also a short version,  `newVertex()`, that is an alias for `newVertex("V")`.
 
 > IMPORTANT: the class passed as parameter to `newVertex()` has to be V or a subclass of V.
 
@@ -339,8 +335,7 @@ OVertex v2 = ...
 v1.addEdge(v2);
 ```
 
-This will create an edge of type `E`, that is the base class for edges. If you want to create an edge of a specific class, you can use
-`addEdge(OVertex, String)` where the String parameter is the class name, or `addEdge(OVertex, OClass)`, eg.
+This will create an edge of type `E`, that is the base class for edges. If you want to create an edge of a specific class, you can use `addEdge(OVertex, String)` where the String parameter is the class name, or `addEdge(OVertex, OClass)`, for instance, 
 
 ```java
 OVertex v1 = ...
@@ -353,29 +348,22 @@ v1.addEdge(v2, "FriendOf");
 
 ##### Vertex and Edge lifecycle
 
-Vertices and edges are just plain documents; each vertex links to its edges and each edge links to the two connected vertices. 
-This said the normal document save lifecycle applies, ie. when you have a graph of vertices and edges connected together, if you
-invoke save() method on one of the elements, all the connected graph is saved.
+Vertices and edges are just plain documents; each vertex links to its edges and each edge links to the two connected vertices.  This said the normal document save lifecycle applies, ie. when you have a graph of vertices and edges connected together, if you invoke `save()` method on one of the elements, all the connected graph is saved.
  
 ##### Deleting vertices and edges
 
-A graph is considered consistent all the edges are connected to exactly two vertices (from/to). This means that you cannot have edges that have one or both ends
-disconnected from valid vertices.
+A graph is considered consistent all the edges are connected to exactly two vertices (from/to). This means that you cannot have edges that have one or both ends disconnected from valid vertices.
 
-OrientDB will manage graph consistency for you, that means that if you delete a vertex, all the connected edges will be deleted as well;
-if you delete an edge, all the connected vertices will be updated to remove the references to that edge.
+OrientDB will manage graph consistency for you, that means that if you delete a vertex, all the connected edges will be deleted as well; if you delete an edge, all the connected vertices will be updated to remove the references to that edge.
 
-To delete a graph element, you can just use the `OElement` `delete()` method.
+To delete a graph element, you can just use the [`OElement`](ref/OElement).`delete()` method.
 
 
 ##### Traversing the graph
 
-`OVertex` and `OEdge` classes provide methods to traverse the graph, ie. to access adjacent vertices and edges
+[`OVertex`](ref/OVertex.md) and [`OEdge`](ref/OEdge.md) classes provide methods to traverse the graph, that is, to access adjacent vertices and edges.
 
-Given an OVertex, you can retrieve all the connected **edges** using `getEdges(ODirection)`, `getEdges(ODirection, String...)` methods. The 
-`ODirection` can be `ODirection.OUT` (outgoing edges), `ODirection.IN` (incoming edges), `ODirection.BOTH` (all the edges, regardless
-the direction). The String parameter allows to filter on **edge** class names; you can specify multiple edge class names, you will
-traverse all the edges that belong to at least one of the classes you specified.
+Given an OVertex, you can retrieve all the connected **edges** using `getEdges(ODirection)`, `getEdges(ODirection, String...)` methods. The `ODirection` can be `ODirection.OUT` (outgoing edges), `ODirection.IN` (incoming edges), `ODirection.BOTH` (all the edges, regardless the direction). The String parameter allows to filter on **edge** class names; you can specify multiple edge class names, you will traverse all the edges that belong to at least one of the classes you specified.
 
 ```java
 OVertex v = ...
@@ -386,10 +374,7 @@ for(OEdge friendship: edges){
 }
 ```
 
-Given an OVertex, you can retrieve all the connected **vertices** using `getVertices(ODirection)`, `getVertices(ODirection, String...)` methods. The 
-`ODirection` can be `ODirection.OUT` (traverse outgoing edges), `ODirection.IN` (traverse incoming edges), `ODirection.BOTH` (traverse all the edges, regardless
-the direction). The String parameter allows to filter on **edge** class names; you can specify multiple edge class names, you will
-traverse all the edges that belong to at least one of the classes you specified.
+Given an [`OVertex`](ref/OVertex.md), you can retrieve all the connected **vertices** using `getVertices(ODirection)`, `getVertices(ODirection, String...)` methods. The `ODirection` can be `ODirection.OUT` (traverse outgoing edges), `ODirection.IN` (traverse incoming edges), `ODirection.BOTH` (traverse all the edges, regardless the direction). The String parameter allows to filter on **edge** class names; you can specify multiple edge class names, you will traverse all the edges that belong to at least one of the classes you specified.
 
 
 ```java
@@ -401,7 +386,7 @@ for(OVertex friend: friends){
 }
 ```
 
-The OEdge interface provides methods to retrieve the connected vertices: 
+The [`OEdge`](ref/OEdge.md) interface provides methods to retrieve the connected vertices: 
 - the entry point of the edge: `getFrom()`
 - the end point of the edge: `getTo()`
 
@@ -417,7 +402,7 @@ System.out.println("the edge starts from "+from+ " and ends to "+to);
 
 ##### Checking document/graph type
 
-`OElement` interface provides methods to check whether current document is also a vertex (`isVertex()`)or an edge (`isEdge()`). It 
+[`OElement`](ref/OElement.md) interface provides methods to check whether current document is also a vertex (`isVertex()`)or an edge (`isEdge()`). It 
 also provides methods to obtain an OVertex (`asVertex()`) or OEdge (`asEdge()`) instance from an OElement. These methods return
 a Java `Optional<?>` that is empty if the element is not a vertex or an edge.
 
