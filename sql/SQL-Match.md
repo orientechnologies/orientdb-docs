@@ -27,6 +27,24 @@ MATCH
     [pathAlias: <identifier> ],     
     [optional: (true | false)]
   }*
+  [,
+    [NOT]
+    {
+      [as: <alias>], 
+      [class: <class>], 
+      [where: (<whereCondition>)]
+    }
+    .<functionName>(){
+      [class: <className>], 
+      [as: <alias>], 
+      [where: (<whereCondition>)], 
+      [while: (<whileCondition>)],
+      [maxDepth: <number>],    
+      [depthAlias: <identifier> ], 
+      [pathAlias: <identifier> ],     
+      [optional: (true | false)]
+    }*
+  ]*
 RETURN [DISTINCT] <expression> [ AS <alias> ] [, <expression> [ AS <alias> ]]*
 GROUP BY <expression> [, <expression>]*
 ORDER BY <expression> [, <expression>]*
@@ -56,7 +74,7 @@ For out(), in(), both() also a shortened *arrow* syntax is supported:
   - `$elements` (since 2.2.1) Indicating that all the elements that would be returned by the $matches have to be returned flattened, without duplicates.
   - `$pathElements` (since 2.2.1) Indicating that all the elements that would be returned by the $paths have to be returned flattened, without duplicates.
 - **`optional`** (since 2.2.4) if set to true, allows to evaluate and return a pattern even if that particular node does not match the pattern itself (ie. there is no value for that node in the pattern). In current version, optional nodes are allowed only on right terminal nodes, eg. `{} --> {optional:true}` is allowed, `{optional:true} <-- {}` is not.
- 
+- **`NOT` patterns** (since 3.0.3 - experimental) Together with normal patterns, you can also define negative patterns. A result will be returned only if it also DOES NOT match any of the negative patterns, ie. if it matches at least one of the negative patterns it won't be returned.
 
 
 **Examples**
@@ -749,5 +767,24 @@ MATCH {class: Person, as: a} --> --> {as:b} RETURN a, b  //is NOT allowed
 MATCH {class: Person, as: a}.out().out(){as:b} RETURN a, b  //is allowed
 
 MATCH {class: Person, as: a}.out(){}.out(){as:b} RETURN a, b  //is allowed
+</code>
+</pre>
+
+### Negative (NOT) patterns
+
+(since 3.0.3 - experimental) 
+
+Together with normal patterns, you can also define negative patterns. A result will be returned only if it also DOES NOT match any of the negative patterns, ie. if the result matches at least one of the negative patterns it won't be returned.
+
+As an example, consider the following problem: given a social network, choose a single person and return all the people that are friends of their friends, but that are not their direct friends.
+
+The pattern can be calculated as follows:
+
+<pre>
+<code class="lang-sql userinput">
+MATCH
+  {class:Person, as:a, where:(name = "John")} -FriendOf-> {as:b} -FriendOf-> {as:c},
+  NOT {as:a} -FriendOf-> {as:c}
+RETURN c.name
 </code>
 </pre>
