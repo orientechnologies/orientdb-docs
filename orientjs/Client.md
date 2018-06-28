@@ -92,5 +92,75 @@ OrientDBClient.connect({
 
 ### Databases Manipulation
 
+Once you have initialized the client variable in your application, you can use it to work with the OrientDB Server, such as creating new databases on the server. It also provides methods to initialize the OrientJS Sessions API, which are covered in more detail below.
+
+
+#### Create a database
+
+In the event that you need to create a database on OrientDB, you can do so through the OrientDBClient API using the `client.createDatabase ` method.
+
+```js
+client.createDatabase({
+	name: "test",
+	username: "root",
+	password: "root"
+})
+.then(() => {
+	console.log("Database created");
+})
+.catch(err => {
+	console.log("Error creating database");
+});
+```
+
+#### Check existence of a databases
+
+```js
+client.existsDatabase({
+	name: "test",
+	username: "root",
+	password: "root"
+})
+.then(result => {
+	console.log(result);
+})
+.catch(err => {
+	console.log("Error checking for database");
+});
+```
+
+#### List Databases
+
+```js
+client.listDatabases({
+	username: "root",
+	password: "root"
+})
+.then(results => {
+	console.log(results);
+})
+.catch(err => {
+	console.log("Error listing databases");
+});
+```
+
+#### Drop a database
+
+
+```js
+client.dropDatabase({
+	name: "test",
+	username: "root",
+	password: "root"
+})
+.then(() => {
+	console.log("Database dropped");
+})
+.catch(err => {
+	console.log("Error dropping the database");
+});
+```
+
 ### Sessions Access
 
+Once you have initialized the client variable in your application, you can use it to open sessions on OrientDB Server.
