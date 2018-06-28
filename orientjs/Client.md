@@ -1,0 +1,96 @@
+---
+search:
+   keywords: ['OrientJS', 'Node.js', 'node','Client']
+---
+
+
+# Client API
+
+The `OrientDBClient` is the entry point of the driver. Once connected it provides APIs for databases manipulation and sessions creation
+
+### Connecting
+
+Use the method `OrientDBClient.connect` to establish a connection to one OrientDB server/cluster. The methods return a Promise. Below an example of a connection to a single OrientDB server. 
+
+```js
+const OrientDBClient = require("orientjs").OrientDBClient;
+
+OrientDBClient.connect({
+  host: "localhost",
+  port: 2424
+}).then(client => {
+  return client.close();
+}).then(()=> {
+   console.log("Client closed");
+});
+```
+
+or with async/await
+
+```js
+const OrientDBClient = require("orientjs").OrientDBClient;
+
+(async function() {
+  let client;
+  try {
+    client = await OrientDBClient.connect({ host: "localhost" });
+    console.log("Connected");
+  } catch (e) {
+    console.log(e);
+  }
+
+  if (client) {
+    await client.close();
+    console.log("Disconnected");
+  }
+})();
+```
+
+#### Configuration with OrientDB Cluster
+
+To do so, define the servers configuration parameter when you initialize the server connection. OrientJS uses these as alternate hosts in the event that it encounters an error while connecting to the primary host.
+
+When using this method, the only requisite is that at least one of these servers must be online when the application attempts to establish its first connection. Below an example of a connection with two servers.
+
+```js
+
+const OrientDBClient = require("orientjs").OrientDBClient;
+
+OrientDBClient.connect({
+  host: "localhost",
+  port: 2424,
+  servers : [{host : "localhost", port : 2425}]
+}).then(client => {
+  return client.close();
+}).then(()=> {
+   console.log("Client closed");
+});
+
+```
+
+
+The only prerequisite when executing this code is that at least one of the hosts, primary or secondary, be online at the time that it first runs. Once it has established this initial connection, OrientJS keeps the list up to date with those servers in the cluster that are currently online. It manages this through the push notifications that OrientDB sends to connected clients when changes occur in cluster membership.
+
+
+#### Connection Pooling
+
+By default OrientJS create a connection pool of 5 sockets. Use the paramenter `pool` in order to change the default configuration.
+
+```js
+const OrientDBClient = require("orientjs").OrientDBClient;
+
+OrientDBClient.connect({
+  host: "localhost",
+  port: 2424,
+  pool : { max : 10}
+}).then(client => {
+  return client.close();
+}).then(()=> {
+   console.log("Client closed");
+});
+```
+
+### Databases Manipulation
+
+### Sessions Access
+
