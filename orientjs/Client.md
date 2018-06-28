@@ -161,6 +161,56 @@ client.dropDatabase({
 });
 ```
 
-### Sessions Access
+### Sessions
 
-Once you have initialized the client variable in your application, you can use it to open sessions on OrientDB Server.
+Once you have initialized the client variable in your application, you can use it to open sessions on OrientDB Server. 
+You can either open a single session with the API `client.session` or request a pool of sessions with the API `client.sessions`. 
+Then use the [Session API](Session.md) to interact with the database.
+
+#### Single Session
+
+To open a new standalone session use the `client.session` api. This api will create a new stateful session associated with the given database and credentials. Once done, call `session.close` in order to release the session on the server. Session are stateful since OrientJS 3.0 as they can execute server side transactions.
+
+
+
+```js
+client.session({ name: "demodb", username: "admin", password: "admin" })
+.then(session => {
+	// use the session
+	... 
+	// close the session
+	return session.close();
+});
+```
+
+
+
+#### Pool of Sessions
+
+Opening and closing sessions everytime can be expensive, since open and close require a network request to the server. Use the API `client.sessions` to create a pool of sessions with a given database and credentials. To get a session from the pool call the api `pool.acquire`. Once done with the session you can return the session to the pool by calling `session.close`.
+
+By default the pool size is is 5 sessions. Use the `pool` parameter to change this default configuration.
+
+
+```js
+// Create a sessions Pool
+client.sessions({ name: "demodb", username: "admin", password: "admin", pool: { max: 10} })
+  .then(pool => {
+    // acquire a session
+    return pool.acquire()
+      .then(session => {
+        // use the session
+        ...
+        // release the session
+        return session.close();
+      })
+      .then(() => {
+      	 // close the pool
+        return pool.close();
+      });
+  });
+});
+```
+
+
+

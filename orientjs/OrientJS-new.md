@@ -123,7 +123,7 @@ client.sessions({ name: "demodb", username: "admin", password: "admin", pool: { 
 
 ### Session API
 
-Once obtained a session using the above APIs you can:
+Once you have initialized a session using the above APIs you can:
 
 - Run a Query (Idempotent SQL statement)
 - Run a Command (Idempotent or non idempotent SQL statement)
