@@ -8,7 +8,7 @@ search:
 	- [Connecting](Client.md#connecting)
 	- [Databases Manipulation](Client.md#databases-manipulation)
 	- [Sessions Access](Client.md#session-access)
-- [Session API](Client.md)
+- [Session API](Session.md)
 	- [Query](Session.md#query)
 	- [Command](Session.md#command)
 	- [Batch Script](Session.md#script)
