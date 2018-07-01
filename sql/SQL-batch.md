@@ -14,8 +14,10 @@ SQL Batch supports all the OrientDB [SQL Commands](SQL-Commands.md), plus the fo
 - ```commit [retry <retry>]```, where:
  - <retry> is the number of retries in case of concurrent modification exception
 - ```let <variable> = <SQL>```, to assign the result of a SQL command to a variable. To reuse the variable prefix it with the dollar sign $
-- ```if(<expression>){<statememt>}```. Look at [Conditional execution](SQL-batch.md#conditional-execution).
-- ```sleep <ms>```, put the batch in wait for `<ms>` milliseconds.
+- ```IF(<condition>){ <statememt>; [<statement>;]* }```. Look at [Conditional execution](SQL-batch.md#conditional-execution).
+- ```WHILE(<condition>){ <statememt>; [<statement>;]* }```. Look at [Conditional execution](SQL-batch.md#Loops).
+- ```FOREACH(<variable> IN <expression>){ <statememt>; [<statement>;]* }```. Look at [Conditional execution](SQL-batch.md#Loops).
+- ```SLEEP <ms>```, put the batch in wait for `<ms>` milliseconds.
 - ```console.log <text>```, logs a message in the console. Context variables can be used with `${<variable>}`. Since 2.2.
 - ```console.error <text>```, writes a message in the console's standard output. Context variables can be used with `${<variable>}`. Since 2.2.
 - ```console.output <text>```, writes a message in the console's standard error. Context variables can be used with `${<variable>}`. Since 2.2.
@@ -92,5 +94,58 @@ if($a.size() > 0) {
    ROLLBACK 
 }
 ```
+
+## Loops
+
+SQL Batch provides two different loop blocks: FOREACH and WHILE
+
+#### FOREACH
+
+(since v 3.0.3 - experimental)
+
+Loops on all the items of a collection and, for each of them, executes a set of SQL statements
+
+The syntax is
+
+```sql
+FOREACH(<variable> IN <expression>){
+   <statement>;
+   <statement>;
+   ...
+}
+```
+Example
+```sql
+FOREACH ($i IN [1, 2, 3]){
+  INSERT INTO Foo SET value = $i;
+}
+```
+
+
+#### WHILE
+
+(since v 3.0.3 - experimental)
+
+Loops while a condition is true
+
+The syntax is
+
+```sql
+WHILE(<condition>){
+   <statement>;
+   <statement>;
+   ...
+}
+```
+
+Example
+```sql
+LET $i = 0;
+WHILE ($i < 10){
+  INSERT INTO Foo SET value = $i;
+  LET $i = $i + 1;
+}
+```
+
 
 
