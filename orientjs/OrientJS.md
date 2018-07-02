@@ -5,6 +5,8 @@ search:
 
 # OrientJS - Node.js Driver
 
+> The support for the new version of the OrientDB protocol is currently in beta, with new APIs in order to support new OrientDB features. See [here](OrientJS-beta.md) the OrientJS 3.0-beta documentation.
+
 OrientDB supports all JVM languages for server-side scripting.  Using the OrientJS module, you can develop database applications for OrientDB using the Node.js language.  It is fast, lightweight and uses the binary protocol, with features including:
 - Intuitive API, based on the [Bluebird](https://github.com/petkaantonov/bluebird) promise library.
 - Fast Binary Protocol Parser
