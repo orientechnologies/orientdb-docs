@@ -494,6 +494,7 @@
     * [JPA](java/JPA-Configuration.md) 
   * [JDBC Driver](jdbc-driver/README.md)
   * [Scala API](scala/Scala-Language.md)
+  * [OrientJS 3.0 Beta - Node.js Driver](orientjs/OrientJS-beta.md)
   * [OrientJS - Node.js Driver](orientjs/OrientJS.md)
     * [Server API](orientjs/OrientJS-Server.md)
     * [Database API](orientjs/OrientJS-Database.md)
