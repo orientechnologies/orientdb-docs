@@ -1,6 +1,3 @@
-
-{% include "./include-warning-3.0.md" %}
-
 ## API Changes
 
  
