@@ -8,7 +8,7 @@ For instance,
 OrientDBObject orientDB = new OrientDBObject("remote:localhost",OrientDBConfig.defaultConfig());
 ODatabaseObject db = orientDB.open("petshop","admin", "admin_passwd");
 
-db.getEntityManage().registerEntityClass(Person.class);
+db.getEntityManager().registerEntityClass(Person.class);
 
 Person p = db.newInstance(Person.class);
 p.setName("Luca");
