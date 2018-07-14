@@ -43,7 +43,7 @@ In v 3.0 TinkerPop is just an alternative graph API. The main graph API provided
 
 **Create documents and graphs with the same API**
 
-With the ODatabaseDocument API you can now create simple documents:
+With the [`ODatabaseDocument`](../../java/ref/ODatabaseDocument.md) API you can now create simple documents:
 
 ```java
   OElement doc = db.newInstance("ADocumentClass");
@@ -154,7 +154,7 @@ OrientDB v3.0 is backward compatible with TinkerPop 2.6.x API through an externa
 
 ### Externalization of object API
 
-The Object Database API are now part of a separate module. If your existent application is using it, please include this module. For new application we don't suggest to use the Object Database API, but rather the new Multi-Model API.
+The Object Database API is now part of a separate module. If your existent application is using it, please include this module. For new application we don't suggest to use the Object Database API, but rather the new Multi-Model API.
 
 ### Improvements of storage caching for reduce latency
 
