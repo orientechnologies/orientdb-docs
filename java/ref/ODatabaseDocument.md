@@ -63,6 +63,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`close()`**](ODatabaseDocument/close.md) | `void` | Closes the database. |
 | [**`command()`**](ODatabaseDocument/command.md) | [`OResultSet`](OResultSet.md) | Executes idempotent or non-idempotent query. |
 | [**`execute()`**](ODatabaseDocument/execute.md) |  [`OResultSet`](OResultSet.md) | Executes a query. |
+| [**`getName()`**](ODatabaseDocument/getName.md) | `String` | Retrieves the logical name of the database |
 | [**`save()`**](ODatabaseDocument/save.md) | `T` | Saves the given entity to the database. |
 
 
