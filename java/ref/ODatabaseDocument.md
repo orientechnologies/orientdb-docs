@@ -68,6 +68,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`getUser()`**](ODatabaseDocument/getUser.md) | [`OSecurityUser`](OSecurityUser.md) | Retrieves the current user |
 | [**`incrementalBackup()`**](ODatabaseDocument/incrementalBackup.md) | `String` | Performs an incremental backup of the database to the given path |
 | [**`isActiveOnCurrentThread()`**](ODatabaseDocument/isActiveOnCurrentThread.md) | `boolean` | Checks whether the current database is active on the current thread |
+| [**`isClosed()`**](ODatabaseDocument/isClosed.md) | `boolean` | Checks whether the database is closed |
 | [**`save()`**](ODatabaseDocument/save.md) | `T` | Saves the given entity to the database |
 
 

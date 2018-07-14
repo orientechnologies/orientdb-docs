@@ -400,6 +400,7 @@
 		* [getUser()](java/ref/ODatabaseDocument/getUser.md)
 		* [incrementalBackup()](java/ref/ODatabaseDocument/incrementalBackup.md)
 		* [isActiveOnCurrentThread()](java/ref/ODatabaseDocument/isActiveOnCurrentThread.md)
+		* [isClosed()](java/ref/ODatabaseDocument/isClosed.md)
         * [newBlob()](java/ref/ODatabaseDocument/newBlob.md)
         * [newEdge()](java/ref/ODatabaseDocument/newEdge.md)
         * [newElement()](java/ref/ODatabaseDocument/newElement.md)
