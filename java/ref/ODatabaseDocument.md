@@ -65,6 +65,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`execute()`**](ODatabaseDocument/execute.md) |  [`OResultSet`](OResultSet.md) | Executes a query |
 | [**`getName()`**](ODatabaseDocument/getName.md) | `String` | Retrieves the logical name of the database |
 | [**`getURL()`**](ODatabaseDocument/getURL.md) | `String` | Retrieves the database URL |
+| [**`getUser()`**](ODatabaseDocument/getUser.md) | [`OSecurityUser`](OSecurityUser.md) | Retrieves the current user |
 | [**`save()`**](ODatabaseDocument/save.md) | `T` | Saves the given entity to the database |
 
 
