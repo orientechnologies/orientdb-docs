@@ -388,6 +388,7 @@
 		* [execute()](java/ref/ODatabaseDocument/execute.md)
 		* [getActiveIntent()](java/ref/ODatabaseDocument/getActiveIntent.md)
 		* [getClass()](java/ref/ODatabaseDocument/getClass.md)
+		* [getClusterIdByName()](java/ref/ODatabaseDocument/getClusterIdByName.md)
         * [getRecord()](java/ref/ODatabaseDocument/getRecord.md)
         * [getRecordType()](java/ref/ODatabaseDocument/getRecordType.md)
         * [newBlob()](java/ref/ODatabaseDocument/newBlob.md)
