@@ -113,6 +113,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 |---|---|---|
 | [**`begin()`**](ODatabaseDocument/begin.md) | `ODatabase<T>` | Initiates a transaction |
 | [**`commit()`**](ODatabaseDocument/commit.md) | `ODatabase<T>` | Commits a transaction |
+| [**`getTransaction()`**](ODatabaseDocument/getTransaction.md) | [`OTransaction`](OTransaction.md) | Retrieves the current transaction |
 | [**`rollback()`**](ODatabaseDocument/rollback.md) | `ODatabase<T>` | Reverts changes |
 
 
