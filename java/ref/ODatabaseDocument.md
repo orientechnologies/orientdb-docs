@@ -62,6 +62,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 |---|---|---|
 | [**`close()`**](ODatabaseDocument/close.md) | `void` | Closes the database. |
 | [**`command()`**](ODatabaseDocument/command.md) | [`OResultSet`](OResultSet.md) | Executes idempotent or non-idempotent query. |
+| [**`execute()`**](ODatabaseDocument/execute.md) |  [`OResultSet`](OResultSet.md) | Executes a query. |
 | [**`save()`**](ODatabaseDocument/save.md) | `T` | Saves the given entity to the database. |
 
 
@@ -78,6 +79,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`createClassIfNotExists()`**](ODatabaseDocument/createClassIfNotExists.md) | [`OClass`](OClass.md) | Creates a new database class, if not exists |
 | [**`createEdgeClass()`**](ODatabaseDocument/createEdgeClass.md) | [`OClass`](OClass.md) | Creates a database class as an extension of the `E` edge class |
 | [**`createVertexClass()`**](ODatabaseDocument/createVertexClass.md) | [`OClass`](OClass.md) | Creates a database class as an extension of the `V` vertex class |
+| [**`dropCluster()`**](ODatabaseDocument/dropCluster.md) | `boolean` | Removes cluster from database |
 
 <!--
 - addBlobCluster
