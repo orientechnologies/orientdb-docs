@@ -62,7 +62,7 @@ database.save(record);
 
 Since this is a separate record, the best way to reference it is to link it to a Document record. Example:
 ```java
-OBlob record = database.newBlog("Binary data".getBytes());
+OBlob record = database.newBlob("Binary data".getBytes());
 ODocument doc = new ODocument();
 doc.field("id", 12345);
 doc.field("binary", record);
@@ -95,9 +95,9 @@ Cons:
 
 OrientDB can store up to 2Gb as record content. But there are other limitations on network buffers and file sizes you should tune to reach the 2GB barrier.
 
-However managing big chunks of binary data means having big `byte[]` structures in RAM and this could cause a Out Of Memory of the JVM. Many users reported that splitting the binary data in chunks it's the best solution.
+However managing big chunks of binary data means having big `byte[]` structures in RAM and this could cause a Out Of Memory of the JVM. Many users reported that splitting the binary data in chunks is the best solution.
 
-Continuing from the last example we could handle not a single reference against one `ORecordBytes` record but multiple references. A One-To-Many relationship. For this purpose the `LINKLIST` type fits perfect because maintains the order.
+Continuing from the last example we could handle not a single reference against one `ORecordBytes` record but multiple references. A One-To-Many relationship. For this purpose the `LINKLIST` type fits perfectly because maintains the order.
 
 To avoid OrientDB caches in memory large records use the massive insert intent and keep in the collection the [RID](../datamodeling/Concepts.md#record-id), not the entire records.
 

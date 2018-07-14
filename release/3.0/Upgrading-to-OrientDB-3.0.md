@@ -1,6 +1,4 @@
 
-{% include "./include-warning-3.0.md" %}
-
 # Upgrading to OrientDB 3.0
 
 ## General information

@@ -1,6 +1,4 @@
 
-{% include "./include-warning-3.0.md" %}
-
 ## SQL Changes
 
 ### DISTINCT keyword

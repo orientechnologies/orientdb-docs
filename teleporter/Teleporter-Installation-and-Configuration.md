@@ -24,8 +24,8 @@ So when you run Teleporter you just have to indicate the name of the DBMS you wa
 - **PostgreSQL**
 - **HyperSQL**
 
-Teleporter will search for the correspondent driver in the $ORIENTDB_HOME/lib folder and if it's not present, it will download the last available driver version. If a driver is already present in the folder, then it will be used for the connection to the source DB.
-Therefore if you want use a new driver version, you just have to delete the older version and run Teleporter which will download and configure for you the last available version.
+Teleporter will search for the correspondent driver in the $ORIENTDB_HOME/lib folder and if it's not present, it will download the latest available driver version. If a driver is already present in the folder, then it will be used for the connection to the source DB.
+Therefore if you want use a new driver version, you just have to delete the older version and run Teleporter which will download and configure for you the latest available version.
 
 ```
 ./oteleporter.sh -jdriver postgresql -jurl jdbc:postgresql://localhost:5432/testdb 
@@ -35,7 +35,7 @@ Therefore if you want use a new driver version, you just have to delete the olde
 
 ### Manual Driver configuration
 It's possible to perform a manual configuration downloading own favourite driver version and properly defining the classpath in the application. 
-Below are reported last driver tested versions with some useful information for download, configuration and use.     
+Below are reported the last driver tested versions with some useful information for download, configuration and use.     
        
 | Driver     | Last Tested Version |  Path pattern | Path Example | Link for download |
 |------------|---------------------|--------------|--------------|-------------------|

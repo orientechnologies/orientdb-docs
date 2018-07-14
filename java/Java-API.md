@@ -16,10 +16,10 @@ OrientDB is written completely in the Java language.  This means that you can us
 
 OrientDB provides four different Java API's that allow you to work with OrientDB.
 
-- [**TinkerPop 2.6 Graph API**](#tinkerpop-26-graph-api) Use this Java API if you work with graphs and want portable code across TinkerPop Blueprints implementations.  It is easiest to switch to this when migrating from other Graph Databases, such as Neo4J or Titan.  If you used TinkerPop standard on these, you can use OrientDB as a drop-in replacement.
-- [**TinkerPop 3.x Graph-Gremlin API**](#tinkerpop-3x-graph-gremlin-api) Implementation of TinkerPop 3.x java API
 - [**MultiModel API**](#multi-model-api) Java API with Document and Graph concepts with schema-less and schemaful structures.
+- [**TinkerPop 3.x Graph-Gremlin API**](#tinkerpop-3x-graph-gremlin-api) Implementation of TinkerPop 3.x java API
 - [**Object API**](#object-api) Use this Java API if you need a full Object Oriented abstraction that binds all database entities to POJO (that is, Plain Old Java Objects).
+- [**TinkerPop 2.6 Graph API (deprecated)**](#tinkerpop-26-graph-api) Use this Java API if you work with graphs and want portable code across TinkerPop Blueprints implementations.  It is easiest to switch to this when migrating from other Graph Databases, such as Neo4J or Titan.  If you used TinkerPop standard on these, you can use OrientDB as a drop-in replacement.
 
 
 ### Multi-Model API
@@ -34,22 +34,9 @@ API: [Document API](Document-Database.md)
 Query API: [Query API](Java-Query-API.md)
 
 
-### TinkerPop 2.6 Graph API
-
-With this Java API, you can use OrientDB as a Graph Database, allowing you to work with Vertices and Edges.  The Graph API is compliant with the [TinkerPop](http://www.tinkerpop.com) standard.
-
-API: [Graph API](Graph-Database-Tinkerpop.md)
-
 ### TinkerPop 3.x Graph Gremlin API
 
-
-### Document API (legacy)
-
-With this Java API, you can handle records and documents.  Documents are comprised of fields and fields can be any of the supported types.  You can use it with a schema, without, or in a mixed mode.
-
-Additionally, it does not require a Java domain POJO, as is the case with Object Databases.
-
-API: [Document API](Document-Database.md)
+API: [Apache TinkerPop 3.x](../tinkerpop3/OrientDB-TinkerPop3.md)
 
 
 ### Object API
@@ -63,3 +50,8 @@ While you can use both the Graph API and Document API at the same time, the Obje
 API: [Object Database](Object-Database.md)
 
 
+### TinkerPop 2.6 Graph API (Deprecated)
+
+With this Java API, you can use OrientDB as a Graph Database, allowing you to work with Vertices and Edges.  The Graph API is compliant with the [TinkerPop](http://www.tinkerpop.com) standard.
+
+API: [Graph API](Graph-Database-Tinkerpop.md)
