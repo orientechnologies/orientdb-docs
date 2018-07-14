@@ -41,7 +41,7 @@ public static ODatabaseDocument openDatabase(String name) {
 }
 ```
 
-Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of the database exists, runs theh [`create()`](OrientDB/create.md) if it doesn't, then uses [`open()`](OrientDB/open.md) with default credentials to open the `ODatabaseDocument` instance in your application.
+Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of the database exists, runs the [`create()`](OrientDB/create.md) if it doesn't, then uses [`open()`](OrientDB/open.md) with default credentials to open the `ODatabaseDocument` instance in your application.
 
 
 ## Methods
@@ -115,3 +115,4 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | Method | Return Type | Description |
 |---|---|---|
 | [**`declareIntent()`**](ODatabaseDocument/declareIntent.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Declares an intent for the database. |
+| [**`getActiveIntent()`**](ODatabaseDocument/getActiveIntent.md) | [`OIntent`](OIntent.md) | Returns the Intent active for the current session |
