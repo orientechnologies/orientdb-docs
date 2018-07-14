@@ -83,6 +83,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`existsCluster()`**](ODatabaseDocument/existsCluster.md) | `boolean` | Determines whether a cluster exists on the database |
 | [**`getClass()`**](ODatabaseDocument/getClass.md) | [`OClass`](OClass.md) | Retrieves the given class from the database |
 | [**`getClusterIdByName()`**](ODatabaseDocument/getClusterIdByName.md) | `int` | Retrieves the Cluster ID for the given cluster name |
+| [**`getClusterNameById()`**](ODatabaseDocument/getClusterNameById.md) | `String` | Retrieves the cluster name for the given ID |
 
 <!--
 - addBlobCluster

@@ -9,7 +9,7 @@ Retrieves the Cluster ID for the given cluster.
 
 ## Retrieving Cluster ID's
 
-OrientDB uses two systems to identify clusters.  The first is the Cluster ID, which is represented by the first set of digits in a Record ID.  The second is the logical cluster name.  Using this method, you can retrieve the Cluster ID for the given cluster name.
+OrientDB uses two systems to identify clusters.  The first is the Cluster ID, which is represented by the first set of digits in a Record ID.  The second is the logical cluster name.  Using this method, you can retrieve the Cluster ID for the given cluster name.  If you have the Cluster ID already and want the cluster name, use the [`getClusterNameById()`](getClusterNameById.md) method.
 
 ### Syntax
 
