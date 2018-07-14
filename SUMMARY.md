@@ -393,6 +393,7 @@
 		* [getClusters()](java/ref/ODatabaseDocument/getClusters.md)
 		* [getDefaultClusterId()](java/ref/ODatabaseDocument/getDefaultClusterId.md)
         * [getName()](java/ref/ODatabaseDocument/getName.md)
+		* [getURL()](java/ref/ODatabaseDocument/getURL.md)
         * [getRecord()](java/ref/ODatabaseDocument/getRecord.md)
         * [getRecordType()](java/ref/ODatabaseDocument/getRecordType.md)
         * [newBlob()](java/ref/ODatabaseDocument/newBlob.md)
