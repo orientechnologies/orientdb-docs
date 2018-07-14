@@ -399,6 +399,7 @@
 		* [getURL()](java/ref/ODatabaseDocument/getURL.md)
 		* [getUser()](java/ref/ODatabaseDocument/getUser.md)
 		* [incrementalBackup()](java/ref/ODatabaseDocument/incrementalBackup.md)
+		* [isActiveOnCurrentThread()](java/ref/ODatabaseDocument/isActiveOnCurrentThread.md)
         * [newBlob()](java/ref/ODatabaseDocument/newBlob.md)
         * [newEdge()](java/ref/ODatabaseDocument/newEdge.md)
         * [newElement()](java/ref/ODatabaseDocument/newElement.md)
