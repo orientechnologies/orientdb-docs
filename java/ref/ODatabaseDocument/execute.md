@@ -9,7 +9,7 @@ Runs the given script in the specified query language and returns a result-set.
 
 ## Executing Queries
 
-Using this method you can execute querires on the OrientDB database.  You may find it useful when you need to construct an OrientDB SQL statement based on user input or runtime information.  Note that the method returns an [`OResultSet`](../OResultSet.md) instance, which you need to close when done.
+Using this method you can execute queries on the OrientDB database.  You may find it useful when you need to construct an OrientDB SQL statement based on user input or runtime information.  Note that the method returns an [`OResultSet`](../OResultSet.md) instance, which you need to close when done.
 
 ### Syntax
 

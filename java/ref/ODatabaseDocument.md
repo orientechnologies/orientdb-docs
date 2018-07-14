@@ -80,13 +80,14 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`createEdgeClass()`**](ODatabaseDocument/createEdgeClass.md) | [`OClass`](OClass.md) | Creates a database class as an extension of the `E` edge class |
 | [**`createVertexClass()`**](ODatabaseDocument/createVertexClass.md) | [`OClass`](OClass.md) | Creates a database class as an extension of the `V` vertex class |
 | [**`dropCluster()`**](ODatabaseDocument/dropCluster.md) | `boolean` | Removes cluster from database |
+| [**`existsCluster()`**](ODatabaseDocument/existsCluster.md) | `boolean` | Determines whether a cluster exists on the database |
 
 <!--
 - addBlobCluster
 -->
 
 
-### Managaing Records
+### Managing Records
 
 | Method | Return Type | Description |
 |---|---|---|
