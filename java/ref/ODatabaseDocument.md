@@ -84,6 +84,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`getClass()`**](ODatabaseDocument/getClass.md) | [`OClass`](OClass.md) | Retrieves the given class from the database |
 | [**`getClusterIdByName()`**](ODatabaseDocument/getClusterIdByName.md) | `int` | Retrieves the Cluster ID for the given cluster name |
 | [**`getClusterNameById()`**](ODatabaseDocument/getClusterNameById.md) | `String` | Retrieves the cluster name for the given ID |
+| [**`getClusters()`**](ODatabaseDocument/getClusters.md) | `int` | Returns the number of clusters on the database |
 
 <!--
 - addBlobCluster
