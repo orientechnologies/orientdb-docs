@@ -22,4 +22,7 @@ boolean ODatabaseDocument().existsCluster(String name)
 | **`name`** | `String` | The logical name of the cluster |
 
 
+#### Return Value
+
+This method returns a `boolean` instance.  A value of `true` indicates that the cluster exists on the database.
 
