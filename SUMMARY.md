@@ -412,6 +412,7 @@
         * [newVertex()](java/ref/ODatabaseDocument/newVertex.md)
 		* [rollback()](java/ref/ODatabaseDocument/rollback.md)
 		* [save()](java/ref/ODatabaseDocument/save.md) 
+		* [truncateCluster()](java/ref/ODatabaseDocument/truncateCluster.md)
 		* [unregisterListener()](java/ref/ODatabaseDocument/unregisterListener.md)
 	  * [ODatabaseListener](java/ref/ODatabaseListener.md)
       * [OEdge](java/ref/OEdge.md)

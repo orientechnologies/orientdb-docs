@@ -97,6 +97,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`getClusterNameById()`**](ODatabaseDocument/getClusterNameById.md) | `String` | Retrieves the cluster name for the given ID |
 | [**`getClusters()`**](ODatabaseDocument/getClusters.md) | `int` | Returns the number of clusters on the database |
 | [**`getDefaultClusterId()`**](ODatabaseDocument/getDefaultClusterId.md) | `int` | Returns the default Cluster ID |
+| [**`truncateCluster()`**](ODatabaseDocument/truncateCluster.md) | `void` | Removes all data from the given cluster |
 
 <!--
 - addBlobCluster
