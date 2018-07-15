@@ -72,7 +72,9 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`live()`**](ODatabaseDocument/live.md) | [`OLiveQueryMonitor`](OLiveQueryMonitor.md) | Subscribes query as a live query |
 | [**`load()`**](ODatabaseDocument/load.md) | `<RET extends T> RET` | Loads a record by its Record ID |
 | [**`query()`**](ODatabaseDocument/query.md) | [`OResultSet`](OResultSet.md) | Queries the database |
+| [**`registerListener()`**](ODatabaseDocument/registerListener.md) | `void` | Subscribes the given listener to database events |
 | [**`save()`**](ODatabaseDocument/save.md) | `T` | Saves the given entity to the database |
+| [**`unregisterListener()`**](ODatabaseDocument/unregisterListener.md) | `void` | Unsubscribes the given listener from database events |
 
 
 ### Managing Classes and Clusters
