@@ -30,7 +30,7 @@ This method returns an [`OResultSet`](../OResultSet.md) instance, containing the
 
 ### Example
 
-Imagine an application that stores account information on OrientDB.  You might create a method to connect to the database and add new client data, rolling the [`INSERT`](../../sql/SQL-Insert.md) statement with the data provided by the parameters.
+Imagine an application that stores account information on OrientDB.  You might create a method to connect to the database and add new client data, rolling the [`INSERT`](../../../sql/SQL-Insert.md) statement with the data provided by the parameters.
 
 ```java
 private ODatabaseDocument db;

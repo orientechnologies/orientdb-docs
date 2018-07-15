@@ -15,7 +15,7 @@ A Session instance can be used for:
 - Use query builder
 
 
-To obtain a Session instance use the [Cient APIs](Client.md#session-access).
+To obtain a Session instance use the [Cient APIs](Client.md#sessions).
 
 > By convention, the variable on which you initialize the Session API is called session. This designation is arbitrary and used only for convenience.
 
@@ -185,9 +185,9 @@ session.command("insert into V set name = :name", {
 
 ## Live Queries
 
-When using traditional queries, such as those called with `session.query()` and `session.select()` you only get data that is current at the time the query is issued.  Beginning in version 2.1, OrientDB now supports [Live Queries](Live-Query.md), where in issuing the query you tell OrientDB you want it to push affecting changes to your application.
+When using traditional queries, such as those called with `session.query()` and `session.select()` you only get data that is current at the time the query is issued.  Beginning in version 2.1, OrientDB now supports [Live Queries](../java/Live-Query.md), where in issuing the query you tell OrientDB you want it to push affecting changes to your application.
 
-You can execute Live Queries using the `session.liveQuery()` method with a [`LIVE SELECT`](SQL-Live-Select.md) statement passed as its argument. 
+You can execute Live Queries using the `session.liveQuery()` method with a [`LIVE SELECT`](../sql/SQL-Live-Select.md) statement passed as its argument. 
 
 
 ### Understanding Live Queries
@@ -196,13 +196,13 @@ Traditional queries provide you with information that is current at the time the
 
 For instance, what if in addition to historical data you also want your application to serve real-time information about baseball games as they're being played.
 
-With the traditional query, you would have to reissue the query within a set interval to update the application.  Live Queries allow you to register events, so that your application performs addition operations in the event of an [`INSERT`](SQL-Insert.md), [`DELETE`](SQL-Delete.md), or [`UPDATE`](SQL-Update.md).
+With the traditional query, you would have to reissue the query within a set interval to update the application.  Live Queries allow you to register events, so that your application performs addition operations in the event of an [`INSERT`](../sql/SQL-Insert.md), [`DELETE`](../sql/SQL-Delete.md), or [`UPDATE`](../sql/SQL-Update.md).
   
 For example, say that you have a web application that uses the baseball database.  The application serves the current score and various other stats for the game.  Whenever your back-end system inserts new records for the game, you can execute a function to update the display information.
 
 ### Working with Live Queries
 
-In OrientJS, Live Queries are called using the `session.liveQuery()` method.  This is similar to `session.query()` in that you use it to issue the raw SQL of a [`LIVE SELECT`](SQL-Live-Select.md) statement.  You can assign event handlers to `session.liveQuery` using the `on('data')` method. The methods returns an extension of Node.JS Streams
+In OrientJS, Live Queries are called using the `session.liveQuery()` method.  This is similar to `session.query()` in that you use it to issue the raw SQL of a [`LIVE SELECT`](../sql/SQL-Live-Select.md) statement.  You can assign event handlers to `session.liveQuery` using the `on('data')` method. The methods returns an extension of Node.JS Streams
 
 For instance,
 
@@ -266,7 +266,7 @@ Rather than writing out query strings in SQL, you can alternatively use the Orie
 
 Creation queries in OrientJS are those used in creating vertex and edge records on a Graph Database. Given the added complexity of regular or lightweight edges running between the vertices, adding records is a little more complicated than the insert() method you might use otherwise.
 
-The creation query method is comparable to the [`CREATE VERTEX`](SQL-Create-Vertex.md) and [`CREATE EDGE`](SQL-Create-Edge.md) commands on the OrientDB Console.
+The creation query method is comparable to the [`CREATE VERTEX`](../sql/SQL-Create-Vertex.md) and [`CREATE EDGE`](../sql/SQL-Create-Edge.md) commands on the OrientDB Console.
 
 In OrientJS, creating vertices and edges uses the create() method. The examples below operate on a database of baseball statistics, which has been initialized on the db variable.
 
@@ -335,7 +335,7 @@ Now, whenever you build queries to show the players for a team, you can include 
 ### Insert
 
 
-Insertion queries in OrientJS are those that add records of a given class into the database.  The insertion query method is comparable to the [`INSERT`](SQL-Insert.md) commands on the OrientDB Console.
+Insertion queries in OrientJS are those that add records of a given class into the database.  The insertion query method is comparable to the [`INSERT`](../sql/SQL-Insert.md) commands on the OrientDB Console.
 
 
 
@@ -382,7 +382,7 @@ INSERT INTO Player SET uuid = format('%s',uuid()), ba = 0.367, r = 2246, rbi = 1
 
 ### Update
 
-Update queries in OrientJS are those used in changing or otherwise modifying existing records in the database.  The method is comparable to the [`UPDATE`](SQL-Update.md) command on the OrientDB Console.
+Update queries in OrientJS are those used in changing or otherwise modifying existing records in the database.  The method is comparable to the [`UPDATE`](../sql/SQL-Update.md) command on the OrientDB Console.
 
 
 In OrientJS, updating records works through the `update()` method.  The examples below operate on a database of baseball statistics, which has been initialized on the `session` variable.
@@ -423,7 +423,7 @@ session.update("Player")
 
 Deletion queries in OrientJS are those used in removing records from the database.  It can also account for edges between vertices, updating the graph to maintain its consistency.
 
-The deletion query method is comparable to [`DELETE`](SQL-Delete.md), [`DELETE VERTEX`](SQL-Delete-Vertex.md) and the [`DELETE EDGE`](SQL-Delete-Edge.md) statements.
+The deletion query method is comparable to [`DELETE`](../sql/SQL-Delete.md), [`DELETE VERTEX`](../sql/SQL-Delete-Vertex.md) and the [`DELETE EDGE`](../sql/SQL-Delete-Edge.md) statements.
 
 In OrientJS, deletions use the `delete()` method.  The examples below operate on a database of baseball statistics, which has been initialized on the `session` variable.
 
@@ -460,7 +460,7 @@ session.delete('EDGE', 'PlaysFor')
 
 #### Deleting Records
 
-In order to delete records in a given class, you need to define a conditional value that tells OrientDB the specific records in the class that you want to delete.  When working from the Console, you would use the [`WHERE`](SQL-Where.md) clause.  In OrientJS, set the `where()` method.
+In order to delete records in a given class, you need to define a conditional value that tells OrientDB the specific records in the class that you want to delete.  When working from the Console, you would use the [`WHERE`](../sql/SQL-Where.md) clause.  In OrientJS, set the `where()` method.
 
 ```js
 session.delete().from('Player')
@@ -473,7 +473,7 @@ session.delete().from('Player')
 
 ### Select
 
-Selection queries in OrientJS are those used to fetch data from the database, so that you can operate on it with your application.  The method is comparable to the [`SELECT`](SQL-Query.md) command in the OrientDB Console.
+Selection queries in OrientJS are those used to fetch data from the database, so that you can operate on it with your application.  The method is comparable to the [`SELECT`](../sql/SQL-Query.md) command in the OrientDB Console.
 
 
 In OrientJS, fetching data from the database uses the `select()` method.  The examples below operate on a database of baseball statistics, which has been initialized on the `db` variable.

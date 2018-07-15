@@ -9,7 +9,7 @@ Retrieves the logical name of the database.
 
 ## Database Names
 
-Each database you create in OrientDB has a logical name under which it can be accessed later.  This is the name you passed to the [`CREATE DATABASE`](../../console/Console-Command-Create-Database.md) statement when you created the database.  Using this method you can retrieve the logical name from OrientDB.
+Each database you create in OrientDB has a logical name under which it can be accessed later.  This is the name you passed to the [`CREATE DATABASE`](../../../console/Console-Command-Create-Database.md) statement when you created the database.  Using this method you can retrieve the logical name from OrientDB.
 
 ### Syntax
 

@@ -30,7 +30,7 @@ NOTE: _Release v3.0 provides new APIs in order to support OrientDB 3.0 features_
 
 ## Versions and Compatibility
 
-OrientJS v3.0 contains backwards compatible APIs for OrientDB 2.2.x and OrientDB 3.0.x using the old protocol version 33 ([Legacy](legacy/OrientJS.md)). New APIs are shipped in v3.0 to support the new protocol featuring Streaming, Stateful transactions, new SQL engine etc..
+OrientJS v3.0 contains backwards compatible APIs for OrientDB 2.2.x and OrientDB 3.0.x using the old protocol version 33 ([Legacy](OrientJS.md)). New APIs are shipped in v3.0 to support the new protocol featuring Streaming, Stateful transactions, new SQL engine etc..
 
 
 

@@ -48,5 +48,5 @@ public long fetchAccountCount(){
 | [`next()`](OResultSet/next.md) | [`OResult`](OResult.md) | Returns the next result in the result-set |
 | [`remove()`](OResultSet/remove.md) | `void` | Removes the last value returned by the `Iterator` |
 | [`stream()`](OResultSet/stream.md) | [`Stream`]({{ book.javase }}/java/util/Stream.html)[`<OResult>`](OResult.md) | Streams the results in the result-set |
-| [`vertexStream()`](OResultSet/vertexStream.md) | [`Stream`]({{ book.javase }}/java/util/Stream.html)[`<OVertex>`](../OVertex.md) | Streams vertices from the result-set |
+| [`vertexStream()`](OResultSet/vertexStream.md) | [`Stream`]({{ book.javase }}/java/util/Stream.html)[`<OVertex>`](OVertex.md) | Streams vertices from the result-set |
 
