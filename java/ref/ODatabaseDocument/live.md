@@ -33,5 +33,5 @@ OLiveQueryMonitor ODatabaseDocument().live(
 
 #### Return Value
 
-This method returns an [`OLiveQueryMonitor`](OLiveQueryMonitor.md) instance.
+This method returns an [`OLiveQueryMonitor`](../OLiveQueryMonitor.md) instance.
 
