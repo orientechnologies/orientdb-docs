@@ -70,6 +70,7 @@ Here, the method uses the [`exists`](OrientDB/exists.md) method to determine of 
 | [**`isActiveOnCurrentThread()`**](ODatabaseDocument/isActiveOnCurrentThread.md) | `boolean` | Checks whether the current database is active on the current thread |
 | [**`isClosed()`**](ODatabaseDocument/isClosed.md) | `boolean` | Checks whether the database is closed |
 | [**`live()`**](ODatabaseDocument/live.md) | [`OLiveQueryMonitor`](OLiveQueryMonitor.md) | Subscribes query as a live query |
+| [**`load()`**](ODatabaseDocument/load.md) | `<RET extends T> RET` | Loads a record by its Record ID |
 | [**`save()`**](ODatabaseDocument/save.md) | `T` | Saves the given entity to the database |
 
 

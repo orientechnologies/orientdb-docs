@@ -402,6 +402,7 @@
 		* [isActiveOnCurrentThread()](java/ref/ODatabaseDocument/isActiveOnCurrentThread.md)
 		* [isClosed()](java/ref/ODatabaseDocument/isClosed.md)
 		* [live()](java/ref/ODatabaseDocument/live.md)
+		* [load()](java/ref/ODatabaseDocument/load.md)
         * [newBlob()](java/ref/ODatabaseDocument/newBlob.md)
         * [newEdge()](java/ref/ODatabaseDocument/newEdge.md)
         * [newElement()](java/ref/ODatabaseDocument/newElement.md)
