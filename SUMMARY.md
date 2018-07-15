@@ -403,6 +403,7 @@
 		* [isClosed()](java/ref/ODatabaseDocument/isClosed.md)
 		* [live()](java/ref/ODatabaseDocument/live.md)
 		* [load()](java/ref/ODatabaseDocument/load.md)
+		* [query()](java/ref/ODatabaseDocument/query.md)
         * [newBlob()](java/ref/ODatabaseDocument/newBlob.md)
         * [newEdge()](java/ref/ODatabaseDocument/newEdge.md)
         * [newElement()](java/ref/ODatabaseDocument/newElement.md)
