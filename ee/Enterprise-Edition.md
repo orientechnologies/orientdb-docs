@@ -30,6 +30,7 @@ At run-time, the Enterprise edition logs this message:
 
 Before v2.2, the Enterprise Edition front end was the **Workbench** application. Starting from v2.2, the Workbench has been merged into [Studio](../studio/README.md). When Studio runs on an Enterprise Edition, it enables the additional features automatically. Furthermore while the Workbench was a separate application that was connected to the servers, with the new Studio Enterprise, every server is a peer of the distributed cluster. You can configure any server by connecting to one of the servers in the distributed cluster.
 
+
 Explore the Enterprise Edition features:
 
 * [Dashboard](../studio/server-management/Studio-Dashboard.md)
@@ -41,3 +42,6 @@ Explore the Enterprise Edition features:
 * [Teleporter](../studio/backups-imports-exports/Studio-Teleporter.md)
 * [Data Centers](../distributed/Data-Centers.md) 
 
+#### Cloud Dashboard
+
+From v3.0 most of the Enterprise Feature can be used with the brandh new [Cloud Dashboard](Cloud-Dashboard.md), where you can monitor and manage your local OrientDB cluster.
