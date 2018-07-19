@@ -4,7 +4,7 @@
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
-# OrientDB 3.0.x is our last GA
+# OrientDB 3.0.x is our latest GA
 
 ## Quick Navigation
 
