@@ -7,7 +7,7 @@ search:
 
 A project represent a single OrientDB deployment (Standalone or Cluster).
 
-To start monitoring OrientDB server/cluster you need first an Enteprise Agent. 
+To start monitoring OrientDB server/cluster you need first an Enterprise Agent. 
 
 * Download the enterprise agent [here](https://orientdb.com/orientdb-enterprise/).
 * Install it in the $ORIENTDB_HOME/plugins directory.
