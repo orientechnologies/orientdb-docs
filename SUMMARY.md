@@ -378,7 +378,7 @@
 		* [getLastPosition()](java/ref/OCluster/getLastPosition.md)
 		* [getName()](java/ref/OCluster/getName.md)
 		* [getNextPosition()](java/ref/OCluster/getNextPosition.md)
-		* [getRecordSize()](java/ref/OCluster/getRecordSize.md)
+		* [getRecordSize()](java/ref/OCluster/getRecordsSize.md)
 		* [getTombstonesCount()](java/ref/OCluster/getTombstonesCount.md)
 		* [hideRecord()](java/ref/OCluster/hideRecord.md)
 		* [open()](java/ref/OCluster/open.md)

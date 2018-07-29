@@ -15,14 +15,14 @@ To start monitoring OrientDB server/cluster you need first an Enterprise Agent.
 * Start the server with project id and token configuration as parameters.
 ( eg. -Dcloud.project.id=\<projectId\> -Dcloud.project.token=\<token> )
 
-> You can find the project id parameter in the [General Settings](#Settings)
+> You can find the project id parameter in the [General Settings](#settings)
 
 
 ### Dashboard
 
 The _Dashboard_ shows a graphical presentation of the current status and trends of each node joining your cluster. Performance indicators are reported in order to enable instantaneous and informed decisions which you can make at a glance.
 
-Here you can see the Dashboard reporting the status of a a single server.
+Here you can see the Dashboard reporting the status of a single server.
 
 You can monitor several information such as:
 
@@ -96,7 +96,7 @@ It displays the thread dump of the server.
 
 #### Backup Scheduling
 
-In order to schedule a backup click on the "+" icon neare the list of available backups in the "Backup Management" panel.
+In order to schedule a backup click on the "+" icon near the list of available backups in the "Backup Management" panel.
 
 As first thing choose the **database** that you want backup and a server where you want to schedule it. In the example above we have chosen the `demodb` database and `orientdb` server.
 Then you must specify the **local directory** where you want to save your backups.
@@ -123,7 +123,7 @@ Below we will examine briefly the three different backup strategies.
 
 #####Full backup
 Through this mode when each period passes a **full backup** will be performed in the path you specified in the settings just discussed.
-If you want know more about the full backup you can refer to the [Full Backup](../../admin/Backup-and-Restore.md) page.
+If you want know more about the full backup you can refer to the [Full Backup](../admin/Backup-and-Restore.md) page.
 
 ![](../images/cloud/studio-backup-02-full-backup-scheduling.png)
 
