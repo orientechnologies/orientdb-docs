@@ -29,7 +29,7 @@ import com.orientechnologies.orient.core.storage.OCluster;
 | [**`getLastPosition()`**](OCluster/getLastPosition.md) | `long` | Retrieves the position of the last record in the cluster |
 | [**`getName()`**](OCluster/getName.md) | `String` | Retrieves the logical name of the cluster |
 | [**`getNextPosition()`**](OCluster/getNextPosition.md) | `long` | Retrieves the position of the next record in the cluster |
-| [**`getRecordSize()`**](OCluster/getRecordSize.md) | `long` | Retrieves the size of the records in bytes contained in this cluster |
+| [**`getRecordSize()`**](OCluster/getRecordsSize.md) | `long` | Retrieves the size of the records in bytes contained in this cluster |
 | [**`getTombstonesCount()`**](OCluster/getTombstonesCount.md) | `long` | Retrieves the number of hidden records in the cluster |
 | [**`hideRecord()`**](OCluster/hideRecord.md) | `boolean` | Hides the given record from queries |
 | [**`open()`**](OCluster/open.md) | `void` | Opens the cluster |
