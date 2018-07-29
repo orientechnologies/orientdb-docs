@@ -8,9 +8,9 @@ search:
 
 OrientDB adheres to the [Apache TinkerPop](http://tinkerpop.apache.org) standard and implements TinkerPop Stack interfaces.
 
-In version pior 3.0, OrientDB uses the [TinkerPop 2.x](https://github.com/tinkerpop/blueprints) implementation as the default for [Java Graph API](../java/Graph-Database-Tinkerpop.md).
+In versions pior to 3.0, OrientDB uses the [TinkerPop 2.x](https://github.com/tinkerpop/blueprints) implementation as the default for [Java Graph API](../java/Graph-Database-Tinkerpop.md).
 
-Starting from version 3.0, OrientDB ships it's own 
+Starting from version 3.0, OrientDB ships its own 
 APIs for handling Graphs ([Multi-Model API](../java/Java-MultiModel-API.md)). Those APIs are used to implement the TinkerPop 3 interfaces.
 
 The OrientDB TinkerPop development happens [here](https://github.com/orientechnologies/orientdb-gremlin)
@@ -25,9 +25,9 @@ The OrientDB TinkerPop development happens [here](https://github.com/orientechno
 
 ## Installation
 
-Since TinkePop stack has been removed as dependency from OrientDB community, starting from version 3.0 it will be available for [download](http://orientdb.com/download) an Apache TinkerPop 3 enabled edition of OrientDB based on the Community Edition.
+Since TinkePop stack has been removed as a dependency from the OrientDB Community Edition, starting with version 3.0 it will be available for [download](http://orientdb.com/download) as an Apache TinkerPop 3 enabled edition of OrientDB based on the Community Edition.
 
-It contains all the feature of OrientDB Community plus the integration with the Tinkerpop stack:
+It contains all the features of the OrientDB Community Edition plus the integration with the Tinkerpop stack:
 
 - [Gremlin Console](#gremlin-console)
 - [Gremlin Server](#gremlin-server)

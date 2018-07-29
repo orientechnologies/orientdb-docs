@@ -55,7 +55,7 @@ OrientJS v3.0 contains backwards compatible APIs for OrientDB 2.2.x and OrientDB
 Install via npm.
 
 ```sh
-npm install orientjs
+npm install orientjs@beta
 ```
 
 ## Quick Start

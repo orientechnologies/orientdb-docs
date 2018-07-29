@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['java', 'osecurityuser]
+   keywords: ['java', 'osecurityuser']
 ---
 
 # OSecurityUser

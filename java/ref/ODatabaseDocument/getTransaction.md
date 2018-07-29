@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['java', 'odatabasedocument', 'gettransaction]
+   keywords: ['java', 'odatabasedocument', 'gettransaction']
 ---
 
 # ODatabaseDocument - getTransaction()
