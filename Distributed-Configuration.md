@@ -209,7 +209,7 @@ For more information look at: [Hazelcast Config TCP/IP](http://docs.hazelcast.or
 Since multicast is disabled on most of the Cloud stacks, you have to change the **config/hazelcast.xml** configuration file based on the Cloud used.
 
 ##### Amazon EC2
-OrientDB supports natively [Amazon EC2](http://aws.amazon.com/ec2/) through the Hazelcast's Amazon discovery plugin. In order to use it include also the **hazelcast-cloud.jar** library under the **lib/** directory.
+OrientDB supports natively [Amazon EC2](http://aws.amazon.com/ec2/) through the Hazelcast's Amazon discovery plugin. In order to use it include also the **hazelcast-aws.jar** library under the **lib/** directory.
 
 ```xml
 <hazelcast>
@@ -234,7 +234,7 @@ OrientDB supports natively [Amazon EC2](http://aws.amazon.com/ec2/) through the 
 </hazelcast>
 ```
 
-For more information look at [Hazelcast Config Amazon EC2 Auto Discovery](http://docs.hazelcast.org/docs/3.5/manual/html/ec2.html).
+For more information look at [Hazelcast AWS docs](https://github.com/hazelcast/hazelcast-aws/blob/master/README.md).
 
 ##### Other Cloud providers
 Uses manual IP like explained in [Manual IP](Distributed-Configuration.md#manual-ip).
