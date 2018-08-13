@@ -471,6 +471,7 @@
         * [setMin()](java/ref/OProperty/setMin.md)
         * [setName()](java/ref/OProperty/setName.md)
         * [setType()](java/ref/OProperty/setType.md)
+	  * [ORecordOperation](java/ref/ORecordOperation.md)
 	  * [OResult](java/ref/OResult.md)
 	  * [OResultSet](java/ref/OResultSet.md)
 	    * [close()](java/ref/OResultSet/close.md)
