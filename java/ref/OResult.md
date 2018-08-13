@@ -22,6 +22,7 @@ import com.orietechnologies.orient.core.sql.executor.OResult;
 `OResult` provides a series of methods to determine whether the result is of one type or another.  All of these methods return `boolean` values.
 
 | Method | Description |
+|---|---|
 | **`isBlob()`** | Returns `true` if the result is an `OBlob` instance |
 | **`isEdge()`** | Returns `true` if the result is an [`OEdge`](OEdge.md) instance |
 | **`isElement()`** | Returns `true` if the result is an [`OElement`](OElement.md) instance |
