@@ -31,7 +31,7 @@ DROP DATABASE [<database-name> <server-username> <server-user-password>]
 - Remove the database `demo` at localhost:
 
   <pre>
-  orientdb> <code class="lang-sql userinput">DROP DATABASE REMOTE:localhost/demo root root_password</code>
+  orientdb> <code class="lang-sql userinput">DROP DATABASE remote:localhost/demo root root_password</code>
   </pre>
 
 
