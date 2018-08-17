@@ -5,7 +5,7 @@ search:
 
 # Indexes
 
-OrientDB supports four index algorithms:
+OrientDB supports five index algorithms:
 
 - [**SB-Tree Index**](SB-Tree-index.md) Provides a good mix of features available from other index types, good for general use.  It is durable, transactional and supports range queries.  It is the default index type.
 - [**Hash Index**](Hash-Index.md) Provides fast lookup and is very light on disk usage.  It is durable and transactional, but does not support range queries.  It works like a HashMap, which makes it faster on punctual lookups and it consumes less resources than other index types.
