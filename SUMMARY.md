@@ -491,6 +491,7 @@
         * [exists()](java/ref/OrientDB/exists.md)
         * [list()](java/ref/OrientDB/list.md)
         * [open()](java/ref/OrientDB/open.md)
+	  * [OSecurityRole](java/ref/OSecurityRole.md)
 	  * [OSecurityUser](java/ref/OSecurityUser.md)
 	    * [addRole()](java/ref/OSecurityUser/addRole.md)
 	    * [checkPassword()](java/ref/OSecurityUser/checkPassword.md)

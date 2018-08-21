@@ -31,7 +31,7 @@ import com.orientechnologies.orient.core.metadata.security.OSecurityUser;
 | [**`removeRole()`**](OSecurityUser/removeRole.md) | `boolean` | Removes the given role from the user |
 | [**`setAccountStatus()`**](OSecurityUser/setAccountStatus.md) | `void` | Defines the status for the user account |
 | [**`setName()`**](OSecurityUser/setName.md) | `OSecurityUser` | Defines the logical name for the user |
-| [**`setPassword()`**](OSecurityUSer/setPassword.md) | `OSecurityUser` | Defines the user password |
+| [**`setPassword()`**](OSecurityUser/setPassword.md) | `OSecurityUser` | Defines the user password |
 
 
 
