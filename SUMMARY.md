@@ -505,6 +505,7 @@
 	    * [setParentRole()](java/ref/OSecurityRole/setParentRole.md)
 	  * [OSecurityUser](java/ref/OSecurityUser.md)
 	    * [addRole()](java/ref/OSecurityUser/addRole.md)
+		* [allow()](java/ref/OSecurityUser/allow.md)
 	    * [checkPassword()](java/ref/OSecurityUser/checkPassword.md)
 	    * [getAccountStatus()](java/ref/OSecurityUser/getAccountStatus.md)
 	    * [getName()](java/ref/OSecurityUser/getName.md)
