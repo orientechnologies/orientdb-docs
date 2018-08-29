@@ -34,7 +34,7 @@ Once created the **[OrientGraph](../java/Graph-Database-Tinkerpop.md)** instance
 
 Example with a local database (see below for more information about it):
 ```java
-gremlin> g = new OrientGraph("plocal:/home/gremlin/db/demo");
+gremlin> g = org.apache.tinkerpop.gremlin.orientdb.OrientGraph.open("plocal:/home/gremlin/db/demo");
 ==>orientgraph[plocal:/home/gremlin/db/demo]
 ```
 
