@@ -102,7 +102,7 @@ These lines create a class `Account`, then defines two properties `id` and `birt
 
 ### Dropping Class Properties
 
-In the event that you would like to remove properties from a class you can do so using the `dropProperty()` method under `OClass`.
+In the event that you would like to remove properties from a class you can do so using the [`dropProperty()`](ref/OClass/dropProperty.md) method under [`OClass`](ref/OClass.md).
 
 ```java
 database.getMetadata().getSchema().getClass("Account").dropProperty("name");

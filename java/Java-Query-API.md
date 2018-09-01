@@ -120,17 +120,14 @@ In this query the first parameter refers to `name = ?`, the second one refers to
 
 ### OResult
 
-The OResult interface represents a row in the result-set.
+The [`OResult`](ref/OResult.md) interface represents a row in the result-set.
 
-An OResult instance can represent an element with an identity (a document, a vertex or an edge) 
-or a projection.
+An [`OResult`](ref/OResult.md) instance can represent an element with an identity (a document, a vertex or an edge) or a projection.
 
 
-The content (the properties) of an OResult can be retrieved using `getProperty(String)`. OResult also
-provides a `getPropertyNames()` method that returns all the property names in current row.
+The content (the properties) of an OResult can be retrieved using `getProperty(String)`. [`OResult`](ref/OResult.md) also provides a `getPropertyNames()` method that returns all the property names in current row.
 
-You can extract a persistent entity from an OResult (in case it actually represents a vertex, an edge or a document)
- using the following methods
+You can extract a persistent entity from an [`OResult`](ref/OResult.md) (in case it actually represents a vertex, an edge or a document) using the following methods
 
 ```java
 Optional<OElement> getElement()
@@ -139,14 +136,15 @@ Optional<OEdge> getEdge()
 ```
 All these methods return a Java Optional that will be empty if the OResult does not represent the specified type.
 
-You can also transform any OResult in an OElement invoking 
+You can also transform any [`OResult`](ref/OResult.md) in an [`OElement`](ref/OElement.md) invoking 
+
 ```java
 OElement toElement()
 ``` 
+
 There is an important difference between `getElement()` and `toElement()`:
-- getElement() returns a non-empty `Optional<OElement>` only if the OResult represents a persistent entity
-- toElement() acts the same as getElement() (apart from the Optional) when the result of getElement() is not empty. In case it's not true,
-it returns a new (not yet persisted) OElement with the same properties as the OResult.
+- `getElement()` returns a non-empty `Optional<OElement>` only if the [`OResult`](ref/OResult.md) represents a persistent entity
+- `toElement()` acts the same as `getElement()` (apart from the Optional) when the result of `getElement()` is not empty. In case it's not true, it returns a new (not yet persisted) [`OElement`](ref/OElement.md) with the same properties as the [`OResult`](ref/OResult.md).
 
 
 You can safely use [`OElement`](ref/OElement.md), [`OVertex`](ref/OVertex.md) and [`OEdge`](ref/OEdge.md) instances to update data, as long as you have an open database connection, that is, 

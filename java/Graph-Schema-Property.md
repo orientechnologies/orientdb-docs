@@ -30,7 +30,7 @@ Bear in mind, each field must belong to a [Type](../general/Types.md).
 
 ### Dropping Properties
 
-To drop a persisten class property, use the `OClass.dropProperty()` method.  For instance,
+To drop a persistent class property, use the [`OClass.dropProperty()`](ref/OClass/dropProperty.md) method.  For instance,
 
 ```java
 accountVertex.dropProperty("name");

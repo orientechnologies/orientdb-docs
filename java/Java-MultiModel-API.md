@@ -45,7 +45,7 @@ You can easily see the differences:
 
 In OrientDB is a MultiModel db, so in v 3.0 we decided it was time to privide a single, **unified Multi-Model API**.
 
-This means that with ODatabaseDocument instances you can query documents, but also graphs, without the need for an additional API.
+This means that with [`ODatabaseDocument`](ref/ODatabaseDocument.md) instances you can query documents, but also graphs, without the need for an additional API.
 
 *Don't worry, Apache TinkerPop 2.6 - together with the new 3.x - is still there, just as a separate dependency, so if you 
  rely on that you will have no problems migrating*
@@ -82,14 +82,13 @@ The picture below shows the interface hierarchy of the Multi-Model API
   
   Its main goal is to provide an abstraction to obtain low level information (eg. identity) and behavior 
   (eg. save and delete) for persistent entries  
-- **OBlob**: represents BLOB (binary) records
-- **OElement**: represents plain documents (so also vertices and edges). It includes methods
+- **`OBlob`**: represents BLOB (binary) records
+- [**`OElement`**](ref/OElement.md): represents plain documents (so also vertices and edges). It includes methods
   to manipulate properties and to check if current element is a vertex or an edge.
   
-  *Attention: until v 2.2 the Document API relied on ODocument class only. ODocument is still there
-  as the main implementation of OElement, but please don't use it directly, always use OElement instead*
-- **OVertex**: is the basic interface for vertices, it includes methods to manipulate and traverse connected edges and vertices
-- **OEdge**: is the basic interface for edges, it includes methods to retrieve info regarding connected vertices
+  *Attention: until v 2.2 the Document API relied on ODocument class only. ODocument is still there as the main implementation of [`OElement`](ref/OElement.md), but please don't use it directly, always use [`OElement`](ref/OElement.md) instead*
+- [**`OVertex`**](ref/OVertex.md): is the basic interface for vertices, it includes methods to manipulate and traverse connected edges and vertices
+- [**`OEdge`**](ref/OEdge.md): is the basic interface for edges, it includes methods to retrieve info regarding connected vertices
 
 ### Query Mechanisms and Interfaces
 

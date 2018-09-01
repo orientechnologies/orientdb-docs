@@ -16,8 +16,7 @@ will be represented in Java as an object in this hierarchy.
 - [**`OElement`**](ref/OElement.md): represents plain documents (so also vertices and edges). It includes methods
   to manipulate properties and to check if current element is a vertex or an edge.
 
-  *Attention: until v 2.2 the Document API relied on ODocument class only. ODocument is still there
-  as the main implementation of OElement, but please don't use it directly, always use OElement instead*
+  *Attention: until v 2.2 the Document API relied on ODocument class only. ODocument is still there as the main implementation of [`OElement`](ref/OElement.md), but please don't use it directly, always use OElement instead*
 - [**`OVertex`**](ref/OVertex.md): is the basic interface for vertices, it includes methods to manipulate and traverse connected edges and vertices
 - [**`OEdge`**](ref/OEdge.md): is the basic interface for edges, it includes methods to retrieve info regarding connected vertices
 
@@ -26,7 +25,7 @@ An ORecord has an identity and a version number, for the basic details see [Basi
 
 ### Creating a document
 
-[`ODatabaseDocument`](ref/ODatabaseDocument) class provides the following methods to create plain documents:
+[`ODatabaseDocument`](ref/ODatabaseDocument.md) class provides the following methods to create plain documents:
 
 - `newInstance(String)`: creates a basic [`OElement`](ref/OElement.md) of a given class.
 - `newInstance()`: creates a basic [`OElement`](ref/OElement.md), with no schema associated (no Class). This method should be used only to create embedded documents, not to create stand-alone documents.
@@ -308,7 +307,7 @@ a value for that specific property, it won't be returned by `getPropertyNames()`
 
 Vertices and Edges in OrientDB are just plain documents, with the addition of particular capabilities to enforce a graph structure.
 
-An `OVertex` represents a node in the graph, while an `OEdge` represents a connection between exactly two vertices.
+An [`OVertex`](ref/OVertex.md) represents a node in the graph, while an [`OEdge`](ref/OEdge.md) represents a connection between exactly two vertices.
  
 ##### Creating a Vertex
  
@@ -356,7 +355,7 @@ A graph is considered consistent all the edges are connected to exactly two vert
 
 OrientDB will manage graph consistency for you, that means that if you delete a vertex, all the connected edges will be deleted as well; if you delete an edge, all the connected vertices will be updated to remove the references to that edge.
 
-To delete a graph element, you can just use the [`OElement`](ref/OElement).`delete()` method.
+To delete a graph element, you can just use the [`OElement`](ref/OElement.md).`delete()` method.
 
 
 ##### Traversing the graph
@@ -383,7 +382,7 @@ OVertex v = ...
 Iterable<OVertex> friends = v.getVertices(ODirection.OUT, "FriendOf");
 for(OVertex friend: friends){
   String friendName = friend.getProperty("name");
-}
+.md}
 ```
 
 The [`OEdge`](ref/OEdge.md) interface provides methods to retrieve the connected vertices: 
@@ -402,9 +401,7 @@ System.out.println("the edge starts from "+from+ " and ends to "+to);
 
 ##### Checking document/graph type
 
-[`OElement`](ref/OElement.md) interface provides methods to check whether current document is also a vertex (`isVertex()`)or an edge (`isEdge()`). It 
-also provides methods to obtain an OVertex (`asVertex()`) or OEdge (`asEdge()`) instance from an OElement. These methods return
-a Java `Optional<?>` that is empty if the element is not a vertex or an edge.
+[`OElement`](ref/OElement.md) interface provides methods to check whether current document is also a vertex (`isVertex()`)or an edge (`isEdge()`). It also provides methods to obtain an [`OVertex`](ref/OVertex.md) (`asVertex()`) or [`OEdge`](ref/OEdge.md) (`asEdge()`) instance from an [`OElement`](ref/OElement.md). These methods return a Java `Optional<?>` that is empty if the element is not a vertex or an edge.
 
 
 ```java
