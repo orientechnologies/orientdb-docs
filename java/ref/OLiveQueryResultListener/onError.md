@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['java', 'olivequeryresultlistener', 'live query', 'onerror]
+   keywords: ['java', 'olivequeryresultlistener', 'live query', 'onerror']
 ---
 
 # OLiveQueryResultListener - onError()
