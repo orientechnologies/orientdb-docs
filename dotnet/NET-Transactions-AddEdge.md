@@ -21,7 +21,7 @@ OTransaction.AddEdge( OEdge edge,
 
 - **`edge`** Defines the edge object you want to add.
 - **`fromVertex`** Defines the vertex the edge connects from.
-- **`toVertex`** Defines the vertex th eedge connects to.
+- **`toVertex`** Defines the vertex the edge connects to.
 
 
 ### Example
