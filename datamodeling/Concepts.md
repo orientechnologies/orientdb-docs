@@ -139,6 +139,13 @@ When you create a new class, the [`CREATE CLASS`](../sql/SQL-Create-Class.md) pr
 
 >For more information, see the [Clusters Tutorial](../gettingstarted/Tutorial-Clusters.md).
 
+## Materialized View
+
+A materialized view is a persistent object that contains the result of a query. In terms of SQL querying, it can be considered as the equivalent of a class, that means that it can be used as a target for queries.
+
+A materialized view can be configured to be read-only or updatable. Updating a record of a materialized view results in the update of the original record (ie. the record from which the view raw was created).
+
+Views can have indexes, like normal classes.
 
 
 ## Relationships
