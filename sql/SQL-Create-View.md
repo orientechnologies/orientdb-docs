@@ -68,3 +68,15 @@ CREATE VIEW Manager FROM (SELECT FROM Employee WHERE isManager = true)
 CREATE VIEW Manager FROM (SELECT FROM Employee WHERE isManager = true) METADATA {updateIntervalSeconds:2*60*60}
 ```
 
+- create a view with indexes
+
+```SQL
+CREATE VIEW Manager 
+FROM (SELECT name, surname FROM Employee WHERE isManager = true) 
+METADATA {
+  indexes: [
+    {type:"NOTUNIQUE", properties:{name:"STRING", surname:"STRING"}}
+  ]
+}
+```
+
