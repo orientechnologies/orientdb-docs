@@ -20,6 +20,10 @@ CREATE SEQUENCE <sequence> TYPE <CACHED|ORDERED> [START <start>]
 - **`START`** Defines the initial value of the sequence.
 - **`INCREMENT`** Defines the increment for each call of the `.next()` method.
 - **`CACHE`** Defines the number of value to pre-cache, in the event that you use the cached sequence type.
+- **`CYCLE`** Defines if sequence will restart from `START` value after `LIMIT` value reached. Default value is `FALSE`.
+- **`LIMIT`** Defines limit value sequence can reach. After limit value is reached cyclic sequences will restart from START value, while non cyclic sequences will throw message that limit is reached.
+- **`ASC | DESC`** Defines order of the sequence. `ASC` defines that next sequence value will be <code class="lang-sql userinput">currentValue + incrementValue</code>, while `DESC` defines that next sequence value will be <code class="lang-sql userinput">currentValue - incrementValue</code> (assuming that limit is not reached). Default value is `ASC`.
+
 
 **Examples**
 
