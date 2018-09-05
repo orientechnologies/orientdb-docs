@@ -12,8 +12,8 @@
     "TP3Spatial_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.0.27/orientdb-tp3-3.0.27.tar.gz",
     "javadoc":"http://orientdb.com/javadoc/latest/",
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
-    "lastGA": "3.0.27",
-    "currentVersion": "3.0.27",
+    "lastGA": "3.1.0-SNAPSHOT",
+    "currentVersion": "3.1.0-SNAPSHOT",
     "demoDBVersion_screenshots": "0.76",
 	"javase": "https://docs.oracle.com/javase/8/docs",
 	"javadoc": "https://orientdb.com/javadoc/develop"
@@ -95,7 +95,7 @@
         {
           "value": "http://orientdb.com/docs/3.1.x",
           "text": "Version 3.1 (beta)"
-        }
+       }
       ]
     },
     "edit-link": {
