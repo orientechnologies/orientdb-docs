@@ -84,7 +84,11 @@
         {
           "value": "http://orientdb.com/docs/3.0.x",
           "text": "Version 3.0.x"
-        }
+        },
+        {
+          "value": "http://orientdb.com/docs/3.1.x",
+          "text": "Version 3.1 (beta)",
+        }     
       ]
     },
     "edit-link": {
