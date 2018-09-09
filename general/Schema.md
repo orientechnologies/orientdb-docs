@@ -64,7 +64,7 @@ This method retrieves from the database the persistent class `Account`.  If the 
 
 In the event that you no longer want the class, you can drop, or delete, it from the database.
 
-To drop a persistent class in Java, use the `OSchema.dropClass()` method:
+To drop a persistent class in Java, use the [`OSchema.dropClass()`](../java/ref/OSchema/dropClass.md) method:
 
 ```java
 database.getMetadata().getSchema().dropClass("Account");
