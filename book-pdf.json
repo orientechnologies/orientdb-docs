@@ -2,12 +2,12 @@
   "title": "OrientDB Manual",
   "description": "OrientDB Documentation",
   "variables": { 
-    "download_osx": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.36/orientdb-community-2.2.36.tar.gz",
-    "download_linux": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.36/orientdb-community-2.2.36.tar.gz",
-    "download_windows": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.36/orientdb-community-2.2.36.zip",
-    "download_multiOS": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.36/orientdb-community-2.2.36.zip",
-    "lastGA": "2.2.36",
-    "currentVersion": "2.2.36"
+    "download_osx": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.37/orientdb-community-2.2.37.tar.gz",
+    "download_linux": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.37/orientdb-community-2.2.37.tar.gz",
+    "download_windows": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.37/orientdb-community-2.2.37.zip",
+    "download_multiOS": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/2.2.37/orientdb-community-2.2.37.zip",
+    "lastGA": "2.2.37",
+    "currentVersion": "2.2.37"
   },
   "links": {
     "home": "https://www.orientdb.com",
