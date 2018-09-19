@@ -937,7 +937,22 @@ Insert a new record with an automatic generated id:
 ```sql
 INSERT INTO Account SET id = UUID()
 ```
+---
+### strcmpci()
 
+Compares two string ignoring case. Return value is -1 if first string ignoring case is less than second, 0 if strings ignoring case are equals, 1 if second string ignoring case is less than first one. Before comparison both strings are transformed to lowercase and then compared.
+  
+Available since: 3.1.0
+
+Syntax: ```strcmpci(<first_string>, <second_string>)```
+
+#### Example
+
+Select all records where state name ignoring case is equal to "washington" 
+
+```sql
+SELECT * from State where strcmpci("washington", name) = 0
+```
 
 ---
 
