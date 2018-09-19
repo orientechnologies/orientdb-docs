@@ -19,13 +19,13 @@ The first method uses the default `V` class.  The other methods allow you to def
 
 ```
 // METHOD 1
-Iterable<OVertex> OVertex().getVertices(ODiriection dir)
+Iterable<OVertex> OVertex().getVertices(ODirection dir)
 
 // METHOD 2
-Iterable<OVertex> OVertex().getVertices(ODiriection dir, OClass... type)
+Iterable<OVertex> OVertex().getVertices(ODirection dir, OClass... type)
 
 // METHOD 3
-Iterable<OVertex> OVertex().getVertices(ODiriection dir, String... name)
+Iterable<OVertex> OVertex().getVertices(ODirection dir, String... name)
 ```
 
 | Argument | Type | Description |
