@@ -5,13 +5,13 @@ search:
 
 # SQL
 
-When it comes to query languages, SQL is the mostly widely recognized standard. The majority of developers have experience and are comfortable with SQL. For this reason Orient DB uses SQL as it's query language and adds some extensions to enable graph functionality. There are a few differences between the standard SQL syntax and that supported by OrientDB, but for the most part, it should feel very natural. The differences are covered in the [OrientDB SQL dialect](#orientdb-sql-dialect) section of this page.
+When it comes to query languages, SQL is the mostly widely recognized standard. The majority of developers have experience and are comfortable with SQL. For this reason Orient DB uses SQL as its query language and adds some extensions to enable graph functionality. There are a few differences between the standard SQL syntax and that supported by OrientDB, but for the most part, it should feel very natural. The differences are covered in the [OrientDB SQL dialect](#orientdb-sql-dialect) section of this page.
 
-If you are looking for the most efficient way to traverse a graph, we suggest to use the [SQL-Match](SQL-Match.md) instead.
+If you are looking for the most efficient way to traverse a graph, we suggest using the [SQL-Match](SQL-Match.md) instead.
 
-Many SQL commands share the [WHERE condition](SQL-Where.md). Keywords and class names in OrientDB SQL are case insensitive. Field names and values are case sensitive. In the following examples keywords are in uppercase but this is not strictly required.
+Many SQL commands share the [WHERE condition](SQL-Where.md). Keywords and class names in OrientDB SQL are case insensitive. Field names (properties) and values are case sensitive. In the following examples keywords are in uppercase but this is not strictly required.
 
-If you are not yet familiar with SQL, we suggest you to get the course on [KhanAcademy](http://cs-blog.khanacademy.org/2015/05/just-released-full-introductory-sql.html).
+If you are not yet familiar with SQL, we suggest that you get the course at [KhanAcademy](http://cs-blog.khanacademy.org/2015/05/just-released-full-introductory-sql.html).
 
 For example, if you have a class `MyClass` with a field named `id`, then the following SQL statements are equivalent:
 
@@ -46,7 +46,7 @@ SELECT FROM INDEX:myIndex WHERE key = 'Jay'
 
 ## OrientDB SQL dialect
 
-OrientDB supports SQL as a query language with some differences compared with SQL. Orient Technologies decided to avoid creating Yet-Another-Query-Language. Instead we started from familiar SQL with extensions to work with graphs. We prefer to focus on standards.
+OrientDB supports SQL as a query language with some differences compared with SQL. OrientDB decided to avoid creating Yet-Another-Query-Language. Instead we started from familiar SQL with extensions to work with graphs. We prefer to focus on standards.
 
 If you want learn SQL, there are many online courses such as:
 - [Online course Introduction to Databases by Jennifer Widom from Stanford university](https://www.coursera.org/course/db)
