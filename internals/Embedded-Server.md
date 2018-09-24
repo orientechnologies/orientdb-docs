@@ -150,7 +150,7 @@ public class OrientDBEmbeddable {
 
 ## Shutdown
 
-OrientDB Server creates some threads internally as non-daemon, so they run even if the main application exits. Use the [`OServer.shutdown()`](../java/OServer/shutdown.md) method to shutdown the server in soft way:
+OrientDB Server creates some threads internally as non-daemon, so they run even if the main application exits. Use the [`OServer.shutdown()`](../java/ref/OServer/shutdown.md) method to shutdown the server in soft way:
 ```java
 import com.orientechnologies.orient.server.OServerMain;
 
