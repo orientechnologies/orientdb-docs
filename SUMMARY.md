@@ -8,7 +8,7 @@
     * [About This Manual](misc/About-This-Manual.md)
     * [Overview of OrientDB](misc/Overview.md)
         * [Editions](misc/Editions.md)
-    * [Release 3.0](release/3.0/README.md)
+    * [Release 3.1](release/3.1/README.md)
         * [What's new in OrientDB 3.1?](release/3.1/What-is-new-in-OrientDB-3.1.md)
         * [Available Packages](release/3.1/Available-Packages.md)
         * [SQL Changes](release/3.1/SQL-Changes.md)
