@@ -1,5 +1,5 @@
 
-# Release 3.0
+# Release 3.1
 
 This Section documents what is new and what has changed in OrientDB 3.1.
 
