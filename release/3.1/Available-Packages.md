@@ -17,5 +17,5 @@ The following are the packages available for OrientDB Community Edition:
  
 ## Enterprise Edition
 
-OrientDB Enterprise Edition is not available as 3.0 milestone preview. The Enterprise Edition will be available as soon as the GA version of 3.0.0 is published.
+OrientDB Enterprise Edition is not available as 3.1 milestone preview. The Enterprise Edition will be available as soon as the GA version of 3.1.0 is published.
  
