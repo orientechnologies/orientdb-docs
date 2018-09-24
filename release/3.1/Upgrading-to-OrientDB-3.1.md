@@ -1,5 +1,5 @@
 
-# Upgrading to OrientDB 3.0
+# Upgrading to OrientDB 3.1
 
 ## General information
 
