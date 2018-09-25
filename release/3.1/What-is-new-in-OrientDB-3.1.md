@@ -49,6 +49,10 @@ The complete redesign of the distributed transaction model removes some fragile 
 The new distributed components are still under development and they are disabled by default in v 3.1.0-M1. You can enable them setting `OGlobalConfiguration.DISTRIBUTED_REPLICATION_PROTOCOL_VERSION` (`distributed.replicationProtocol.version`) value to `2`
 
 
+### Enhancements to SEQUENCE component
+
+TODO
+
 ### Enterprise Profiler
 
 TODO
