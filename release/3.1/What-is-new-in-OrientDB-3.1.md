@@ -51,7 +51,21 @@ The new distributed components are still under development and they are disabled
 
 ### Enhancements to SEQUENCE component
 
-TODO
+With OrientDB v 3.1  we enhanced sequences with following features:
+
+ * Sequences' upper and lower limit
+ * Cyclic sequences (when limit is reached, sequence will restart from original start value)
+ * Ascending and descending sequences
+
+```java
+OSequence.CreateParams params = new OSequence.CreateParams().setStart(0L).
+        setIncrement(10).
+        setRecyclable(true).
+        setLimitValue(30l).
+        setOrderType(SequenceOrderType.ORDER_POSITIVE);
+OSequenceLibrary sequences = db.getMetadata().getSequenceLibrary();
+sequences.createSequence("mySeq", OSequence.SEQUENCE_TYPE.ORDERED, params);
+```
 
 ### Enterprise Profiler
 
