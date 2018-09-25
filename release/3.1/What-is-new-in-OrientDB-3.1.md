@@ -18,7 +18,27 @@ SELECT FROM Managers WHERE name = 'John'
 
 ### Pessimistic locking
 
-TODO
+Since OrientDB v 3.1 we are reviving the perssimistic locking, introducing a new API.
+
+now you can do:
+
+```
+// NoTx locking
+ORID id = //...
+ODatabaseSession session = //....
+OElement record = session.lock(id);
+record.save(record);
+session.unlock(record);
+
+// In Transaction Locking
+ORID id = //...
+ODatabaseSession session = //....
+session.begin();
+OElement record = session.lock(id);
+record.save(record);
+session.commit(); // The commit unlock all the lock acquired during the transaction. 
+```
+
 
 ### Enterprise Profiler
 
