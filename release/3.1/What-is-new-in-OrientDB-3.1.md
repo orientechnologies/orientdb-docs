@@ -22,7 +22,7 @@ Since OrientDB v 3.1 we are reviving the perssimistic locking, introducing a new
 
 now you can do:
 
-```
+```java
 // NoTx locking
 ORID id = //...
 ODatabaseSession session = //....
