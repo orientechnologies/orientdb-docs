@@ -69,7 +69,7 @@ sequences.createSequence("mySeq", OSequence.SEQUENCE_TYPE.ORDERED, params);
 
 ### Improved serializer
 
-With OrientDB v 3.1 new record serialzier is introduced. New serializer reduces size of record stored on physical device, and hence it increases query processing speed.
+With OrientDB v 3.1 new record serializer is introduced. New serializer reduces size of record stored on physical device, and hence it increases query processing speed.
 
 
 ### Enterprise Profiler
