@@ -80,7 +80,7 @@ ALTER PROPERTY <class>.<property> <attribute-name> <attribute-value>
 | `MAX` | Integer | | Defines the maximum value as a constraint.  Use `NULL` to remove an existing constraint.  On String attributes, it defines the greatest length of the string.  On Integer attributes, it defines the maximum value for the number.  On Date attributes, the last date accepted.  For multi-value attributes (lists, sets and maps), it defines the highest number of entries.|
 | `NAME` | String || Defines the property name.|
 | `NOTNULL` | Boolean || Defines whether the property can have a null value. |
-| `REGEX` | String || Defines a Regular Expression as constraint.  Use `NULL` to remove an existing constraint.|
+| `REGEXP` | String || Defines a Regular Expression as constraint.  Use `NULL` to remove an existing constraint.|
 | `TYPE` | String || Defines a [property type](../general/Types.md).|
 | `COLLATE` | String || Sets collate to one of the defined comparison strategies.  By default, it is set to case-sensitive (`cs`).  You can also set it to case-insensitive (`ci`).|
 | `READONLY` | Boolean || Defines whether the property value is immutable.  That is, if it is possible to change it after the first assignment.  Use with `DEFAULT` to have immutable values on creation.|
