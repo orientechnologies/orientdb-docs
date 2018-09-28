@@ -12,6 +12,7 @@ Before execution, it always initalizes the `$input` variable, so that if you nee
 
 - [CSV](#csv-transformer)
 - [FIELD](#field-transformer)
+- [LOAD](#load-transformer)
 - [MERGE](#merge-transformer)
 - [VERTEX](#vertex-transformer)
 - [CODE](#code-transformer)
@@ -50,7 +51,7 @@ Component description.
 
 **Example**
 
-- Transform a row in CSV (as `ODocument` class), using commas as the separator, considering `NULL` as a null value and skipping rows two through four.
+- Transforms a row in CSV (as `ODocument` class), using commas as the separator, considering `NULL` as a null value and skipping rows two through four.
 
   ```json
   { "csv": { "separator": ",", "nullValue": "NULL",
@@ -80,7 +81,7 @@ Component description.
 
 **Examples**
 
-- Transform the field `class` into the `ODocument` class, by prefixing it with `_`:
+- Transforms the field `class` into the `ODocument` class, by prefixing it with `_`:
 
   ```json
   { "field": 
@@ -90,7 +91,7 @@ Component description.
   }
   ```
 
-- Apply the class name, based on the value of another field:
+- Applies the class name, based on the value of another field:
 
   ```json
   { "field": 
@@ -100,7 +101,7 @@ Component description.
   }
   ```
 
-- Assign the last part of a path to the `name` field:
+- Assigns the last part of a path to the `name` field:
 
   ```json
   { "field": 
@@ -110,7 +111,7 @@ Component description.
   }
   ```
 
-- Asign the field a fixed value:
+- Asigns the field a fixed value:
 
   ```json
   { "field": 
@@ -120,7 +121,7 @@ Component description.
   }
   ```
 
-- Rename the field from `salary` to `renumeration`:
+- Renames the field from `salary` to `renumeration`:
 
 
   ```json
@@ -136,7 +137,7 @@ Component description.
   }
   ```
 
-- Rename multiple fields in one call. 
+- Renames multiple fields in one call. 
 
   ```json
   { "field": 
@@ -149,6 +150,44 @@ Component description.
 
   This feature was introduced in version 2.1.
 
+## Load Transformer
+
+When the ETL module calls the Load Transformer, it takes input from one `ODocument` instance to output into another, loaded by lookup.  THe lookup can either be a lookup against an index or a [`SELECT`](../sql/SQL-Query.md) query.
+
+Component description.
+- Component name: **load**
+- Supported inputs types: [**ODocument**, **OrientVertex**]
+- Output: one or multiple **ODocument** instances
+
+**Syntax**
+
+| Parameter | Description | Type | Mandatory | Default value |
+|-----------|-------------|------|-----------|-----------|
+| `"joinFieldName"` | Defines the field containing the join value. | string | yes | |
+| `"lookup"` | Defines the index on which to execute th elookup, or a [`SELECT`](../sql/SQL-Query.md) query. | string | yes | |
+| `"unresolvedLinkAction"` | Defines the action to execute in the event that the join hasn't been resolved. | string | | `NOTHING` |
+
+For the `"unresolvedLinkAction"` parameter, the supported actions are:
+
+| Action | Description |
+|---|---|
+| `NOTHING` | Tells the transformer to do nothing. |
+| `WARNING` | Tells the transformer to increment warnings. |
+| `ERROR` | Tells the transformer to increment errors. |
+| `HALT` | Tells the transformer to interrupt the process. |
+| `SKIP` | Tells the transformer to skip the current row. |
+
+**Example**
+
+- Loads the current record against the record returned by the lookup on index `V.URI`, with the value contained in the field `URI` of the input document:
+
+  ```json
+  { "load": 
+    { "joinFieldName": "URI", 
+	  "lookup":"V.URI" 
+    } 
+  }
+  ```
 
 ## Merge Transformer
 
@@ -179,7 +218,7 @@ For the `"unresolvedLinkAction"` parameter, the supported actions are:
 
 **Example**
 
-- Merge the current record against the record returned by the lookup on index `V.URI`, with the value contained in the field `URI` of the input document:
+- Merges the current record against the record returned by the lookup on index `V.URI`, with the value contained in the field `URI` of the input document:
 
   ```json
   { "merge": 
@@ -209,7 +248,7 @@ Component description.
 
 **Example**
 
-- Transform `ODocument` input into a vertex, setting the class value to the `$classname` variable:
+- Transforms `ODocument` input into a vertex, setting the class value to the `$classname` variable:
 
   ```json
   { "vertex": 
@@ -256,7 +295,7 @@ For the `"unresolvedLinkAction"` parameter, the following actions are supported:
 
 **Examples**
 
-- Create an edge from the current vertex, with the class set to `Parent`, to all vertices returned by the lookup on the `D.inode` index with the value contained in the filed `inode_parent` of the input's vertex:
+- Creates an edge from the current vertex, with the class set to `Parent`, to all vertices returned by the lookup on the `D.inode` index with the value contained in the filed `inode_parent` of the input's vertex:
 
   ```json
   { "edge": 
@@ -336,7 +375,7 @@ Component description.
 
 **Example**
 
-- Skip the current record if `name` is null:
+- Skips the current record if `name` is null:
 
   ```json
   { "flow": 
@@ -368,7 +407,7 @@ Component description.
 
 **Example**
 
-- Display the current record and return the parent:
+- Displays the current record and return the parent:
 
   ```json
   { "code": 
@@ -413,7 +452,7 @@ For the `"unresolvedLinkAction"` parameter the following actions are supported:
 
 **Example**
 
-- Transform a JSON value into a link within the current record, set as `parent` of the type `LINK`, with the result of the lookup on the index `D.node` with the value contained in the field `inode_parent` on the input document.
+- Transforms a JSON value into a link within the current record, set as `parent` of the type `LINK`, with the result of the lookup on the index `D.node` with the value contained in the field `inode_parent` on the input document.
 
   ```json
   { "link": 
@@ -444,13 +483,13 @@ Component description.
 
 **Examples**
 
-- Log the current value:
+- Logs the current value:
 
   ```json
   { "log": {} }
   ```
 
-- Log the currnt value with `->` as the prefix:
+- Logs the currnt value with `->` as the prefix:
 
   ```json
   { "log": 
@@ -505,7 +544,7 @@ Component description.
 
 **Example**
 
-- Execute a [`SELECT`](../sql/SQL-Query.md) and output an edge:
+- Executes a [`SELECT`](../sql/SQL-Query.md) and output an edge:
 
   ```json
   { "command" : 
