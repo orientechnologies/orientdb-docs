@@ -5,55 +5,196 @@ search:
 
 # OrientJS - Node.js Driver
 
-> The support for the new version of the OrientDB protocol is currently in beta, with new APIs in order to support new OrientDB features. See [here](OrientJS-beta.md) the OrientJS 3.0-beta documentation.
+Official [orientdb](http://www.orientechnologies.com/orientdb/) driver for node.js. Fast, lightweight, uses the binary protocol.
 
-OrientDB supports all JVM languages for server-side scripting.  Using the OrientJS module, you can develop database applications for OrientDB using the Node.js language.  It is fast, lightweight and uses the binary protocol, with features including:
-- Intuitive API, based on the [Bluebird](https://github.com/petkaantonov/bluebird) promise library.
-- Fast Binary Protocol Parser
+[![Build Status](https://travis-ci.org/orientechnologies/orientjs.svg?branch=develop)](https://travis-ci.org/orientechnologies/orientjs)
+[![Coverage Status](https://coveralls.io/repos/github/orientechnologies/orientjs/badge.svg?branch=develop)](https://coveralls.io/github/orientechnologies/orientjs?branch=develop)
+[![npm version](https://img.shields.io/npm/v/orientjs/beta.svg?style=flat-square)](https://www.npmjs.com/package/orientjs)
+[![npm downloads](https://img.shields.io/npm/dm/orientjs.svg?style=flat-square)](https://www.npmjs.com/package/orientjs)
+
+
+NOTE: _Release v3.0 provides new APIs in order to support OrientDB 3.0 features_.
+
+## Features
+
+- Tested with latest OrientDB (2.2.x and 3.0.x).
+- Intuitive API, based on [bluebird](https://github.com/petkaantonov/bluebird) promises.
+- Fast binary protocol parser.
+- Streaming Support
+- Stateful Transaction Support
 - Distributed Support
-- Multi-Database Access, through the same socket.
+- Access multiple databases via the same socket (Session Pooling).
 - Connection Pooling
-- Migration Support
+- Migration support.
+- Simple CLI.
 
-This page provides basic information on setting up OrientJS on your system.  For more information on using OrientJS in developing applications, see
-- [Server API](OrientJS-Server.md)
-- [Database API](OrientJS-Database.md)
-- [Class API](OrientJS-Class.md)
-- [Index API](OrientJS-Index.md)
-- [Function API](OrientJS-Functions.md)
-- [Queries](OrientJS-Query.md)
-- [Transactions](OrientJS-Transactions.md)
-- [Events](OrientJS-Events.md)
+## Versions and Compatibility
+
+OrientJS v3.0 contains backwards compatible APIs for OrientDB 2.2.x and OrientDB 3.0.x using the old protocol version 33 ([Legacy](OrientJS-Legacy.md)). New APIs are shipped in v3.0 to support the new protocol featuring Streaming, Stateful transactions, new SQL engine etc..
+
+
+
+## Resources
+
+
+- [API Docs](http://orientdb.com/docs/last/orientjs/OrientJS.html)
+- [Example Projects](https://github.com/orientechnologies/orientjs-example)
+- [Changelog](https://github.com/orientechnologies/orientjs/blob/master/CHANGELOG.md)
+
+
+
+## Documentation
+
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Reference](Reference.md)
 
 
 ## Installation
 
-In order to use OrientJS, you need to install it on your system.  There are two methods available to you in doing this: you can install it from the Node.js repositories or you can download the latest source code and build it on your local system.
+Install via npm.
 
-Both methods require the Node.js package manager, NPM, and can install OrientJS as either a local or global package.
+```sh
+npm install orientjs@beta
+```
+
+## Quick Start
+
+### Connect to OrientDB
+
+Use the `connect` function in order to create a new `OrientDBClient` instance.
+
+```js
+const OrientDBClient = require("orientjs").OrientDBClient;
+
+OrientDBClient.connect({
+  host: "localhost",
+  port: 2424
+}).then(client => {
+  return client.close();
+}).then(()=> {
+   console.log("Client closed");
+});
+```
 
 
-### Installing from the Node.js Repositories
 
-When you call NPM and provide it with the specific package name, it connects to the Node.js repositories and downloads the source package for OrientJS.  It then installs the package on your system, either at a global level or in the `node_modules` folder of the current working directory.
+#### Single Session
 
-- To install OrientJS locally in `node_modules`, run the following command:
+To open a new standalone session use the `client.session` api. This api will create a new stateful session associated with the given database and credentials. Once done, call `session.close` in order to release the session on the server. Session are stateful since OrientJS 3.0 as they can execute server side transactions.
 
-  <pre>
-  $ <code class="lang-sh userinput">npm install orientjs</code>
-  </pre>
 
-- To install OrientJS globally, run the following command as root or an administrator:
-
-  <pre>
-  # <code class="lang-sh userinput">npm install orientjs -g</code>
-  </pre>
-
-Once NPM finishes the install, you can begin to develop database applications using OrientJS.
+```js
+client.session({ name: "demodb", username: "admin", password: "admin" })
+.then(session => {
+	// use the session
+	... 
+	// close the session
+	return session.close();
+});
+```
 
 
 
-### Building from the Source Code
+#### Pooled Sessions
+
+Opening and closing sessions everytime can be expensive, since open and close require a network request to the server. Use the API `client.sessions` to create a pool of sessions with a given database and credentials. To get a session from the pool call the api `pool.acquire`. Once done with the session you can return the session to the pool by calling `session.close`
+
+
+```js
+// Create a sessions Pool
+client.sessions({ name: "demodb", username: "admin", password: "admin", pool: { max: 10} })
+  .then(pool => {
+    // acquire a session
+    return pool.acquire()
+      .then(session => {
+        // use the session
+        ...
+        // release the session
+        return session.close();
+      })
+      .then(() => {
+      	 // close the pool
+        return pool.close();
+      });
+  });
+});
+```
+
+### Session API
+
+Once you have initialized a session using the above APIs you can:
+
+- Run a Query (Idempotent SQL statement)
+- Run a Command (Idempotent or non idempotent SQL statement)
+- Run a Transaction
+- Run a live query
+
+
+#### Query
+
+
+Streaming
+
+```js
+session.query("select from OUser where name = :name", {params: { name: "admin" }})
+.on("data", data => {
+	console.log(data);
+})
+.on('error',(err)=> {
+  console.log(err);
+})
+.on("end", () => {
+	console.log("End of the stream");
+});
+```
+
+
+or use `.all` API that convert the stream to a Promise and collect the result set into an array
+
+```js
+session.query("select from OUser where name = :name", { params : {name: "admin" }})
+.all()
+.then((results)=> {
+	console.log(results);
+});
+```
+
+#### Command
+
+```js
+session.command("insert into V set name = :name", {params: { name: "test" }})
+.all()
+.then(result => {
+	console.log(result);
+});
+```
+
+#### Transaction
+
+Use the api session.runInTransaction in order to run a unit of work in a managed transaction (begin/commit/retry)
+
+```js
+session.runInTransaction((tx)=>{
+	return tx.command("insert into V set name = :name", {params: { name: "test" }}).all()
+}).then(({result,tx}) => {
+	console.log(result);
+	console.log(tx);
+});
+```
+
+#### Live Queries
+
+
+```js
+session.liveQuery("select from V").on("data", data => {
+	console.log(data);
+});
+```
+
+
+
+## Building from the Source Code
 
 When building from source code, you need to download the driver directly from [GitHub](https://github.com/orientechnologies/orientjs), then run NPM against the branch you want to use or test.
 
@@ -64,53 +205,26 @@ When building from source code, you need to download the driver directly from [G
    $ <code class="lang-sh userinput">cd orientjs</code>
    </pre>
 
-1. When you clone the repository, Git automatically provides you with the current state of the `master` branch.  If you would like to work with another branch, like `develop` or test features on past releases, you need to check out the branch you want.  For instance,
+2. When you clone the repository, Git automatically provides you with the current state of the `master` branch.  If you would like to work with another branch, like `develop` or test features on past releases, you need to check out the branch you want.  For instance,
 
    <pre>
    $ <code class="lang-sh userinput">git checkout develop</code>
    </pre>
 
-1. Once you've selected the branch you want to build, call NPM to handle the installation.
+3. Once you've selected the branch you want to build, call NPM to handle the installation.
 
-   - To install OrientJS locally, run the following command:
-
-     <pre>
-     $ <code class="lang-sh userinput">npm install</code>
-     </pre>
-
-   - To install OrientJS globally, instead run this command as root or an administrator:
-
-     <pre>
-     # <code class="lang-sh userinput">npm install -g</code>
-     </pre>
-
-1. Run the tests to make sure it works:
+   <pre>
+   $ <code class="lang-sh userinput">npm install</code>
+   </pre>
+ 
+4. Run the tests to make sure it works:
 
    <pre>
    $ <code class="lang-sh userinput">npm test</code>
    </pre>
 
-By calling NPM without an argument, it builds the package in the current working directory, here your local copy of the OrientJS GitHub repository.
 
 
 
-## Support
 
-OrientJS aims to support version 2.0.0 and later.  It has been tested on both versions 2.0.x and 2.1 of OrientDB.  While it may work with earlier versions, it does not currently support them directly.
-
-
-### Bonsai Structure
-
-Currently, OrientJS does not support the tree-based [Bonsai Structure](../internals/RidBag.md) feature in OrientDB, as it relies on additional network requests.
-
-What this means is that, by default, the result  of `JSON.stringify(record)` on a record with 119 edges would behave very differently from a record with more than 120 edges.  It can lead to unexpected results that may not appear at any point during development, but which will occur when your application runs in production
-
-For more information, see [Issue 2315](https://github.com/orientechnologies/orientdb/issues/2315).  Until this issue is addressed it is **strongly recommended** that you set the `RID_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD` to a very large figure, such as 2147483647.
-
-
-### Maximum Call Stack Size Exceeded
-
-There is a maximum call stack size issue currently being worked on.  This occurs in queries over large record-sets (as in, in the range of 150,000 records), results in a `RangeError` exception.
-
-For more information, see [Issue 116](https://github.com/orientechnologies/orientjs/issues/116).
 
