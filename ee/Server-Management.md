@@ -1,6 +1,9 @@
 # Server Management
+
 This is the section to work with OrientDB Server as DBA/DevOps with [Enterprise Edition](http://orientdb.com/enterprise/).
 
+> Only users with grant `server.metrics` can see this section 
+> 
 This page contains detailed information about the selected node.
 
 General information are:

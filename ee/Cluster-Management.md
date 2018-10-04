@@ -10,6 +10,8 @@ This is the section (available only for the Enterprise Edition) to work with Ori
 
 On the top of the page are reported the number of active nodes joining your cluster.
 
+> Only users with grant `server.metrics` and `server.distributed` can see this section 
+
 ## Overview
 This page summarizes all the most important information about all servers connected to the cluster:
 - `CPU`, `RAM`, `DISK CACHE` and `DISK` used
