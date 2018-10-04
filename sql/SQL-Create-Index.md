@@ -16,9 +16,9 @@ Creates a new index.  Indexes can be
 **Syntax**
 
 ```sql
-CREATE INDEX <name> 
+CREATE INDEX <name>
 [ IF NOT EXISTS ]
-[ ON <class> (<property>)] 
+[ ON <class> (<property>*) ] 
 <index-type> [<key-type>]
 METADATA [{<json>}]
 ```
