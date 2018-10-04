@@ -10,10 +10,13 @@ Creates a new class in the schema.
 **Syntax**
 
 ```sql
-CREATE CLASS <class> [EXTENDS <super-class>] [CLUSTER <cluster-id>*] [CLUSTERS <total-cluster-number>] [ABSTRACT]
+CREATE CLASS <class> 
+[ IF NOT EXISTS ]
+[EXTENDS <super-class>] [CLUSTER <cluster-id>*] [CLUSTERS <total-cluster-number>] [ABSTRACT]
 ```
 
 - **`<class>`** Defines the name of the class you want to create.  You must use a letter, underscore or dollar for the first character, for all other characters you can use alphanumeric characters, underscores and dollar.
+- **IF NOT EXISTS** Specifying this option, the class creation will just be ignored if the class already exists (instead of failing with an error)
 - **`<super-class>`** Defines the super-class you want to extend with this class.
 - **`<cluster-id>`**  Defines in a comma-separated list the ID's of the clusters you want this class to use.
 - **`<total-cluster-number>`** Defines the total number of clusters you want to create for this class.  The default value is `1`.  This feature was introduced in version 2.1.
