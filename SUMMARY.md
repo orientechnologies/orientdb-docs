@@ -792,7 +792,13 @@
     * [Distributed Configuration Tuning](distributed/Distributed-Configuration-Tuning.md)
     * [OrientDB Stress Test Tool](misc/Stress-Test-Tool.md)
 * [Enterprise Edition](ee/Enterprise-Edition.md) 
-    * [Auditing](ee/Auditing.md) 
+    * [Dashboard](./ee/Dashboard.md)
+    * [Server Management](./ee/Server-Management.md)
+    * [Cluster Management](./ee/Cluster-Management.md)
+    * [Backup Management](./studio/backups-imports-exports/Studio-Backup-Management.md)
+    * [Server Profiler](./ee/Server-Profiler.md)
+    * [Security](./ee/Security.md)
+    * [Teleporter](./studio/backups-imports-exports/Studio-Teleporter.md)
 
 ---
 
