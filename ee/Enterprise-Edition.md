@@ -41,6 +41,7 @@ Explore the Enterprise Edition features:
 * [Security](./Security.md)
 * [Teleporter](../studio/backups-imports-exports/Studio-Teleporter.md)
 
+See here for the documentation of the new [Metrics](./Profiler.md) module.
 
 #### Cloud Dashboard
 
