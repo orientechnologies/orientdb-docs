@@ -842,7 +842,7 @@
     * [Server Profiler](./ee/Server-Profiler.md)
     * [Security](./ee/Security.md)
     * [Teleporter](./studio/backups-imports-exports/Studio-Teleporter.md)
-
+    * [Metrics](./ee/Profiler.md)
 ---
 
 * [Internals](internals/Internals.md) 
