@@ -800,6 +800,7 @@
     * [Security](./ee/Security.md)
     * [Teleporter](./studio/backups-imports-exports/Studio-Teleporter.md)
     * [Metrics](./ee/Profiler.md)
+    * [Settings](./ee/Settings.md)
 ---
 
 * [Internals](internals/Internals.md) 

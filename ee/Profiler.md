@@ -1,4 +1,3 @@
-
 ---
 search:
    keywords: ['performance', 'performance tuning', 'profiler']
