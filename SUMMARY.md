@@ -193,7 +193,6 @@
         * [JMX](admin/JMX.md)
 * [OrientDB Tools](misc/Tools.md)
     * [Studio](studio/README.md)
-        * [Introduction](studio/Studio-Introduction.md)
         * [Overview of Menus and Panels](studio/menus-panels/README.md)
         * [Working with Databases](studio/working-with-databases/README.md) 
             * [Common Database Operations](studio/working-with-databases/Studio-Common-Database-Operations.md) 
