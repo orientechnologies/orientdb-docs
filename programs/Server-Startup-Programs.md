@@ -1,1 +1,1 @@
-#OrientDB Server Startup Programs
+# OrientDB Server Startup Programs

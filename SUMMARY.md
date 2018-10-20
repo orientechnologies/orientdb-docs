@@ -99,9 +99,9 @@
 
 * [OrientDB Programs](programs/README.md)
     * [OrientDB Server-Startup Programs](programs/Server-Startup-Programs.md)
-        * [server](programs/server.md)
-        * [dserver](programs/dserver.md)
-        * [orientdb](programs/orientdb.md)	
+        * [server.sh](programs/server.md)
+        * [dserver.sh](programs/dserver.md)
+        * [Server Process](programs/orientdb.md)	
     * [OrientDB Client Programs](programs/Client-Programs.md)	
         * [Console](console/README.md) 
             * [Console Modes](console/Console-Modes.md)
