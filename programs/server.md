@@ -9,7 +9,7 @@ OrientDB provides a `server.sh` shell script for starting the server on Linux op
 
 OrientDB manages most of its configuration options through various XML configuration files.  However, there are a handful of environmental variables that it utilizes when starting the Server.  When the script runs, it check these variables to determine whether any value has been set on them.  In the event that it finds none, it instead sets a sensible default value.
 
-On Linux, you can set the environmental variable using the `export` commnd:
+On Linux, you can set the environmental variable using the `export` command:
 
 ```sh
 $ export ORIENTDB_HOME=/opt/orientdb/{{ book.currentVersion }}/
