@@ -33,7 +33,7 @@ What happens here is a `JOIN`. That is, the contents of two tables are joined to
 
 ### 1-to-Many Relationship
 
-Given that Relational databases have no concept of a collections, the `Customer` table cannot have multiple foreign keys. The only way to manage a 1-to-Many Relationship in databases of this kind is to move the Foreign Key to the `Address` table.
+Given that Relational databases have no concept of collections, the `Customer` table cannot have multiple foreign keys. The only way to manage a 1-to-Many Relationship in databases of this kind is to move the Foreign Key to the `Address` table.
 
 ![RDBMS 1-to-N](http://www.orientdb.org/images/rdbms-1toN.jpg)
 
@@ -88,7 +88,7 @@ When you have `Invoice` linked to `Customer`, then you have a pointer to `Custom
 
 ### Types of Relationships
 
-In 1-to-N relationships, OrientDB handles the relationship as a collection of Record ID's, as you would when managing objects in memory.
+In 1-to-N relationships, OrientDB handles the relationship as a collection of Record IDs, as you would when managing objects in memory.
 
 OrientDB supports several different kinds of relationships:
 
