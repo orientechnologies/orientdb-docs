@@ -16,10 +16,14 @@ Creates a new index.  Indexes can be
 **Syntax**
 
 ```sql
-CREATE INDEX <name> [ON <class> (<property>)] <index-type> [<key-type>]
-             METADATA [{<json>}]
+CREATE INDEX <name> 
+[ IF NOT EXISTS ]
+[ ON <class> (<property>)] 
+<index-type> [<key-type>]
+METADATA [{<json>}]
 ```
 - **`<name>`** Defines the logical name for the index.  If a schema already exists, you can use `<class>.<property>` to create automatic indexes bound to the schema property.  Because of this, you cannot use the period "`.`" character in index names.
+- **IF NOT EXISTS** Specifying this option, the index creation will just be ignored if the index already exists (instead of failing with an error)
 - **`<class>`** Defines the class to create an automatic index for.  The class must already exist.
 - **`<property>`** Defines the property you want to automatically index.  The property must already exist.  
 
