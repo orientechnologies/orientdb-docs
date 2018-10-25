@@ -626,7 +626,7 @@
     * [JPA](java/JPA-Configuration.md) 
   * [JDBC Driver](jdbc-driver/README.md)
   * [Scala API](scala/Scala-Language.md)
-  * [OrientJS Legacy - Node.js Driver](orientjs/OrientJS-legacy.md)
+  * [OrientJS Legacy - Node.js Driver](orientjs/OrientJS-Legacy.md)
   	* [Server API](orientjs/OrientJS-Server.md)
     * [Database API](orientjs/OrientJS-Database.md)
     * [Record API](orientjs/OrientJS-Record.md)
