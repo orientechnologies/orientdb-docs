@@ -16,8 +16,13 @@ To embed an OrientDB Server inside a Java application you have to create the [`O
 ## Requirements
 
 In order to embed the server you need to include the following jar files in the classpath:
-- <code>orientdb-enterprise-**.jar</code>
+- <code>orientdb-client-**.jar</code>
+- <code>orientdb-core-**.jar</code>
 - <code>orientdb-server-**.jar</code>
+- <code>orientdb-tools-**.jar</code>
+- <code>concurrentlinkedhashmap-lru-**.jar</code>
+- <code>jna-**.jar</code>
+- <code>lz4-java-**.jar</code>
 
 Starting from version 2.2, please set the `MaxDirectMemorySize` parameter. Setting this parameter is required. You can set it to a very high value, e.g. 512g (JVM setting):
 
