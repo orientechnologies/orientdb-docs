@@ -21,7 +21,7 @@ OSequence seq = sequenceLibrary.createSequence("idseq", SEQUENCE_TYPE.ORDERED, n
 
 ### SQL CREATE SEQUENCE
 ```sql
-CREATE SEQUENCE idseq
+CREATE SEQUENCE idseq TYPE ORDERED
 INSERT INTO account SET id = sequence('idseq').next()
 ```
 
