@@ -16,6 +16,7 @@ This command was introduced in version 2.2.
 ```sql
 UPDATE EDGE <edge> 
   [SET|INCREMENT|ADD|REMOVE|PUT <field-name> = <field-value>[,]*]|[CONTENT|MERGE <JSON>]
+  [UPSERT]
   [RETURN <returning> [<returning-expression>]]
   [WHERE <conditions>]
   [LOCK default|record]
@@ -36,6 +37,7 @@ UPDATE EDGE <edge>
 - **`LOCK`** Defines how the record locks between the load and update.  You can choose between the following lock strategies:
   - `DEFAULT` Disables locking.  Use this in the event of concurrent updates.  It throws an exception in the event of conflict.
   - `RECORD` Locks the record during the update.
+- **`UPSERT`** Updates a record if it exists or inserts a new record if it doesn't.  This avoids the need to execute two commands, (one for each condition, inserting and updating). 
 - **`LIMIT`** Defines the maximum number of records to update.
 
 
@@ -47,6 +49,17 @@ UPDATE EDGE <edge>
   orientdb> <code class="lang-sql userinput">UPDATE EDGE Friend SET out = (SELECT FROM Person WHERE name = 'John') 
             WHERE foo = 'bar'</code>
   </pre>
+ 
+ ## Limitations of the `UPSERT` Clause
+
+The `UPSERT` clause only guarantees atomicity when you use a `UNIQUE` index and perform the look-up on the index through the [`WHERE`](SQL-Where.md) condition.
+
+<pre>
+orientdb> <code class="lang-sql userinput">UPDATE EDGE hasAssignee FROM ( SELECT FROM Project WHERE id=:id ) TO ( SELECT FROM User WHERE login in :login ) UPSERT WHERE hasAssignee.id = 56</code>
+</pre>
+
+Here, you must have a unique index on `hasAssignee.id` to guarantee uniqueness on concurrent operations.
+
 
 
 >For more information, see
