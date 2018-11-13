@@ -73,7 +73,7 @@ To use OrientDB as a Key/Value store we need a brand new manual index, let's cal
 
 Create the new manual unique index "mainbucket":
 ```
-> curl --basic -u admin:admin localhost:2480/command/demo/sql -d "create index mainbucket UNIQUE"
+> curl --basic -u admin:admin localhost:2480/command/demo/sql -d "create index mainbucket UNIQUE STRING"
 ```
 Response:
 ```json   
@@ -86,7 +86,7 @@ Response:
 ## Store the first entry
 Below we're going to insert the first entry by using the HTTP PUT method passing "jay" as key in the URL and as value the entire document in form of JSON:
 ```
-> curl --basic -u admin:admin -X PUT localhost:2480/index/demo/mainbucket/jay -d "{'name':'Jay','surname':'Miner'}"
+> curl --basic -u admin:admin -X PUT localhost:2480/index/demo/mainbucket/jay -d "{'@class': 'V', 'name':'Jay','surname':'Miner'}"
 ```
 Response:
 ```
