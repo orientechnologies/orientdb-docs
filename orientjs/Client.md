@@ -68,6 +68,32 @@ OrientDBClient.connect({
 
 ```
 
+or with async/await
+
+```js
+const OrientDBClient = require("orientjs").OrientDBClient;
+
+(async function() {
+  let client;
+  try {
+    client = await OrientDBClient.connect({
+      host: "localhost",
+      port: 2424,
+      servers: [{ host: "localhost", port: 2425 }]
+    });
+    console.log("Connected");
+  } catch (e) {
+    console.log(e);
+  }
+
+  if (client) {
+    await client.close();
+    console.log("Disconnected");
+  }
+})();
+
+```
+
 
 The only prerequisite when executing this code is that at least one of the hosts, primary or secondary, be online at the time that it first runs. Once it has established this initial connection, OrientJS keeps the list up to date with those servers in the cluster that are currently online. It manages this through the push notifications that OrientDB sends to connected clients when changes occur in cluster membership.
 
@@ -88,6 +114,32 @@ OrientDBClient.connect({
 }).then(()=> {
    console.log("Client closed");
 });
+```
+
+or with async/await
+
+```js
+const OrientDBClient = require("orientjs").OrientDBClient;
+
+(async function() {
+  let client;
+  try {
+    client = await OrientDBClient.connect({
+      host: "localhost",
+      port: 2424,
+      pool : { max : 10}
+    });
+    console.log("Connected");
+  } catch (e) {
+    console.log(e);
+  }
+
+  if (client) {
+    await client.close();
+    console.log("Disconnected");
+  }
+})();
+
 ```
 
 ### Databases Manipulation
@@ -113,6 +165,21 @@ client.createDatabase({
 });
 ```
 
+or with async/await
+
+```js
+try {
+  await client.createDatabase({
+    name: "test",
+    username: "root",
+    password: "root"
+  });
+  console.log("Database created");
+} catch (e) {
+  console.log(e);
+}
+```
+
 #### Check existence of a databases
 
 ```js
@@ -127,6 +194,22 @@ client.existsDatabase({
 .catch(err => {
 	console.log("Error checking for database");
 });
+```
+
+or with async/await
+
+```js
+try {
+  let exists = await client.existsDatabase({
+    name: "test",
+    username: "root",
+    password: "root"
+  });
+  console.log(exists);
+} catch (e) {
+  console.log(e);
+}
+
 ```
 
 #### List Databases
@@ -144,6 +227,21 @@ client.listDatabases({
 });
 ```
 
+or with async/await
+
+```js
+try {
+  let databases = await client.listDatabases({
+    name: "test",
+    username: "root",
+    password: "root"
+  });
+  console.log(databases);
+} catch (e) {
+  console.log(e);
+}
+```
+
 #### Drop a database
 
 
@@ -159,6 +257,20 @@ client.dropDatabase({
 .catch(err => {
 	console.log("Error dropping the database");
 });
+```
+
+or with async/await
+
+```js
+try {
+  await client.dropDatabase({
+    name: "test",
+    username: "root",
+    password: "root"
+  });
+} catch (e) {
+  console.log(e);
+}
 ```
 
 ### Sessions
@@ -181,6 +293,24 @@ client.session({ name: "demodb", username: "admin", password: "admin" })
 	// close the session
 	return session.close();
 });
+```
+
+or with async/await
+
+```js
+try {
+  let session = await client.session({
+    name: "demodb",
+    username: "admin",
+    password: "admin"
+  });
+  // use session
+
+  //close session
+  await session.close();
+} catch (e) {
+  console.log(e);
+}
 ```
 
 
@@ -210,6 +340,28 @@ client.sessions({ name: "demodb", username: "admin", password: "admin", pool: { 
       });
   });
 });
+```
+
+
+```js
+try {
+  let pool = await client.sessions({
+    name: "demodb",
+    username: "admin",
+    password: "admin"
+  });
+  // acquire a session
+  let session = await pool.acquire();
+  // use the session
+
+  //close/release session
+  await session.close();
+  
+  // close pool
+  await pool.close();
+} catch (e) {
+  console.log(e);
+}
 ```
 
 
