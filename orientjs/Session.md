@@ -53,7 +53,22 @@ session.query("select from OUser where name = :name", { params : {name: "admin" 
 });
 ```
 
-alternatevely use `.one` API for the first entry only
+or with async/await
+
+```js
+try {
+	let results = await session
+	.query("select from OUser where name = :name", {
+		params: { name: "admin" }
+	})
+	.all();
+	console.log(results);
+} catch (e) {
+	console.log(e);
+}
+```
+
+Alternatevely use `.one` API for the first entry only
 
 ```js
 session.query("select from OUser where name = :name", { params : {name: "admin" }})
@@ -61,6 +76,21 @@ session.query("select from OUser where name = :name", { params : {name: "admin" 
 .then((results)=> {
 	console.log(results);
 });
+```
+
+or with async/await
+
+```js
+try {
+	let results = await session
+	.query("select from OUser where name = :name", {
+		params: { name: "admin" }
+	})
+	.one();
+	console.log(results);
+} catch (e) {
+	console.log(e);
+}
 ```
 
 ## Command
@@ -75,6 +105,19 @@ session.command("insert into V set name = :name", {params: { name: "test" }})
 .then(result => {
 	console.log(result);
 });
+```
+
+or with async/await
+
+```js
+try {
+	let results = await session
+	.command("insert into V set name = :name", { params: { name: "test" } })
+	.all();
+	console.log(results);
+} catch (e) {
+	console.log(e);
+}
 ```
 
 ## Batch Script
@@ -95,6 +138,24 @@ session.batch(batch).all()
   .then(results => {
     console.log(results);
   });
+```
+
+or with async/await
+
+```js
+try {
+	let batch = `begin;
+	let $v1 = create vertex V set name = "first";
+	let $v2 = create vertex V set name = "second";
+	let $e = create edge E from $v1 to $v2;
+	commit;
+	return  $e;`;
+
+	let results = await session.batch(batch).all();
+	console.log(results);
+} catch (e) {
+	console.log(e);
+}
 ```
 
 ## Query/Command/Script Options
