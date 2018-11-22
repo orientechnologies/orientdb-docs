@@ -14,7 +14,7 @@ This module is provided as external plugin. You can find it bundled in the GeoSp
 In versions prior to v 3.0 the spatial plugin was a separate component and needed to be installed manually.
 This is not the case in v 3.0, where the spatial plugin is included in the main distribution, so there is no need to install it.
 
-##Geometry Data
+## Geometry Data
 
 OrientDB supports the following Geometry objects :
 
