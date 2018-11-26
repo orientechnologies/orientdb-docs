@@ -55,7 +55,7 @@ OrientJS v3.0 contains backwards compatible APIs for OrientDB 2.2.x and OrientDB
 Install via npm.
 
 ```sh
-npm install orientjs@beta
+npm install orientjs
 ```
 
 ## Quick Start
@@ -77,6 +77,19 @@ OrientDBClient.connect({
 });
 ```
 
+or with async/await
+
+```js
+let client = await OrientDBClient.connect({
+    host: "localhost",
+    port: 2424
+  });
+
+await client.close();
+
+console.log("Client Closed");
+```
+
 
 
 #### Single Session
@@ -94,6 +107,18 @@ client.session({ name: "demodb", username: "admin", password: "admin" })
 });
 ```
 
+or with async/await
+
+
+```js
+let session = await client.session({ name: "demodb", username: "admin", password: "admin" });
+// use the session
+... 
+// close the session
+await session.close();
+console.log("Session Closed");
+
+```
 
 
 #### Pooled Sessions
@@ -119,6 +144,26 @@ client.sessions({ name: "demodb", username: "admin", password: "admin", pool: { 
       });
   });
 });
+```
+
+or with async/await
+
+```js
+// Create a sessions Pool
+let pool = await client.sessions({
+  name: "demodb",
+  username: "admin",
+  password: "admin",
+  pool: { max: 10 }
+});
+// acquire a session from the pool
+let session = await pool.acquire();
+// use the session
+//  ...
+// release the session
+await session.close();
+// close the pool
+await pool.close();
 ```
 
 ### Session API
@@ -150,7 +195,7 @@ session.query("select from OUser where name = :name", {params: { name: "admin" }
 ```
 
 
-or use `.all` API that convert the stream to a Promise and collect the result set into an array
+or use `.all` API that convert the stream to a Promise and collect the result set into an array.
 
 ```js
 session.query("select from OUser where name = :name", { params : {name: "admin" }})
@@ -160,6 +205,17 @@ session.query("select from OUser where name = :name", { params : {name: "admin" 
 });
 ```
 
+or with async/await
+
+```js
+try {
+  let result = await session.query("select from OUser where name = :name", {params: { name: "admin" }})
+    .all();
+  console.log(result);
+} catch (err) {
+  console.log(err);
+}
+```
 #### Command
 
 ```js
@@ -170,9 +226,22 @@ session.command("insert into V set name = :name", {params: { name: "test" }})
 });
 ```
 
+or with async/await
+
+```js
+try {
+  let result = session.command("insert into V set name = :name", {params: { name: "test" }})
+    .all();
+  console.log(result);
+} catch (err) {
+  console.log(err);
+}
+```
+
 #### Transaction
 
 Use the api session.runInTransaction in order to run a unit of work in a managed transaction (begin/commit/retry)
+The unit of work should return a Promise.
 
 ```js
 session.runInTransaction((tx)=>{
@@ -181,6 +250,22 @@ session.runInTransaction((tx)=>{
 	console.log(result);
 	console.log(tx);
 });
+```
+
+or with async/await
+
+```js
+try {
+  let { result, tx } = await session.runInTransaction(tx => {
+    return tx
+      .command("insert into V set name = :name", { params: { name: "test" } })
+      .all();
+  });
+  console.log(result);
+  console.log(tx);
+} catch (e) {
+  console.log(e);
+}
 ```
 
 #### Live Queries

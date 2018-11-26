@@ -16,7 +16,7 @@ ALTER CLASS <class> <attribute-name> <attribute-value>
 - **`<class>`** Defines the class you want to change.
 - **`<attribute-name>`** Defines the attribute you want to change.  For a list of supported attributes, see the table below.
 - **`<attribute-value>`** Defines the value you want to set.
-  
+- **`UNSAFE`** Allows for the processing of a modification on an Edge class, without an exception error. The alteration will not take into account edge connections nor indexing. It is not recommended to use this! Be sure to make a backup before running it.
 
 **Examples**
 
