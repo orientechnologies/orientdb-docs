@@ -38,6 +38,18 @@ It contains all the features of the OrientDB Community Edition plus the integrat
 In addition to the binary packages, you can compile the OrientDB TinkerPop enabled distribution from the source code.
 This process requires that you install [Git](http://www.git-scm.com/) and [Apache Maven](https://maven.apache.org/) on your system. 
 
+As a pre-requirement, you have to build the same branch for OrientDB core distribution:
+
+```sh
+$ git clone https://github.com/orientechnologies/orientdb
+$ cd orientdb
+$ git checkout develop
+$ mvn clean install -DskipTests
+$ cd ..
+```
+
+Then you can proceed and build `orientdb-gremlin`
+
 ```sh
 $ git clone https://github.com/orientechnologies/orientdb-gremlin
 $ cd orientdb-gremlin
