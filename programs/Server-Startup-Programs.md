@@ -1,3 +1,8 @@
+---
+search:
+   keywords: ['admin', 'administration', 'server']
+---
+
 # OrientDB Server 
 
 OrientDB provides several methods of starting and managing the Server process.  These include individual scripts that initialize the Java Virtual Machine and start [`OServer`](../java/ref/OServer.md) and systemd and initscripts that allow you to launch and manage the Server using the `systemctl` or `service` utilities on Linux.
