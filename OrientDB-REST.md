@@ -399,6 +399,7 @@ Where:
 - *`command-text`* is the text containing the command to execute
 - *`limit`* is the maximum number of record to return. Optional, default is 20
 - *`fetchPlan`* is the fetching strategy to use. For more information look at [Fetching Strategies](Fetching-Strategies.md). Optional, default is *:1 (1 depth level only)
+- *`returnExecutionPlan`* (since v 3.0.15) if set to "false", the execution plan for the statement is not returned in the JSON result. You can also use `return-execution-plan` header property instead.
 
 The *command-text* can appear in either the URL or the content of the POST transmission. Where the command-text is included in the URL, it must be encoded as per normal URL encoding. By default the result is returned in JSON. To have the result in CSV, pass "Accept: text/csv" in HTTP Request.
 
