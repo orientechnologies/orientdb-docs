@@ -7,7 +7,7 @@ search:
 
 (Versions 2.2 and after only, otherwise look at [Legacy](Spatial-Index.md#legacy) section)
 
-This module is provided as external plugin. You can find it bundled in the GeoSpatial distribution, or you can add this plugin by yourself into any OrientDB distribution (Community and Enterprise Editions).
+Since v 3.0, this module is provided in-bundle with the main distribution (Community and Enterprise Editions).
 
 ## Install
 
