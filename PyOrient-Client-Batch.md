@@ -50,7 +50,7 @@ batch_cmds.append('commit retry 100;')
 cmd = ';'.join(batch_cmds)
 
 # Execute Commands
-results = cleint.batch(cmd)
+results = client.batch(cmd)
 ```
 
 Here, you have an array of record objects for each sensor in the house.  Iterating over that array, you extract the node name and zone, then take a reading from the sensor and use it in defining a [`CREATE VERTEX`](SQL-Create-Vertex.md) batch command.  Once you have a command for each sensor, it joins the batch commands with a commit message, creating a string object to pass to `batch()`.
