@@ -55,10 +55,10 @@ UPDATE EDGE <edge>
 The `UPSERT` clause only guarantees atomicity when you use a `UNIQUE` index and perform the look-up on the index through the [`WHERE`](SQL-Where.md) condition.
 
 <pre>
-orientdb> <code class="lang-sql userinput">UPDATE EDGE hasAssignee FROM ( SELECT FROM Project WHERE id=:id ) TO ( SELECT FROM User WHERE login in :login ) UPSERT WHERE hasAssignee.id = 56</code>
+orientdb> <code class="lang-sql userinput">UPDATE EDGE hasAssignee SET foo = 'bar' UPSERT WHERE id = 56</code>
 </pre>
 
-Here, you must have a unique index on `hasAssignee.id` to guarantee uniqueness on concurrent operations.
+Here, you must have a unique index on `id` to guarantee uniqueness on concurrent operations.
 
 
 
