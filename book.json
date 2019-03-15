@@ -5,7 +5,7 @@
     "CE_name": "orientdb-community",
     "CE_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.0.17/orientdb-3.0.17.tar.gz",
     "TP2_name": "orientdb-community-tp2",
-    "TP2_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.0.17/orientdb-3.0.17.tar.gz",
+    "TP2_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.0.17/orientdb-community-tp2-3.0.17.tar.gz",
     "TP3_name": "orientdb-community-tp3",
     "TP3_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.0.17/orientdb-tp3-3.0.17.tar.gz",
     "TP3Spatial_name": "orientdb-community-spatial",
