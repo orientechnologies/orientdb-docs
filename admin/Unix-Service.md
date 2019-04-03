@@ -106,7 +106,10 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/orientdb.servic
 
 ### Manual install
 
-For Mac OS X, create an alias to the OrientDB system daemon script and the console.
+For Mac OS X:
+
+- follow the steps described above, in the `Configuring the Script` section
+- create an alias to the OrientDB system daemon script and the console.
 
 ```sh
 $ alias orientdb-server=/path/to/$ORIENTDB_HOME/bin/orientdb.sh
