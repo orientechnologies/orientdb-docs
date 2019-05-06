@@ -5,7 +5,7 @@ search:
 
 # Rexster
 
-[Rexster](https://github.com/tinkerpop/rexster/wiki/) provides a RESTful shell to any Blueprints-complaint graph database. This HTTP web service provides: a set of standard low-level GET, POST, and DELETE methods, a flexible extension model which allows plug-in like development for external services (such as ad-hoc graph queries through Gremlin), and a browser-based interface called The Dog House.
+[Rexster](https://github.com/tinkerpop/rexster/wiki/) provides a RESTful shell to any Blueprints-compliant graph database. This HTTP web service provides: a set of standard low-level GET, POST, and DELETE methods, a flexible extension model which allows plug-in like development for external services (such as ad-hoc graph queries through Gremlin), and a browser-based interface called The Dog House.
 
 A graph database hosted in the OrientDB can be configured in Rexster and then accessed using the standard RESTful interface powered by the Rexster web server.
 
@@ -35,7 +35,7 @@ Refer to Rexster's [Configuration page](https://github.com/tinkerpop/rexster/wik
 
 The Rexster configuration file *rexster.xml* is used to configure parameters such as: TCP ports used by Rexster server modules to listen for incoming connections; character set supported by the Rexster REST requests and responses; connection parameters of graph instances.
 
-In order to configure Rexster to connect to your OrientDB graph, locate the *rexster.xml* in the Rexster directory and add the following snippet of code:
+In order to configure Rexster to connect to your OrientDB graph, locate the *rexster.xml* file in the Rexster directory and add the following snippet of code:
 ```xml
 <rexster>
   ...
@@ -55,10 +55,10 @@ In order to configure Rexster to connect to your OrientDB graph, locate the *rex
   </graphs>
 </rexster>
 ```
-In the configuration file, there could be a sample `graph` element for an OrientDB instance (`<graph-name>orientdbsample<graph-name>`): you might edit it according to your needs.
+In the configuration file, there could be a sample `graph` element for an OrientDB instance (`<graph-name>orientdbsample<graph-name>`); you might edit it according to your needs.
 
 The `<graph-name>` element must be unique within the list of configured graphs and reports the name used to identify your graph.
-The `<graph-enabled>` element states whether the graph should be loaded and managed by Rexster. Setting its contents to `false` will prevent that graph from loading to Rexster; setting explicitly to `true` the graph will be loaded.
+The `<graph-enabled>` element states whether the graph should be loaded and managed by Rexster. Setting its contents to `false` will prevent that graph from loading to Rexster; setting explicitly to `true` will allow the graph to be loaded.
 The `<graph-type>` element reports the type of graph by using an identifier (`orientgraph` for an OrientDB Graph instance) or the full name of the class that implements the [GraphConfiguration interface](https://github.com/tinkerpop/rexster/blob/master/rexster-core/src/main/java/com/tinkerpop/rexster/config/GraphConfiguration.java)
 ([com.tinkerpop.rexster.OrientGraphConfiguration](https://github.com/orientechnologies/orientdb/blob/master/graphdb/src/main/java/com/tinkerpop/rexster/OrientGraphConfiguration.java) for an OrientDB Graph).
 
@@ -67,7 +67,7 @@ The `<graph-file>` element reports the URL to the OrientDB database Rexster is e
 - `remote:*url-to-db*`, if the graph can be accessed over the network and/or if you want to enable multiple accesses to the graph (e.g. `remote:localhost/mydb`)
 - `memory:*db-name*`, if the graph resides in memory only. Updates to this kind of graph are never persistent and when the OrientDB server ends the graph is lost
 
-The `<username>` and `<password>` elements reports the credentials to access the graph (e.g. `admin` `admin`).
+The `<username>` and `<password>` elements report the credentials required to access the graph (e.g. `admin` `admin`).
 
 
 ## Run
@@ -76,7 +76,7 @@ The `<username>` and `<password>` elements reports the credentials to access the
 In this section we present a step-by-step guide to Rexster-ify an OrientDB graph.<br/>
 We assume that:
 - you created a Blueprints enabled graph called *orientGraph* using the class `com.tinkerpop.blueprints.pgm.impls.orientdb.OrientGraph`
-- you inserted in the Rexster configuration file a `<graph>` element with the `<graph-name>` element set to `my-orient-graph` and the `graph-file` element set to `remote:orienthost/orientGraph` (if you do not remember how to do this, go back to the [Configuration](Rexster.md#configuration) section).
+- you inserted into the Rexster configuration file a `<graph>` element with the `<graph-name>` element set to `my-orient-graph` and the `<graph-file>` element set to `remote:orienthost/orientGraph` (if you do not remember how to do this, go back to the [Configuration](Rexster.md#configuration) section).
 1. Be sure that the OrientDB server is running and you have properly configured the `<graph-file>` location and the access credentials of your graph.
 1. Execute the startup script (_$REXSTER_HOME/bin/rexster.bat_ or _$REXSTER_HOME/bin/rexster.sh_)
 1. The shell console appears and you should see the following log message (line 10 states that the OrientDB graph instance has been loaded):
