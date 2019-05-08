@@ -6,7 +6,7 @@ search:
 # Session API
 
 A Session instance can be used for:
-
+- List classes and schema information
 - Run a Query (Idempotent SQL statement)
 - Run a Command (Idempotent or non idempotent SQL statement)
 - Run a Batch Script
@@ -18,6 +18,62 @@ A Session instance can be used for:
 To obtain a Session instance use the [Cient APIs](Client.md#sessions).
 
 > By convention, the variable on which you initialize the Session API is called session. This designation is arbitrary and used only for convenience.
+
+## List Classes
+
+You can query the classes that are available in your db. This can be particularly useful when you want to know whether a class already exists before trying to create it.
+
+
+```js
+session.class.list()
+.then((classes)=> {
+	const classnames = classes.map(c=>c.name);
+	console.log(classnames);
+});
+```
+
+or with async/await
+
+```js
+try {
+	let classes = await session
+	.class.list()
+	
+	const classnames = classes.map(c=>c.name);
+	console.log(classnames);
+} catch (e) {
+	console.log(e);
+}
+```
+
+## List Properties of a Class
+
+If you would like to list the properties of a class, get the class info first them list the properties from the property key of the returned object.
+
+
+```js
+    session.class.get('User').then(classinfo => {
+    
+      const properties = classinfo.property.list();
+      
+      console.log('class info', properties);
+    });
+```
+
+or with async/await
+
+```js
+try {
+	let classes = await session
+	.class.get('User)
+	
+	 const properties = classinfo.property.list();
+      
+      	 console.log('class info', properties);
+} catch (e) {
+	console.log(e);
+}
+```
 
 ## Query
 
