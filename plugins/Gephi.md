@@ -5,13 +5,12 @@ search:
 
 # Gephi Visual Tool
 
-![image](https://gephi.github.io/images/screenshots/preview4.png)
 
 # Introduction
 
-[Gephi](http://gephi.org) is a visual tool to manipulate and analyze graphs. [Gephi](http://gephi.org) is an Open Source project. Take a look at the amazing [features](http://gephi.org/features/).
+Gephi is a visual tool to manipulate and analyze graphs. http://gephi.org is an Open Source project. Take a look at the amazing [features](http://gephi.org/features/).
 
-[Gephi](http://gephi.org) can be used to analyze graphs extracted from OrientDB. There are 2 level of integration:
+Gephi can be used to analyze graphs extracted from OrientDB. There are 2 level of integration:
 - the [Streaming plugin](https://gephi.org/plugins/graph-streaming/) that calls OrientDB server via HTTP. OrientDB exposes the new "/gephi" command in HTTP GET method that executes a query and returns the result set in "gephi" format.
 - [Gephi importer for Blueprints](https://github.com/datablend/gephi-blueprints-plugin/wiki)
 
@@ -19,7 +18,6 @@ In this mini guide we will take a look at the first one: the streaming plugin.
 
 For more information:
 - [Gephi Graph Streaming format](https://github.com/gephi/gephi/wiki)
-- [Graph Streaming plugin](https://gephi.org/plugins/graph-streaming/)
 - [Tutorial video](http://www.youtube.com/watch?v=7SW_FDiY0sg)
 
 # Getting started
@@ -91,4 +89,4 @@ Executed on "localhost" against the "demo" database + encoding becomes:
 http://localhost:2480/gephi/demo/gremlin/g.V%5B0..99%5D/-1
 ```
 
-For more information about using Gephi look at [Learn how to use Gephi](http://gephi.org/users/)
+
