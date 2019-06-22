@@ -243,7 +243,7 @@ db.declareIntent( null );
 ### Disable Journal
 In case of massive insertion, specially when this operation is made just once, you could disable the journal (WAL) to improve insertion speed:
 
-    -storage.useWAL=false
+    -Dstorage.useWAL=false
 
 By default [WAL (Write Ahead Log)](../internals/Write-Ahead-Log.md) is enabled.
 
