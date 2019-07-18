@@ -11,7 +11,7 @@ First of all, let's create three vertices: Alice, Bob and Jim
 
 #### Creating vertices 
 
-We are good Java developers, aren't we? Let's encaplusate a single vertex creation in a method:
+We are good Java developers, aren't we? Let's encapsulate a single vertex creation in a method:
 
 ```java
   private static OVertex createPerson(ODatabaseSession db, String name, String surname) {
@@ -54,7 +54,7 @@ Let's create the edges in the database:
     edge2.save();
 ```
 
-Please cosider that edges are plain documents, so you can get/set properties on them exactly like for vertices.
+Please consider that edges are plain documents, so you can get/set properties on them exactly like for vertices.
 
 
 #### Executing queries

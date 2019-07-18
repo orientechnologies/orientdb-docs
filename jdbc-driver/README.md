@@ -6,18 +6,18 @@ search:
 # JDBC Driver
 > GroupId: **com.orientechnologies** ArtifactId: **orientdb-jdbc**
 
-The JDBC driver for OrientDB allows to connect to a remote server using the standard and consolidated way of interacting with database in the Java world.
+The JDBC driver for OrientDB allows connecting to an OrientDB database using the standard way of interacting with databases in the Java world.
 
-## How can be used in my code?
+## Overview
 
 The driver is registered to the Java SQL DriverManager and can be used to work with all the OrientDB database types:
-- memory,
-- plocal and
+- memory
+- plocal
 - remote
 
-The driver's class is ```com.orientechnologies.orient.jdbc.OrientJdbcDriver```. Use your knowledge of JDBC API to work against OrientDB.
+The driver's class is ```com.orientechnologies.orient.jdbc.OrientJdbcDriver```.
 
-## First get a connection
+## Getting a Connection
 
 ```java
 Properties info = new Properties();
@@ -47,11 +47,9 @@ rs.close();
 stmt.close();
 ```
 
-The driver retrieves OrientDB metadata (@rid,@class and @version) only on direct queries. Take a look at tests code to see more detailed examples.
+## Writing Queries
 
-## Write queries advices
-
-The OrientDB JDBC Driver maps types returned by OrientDB itself gathering metadata at database and result set level. For better naming and type mapping, the suggestion is to always define aliases when aggregation functions are used.
+The OrientDB JDBC Driver maps types returned by OrientDB, gathering metadata at the database and resultset level. For better naming and type mapping, the suggested approach is to always define aliases when aggregation functions are used.
  
 ```java
 stmt.execute("SELECT DISTINCT(published) AS pub FROM Item ")
@@ -62,10 +60,10 @@ stmt.execute("SELECT SUM(score) AS totalScore FROM Item ")
 
 Using aliases helps the driver in the name mapping phase, and it is a good practice anyway.
 
-## Advanced features
+## Advanced Features
 
-### Connection pool
-By default a new database instance is created every time you ask for a JDBC connection. OrientDB JDBC driver provides a Connection Pool out of the box. Set the connection pool parameters before to ask for a connection:
+### Connection Pool
+By default a new database instance is created every time you ask for a JDBC connection. The OrientDB JDBC driver provides a Connection Pool out of the box. Set the connection pool parameters before creating a connection:
 
 ```java
 Properties info = new Properties();
@@ -78,12 +76,12 @@ info.put("db.pool.min", "3");   // MINIMUM POOL SIZE
 Connection conn = (OrientJdbcConnection) DriverManager.getConnection("jdbc:orient:remote:localhost/test", info);
 ```
 
-### Spark compatibility
+### Spark Compatibility
 
 [Apache Spark](http://spark.apache.org/) allows reading and writing of DataFrames from JDBC data sources. 
-The driver can be used to load data from an OrientDB database, but is not able (yet) to write the DataFrame from Spark.
+The driver can be used to load data from an OrientDB database.
  
-The driver offers a compatibility mode to enable load of data frame from an OrientDB's class or query. 
+The driver offers a compatibility mode to enable loading of a DataFrame from an OrientDB class or query. 
 
 ```java
 Map<String, String> options = new HashMap<String, String>() {{
@@ -98,3 +96,12 @@ SQLContext sqlCtx = new SQLContext(ctx);
 
 DataFrame jdbcDF = sqlCtx.read().format("jdbc").options(options).load();
 ```
+
+## Dependencies
+The OrientDB JDBC driver is dependent on the following jars (they can be found in the lib directory of an OrientDB installation):
+- concurrentlinkedhashmap-lru-x.x.x.jar
+- jna-x.x.x.jar
+- orientdb-client-x.x.x.jar
+- orientdb-core-x.x.x.jar
+- orientdb-jdbc-x.x.x.jar
+

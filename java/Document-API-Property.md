@@ -24,7 +24,7 @@ Bear in mind, the property must belong to a [Type](../general/Types.md).
 
 ### Dropping Properties
 
-To drop persistent class properties, use the `OClass.dropProperty(String)` method.  For instance,
+To drop persistent class properties, use the [`OClass.dropProperty(String)`](ref/OClass/dropProperty.md) method.  For instance,
 
 ```java
 database.getClass("Account).dropProperty("name");

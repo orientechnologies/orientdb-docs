@@ -34,7 +34,7 @@ Once created the **[OrientGraph](../java/Graph-Database-Tinkerpop.md)** instance
 
 Example with a local database (see below for more information about it):
 ```java
-gremlin> g = new OrientGraph("plocal:/home/gremlin/db/demo");
+gremlin> g = org.apache.tinkerpop.gremlin.orientdb.OrientGraph.open("plocal:/home/gremlin/db/demo");
 ==>orientgraph[plocal:/home/gremlin/db/demo]
 ```
 
@@ -46,7 +46,7 @@ Some useful links:
 
 This is the most often used mode. The console opens and locks the database for exclusive use. This doesn't require starting an OrientDB server.
 ```java
-gremlin> g = new OrientGraph("plocal:/home/gremlin/db/demo");
+gremlin> graph = org.apache.tinkerpop.gremlin.orientdb.OrientGraph.open("plocal:/home/gremlin/db/demo");
 ==>orientgraph[plocal:/home/gremlin/db/demo]
 ```
 
@@ -54,7 +54,7 @@ gremlin> g = new OrientGraph("plocal:/home/gremlin/db/demo");
 
 To open a database on a remote server be sure the server is up and running first. To start the server just launch **server.sh** (or server.bat on Windows OS) script. For more information look at [OrientDB Server](../internals/DB-Server.md)
 ```java
-gremlin> g = new OrientGraph("remote:localhost/demo");
+gremlin> graph = org.apache.tinkerpop.gremlin.orientdb.OrientGraph.open("remote:localhost/demo");
 ==>orientgraph[remote:localhost/demo]
 ```
 
@@ -62,7 +62,7 @@ gremlin> g = new OrientGraph("remote:localhost/demo");
 
 In this mode the database is volatile and all the changes will be not persistent. Use this in a clustered configuration (the database life is assured by the cluster itself) or just for test.
 ```java
-gremlin> g = new OrientGraph("memory:demo");
+gremlin> graph = org.apache.tinkerpop.gremlin.orientdb.OrientGraph.open("memory:demo");
 ==>orientgraph[memory:demo]
 ```
 
@@ -71,7 +71,7 @@ gremlin> g = new OrientGraph("memory:demo");
 OrientDB supports security by creating multiple users and roles associated with certain privileges. To know more look at [Security](../security/Security.md). To open the graph database with a different user than the default, pass the user and password as additional parameters:
 
 ```java
-gremlin> g = new OrientGraph("memory:demo", "reader", "reader");
+gremlin> graph = org.apache.tinkerpop.gremlin.orientdb.OrientGraph.open("memory:demo", "reader", "reader");
 ==>orientgraph[memory:demo]
 ```
 
@@ -79,7 +79,7 @@ gremlin> g = new OrientGraph("memory:demo", "reader", "reader");
 
 To create a new vertex, use the **addVertex()** method. The vertex will be created and a unique id will be displayed as the return value.
 ```java
-g.addVertex();
+graph.addVertex();
 ==>v[#5:0]
 ```
 
@@ -89,27 +89,22 @@ To create a new edge between two vertices, use the **addEdge(v1, v2, label)** me
 
 In the example below two vertices are created and assigned to a variable (Gremlin is based on Groovy), then an edge is created between them.
 ```java
-gremlin> v1 = g.addVertex();
+gremlin> v1 = graph.addVertex();
 ==>v[#5:0]
 
-gremlin> v2 = g.addVertex();
+gremlin> v2 = graph.addVertex();
 ==>v[#5:1]
 
-gremlin> e = g.addEdge(v1, v2, 'friend');
+gremlin> e = graph.addEdge(v1, v2, 'friend');
 ==>e[#6:0][#5:0-friend->#5:1]
-```
-
-# Save changes
-OrientDB assigns a temporary identifier to each vertex and edge that is created. To save them to the database stopTransaction(SUCCESS) should be called
-```groovy
-gremlin> g.stopTransaction(SUCCESS)
 ```
 
 # Retrieve a vertex
 
 To retrieve a vertex by its ID, use the **v(id)** method passing the [RecordId](../datamodeling/Concepts.md#record-id) as an argument (with or without the prefix '#'). This example retrieves the first vertex created in the above example.
 ```java
-gremlin> g.v('5:0')
+gremlin> g = graph.traversal()
+gremlin> g.V('5:0')
 ==>v[#5:0]
 ```
 
@@ -117,7 +112,7 @@ gremlin> g.v('5:0')
 
 To retrieve all the vertices in the opened graph use **.V** (V in upper-case):
 ```java
-gremlin> g.V
+gremlin> g.V()
 ==>v[#5:0]
 ==>v[#5:1]
 ```
@@ -134,7 +129,7 @@ gremlin> g.e('6:0')
 
 To retrieve all the edges in the opened graph use **.E** (E in upper-case):
 ```java
-gremlin> g.E
+gremlin> g.E()
 ==>e[#6:0][#5:0-friend->#5:1]
 ```
 
@@ -147,13 +142,13 @@ The power of Gremlin is in traversal. Once you have a graph loaded in your datab
 
 To display all the outgoing edges of the first vertex just created append the **.outE** at the vertex. Example:
 ```java
-gremlin> v1.outE
+gremlin> v1.outE()
 ==>e[#6:0][#5:0-friend->#5:1]
 ```
 
 To display all the incoming edges of the second vertex created in the previous examples append the **.inE** at the vertex. Example:
 ```java
-gremlin> v2.inE
+gremlin> v2.inE()
 ==>e[#6:0][#5:0-friend->#5:1]
 ```
 
@@ -165,7 +160,7 @@ For more information look at the [Basic Traversal with Gremlin](https://github.c
 
 This example returns all the outgoing edges of all the vertices with label equal to 'friend'.
 ```java
-gremlin> g.V.outE('friend')
+gremlin> g.V().outE('friend')
 ==>e[#6:0][#5:0-friend->#5:1]
 ```
 
@@ -182,13 +177,11 @@ This is not strictly necessary because OrientDB always closes the database when 
 
 [Gremlin](http://gremlindocs.com) allows you to concatenate expressions to create more complex traversals in a single line:
 ```java
-v1.outE.inV
+v1.outE().inV()
 ```
 
 Of course this could be much more complex. Below is an example with the graph taken from the official documentation:
 ```java
-g = new OrientGraph('memory:test')
-
 // calculate basic collaborative filtering for vertex 1
 m = [:]
 g.v(1).out('likes').in('likes').out('likes').groupCount(m)

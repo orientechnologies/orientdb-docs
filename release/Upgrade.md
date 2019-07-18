@@ -19,7 +19,7 @@ So between PATCH versions, the compatibility is assured (example 2.1.0 -> 2.1.8)
 
 | FROM |TO | Guide | Blueprints | Database |Binary Protocol|HTTP Protocol|
 |-----|----|------------|----------|--------|-----------|-----------|----------|----------|---|
-| 2.2.x | 3.0.x | REFACTOR-TODO |              |  |   | |
+| 2.2.x | 3.0.x | [Docs](3.0/Upgrading-to-OrientDB-3.0.md) |              |  |   | |
 | 2.1.x | 2.2.x | REFACTOR-TODO | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 34 |10|
 | 2.0.x | 2.1.x | REFACTOR-TODO | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 30 |10|
 

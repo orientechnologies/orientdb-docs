@@ -6,8 +6,8 @@ search:
 # APIs and Drivers
 
 OrientDB supports 3 kinds of drivers:
-- **Native binary remote**, that talks directly against the TCP/IP socket using the [binary protocol](https://github.com/nuvolabase/orientdb/wiki/Network-Binary-Protocol)
-- **HTTP REST/JSON**, that talks directly against the TCP/IP socket using the [HTTP protocol](https://github.com/nuvolabase/orientdb/wiki/OrientDB-REST)
+- **Native binary remote**, that talks directly against the TCP/IP socket using the [binary protocol](../internals/Network-Binary-Protocol.md)
+- **HTTP REST/JSON**, that talks directly against the TCP/IP socket using the [HTTP protocol](../misc/OrientDB-REST.md)
 - **Java wrapped**, as a layer that links in some way the native Java driver. This is pretty easy for languages that run into the JVM like Scala, Groovy and JRuby
 
 Look also at the available integration with [Plugins and Frameworks](../plugins/Plugins.md).
@@ -184,7 +184,7 @@ This is the list of the known drivers to use OrientDB through different language
     <td>Scala runs on top of JVM and it's fully compatible with Java applications like OrientDB</td>
 </tr>
 <tr>
-    <td><a href="http://www.orientechnologies.com/docs/last/orientdb.wiki/Scala-Language.html">Scala Page</a></td>
+    <td><a href="https://orientdb.org/docs/3.0.x/scala/Scala-Language.html">Scala Page</a></td>
     <td>Native</td>
     <td>Offers suggestions and examples to use it without pains</td>
 </tr>

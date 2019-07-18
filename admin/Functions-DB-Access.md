@@ -38,7 +38,7 @@ Execute an SQL command within the function:
 var results = orient.getDatabase().command("SELECT FROM Employee WHERE company = ?", [ "Orient Technologies" ] );
 ```
 
-The command returns an array of OElement objects
+The command returns an array of [`OElement`](../java/ref/OElement.md) objects
 
 
 ## Creating Repository Classes
@@ -47,7 +47,7 @@ Functions provide an ideal place for developing the logic your application uses 
 
 This provides a thin (or thick, if you prefer) layer of encapsulation which may protect you from database changes.
 
-Furthermore, each function is published an dreachable via the HTTP REST protocol, allowing the automatic creation of a RESTful service.
+Furthermore, each function is published and reachable via the HTTP REST protocol, allowing the automatic creation of a RESTful service.
 
 **Examples**
 

@@ -13,17 +13,14 @@ Using this method, you can create new databases on the OrientDB Server.  In the 
 
 ### Syntax
 
-There are two methods available in creating databases:
+There are two methods available in creating databases (`OrientDB` class):
 
 ```
 // METHOD 1
-public void OrientDB().create(String name,
-      ODatabaseType type)
+public void create(String name, ODatabaseType type)
 
 // METHOD 2
-public void OrientDB().create(String name,
-      ODatabaseType type,
-	  OrientDBConfig config)
+public void create(String name, ODatabaseType type, OrientDBConfig config)
 ```
 
 | Argument | Type | Description |

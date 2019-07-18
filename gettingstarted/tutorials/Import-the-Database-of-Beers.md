@@ -86,6 +86,7 @@ The ETL module consists of a script, `oetl.sh`, that takes in input a single JSO
 
 For more information on the ETL module, please refer to the [ETL](../../etl/ETL-Introduction.md) section.
 
+> *IMPORTANT*: If you use ETL in PLOCAL, make sure you do not have a running server on the same folder, you will an error otherwise: `Database is locked by another process, please shutdown process and try again`
 
 ### Import Beer Categories
 

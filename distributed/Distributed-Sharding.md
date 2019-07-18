@@ -15,7 +15,7 @@ The following is an example that splits the [class](../datamodeling/Concepts.md#
 
 This means that OrientDB will consider any record/document/graph element in any of the three [clusters](../datamodeling/Concepts.md#cluster) as “Clients” (Client [class](../datamodeling/Concepts.md#class) relies on such [clusters](../datamodeling/Concepts.md#cluster)). In [Distributed-Architecture](Distributed-Architecture.md) each cluster can be assigned to one or more server nodes.
 
-![image](http://www.orientdb.org/images/distributed-sharding-class.png)
+![image](http://www.orientdb.com/images/distributed-sharding-class.png)
 
 Shards, based on clusters, work against indexed and non-indexed class/clusters.
 
@@ -27,7 +27,7 @@ For example, consider a configuration where the Client [class](../datamodeling/C
 - `client_europe`, will be managed only by the node, ”europe"
 - `client_china`, will be managed by all of the nodes (it would be equivalent as writing `“<NEW_NODE>”`, see cluster "*", the default one)
 
-![image](http://www.orientdb.org/images/distributed-sharding-replica-class.png)
+![image](http://www.orientdb.com/images/distributed-sharding-replica-class.png)
 
 ## Configuration
 In order to keep things simple, the entire OrientDB Distributed Configuration is stored on a single JSON file. The [distributed database configuration](Distributed-Configuration.md#default-distributed-db-configjson) for [Multiple servers per cluster](#multiple-servers-per-cluster) JSON object looks somethings like this:
@@ -123,11 +123,11 @@ OrientDB supports [MapReduce](http://en.wikipedia.org/wiki/MapReduce) without Ha
 SELECT MAX(amount), COUNT(*), SUM(amount) FROM Client
 ```
 
-![image](http://www.orientdb.org/images/distributed-query-map.png)
+![image](http://www.orientdb.com/images/distributed-query-map.png)
 
 In this case the query is executed across all the 3 nodes and then filtered again on the starting node.
 
-![image](http://www.orientdb.org/images/distributed-query-reduce.png)
+![image](http://www.orientdb.com/images/distributed-query-reduce.png)
 
 ## Define the target cluster/shard
 The application can decide where to insert a new Client by passing the cluster number or name. Example:
@@ -173,4 +173,4 @@ With Community Edition the distributed configuration cannot be changed at run-ti
 
 By using Enterprise Edition and the [Workbench](http://www.orientechnologies.com/enterprise/last/clustermgmt.html), you can deploy the database to the new server and define the cluster to assign to it. In this example a new server "usa2" is created where only the cluster `client_usa` will be copied. After the deployment, cluster `client_usa` will be replicated against nodes "usa" and "usa2".
 
-![image](http://www.orientdb.org/images/distributed-sharding-addserver.png)
+![image](http://www.orientdb.com/images/distributed-sharding-addserver.png)

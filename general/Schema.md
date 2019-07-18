@@ -64,7 +64,7 @@ This method retrieves from the database the persistent class `Account`.  If the 
 
 In the event that you no longer want the class, you can drop, or delete, it from the database.
 
-To drop a persistent class in Java, use the `OSchema.dropClass()` method:
+To drop a persistent class in Java, use the [`OSchema.dropClass()`](../java/ref/OSchema/dropClass.md) method:
 
 ```java
 database.getMetadata().getSchema().dropClass("Account");
@@ -102,7 +102,7 @@ These lines create a class `Account`, then defines two properties `id` and `birt
 
 ### Dropping Class Properties
 
-In the event that you would like to remove properties from a class you can do so using the `dropProperty()` method under `OClass`.
+In the event that you would like to remove properties from a class you can do so using the [`dropProperty()`](../java/ref/OClass/dropProperty.md) method under [`OClass`](../java/ref/OClass.md).
 
 ```java
 database.getMetadata().getSchema().getClass("Account").dropProperty("name");

@@ -192,7 +192,7 @@ orientDB.close();
 
 > See also [SQL Indices](../indexing/Indexes.md).
 
-You can declare an index on a property or a group of properties this will make orient automatically index the documents of the specific class with the specific properties and automatically use the index in the queries, the way to declare this indexes is through the `OClass` and `OProperty` API.
+You can declare an index on a property or a group of properties this will make orient automatically index the documents of the specific class with the specific properties and automatically use the index in the queries, the way to declare this indexes is through the [`OClass`](ref/OClass.md) and [`OProperty`](ref/OProperty.md) API.
 
 Index on a single property, For instance,
 ```

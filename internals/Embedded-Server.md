@@ -11,13 +11,18 @@ Embedding an OrientDB Server inside a Java application has several advantages an
 - You can use the [OrientDB Studio](../studio/README.md)
 - You can replicate the database across distributed standalone or embedded servers
 
-To embed an OrientDB Server inside a Java application you have to create the `OServer` object and use a valid configuration for it.
+To embed an OrientDB Server inside a Java application you have to create the [`OServer`](../java/ref/OServer.md) object and use a valid configuration for it.
 
 ## Requirements
 
 In order to embed the server you need to include the following jar files in the classpath:
-- <code>orientdb-enterprise-**.jar</code>
+- <code>orientdb-client-**.jar</code>
+- <code>orientdb-core-**.jar</code>
 - <code>orientdb-server-**.jar</code>
+- <code>orientdb-tools-**.jar</code>
+- <code>concurrentlinkedhashmap-lru-**.jar</code>
+- <code>jna-**.jar</code>
+- <code>lz4-java-**.jar</code>
 
 Starting from version 2.2, please set the `MaxDirectMemorySize` parameter. Setting this parameter is required. You can set it to a very high value, e.g. 512g (JVM setting):
 
@@ -150,7 +155,7 @@ public class OrientDBEmbeddable {
 
 ## Shutdown
 
-OrientDB Server creates some threads internally as non-daemon, so they run even if the main application exits. Use the `OServer.shutdown()` method to shutdown the server in soft way:
+OrientDB Server creates some threads internally as non-daemon, so they run even if the main application exits. Use the [`OServer.shutdown()`](../java/ref/OServer/shutdown.md) method to shutdown the server in soft way:
 ```java
 import com.orientechnologies.orient.server.OServerMain;
 
@@ -168,7 +173,7 @@ public class OrientDBEmbeddable {
 
 ## Setting ORIENTDB_HOME
 
-Some functionality wil not work properly if the system property 'ORIENTDB_HOME' is not set. You can set it programmatically like this:
+Some functionality will not work properly if the system property 'ORIENTDB_HOME' is not set. You can set it programmatically like this:
 ```java
 import com.orientechnologies.orient.server.OServerMain;
 

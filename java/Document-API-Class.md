@@ -42,7 +42,7 @@ OClass account = database.getClass("Account");
 
 ## Dropping Persistent Classes
 
-To drop a persistent class use the `OSchema.dropClass(String)` method, this will remove all persistent records of the class.  For instance,
+To drop a persistent class use the [`OSchema.dropClass(String)`](ref/OSchema/dropClass.md) method, this will remove all persistent records of the class.  For instance,
 
 ```java
 database.getMetadata().getSchema().dropClass("Account");
