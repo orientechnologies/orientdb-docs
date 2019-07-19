@@ -60,6 +60,7 @@ And `item` can be:
 |collection|IN|contains any of the elements listed|name **in** ['European','Asiatic']||
 |collection|CONTAINS|true if the collection contains at least one element that satisfy the next condition. Condition can be a single item: in this case the behaviour is like the IN operator|children **contains** (name = 'Luke') - map.values() **contains** (name = 'Luke')|0.9.7|
 |collection|CONTAINSALL|true if all the elements of the collection satisfy the next condition|children *containsAll* (name = 'Luke')|0.9.7|
+|collection|CONTAINSANY|true if any the elements of the collection satisfy the next condition|children *containsAny* (name = 'Luke')| |
 |map|CONTAINSKEY|true if the map contains at least one key equals to the requested. You can also use map.keys() CONTAINS in place of it|connections *containsKey* 'Luke'|0.9.22|
 |map|CONTAINSVALUE|true if the map contains at least one value equals to the requested. You can also use map.values() CONTAINS in place of it|connections *containsValue* 10:3|0.9.22|
 |string|CONTAINSTEXT| When used against an indexed field, a lookup in the index will be performed with the text specified as key. When there is no index a simple Java indexOf will be performed. So the result set could be different if you have an index or not on that field |text *containsText* 'jay'|0.9.22|
