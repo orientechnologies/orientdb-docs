@@ -44,6 +44,15 @@ This creates the class `Player` in the database and a cluster `player` in which 
 
 >To further define the schema, you need to create properties.  For information on how to manage this through the Class API, see [Working with Properties](OrientJS-Class-Properties.md).
 
+The `db.class.create` method has the following function signature
+
+`db.class.create(<name>, [inherits], [defaultCluster], [abstract])`
+
+- `name (string)`: the name of the class to be created
+- `inherits (string)`: the class (or list of classes as a comman delimited string) this class will inherit from
+- `defaultCluster (integer)`: the default cluster to use for records on this class, can be left as null
+- `abstract (boolean)`: flag to indicate if this is an abstract class being created
+
 ### Extending Classes
 
 Sometimes you may want to extend existing classes, such as ones that you've created previously or to create custom vertex and edge classes in a graph database.  You can manage this through the Class API by passing additional arguments to the `db.class.create()` method.
