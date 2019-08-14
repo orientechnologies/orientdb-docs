@@ -15,7 +15,7 @@ In OrientJS, fetching data from the database uses the `select()` method.  The ex
 
 ### Selecting Records
 
-Use the `select()` method to fetch records from the database.  For instance, say you want a lit of all players with a batting average of .300.
+Use the `select()` method to fetch records from the database.  For instance, say you want a list of all players with a batting average of .300.
 
 ```js
 var hitters = db.select().from('Player')
