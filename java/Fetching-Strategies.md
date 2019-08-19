@@ -6,6 +6,8 @@ search:
 <!-- proofread 2015-11-26 SAM -->
 # Fetching Strategies
 
+## (Deprecated since v 3.0)
+
 *Fetchplans* are used in two different scopes:
 
 1. A Connection that uses the [Binary Protocol](../internals/Network-Binary-Protocol.md) can *early load* records to the client. On traversing of connected records, the client doesn't have to execute further remote calls to the server, because the requested records are already in the client's cache.
