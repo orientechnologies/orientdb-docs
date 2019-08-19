@@ -78,6 +78,8 @@ When the client executes a query, set a Fetch Plan with a level different from `
 
 ## Examples using SQL
 
+### (Deprecated since v 3.0)
+
 Acquire Profile and its first level friendships
 
 <pre>
