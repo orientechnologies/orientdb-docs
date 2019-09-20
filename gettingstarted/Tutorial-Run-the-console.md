@@ -62,20 +62,7 @@ WHERE:
 
 There are some console commands, such as `LIST DATABASES` or `CREATE DATABASE`, which you can only run while connected to a server instance.  For other commands, however, you must also connect to a database, before they run without error.
 
->Before you can connect to a fresh server instance and fully control it, you need to know the [root password](../security/Server-Security.md) for the database.  The root password is located in the configuration file at `config/orientdb-server-config.xml`.  You can find it by searching for the `<users>` element.  If you want to change it, edit the configuration file and restart the server.
-
->```xml
->...
-><users>
->    <user resources="*"
->	      password="my_root_password"
->		  name="root"/>
->	<user resources="connect,server.listDatabases,server.dblist"
->	      password="my_guest_password"
->		  name="guest"/>
-></users>
->...
->```
+>Before you can connect to a fresh server instance and fully control it, you need to know the [root password](../security/Server-Security.md) for the database.  
 
 With the required credentials, you can connect to the database server instance on your system, or establish a remote connection to one running on a different machine.
 
