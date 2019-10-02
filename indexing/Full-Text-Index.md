@@ -380,6 +380,27 @@ Parameters
 
 ### Sorting
 
+Sorting uses [SortedDocValuesField](https://lucene.apache.org/core/6_5_0/core/org/apache/lucene/document/SortedDocValuesField.html) which for too large string can cause `DocValuesField  is too large, must be <= 32766` exception.
+
+In order to disable sorting add the configuration on the metadata ad index creation (From OrientDB 3.0.24).
+
+For all fields:
+
+
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+            FULLTEXT ENGINE LUCENE METADATA {
+                "*_index_sorted": false
+            }</code></pre>
+
+
+For single field:
+
+<pre><code class="lang-sql userinput">CREATE INDEX City.name ON City(name)
+            FULLTEXT ENGINE LUCENE METADATA {
+                "name_index_sorted": false
+            }</code></pre>
+
+
 Documents retrieved by a search call are ordered by their score. It is possible to configure the way the document are sorted.
 Read carefully the official documentation about sorting : https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/Sort.html
 
