@@ -19,4 +19,4 @@ search:
 |  | |[DROP INDEX](SQL-Drop-Index.md)  | [DROP USER](SQL-Drop-User.md) | [HA SET](SQL-HA-Set.md) |
 |  | |[CREATE SEQUENCE](SQL-Create-Sequence.md)  | [GRANT](SQL-Grant.md) | [PROFILE](SQL-Profile.md) |
 |  | |[ALTER SEQUENCE](SQL-Alter-Sequence.md)  | [REVOKE](SQL-Revoke.md)  | |
-|  | |[DROP SEQUENCE](SQL-Drop-Sequence.md)  | | |
+|  | |[DROP SEQUENCE](SQL-Drop-Sequence.md)  | [CREATE SECURITY POLICY](SQL-Create-Security-Policy.md) | |
