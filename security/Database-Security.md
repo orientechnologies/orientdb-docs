@@ -5,7 +5,7 @@ search:
 
 # Database Security
 
-OrientDB uses a security model based on well-known concepts of users and roles.  That is, a database has its own users.  Each [User](#users) has one or more roles.  [Roles](#roles) are a combination of the working mode and a set of permissions.
+OrientDB uses a security model based on the concepts of users and roles.  That is, a database has its own users.  Each [User](#users) has one or more roles.  [Roles](#roles) are a combination of the working mode and a set of permissions and security policies.
 
 ![Security overview](http://www.orientdb.org/images/orientdb-dbsecurity.png)
 
@@ -14,7 +14,8 @@ OrientDB uses a security model based on well-known concepts of users and roles. 
 >- [Server security](Server-Security.md)
 >- [Database Encryption](Database-Encryption.md)
 >- [Secure SSL connections](Using-SSL-with-OrientDB.md)
->- [Record Level Security](Database-Security.md#record-level-security)
+>- [Record Level Security (legacy)](Database-Security.md#record-level-security)
+>- [Security Policies](Security-Policies.md)
 
 
 
@@ -86,7 +87,7 @@ orientdb> <code class="lang-sql userinput">UPDATE OUser SET status = 'SUSPENDED'
 
 ## Roles
 
-A role determines what operations a user can perform against a resource.  Mainly, this decision depends on the working mode and the rules.  The rules themselves work differently, depending on the working mode.
+A role determines what operations a user can perform against a resource. 
 
 ### Working with Roles
 
@@ -94,15 +95,15 @@ A role determines what operations a user can perform against a resource.  Mainly
 When you are connected to a database, you can query the current roles on the database using [`SELECT`](../sql/SQL-Query.md) queries on the `ORole` class.
 
 <pre>
-orientdb> <code class="lang-sql userinput">SELECT RID, mode, name, rules FROM ORole</code>
+orientdb> <code class="lang-sql userinput">SELECT RID, mode, name, policies, rules FROM ORole</code>
 
---+------+----+--------+----------------------------------------------------------
-# |@CLASS|mode| name   | rules
---+------+----+--------+----------------------------------------------------------
-0 | null | 1  | admin  | {database.bypassRestricted=15}
-1 | null | 0  | reader | {database.cluster.internal=2, database.cluster.orole=0...
-2 | null | 0  | writer | {database.cluster.internal=2, database.cluster.orole=0...
---+------+----+--------+----------------------------------------------------------
++----+----+----+------+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+|#   |RID |mode|name  |rules                                                                                     |policies                                                                                                             |
++----+----+----+------+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+|0   |    |    |admin |{database=31, database.function=31, database.schema=31, database.command.gremlin=31, *=...|{*:#4:0}                                                                                                             |
+|1   |    |    |reader|{database.cluster.internal=2, database.cluster.orole=0, database=2, database.function=2...|{database.class.*.*:#4:0, database:#4:1, database.schema:#4:1, database.cluster.internal:#4:1, database.cluster.or...|
+|2   |    |    |writer|{database.cluster.internal=2, database.class.oschedule=2, database.class.osequence=2, d...|{database.class.*.*:#4:0, database:#4:1, database.schema:#4:3, database.cluster.internal:#4:1, database.cluster.or...|
++----+----+----+------+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 3 item(s) found.  Query executed in 0.002 sec(s).
 </pre>
 
@@ -111,7 +112,7 @@ orientdb> <code class="lang-sql userinput">SELECT RID, mode, name, rules FROM OR
 To create a new role, use the [`INSERT`](../sql/SQL-Insert.md) statement.
 
 <pre>
-orientdb> <code class="lang-sql userinput">INSERT INTO ORole SET name = 'developer', mode = 0</code>
+orientdb> <code class="lang-sql userinput">INSERT INTO ORole SET name = 'developer'</code>
 </pre>
 
 #### Role Inheritance
@@ -123,7 +124,9 @@ orientdb> <code class="lang-sql userinput">UPDATE ORole SET inheritedRole = (SEL
           WHERE name = 'appuser'</code>
 </pre>
 
-### Working with Modes
+### Working with Modes (DEPRECATED in v 3.1)
+
+> IMPORTANT: in v 3.1 working modes do not apply anymore. The standard behaviour is Deny All But. Even explicitly configuring the role for Allow All, it won't change the behaviour.
 
 Where rules determine what users belonging to certain roles can do on the databases, working modes determine how OrientDB interprets these rules.  There are two types of working modes, designating by `1` and `0`.
 
@@ -152,6 +155,27 @@ UPDATE:             #0100 - 4
 Permission to use:  #0110 - 6
 ```
 
+### Security Policies
+
+Security policies are an enhanced version of a the Operations bitmap. 
+
+A security policy is a map made of operation-predicate pairs.
+
+The "operation" (the map key) can be one of the following:
+
+- "CREATE"
+- "READ"
+- "BEFORE UPDATE"
+- "AFTER UPDATE"
+- "DELETE"
+- "EXECUTE"
+
+The "predicate" is a normal SQL predicate, that can be a very simple one (eg. `TRUE` or `FALSE`) or a more structured condition (eg. `"owner = $currentUser`), that can also include subqueries and graph traversal.
+
+Security policies are intended to be applied to single records in each phase of its lifecycle (ie. when it's created, read, before and after its update and so on) to define if that particular operation is allowed or not
+
+
+
 ### Resources
 
 Resources are strings bound to OrientDB concepts.
@@ -160,6 +184,7 @@ Resources are strings bound to OrientDB concepts.
 
 - `database`, checked on accessing to the database
 - `database.class.<class-name>`, checked on accessing on specific class
+- `database.class.<class-name>.<property-name>`, checked on accessing on specific property
 - `database.cluster.<cluster-name>`, checked on accessing on specific cluster
 - `database.query`, checked on query execution 
 - `database.command`, checked on command execution 
@@ -177,17 +202,41 @@ orientdb> <code class="lang-sql userinput">UPDATE ORole PUT rules = "database.cl
 orientdb> <code class="lang-sql userinput">UPDATE ORole PUT rules = "database.class.Car", 0 WHERE name = "motorcyclist"</code>
 </pre>
 
+
+
+
 ### Granting and Revoking Permissions
 
 To grant and revoke permissions from a role, use the [GRANT](../sql/SQL-Grant.md) and [REVOKE](../sql/SQL-Revoke.md) commands.
+
+Until v 3.0, the only way to manage permissions for a particular role, was to grant or revoke "cluster" permissions as follows
 
 <pre>
 orientdb> <code class="lang-sql userinput">GRANT UPDATE ON database.cluster.Car TO motorcyclist</code>
 </pre>
 
+In v 3.1, role permissions can be managed with security policies, eg.
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE SECURITY POLICY readOnlyPolicy SET CREATE = (FALSE), READ = (TRUE), BEFORE UPDATE = (FALSE), DELETE = (FALSE)</code>
+
+orientdb> <code class="lang-sql userinput">GRANT POLICY readOnlyPolicy ON database.class.Car TO aRoleName</code>
+</pre>
+
+Security policies can also be applied to single properties, eg. to hide a property to a particular role
+
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE SECURITY POLICY cannotRead SET  READ = (FALSE)</code>
+
+orientdb> <code class="lang-sql userinput">GRANT POLICY cannotRead ON database.class.Employee.salary TO basicRole</code>
+</pre>
 
 
-## Record-level Security
+
+
+## Record-level Security (DEPRECATED in v 3.1)
+
+> IMPORTANT: In v 3.1 the record level security is replaced by Predicate Security (see below).
 
 The sections above manage security in a vertical fashion at the schema-level, but in OrientDB you can also manage security in a horizontal fashion, that is: per record.  This allows you to completely separate database records as sandboxes, where only authorized users can access restricted records.
 
@@ -225,6 +274,50 @@ orientdb> <code class='lang-sql userinput'>UPDATE #43:22 REMOVE _allowRead #5:10
 </pre>
 
 
+### Predicate Security
+
+The sections above manage security in a vertical fashion at the schema-level, but in OrientDB you can also manage security in a horizontal fashion, that is: per record or even per single property in a record.  This allows you to completely separate database records as sandboxes, where only authorized users can access restricted records.
+
+To active Predicate Security, you have to define Security Policies and assign them to roles. 
+
+<pre>
+<pre>
+orientdb> <code class="lang-sql userinput">CREATE SECURITY POLICY readYourRecords SET READ = (owner = $currentUser)</code>
+orientdb> <code class="lang-sql userinput">GRANT readYourRecords ON database.class.Person TO aRoleName</code>
+</pre>
+
+<pre>
+orientdb> <code class="lang-sql userinput">INSERT INTO Person SET name = 'John', owner = #6:15</code>
+</pre>
+
+In this case, when records of `Person` class are loaded (eg. with a SQL query), the predicate `owner = $currentUser` is evaluated on each record; if the result of the evaluation is TRUE, then the record will be made available to the user, otherwise it will be just hidden (it's completely transparent on the user level, the user will just not see the record).
+
+Predicates can be applied to all the record lifecycle.
+
+In case the policy is applied to a class resource (eg. `database.class.ClassName`):
+
+
+- CREATE predicate: is evaluated when a record is created, in case it returns FALSE, the user will have a security exception
+- READ predicate: is evaluated when the record is loaded, in case it returns FALSE, the record is not returned to the user
+- BEFORE UPDATE predicate: is evaluated during an UPDATE operation, passing the record in its original status (ie. before the modifications); in case it returns FALSE, the user will have a security exception
+- AFTER UPDATE predicate: is evaluated during an UPDATE operation, passing the record in its new status (ie. after the modifications); in case it returns FALSE, the user will have a security exception
+- DELETE predicate: is evaluated during a DELETE operation, passing the record in its  status before it's deleted; in case it returns FALSE, the user will have a security exception
+
+In case the policy is applied to a property resource (eg. `database.class.ClassName.propertyName`):
+
+- CREATE predicate: is evaluated when a record is created, in case it returns FALSE, the user will have a security exception
+- READ predicate: is evaluated when the record is loaded, in case it returns FALSE, the record is returned to the user, but WITHOUT the property. The user won't be allowed to overwrite the property either.
+- BEFORE UPDATE predicate: is evaluated during an UPDATE operation, passing the record in its original status (ie. before the modifications); in case it returns FALSE, the user will have a security exception
+- AFTER UPDATE predicate: is evaluated during an UPDATE operation, passing the record in its new status (ie. after the modifications); in case it returns FALSE, the user will have a security exception
+- DELETE predicate: is evaluated during a DELETE operation, passing the record in its  status before it's deleted; in case it returns FALSE, the user will have a security exception
+
+
+If you want to remove read permissions, use the following command:
+
+
+<pre>
+orientdb> <code class='lang-sql userinput'>REVOKE POLICY ON database.class.Person FROM aRoleName</code>
+</pre>
 
 ### Run-time Checks
 
