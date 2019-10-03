@@ -14,8 +14,8 @@ OrientDB uses a security model based on the concepts of users and roles.  That i
 >- [Server security](Server-Security.md)
 >- [Database Encryption](Database-Encryption.md)
 >- [Secure SSL connections](Using-SSL-with-OrientDB.md)
->- [Record Level Security (legacy)](Database-Security.md#record-level-security)
->- [Security Policies](Security-Policies.md)
+>- [Record Level Security (legacy)](Database-Security.md#record-level-security-deprecated-in-v-31)
+>- [Security Policies](Database-Security.md#security-policies)
 
 
 
