@@ -10,9 +10,10 @@ Changes permissions of a role, revoking access to one or more resources.  To giv
 **Syntax**
 
 ```
-REVOKE <permission> ON <resource> FROM <role>
+REVOKE [ <permission> | POLICY <policyName> ] ON <resource> FROM <role>
 ```
 - **`<permission>`** Defines the permission you want to revoke from the role.
+- **`<policyName>`** Defines the name of a security policy
 - **`<resource>`** Defines the resource on which you want to revoke the permissions.
 - **`<role>`** Defines the role you want to revoke the permissions.
 
@@ -23,6 +24,13 @@ REVOKE <permission> ON <resource> FROM <role>
   <pre>
   orientdb> <code class='lang-sql userinput'>REVOKE DELETE ON database.cluster.* FROM backoffice</code>
   </pre>
+
+- Revoke a security policy previously assigned to `backoffice` profile on Person class:
+
+  <pre>
+  orientdb> <code class='lang-sql userinput'>REVOKE POLICY ON database.class.Person FROM backoffice</code>
+  </pre>
+
 
 
 >For more information, see
@@ -51,6 +59,7 @@ Using this command, you can grant permissions on the following resources.
 |---|---|
 | `database` | Revokes access on the current database. |
 | `database.class.<class>` | Revokes access on records contained in the indicated class.  Use `**` to indicate all classes. |
+| `database.class.<class>.<property>` | intended only for security policies. Revokes policies assigned to a specific class property for a role.  Use `**` to indicate all classes and/or all properties. |
 | `database.cluster.<cluster>` | Revokes access to records contained in the indicated cluster.  Use `**` to indicate all clusters.|
 | `database.query` | Revokes the ability to execute a query, (`READ` is sufficient).|
 | `database.command.<command>` | Revokes the ability to execute the given command.  Use `CREATE` for [`INSERT`](SQL-Insert.md), `READ` for [`SELECT`](SQL-Query.md), `UPDATE` for [`UPDATE`](SQL-Update.md) and `DELETE` for [`DELETE`](SQL-Delete.md).|
