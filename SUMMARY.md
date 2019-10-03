@@ -270,6 +270,7 @@
         * [Alter Cluster](sql/SQL-Alter-Cluster.md) 
         * [Alter Database](sql/SQL-Alter-Database.md) 
         * [Alter Property](sql/SQL-Alter-Property.md) 
+        * [Alter Security Policy](sql/SQL-Alter-Security-Policy.md) 	
         * [Alter Sequence](sql/SQL-Alter-Sequence.md) 
         * [Create Class](sql/SQL-Create-Class.md) 
         * [Create Cluster](sql/SQL-Create-Cluster.md) 
