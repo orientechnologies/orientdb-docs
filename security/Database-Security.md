@@ -281,7 +281,6 @@ The sections above manage security in a vertical fashion at the schema-level, bu
 To active Predicate Security, you have to define Security Policies and assign them to roles. 
 
 <pre>
-<pre>
 orientdb> <code class="lang-sql userinput">CREATE SECURITY POLICY readYourRecords SET READ = (owner = $currentUser)</code>
 orientdb> <code class="lang-sql userinput">GRANT readYourRecords ON database.class.Person TO aRoleName</code>
 </pre>
