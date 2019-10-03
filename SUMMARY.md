@@ -277,6 +277,7 @@
         * [Create Index](sql/SQL-Create-Index.md)
         * [Create Link](sql/SQL-Create-Link.md) 
         * [Create Property](sql/SQL-Create-Property.md) 
+        * [Create Security Policy](sql/SQL-Create-Security-Policy.md) 	
         * [Create Sequence](sql/SQL-Create-Sequence.md) 
         * [Create User](sql/SQL-Create-User.md) 
         * [Create Vertex](sql/SQL-Create-Vertex.md) 
