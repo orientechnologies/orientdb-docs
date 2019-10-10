@@ -78,4 +78,3 @@ db.open("admin", "my_admin_password");
 In the event that you pass a null or invalid key when you open the database, OrientDB raises an `OSecurityException` exception.
 
 > **Note**: from version 3.x cluster encryption is no longer supported.
-
