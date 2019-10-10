@@ -62,11 +62,9 @@ ALTER CLUSTER <cluster> <attribute-name> <attribute-value>
 |---|---|---|---|
 | `NAME` | String | | Changes the cluster name. |
 | `STATUS`| String | | Changes the cluster status.  Allowed values are `ONLINE` and `OFFLINE`.  By default, clusters are online.  When offline, OrientDB no longer opens the physical files for the cluster.  You may find this useful when you want to archive old data elsewhere and restore when needed.|
-| `COMPRESSION` | String | | Defines the compression type to use.  Allowed values are `NOTHING`, `SNAPPY`, `GZIP`, and any other compression types registered in the `OCompressionFactory` class.  OrientDB class the `compress()` method each time it saves the record to the storage, and the `uncompress()` method each time it loads the record from storage.  You can also use the `OCompression` interface to manage encryption.|
-|`USE_WAL`| Boolean || Defines whether it uses the Journal (Write Ahead Log) when OrientDB operates against the cluster.|
-| `RECORD_GROW_FACTOR`|Integer| | Defines the grow factor to save more space on record creation.  You may find this useful when you update the record with additional information.  In larger records, this avoids defragmentation, as OrientDB doesn't have to find new space in the event of updates with more data.|
-|`RECORD_OVERFLOW_GROW_FACTOR`|Integer|| Defines grow factor on updates.  When it reaches the size limit, is uses this setting to get more space, (factor > 1).|
 |`CONFLICTSTRATEGY`|String|2.0+| Defines the strategy it uses to handle conflicts in the event that OrientDB MVCC finds an update or a delete operation it executes against an old record.  If you don't define a strategy at the cluster-level, it uses the database-level configuration.  For more information on supported strategies, see the section below.|
+
+> **Note**: from version 3.x attributes `COMPRESSION`, `USE_WAL`, `RECORD_OVERFLOW_GROW_FACTOR`, `RECORD_OVERFLOW_GROW_FACTOR` are no longer supported.
 
 ### Supported Conflict Strategies
 
