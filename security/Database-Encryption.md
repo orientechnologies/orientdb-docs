@@ -59,27 +59,7 @@ db.create();
 
 Whether you use the console or the Java API, these commands encrypt the entire database on disk.  OrientDB does not store the encryption key within the database.  You must provide it at run-time.
 
-## Encrypting Clusters
 
-In addition to the entire database, you can also only encrypt certain clusters on the database.  To do so, set the encryption to the default of `nothing` when you create the database, then configure the encryption per cluster through the [`ALTER CLUSTER`](../sql/SQL-Alter-Cluster.md) command. 
-
-To encrypt the cluster through the Java API, create the database, then alter the cluster to use encryption:
-
-```java
-ODatabaseDocumentTx db = new ODatabaseDocumentTx("plocal:/tmp/db/encrypted");
-db.setProperty(OGlobalConfiguration.STORAGE_ENCRYPTION_KEY.getKey(), "T1JJRU5UREJfSVNfQ09PTA==");
-db.create();
-db.command(new OCommandSQL("ALTER CLUSTER Salary encryption aes")).execute();
-```
-
-Bear in mind that the key remains the same for the entire database.  You cannot use different keys per cluster.  If you attempt to apply encryption or an encryption setting on a cluster that is not empty, it raises an error.
-
-To accomplish the same through the console, set the encryption key through `storage.encryptionKey` then define the encryption algorithm for the cluster:
-
-<pre>
-orientdb> <code class="lang-sql userinput">CONFIG SET storage.encryptionKey T1JJRU5UREJfSVNfQ09PTA==</code>
-orientdb> <code class="lang-sql userinput">ALTER CLUSTER Salary encryption aes</code>
-</pre>
 
 ## Opening Encrypted Databases
 
@@ -99,3 +79,4 @@ db.open("admin", "my_admin_password");
 
 In the event that you pass a null or invalid key when you open the database, OrientDB raises an `OSecurityException` exception.
 
+> **Note**: from version 3.x cluster encryption is no longer supported.
