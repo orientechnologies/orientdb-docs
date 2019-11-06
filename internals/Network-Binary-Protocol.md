@@ -723,7 +723,7 @@ Response is different for synchronous and asynchronous request:
 - **asynch-result-content**, can only be a record
 
 
-## REQUEST_COMMAND
+## REQUEST_QUERY
 
 Executes remote commands.
 
@@ -778,6 +778,13 @@ Response: (queryId:string)(txChanges:boolean)(executionPlanPresent:boolean)[(exe
 - **metadataValue** - the actual field value serialization [see Types](../general/Types.md).
 
 
+## REQUEST_CLOSE_QUERY
+
+> TODO
+
+## REQUEST_QUERY_NEXT_PAGE
+
+> TODO
 
 ## REQUEST_TX_COMMIT
 
