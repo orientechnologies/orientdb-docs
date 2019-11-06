@@ -5,7 +5,7 @@ search:
 
 # Binary Protocol
 
-Current protocol version for 2.1.x: **32**. Look at [Compatibility](#compatibility) for retro-compatibility.
+Current protocol version for 3.0.x: **37**. Look at [Compatibility](#compatibility) for retro-compatibility.
 
 # Introduction
 
@@ -185,6 +185,11 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_COUNT <i>(DEPRECATED)</i></td><td>40</td><td>See REQUEST_DATACLUSTER_COUNT</td><td>no</td><td></td></tr>
 <tr><td><a href="#request_command">REQUEST_COMMAND</a></td><td>41</td><td>Execute a command.</td><td>no</td><td></td></tr>
 <tr><td>REQUEST_POSITIONS_CEILING</td><td>42</td><td>Get the first record.</td><td>no</td><td>1.3.0</td></tr>
+   
+<tr><td><a href="#request_query">REQUEST_QUERY</a></td><td>45</td><td>Execute a query.</td><td>no</td><td>3.0.0</td></tr>   
+<tr><td><a href="#request_query_close">REQUEST_CLOSE_QUERY</a></td><td>46</td><td>Close an active query cursor.</td><td>no</td><td>3.0.0</td></tr>   
+<tr><td><a href="#request_query_next_page">REQUEST_QUERY_NEXT_PAGE</a></td><td>47</td><td>Get next page of a query result</td><td>no</td><td>3.0.0</td></tr>   
+
 <tr><td><a href="#request_tx_commit">REQUEST_TX_COMMIT</a></td><td>60</td><td>Commit transaction.</td><td>no</td><td></td></tr>
 <tr><td><a href="#request_db_reload">REQUEST_DB_RELOAD</a></td><td>73</td><td>Reload database.</td><td>no</td><td>1.0rc4</td></tr>
 <tr><td>REQUEST_PUSH_RECORD<td>79</td><td></td><td>no</td><td>1.0rc6</td></tr>
@@ -716,6 +721,62 @@ Response is different for synchronous and asynchronous request:
  - 1: a record is returned as a resultset
  - 2: a record is returned as pre-fetched to be loaded in client's cache only. It's not part of the result set but the client knows that it's available for later access
 - **asynch-result-content**, can only be a record
+
+
+## REQUEST_COMMAND
+
+Executes remote commands.
+
+```
+Request: (language:string)(statement:string)(operationType:byte)(recordsPerPage:int)(unused:string)(params:byte[])(namedParams:boolean)
+Response: (queryId:string)(txChanges:boolean)(executionPlanPresent:boolean)[(executionPlan:OResult)](zero:integer)(resultSize:int)[(resultItem:OResult)]*(hasNextPage:boolean)(queryStatsCount:int)[(queryStatKey:string)(queryStatValue:long)]*(reloadMetadata:boolean)
+```
+
+#### Request
+
+- **language** - The query language (eg. "SQL")
+- **statement** - The command statement (ie. the query itself)
+- **operationType** - The type of query operation to be performed:
+  - `0` - stands for "command" as non-idempotent command (e.g., `INSERT` or `UPDATE`). It's like using db.command(statement, params) 
+  - `1` - stands for "query" as non-idempotent command (e.g., `SELECT`). It's like using db.query(statement, params) 
+  - `2` - stands for "script" (for server-side scripting using languages like [JavaScript](../js/Javascript-Command.md)).  It's like using db.execute(language, statement, params) 
+- **recordsPerPage** - The number N of results to be returned for each query page. At the first execution N results are returned, to return the next N REQUEST_QUERY_NEXT_PAGE has to be used.
+- **unused** - reserved string, for future extensions
+- **params** - the query parameters, serialized as an ODocument, containing a "params" attribute (a Map) see [Binary](Record-Schemaless-Binary-Serialization.md).
+- **namedParams** - true if the query is using named parameters, false if it's using positional parameters.
+
+#### Response
+
+- **queryId** - the query ID assigned by the server (needed to close the query cursor and to request next query pages)
+- **txChanges** - true if the statement execution changed the transaction status server-side
+- **executionPlanPresent** - true if there is an execution plan description attached to the query result
+- **executionPlan** - and OResult describing the execution plan (present only if `executionPlanPresent` is true, see below for the serialization)
+- **zero**  - not used
+- **resultSize** - the number of result items that follow
+- **resultItem** - a query result, that can be an OResult or an OIdentifiable. The resultItem structure is as follows: `(type:byte)(payload:varies based on type)`. The type can be 0 (BLOB), 1 (VERTEX), 2 (EDGE), 3 (ELEMENT, ie. Document), 4 (PROJECTION, ie. OResult, projection). 0, 1 and 2 are serialized as for the existing implementation (see [Binary](Record-Schemaless-Binary-Serialization.md) ); for 4 see below
+- **hasNextPage** - true if the query has more results in a new page, ie. if invoking REQUEST_QUERY_NEXT_PAGE will return more items
+- **queryStatsCount** - the number of query stats included in the result
+- **queryStatKey** - a query stats key name (a normal string)
+- **queryStatValue** - a query stats value
+- **reloadMetadata** - true if the database metadata (eg. the schema) where modified during the statement execution.
+
+
+#### PROJECTION (OResult) serialization
+
+``` 
+(numberOfFields:varint)[(fieldName:string)(type:byte)[(value:serialized value)]]*
+(numberOfMetadata:varint)[(metadataKey:string)(metadataType:byte)[(metadataValue:serialized value)]]*
+```
+
+- **numberOfFields** - the number of fields following
+- **fieldName** - a string representing a field name (a projection name) in the OResult 
+- **type** - the value type [see Types](../general/Types.md).
+- **value** - the actual field value serialization [see Types](../general/Types.md).
+- **numberOfMetadata** - the number of metadata items following
+- **metadataKey** - a string representing a field name (a projection name) in the OResult 
+- **metadataType** - the value type [see Types](../general/Types.md).
+- **metadataValue** - the actual field value serialization [see Types](../general/Types.md).
+
 
 
 ## REQUEST_TX_COMMIT
