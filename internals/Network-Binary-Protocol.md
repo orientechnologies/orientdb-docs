@@ -793,7 +793,16 @@ response: empty
 
 ## REQUEST_QUERY_NEXT_PAGE
 
-> TODO
+Requests next page from the results of a running query
+
+```
+request: (queryId:string)(recordsPerPage:int)
+response: same as REQUEST_QUERY
+```
+
+- **queryId** - the ID of the query to close, as returned by REQUEST_QUERY
+- **recordsPerPage** - the maximum number of results that will be returned with next query page (less results can be returned if the query has no more results)
+
 
 ## REQUEST_TX_COMMIT
 
