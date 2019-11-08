@@ -780,7 +780,16 @@ Response: (queryId:string)(txChanges:boolean)(executionPlanPresent:boolean)[(exe
 
 ## REQUEST_CLOSE_QUERY
 
-> TODO
+Closes open query cursors. Queries always have to be closed to free the cursor memory
+
+```
+request: (queryId:string)
+response: empty
+```
+
+- **queryId** - the ID of the query to close, as returned by REQUEST_QUERY
+
+
 
 ## REQUEST_QUERY_NEXT_PAGE
 
