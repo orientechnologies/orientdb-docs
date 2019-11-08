@@ -741,7 +741,7 @@ Response: (queryId:string)(txChanges:boolean)(executionPlanPresent:boolean)[(exe
   - `1` - stands for "query" as non-idempotent command (e.g., `SELECT`). It's like using db.query(statement, params) 
   - `2` - stands for "script" (for server-side scripting using languages like [JavaScript](../js/Javascript-Command.md)).  It's like using db.execute(language, statement, params) 
 - **recordsPerPage** - The number N of results to be returned for each query page. At the first execution N results are returned, to return the next N REQUEST_QUERY_NEXT_PAGE has to be used.
-- **unused** - reserved string, for future extensions
+- **unused** - reserved string, for future extensions. It is safe to pass a NULL string
 - **params** - the query parameters, serialized as an ODocument, containing a "params" attribute (a Map) see [Binary](Record-Schemaless-Binary-Serialization.md).
 - **namedParams** - true if the query is using named parameters, false if it's using positional parameters.
 
