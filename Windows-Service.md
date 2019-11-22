@@ -155,6 +155,8 @@ OrientDBGraph.exe //ES
 OrientDBGraph.exe //SS
 ```
 
+Note that you need to start the OrientDB server once manually via `server.bat` in %ORIENTDB_HOME%\bin once, before starting the service.
+
 ## Uninstallation
 
 Create the file **%ORIENTDB_HOME%\service\uninstallService.bat** with the content depicted below and run this file:
