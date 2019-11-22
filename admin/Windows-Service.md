@@ -154,6 +154,8 @@ OrientDBGraph.exe //ES
 OrientDBGraph.exe //SS
 ```
 
+Note that you need to start the OrientDB server once manually via `server.bat` in %ORIENTDB_HOME%\bin once, before starting the service.
+
 ### Other resources
 To learn more about how to install OrientDB on specific environment please follow the guide below:
 - [Install on Linux Ubuntu](http://famvdploeg.com/blog/2013/01/setting-up-an-orientdb-server-on-ubuntu/)
