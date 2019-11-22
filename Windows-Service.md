@@ -47,6 +47,7 @@ commons-daemon-1.0.15-bin-windows
 |
 \---RELEASE-NOTES.txt
 ```
+If version 1.0.15 is not listed, check [Apache Commons Daemon Windows download page](https://archive.apache.org/dist/commons/daemon/binaries/windows/) directly.
 
 **prunmgr** is a GUI application for monitoring and configuring Windows services wrapped with procrun. **prunsrv** is a service application for running applications as services. It can convert any application (not just Java applications) to run as a service. The directory **amd64** contains a version of **prunsrv** for x86-64 machines while the directory **ia64** contains a version of **prunsrv** for Itanium 64 machines.
 
@@ -54,7 +55,7 @@ Once you downloaded the applications, you have to put them in a folder under the
 
 1. Go to the OrientDB folder, in the following referred as _%ORIENTDB_HOME%_
 1. Create a new directory and name it **service**
-1. Copy there the appropriate versions of **prunsrv** and **prunmgr** according to the architecture of your machine.
+1. Copy there the appropriate versions of **prunsrv** according to the architecture of your machine and **prunmgr**.
 
 
 ## Configuration
@@ -144,6 +145,15 @@ In order to install the service:
 1. Execute the *installService.bat* specifying the *jvm.dll* location and the OrientDB Home as full paths, for example typing in the shell <code>> installService.bat "C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll" D:\orientdb-graphed-1.0rc5</code>
 1. Open the Windows Services Management Console - from the taskbar, click on *Start*, *Control Panel*, *Administrative Tools* and then *Service* - and check the existance of a service with the same name specified as value of the <code>--DisplayName</code> parameter (in this case **OrientDB GraphEd X.X.X**). You can also use _%ORIENTDB_HOME%\service\OrientDBGraphw.exe_ to manage and monitor the *OrientDBGraph* service.
 
+Example (in the `service` directroy) start and stop the service:
+
+```
+:start
+OrientDBGraph.exe //ES
+
+:stop
+OrientDBGraph.exe //SS
+```
 
 ## Uninstallation
 
