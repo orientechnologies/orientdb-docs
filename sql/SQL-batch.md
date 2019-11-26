@@ -42,12 +42,12 @@ This will work on any protocol and driver.
 Example to create a new vertex in a [Transaction](../internals/Transactions.md) and attach it to an existent vertex by creating a new edge between them. If a concurrent modification occurs, repeat the transaction up to 100 times:
 
 ```sql
-begin
-let account = create vertex Account set name = 'Luke'
-let city = select from City where name = 'London'
-let e = create edge Lives from $account to $city
-commit retry 100
-return $e
+begin;
+let account = create vertex Account set name = 'Luke';
+let city = select from City where name = 'London';
+let e = create edge Lives from $account to $city;
+commit retry 100;
+return $e;
 ```
 
 Note the usage of $account and $city in further SQL commands.
@@ -57,12 +57,12 @@ Note the usage of $account and $city in further SQL commands.
 This script above used an Optimistic approach: in case of conflict it retries up top 100 times by re-executing the entire transaction (commit retry 100). To follow a Pessimistic approach by locking the records, try this:
 
 ```sql
-BEGIN
-let account = CREATE VERTEX Account SET name = 'Luke'
-let city = SELECT FROM City WHERE name = 'London' LOCK RECORD
-let e = CREATE EDGE Lives FROM $account TO $city
-COMMIT
-return $e
+BEGIN;
+let account = CREATE VERTEX Account SET name = 'Luke';
+let city = SELECT FROM City WHERE name = 'London' LOCK RECORD;
+let e = CREATE EDGE Lives FROM $account TO $city;
+COMMIT;
+return $e;
 ```
 
 Note the "lock record" after the select. This means the returning records will be locked until commit (or rollback). In this way concurrent updates against London will wait for this [transaction](../internals/Transactions.md) to complete.
@@ -77,8 +77,8 @@ The syntax is
 
 ```sql
 if(<sql-predicate>){
-   <statement>
-   <statement>
+   <statement>;
+   <statement>;
    ...
 }
 ```
@@ -86,12 +86,14 @@ if(<sql-predicate>){
 In current release it's mandatory to have `IF(){`, `<statement>` and `}` on separate lines, eg. the following is not a valid script
 
 ```sql
-if($a.size() > 0) { ROLLBACK }
+if($a.size() > 0) {
+  ROLLBACK;
+}
 ```
 The right syntax is following:
 ```sql
 if($a.size() > 0) { 
-   ROLLBACK 
+   ROLLBACK;
 }
 ```
 
