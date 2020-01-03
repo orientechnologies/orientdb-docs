@@ -1,0 +1,18 @@
+[book]
+title = "Example book"
+author = "John Doe"
+description = "The example book covers examples."
+src = "./"
+
+[build]
+build-dir = "my-example-book"
+create-missing = false
+
+[preprocessor.index]
+
+[preprocessor.links]
+
+[output.html]
+
+[output.html.search]
+limit-results = 15
