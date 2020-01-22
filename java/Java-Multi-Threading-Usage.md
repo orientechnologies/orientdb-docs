@@ -58,7 +58,7 @@ In the above example, bear in mind that the `activeOnCurrentThread()` method is 
 
 ```java
 ODatabaseDocument db1 = orientDB.open("db1","admin","admin");
-ODatabaseDocumentTx db2 = orientDB.open("db2","admin","admin");
+ODatabaseDocument db2 = orientDB.open("db2","admin","admin");
 
 ...
 
