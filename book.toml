@@ -1,11 +1,11 @@
 [book]
-title = "Example book"
-author = "John Doe"
-description = "The example book covers examples."
+title = "OrientDB"
+author = "community"
+description = "OrientDB documentation"
 src = "./"
 
 [build]
-build-dir = "my-example-book"
+build-dir = "orientdb-book"
 create-missing = false
 
 [preprocessor.index]
@@ -14,5 +14,25 @@ create-missing = false
 
 [output.html]
 
+[output.html.fold]
+enable = true
+level = 0
+
 [output.html.search]
 limit-results = 15
+
+[preprocessor.variables.variables]
+CE_name= "orientdb-community"
+CE_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.0-beta1/orientdb-3.1.0-beta1.tar.gz"
+TP2_name = "orientdb-community-tp2"
+TP2_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.0-beta1/orientdb-3.1.0-beta1.tar.gz"
+TP3_name = "orientdb-community-tp3"
+TP3_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.0-beta1/orientdb-tp3-3.1.0-beta1.tar.gz"
+TP3Spatial_name = "orientdb-community-spatial"
+TP3Spatial_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.0-beta1/orientdb-tp3-3.1.0-beta1.tar.gz"
+source_repository = "https://github.com/orientechnologies/orientdb/blob/develop/"
+lastGA = "3.1.0-beta1"
+currentVersion =  "3.1.0-beta1"
+demoDBVersion_screenshots ="0.76"
+javase = "https://docs.oracle.com/javase/8/docs"
+javadoc = "https://orientdb.com/javadoc/develop"
