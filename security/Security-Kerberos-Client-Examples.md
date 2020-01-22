@@ -31,18 +31,21 @@ The following is an example of how to use the OServerAdmin interface to send com
 	String url = "remote:server1.ad.somedomain.com:2424";
 	String pri = "OrientDBClient@AD.SOMEDOMAIN.COM";
 	String spn = "OrientDB/db1.somedomain.com";
-	
-	OServerAdmin serverAdmin = new OServerAdmin(url).connect(pri, spn);
-	serverAdmin.createDatabase("TestDB", "graph", "plocal");
-	serverAdmin.close();
+
+	OrientDB orientDB = new OrientDB(url, pri, spn, OrientDBConfig.defaultConfig());
+	orientDB.create("TestDB", ODatabaseType.PLOCAL);
+	orientDB.close();
 
 The next example shows how to open an existing OrientDB database from the Java client API:
 
-	String url = "remote:server1.ad.somedomain.com:2424/TestDB";
+	String url = "remote:server1.ad.somedomain.com:2424";
 	String pri = "OrientDBClient@AD.SOMEDOMAIN.COM";
 	String spn = "OrientDB/db1.somedomain.com";
 	
-	ODatabaseDocumentTx db = new ODatabaseDocumentTx(url).open(pri, spn);
+	OrientDB orientDB = new OrientDB(url, OrientDBConfig.defaultConfig());
+	ODatabaseSession db = orientDB.open("TestDB", pri, spn, ODatabaseType.PLOCAL);
+	db.close();
+	orientDB.close();
 
 
 ## JDBC Client
