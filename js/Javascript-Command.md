@@ -136,6 +136,24 @@ For security reasons server-side scripting is disabled by default on the server.
   </handler>
 ```
 
+
+For security reason starting from *OrientDB 3.0.29*, the usage of Java classes is forbidden by default, with a class filter implmented in the JS engine.
+To enable the access to classes or packages in your JS code change the `allowedPackages` field with comma separated packages or classes.
+This also applies to Javascript server side function.
+
+```xml
+<!-- SERVER SIDE SCRIPT INTERPRETER. WARNING! THIS CAN BE A SECURITY HOLE: ENABLE IT ONLY IF CLIENTS ARE TRUSTED, TO TURN ON SET THE 'ENABLED' PARAMETER TO 'true' -->
+  <handler class="com.orientechnologies.orient.server.handler.OServerSideScriptInterpreter">
+    <parameters>
+      <parameter name="enabled" value="true" />
+      <parameter name="allowedLanguages" value="SQL,Javascript" />
+       <!--  Comma separated packages  allowed in JS scripts eg. java.math.*, java.util.ArrayList -->
+      <parameter name="allowedPackages" value=""/>
+    </parameters>
+  </handler>
+```
+
+
 For more information look at [Server Side Script Interpreter Plugin](Script-Interpreter-Plugin.md).
 
 *NOTE: this will allow clients to execute any code inside the server. Enable it only if clients are trusted.*
