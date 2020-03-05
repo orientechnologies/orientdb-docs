@@ -1124,7 +1124,7 @@ HTTP response:
 ```
 ### POST - Server
 Changes server configuration. Supported configuration are:
-- any setting contained in OGlobalConfiguation class, by using the prefix `configuration` in setting-name
+- any setting contained in OGlobalConfiguration class, by using the prefix `configuration` in setting-name
 - logging level, by using the prefix `log` in setting-name
 
 Syntax: `http://<server>:[<port>]/server/<setting-name>/<setting-value>`
