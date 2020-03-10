@@ -66,9 +66,6 @@ Check out our [Get in Touch](misc/Get-in-Touch.md) page for different ways of ge
 
 ## Past Releases
 - [v2.2.x](https://orientdb.com/docs/2.2/)
-- [v2.1.x](https://orientdb.com/docs/2.1/)
-- [v2.0.x](https://orientdb.com/docs/2.0/)
-- [v1.7.8](https://orientdb.com/docs/1.7.8/)
 
 
 >Every effort has been made to ensure the accuracy of this manual. However, OrientDB, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.
