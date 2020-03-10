@@ -45,7 +45,6 @@
     "footerTemplate": "Copyright (c) OrientDB LTD"
   },
   "plugins": [
-    "ga",
     "anchors",
     "collapsible-menu",
     "versions",
@@ -55,9 +54,6 @@
     "page-toc"
   ],
   "pluginsConfig": {
-    "ga": {
-      "token": "UA-28543690-2"
-    },
     "addcssjs": {
       "js": [
         "js/custom.js"
