@@ -47,14 +47,6 @@
       "gitbookConfigURL": "https://orientdb.com/docs/book.json",
       "options": [
         {
-          "value": "https://orientdb.com/docs/1.7.8/",
-          "text": "Version 1.7.x"
-        },
-        {
-          "value": "https://orientdb.com/docs/2.0/",
-          "text": "Version 2.0.x"
-        },
-        {
           "value": "https://orientdb.com/docs/2.1.x",
           "text": "Version 2.1.x",
           "selected": true
