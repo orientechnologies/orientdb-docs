@@ -1,42 +1,47 @@
-stage 'Generate docs for branch ${env.BRANCH_NAME}'
-node("master") {
-    
-    properties([[$class: 'BuildDiscarderProperty', 
-                 strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', 
-                            artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10']]])
-    sh "rm -rf ./*"
+@Library(['piper-lib', 'piper-lib-os']) _   
 
-    checkout scm
-    echo "building docs for branch  ${env.BRANCH_NAME}"
-    
-    def containerName = env.JOB_NAME.replaceAll(/\//, "_") + 
-            "_build_${currentBuild.number}"
-			
-    def appNameLabel = "docker_ci";
-    def taskLabel = env.JOB_NAME.replaceAll(/\//, "_")
-    
-    lock("label": "memory", "quantity":2) {
-	    docker.image("orientdb/jenkins-slave-gitbook:20160511").inside("--label collectd_docker_app=${appNameLabel} --label collectd_docker_task=${taskLabel}" + 
-									   " --name ${containerName} --memory=2g ${env.VOLUMES}") {
-		sh "rm -rf _book/*"
-		sh "gitbook install --gitbook 3.2.2 . "
-		sh "gitbook build --gitbook 3.2.2 . "
-		sh "gitbook pdf --gitbook 3.2.2 . _book/OrientDB-Manual.pdf"
-	    }
+node {
+
+    stage('build')   {
+                    
+        sh "rm -rf *"
+        
+        executeDocker(
+        dockerImage:'ldellaquila/gitbook:latest',
+          dockerWorkspace: '/home/jenkins/workspace/orientdb-docs-${env.BRANCH_NAME}'        
+          ) {
+	   try{
+              
+              checkout(
+                    [$class: 'GitSCM', branches: [[name: "${env.BRANCH_NAME}"]], 
+                    doGenerateSubmoduleConfigurations: false, 
+                    extensions: [], 
+                    submoduleCfg: [], 
+                    extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'orientdb-docs']],
+                    userRemoteConfigs: [[url: 'https://github.com/orientechnologies/orientdb-docs']]])
+              
+              
+		    sh '''
+		        cd orientdb-docs
+		        rm -rf _/book/*
+		        gitbook install --gitbook 3.1.1 .
+		        gitbook build --gitbook 3.1.1 .
+		        gitbook pdf --gitbook 3.1.1 . _book/OrientDB-Manual.pdf
+		    '''
+		    
+	      withCredentials([usernamePassword(credentialsId: 'orientdb_website', passwordVariable: 'RSYNC_PASSWORD', usernameVariable: 'RSYNC_USERNAME')]) {
+                  sh '''
+               	      rsync -ratlz --stats --rsh="/usr/bin/sshpass -p ${RSYNC_PASSWORD} ssh -o StrictHostKeyChecking=no -l ${RSYNC_USERNAME}" orientdb-docs/_book/ orientdb.com:/home/orientdb/public_html/docs/2.1.x  
+                     '''
+              }
+
+	} catch(e) {
+		slackSend(color: '#FF0000', channel: '#jenkins-failures', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})\n${e}")
+		throw e
+	   }
+	   slackSend(color: '#00FF00', channel: '#jenkins', message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+        }
+        
     }
-
-    if (!env.BRANCH_NAME.startsWith("PR-")) {
-        echo "sync generated content to OrientDB site"
-	    lock("label": "memory", "quantity":2) {
-        	docker.image("orientdb/jenkins-slave-rsync:20160503").inside("--label collectd_docker_app=${appNameLabel} --label collectd_docker_task=${taskLabel}" +
-                                                                     " --name ${containerName} --memory=2g ${env.VOLUMES}") {
-            	sh "rsync -ravh --stats _book/  -e ${env.RSYNC_DOC}/${env.BRANCH_NAME}/"
-        	}
-	    }
-    } else {
-        echo "it's a PR, no sync required"
-    }
-
+    
 }
-
-
