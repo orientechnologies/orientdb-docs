@@ -11,15 +11,6 @@ OrientDB uses the [Hazelcast Open Source project](http://www.hazelcast.com) for 
 
 >**NOTE**: When you run in distributed mode, OrientDB needs more RAM. The minimum is 2GB of heap, but we suggest to use at least 4GB of heap memory. To change the heap modify the Java memory settings in the file `bin/server.sh` (or server.bat on Windows).
 
-## Presentation 
-
-Below you can find a presentation of the OrientDB replication. 
-
->**NOTE**: Starting from v2.2, OrientDB uses internal binary protocol for replication and not Hazelcast queues anymore_.
-
-<div>
-<iframe src="https://www.slideshare.net/slideshow/embed_code/38975360" width="760px" height="570px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-</div>
 
 ## Main topics
 - [Distributed Architecture Lifecycle](Distributed-Architecture-Lifecycle.md)
