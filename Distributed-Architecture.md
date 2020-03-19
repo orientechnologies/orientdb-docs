@@ -4,10 +4,6 @@ OrientDB can be distributed across different servers and used in different ways 
 
 OrientDB uses the [Hazelcast Open Source project](http://www.hazelcast.com) to manage the clustering. Many of the references in this page are linked to the Hazelcast official documentation to get more information about such topic.
 
-## Presentation 
-<div>
-<iframe src="https://www.slideshare.net/slideshow/embed_code/38975360" width="760px" height="570px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-</div>
 
 ## Main topics
 - [Distributed Architecture Lifecycle](Distributed-Architecture-Lifecycle.md)
