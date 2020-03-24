@@ -13,7 +13,8 @@ OrientDB Enterprise Edition is designed specifically for applications seeking a 
 
 
 ### Installation
-The installation procedure is the same as for the [Community Edition](../gettingstarted/Tutorial-Installation.md) just use the package you downloaded after registering on the web site.
+
+Enterprise Edition is an additional package which can be installed in the [Community Edition](../gettingstarted/Tutorial-Installation.md). Download the Enterprise package after registering on the web site and install it in the `${ORIENTDB_HOME}/plugins` folder.
 
 At run-time, the Enterprise edition logs this message:
 
