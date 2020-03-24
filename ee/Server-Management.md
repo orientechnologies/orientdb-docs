@@ -23,7 +23,7 @@ Then 3 sub-sections are available:
 
 
 ## Overview
-This page summarizes all the most important information about the current server and the other servers connected in cluster if any:
+This page summarizes all the most important information about the current server:
 
 - `Server status`
 - `Operations`
