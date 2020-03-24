@@ -17,9 +17,7 @@ For each node you can monitor several information divided in two main sections:
   - `Operations per second`
   - `Active Connections`
   - `Network Request`
-  - `Average Latency`
-  - `Warnings`
-
+  
 - CRUD operations: includes a `Live Chart` of CRUD operations in real time.
 
 ![](../../images/studio-dashboard.png)
