@@ -19,9 +19,14 @@ This page summarizes all the most important information about all servers connec
 - `Operations per second`
 - `Active Connections`
 - `Network Requests`
-- `Average Latency`
-- `Warnings`
 - `Live chart` with CRUD operations in real-time
+
+It also contains stats about replication messages:
+
+- `Replication Latency Average`: average replication latency between nodes
+- `Replication Message Counters`: counters of messages exchanged between nodes;
+- `Replication Message Coordinator Stats`: detailed counters of messagges grouped by type, sent by the coordinator.
+
 
 ![Overview](../images/studio-cluster-management-overview.png)
 
