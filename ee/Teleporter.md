@@ -3,6 +3,8 @@ search:
    keywords: ['Studio', 'teleporter', 'enterprise']
 ---
 
+> Only users with grant `server.importers` can see this section 
+
 # Teleporter
 
 In Studio 2.2 you can configure the execution of the new Teleporter plugin, which allows you to import your relational database into OrientDB in few simple steps.
