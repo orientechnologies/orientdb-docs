@@ -843,7 +843,7 @@
     * [Backup Management](./studio/backups-imports-exports/Studio-Backup-Management.md)
     * [Server Profiler](./ee/Server-Profiler.md)
     * [Security](./ee/Security.md)
-    * [Teleporter](./studio/backups-imports-exports/Studio-Teleporter.md)
+    * [Teleporter](./studio/Teleporter.md)
     * [Metrics](./ee/Profiler.md)
     * [Settings](./ee/Settings.md)
 ---
