@@ -38,6 +38,7 @@ Explore the Enterprise Edition features:
 * [Server Profiler](./Server-Profiler.md)
 * [Security](./Security.md)
 * [Teleporter](./Teleporter.md)
+* [Neo4j to OrientDB Importer](./Neo4j-Importer.md)
 * [Settings](./Settings.md)
 
 See here for the documentation of the new [Metrics](./Profiler.md) module.
