@@ -27,7 +27,7 @@ Displays information about running queries in OrientDB Server. Each query report
 - `Start Time`, when the query was started
 - `Elapsed Time`, the actual timing of the query in milliseconds
 
-![Running](../images/ee/studio-query-profiler-running.png)
+![Running](./images/studio-query-profiler-running.png)
 
 ### Queries stats
 
@@ -42,7 +42,7 @@ Displays statistics about executed queries in OrientDB Server. Each query report
 - `Mean`, the mean execution time of the query
 - `Max`, the maximume execution time of the query
 
-![Stats](../images/ee/studio-query-profiler-stats.png)
+![Stats](./images/studio-query-profiler-stats.png)
 
 
 
