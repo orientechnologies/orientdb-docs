@@ -34,7 +34,7 @@ Explore the Enterprise Edition features:
 * [Dashboard](./Dashboard.md)
 * [Server Management](./Server-Management.md)
 * [Cluster Management](./Cluster-Management.md)
-* [Backup Management](../studio/backups-imports-exports/Studio-Backup-Management.md)
+* [Backup Management](./Backup-Management.md)
 * [Server Profiler](./Server-Profiler.md)
 * [Security](./Security.md)
 * [Teleporter](./Teleporter.md)
