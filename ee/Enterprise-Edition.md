@@ -37,7 +37,7 @@ Explore the Enterprise Edition features:
 * [Backup Management](../studio/backups-imports-exports/Studio-Backup-Management.md)
 * [Server Profiler](./Server-Profiler.md)
 * [Security](./Security.md)
-* [Teleporter](../studio/backups-imports-exports/Studio-Teleporter.md)
+* [Teleporter](./Teleporter.md)
 * [Settings](./Settings.md)
 
 See here for the documentation of the new [Metrics](./Profiler.md) module.
