@@ -1,3 +1,10 @@
+---
+search:
+   keywords: ['Studio', 'neo4j', 'enterprise']
+---
+
+> Only users with grant `server.importers` can see this section 
+
 # Neo4j to OrientDB Importer
 
 In Studio 2.2 you can configure the execution of a new plugin, which allows you to import your Neo4j database into OrientDB in few simple steps.
