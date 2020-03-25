@@ -28,7 +28,7 @@ It also contains stats about replication messages:
 - `Replication Message Coordinator Stats`: detailed counters of messagges grouped by type, sent by the coordinator.
 
 
-![Overview](../images/studio-cluster-management-overview.png)
+![Overview](./images/studio-cluster-management-overview.png)
 
 ## Databases
 In this panel you can see all databases present on each server joining your cluster.
@@ -43,4 +43,4 @@ Through the box above you can change in real time the current cluster configurat
 
 To learn more about these configuration parameters please visit the [Distributed Configuration](../../distributed/Distributed-Configuration.md) section.
 
-![Databases](../images/studio-cluster-management-databases.png)
+![Databases](./images/studio-cluster-management-databases.png)

@@ -22,4 +22,4 @@ For each node you can monitor several information divided in two main sections:
 
 - CRUD operations: includes a `Live Chart` of CRUD operations in real time.
 
-![](../images/ee/studio-dashboard-ee.png)
+![](./images/studio-dashboard-ee.png)

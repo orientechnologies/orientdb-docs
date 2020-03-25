@@ -59,20 +59,20 @@ Displays all the active sessions to the server. Each session reports the followi
 
 Each session can be interrupted or even killed.
 
-![Connections](../images/ee/studio-monitoring-connections.png)
+![Connections](./images/studio-monitoring-connections.png)
 
 ### Threads
 
 This panel show the thread dump of the selected server.
 
-![Threads](../images/ee/studio-monitoring-threads.png)
+![Threads](./images/studio-monitoring-threads.png)
 
 ## Global CFG
 This panel shows the Server settings divided in two boxes:
 - `Properties`, as the custom settings in `config/orientdb-server-config.xml` file
 - `Global Configuration`, as all the global configuration. Only few of them can be changed at run-time with the "Save" button
 
-![Configuration](../images/ee/studio-global-configurations.png)
+![Configuration](./images/studio-global-configurations.png)
 
 
 
