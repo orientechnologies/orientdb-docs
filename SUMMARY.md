@@ -827,7 +827,8 @@
     * [Backup Management](./studio/backups-imports-exports/Studio-Backup-Management.md)
     * [Server Profiler](./ee/Server-Profiler.md)
     * [Security](./ee/Security.md)
-    * [Teleporter](./studio/Teleporter.md)
+    * [Teleporter](./ee/Teleporter.md)
+    * [Neo4j Importer](./ee/Neo4j-Importer.md)
     * [Metrics](./ee/Profiler.md)
     * [Settings](./ee/Settings.md)
 ---
