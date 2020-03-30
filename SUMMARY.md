@@ -824,7 +824,7 @@
     * [Dashboard](./ee/Dashboard.md)
     * [Server Management](./ee/Server-Management.md)
     * [Cluster Management](./ee/Cluster-Management.md)
-    * [Backup Management](./studio/backups-imports-exports/Studio-Backup-Management.md)
+    * [Backup Management](./ee/Backup-Management.md)
     * [Server Profiler](./ee/Server-Profiler.md)
     * [Security](./ee/Security.md)
     * [Teleporter](./ee/Teleporter.md)
