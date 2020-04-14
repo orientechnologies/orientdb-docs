@@ -394,6 +394,9 @@ Dowload the latest version of OrientDB-TP3 [here](https://orientdb.com/download-
 and start OrientDB to automatically start the embedded Gremlin Server.
 The configuration of the Gremlin Server is in `$ORIENTDB_HOME/config`.
 
+When using the embedded version by default the Authentication manager authenticate the users against OrientDB server user
+with permission `gremlin.server`.
+
 ### Install OrientDB-Gremlin  
 
 Download the latest Gremlin Server distribution [here](https://tinkerpop.apache.org/)
