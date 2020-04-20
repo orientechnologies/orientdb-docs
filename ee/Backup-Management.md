@@ -43,7 +43,7 @@ Below we will examine briefly the three different backup strategies.
 
 ###Full backup
 Through this mode when each period passes a **full backup** will be performed in the path you specified in the settings just discussed.
-If you want know more about the full backup you can refer to the [Full Backup](../../admin/Backup-and-Restore.md) page.
+If you want know more about the full backup you can refer to the [Full Backup]({{book.baseCommunityDoc}}/admin/Backup-and-Restore.html) page.
 
 ![](./images/studio-backup-02-full-backup-scheduling.png)
 
@@ -65,7 +65,7 @@ With the settings shown above a full backup will be performed every 5 minutes. T
 
 ###Incremental Backup
 If you prefer to execute an **incremental backup** you can select this mode.
-As declared in the [Incremental Backup](../../admin/Incremental-Backup-And-Restore.md) page the incremental backup generates smaller backup files by storing only the **delta** between two versions of the database.
+As declared in the [Incremental Backup]({{book.baseCommunityDoc}}/admin/Incremental-Backup-And-Restore.html) page the incremental backup generates smaller backup files by storing only the **delta** between two versions of the database.
 Let's suppose we want execute a backup every 5 minutes: a **first full backup** will be performed, then it will be followed by a new **incremental backup**, containing only the delta, **every 5 minutes**.
 
 ![](./images/studio-backup-03-incremental-backup-scheduling.png)

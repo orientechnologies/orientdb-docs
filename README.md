@@ -1,72 +1,50 @@
-# OrientDB Manual - version {{book.currentVersion}}
+# OrientDB EE Manual - version {{book.currentVersion}}
 
-![image](https://orientdb.com/wp-content/themes/orientdb/img/logo-black.png)
+![image](images/logo-black.png)
 
-Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
+Welcome to **OrientDB Enteprise Edition**.
 
-# OrientDB v 3.0.x is our latest GA
+# OrientDB EE v 3.1.x is our latest GA
 
-## Quick Navigation
+# Enterprise Edition
 
-|Getting Started	|Main Topics    |Developers   |
-|-----------------------|---------------|-------------|
-|[Introduction to OrientDB](introduction/README.md) | [Basic Concepts](datamodeling/Concepts.md)  | [SQL](sql/README.md)| 
-|[Installation](gettingstarted/Tutorial-Installation.md) | [Supported Data Types](general/Types.md) | [Gremlin](gremlin/Gremlin.md) | 
-|[First Steps](gettingstarted/Tutorial-Working-with-graphs.md) | [Inheritance](general/Inheritance.md) | [HTTP API](misc/OrientDB-REST.md) |
-|[Troubleshooting](misc/Troubleshooting.md) |[Security](security/Security.md)| [Java API](java/Java-API.md)|
-|[Enterprise Edition](ee/Enterprise-Edition.md)| [Indexes](indexing/Indexes.md) | [NodeJS](orientjs/OrientJS.md)|
-| | [ACID Transactions](internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
-| | [Functions](admin/Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
-| | [Caching Levels](internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
-| | [Common Use Cases](legacy/Use-Cases.md) | [Other Drivers](apis-and-drivers/README.md) |
-| | | [Network Binary Protocol](internals/Network-Binary-Protocol.md) |
-| | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
+This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more information look at [OrientDB Enterprise Edition]({{book.enterpriseSite}}).
+
+Enterprise Edition is a commercial product developed by OrientDB Ltd, the same company that lead the development of OrientDB Community Edition. [Download now the 45-days trial]({{book.enterpriseSite}}/#matrix).
+
+OrientDB Enterprise Edition is designed specifically for applications seeking a scalable, robust, and secure multi-model database. Its main goal is to save time and money on your OrientDB investment by reducing risk, cost, effort, and time invested in a business critical application. It includes all Community features plus professional enterprise tools such as support for [Query Profiler](./Server-Profiler.md), [Distributed Clustering](./Cluster-Management.md) configuration, [Auditing Tools](./Security.md), [Metrics recording](./Server-Management.md), [Non-Stop Incremental Backups](./Backup-Management.md), [Teleporter](./Teleporter.md) to import data from any Relational DBMS.
 
 
-### Operations
+### Installation
 
-- [Installation](gettingstarted/Tutorial-Installation.md)
-- [3rd party Plugins](plugins/Plugins.md)
-- [Upgrade](release/Upgrade.md) 
-- [Configuration](admin/Configuration.md)
-- [Distributed Architecture](distributed/Distributed-Architecture.md) (replication, sharding and high-availability)
-- [Performance Tuning](tuning/Performance-Tuning.md)
-- [ETL to Import any kind of data into OrientDB](etl/ETL-Introduction.md)
-- [Import from Relational DB](admin/Import-From-RDBMS.md)
-- [Backup and Restore](admin/Backup-and-Restore.md)
-- [Export and Import](admin/Export-and-Import.md)
+Enterprise Edition is an additional package which can be installed in the [Community Edition]({{book.baseCommunityDoc}}/gettingstarted/Tutorial-Installation.html). Download the Enterprise package after registering on the web site and install it in the `${ORIENTDB_HOME}/plugins` folder.
 
+At run-time, the Enterprise edition logs this message:
 
+```
+2016-08-04 09:38:26:589 INFO  ***************************************************************************** [OEnterpriseAgent]
+2016-08-04 09:38:26:589 INFO  *                     ORIENTDB  -  ENTERPRISE EDITION                       * [OEnterpriseAgent]
+2016-08-04 09:38:26:589 INFO  ***************************************************************************** [OEnterpriseAgent]
+2016-08-04 09:38:26:589 INFO  * If you are in Production or Test, you must purchase a commercial license. * [OEnterpriseAgent]
+2016-08-04 09:38:26:589 INFO  * For more information look at: http://orientdb.com/orientdb-enterprise/    * [OEnterpriseAgent]
+2016-08-04 09:38:26:590 INFO  ***************************************************************************** [OEnterpriseAgent]
+```
 
-### Quick References 
+## EE Features
 
-- [Console](console/README.md)
-- [Studio](studio/README.md) web tool
-- [OrientDB Server](internals/DB-Server.md)
-- [Network-Binary-Protocol](internals/Network-Binary-Protocol.md) 
-- [Gephi Graph Analysis Visual tool](plugins/Gephi.md)
-- [Rexster Support and configuration](plugins/Rexster.md)
-- [Continuous integration](http://helios.orientechnologies.com/)
+Explore the Enterprise Edition features:
 
- 
-### Resources
-- [User Group](https://orientdb.com/active-user-community) - Have question, troubles, problems?
-- [#orientdb IRC channel on freenode](http://webchat.freenode.net/?channels=orientdb)
-- [Professional Support](https://orientdb.com/support)
-- [Training](https://orientdb.com/training) - Training and classes.
-- [Events](https://orientdb.com/event) - Follow OrientDB at the next event!
-- [Team](https://orientdb.com/team/) - Meet the team behind OrientDB
-- [Contribute](misc/Contribute-to-OrientDB.md) - Contribute to the project.
-- [Who is using OrientDB?](https://orientdb.com/customers) - Clients using OrientDB in production.
+* [Dashboard](./ee/Dashboard.md)
+* [Server Management](./ee/Server-Management.md)
+* [Cluster Management](./ee/Cluster-Management.md)
+* [Backup Management](./ee/Backup-Management.md)
+* [Server Profiler](./ee/Server-Profiler.md)
+* [Security](./ee/Security.md)
+* [Auditing](./ee/Auditing.md)
+* [Teleporter](./ee/Teleporter.md)
+* [Neo4j Importer](./ee/Neo4j-Importer.md)
+* [Metrics](./ee/Profiler.md)
+* [Settings](./ee/Settings.md)
 
 
-## Questions or Need Help?
-Check out our [Get in Touch](misc/Get-in-Touch.md) page for different ways of getting in touch with us. 
 
-
-## Past Releases
-- [v3.0.x](https://orientdb.com/docs/3.0.x/)
-- [v2.2.x](https://orientdb.com/docs/2.2.x/)
-
-
->Every effort has been made to ensure the accuracy of this manual. However, OrientDB, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.

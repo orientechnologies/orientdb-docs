@@ -1,9 +1,9 @@
 ---
 search:
-   keywords: ['Studio', 'neo4j', 'enterprise']
+  keywords: ["Studio", "neo4j", "enterprise"]
 ---
 
-> Only users with grant `server.importers` can see this section 
+> Only users with grant `server.importers` can see this section
 
 # Neo4j to OrientDB Importer
 
@@ -16,7 +16,7 @@ Imported neo4j items are:
 - unique constraints
 - indexes
 
-**NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.com/download/).
+**NOTE**: This feature is available both for the [OrientDB Enterprise Edition]({{book.enterpriseSite}}) and the [OrientDB Community Edition]({{book.communitySite}}).
 
 This visual tool consists in a wizard composed of 2 simple steps.
 Let's have a look at each configuration step.
@@ -86,7 +86,7 @@ The following are some general migration details that is good to keep in mind:
 - List of original Neo4j _Labels_ are stored as properties in the imported OrientDB vertices (property: _"Neo4jLabelList"_).
 
 - During the import, a not unique index is created on the property _"Neo4jLabelList"_. This allows you to query by _Label_ even over nodes migrated into the single `Class` _"MultipleLabelNeo4jConversion"_, using queries like:
-  `SELECT FROM V WHERE Neo4jLabelList CONTAINS 'your_label_here'` or the equivalent with the [MATCH](../../sql/SQL-Match.md) syntax: `MATCH {class: V, as: your_alias, where: (Neo4jLabelList CONTAINS 'your_label'} RETURN your_alias`.
+  `SELECT FROM V WHERE Neo4jLabelList CONTAINS 'your_label_here'` or the equivalent with the [MATCH]({{book.baseCommunityDoc}}/sql/SQL-Match.md) syntax: `MATCH {class: V, as: your_alias, where: (Neo4jLabelList CONTAINS 'your_label'} RETURN your_alias`.
 
 - Original Neo4j `IDs` are stored as properties in the imported OrientDB vertices and edges (`Neo4jNodeID` for vertices and `Neo4jRelID` for edges). Such properties can be (manually) removed at the end of the import, if not needed.
 

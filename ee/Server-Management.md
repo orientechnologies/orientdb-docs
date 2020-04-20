@@ -1,6 +1,6 @@
 # Server Management
 
-This is the section to work with OrientDB Server as DBA/DevOps with [Enterprise Edition](http://orientdb.com/enterprise/).
+This is the section to work with OrientDB Server as DBA/DevOps with [Enterprise Edition]({{book.enterpriseSite}}).
 
 > Only users with grant `server.metrics` can see this section 
 > 
@@ -31,7 +31,7 @@ This page summarizes all the most important information about the current server
 - `CPU`, `RAM` and `DISK` used
 - `Live chart` with CRUD operations in real-time
 
-![Overview](../images/ee/studio-server-management.png)
+![Overview](./images/studio-server-management.png)
 
 ## Monitoring
 
@@ -53,7 +53,7 @@ Displays all the active sessions to the server. Each session reports the followi
 - `Last Execution Time`, is the execution time o last request
 - `Total Working Time`, is the total execution time taken by current connection so far
 - `Connected Since`, is the date when the connection has been created
-- `Protocol`, is the protocol between [HTTP](../misc/OrientDB-REST.md) and [Binary](../internals/Network-Binary-Protocol.md)
+- `Protocol`, is the protocol between [HTTP]({{book.baseCommunityDoc}}/misc/OrientDB-REST.html) and [Binary]({{book.baseCommunityDoc}}/internals/Network-Binary-Protocol.html)
 - `Client ID`, a text representing the client connection
 - `Driver`, the driver name
 
@@ -65,7 +65,7 @@ Each session can be interrupted or even killed.
 
 This panel show the thread dump of the selected server.
 
-![Threads](./images/studio-monitoring-threads.png)
+![Threads](./images/studio-monitoring-threads.png)  
 
 ## Global CFG
 This panel shows the Server settings divided in two boxes:

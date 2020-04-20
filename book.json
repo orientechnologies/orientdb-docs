@@ -10,13 +10,17 @@
     "TP3_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.0-beta1/orientdb-tp3-3.1.0-beta1.tar.gz",
     "TP3Spatial_name": "orientdb-community-spatial",
     "TP3Spatial_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.0-beta1/orientdb-tp3-3.1.0-beta1.tar.gz",
-    "javadoc":"http://orientdb.com/javadoc/latest/",
-    "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
+    "javadoc": "http://orientdb.com/javadoc/latest/",
+    "source_repository": "https://github.com/orientechnologies/orientdb/blob/develop/",
     "lastGA": "3.1.0-beta1",
     "currentVersion": "3.1.0-beta1",
     "demoDBVersion_screenshots": "0.76",
-	"javase": "https://docs.oracle.com/javase/8/docs",
-	"javadoc": "https://orientdb.com/javadoc/develop"
+    "communitySite": "http://orientdb.com",
+    "baseCommunityDoc": "http://orientdb.com/docs/3.1.x",
+    "enterpriseSite": "http://orientdb.com/orientdb-enterprise",
+    "supportSite": "http://orientdb.com/support",
+    "javase": "https://docs.oracle.com/javase/8/docs",
+    "javadoc": "https://orientdb.com/javadoc/develop"
   },
   "links": {
     "home": "http://orientdb.com",
@@ -44,27 +48,15 @@
     },
     "footerTemplate": "Copyright (c) OrientDB LTD"
   },
-  "plugins": [
-    "anchors",
-    "collapsible-menu",
-    "versions",
-    "edit-link",
-    "addcssjs",
-    "search",
-    "page-toc"
-  ],
+  "plugins": ["anchors", "collapsible-menu", "addcssjs", "search", "page-toc"],
   "pluginsConfig": {
     "addcssjs": {
-      "js": [
-        "js/custom.js"
-      ],
-      "css": [
-        "css/custom.css"
-      ]
+      "js": ["js/custom.js"],
+      "css": ["css/custom.css"]
     },
     "versions": {
       "gitbookConfigURL": "https://raw.githubusercontent.com/orientechnologies/orientdb-docs/3.0.x/book.json",
-			"type": "branches",
+      "type": "branches",
       "includeFilepath": true,
       "options": [
         {
@@ -78,7 +70,7 @@
         {
           "value": "http://orientdb.com/docs/3.1.x",
           "text": "Version 3.1 (beta)",
-          "selected": true		
+          "selected": true
         }
       ]
     },

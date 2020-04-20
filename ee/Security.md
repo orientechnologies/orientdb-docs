@@ -10,7 +10,7 @@ search:
 
 # Security
 
-To understand how Security works, please refer to the [Security](../security/Security.md) page.
+To understand how Security works, please refer to the [Security]({{book.baseCommunityDoc}}/security/Security.html) page.
 
 The configuration of security is stored in the `security.json` file. 
 
@@ -18,7 +18,7 @@ By using the Enterprise edition the configuration of the security can be changed
 
 ![](./images/studio-security-configuration.png)
 
-For a detailed documentation of Security config check the new [Security Feature](../security/Security-OrientDB-New-Security-Features.md) page.
+For a detailed documentation of Security config check the new [Security Feature]({{book.baseCommunityDoc}}/security/Security-OrientDB-New-Security-Features.html) page.
 
 # Auditing
 

@@ -3,5 +3,4 @@
 * [](Backward-compatibility.md)
 * [](Download.md)
 * [](Installation.md)
-* [](Introduction.md)
 
