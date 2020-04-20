@@ -8,7 +8,7 @@ search:
 # Teleporter
 
 In Studio 2.2 you can configure the execution of the new Teleporter plugin, which allows you to import your relational database into OrientDB in few simple steps.
-If you are interested in a detailed description of the tool, of its inner workings and features you can view the [Teleporter Documentation]({{book.baseCommunityDoc}}/teleporter/Teleporter-Home.md).
+If you are interested in a detailed description of the tool, of its inner workings and features you can view the [Teleporter Documentation]({{book.baseCommunityDoc}}/teleporter/Teleporter-Home.html).
 
 **NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.com/download/). **But beware**: in **Community Edition** you can migrate your source relational database but **you cannot enjoy the synchronize feature**, only available in the **Enterprise Edition**.
 
@@ -42,7 +42,7 @@ In the second step you have to specify all the parameters about the OrientDB tar
   - plocal
   - memory
 - `OrientDB Database Name`, as the name of the target database in OrientDB
-- `Strategy`, as the strategy adopted during the migration ([More]({{book.baseCommunityDoc}}/teleporter/Teleporter-Home.md) about strategies)
+- `Strategy`, as the strategy adopted during the migration ([More]({{book.baseCommunityDoc}}/teleporter/Teleporter-Home.html) about strategies)
 - `Name Resolver`, as the basic name resolver to adopt during names' resolution
 - `Inheritance descriptor`, as the XML file's path. In this descriptor you can report all the info describing inheritance relationships present between the tables in the source database
 - `Log Level`, as the log level adopted by Teleporter during the migration. You can choose among: 
