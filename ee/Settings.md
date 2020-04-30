@@ -29,6 +29,6 @@ Here are listed all permissions for Enterprise Features with description.
 ![](./images/studio-settings-permissions.png)
 
 
-Those permissions can be configured in the OrientDB configuration file. See [here](../security/Se  rver-Security.md)
+Those permissions can be configured in the OrientDB configuration file. See [here]({{book.baseCommunityDoc}}/security/Server-Security.html)
 
 
