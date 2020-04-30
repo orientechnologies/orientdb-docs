@@ -12,7 +12,7 @@ This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more inf
 
 Enterprise Edition is a commercial product developed by OrientDB Ltd, the same company that lead the development of OrientDB Community Edition. [Download now the 45-days trial]({{book.enterpriseSite}}/#matrix).
 
-OrientDB Enterprise Edition is designed specifically for applications seeking a scalable, robust, and secure multi-model database. Its main goal is to save time and money on your OrientDB investment by reducing risk, cost, effort, and time invested in a business critical application. It includes all Community features plus professional enterprise tools such as support for [Query Profiler](./Server-Profiler.md), [Distributed Clustering](./Cluster-Management.md) configuration, [Auditing Tools](./Security.md), [Metrics recording](./Server-Management.md), [Non-Stop Incremental Backups](./Backup-Management.md), [Teleporter](./Teleporter.md) to import data from any Relational DBMS.
+OrientDB Enterprise Edition is designed specifically for applications seeking a scalable, robust, and secure multi-model database. Its main goal is to save time and money on your OrientDB investment by reducing risk, cost, effort, and time invested in a business critical application. It includes all Community features plus professional enterprise tools such as support for [Query Profiler](./ee/Server-Profiler.md), [Distributed Clustering](./ee/Cluster-Management.md) configuration, [Auditing Tools](./ee/Security.md), [Metrics recording](./ee/Server-Management.md), [Non-Stop Incremental Backups](./ee/Backup-Management.md), [Teleporter](./ee/Teleporter.md) to import data from any Relational DBMS.
 
 
 ### Installation
