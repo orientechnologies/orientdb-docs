@@ -98,7 +98,7 @@ Each authenticator object supports at least three properties: "name", "class", a
 
 |Property|Description|
 |--------|-----------|
-|"name"|The "name" property must be unique among the authenticators and can be used by other security components to reference which authenticator is used to authenticate a service.  As an example, the OLDAPImporter component may specify an "authenticator" to use and it must correspond to the "name" property.|
+|"name"|The "name" property must be unique among the authenticators and can be used by other security components to reference which authenticator is used to authenticate a service.|
 |"class"|The "class" property defines which authenticator component is instantiated for the security authenticator.  The available authenticators are: ODefaultPasswordAuthenticator, OKerberosAuthenticator, OServerConfigAuthenticator, and OSystemUserAuthenticator.  All are described below.|
 |"enabled"|When set to true, the authenticator is used as part of the chain of authenticators.  If set to false, the authenticator is ignored.|
 
@@ -307,12 +307,12 @@ OrientDB provides a default OLDAPImporter component, and its properties are defi
 Each database object contains three properties: "database", "ignoreLocal", and "domains".  The "database" property is just the name of the OrientDB database.  The "ignoreLocal" property is an optional boolean property that defaults to true.  When true it indicates that existing users in the specified database will not be deleted if they are not present in the imported LDAP users list.  The "domains" property is described below.
 
 ##### "domains" 
-The "domains" property contains an array of objects, each with "domain", "servers", and "users" properties, and an optional "authenticator" property.
+The "domains" property contains an array of objects, each with "domain", "servers", and "users" properties, and an optional "authentication" property.
 
 |Property|Description|
 |--------|-----------|
 |"domain"|This property must be unique for each database object and is primarily used with the *_OLDAPUser* class within each OrientDB database.|
-|"authenticator"|The "authenticator" property specifies which of the authenticators should be used to communicate with the LDAP server.  If none is specified, then the primary authenticator is used.|
+|"authentication"|The "authentication" property specifies which authentication mechanism should be used to communicate with the LDAP server.  Two options are currently supported: "GSSAPI" and "Simple".  If none is specified, then "GSSAPI" (Kerberos) is used.|
 |"servers"|This property is an array of server objects, each specifying the URL of the LDAP server.  It is described below.|
 |"users"|This property is an array of user objects, each specifying the baseDN, filter, and roles to use for importing.  It is described below.|  
 
@@ -321,6 +321,8 @@ The "domains" property contains an array of objects, each with "domain", "server
 |--------|-----------|
 |"url"|This property specifies the LDAP server's URL.  (ldaps is supported.)|
 |"isAlias"|This is a boolean property.  When true, the hostname specified in the URL is treated as an alias, and the real address is queried followed by a reverse DNS lookup.  This is useful for a hostname that is an alias for multiple LDAP servers.  The "isAlias" property defaults to false and is not a mandatory property.|
+|"principal"|When "authentication" is set to "Simple", this specifies the principal (user) value to use.|
+|"credentials"|When "authentication" is set to "Simple", this specifies the credentials (password) value to use.|
 
 ###### "users"
 LDAP users are imported based on a starting location within the directory and filtered using a standard LDAP filter rule.
@@ -352,7 +354,7 @@ Here's an example of the "ldapImporter" property:
 			[
 				{
 					"domain"		: "ad.domain.com",
-					"authenticator" : "Kerberos",
+					"authentication" : "GSSAPI",
 					
 					"servers"	:
 					[
