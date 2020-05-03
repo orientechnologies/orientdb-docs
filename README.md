@@ -15,7 +15,7 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 |[First Steps](gettingstarted/Tutorial-Working-with-graphs.md) | [Inheritance](general/Inheritance.md) | [HTTP API](misc/OrientDB-REST.md) |
 |[Troubleshooting](misc/Troubleshooting.md) |[Security](security/Security.md)| [Java API](java/Java-API.md)|
 |[Enterprise Edition](ee/Enterprise-Edition.md)| [Indexes](indexing/Indexes.md) | [NodeJS](orientjs/OrientJS.md)|
-| | [ACID Transactions](internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
+|[Security Guide](security/OrientDB-Security-Guide.md)| [ACID Transactions](internals/Transactions.md) | [PHP](https://github.com/orientechnologies/PhpOrient) |
 | | [Functions](admin/Functions.md) | [Python](https://github.com/orientechnologies/pyorient)|
 | | [Caching Levels](internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
 | | [Common Use Cases](legacy/Use-Cases.md) | [Other Drivers](apis-and-drivers/README.md) |
