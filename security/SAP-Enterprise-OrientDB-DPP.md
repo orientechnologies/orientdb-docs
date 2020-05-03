@@ -25,7 +25,7 @@ One of the key principles of DPP is that there needs to be an explicit legal gro
 
 Providing the legal ground is not a technical topic but a process and legal topic that needs to be addressed independently from the technology. Therefore, those requirements do not translate into technical product requirements.
 
-
+|Requirement|Content|Comment|
 |---|---|---|
 |Consent|Where processing is based on the data subject's consent, the controller should be able to demonstrate that the data subject has given consent to the processing operation. (GDPR rec. 42, sentence 1.)|Not Applicable|
 |Contract|Processing should be lawful where it is necessary in the context of a contract or the intention to enter into a contract. (GDPR rec. 44)|Not Applicable|
