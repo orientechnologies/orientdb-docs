@@ -80,6 +80,8 @@ The parameter to edit is "allowedPackages".  Its value is a comma-separated list
 	</parameters>
 </handler>
 ```
+For more information see [JavaScript Functions](../admin/Functions-DB-Access.md)
+
 
 **SECURITY RECOMMENDATION**: Be careful which packages are allowed, as granting access to certain packages could compromise the system security.
 
@@ -87,14 +89,14 @@ The parameter to edit is "allowedPackages".  Its value is a comma-separated list
 
 It is not recommended to expose the OrientDB Web Server directly on the Internet or public networks.
 
-For more information on this and JSONP, cross-site requests, and clickjacking, see: [OrientDB Web Server Security](Web-Server.md).
+For more information on this and JSONP, cross-site requests, and clickjacking, see: [OrientDB Web Server Security](../internals/Web-Server.md).
 
 **SECURITY RECOMMENDATION**: Do not expose the OrientDB Web Server on the Internet or public networks.
 
 ### Enable Auditing (Enterprise Only) ###
 If you are using the Enterprise version of OrientDB, it is recommended to enable the auditing feature.
 
-For more information: [OrientDB Auditing](Auditing.md)
+For more information: [OrientDB Auditing](../ee/Auditing.md)
 
 **SECURITY RECOMMENDATION**: Enable the auditing capability.
 
@@ -110,4 +112,4 @@ More comprehensive information about OrientDB security can be found here:
 - [Server security](Server-Security.md)
 - [Database Encryption](Database-Encryption.md)
 - [Secure SSL connections](Using-SSL-with-OrientDB.md)
-- [OrientDB Web Server](Web-Server.md)
+- [OrientDB Web Server](../internals/Web-Server.md)
