@@ -7,13 +7,13 @@ search:
 
 |   |   |
 |---|---|
-|![](../images/warning.png)|Even thought OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
+|![](../images/warning.png)|Even though OrientDB Server is a regular Web Server, it is not recommended to expose it directly on the Internet or public networks. We suggest to always hide OrientDB server in a private network.|
 
 Global settings can be set at JVM startup (`java ... -D<setting>="<value>"`) or in `orientdb-server-config.xml` file under "properties" XML tag.
 
 ## Avoid exposing OrientDB Server to a public network
 
-By default, OrientDB listens to all the network interfaces (`0.0.0.0`). It's strongly suggested to do not open OrientDB server on public networks. To force OrientDB to bind only one network, please edit the file `config/orientdb-server-config.xml` file and replace `"0.0.0.0` with `127.0.0.1` if you want only locally clients can access to the server, or any other valid IP you want to publish OrientDB. This is the default configuration:
+By default, OrientDB listens to all the network interfaces (`0.0.0.0`). It's strongly suggested to not open OrientDB server on public networks. To force OrientDB to bind to only one network, please edit the file `config/orientdb-server-config.xml`.  Replace `"0.0.0.0` with `127.0.0.1` if you want only local clients to have access to the server or any other valid IP you want to publish OrientDB. This is the default configuration:
 
 ```xml
 <listeners>
@@ -33,11 +33,11 @@ To bind OrientDB server only to the local server, change it into:
 
 ## Maximum content length
 
-OrientDB by default allow request content of maximum 1MB. To change this limitation set the global configuration `network.http.maxLength` to the needed value.
+OrientDB by default allows a request content of maximum 1 MB. To change this limitation set the global configuration `network.http.maxLength` to the needed value.
 
 ## Charset
 
-OrientDB uses UTF-8 as default charset. To change it set the global configuration `network.http.charset`.
+OrientDB uses UTF-8 as the default charset. To change it set the global configuration `network.http.charset`.
 
 ## JSONP
 
@@ -45,7 +45,7 @@ JSONP is supported by OrientDB Web Server, but disabled by default. To enable it
 
 This is a global setting, so you can set it at JVM startup (`java ... -Dnetwork.http.jsonp=true`) or by setting it as property in `orientdb-server-config.xml` file under "properties" XML tag.
 
-## Cross site
+## Cross Site
 Cross site requests are disabled by default.
 
 To enable it, set a couple of additional headers in `orientdb-server-config.xml` under the HTTP listener XML tag:
@@ -65,7 +65,7 @@ This setting is also global, so you can set it at JVM startup (`java ... -Dnetwo
 
 Look also: [Clickjacking on WikiPedia](https://en.wikipedia.org/wiki/Clickjacking) and  [Clickjacking on OWASP](https://www.owasp.org/index.php/Clickjacking)
 
-OrientDB allows to disable Clickjacking by setting the additional header `X-FRAME-OPTIONS` to `DENY` in all the HTTP response. 
+You can disable clickjacking in OrientDB by setting the additional header `X-FRAME-OPTIONS` to `DENY` in all the HTTP responses. 
 
 To enable it, set a couple of additional headers in `orientdb-server-config.xml` under the HTTP listener XML tag:
 
