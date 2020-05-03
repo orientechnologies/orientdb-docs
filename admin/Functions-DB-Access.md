@@ -1,6 +1,6 @@
 ---
 search:
-   keywords: ['function', 'access', 'database access']
+   keywords: ['function', 'access', 'database access', 'sandbox']
 ---
 
 # Accessing the Database from a Function
@@ -11,9 +11,24 @@ When you create a function for OrientDB, it always binds the special variable `o
 |---|---|
 | `orient.getDatabase()` | Returns the current [document database](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html) instance. |
 
+
+For security reason starting from *OrientDB 3.0.29*, the usage of Java classes is forbidden by default, with a class filter implemented in the JS engine.
+To enable the access to classes or packages in your JS code change the `allowedPackages` field with comma separated packages or classes.
+
+```xml
+  <handler class="com.orientechnologies.orient.server.handler.OServerSideScriptInterpreter">
+    <parameters>
+      <parameter name="enabled" value="true" />
+      <parameter name="allowedLanguages" value="SQL" />
+       <!--  Comma separated packages  allowed in JS scripts eg. java.math.*, java.util.ArrayList -->
+      <parameter name="allowedPackages" value=""/>
+    </parameters>
+  </handler>
+```
+
 ## Executing Queries
 
-Queries are idempotent commands.  To execute a query from within a function, use the `query()` method.  For nstance,
+Queries are idempotent commands.  To execute a query from within a function, use the `query()` method.  For instance,
 
   ```javascript
   return orient.getDatabase().query("SELECT name FROM OUser");
@@ -43,7 +58,7 @@ The command returns an array of [`OElement`](../java/ref/OElement.md) objects
 
 ## Creating Repository Classes
 
-Functions provide an ideal place for developing the logic your application uses to access the database.  You can adopt a [Domain-driven design](http://en.wikipedia.org/wiki/Domain-driven_design) approach, allowing the function to work as a [repository](http://en.wikipedia.org/wiki/Domain-drven_design#Building_blocks_of_DDD), or as a [Data Access Object](http://en.wikipedia.org/wiki/Data_access_object).
+Functions provide an ideal place for developing the logic your application uses to access the database.  You can adopt a [Domain-driven design](http://en.wikipedia.org/wiki/Domain-driven_design) approach, allowing the function to work as a [repository](http://en.wikipedia.org/wiki/Domain-drven_design#Building_blocks_of_DDD) or as a [Data Access Object](http://en.wikipedia.org/wiki/Data_access_object).
 
 This provides a thin (or thick, if you prefer) layer of encapsulation which may protect you from database changes.
 
