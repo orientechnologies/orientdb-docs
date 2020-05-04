@@ -17,6 +17,7 @@ The following is a list of recommended suggestions for improving the security of
 - Configure The JavaScript Sandbox
 - Avoid Exposing The OrientDB Server To A Public Network
 - Enable Auditing (Enterprise Only)
+- Validate Plug-Ins
 
 ### Default Users and Roles ###
 By default, when a new database is created, three default roles and their respective users are created.
@@ -99,6 +100,11 @@ If you are using the Enterprise version of OrientDB, it is recommended to enable
 For more information: [OrientDB Auditing](../ee/Auditing.md)
 
 **SECURITY RECOMMENDATION**: Enable the auditing capability.
+
+### Validate Plug-Ins ###
+Since OrientDB supports both static and dynamic plug-ins, which have total access to the entire system, it is recommended to validate the installed plug-ins for authenticity and to limit write access to the *plugins* directory.
+
+**SECURITY RECOMMENDATION**: Validate installed plug-ins.
 
 ## Data Protection and Privacy ##
 See [SAP Enterprise OrientDB Data Protection and Privacy Approach for Products](SAP-Enterprise-OrientDB-DPP.md).
