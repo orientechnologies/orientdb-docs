@@ -804,6 +804,8 @@
 ## ADVANCED TOPICS
  
 * [Security](security/Security.md) 
+  * [OrientDB Security Guide](security/OrientDB-Security-Guide.md)
+  * [OrientDB Data Protection and Privacy](security/SAP-Enterprise-OrientDB-DPP.md)
   * [Database security](security/Database-Security.md) 
   * [Server security](security/Server-Security.md)
   * [Database encryption](security/Database-Encryption.md) 
