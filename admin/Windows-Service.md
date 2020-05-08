@@ -8,6 +8,8 @@ search:
 OrientDB is a Java server application. As most server applications, they have to perform several tasks, before being able to shut down the Virtual Machine process, hence they need a portable way to be notified of the imminent Virtual Machine shutdown.
 At the moment, the only way to properly shut down an OrientDB server instance (not embedded) is to execute the *shutdown.bat* (or *shutdown.sh*) script shipped with the OrientDB distribution, but it's up to the user to take care of this. This implies that the server instance isn't  stopped correctly, when the computer on which it is deployed, is shut down without executing the above script.
 
+**IMPORTANT** Note that you need to start the OrientDB server once manually via `server.bat` in %ORIENTDB_HOME%\bin once, before starting the service.
+
 
 ## Apache Commons Daemon
 
@@ -21,7 +23,7 @@ This tutorial is focused on Windows, so you have to download *procrun*. [Procrun
 1. Point you browser to the [Apache Commons Daemon download page](http://commons.apache.org/daemon/download_daemon.cgi).
 1. Click on **Browse native binaries download area...**: you will see the index **commons/daemon/binaries/** (even if the title in the page reports **Index of dist/commons**).
 1. Click on **windows**. Now you can see the index of **commons/daemon/binaries/windows**.
-1. Click on **commons-daemon-1.0.7-bin-windows.zip**. The download starts.
+1. Click on **commons-daemon-x.x.x-bin-windows.zip**. The download starts.
 1. Unzip the file in a directory of your choice.
 The content of the archive is depicted below:
 
@@ -46,8 +48,6 @@ commons-daemon-1.0.7-bin-windows
 |
 \---RELEASE-NOTES.txt
 ```
-
-If version 1.0.15 is not listed, check [Apache Commons Daemon Windows download page](https://archive.apache.org/dist/commons/daemon/binaries/windows/) directly.
 
 **prunmgr** is a GUI application for monitoring and configuring Windows services wrapped with procrun. **prunsrv** is a service application for running applications as services. It can convert any application (not just Java applications) to run as a service. The directory **amd64** contains a version of **prunsrv** for x86-64 machines while the directory **ia64** contains a version of **prunsrv** for Itanium 64 machines.
 
@@ -90,7 +90,7 @@ set ORIENTDB_SETTINGS=-Dprofiler.enabled=true -Dcache.level1.enabled=false -Dcac
 set JAVA_OPTS_SCRIPT=-XX:+HeapDumpOnOutOfMemoryError
 
 rem Install service
-OrientDBGraphX.X.X.exe //IS --DisplayName="OrientDB GraphEd X.X.X" ^
+OrientDBGraph.exe //IS --DisplayName="OrientDB GraphEd" ^
 --Description="OrientDB Graph Edition, aka GraphEd, contains OrientDB server integrated with the latest release of the TinkerPop Open Source technology stack supporting property graph data model." ^
 --StartClass=com.orientechnologies.orient.server.OServerMain --StopClass=com.orientechnologies.orient.server.OServerShutdownMain ^
 --Classpath="%ORIENTDB_HOME%\lib\*" --JvmOptions=-Dfile.encoding=%ORIENTDB_ENCODING%;-Djava.util.logging.config.file="%LOG_FILE%";-Dorientdb.config.file="%CONFIG_FILE%";-Dorientdb.www.path="%WWW_PATH%";-Dlog.console.level=%LOG_CONSOLE_LEVEL%;-Dlog.file.level=%LOG_FILE_LEVEL%;-Dorientdb.build.number="@BUILD@";-DORIENTDB_HOME="%ORIENTDB_HOME%" ^
