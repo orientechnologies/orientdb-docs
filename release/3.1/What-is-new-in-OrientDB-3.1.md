@@ -67,10 +67,6 @@ OSequenceLibrary sequences = db.getMetadata().getSequenceLibrary();
 sequences.createSequence("mySeq", OSequence.SEQUENCE_TYPE.ORDERED, params);
 ```
 
-### Improved serializer
-
-With OrientDB v 3.1 new record serializer is introduced. New serializer reduces size of record stored on physical device, and hence it increases query processing speed.
-
 
 ### Enterprise Profiler
 
@@ -95,6 +91,7 @@ It also provide out of the box different reporting output like REST APIS, JMX, C
 - WAL - all segments of WAL have an equal size which fixes the issue with disk overflow in case of long-running transactions. - New option storage.wal.keepSingleSegment (false by default) is introduced to drastically decrease restore time after the crash.
 - Shadow copy strategy was implemented on-disk cache level to improve storage durability.
 - Write disk cache uses asynchronous IO during file writes to improve write throughput by leveraging parallelization potential of SSDs  and decrease latency during write throughputs.
+- With OrientDB v 3.1 new record serializer is introduced. New serializer reduces size of record stored on physical device, and hence it increases query processing speed.
 
 
 ### Transparent Data Encryption
