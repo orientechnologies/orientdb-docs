@@ -89,5 +89,14 @@ It can be configured via REST APIs or via Studio  provide insights like:
 
 It also provide out of the box different reporting output like REST APIS, JMX, CSV files and a prometheus compatible HTTP endpoint.
 
+### Storage Improvements
+
+- Indexes - Speed of queries with limit key works provided was improved.
+- WAL - all segments of WAL have an equal size which fixes the issue with disk overflow in case of long-running transactions. - New option storage.wal.keepSingleSegment (false by default) is introduced to drastically decrease restore time after the crash.
+- Shadow copy strategy was implemented on-disk cache level to improve storage durability.
+- Write disk cache uses asynchronous IO during file writes to improve write throughput by leveraging parallelization potential of SSDs  and decrease latency during write throughputs.
 
 
+### Transparent Data Encryption
+
+AES encryption was introduced on file system level both for data files, WAL and incremental backups.
