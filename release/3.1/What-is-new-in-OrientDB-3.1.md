@@ -100,3 +100,15 @@ It also provide out of the box different reporting output like REST APIS, JMX, C
 ### Transparent Data Encryption
 
 AES encryption was introduced on file system level both for data files, WAL and incremental backups.
+
+### Predicate-based Security
+
+A new security model based on Security Policies and SQL predicates was introduced in this version.
+
+SQL predicates are used as per-record conditions to define if a single user/role can create/read/update/delete some specific information.
+
+Security poilicies can be applied at record level or at property level, ie. it's possible to create horizontal partitions (a single user can or cannot see a subset of the records in a class) or vertical partitions (a single user can or cannot see a subset of the properties of certain records)
+
+Complete documentation [here](../../security/Database-Security.md)
+
+See also [Create Security Policy](../../sql/SQL-Create-Security-Policy.html), [Alter Security Policy](../../sql/SQL-Alter-Security-Policy.html)
