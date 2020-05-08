@@ -111,4 +111,4 @@ Security poilicies can be applied at record level or at property level, ie. it's
 
 Complete documentation [here](../../security/Database-Security.md)
 
-See also [Create Security Policy](../../sql/SQL-Create-Security-Policy.html), [Alter Security Policy](../../sql/SQL-Alter-Security-Policy.html)
+See also [Create Security Policy](../../sql/SQL-Create-Security-Policy.md), [Alter Security Policy](../../sql/SQL-Alter-Security-Policy.md)
