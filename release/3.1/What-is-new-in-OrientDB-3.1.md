@@ -109,6 +109,6 @@ SQL predicates are used as per-record conditions to define if a single user/role
 
 Security poilicies can be applied at record level or at property level, ie. it's possible to create horizontal partitions (a single user can or cannot see a subset of the records in a class) or vertical partitions (a single user can or cannot see a subset of the properties of certain records)
 
-Complete documentation [here](../../security/Database-Security.md)
+Complete Predicate Security documentation can be found [here](../../security/Database-Security.md)
 
 See also [Create Security Policy](../../sql/SQL-Create-Security-Policy.md), [Alter Security Policy](../../sql/SQL-Alter-Security-Policy.md)
