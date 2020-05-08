@@ -18,9 +18,9 @@ SELECT FROM Managers WHERE name = 'John'
 
 ### Pessimistic locking
 
-Since OrientDB v 3.1 we are reviving the perssimistic locking, introducing a new API.
+Since OrientDB v 3.1 we are reviving the pessimistic locking, introducing a new API.
 
-now you can do:
+Now you can do:
 
 ```java
 // NoTx locking
@@ -36,7 +36,7 @@ ODatabaseSession session = //....
 session.begin();
 OElement record = session.lock(id);
 record.save(record);
-session.commit(); // The commit unlock all the lock acquired during the transaction. 
+session.commit(); // The commit unlocks the lock acquired during the transaction. 
 ```
 
 ### Distributed Architecture
@@ -48,18 +48,18 @@ The complete redesign of the distributed transaction model removes some legacy c
 
 The replication model is now based on record delta changes, this optimizes the intra-node networking and improves the overall distributed transaction performance. 
 
-Also tree ridbags are now supported in a distributed configuration, removing the previous limitations that forced to use embedded ridbags (not efficient, in particular in case of supernodes).
+Also tree ridbags are now supported in a distributed configuration, removing the previous limitations that forced using embedded ridbags (not efficient, in particular in case of supernodes).
 
-For database syncronization (cold start and HA scenarios), a new and more reliable Delta Sync protocol is now available.
+For database synchronization (cold start and HA scenarios), a new and more reliable Delta Sync protocol is now available.
 
 
 ### Enhancements to SEQUENCE component
 
-With OrientDB v 3.1  we enhanced sequences with following features:
+With OrientDB v 3.1  we enhanced sequences with the following features:
 
- * Sequences' upper and lower limit
- * Cyclic sequences (when limit is reached, sequence will restart from original start value)
- * Ascending and descending sequences
+ * Sequence Upper and Lower Limits
+ * Cyclic Sequences (when a limit is reached, the sequence will restart from the original start value)
+ * Ascending and Descending Sequences
 
 ```java
 OSequence.CreateParams params = new OSequence.CreateParams().setStart(0L).
@@ -74,9 +74,9 @@ sequences.createSequence("mySeq", OSequence.SEQUENCE_TYPE.ORDERED, params);
 
 ### Enterprise Profiler
 
-OrientDB v 3.1 Enterprise Edition ships a brand new monitoring module that replaces the old profiler, which however it's still working in 3.1 for backward compatibility. The new profiler allows a detailed view about statistics and status about OrientDB Server/Cluster, while adding minimum overhead.
+SAP Enterprise OrientDB 3.1 ships with a brand new monitoring module that replaces the old profiler.  (The old profiler is still available in 3.1 for backwards compatibility.)  The new profiler provides a detailed view about statistics and the status of the OrientDB Server/Cluster while adding minimal overhead.
 
-It can be configured via REST APIs or via Studio  provide insights like:
+It can be configured via REST APIs or via Studio and provides insights like:
 
 - CRUD Operations
 - Network Traffic 
@@ -87,20 +87,20 @@ It can be configured via REST APIs or via Studio  provide insights like:
 ..and more.
 
 
-It also provide out of the box different reporting output like REST APIS, JMX, CSV files and a prometheus compatible HTTP endpoint.
+It also provides out of the box reporting outputs like REST APIS, JMX, CSV files, and a prometheus compatible HTTP endpoint.
 
 ### Storage Improvements
 
-- Indexes - Speed of queries with limit key works provided was improved.
-- WAL - all segments of WAL have an equal size which fixes the issue with disk overflow in case of long-running transactions. - New option storage.wal.keepSingleSegment (false by default) is introduced to drastically decrease restore time after the crash.
-- Shadow copy strategy was implemented on-disk cache level to improve storage durability.
-- Write disk cache uses asynchronous IO during file writes to improve write throughput by leveraging parallelization potential of SSDs  and decrease latency during write throughputs.
-- With OrientDB v 3.1 new record serializer is introduced. New serializer reduces size of record stored on physical device, and hence it increases query processing speed.
+- Indexes - The speed of queries was improved with the limit keyword.
+- WAL - all segments of WAL have an equal size which fixes the issue with disk overflow in case of long-running transactions. - New option storage.wal.keepSingleSegment (false by default) is introduced to drastically decrease restoration time after the crash.
+- The shadow copy strategy was implemented in the on-disk cache level to improve storage durability.
+- The write disk cache uses asynchronous I/O during file writes to improve write throughput by leveraging parallelization potential of SSDs and decreases latency during write throughput.
+- A new record serializer is introduced that reduces the size of records stored on the physical device and consequently increases the query processing speed.
 
 
 ### Transparent Data Encryption
 
-AES encryption was introduced on file system level both for data files, WAL and incremental backups.
+AES encryption was introduced on the filesystem level for data files, WAL, and incremental backups.
 
 ### Predicate-based Security
 
@@ -108,7 +108,7 @@ A new security model based on Security Policies and SQL predicates was introduce
 
 SQL predicates are used as per-record conditions to define if a single user/role can create/read/update/delete some specific information.
 
-Security poilicies can be applied at record level or at property level, ie. it's possible to create horizontal partitions (a single user can or cannot see a subset of the records in a class) or vertical partitions (a single user can or cannot see a subset of the properties of certain records)
+Security policies can be applied at the record level or at the property level. I.e., it's possible to create horizontal partitions (a single user can or cannot see a subset of the records in a class) or vertical partitions (a single user can or cannot see a subset of the properties of certain records).
 
 Complete Predicate Security documentation can be found [here](../../security/Database-Security.md)
 
