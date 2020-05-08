@@ -7,7 +7,10 @@ search:
 
 When you finish installing OrientDB, whether you build it from source or download the binary package, you are ready to launch the database server.  You can either start it through the system daemon or through the provided server script.  This article only covers the latter.
 
->**Note**: If you would like to run OrientDB as a service on your system, there are some additional steps that you need to take.  This provides alternate methods for starting the server and allows you to launch it as a daemon when your system boots.  For more information on this process see:
+>**Note**: If you would like to run OrientDB as a service on your system, there are some additional steps that you need to take.  This provides alternate methods for starting the server and allows you to launch it as a daemon when your system boots.  
+Note that you need to start the OrientDB server once manually via server.sh|bat in %ORIENTDB_HOME%\bin once, before starting the service.
+
+For more information on this process see:
 >
 >- [Install OrientDB as a Service on Unix, Linux and Mac OS X](../admin/Unix-Service.md)
 >- [Install OrientDB as a Service on Microsoft Windows](../admin/Windows-Service.md)
