@@ -234,7 +234,7 @@ orientdb> <code class="lang-sql userinput">GRANT POLICY cannotRead ON database.c
 
 
 
-## Record-level Security (DEPRECATED in v 3.1)
+### Record-level Security (DEPRECATED in v 3.1)
 
 > IMPORTANT: In v 3.1 the record level security is replaced by Predicate Security (see below).
 
