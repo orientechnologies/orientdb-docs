@@ -74,7 +74,7 @@ With OrientDB v 3.1 new record serializer is introduced. New serializer reduces 
 
 ### Enterprise Profiler
 
-OrientDB v 3.1 Enterprise Edition ships a brand new monitoring module that will replace the old profiler, which however it's still working in 3.1 for backward compatibility. The new profiler allows a detailed view about statistics and status about OrientDB Server/Cluster, while adding minimum overhead.
+OrientDB v 3.1 Enterprise Edition ships a brand new monitoring module that replaces the old profiler, which however it's still working in 3.1 for backward compatibility. The new profiler allows a detailed view about statistics and status about OrientDB Server/Cluster, while adding minimum overhead.
 
 It can be configured via REST APIs or via Studio  provide insights like:
 
