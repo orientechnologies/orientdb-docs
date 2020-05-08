@@ -46,7 +46,11 @@ In particular, the new distributed coordination algorithms remove the limitation
 
 The complete redesign of the distributed transaction model removes some legacy components and makes the behavior more predictable. This results in easier maintainability and improved stability.
 
-The new distributed components are still under development and they are disabled by default in v 3.1.0-M1. You can enable them setting `OGlobalConfiguration.DISTRIBUTED_REPLICATION_PROTOCOL_VERSION` (`distributed.replicationProtocol.version`) value to `2`
+The replication model is now based on record delta changes, this optimizes the intra-node networking and improves the overall distributed transaction performance. 
+
+Also tree ridbags are now supported in a distributed configuration, removing the previous limitations that forced to use embedded ridbags (not efficient, in particular in case of supernodes).
+
+For database syncronization (cold start and HA scenarios), a new and more reliable Delta Sync protocol is now available.
 
 
 ### Enhancements to SEQUENCE component
