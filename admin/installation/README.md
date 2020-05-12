@@ -20,7 +20,7 @@ If you have Docker installed in your computer, this is the easiest way to run Or
 
 Where instead of "root", type the root's password you want to use.
 
-More details on how to build your own OrientDB Docker image can be found [here](Docker-Home.md)
+More details on how to build your own OrientDB Docker image can be found [here](../Docker-Home.md)
 
 ## Use Ansible
 
