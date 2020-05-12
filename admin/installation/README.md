@@ -11,6 +11,18 @@ OrientDB Community Edition is available as a binary package for [download](http:
  
 OrientDB prerequisites can be found [here](../admin/installation/Prerequisites.md).
 
+## Binary Installation
+
+OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
+
+On server installations, you can use the `wget` utility:
+
+<pre><code class="lang-sh">$ wget {{book.CE_link}} -O {{book.CE_name}}-{{book.lastGA}}.tar.gz</code></pre>	
+
+Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called orientdb-community-{{book.lastGA}} with relevant files and scripts, which you will need to run OrientDB on your system.
+
+
+
 ## Use Docker
 
 If you have Docker installed in your computer, this is the easiest way to run OrientDB. From the command line type:
@@ -74,16 +86,6 @@ In this example, we provision a two node cluster using multicast discovery mode.
 **Run the playbook**
 `ansible-playbook -i inventory playbook.yml`
 
-
-## Binary Installation
-
-OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
-
-On server installations, you can use the `wget` utility:
-
-<pre><code class="lang-sh">$ wget {{book.CE_link}} -O {{book.CE_name}}-{{book.lastGA}}.tar.gz</code></pre>	
-
-Whether you use your web browser or `wget`, unzip or extract the downloaded file into a directory convenient for your use, (for example, `/opt/orientdb/` on Linux).  This creates a directory called orientdb-community-{{book.lastGA}} with relevant files and scripts, which you will need to run OrientDB on your system.
 
 
 ## Source Code Installation
