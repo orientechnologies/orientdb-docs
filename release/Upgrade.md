@@ -13,12 +13,13 @@ Here are the meanings of the increments:
 - MINOR version entails functionality in a backward-compatible manner
 - PATCH version entails backward-compatible bug fixes.
 
-So between PATCH versions, the compatibility is assured (example 2.1.0 -> 2.1.8). Between MINOR and MAJOR versions, you may need to export and re-import the database. To find out if your upgrade must be done over exporting and importing the database, see below in the column "Database":
+So between PATCH versions, the compatibility is assured (example 2.1.0 -> 2.1.8). Between MINOR and MAJOR versions, you may need to export and re-import the database. To find out if your upgrade must be done over exporting and [importing the database](../admin/Export-to-and-Import-from-JSON.md), see below in the column "Database":
 
 ## Compatibility Matrix
 
 | FROM |TO | Guide | Blueprints | Database |Binary Protocol|HTTP Protocol|
 |-----|----|------------|----------|--------|-----------|-----------|----------|----------|---|
+| 3.0.x | 3.1.x | no |              |  |   | |
 | 2.2.x | 3.0.x | [Docs](3.0/Upgrading-to-OrientDB-3.0.md) |              |  |   | |
 | 2.1.x | 2.2.x | REFACTOR-TODO | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 34 |10|
 | 2.0.x | 2.1.x | REFACTOR-TODO | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 30 |10|
