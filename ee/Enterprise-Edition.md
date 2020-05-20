@@ -43,4 +43,7 @@ Explore the Enterprise Edition features:
 
 See here for the documentation of the new [Metrics](./Profiler.md) module.
 
+## Accessing the dashboards from Studio
+
+To access the Enterprise features from OrientDB Studio, from the login page, click on `SERVER MANAGEMENT` (top right corner) and enter root username and password
 
