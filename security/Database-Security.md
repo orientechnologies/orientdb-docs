@@ -199,7 +199,7 @@ orientdb> <code class='lang-sql userinput'>ALTER CLASS V SUPERCLASS ORestricted<
 orientdb> <code class="lang-sql userinput">ALTER CLASS E SUPERCLASS ORestricted</code>
 </pre>
 
-This causes all vertices and edges to inherit the record-level security.  Beginning with version 2.1, OrientDB allows you to use multiple inheritances, to cause only certain vertex or edge calsses to be restricted.  
+This causes all vertices and edges to inherit the record-level security.  Beginning with version 2.1, OrientDB allows you to use multiple inheritances, to cause only certain vertex or edge classes to be restricted.  
 
 <pre>
 orientdb> <code class="lang-sql userinput">CREATE CLASS Order EXTENDS V, ORestricted</code>
