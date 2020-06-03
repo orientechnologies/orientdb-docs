@@ -27,11 +27,19 @@ So between PATCH versions, the compatibility is assured (example 2.1.0 -> 2.1.8)
 
 ## Instructions
 
-The easiest way to upgrade a database from one version of OrientDB to the next is to plan ahead for future upgrades from the beginning.
+There are two possible scenarios:
+
+- upgrade to a new hotfix release (eg. from 3.0.10 to 3.0.11)
+- upgrade to a new major/minor release (eg. from 3.0.31 to 3.1.0)
+
+For major/minor release upgrades, please refer to the docs linked in the above table.
+
+For hotfix upgrades, the easiest way to upgrade OrientDB is to plan ahead for future upgrades from the beginning.
 
 The recommended strategy is to store databases separately from the OrientDB installation, often on a separate data volume.
 
 As an example, you might have a data volume, called `/data`, with a `databases` directory under that where all of your database directories will be stored. 
+
 
 ```
 /data/databases:
