@@ -34,7 +34,18 @@ If you'd like to contribute to OrientDB with a patch follow the following steps:
 If you want to contribute to the OrientDB documentation, the right repository is: https://github.com/orientechnologies/orientdb-docs. Every 24-48 hours all the contributions are reviewed and published on the public [documentation](http://orientdb.com/docs/last/).
 
 ## Code formatting
-You can find eclipse java formatter config file here: [_base/ide/eclipse-formatter.xml](https://github.com/orientechnologies/orientdb/blob/master/_base/ide/eclipse-formatter.xml).
+
+### v 3.1 and following
+
+Since v 3.1, OrientDB uses Google code formatter. 
+
+In IntelliJ Idea, you can use this plugin https://plugins.jetbrains.com/plugin/8527-google-java-format
+
+From Maven, you can run `mvn com.coveo:fmt-maven-plugin:format` for automatic code format. 
+
+### v 3.0 and previous releases
+
+For previus versions (until 3.0) you can use eclipse java formatter config file, that you can find here: [_base/ide/eclipse-formatter.xml](https://github.com/orientechnologies/orientdb/blob/master/_base/ide/eclipse-formatter.xml).
 
 If you use IntelliJ IDEA you can install [this](http://plugins.jetbrains.com/plugin/?id=6546) plugin and use formatter profile mentioned above.
 
