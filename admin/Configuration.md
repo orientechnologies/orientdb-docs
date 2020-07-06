@@ -1666,7 +1666,8 @@ Set at run-time: false
 
 ##### command.timeout
 
-Default timeout for commands (in ms).
+Default timeout for commands (in ms). Maximum number of milliseconds before a command is aborted.
+Its usage is limited to the legacy SQL executor (versions previous to 3.0); in v 3.0 and following, please use per-query TIMEOUT option (SQL).
 
 ```
 Setting name...: command.timeout
