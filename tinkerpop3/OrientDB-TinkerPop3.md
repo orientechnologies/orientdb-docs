@@ -412,7 +412,7 @@ bin/gremlin-server.sh -i com.orientechnologies orientdb-gremlin ${version}
 #### OrientDB Gremlin Server configuration
 
 
-YAML configuration example
+YAML configuration example (save as `gremlin-server.yaml`)
 
 ```
 host: localhost
@@ -454,8 +454,7 @@ ssl: {
 
 ```
 
-
-Graph Configuration properties example
+Graph Configuration properties example (e.g. save as `orientdb-empty.properties`. It has to be the one referenced in the `gremlin-server.yaml` file)
 
 ```
 gremlin.graph=org.apache.tinkerpop.gremlin.orientdb.OrientFactory
