@@ -463,6 +463,7 @@ orient-user=admin
 orient-pass=admin
 ```
 
+>**Note**: currently `https://mvnrepository.com/artifact/com.github.jnr/jffi/1.2.23` is missing. Download and add to `lib` or `plugins` folder.
 
 
 ## OrientDB TinkerPop Graph API
