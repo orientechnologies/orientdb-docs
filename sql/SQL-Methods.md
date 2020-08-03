@@ -73,7 +73,7 @@ SELECT FROM Profile WHERE '+39' IN contacts[phone].left(3)
 
 Get the first 10 tags of posts:
 ```sql
-SELECT FROM tags[0-9] FROM Posts
+SELECT FROM tags[0..9] FROM Posts
 ```
 
 #### History
