@@ -116,7 +116,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td rowspan="2">
-        <center><a href="https://en.wikipedia.org/wiki/C_%28programming_language%29"><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/The_C_Programming_Language%2C_First_Edition_Cover_%282%29.svg" alt="C" height="50px"/></a></center>
+        <center><a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C/C++</a></center>
     </td>
     <td><a href="http://github.com/tglman/orientdb-c">OrientDB-C</a></td>
     <td>Binary</td>
