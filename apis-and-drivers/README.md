@@ -79,7 +79,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td>
-        <center><a href="http://www.microsoft.com"><img src="http://i.microsoft.com/net/images/chrome/net_logo.jpg" alt=".Net" height="50px"/></a></center>
+        <center><a href="http://www.microsoft.com"></a></center>
     </td>
     <td><a href="https://github.com/orientechnologies/OrientDB-NET.binary">.NET driver for OrientDB</a></td>
     <td>Binary</td>
@@ -130,7 +130,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td rowspan="2">
-        <center><a href="http://en.wikipedia.org/wiki/JavaScript"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/150px-Unofficial_JavaScript_logo_2.svg.png" alt="JavaScript" height="50px"/></a></center>
+        <center><a href="http://en.wikipedia.org/wiki/JavaScript">Javascript</a></center>
     </td>
     <td><a href="https://github.com/orientechnologies/orientdb/wiki/Javascript-Driver">Javascript&nbsp;Driver</a></td>
     <td>HTTP</td>
@@ -168,7 +168,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td>
-        <center><a href="http://www.groovy-lang.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Groovy-logo.svg" alt="Groovy" height="30px"/></a></center>
+        <center><a href="http://www.groovy-lang.org/">Groovy</a></center>
     </td>
     <td><a href="https://github.com/eugene-kamenev/orientdb-groovy">OrientDB Groovy</a></td>
     <td>Java wrapper</td>
@@ -177,7 +177,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td rowspan="3">
-        <center><a href="https://en.wikipedia.org/wiki/Scala_%28programming_language%29"><img src="https://upload.wikimedia.org/wikipedia/en/8/85/Scala_logo.png" alt="Scala" height="30px"/></a></center>
+        <center><a href="https://en.wikipedia.org/wiki/Scala_%28programming_language%29">Scala</a></center>
     </td>
     <td>Any&nbsp;Java&nbsp;driver</td>
     <td>Native</td>
