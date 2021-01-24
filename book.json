@@ -63,7 +63,7 @@
       ]
     },
     "versions": {
-      "gitbookConfigURL": "https://raw.githubusercontent.com/orientechnologies/orientdb-docs/3.0.x/book.json",
+      "gitbookConfigURL": "https://raw.githubusercontent.com/orientechnologies/orientdb-docs/3.1.x/book.json",
 			"type": "branches",
       "includeFilepath": true,
       "options": [
