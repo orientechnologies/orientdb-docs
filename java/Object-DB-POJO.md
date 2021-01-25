@@ -30,7 +30,7 @@ public class Person {
 }
 OrientDBObject orientDB = new OrientDBObject("remote:localhost",OrientDBConfig.defaultConfig());
 
-ODatabaseObject db = orientDB.open("petshop",admin", "admin_passwd");
+ODatabaseObject db = orientDB.open("petshop","admin", "admin_passwd");
 
 db.getEntityManager().registerEntityClass(Person.class);
 
