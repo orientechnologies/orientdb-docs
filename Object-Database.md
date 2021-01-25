@@ -122,7 +122,7 @@ The search will find all the Account and Company documents that satisfy the quer
 
 # Use the database
 
-Before to use a database you need to open or create it:
+Before using a database you need to open or create it:
 ```java
 // CREATE AN IN MEMORY DATABASE
 OObjectDatabaseTx db1 = new OObjectDatabaseTx("memory:petshop").create();
@@ -131,7 +131,7 @@ OObjectDatabaseTx db1 = new OObjectDatabaseTx("memory:petshop").create();
 OObjectDatabaseTx db2 = new OObjectDatabaseTx("remote:localhost/petshop").open("admin", "admin");
 ```
 
-The database instance will share the connection versus the storage. if it's a local storage, then all the database instances will be synchronized on it. If it's a remote storage then the network connection will be shared among all the database instances.
+The database instance will share the connection versus the storage. If it's a local storage, then all the database instances will be synchronized on it. If it's a remote storage then the network connection will be shared among all the database instances.
 
 To get the reference to the current user use:
 ```java
