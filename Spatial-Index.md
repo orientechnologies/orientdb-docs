@@ -24,8 +24,6 @@ cp orientdb-spatial-{{book.lastGA}}-dist.jar /PATH/orientdb-community-{{book.las
 
 OrientDB will load the spatial plugin on startup.
 
-Orient db will load the spatial plugin on startup.
-
 ##Geometry Data
 
 OrientDB supports the following Geometry objects :
