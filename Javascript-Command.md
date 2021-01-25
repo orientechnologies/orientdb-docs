@@ -74,7 +74,8 @@ Type 'help' to display all the commands supported.
 orientdb> connect remote:localhost/demo admin admin
 Connecting to database [remote:localhost/demo] with user 'admin'...OK
 
-orientdb> jss;var r = db.query('select from ouser');print(r);r
+orientdb> jss;var r = db.query('select from ouser');print(r);r;end
+[Started multi-line command. Type just 'end' to finish and execute]
 
 ---+---------+--------------------+--------------------+--------------------+--------------------
   #| RID     |name                |password            |status              |roles
@@ -92,10 +93,11 @@ orientdb> exit
 
 The same example above is executed in batch mode:
 ```java
-$ ./console.sh "connect remote:localhost/demo admin admin;jss;var r = db.query('select from ouser');print(r);r;exit"
+$ ./console.sh "connect remote:localhost/demo admin admin;jss;var r = db.query('select from ouser');print(r);r;end;exit"
 OrientDB console v.1.0-SNAPSHOT (build 11761) www.orientechnologies.com
 Type 'help' to display all the commands supported.
 Connecting to database [remote:localhost/demo] with user 'admin'...OK
+[Started multi-line command. Type just 'end' to finish and execute]
 
 ---+---------+--------------------+--------------------+--------------------+--------------------
   #| RID     |name                |password            |status              |roles
@@ -112,7 +114,7 @@ Script executed in 0,099000 sec(s). Returned 3 records
 ### Insert 1000 records
 
 ```xml
-orientdb> js;for( i = 0; i < 1000; i++ ){ db.query( 'insert into jstest (label) values ("test'+i+'")' ); }
+orientdb> js;for( i = 0; i < 1000; i++ ){ db.command( 'insert into jstest (label) values ("test'+i+'")' ); };end
 ```
 
 ### Create documents using wrapped Java API
