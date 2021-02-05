@@ -75,7 +75,7 @@ And this pipeline (log is at `debug` level to show all the messages):
       "wal": false,
       "batchCommit": 1000,
       "dbType": "graph",
-      "classes": [{"name": "Account", "extends":"V"}, {"name": "Friend", "extends":"E"}, {"name": 'Enemy', "extends":"E"}],
+      "classes": [{"name": "Account", "extends":"V"}, {"name": "Friend", "extends":"E"}, {"name": "Enemy", "extends":"E"}],
       "indexes": [{"class":"Account", "fields":["id:integer"], "type":"UNIQUE_HASH_INDEX" }]
     }
   }
@@ -154,4 +154,4 @@ END ETL PROCESSOR
 
 Once ready, let's open the database with Studio and this is the result:
 
-![](http://www.orientechnologies.com/images/etl_imported_json.png)
+![](http://www.orientdb.com/images/etl_imported_json.png)
