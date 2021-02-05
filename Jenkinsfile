@@ -31,13 +31,13 @@ node {
 		    
 //	      withCredentials([usernamePassword(credentialsId: 'orientdb_website', passwordVariable: 'RSYNC_PASSWORD', usernameVariable: 'RSYNC_USERNAME')]) {
 //                  sh '''
-//               	      rsync -ratlz --stats --rsh="/usr/bin/sshpass -p ${RSYNC_PASSWORD} ssh -o StrictHostKeyChecking=no -l ${RSYNC_USERNAME}" orientdb-docs/_book/ orientdb.com:/home/orientdb/public_html/docs/3.1.x 
+//               	      rsync -ratlz --stats --rsh="/usr/bin/sshpass -p ${RSYNC_PASSWORD} ssh -o StrictHostKeyChecking=no -l ${RSYNC_USERNAME}" orientdb-docs/_book/ orientdb.com:/home/orientdb/public_html/docs/3.2.x 
 //                     '''
 //              }
 
 	      withCredentials([usernamePassword(credentialsId: 'orientdb_org_website', passwordVariable: 'RSYNC_PASSWORD', usernameVariable: 'RSYNC_USERNAME')]) {
                   sh '''
-               	      rsync -ratlz --stats --rsh="/usr/bin/sshpass -p ${RSYNC_PASSWORD} ssh -o StrictHostKeyChecking=no -l ${RSYNC_USERNAME}" orientdb-docs/_book/ orientdb.org:/home/orientdb/orientdb.org/docs/3.1.x  
+               	      rsync -ratlz --stats --rsh="/usr/bin/sshpass -p ${RSYNC_PASSWORD} ssh -o StrictHostKeyChecking=no -l ${RSYNC_USERNAME}" orientdb-docs/_book/ orientdb.org:/home/orientdb/orientdb.org/docs/3.2.x  
                      '''
               }
 	} catch(e) {
