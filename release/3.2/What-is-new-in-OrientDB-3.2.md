@@ -23,9 +23,8 @@ the roles `admin`, `writer`, `reader` are still created by default.
 If the creation of default users is enabled and you try to create a user called `admin`, the creation of that user will fail.
 The creation of default users can be disabled setting `CREATE_DEFAULT_USERS` to `false` as in:
 ```
-new OrientDB(
-            "...",
-            OrientDBConfig.builder()
+new OrientDB("...",
+             OrientDBConfig.builder()
                 .addConfig(OGlobalConfiguration.CREATE_DEFAULT_USERS, false)
                 .build());
 ```
