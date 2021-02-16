@@ -3,7 +3,7 @@
 
 ### TODO
 
-- Security enhancements (e.g. no default passwords)
+- Security enhancements (e.g. no default users / passwords)
 - Distributed stabilization
 - 3D-spatial support
 
