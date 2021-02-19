@@ -3,13 +3,13 @@
 
 ### TODO
 
-- Security enhancements (e.g. no default users / passwords)
+- Security enhancements (e.g. no default admin users / passwords)
 - Distributed stabilization
 - 3D-spatial support
 
 ## Security
 
-In OrientDB 3.2 it is possible in the multimodel API to provide an admin user with password, instead of using a default admin user.
+With the OrientDB 3.2 multimodel API it is possible to provide an `admin` user with password, instead of using a default admin user.
 ```java
 final OrientDB orientdb = ...;
 
