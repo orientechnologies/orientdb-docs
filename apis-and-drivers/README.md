@@ -238,7 +238,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td rowspan="1">
-        <center><a href="https://github.com/a8wright/plorient"><img src="http://www.webgranth.com/wp-content/uploads/2013/02/perl.jpg" alt="Android" height="50px"/></a></center>
+        <center><a href="https://github.com/a8wright/plorient">PERL</a></center>
     </td>
     <td><a href="https://github.com/a8wright/plorient">OrientDB Perl driver</a></td>
     <td>Binary</td>
