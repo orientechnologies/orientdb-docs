@@ -5,9 +5,9 @@ search:
 
 # Enterprise Edition
 
-This is the main guide on using <b>OrientDB Enterprise Edition</b>. For more information look at [OrientDB Enterprise Edition](http://orientdb.com/enterprise.htm).
+This is the main guide on using <b>OrientDB Enterprise Edition</b>. 
 
-Enterprise Edition is a commercial product developed by OrientDB Ltd, the same company that lead the development of OrientDB Community Edition. [Download now the 45-days trial](http://orientdb.com/orientdb-enterprise/#matrix).
+Enterprise Edition is a commercial product developed by SAP.
 
 OrientDB Enterprise Edition is designed specifically for applications seeking a scalable, robust, and secure multi-model database. Its main goal is to save time and money on your OrientDB investment by reducing risk, cost, effort, and time invested in a business critical application. It includes all Community features plus professional enterprise tools such as support for [Query Profiler](./Server-Profiler.md), [Distributed Clustering](./Cluster-Management.md) configuration, [Auditing Tools](./Security.md), [Metrics recording](../Server-Management.md), [Non-Stop Incremental Backups](./Backup-Management.md), [Teleporter](./Teleporter.md) to import data from any Relational DBMS.
 
