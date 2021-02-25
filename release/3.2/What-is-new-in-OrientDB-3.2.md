@@ -4,8 +4,9 @@
 ### TODO
 
 - Security enhancements (e.g. no default admin users / passwords)
-- Distributed stabilization
-- 3D-spatial support
+- Server-level Commands
+- Distributed enhancements and stabilization
+- GraalVM support
 
 ## Security
 
