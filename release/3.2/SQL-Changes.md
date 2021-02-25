@@ -1,6 +1,12 @@
 
 ## SQL Changes
 
-### VIEW related statements
+### Server-level Commands
 
-OrientDB v 3.1 includes Materialized Views as a new feature. OrientDB SQL language was estended to allow the creation and deletion of materialized views: see [CREATE VIEW](../../sql/SQL-Create-View.md) and  [DROP VIEW](../../sql/SQL-Drop-View.md) 
+In previous versions, you can run scripts (eg. SQL) on a single database connection, and the scripts are executed on the database itself. In OrientDB v 3.2 we extended the usage of scripts to the Server level.
+
+This adds a lot of new potential for both infrastructure management and querying.
+
+For now, we implemented some basic Server-level commands, like `CREATE/DROP DATABASE` and `CREATE SYSTEM USER`, but the infrastructure allows for potential future extensions al all the aspects of the server and data management.
+
+
