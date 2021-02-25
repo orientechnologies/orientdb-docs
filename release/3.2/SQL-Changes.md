@@ -10,3 +10,5 @@ This adds a lot of new potential for both infrastructure management and querying
 For now, we implemented some basic Server-level commands, like `CREATE/DROP DATABASE` and `CREATE SYSTEM USER`, but the infrastructure allows for potential future extensions al all the aspects of the server and data management.
 
 
+Server-level commands can be executed via navite API, via REST or via CLI
+
