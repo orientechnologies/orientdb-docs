@@ -8,7 +8,7 @@ Ready? Let's start!
 
 Download OrientDB from the following URL:
 
-[https://orientdb.com/download](https://orientdb.com/download)
+[https://orientdb.org/download](https://orientdb.org/download)
 
 Unzip it on your FileSystem and open a shell in the directory.
 
