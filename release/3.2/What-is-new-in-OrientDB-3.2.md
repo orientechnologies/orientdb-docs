@@ -51,7 +51,7 @@ The old defaults can be restored (for backward compatibility) by setting `-Dsecu
 ## Server-Level Commands
 
 In OrientDB v 3.2 we added some infrastructure to run commands at server level. 
-See [SQL Changes](SQL-Changes.md)
+See [SQL Changes](SQL-Changes.md) and [Server-Level Commands](../../serverlevel/README.md))
 
 ## Distributed enhancements and stabilization
 
