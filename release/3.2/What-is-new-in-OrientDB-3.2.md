@@ -50,19 +50,20 @@ The old defaults can be restored (for backward compatibility) by setting `-Dsecu
 
 ## Server-Level Commands
 
-TODO
+In OrientDB v 3.2 we added some infrastructure to run commands at server level. 
+See [SQL Changes](SQL-Changes.md)
 
 ## Distributed enhancements and stabilization
 
-- fixes
-- unique index by quorum
+In v 3.1.x, OrientDB clustering had a limitation related to indexing: UNIQUE indexes needed full agreement between the nodes (N ack out of N nodes) to perform a transaction.
+In v 3.2 we removed this limitation, now transactions that involve UNIQUE indexes have the same quorum as any other transaction (typically N/2 + 1) 
 
-TODO
+
 
 ## GraalVM support
 
-TODO
-
+After Nashorn was deprecated and then removed from the JVM (see [JSR 335](http://openjdk.java.net/jeps/335)), OrientDB needs an alternative for scripting.
+In v 3.2 we introduce support for [GraalVM](https://www.graalvm.org/) as a replacement for scripting capabilities 
 
 
 
