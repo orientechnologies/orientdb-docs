@@ -10,7 +10,13 @@
 
 ## Security
 
-With the OrientDB 3.2 multimodel API it is possible to provide an `admin` user with password, instead of using a default admin user.
+
+With the OrientDB 3.2 multimodel API some important changes were implemented on Database creation.
+The most important one is that basic database users (admin, reader, writer) are no longer created by default.
+This is the consequence of some considerations about Security: having default passwords (eg. admin/admin) is a bad practice
+and exposes OrientDB installations to possible attacks.
+
+Of course it's possible to explicitly trigger user creation and to provide a custom password, instead of using a default admin user.
 ```java
 final OrientDB orientdb = ...;
 
@@ -40,5 +46,9 @@ orientdb.execute("create database test plocal users (
             writer identified by by 'adminpwd' role writer)");
 final ODatabaseSession session = orientdb.open("test","admin", "adminpwd");
 ```
+
+From Studio, there is a new option that allows you to define the default admin password on the Database Create dialog.
+
+The old defaults can be restored (for backward compatibility) by setting `-Dsecurity.createDefaultUsers=true` at startup
 
 > Deprecated APIs like `ODatabaseDocumentTx` are not affected from that change.
