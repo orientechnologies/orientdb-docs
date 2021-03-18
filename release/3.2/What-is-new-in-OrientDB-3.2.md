@@ -1,12 +1,6 @@
 
 ## What's new in OrientDB 3.2?
 
-### TODO
-
-- Security enhancements (e.g. no default admin users / passwords)
-- Server-level Commands
-- Distributed enhancements and stabilization
-- GraalVM support
 
 ## Security
 
@@ -52,3 +46,23 @@ From Studio, there is a new option that allows you to define the default admin p
 The old defaults can be restored (for backward compatibility) by setting `-Dsecurity.createDefaultUsers=true` at startup
 
 > Deprecated APIs like `ODatabaseDocumentTx` are not affected from that change.
+> 
+
+## Server-Level Commands
+
+TODO
+
+## Distributed enhancements and stabilization
+
+- fixes
+- unique index by quorum
+
+TODO
+
+## GraalVM support
+
+TODO
+
+
+
+
