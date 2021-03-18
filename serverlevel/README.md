@@ -44,7 +44,7 @@ orientdb> create database test memory users (admin identified by 'admin' role ad
 
 From SERVER MANAGEMENT
 
-![Server Level Commands](../../images/server-level-commands.png)
+![Server Level Commands](../images/server-level-commands.png)
 
 ### Java API
 
