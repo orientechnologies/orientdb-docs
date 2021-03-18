@@ -216,6 +216,7 @@
             * [_Security Manager_ Panel](studio/working-with-users-roles/Studio-Security-Manager.md)
             * [Users Management](studio/working-with-users-roles/Studio-Users-Management.md)
             * [Roles Management](studio/working-with-users-roles/Studio-Roles-Management.md)
+    * [Server-Level Commands](serverlevel/README.md)             
     * [Teleporter](teleporter/Teleporter-Home.md) migration tool
         * [Installation and configuration](teleporter/Teleporter-Installation-and-Configuration.md)
         * [Execution strategies](teleporter/Teleporter-Execution-Strategies.md)
