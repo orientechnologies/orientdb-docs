@@ -58,6 +58,14 @@ See [SQL Changes](SQL-Changes.md) and [Server-Level Commands](../../serverlevel/
 In v 3.1.x, OrientDB clustering had a limitation related to indexing: UNIQUE indexes needed full agreement between the nodes (N ack out of N nodes) to perform a transaction.
 In v 3.2 we removed this limitation, now transactions that involve UNIQUE indexes have the same quorum as any other transaction (typically N/2 + 1) 
 
+## Console enhancements
+
+In previous versions there are some slight differences in the console when using a remote server or an embedded envorinment. 
+In v 3.2 the CLI interface was refactored to unify the management of embedded and remote environments
+
+see 
+ - [Connect Env](../../console/Console-Command-Connect-Env.md)
+ - [Open](../../console/Console-Command-Open.md)
 
 
 ## GraalVM support
