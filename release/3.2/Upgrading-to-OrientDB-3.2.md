@@ -7,6 +7,36 @@ Developing OrientDB 3.2 we put a lot of attention on maintaining backward compat
 
 Here is a list of the things you should know when migrating to v 3.2
 
+## Database Creation
+
+In OrientDB v 3.2, the creation of a new database does not automatically provide default users (admin, reader, writer). This choice is due to Security considerations: default users come with default passwords, that are a possible weakness in the server security if not promptly changed.
+
+A new database API is provided to create custom users at DB creation time:
+
+```
+Orientdb orientdb = ...;
+
+orientdb.execute("CREATE DATABASE foo plocal users(admin identified by 'adminpwd' role admin")
+```
+
+The old behaviour (ie. creating default users with default password) can be restore by setting the Global Configuraion option called `security.createDefaultUsers`:
+
+eg.
+
+```
+./server.sh -Dsecurity.createDefaultUsers=true
+```
+
+## Console 
+
+The console was adapted to include support to [Server-Level commands](../../serverlevel/README.md) and to allow the creation of databases without default users (see above).
+The old `create database` command had a complex behaviour: it created a DB with default users and then *connected* to that database using `admin` user and the default password. This is not possible anymore by default (default `admin` user does not exist anymore), so `create database` no longer connects to the DB. A backward compabtibility option is provided for this, setting the console configuration as follows:
+
+```
+orientdb> SET compatibilityLevel=0;
+```
+
+
 
 # Release notes
 
