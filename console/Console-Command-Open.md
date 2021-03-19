@@ -6,6 +6,8 @@ search:
 
 # Console - `OPEN`
 
+(since v 3.2)
+
 Opens a database.
 
 **Syntax**
