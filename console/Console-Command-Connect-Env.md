@@ -8,7 +8,8 @@ search:
 
 (since v 3.2)
 
-Opens a database.
+Connects the console to an OrientDB server or to an embedded environment.
+
 
 **Syntax**
 
