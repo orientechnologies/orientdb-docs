@@ -7,7 +7,7 @@ search:
 
 # Console - `CONNECT`
 
-(deprecated, see [CONNECT ENV](Console-Command-Connect-Env.md) and [OPEN](Console-Command-Open.md))
+> (deprecated, see [CONNECT ENV](Console-Command-Connect-Env.md) and [OPEN](Console-Command-Open.md))
 
 Opens a database or connects to a server.
 
