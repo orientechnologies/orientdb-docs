@@ -6,6 +6,8 @@ search:
 
 # Console - `CONNECT ENV`
 
+(since v 3.2)
+
 Opens a database.
 
 **Syntax**
