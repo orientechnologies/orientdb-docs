@@ -15,7 +15,8 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`CONFIG`](Console-Command-Config.md)|Displays the configuration where the opened database is located (local or remote)|
 |[`CONFIG GET`](Console-Command-Config-Get.md)|Returns a configuration value|
 |[`CONFIG SET`](Console-Command-Config-Set.md)|Set a configuration value|
-|[`CONNECT`](Console-Command-Connect.md)|Connects to a database|
+|[`CONNECT`](Console-Command-Connect.md)|Connects to a database (deprecated see OPEN)|
+|[`CONNECT ENV`](Console-Command-Connect-Env.md)|Connects to an OrientDB server/environment|
 |[`CREATE DATABASE`](Console-Command-Create-Database.md)|Creates a new database|
 |[`DECLARE INTENT`](Console-Command-Declare-Intent.md)|Declares an intent|
 |[`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md)|Displays all the keys in the database dictionary|
@@ -40,6 +41,7 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`LIST CONNECTIONS`](Console-Command-List-Connections.md)|List the available connections|
 |[`LOAD RECORD`](Console-Command-Load-Record.md)|Loads a record in memory and set it as the current one|
 |[`LOAD SCRIPT`](Console-Command-Load-Script.md)|Loads and executes a sql script|
+|[`OPEN`](Console-Command-Open.md)|Opens a database connection on the currently connected server/environment (see CONNECT ENV)|
 |[`PROFILER`](Console-Command-Profiler.md)|Controls the [Profiler](../tuning/Profiler.md)|
 |[`PROPERTIES`](Console-Command-Properties.md)|Returns all the configured properties|
 |`pwd`|Display current path|
