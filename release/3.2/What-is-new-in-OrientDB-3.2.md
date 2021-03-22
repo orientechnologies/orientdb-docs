@@ -56,7 +56,8 @@ See [SQL Changes](SQL-Changes.md) and [Server-Level Commands](../../serverlevel/
 ## Distributed enhancements and stabilization
 
 In v 3.1.x, OrientDB clustering had a limitation related to indexing: UNIQUE indexes needed full agreement between the nodes (N ack out of N nodes) to perform a transaction.
-In v 3.2 we removed this limitation, now transactions that involve UNIQUE indexes have the same quorum as any other transaction (typically N/2 + 1) 
+In v 3.2 we removed this limitation, now transactions that involve UNIQUE indexes have the same quorum as any other transaction (typically N/2 + 1).
+Hazelcast was updated to latest version.
 
 ## Console enhancements
 
@@ -72,6 +73,5 @@ see
 
 After Nashorn was deprecated and then removed from the JVM (see [JSR 335](http://openjdk.java.net/jeps/335)), OrientDB needs an alternative for scripting.
 In v 3.2 we introduce support for [GraalVM](https://www.graalvm.org/) as a replacement for scripting capabilities 
-
 
 
