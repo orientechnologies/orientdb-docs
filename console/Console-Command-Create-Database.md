@@ -7,9 +7,64 @@ search:
 
 # Console - `CREATE DATABASE`
 
+> WARNING: OrientDB v 3.2 includes some important changes to DB creation; in particular, default database users/passwords are not created anymore. The console command `CREATE DATABASE` had a specific behaviour that relied on default users: it created the database and THEN connected to the DB using admin/admin. This is not possible anymore, so we had to change the syntax AND the semantics of the command
+
 Creates and connects to a new database.
 
 **Syntax**
+
+```sql
+CREATE DATABASE <database-name> <storage-type> [users ( (<username> identified by <password> role <rolename>)* )]
+```
+
+- **`<database-name>`** Defines the name of the database you want to create.
+- **`<storage-type>`** Defines the storage type that you want to use.  You can choose between `PLOCAL` and `MEMORY`.
+- **`<username>`** The name of a user to create 
+- **`<password>`** The password of this newly created user
+- **`<rolename>`** The role name of this user
+
+
+
+**Examples**
+
+- Create a local database `demo` without default users:
+
+  <pre>
+  
+  orientdb> <code class="lang-sql userinput">CONNECT ENV embedded:/my/databases/dir root root</code>
+    
+  orientdb> <code class="lang-sql userinput">CREATE DATABASE demo plocal </code>
+
+  Database created successfully.
+  </pre>
+
+- Create a remote database `demo` without default users:
+
+  <pre>
+  
+  orientdb> <code class="lang-sql userinput">CONNECT ENV remote:localhost root root</code>
+    
+  orientdb> <code class="lang-sql userinput">CREATE DATABASE demo plocal </code>
+
+  Database created successfully.
+  </pre>
+
+
+- Create a remote database `demo` with an "admin" and a "reader" user:
+
+  <pre>
+  
+  orientdb> <code class="lang-sql userinput">CONNECT ENV remote:localhost root root</code>
+    
+  orientdb> <code class="lang-sql userinput">CREATE DATABASE demo plocal users (admin identified by 'MyAdminPassword' role admin, reader identified by 'MyReaderPw' role reader) </code>
+
+  Database created successfully.
+  </pre>
+
+
+**Old Syntax**
+
+(still compatible in v 3.2)
 
 ```sql
 CREATE DATABASE <database-url> [<user> <password> <storage-type> [<db-type>]] [-restore=<backup-path>]
