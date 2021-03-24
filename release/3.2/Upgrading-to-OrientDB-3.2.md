@@ -39,7 +39,7 @@ The new console interaction pattern involves connecting to the server/environmen
 A new `OPEN <database>` command was added to connect to an existing database in current server/environment (see [OPEN](../../console/Console-Command-Open.md))
 
 
-A backward compabtibility option is provided for this, setting the console configuration as follows:
+A backward compabtibility option is provided to allow execution of old console scripts; it can be enabled setting the console configuration as follows (this can just be added as the first row of the script):
 
 ```
 orientdb> SET compatibilityLevel=0;
