@@ -19,7 +19,7 @@ Orientdb orientdb = ...;
 orientdb.execute("CREATE DATABASE foo plocal users(admin identified by 'adminpwd' role admin")
 ```
 
-The old behaviour (ie. creating default users with default password) can be restore by setting the Global Configuraion option called `security.createDefaultUsers`:
+The old behaviour (ie. creating default users with default password) can be restored by setting the Global Configuraion option called `security.createDefaultUsers`:
 
 eg.
 
@@ -30,7 +30,16 @@ eg.
 ## Console 
 
 The console was adapted to include support to [Server-Level commands](../../serverlevel/README.md) and to allow the creation of databases without default users (see above).
-The old `create database` command had a complex behaviour: it created a DB with default users and then *connected* to that database using `admin` user and the default password. This is not possible anymore by default (default `admin` user does not exist anymore), so `create database` no longer connects to the DB. A backward compabtibility option is provided for this, setting the console configuration as follows:
+The old `create database` command had a complex behaviour: it created a DB with default users and then *connected* to that database using `admin` user and the default password. This is not possible anymore by default (default `admin` user does not exist anymore), so `create database` no longer connects to the DB. 
+
+The new console interaction pattern involves connecting to the server/environment (see [CONNECT ENV](../../console/Console-Command-Connect-Env.md)) and then execute server-level commands on it.
+
+`CREATE DATABASE` command was enhanced to accept default user names and password (see [CREATE DATABASE](../../console/Console-Command-Create-Database.md))
+
+A new `OPEN <database>` command was added to connect to an existing database in current server/environment (see [OPEN](../../console/Console-Command-Open.md))
+
+
+A backward compabtibility option is provided for this, setting the console configuration as follows:
 
 ```
 orientdb> SET compatibilityLevel=0;
