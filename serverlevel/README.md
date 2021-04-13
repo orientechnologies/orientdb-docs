@@ -20,7 +20,7 @@ At this stage, the following commands are supported
 - [DROP DATABASE](Drop-Database.md)
 - [CREATE SYSTEM USER](Create-System-User.md)
 - [ALTER SYSTEM USER](Alter-System-User.md)
-- [EXISTS SYSTEM USER](Exists-System-User.md)
+- [EXISTS SYSTEM ROLE](Exists-System-Role.md)
 
 ## How to invoke a Server-Level Command
 
