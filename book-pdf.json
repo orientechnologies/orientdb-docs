@@ -3,30 +3,30 @@
   "description": "OrientDB Documentation",
   "variables": {
     "CE_name": "orientdb-community",
-    "CE_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-3.1.7.tar.gz",
+    "CE_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-3.2.0.tar.gz",
     "TP2_name": "orientdb-community-tp2",
-    "TP2_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-3.1.7.tar.gz",
+    "TP2_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-3.2.0.tar.gz",
     "TP3_name": "orientdb-community-tp3",
-    "TP3_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-tp3-3.1.7.tar.gz",
+    "TP3_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-tp3-3.2.0.tar.gz",
     "TP3Spatial_name": "orientdb-community-spatial",
-    "TP3Spatial_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-tp3-3.1.7.tar.gz",
+    "TP3Spatial_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-tp3-3.2.0.tar.gz",
     "javadoc":"http://orientdb.com/javadoc/latest/",
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
-    "lastGA": "3.1.7",
-    "currentVersion": "3.1.7",
+    "lastGA": "3.2.0",
+    "currentVersion": "3.2.0",
     "demoDBVersion_screenshots": "0.76"
   },  
   "links": {
-    "home": "http://www.orientdb.com",
-    "about": "http://www.orientdb.com",
+    "home": "http://www.orientdb.org",
+    "about": "http://www.orientdb.org",
     "issues": "https://github.com/orientechnologies/orientdb/issues",
-    "contribute": "http://www.orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
+    "contribute": "http://www.orientdb.org/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
     "sharing": {
       "google": "https://plus.google.com/108716918285358206552/posts",
       "facebook": "https://www.facebook.com/groups/orientdb/",
       "twitter": "https://twitter.com/OrientDB",
       "gitter": "https://gitter.im/orientechnologies/orientdb",
-      "all": "https://www.orientdb.com"
+      "all": "https://www.orientdb.org"
     }
   },
   "pdf": {
