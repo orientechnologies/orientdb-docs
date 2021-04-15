@@ -3,26 +3,26 @@
   "description": "OrientDB Documentation",
   "variables": {
     "CE_name": "orientdb-community",
-    "CE_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-3.1.7.tar.gz",
+    "CE_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-3.2.0.tar.gz",
     "TP2_name": "orientdb-community-tp2",
-    "TP2_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-3.1.7.tar.gz",
+    "TP2_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-3.2.0.tar.gz",
     "TP3_name": "orientdb-community-tp3",
-    "TP3_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-tp3-3.1.7.tar.gz",
+    "TP3_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-tp3-3.2.0.tar.gz",
     "TP3Spatial_name": "orientdb-community-spatial",
-    "TP3Spatial_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.7/orientdb-tp3-3.1.7.tar.gz",
+    "TP3Spatial_link": "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-tp3-3.2.0.tar.gz",
     "javadoc":"http://orientdb.com/javadoc/latest/",
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
-    "lastGA": "3.1.7",
-    "currentVersion": "3.1.7",
+    "lastGA": "3.2.0",
+    "currentVersion": "3.2.0",
     "demoDBVersion_screenshots": "0.76",
 	"javase": "https://docs.oracle.com/javase/8/docs",
 	"javadoc": "https://orientdb.com/javadoc/develop"
   },
   "links": {
-    "home": "http://orientdb.com",
-    "about": "http://orientdb.com",
+    "home": "http://orientdb.org",
+    "about": "http://orientdb.org",
     "issues": "https://github.com/orientechnologies/orientdb/issues",
-    "contribute": "http://orientdb.com/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
+    "contribute": "http://orientdb.org/docs/last/orientdb.wiki/Contribute-to-OrientDB.html",
     "sharing": {
       "google": "https://plus.google.com/108716918285358206552/posts",
       "facebook": "https://www.facebook.com/groups/orientdb/",
@@ -68,19 +68,19 @@
       "includeFilepath": true,
       "options": [
         {
-          "value": "http://orientdb.com/docs/2.2.x",
+          "value": "http://orientdb.org/docs/2.2.x",
           "text": "Version 2.2.x"
         },
         {
-          "value": "http://orientdb.com/docs/3.0.x",
+          "value": "http://orientdb.org/docs/3.0.x",
           "text": "Version 3.0"
         },
         {
-          "value": "http://orientdb.com/docs/3.1.x",
+          "value": "http://orientdb.org/docs/3.1.x",
           "text": "Version 3.1"	
         },
         {
-          "value": "http://orientdb.com/docs/3.2.x",
+          "value": "http://orientdb.org/docs/3.2.x",
           "text": "Version 3.2",
           "selected": true		
         }
