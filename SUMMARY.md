@@ -222,7 +222,7 @@
         * [CREATE DATABASE](serverlevel/Create-Database.md)
         * [DROP DATABASE](serverlevel/Drop-Database.md)
         * [CREATE SYSTEM USER](serverlevel/Create-System-User.md)
-        * [ALTER SYSTEM USER](serverlevel/Alter-System-User.md)
+        * [ALTER SYSTEM ROLE](serverlevel/Alter-System-Role.md)
         * [EXISTS SYSTEM USER](serverlevel/Exists-System-User.md)
     * [Teleporter](teleporter/Teleporter-Home.md) migration tool
         * [Installation and configuration](teleporter/Teleporter-Installation-and-Configuration.md)
