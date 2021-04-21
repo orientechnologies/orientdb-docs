@@ -15,9 +15,11 @@ Unzip it on your FileSystem and open a shell in the directory.
 Now type 
 
 ```
-cd orientdb-3.0.0
+cd orientdb-3.2.0
 cd bin
 ```
+
+(change the first `cd` with the exact version you downloaded)
 
 and then, if you are on Linux/OSX, you can start the server with
 
