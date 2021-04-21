@@ -17,9 +17,11 @@ You will see this page:
 - enter "test" as database name 
 - enter the root password
 
-![StudioCreateDb](images/studio-create-database.png)
+![StudioCreateDb](images/studio-create-database-3.2.png)
 
 - Then click on "CREATE DATABASE"
+
+> IMPORTANT: In v 3.2 new databases are created without default db users (admin/reader/writer) to avoid possible vulnerabilities due to default passwords. In this dialog you can select "Create Admin user" and enter a custom admin password for this user.
 
 **Good job! You just created your first database!** 
 
