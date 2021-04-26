@@ -1,6 +1,12 @@
 
 # Upgrading to OrientDB 3.2
 
+## Binary formats
+
+When upgrading OrientDB to a newer major/minor version, we recommend to perform an export and import of the databases.
+Anyway, OrientDB guarantees binary format compatibility, so export/import is not striclty needed.
+
+
 ## General information
 
 Developing OrientDB 3.2 we put a lot of attention on maintaining backward compatibility with v 3.0 and 3.1. 
