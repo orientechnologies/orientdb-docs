@@ -7,7 +7,7 @@ search:
 
 # Installation
 
-OrientDB Community Edition is available as a binary package for [download](http://orientdb.com/download/) or as source code on GitHub. The Enterprise Edition is available as a binary package to all our Customers that purchased one of the available [Subscriptions](http://orientdb.com/support/). A 45-days Enterprise Edition trial for development purposes is [available](http://orientdb.com/orientdb-enterprise/) as well.
+OrientDB Community Edition is available as a binary package for [download](http://orientdb.com/download/) or as source code on GitHub. The Enterprise Edition is available as a binary package to all our Customers that purchased one of the available [Subscriptions](http://orientdb.com/support/). 
  
 OrientDB prerequisites can be found [here](../admin/installation/Prerequisites.md).
 
