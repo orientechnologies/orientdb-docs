@@ -48,7 +48,7 @@ MyDB
 WebAppDB
 ```
 
-### New Databases
+### Upgrading with no existing databases
 If you're just starting with OrientDB or just creating new databases, from the OrientDB installation directory, you can remove the `databases` directory and then create a symbolic link to the `/data/databases` directory previously created.
 
 Make sure OrientDB is not running.
