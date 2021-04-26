@@ -4,6 +4,10 @@ If you are a Java Developer and it's the first time you approach OrientDB, then 
 
 Ready? Let's start!
 
+## Prerequisites
+
+To run OrientDB you will need a Java SDK installed on your machine. OrientDB runs with Java from Version 8 to 11.
+
 ## Step 1/5 - Download and Install
 
 Download OrientDB from the following URL:
