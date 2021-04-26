@@ -19,11 +19,11 @@ So between PATCH versions, the compatibility is assured (example 2.1.0 -> 2.1.8)
 
 | FROM |TO | Guide | Blueprints | Database |Binary Protocol|HTTP Protocol|
 |-----|----|------------|----------|--------|-----------|-----------|----------|----------|---|
-| 3.1.x | 3.2.x | [Docs](http://www.orientdb.com/docs/3.2.x/release/3.2/Upgrading-to-OrientDB-3.2.html) |  v 3.3.0    | [Automatic](../misc/Backward-compatibility.md)  | 38  | 10 |
+| 3.1.x | 3.2.x | [Docs](http://www.orientdb.org/docs/3.2.x/release/3.2/Upgrading-to-OrientDB-3.2.html) |  v 3.3.0    | [Automatic](../misc/Backward-compatibility.md)  | 38  | 10 |
 | 3.0.x | 3.1.x | No need to upgrade the application layer (import/export only) |  v 3.3.0    | [Automatic](../misc/Backward-compatibility.md)  | 38  | 10 |
-| 2.2.x | 3.0.x | [Docs](http://www.orientdb.com/docs/3.0.x/release/3.0/Upgrading-to-OrientDB-3.0.html) | v 3.3.0   | [Automatic](../misc/Backward-compatibility.md)  |  37 | 10 |
-| 2.1.x | 2.2.x | [Docs](https://orientdb.com/docs/2.2.x/Upgrade.html) | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 34 |10|
-| 2.0.x | 2.1.x | [Docs](https://orientdb.com/docs/2.2.x/Release-2.1.0.html) | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 30 |10|
+| 2.2.x | 3.0.x | [Docs](http://www.orientdb.org/docs/3.0.x/release/3.0/Upgrading-to-OrientDB-3.0.html) | v 3.3.0   | [Automatic](../misc/Backward-compatibility.md)  |  37 | 10 |
+| 2.1.x | 2.2.x | [Docs](https://orientdb.org/docs/2.2.x/Upgrade.html) | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 34 |10|
+| 2.0.x | 2.1.x | [Docs](https://orientdb.org/docs/2.2.x/Release-2.1.0.html) | Final v2.6.0 |[Automatic](../misc/Backward-compatibility.md) | 30 |10|
 
 
 ## Instructions
