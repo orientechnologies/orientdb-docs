@@ -840,6 +840,7 @@
     * [Teleporter](./ee/Teleporter.md)
     * [Neo4j Importer](./ee/Neo4j-Importer.md)
     * [Metrics](./ee/Profiler.md)
+    * [Auditing](./ee/Auditing.md)
     * [Settings](./ee/Settings.md)
 ---
 
