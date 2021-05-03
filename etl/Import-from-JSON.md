@@ -75,7 +75,7 @@ And this pipeline (log is at `debug` level to show all the messages):
       "wal": false,
       "batchCommit": 1000,
       "dbType": "graph",
-      "classes": [{"name": "Account", "extends":"V"}, {"name": "Friend", "extends":"E"}, {"name": 'Enemy', "extends":"E"}],
+      "classes": [{"name": "Account", "extends":"V"}, {"name": "Friend", "extends":"E"}, {"name": "Enemy", "extends":"E"}],
       "indexes": [{"class":"Account", "fields":["id:integer"], "type":"UNIQUE_HASH_INDEX" }]
     }
   }
@@ -151,7 +151,3 @@ BEGIN ETL PROCESSOR
 END ETL PROCESSOR
 + extracted 2 entries (0 entries/sec) - 2 entries -> loaded 2 vertices (0 vertices/sec) Total time: 228ms [0 warnings, 0 errors]
 ```
-
-Once ready, let's open the database with Studio and this is the result:
-
-![](http://www.orientechnologies.com/images/etl_imported_json.png)
