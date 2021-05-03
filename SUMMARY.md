@@ -829,6 +829,7 @@
     * [Backup Management](./ee/Backup-Management.md)
     * [Server Profiler](./ee/Server-Profiler.md)
     * [Security](./ee/Security.md)
+    * [Auditing](./ee/Auditing.md)
     * [Teleporter](./ee/Teleporter.md)
     * [Neo4j Importer](./ee/Neo4j-Importer.md)
     * [Metrics](./ee/Profiler.md)
