@@ -79,7 +79,7 @@ When the client executes a query, set a Fetch Plan with a level different from `
 Acquire Profile and it's first level friendships 
 
 ```sql
-SELECT OUT("out_Friend") as friends FROM Profile fetchplan friends:1
+SELECT OUT(`out_Friend`) as friends FROM Profile fetchplan friends:1
 ```
 This will provide a result set of Profile records with a field called `friends` that contains an array of verticies connected via a `out_Friend` edge. Only the `friends` field is apart of the fetchplan in this instance, any further will be treated as normal.  
 
