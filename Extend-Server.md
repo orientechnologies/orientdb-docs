@@ -458,7 +458,7 @@ public class OServerCommandGetHello extends OServerCommandAuthenticatedDbAbstrac
 
   @Override
   public String[] getNames() {
-    return new String[]{"GET|hello/* POST|hello/*"};
+    return new String[]{"GET|hello/*","POST|hello/*"};
   }
 }
 ```
