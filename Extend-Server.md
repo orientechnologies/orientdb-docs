@@ -450,7 +450,7 @@ public class OServerCommandGetHello extends OServerCommandAuthenticatedDbAbstrac
     }
 
     // SEND BACK THE RESPONSE AS TEXT
-    iResponse.send(OHttpUtils.STATUS_OK_CODE, "OK", null, OHttpUtils.CONTENT_TEXT_PLAIN, result);
+    iResponse.send(OHttpUtils.STATUS_OK_CODE, "OK", null, result, OHttpUtils.CONTENT_TEXT_PLAIN);
 
     // RETURN ALWAYS FALSE, UNLESS YOU WANT TO EXECUTE COMMANDS IN CHAIN
     return false;
