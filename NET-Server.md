@@ -45,8 +45,8 @@ public static class Server
 
    public static OServer Connect()
    {
-      server = new OServer(_hostname, _port, 
-            _root, _root_passwd);
+      OServer server = new OServer(_hostname, _port, 
+            _user, _passwd);
       return server;
    }
 
