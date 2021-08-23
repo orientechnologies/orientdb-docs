@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['security', 'authentication', 'symmetric key', 'keystore', 'AES', 'cipher']
----
 
 # Symmetric Key Authentication
 Symmetric key authentication enables the use of a shared secret key to authenticate an OrientDB user.  Support for this was added to OrientDB Enterprise Edition in 2.2.14.

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'alter', 'sequence', 'ALTER SEQUENCE']
----
 
 # SQL - `ALTER SEQUENCE` 
 

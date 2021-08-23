@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'load', 'record', 'LOAD SCRIPT']
----
 
 # Console - `LOAD SCRIPT` (from 2.2.18)
 

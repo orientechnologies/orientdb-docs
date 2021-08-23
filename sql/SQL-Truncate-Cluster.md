@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'TRUNCATE CLUSTER', 'truncate', 'cluster'] 
----
 
 # SQL - `TRUNCATE CLUSTER`
 

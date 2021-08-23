@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Document API', 'document database']
----
 
 # Working with Document Databases
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'record', 'set data', 'setOData']
----
 
 # PhpOrient - `setOData()`
 

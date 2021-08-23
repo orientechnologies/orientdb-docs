@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'DROP USER', 'command', 'drop', 'delete', 'user']
----
 
 # SQL - `DROP USER`
 

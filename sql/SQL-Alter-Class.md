@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'alter', 'class', 'ALTER CLASS']
----
 
 # SQL - `ALTER CLASS`
 

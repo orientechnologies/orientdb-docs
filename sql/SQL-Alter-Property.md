@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'alter', 'property', 'properties', 'ALTER PROPERTY']
----
 
 # SQL - `ALTER PROPERTY`
 

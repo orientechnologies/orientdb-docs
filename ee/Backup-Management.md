@@ -1,7 +1,3 @@
----
-search:
-  keywords: ["Studio", "backup", "enterprise"]
----
 
 > Only users with grant `server.backup` can see this section 
 

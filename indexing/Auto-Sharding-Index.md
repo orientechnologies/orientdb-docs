@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['index', 'auto sharding index']
----
 
 # Auto Sharding Index Algorithm
 

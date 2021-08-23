@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'cluster', 'cluster drop', 'drop cluster', 'dataClusterDrop']
----
 
 # PhpOrient - `dataClusterDrop()`
 

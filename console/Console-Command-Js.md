@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'javascript', 'js', 'JS']
----
 
 # Console - `JS`
 

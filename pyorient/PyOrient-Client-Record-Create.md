@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'client', 'create record']
----
 
 # PyOrient Client - `record_create()`
 

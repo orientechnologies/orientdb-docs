@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'count records', 'cluster']
----
 
 # PyOrient Client - `data_cluster_count()`
 

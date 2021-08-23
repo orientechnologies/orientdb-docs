@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['.NET', 'NET', 'C#', 'c sharp', 'OrientDB-NET', 'ODatabase', 'cluster', 'get cluster', 'GetClusters']
----
 
 # OrientDB-NET - `GetClusters()`
 

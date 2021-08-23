@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "class"]
----
 
 <!-- Last updated 2016-08-18 Matt -->
 <!-- length of non-skewed text code in my browser -Matt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->

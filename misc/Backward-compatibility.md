@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['upgrade', 'compatibility', 'backwards compatibility']
----
 
 # Backward Compatibility
 

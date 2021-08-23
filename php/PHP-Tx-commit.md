@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'transaction', 'commit']
----
 
 # PhpOrient - `commit()`
 

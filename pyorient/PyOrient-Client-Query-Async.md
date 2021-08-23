@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'Client', 'query', 'callback']
----
 
 
 # PyOrient Client - `query_async()`

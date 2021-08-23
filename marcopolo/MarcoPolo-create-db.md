@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['MarcoPolo', 'Elixir', 'server', 'create database', 'create_db']
----
 
 # MarcoPolo - `create_db()`
 

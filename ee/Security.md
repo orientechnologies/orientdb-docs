@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Studio', 'audit']
----
 
 > Only users with grant `server.security` can see this section 
 

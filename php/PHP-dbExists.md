@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["PHP", "PhpOrient", "database exists", "dbExists"]
----
 
 # PhpOrient - `dbExists()`
 

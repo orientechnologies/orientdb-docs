@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['performance', 'performance tuning', 'Object API', 'object']
----
 
 # Tuning the Object API
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['.NET', 'C#', 'c sharp', 'OrientDB-NET', 'set configuration', 'ConfigSet', 'OServer']
----
 
 # OrientDB-NET - `ConfigSet()`
 

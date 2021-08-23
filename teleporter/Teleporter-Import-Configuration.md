@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['teleporter', 'inheritance', 'configuration']
----
 
 # Import Configuration
 

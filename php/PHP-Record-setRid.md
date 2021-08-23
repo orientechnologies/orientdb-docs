@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'record', 'Record ID', 'set Record ID', 'setRid']
----
 
 # PhpOrient - `setRid()`
 

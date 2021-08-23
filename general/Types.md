@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['concepts', 'data types', 'types']
----
 
 
 <!-- proofread 2015-11-26 SAM -->

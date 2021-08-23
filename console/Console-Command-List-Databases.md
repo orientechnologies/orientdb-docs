@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'list', 'database', 'LIST DATABASES']
----
 
 # Console - `LIST DATABASES`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Elixir', 'MarcoPolo', 'database exists', 'db_exists']
----
 
 # MarcoPolo - `db_exists?()`
 

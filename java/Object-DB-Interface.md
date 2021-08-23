@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Object API', 'using', 'connection']
----
 
 # Object Interface
 

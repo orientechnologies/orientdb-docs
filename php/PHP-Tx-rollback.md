@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'transaction', 'rollback']
----
 
 # PhpOrient - `rollback()`
 

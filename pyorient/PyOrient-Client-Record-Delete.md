@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'client', 'delete record']
----
 
 # PyOrient Client - `record_delete()`
 

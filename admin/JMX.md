@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['JMX', 'JMX API']
----
 
 # JMX
 

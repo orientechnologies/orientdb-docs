@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['index', 'hash', 'Hash Index', 'UNIQUE_HASH_INDEX', 'NOTUNIQUE_HASH_INDEX', 'FULLTEXT_HASH_INDEX', 'DICTIONARY']
----
 
 # Hash Index Algorithm
 

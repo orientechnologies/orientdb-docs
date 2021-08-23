@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'Class API', 'class', 'list records', 'create records']
----
 
 # Working with Records
 

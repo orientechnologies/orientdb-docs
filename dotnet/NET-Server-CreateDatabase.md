@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['.NET', 'C#', 'C sharp', 'OServer', 'create database', 'create']
----
 
 # OrientDB-NET - `CreateDatabase()`
 

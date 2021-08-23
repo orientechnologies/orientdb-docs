@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'client', 'token', 'set token']
----
 
 # PyOrient Client - `set_session_token()`
 

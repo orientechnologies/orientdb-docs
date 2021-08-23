@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['enterprise', 'enterprise edition']
----
 
 # Enterprise Edition
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['server', 'plugin', 'mail plugin']
----
 
 # Mail Plugin
 
