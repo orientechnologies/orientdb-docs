@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'load', 'record', 'LOAD RECORD']
----
 
 # Console - `LOAD RECORD`
 

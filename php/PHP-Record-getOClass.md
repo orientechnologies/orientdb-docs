@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'record', 'class', 'get class', 'getOClass']
----
 
 # PhpOrient - `getOClass()`
 

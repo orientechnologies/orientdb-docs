@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['functions', 'create', 'creation', 'javascript']
----
 
 # Creating Functions
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'method']
----
 
 # SQL Methods
 

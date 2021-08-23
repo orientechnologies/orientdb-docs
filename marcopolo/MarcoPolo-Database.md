@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Elixir', 'MarcoPolo', 'database']
----
 
 # MarcoPolo - Database Operations
 

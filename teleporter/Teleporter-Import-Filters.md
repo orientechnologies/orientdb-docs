@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['teleporter', 'import filter']
----
 
 # Import Filters
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['JavaScript API']
----
 
 # Javascript
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['index', 'spatial index', 'Lucene']
----
 
 # Lucene Spatial
 

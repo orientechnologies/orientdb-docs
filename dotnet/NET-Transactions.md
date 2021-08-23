@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['C#', 'NET', 'c sharp', 'transaction']
----
 
 # OrientDB-NET - OTransaction
 

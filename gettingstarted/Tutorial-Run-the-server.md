@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "server"]
----
 
 # Running the OrientDB Server
 

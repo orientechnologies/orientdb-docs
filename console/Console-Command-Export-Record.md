@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'export', 'record', 'EXPORT RECORD']
----
 
 
 # Console - `EXPORT RECORD`

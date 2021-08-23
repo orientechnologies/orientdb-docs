@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'transactions']
----
 
 # Transactions in OrientJS
 

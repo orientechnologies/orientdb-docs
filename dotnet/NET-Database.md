@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['NET', 'C#', 'c sharp', 'OrientDB-NET', 'ODatabase']
----
 
 # OrientDB-NET - `ODatabase`
 

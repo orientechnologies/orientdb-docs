@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'reload', 'database reload', 'dbReload']
----
 
 # PhpOrient - `dbReload()`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['contribute', 'contribution', 'contribute to OrientDB']
----
 
 # How to Contribute to OrientDB
 

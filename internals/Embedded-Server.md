@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['internals', 'server', 'embedded', 'embedded server']
----
 
 # Embed the Server
 

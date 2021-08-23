@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'query']
----
 
 
 # OrientJS - `select()`

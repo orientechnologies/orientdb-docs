@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['concept', 'date', 'time', 'datetime']
----
 
 <!-- proofread 2015-11-26 SAM -->
 # Managing Dates

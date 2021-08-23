@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["PHP", "PhpOrient", "update record", "record update", "recordUpdate"]
----
 
 # PhpOrient - `recordUpdate()`
 

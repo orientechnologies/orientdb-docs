@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'cluster', 'get range']
----
 
 # PyOrient Client - `data_cluster_data_range()`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['troubleshooting', 'query', 'queries', 'query example']
----
 
 # Query Examples
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['import', 'export', 'RDBMS', 'migration']
----
 
 <!-- proofread 2015-12-11 SAM -->
 # Import from RDBMS

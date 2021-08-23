@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Graph', 'Apache TinkerPop']
----
 
 #OrientDB with Apache TinkerPop 3
 **(since v 3.0)** 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['neo4j to orientdb importer', 'neo4j', 'import', 'migration']
----
 
 # Neo4j to OrientDB Importer
 

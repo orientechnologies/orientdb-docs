@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Elixir', 'MarcoPolo', 'Marco Polo', 'Structs', 'BinaryRecord', 'Date', 'DateTime', 'Document', 'RID']
----
 
 # MarcoPolo - Structs
 

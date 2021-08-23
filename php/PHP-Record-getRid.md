@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'record', 'Record ID', 'get record id', 'getRid']
----
 
 # PhpOrient - `getRid()`
 

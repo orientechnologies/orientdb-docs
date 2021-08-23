@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['concepts', 'inheritance', 'class']
----
 
 # Inheritance
 

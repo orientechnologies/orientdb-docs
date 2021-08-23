@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'Document API']
----
 
 # Document API
 

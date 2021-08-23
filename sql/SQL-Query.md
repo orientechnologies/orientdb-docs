@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'SELECT', 'query']
----
 
 # SQL - `SELECT`
 

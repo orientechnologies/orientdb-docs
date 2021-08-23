@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "studio"]
----
 
 # Run the Studio
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'HA SYNC CLUSTER', 'HA', 'high availability', 'sync', 'cluster', 'sync cluster']
----
 
 # SQL - `HA SYNC CLUSTER`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['internals', 'index', 'custom index engine']
----
 
 # Entry Points Since OrientDB v 1.7
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Graph API', 'TinkerPop', 'Blueprints Extension', 'blueprint']
----
 
 # Using the Blueprints Extensions
 

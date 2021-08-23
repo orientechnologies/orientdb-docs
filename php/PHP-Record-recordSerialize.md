@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'record', 'record serialize', 'recordSerialize']
----
 
 # PhpOrient - `recordSerialize()`
 

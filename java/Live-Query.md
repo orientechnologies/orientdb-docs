@@ -1,7 +1,3 @@
----
-search:
-  keywords: ['Java API', 'Live Query']
----
 
 # Live Query
 

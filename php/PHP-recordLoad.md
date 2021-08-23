@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'load record', 'record load', 'recordLoad']
----
 
 # PhpOrient - `reacordLoad()`
 

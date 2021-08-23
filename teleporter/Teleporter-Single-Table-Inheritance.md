@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['teleporter', 'inheritance', 'single table', 'single-table']
----
 
 # Single Table Inheritance
 
