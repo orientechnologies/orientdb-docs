@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['internals', 'server', 'OrientDB Server']
----
 
 # OrientDB Server
 

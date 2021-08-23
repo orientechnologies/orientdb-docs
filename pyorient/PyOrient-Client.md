@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'Client', 'connect']
----
 
 # PyOrient Client
 

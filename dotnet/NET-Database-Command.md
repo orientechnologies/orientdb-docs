@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['NET', 'C#', 'ODatabase', 'command']
----
 
 # OrientDB-NET - `Command()`
 

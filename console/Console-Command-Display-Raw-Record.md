@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'display', 'record', 'DISPLAY RAW RECORD', 'raw record']
----
 
 # Console - `DISPLAYS RAW RECORD`
 

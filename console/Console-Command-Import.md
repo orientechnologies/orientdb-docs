@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'import', 'IMPORT DATABASE', 'backup', 'restore', 'export']
----
 
 
 # Console - `IMPORT`

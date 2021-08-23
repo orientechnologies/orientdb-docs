@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Elixir', 'MarcoPolo', 'update record', 'update_record']
----
 
 # MarcoPolo - `update_record()`
 

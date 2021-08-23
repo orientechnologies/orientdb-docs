@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['logging']
----
 
 # Logging
 

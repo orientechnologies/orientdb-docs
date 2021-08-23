@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "getting started", "NoSQL"]
----
 
 # Getting Started
 

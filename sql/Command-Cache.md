@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command cache']
----
 
 # Command Cache
 

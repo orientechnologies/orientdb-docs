@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Elixir', 'MarcoPolo', 'load record', 'load_record']
----
 
 # MarcoPolo - `load_record()`
 

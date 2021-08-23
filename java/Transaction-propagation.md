@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'transaction', 'transaction propagation']
----
 
 # Transaction Propagation
 

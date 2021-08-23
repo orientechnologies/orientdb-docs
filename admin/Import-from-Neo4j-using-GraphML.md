@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['import', 'Neo4j', 'migration', 'GraphML']
----
 
 | | |
 |----|-----|

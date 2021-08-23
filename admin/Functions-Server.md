@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['function', 'server', 'server-side']
----
 
 # Server-side Functions
 

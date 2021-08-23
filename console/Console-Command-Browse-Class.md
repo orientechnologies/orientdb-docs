@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'console commands', 'BROWSE CLASS', 'browse', 'class']
----
 
 <!-- proofread 2015-01-06 SAM -->
 

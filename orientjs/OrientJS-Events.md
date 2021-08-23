@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'Events']
----
 
 # OrientJS Events
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'Graph API', 'class']
----
 
 # Classes in the Graph Database
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['storage', 'PLocal', 'engine']
----
 
 # PLocal Engine
 

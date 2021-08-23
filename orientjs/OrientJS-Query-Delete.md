@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'query', 'delete', 'delete vertex', 'delete edge']
----
 
 # OrientJS - `delete()`
 

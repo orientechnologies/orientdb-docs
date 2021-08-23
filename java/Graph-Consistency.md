@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['graph', 'graph consistency']
----
 
 <!-- proofread 2015-12-10 SAM -->
 # Graph Consistency

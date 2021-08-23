@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Network Binary Protocol', 'binary protocol']
----
 
 # Binary Protocol
 

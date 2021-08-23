@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'Function API', 'functions', 'custom function']
----
 
 # OrientJS Function API
 

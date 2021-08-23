@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['MarcoPolo', 'Marco Polo', 'Elixir', 'date']
----
 
 # MarcoPolo - `Date`
 

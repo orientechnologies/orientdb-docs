@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'connnection', 'CONNECT']
----
 
 <!-- proofread 2015-01-07 SAM -->
 

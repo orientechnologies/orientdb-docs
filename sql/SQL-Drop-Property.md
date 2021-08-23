@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'DROP PROPERTY', 'drop', 'delete', 'property', 'properties']
----
 
 # SQL - `DROP PROPERTY`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'MATCH', 'command', 'match']
----
 
 # SQL - `MATCH`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['REST', 'REST API', 'HTTP Protocol']
----
 
 # HTTP Protocol
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "relationship", "edge"]
----
 
 
 # Relationships

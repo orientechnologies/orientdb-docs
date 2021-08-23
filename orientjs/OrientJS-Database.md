@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'Database API']
----
 
 # OrientJS Database API
 

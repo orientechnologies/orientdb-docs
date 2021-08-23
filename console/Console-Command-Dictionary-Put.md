@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'dictionary', 'put', 'DICTIONARY PUT']
----
 
 <!-- proofread 2015-01-07 SAM -->
 

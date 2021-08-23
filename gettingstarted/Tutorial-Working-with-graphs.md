@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "graph"]
----
 
 # Working with Graphs
 

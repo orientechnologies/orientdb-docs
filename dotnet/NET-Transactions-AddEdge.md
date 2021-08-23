@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['C#', 'c sharp', 'NET', 'transaction', 'add', 'edge', 'AddEdge']
----
 
 # OrientDB-NET - `AddEdge()`
 

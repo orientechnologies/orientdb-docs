@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Elixir', 'MarcoPolo', 'database size', 'db_size']
----
 
 # MarcoPolo - `db_size()`
 
