@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['performance', 'performance tuning', 'distributed', 'distributed deployment', 'distributed configuration']
----
 
 
 # Distributed Configuration Tuning

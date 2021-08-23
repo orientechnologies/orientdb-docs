@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['security', 'new features']
----
 
 # New Security Features - Code Changes
 

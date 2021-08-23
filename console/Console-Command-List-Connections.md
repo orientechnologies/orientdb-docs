@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'list', 'connection', 'LIST CONNECTIONS'] 
----
 
 # Console - `LIST CONNECTIONS`
 

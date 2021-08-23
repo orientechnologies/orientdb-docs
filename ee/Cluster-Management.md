@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Studio', 'cluster', 'cluster management']
----
 
 > Only users with grant `server.metrics` and `server.distributed` can see this section 
 

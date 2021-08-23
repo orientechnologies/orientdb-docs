@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Elixir', 'MarcoPolo', 'distrib-config', 'distributed configuration']
----
 
 # MarcoPolo - `distrib_config()`
 

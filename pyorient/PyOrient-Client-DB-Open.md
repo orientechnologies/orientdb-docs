@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'client', 'open database']
----
 
 # PyOrient Client - `db_open()`
 

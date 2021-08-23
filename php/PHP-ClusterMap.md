@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["PHP", "PhpOrient", "clusters"]
----
 
 # PhpOrient - Cluster Maps
 

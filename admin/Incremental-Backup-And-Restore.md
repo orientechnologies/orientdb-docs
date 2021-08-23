@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['backup', 'restore', 'incremental']
----
 
 # Incremental Backup and Restore
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'UPDATE EDGE', 'update', 'edge']
----
 
 # SQL - `UPDATE EDGE`
 

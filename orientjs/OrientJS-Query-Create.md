@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'CREATE', 'CREATE VERTEX', 'CREATE EDGE']
----
 
 # OrientJS - `create()`
 

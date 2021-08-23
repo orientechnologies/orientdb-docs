@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['.NET', 'C#', 'c sharp', 'OServer', 'database exists']
----
 
 # OrientDB-NET - `DatabaseExists()`
 

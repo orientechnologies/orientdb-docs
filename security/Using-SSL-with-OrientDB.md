@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['security', 'encryption', 'SSL', 'TLS']
----
 
 # SSL/TLS
 

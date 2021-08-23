@@ -1,7 +1,3 @@
----
-search:
-   keywords: []
----
 
 # MarcoPolo - `drop_db()`
 

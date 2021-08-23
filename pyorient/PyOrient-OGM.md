@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM']
----
 
 # PyOrient OGM
 

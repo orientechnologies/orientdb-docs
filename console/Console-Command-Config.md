@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'configuration', 'CONFIG']
----
 
 # Console - `CONFIG`
 

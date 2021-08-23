@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "install", "installation", "docker", "binary installation", "source installation"]
----
 
 <!-- proofread 2015-12-10 SAM -->
 

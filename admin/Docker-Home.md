@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['server management', 'Docker']
----
 
 # Installing in a Docker Container
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'query', 'fetch plan', 'fetching strategies']
----
 
 # OrientJS - `fetch()`
 

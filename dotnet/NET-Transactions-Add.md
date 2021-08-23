@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['c#', 'c sharp', 'NET', 'transaction', 'add']
----
 
 # OrientDB-NET - `Add<T>()`
 

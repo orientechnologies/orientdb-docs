@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'get data', 'getOData']
----
 
 # PhpOrient - `getOData()`
 

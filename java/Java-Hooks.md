@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['inetrnals', 'hook', 'dynamic hook', 'Java']
----
 
 # (Native) Java Hooks
 Java Hooks are the fastest [hooks](../internals/Hook.md). Write a Java Hook if you need the best performance on execution. Look at [Hooks](../internals/Hook.md) for more information.

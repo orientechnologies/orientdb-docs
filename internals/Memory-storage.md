@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['storage', 'memory']
----
 
 # Memory Storage
 

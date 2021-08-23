@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'traverse', 'traversal']
----
 
 # Traverse
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'client', 'query']
----
 
 # PyOrient Client - `query()`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'TRAVERSE']
----
 
 # SQL - `TRAVERSE`
 

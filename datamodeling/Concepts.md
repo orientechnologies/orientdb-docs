@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['concepts']
----
 
 <!-- proofread 2015-11-26 SAM -->
 # Basic Concepts

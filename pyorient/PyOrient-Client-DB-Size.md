@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'client', 'database size']
----
 
 # PyOrient Client - `db_size()`
 

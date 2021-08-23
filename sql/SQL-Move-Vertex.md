@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'MOVE VERTEX', 'command', 'move', 'vertex', 'vertices']
----
 
 # SQL - `MOVE VERTEX`
 

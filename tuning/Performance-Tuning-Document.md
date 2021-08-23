@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['performance', 'performance tuning', 'Document API', 'document']
----
 
 # Tuning the Document API
 

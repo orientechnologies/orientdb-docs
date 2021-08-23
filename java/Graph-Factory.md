@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Graph API', 'TinkerPop', 'Blueprint', 'Graph Factory']
----
 
 # Graph Factory
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['OrientJS', 'Node.js', 'node']
----
 
 
 - [Client API](Client.md)

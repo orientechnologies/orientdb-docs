@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['scheduler', 'schedule']
----
 
 # Event Scheduler
 

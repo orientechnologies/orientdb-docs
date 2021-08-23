@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["live query", "live queries"]
----
 
 # Comparison of Tradition and Live Queries
 

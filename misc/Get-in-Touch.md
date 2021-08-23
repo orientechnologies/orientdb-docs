@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['get in touch', 'getting in touch', 'contact']
----
 
 # How to Get in Touch with OrientDB
 

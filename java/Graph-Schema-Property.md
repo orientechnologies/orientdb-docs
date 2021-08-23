@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Graph API', 'Java', 'property', 'properties']
----
 
 # Graph Database Properties
 

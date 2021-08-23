@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "Java API", "hooks", "database triggers"]
----
 
 # Java Hook Tutorial
 One common use case for OrientDB Hooks (a.k.a. database triggers) is to manage created and updated dates for any or all classes (a.k.a. database tables). For example, it is nice to be able to set a CreatedDate field whenever a record is created and set an UpdatedDate field whenever a record is updated, and do it in a way where you implement the logic once at the database layer and never have to worry about it again at the application layer.

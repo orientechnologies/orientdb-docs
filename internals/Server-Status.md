@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['server', 'OrientDB Server', 'dump', 'status']
----
 
 # Server Status
 

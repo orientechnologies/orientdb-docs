@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["PHP", "PhpOrient", "drop database", "dbDrop"]
----
 
 # PhpOrient - `dbDrop()`
 

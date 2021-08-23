@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'alter', 'database', 'ALTER DATABASE']
----
 
 # SQL - `ALTER DATABASE`
 

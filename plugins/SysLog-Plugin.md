@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['server', 'plugin', 'syslog', 'syslog plugin']
----
 
 # SysLog Plugin
 
