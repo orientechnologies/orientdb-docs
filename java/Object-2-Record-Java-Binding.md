@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Object API', 'object binding']
----
 
 # Object Binding
 

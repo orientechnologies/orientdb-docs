@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Document API', 'schema', 'property']
----
 
 # Properties in the Document Database
 

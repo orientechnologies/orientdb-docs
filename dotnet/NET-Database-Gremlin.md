@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["NET", 'C#', 'ODatabase', 'gremlin']
----
 
 # OrientDB-NET - `Gremlin()`
 

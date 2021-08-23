@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'INSERT', 'command', 'insert']
----
 
 # SQL - `INSERT`
 

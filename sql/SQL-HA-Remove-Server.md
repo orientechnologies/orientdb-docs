@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'HA REMOVE SERVER', 'HA', 'high availability', 'remove', 'server', 'remove server']
----
 
 # SQL - `HA REMOVE SERVER`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'create', 'view', 'CREATE VIEW']
----
 
 # SQL - `CREATE VIEW`
 

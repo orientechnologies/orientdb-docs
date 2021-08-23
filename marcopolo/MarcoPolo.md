@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['MarcoPolo', 'Elixir', 'API']
----
 
 # MarcoPolo: Elixir with OrientDB
 

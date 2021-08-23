@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['roadmap', 'road map']
----
 
 # OrientDB Roadmap
 

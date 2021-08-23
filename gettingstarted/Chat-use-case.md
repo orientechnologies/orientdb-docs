@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['use case', 'use-case', 'chat']
----
 
 <!-- proofread 2015-11-26 SAM -->
 # Chat Use Case

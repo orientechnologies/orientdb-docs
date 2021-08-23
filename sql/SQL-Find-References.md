@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'FIND REFERENCES', 'command', 'find', 'reference']
----
 
 # SQL - `FIND REFERENCES`
 

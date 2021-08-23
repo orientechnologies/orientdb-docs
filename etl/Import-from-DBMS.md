@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['etl', 'ETL', 'ETL example', 'import from RDBMS']
----
 
 # ETL - Import from RDBMS
 

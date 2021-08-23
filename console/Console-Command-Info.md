@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'info', 'INFO']
----
 
 # Console - `INFO`
 

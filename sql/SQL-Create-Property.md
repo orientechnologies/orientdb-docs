@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'create', 'property', 'CREATE PROPERTY']
----
 
 # SQL - `CREATE PROPERTY`
 

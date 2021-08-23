@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['troubleshooting', 'best practices']
----
 
 # Troubleshooting
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'create database', 'client']
----
 
 # PyOrient Client - `db_create()`
 

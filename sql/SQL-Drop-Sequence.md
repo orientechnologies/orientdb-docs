@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'DROP SEQUENCE', 'command', 'drop', 'delete', 'sequence']
----
 
 # SQL - `DROP SEQUENCE`
 

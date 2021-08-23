@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'ID', 'Record ID', 'Cluster ID']
----
 
 # PhpOrient - `ID()`
 

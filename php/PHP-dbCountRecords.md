@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'count records', 'dbCountRecords']
----
 
 # PhpOrient - `dbCountRecords()`
 

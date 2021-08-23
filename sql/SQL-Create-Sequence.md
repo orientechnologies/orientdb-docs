@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'create', 'sequence', 'CREATE SEQUENCE']
----
 
 # SQL - `CREATE SEQUENCE`
 

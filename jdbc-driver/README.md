@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['JDBC', 'JDBC driver']
----
 
 # JDBC Driver
 > GroupId: **com.orientechnologies** ArtifactId: **orientdb-jdbc**

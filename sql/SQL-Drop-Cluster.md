@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'DROP CLUSTER', 'drop', 'cluster', 'delete']
----
 
 # SQL - `DROP CLUSTER`
 

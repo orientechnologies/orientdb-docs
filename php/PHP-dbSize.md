@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'size', 'database size', 'dbSize']
----
 
 # PhpOrient - `dbSize()`
 

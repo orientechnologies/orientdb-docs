@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['tenant', 'multi tenant', 'partition', 'partitioned graphs']
----
 
 # Multi Tenant
 

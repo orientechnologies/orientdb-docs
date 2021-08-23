@@ -1,7 +1,3 @@
----
-search: 
-   keywords: ['SQL', 'sequence', 'auto-increment', 'autoincrement']
----
 
 # Sequences and auto increment
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["PHP", "database", "PhpOrient", 'dbOpen', 'open database' ]
----
 
 # PhpOrient - `dbOpen()`
 

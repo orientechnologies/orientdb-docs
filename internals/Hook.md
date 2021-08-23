@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['internals', 'hook', 'trigger']
----
 
 # Hooks (Triggers)
 

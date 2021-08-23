@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'web app', 'web application']
----
 
 # Web Applications
 

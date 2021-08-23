@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['internals', 'server', 'plugin', 'extension']
----
 
 # OrientDB Plugins
 

@@ -1,7 +1,3 @@
----
-search: 
-   keywords: ['console', 'command', 'release', 'database', 'RELEASE DATABASE', 'freeze']
----
 
 # Console - `RELEASE DATABASE`
 

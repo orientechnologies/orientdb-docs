@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['index', 'FULLTEXT', 'full text', 'Lucene']
----
 
 # Lucene FullText Index
 

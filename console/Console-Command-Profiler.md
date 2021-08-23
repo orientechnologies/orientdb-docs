@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'profile', 'PROFILER']
----
 
 # Console - `PROFILER`
 

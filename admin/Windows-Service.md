@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['server management', 'service', 'Windows']
----
 
 # Install as a Service on Windows
 

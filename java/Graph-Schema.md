@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Graph API', 'schema']
----
 
 # Graph Schema
 

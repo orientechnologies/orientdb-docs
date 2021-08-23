@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'get cluster id', 'getIdList']
----
 
 # PhpOrient - `[etIdList()`
 

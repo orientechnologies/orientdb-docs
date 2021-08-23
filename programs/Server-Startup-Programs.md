@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['admin', 'administration', 'server']
----
 
 # OrientDB Server 
 

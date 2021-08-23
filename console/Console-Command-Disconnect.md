@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'connection', 'disconnect', 'DISCONNECT']
----
 
 # Console - DISCONNECT
 

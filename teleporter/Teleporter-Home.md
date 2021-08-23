@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['teleporter']
----
 
 # Teleporter
 **OrientDB Teleporter** is a tool that synchronizes a RDBMS to OrientDB database. You can use Teleporter to:
