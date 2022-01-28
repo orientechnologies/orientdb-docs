@@ -4,7 +4,7 @@
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
-# OrientDB v 3.1.7 is our latest GA
+# OrientDB v {{book.currentVersion}} is our latest GA
 
 ## Quick Navigation
 
@@ -65,8 +65,7 @@ Check out our [Get in Touch](misc/Get-in-Touch.md) page for different ways of ge
 
 
 ## Past Releases
-- [v3.0.x](https://orientdb.com/docs/3.0.x/)
-- [v2.2.x](https://orientdb.com/docs/2.2.x/)
+- [v3.1.x](/docs/3.0.x/)
 
 
 >Every effort has been made to ensure the accuracy of this manual. However, OrientDB, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.
