@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'DROP INDEX', 'drop', 'delete', 'index']
+---
 
 # SQL - `DROP INDEX`
 

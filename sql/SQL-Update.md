@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'UPDATE', 'update', 'command']
+---
 
 # SQL - `UPDATE`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Java API', 'binary data']
+---
 
 # Binary Data
 

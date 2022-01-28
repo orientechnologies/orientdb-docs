@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["tutorial", "cluster"]
+---
 
 <!-- proofread 2015-11-26 SAM -->
 # Clusters

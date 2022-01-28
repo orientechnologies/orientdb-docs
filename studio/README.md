@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Studio', 'Home Page']
+---
 
 # Introduction to OrientDB Studio 
 

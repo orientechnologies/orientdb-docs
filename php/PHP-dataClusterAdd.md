@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["PHP", "PhpOrient", "add cluster", "dataClusterAdd"]
+---
 
 # PhpOrient - `dataClusterAdd()`
 

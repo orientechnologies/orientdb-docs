@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'Index API', 'index', 'indices', 'create index']
+---
 
 # OrientJS Index API
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['storage', 'Local']
+---
 
 # Local Storage
 

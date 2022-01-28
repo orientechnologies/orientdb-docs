@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['server management', 'service', 'Unix', 'Linux', 'init', 'systemd', 'mac', 'osx']
+---
 
 # Install as Service on Unix/Linux
 

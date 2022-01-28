@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Document API', 'schema', 'class']
+---
 
 # Classes in the Document Database
 

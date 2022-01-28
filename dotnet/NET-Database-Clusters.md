@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['NET', 'C#', 'ODatabase', 'cluster']
+---
 
 # OrientDB-NET - `Clusters()`
 

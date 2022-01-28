@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['concepts', 'cluster', 'cluster selection']
+---
 
 # Cluster Selection
 

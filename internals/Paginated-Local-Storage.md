@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['storage', 'paginated local storage', 'PLocal']
+---
 
 # PLocal Storage
 

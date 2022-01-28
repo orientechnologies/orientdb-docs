@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["PHP", "PhpOrient", "cluster", "count records", "dataClusterCount"]
+---
 
 # PhpOrient - `dataClusterCount()`
 

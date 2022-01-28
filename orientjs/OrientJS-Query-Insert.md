@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'query', 'insert']
+---
 
 # OrientJS - `insert()`
 

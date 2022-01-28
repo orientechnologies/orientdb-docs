@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['import', 'export', 'migration', 'RDBMS', 'document model']
+---
 
 # Import from a Relational Database
 

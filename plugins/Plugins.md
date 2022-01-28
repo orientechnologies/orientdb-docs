@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['plugins', 'API']
+---
 
 # Plugins
 

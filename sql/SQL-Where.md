@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'WHERE', 'filter', 'filtering']
+---
 
 # SQL - Filtering
 

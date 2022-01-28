@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'ETL example', 'import tree structure']
+---
 
 <!-- proofread 2015-12-11 SAM -->
 # Import a tree structure

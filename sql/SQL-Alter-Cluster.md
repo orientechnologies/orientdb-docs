@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'command', 'alter', 'cluster', 'ALTER CLUSTER']
+---
 # SQL - `ALTER CLUSTER`
 
 Updates attributes on an existing cluster.

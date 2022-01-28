@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['performance', 'performance tuning']
+---
 
 # Performance Tuning
 

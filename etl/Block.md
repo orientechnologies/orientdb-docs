@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'block']
+---
 
 # ETL - Blocks
 

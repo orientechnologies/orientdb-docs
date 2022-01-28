@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'DELETE VERTEX', 'command', 'delete', 'vertex', 'vertices', 'drop']
+---
 
 # SQL - `DELETE VERTEX`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Java API', 'JPA']
+---
 
 # JPA
 

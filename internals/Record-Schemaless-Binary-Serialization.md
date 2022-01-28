@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['binary protocol', 'schemaless serialization']
+---
 
 # Schemaless Serialization
 

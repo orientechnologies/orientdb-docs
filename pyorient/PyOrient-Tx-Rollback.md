@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction', 'rollback']
+---
 
 # PyOrient Transactions = `rollback()`
 

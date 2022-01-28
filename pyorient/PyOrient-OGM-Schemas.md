@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mappers', 'OGM', 'schema']
+---
 
 # PyOrient OGM - Schemas
 

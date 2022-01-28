@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'DROP VIEW', 'delete', 'drop', 'view']
+---
 
 # SQL - `DROP VIEW`
 

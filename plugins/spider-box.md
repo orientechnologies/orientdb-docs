@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['server', 'plugin', 'spider-box']
+---
 
 # spider-box
 

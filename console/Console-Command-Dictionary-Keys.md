@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'dictionary', 'keys', 'DICTIONARY KEYS']
+---
 
 # Console - `DICTIONARY KEYS`
 

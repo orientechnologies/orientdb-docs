@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['use case', 'use-case', 'queue system', 'distributed queues']
+---
 
 <!-- proofread 2015-11-26 SAM -->
 # Distributed queues use case

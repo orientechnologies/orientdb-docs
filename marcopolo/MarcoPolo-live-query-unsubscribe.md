@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'live query', 'unsubscribe', 'live_query_unsubscribe']
+---
 
 # MarcoPolo - `live_query_unsubscribe()`
 

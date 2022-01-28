@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['storage', 'PLocal', 'write ahead log', 'WAL', 'journal']
+---
 
 # PLocal WAL (Journal)
 

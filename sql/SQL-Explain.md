@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'EXPLAIN', 'command', 'explain']
+---
 
 # SQL - `EXPLAIN`
 

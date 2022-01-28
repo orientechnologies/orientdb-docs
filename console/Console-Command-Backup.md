@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'console command', 'BACKUP']
+---
 
 <!-- proofread 2015-01-05 SAM -->
 

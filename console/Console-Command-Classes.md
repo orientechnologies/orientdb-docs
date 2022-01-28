@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'list', 'class', 'LIST CLASSES', 'CLASSES']
+---
 
 <!-- proofread 2015-01-07 SAM -->
 

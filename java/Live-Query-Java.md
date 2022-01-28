@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Java API', 'live query', 'live queries']
+---
 
 # Using Live Queries in Java
 

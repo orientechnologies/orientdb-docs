@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'display', 'record', 'DISPLAY RECORD']
+---
 
 # Console - DISPLAYS RECORD
 

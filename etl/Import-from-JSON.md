@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'ETL example', 'import from JSON']
+---
 
 
 # Import form JSON

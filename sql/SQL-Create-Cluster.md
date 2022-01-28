@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'cluster', 'CREATE CLUSTER']
+---
 
 # SQL - `CREATE CLUSTER`
 

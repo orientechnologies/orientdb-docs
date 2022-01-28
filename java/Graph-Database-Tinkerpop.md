@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Java', 'Graph API', 'TinkerPop']
+---
 
 # Graph API
 

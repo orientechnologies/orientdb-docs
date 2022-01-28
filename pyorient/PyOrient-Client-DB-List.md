@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'list databases']
+---
 
 # PyOrient Client - `db_list()`
 

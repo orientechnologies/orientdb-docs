@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'update record']
+---
 
 # PyOrient Client - `record_update()`
 

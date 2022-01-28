@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'javascript', 'js', 'JSS']
+---
 
 # Console - `JSS`
 

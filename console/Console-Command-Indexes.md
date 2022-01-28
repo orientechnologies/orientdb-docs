@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'index', 'indexes', 'indices', 'INDEXES']
+---
 
 # Console - `INDEXES`
 

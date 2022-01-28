@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'reload database']
+---
 
 # PyOrient Client - `db_reload()`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'count', 'count records']
+---
 
 # PyOrient Client - `db_count_records()`
 

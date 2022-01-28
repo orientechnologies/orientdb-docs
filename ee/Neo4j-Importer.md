@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Studio', 'neo4j', 'enterprise']
+---
 
 > Only users with grant `server.importers` can see this section 
 

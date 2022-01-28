@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'status', 'cluster', 'CLUSTER STATUS']
+---
 
 <!-- proofread 2015-01-07 SAM -->
 

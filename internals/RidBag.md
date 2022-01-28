@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['internals', 'RID Bag', 'RIDBag']
+---
 
 # RidBag
 

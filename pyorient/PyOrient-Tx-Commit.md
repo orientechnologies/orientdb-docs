@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction', 'commit']
+---
 
 # PyOrient Transactions - `commit()`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PHP', 'PhpOrient', 'transaction', 'attach']
+---
 
 # PhpOrient - `attach()`
 

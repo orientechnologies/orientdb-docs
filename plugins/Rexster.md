@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['server', 'plugin', 'rexster']
+---
 
 # Rexster
 

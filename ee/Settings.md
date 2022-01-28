@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Studio', 'Settings']
+---
 
 # Studio Settings
 

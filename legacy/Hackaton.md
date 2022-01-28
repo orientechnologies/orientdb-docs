@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['contribute', 'contribution', 'hackathon']
+---
 
 # Hackaton
 

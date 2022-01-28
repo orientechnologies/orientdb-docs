@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'info', 'property', 'INFO PROPERTY']
+---
 
 # Console - `INFO PROPERTY`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['security', 'database security']
+---
 
 # Database Security
 

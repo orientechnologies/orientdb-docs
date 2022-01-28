@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['server', 'plugin', 'JMX', 'JMX plugin']
+---
 
 # JMX plugin
 

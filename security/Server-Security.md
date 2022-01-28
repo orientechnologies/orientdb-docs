@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['security', 'server security']
+---
 
 # Server Security
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["PHP", "PhpOrient", "batch", "SQL batch", "sqlbatch"]
+---
 
 # PhpOrient - `sqlBatch()`
 

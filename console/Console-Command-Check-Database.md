@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'check', 'check database']
+---
 
 # Console - `CHECK DATABASE`
 

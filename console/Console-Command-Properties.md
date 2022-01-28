@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'property', 'list', 'PROPERTIES']
+---
 
 # Console - `PROPERTIES`
 

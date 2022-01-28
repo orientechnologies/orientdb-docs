@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['live query', 'live queries']
+---
 
 # Understanding Live Queries
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'command']
+---
 
 # PyOrient Client - `command()`
 

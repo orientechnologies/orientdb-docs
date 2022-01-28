@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["PHP", "PhpOrient", "create database", "dbCreate"]
+---
 
 # PhpOrient - `dbCreate()`
 

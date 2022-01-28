@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'HA SATUS', 'HA', 'high availability', 'status']
+---
 
 # SQL - `HA STATUS`
 

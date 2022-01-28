@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['etl', 'ETL', 'extractor']
+---
 
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Extractors

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'freeze', 'database', 'FREEZE DATABASE']
+---
 
 # Console - `FREEZE DATABASE`
 

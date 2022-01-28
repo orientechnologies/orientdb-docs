@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'Record API', 'records']
+---
 
 # OrientJS Record API
 

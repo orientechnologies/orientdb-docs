@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'OPTIMIZE DATABASE', 'command', 'optimize', 'database']
+---
 
 # SQL - `OPTIMIZE DATABASE`
 

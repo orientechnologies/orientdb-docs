@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['.NET', 'C#', 'c sharp', 'OrientDB-NET', 'OServer', 'ODatabaseInfo']
+---
 
 # OrientDB-NET - `Databases()`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM', 'batch']
+---
 
 # PyOrient OGM - Batch Operations
 

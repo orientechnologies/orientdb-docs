@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Gremlin API', 'Gremlin', 'javascript']
+---
 
 # Gremlin API
 

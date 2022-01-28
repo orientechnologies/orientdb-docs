@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'Marco Polo', 'MarcoPolo', 'record id', 'rid']
+---
 
 # MarcoPolo - `RID`
 

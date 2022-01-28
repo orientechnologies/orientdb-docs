@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'set', 'SET']
+---
 
 # Console - `SET`
 

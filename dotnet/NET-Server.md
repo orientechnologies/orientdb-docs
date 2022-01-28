@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['.NET', 'C#', 'C Sharp', 'OServer']
+---
 
 # OrientDB-NET - `OServer`
 

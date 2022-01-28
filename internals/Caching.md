@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['internals', 'cache', 'caching']
+---
 
 # Caching
 

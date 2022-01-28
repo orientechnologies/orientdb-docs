@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['function', 'access', 'database access', 'sandbox']
+---
 
 # Accessing the Database from a Function
 

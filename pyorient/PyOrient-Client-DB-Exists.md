@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'database exists']
+---
 
 # PyOrient Client - `db_exists()`
 

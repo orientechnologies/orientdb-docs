@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'Node.js', 'node']
+---
 
 # OrientJS - Node.js Driver
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'command', 'query']
+---
 
 # MarcoPolo - `command()`
 

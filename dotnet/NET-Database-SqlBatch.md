@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['NET', 'C#', 'ODatabase', 'batch', 'SqlBatch']
+---
 
 # OrientDB-NET - `SqlBatch()`
 

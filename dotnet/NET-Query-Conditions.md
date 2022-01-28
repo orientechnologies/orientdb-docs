@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['NET', 'C#', 'c sharp', 'query', 'where']
+---
 
 # OrientDB-NET - Conditionals
 

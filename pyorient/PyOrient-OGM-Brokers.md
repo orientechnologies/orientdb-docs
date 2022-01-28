@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM', 'broker', 'create vertex', 'create edge']
+---
 
 # PyOrient OGM - Brokers
 

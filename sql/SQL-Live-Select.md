@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'LIVE SELECT', 'live', 'select']
+---
 
 # SQL - `LIVE SELECT`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["tutorial", "console", "HELP", "CONNECT"]
+---
 
 <!-- proofread 2015-11-26 SAM -->
 

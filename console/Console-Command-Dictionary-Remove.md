@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'dictionary', 'remove', 'DICTIONARY REMOVE']
+---
 
 <!-- proofread 2015-01-07 SAM -->
 

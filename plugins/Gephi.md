@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['server', 'plugin', 'Gephi', 'Gephi Visual Tool']
+---
 
 # Gephi Visual Tool
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PHP', 'PhpOrient', 'database', 'command']
+---
 
 # PhpOrient - `command()`
 

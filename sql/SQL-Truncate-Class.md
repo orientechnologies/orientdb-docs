@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'TRUNCATE CLASS', 'truncate', 'class']
+---
 
 # SQL - `TRUNCATE CLASS`
 

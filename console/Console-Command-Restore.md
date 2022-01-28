@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'restore', 'backup', 'RESTORE DATABASE']
+---
 
 # Console - `RESTORE DATABASE`
 

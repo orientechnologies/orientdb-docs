@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['import', 'export', 'RDBMS', 'migration', 'Graph Model']
+---
 
 # Import from RDBMS to Graph Model
 

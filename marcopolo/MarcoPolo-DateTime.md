@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'Marco Polo', 'datetime', 'date time']
+---
 
 # MarcoPolo - `DateTime`
 

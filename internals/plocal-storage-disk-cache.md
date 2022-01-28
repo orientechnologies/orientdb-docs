@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['storage', 'PLocal', 'disk cache', 'disk', 'cache']
+---
 
 # PLocal Disk-Cache
 

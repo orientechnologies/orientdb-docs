@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['stress test tool']
+---
 
 # OrientDB Stress Test Tool
 

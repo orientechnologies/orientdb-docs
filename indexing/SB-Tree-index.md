@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['index', 'SB-Tree', 'UNIQUE', 'NOTUNIQUE', 'FULLTEXT', 'DICTIONARY']
+---
 
 # SB-Tree Index Algorithm
 

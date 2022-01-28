@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'Server API', 'connection', 'token', 'distributed deployment']
+---
 
 # OrientJS Server API
 

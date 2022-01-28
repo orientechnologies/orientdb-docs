@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'Class API', 'class', 'properties', 'property', 'list property', 'create property', 'delete property', 'rename property']
+---
 
 # Working with Properties
 

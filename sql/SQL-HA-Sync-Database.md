@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'HA SYNC DATABASE', 'HA', 'sync', 'database', 'sync database']
+---
 
 # SQL - `HA SYNC DATABASE`
 

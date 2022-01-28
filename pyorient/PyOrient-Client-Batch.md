@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'batch']
+---
 
 # PyOrient Client - `batch()`
 

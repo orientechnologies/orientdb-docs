@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'reload', 'load', 'record', 'RELOAD RECORD']
+---
 
 # Console - `RELOAD RECORD`
 

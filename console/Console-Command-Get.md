@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'get', 'GET']
+---
 
 # Console - `GET`
 

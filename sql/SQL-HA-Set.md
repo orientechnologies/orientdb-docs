@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'HA SET', 'HA', 'high availability', 'owner', 'server', 'role']
+---
 
 # SQL - `HA SET`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'drop', 'delete', 'server user', 'user', 'DROP SERVER USER']
+---
 
 # Console - `DROP SERVER USER`
 

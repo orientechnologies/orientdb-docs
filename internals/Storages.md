@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['internals', 'storage']
+---
 
 # Storages
 

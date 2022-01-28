@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'ALTER', 'SECURITY', 'POLICY']
+---
 
 # SQL - `ALTER SECURITY POLICY`
 

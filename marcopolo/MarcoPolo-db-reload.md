@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'reload database', 'database reload', 'db_reload']
+---
 
 # MarcoPolo - `db_reload()`
 

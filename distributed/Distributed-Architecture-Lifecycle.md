@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'lifecycle', 'distributed architecture']
+---
 
 # Distributed Architecture Lifecycle
 

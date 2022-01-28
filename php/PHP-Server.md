@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["PHP", "PhpOrient", "server"]
+---
 
 # PhpOrient - Server Operations
 

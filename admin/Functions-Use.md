@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['function', 'use', 'javascript', 'sql']
+---
 
 # Using Functions
 

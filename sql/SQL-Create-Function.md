@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'command', 'create', 'function', 'CREATE FUNCTION']
+---
 
 # SQL - `CREATE FUNCTION`
 

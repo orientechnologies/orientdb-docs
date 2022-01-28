@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Studio', 'dashboard']
+---
 
 # _Dashboard_ Panel
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PHP', 'PhpOrient', 'cluster', 'data range', 'dataClusterDataRange']
+---
 
 # PhpOrient - `dataClusterDataRange()`
 

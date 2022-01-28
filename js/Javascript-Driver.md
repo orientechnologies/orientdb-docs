@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['JavaScript', 'JavaScript API', 'JavaScript Driver']
+---
 
 # Javascript API
 

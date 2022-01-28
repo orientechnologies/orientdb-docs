@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'delete record', 'delete_record']
+---
 
 # MarcoPolo - `delete_record()`
 

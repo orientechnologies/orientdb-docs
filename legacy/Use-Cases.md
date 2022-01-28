@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['concept', 'use cases', 'use-cases']
+---
 
 # Use Cases
 

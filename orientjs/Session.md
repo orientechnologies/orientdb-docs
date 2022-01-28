@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'Node.js', 'node','Client','Query', 'Delete','Live Query','Session']
+---
 
 # Session API
 

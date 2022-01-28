@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ["tutorial", "record ID", "rid", "load"]
+---
 
 
 <!-- last modified 2016-09-01 Matt -->

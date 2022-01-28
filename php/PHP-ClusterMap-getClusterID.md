@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PHP', 'PhpOrient', 'get cluster id', 'getClusterID']
+---
 
 # PhpOrient - `getClusterID()`
 

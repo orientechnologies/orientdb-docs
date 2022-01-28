@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'server']
+---
 
 # MarcoPolo - Server Operations
 

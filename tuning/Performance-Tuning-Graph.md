@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['performance', 'performance tuning', 'Graph API', 'graph']
+---
 
 # Tuning the Graph API
 This guide is specific for the [TinkerPop Blueprints Graph Database](../java/Graph-Database-Tinkerpop.md). Please be sure to read the generic guide to the [Performance-Tuning](Performance-Tuning.md).

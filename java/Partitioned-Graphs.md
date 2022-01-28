@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Graph API', 'Java', 'partition', 'partitioned graphs', 'tenant', 'multi tenant']
+---
 
 # Partitioned Graphs
 

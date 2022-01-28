@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['admin', 'administration', 'console', 'client', 'programs']
+---
 
 # OrientDB Client Programs
 

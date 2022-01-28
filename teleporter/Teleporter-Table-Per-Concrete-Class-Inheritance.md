@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['teleporter', 'inheritance', 'table per concrete class', 'table-per-concrete-class']
+---
 
 # Table Per Concrete Class Inheritance
 In Table Per Concrete Class strategy a table is defined for each concrete class in the inheritance hierarchy to store all the attributes of that class and all of its superclasses. This strategy is optional in several ORM technologies (e.g. JPA), and querying root or branch classes can be very difficult and inefficient.      

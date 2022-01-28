@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Document API', 'documents']
+---
 
 # Working with Documents
 

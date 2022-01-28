@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['NET', 'C#', 'c sharp', 'query', 'query builder']
+---
 
 # OrientDB-NET - Building Queries
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'list', 'server', 'users', 'LIST SERVER USERS']
+---
 
 # Console - LIST SERVER USERS
 

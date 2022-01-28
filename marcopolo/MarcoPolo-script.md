@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'script']
+---
 
 # MarcoPolo - `script()`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Graph API', 'GraphDB']
+---
 
 # Graph Database Comparison
 

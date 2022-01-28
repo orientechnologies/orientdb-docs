@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'commnad', 'create', 'database', 'CREATE DATABASE']
+---
 
 <!-- proofread 2015-01-07 SAM -->
 

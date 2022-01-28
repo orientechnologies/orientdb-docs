@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['.NET', 'C#', 'c sharp', 'OrientDB-NET', 'configuration', 'config get', 'ConfigGet']
+---
 
 # OrientDB-NET - `ConfigGet()`
 

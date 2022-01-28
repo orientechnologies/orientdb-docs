@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['C#', 'c sharp', 'NET', 'transaction', 'GetPendingObject']
+---
 
 # OrientDB-NET - `GetPendingObject<T>()`
 

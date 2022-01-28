@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'command', 'DELETE', 'delete', 'drop']
+---
 
 # SQL - `DELETE`
 

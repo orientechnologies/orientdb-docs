@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'replication']
+---
 
 # Replication
 

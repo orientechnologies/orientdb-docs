@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'load records']
+---
 
 # PyOrient Client - `record_load()`
 

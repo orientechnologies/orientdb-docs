@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['troubleshooting', 'Java']
+---
 
 # Troubleshooting using Java API
 

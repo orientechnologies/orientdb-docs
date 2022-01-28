@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['use case', 'use-case', 'key value', 'key/value', 'key-value']
+---
 
 # Key Value Use Case
 

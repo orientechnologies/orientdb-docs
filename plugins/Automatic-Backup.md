@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['server', 'plugin', 'automatic backup', 'backup']
+---
 
 # Automatic Backup Server Plugin
 

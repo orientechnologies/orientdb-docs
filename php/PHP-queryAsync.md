@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PHP', 'PhpOrient', 'asynchronous query', 'query async', 'queryAsync']
+---
 
 # PhpOrient - `queryAsync()`
 

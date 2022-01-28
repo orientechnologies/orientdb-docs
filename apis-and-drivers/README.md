@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['API', 'Application Programming Interface', 'Programming Language Bindings']
+---
 
 # APIs and Drivers
 

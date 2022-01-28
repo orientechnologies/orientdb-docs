@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'DELETE EDGE', 'command', 'delete', 'edge', 'drop']
+---
 
 # SQL - `DELETE EDGE`
 

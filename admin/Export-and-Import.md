@@ -1,3 +1,7 @@
+---
+search: 
+   keywords: ['export', 'import']
+---
 
 # Export and Import
 

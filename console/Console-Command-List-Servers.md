@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'list', 'server', 'LIST SERVERS']
+---
 
 <!-- proofread 2015-01-07 SAM -->
 

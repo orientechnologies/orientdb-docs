@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['MarcoPolo', 'Elixir', 'struct', 'fetch plan', 'fetching strategy', 'fetchplan']
+---
 
 # MarcoPolo - `FetchPlan`
 

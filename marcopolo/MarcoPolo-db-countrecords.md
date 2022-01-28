@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'count records', 'db-countrecords']
+---
 
 # MarcoPolo - `db_countrecords()`
 

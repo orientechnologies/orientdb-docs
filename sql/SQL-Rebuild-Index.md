@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'REBUILD INDEXES', 'rebuild', 'index', 'indices']
+---
 
 # SQL - `REBUILD INDEXES`
 

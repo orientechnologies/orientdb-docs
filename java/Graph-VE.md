@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Graph API', 'vertex', 'vertices', 'edge']
+---
 
 # Vertices and Edges
 

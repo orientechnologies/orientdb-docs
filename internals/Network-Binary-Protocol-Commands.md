@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['binary protocol', 'command']
+---
 
 # Network Binary Protocol Commands
 

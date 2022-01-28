@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['OrientJS', 'Class API', 'class', 'create class', 'extend class', 'update class']
+---
 
 # Working with Classes
 

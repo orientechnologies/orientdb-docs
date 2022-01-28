@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PHP', 'PhpOrient', 'create record', 'recordCreate']
+---
 
 # PhpOrient - `recordCreate()`
 

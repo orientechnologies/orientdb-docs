@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'function']
+---
 
 # SQL - Functions
 

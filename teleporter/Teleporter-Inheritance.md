@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['teleporter', 'inheritance']
+---
 
 # Inheritance
 Teleporter allows you to take advantage of OrientDB's polymorphism. Infact you can enrich the import phase via an ORM file which describes the inheritance relationships being between different tables (or Entities) of your source DB. 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['upgrade', 'migration']
+---
 
 # Migration from 1.6.x to 1.7.x
 

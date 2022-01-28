@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Document API', 'Document Database', 'comparison']
+---
 
 # Document Database Comparison
 

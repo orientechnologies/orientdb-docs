@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'Object Graph Mapper', 'OGM', 'connection']
+---
 
 # PyOrient OGM - Connection
 

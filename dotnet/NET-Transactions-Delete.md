@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['C#', 'c sharp', 'NET', 'transaction', 'delete']
+---
 
 # OrientDB-NET - `Delete<T>()`
 

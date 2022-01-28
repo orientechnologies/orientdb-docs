@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['NET', '.NET', 'C#', 'c sharp', 'ODatabase', 'select']
+---
 
 # OrientDB-NET - `Select()`
 

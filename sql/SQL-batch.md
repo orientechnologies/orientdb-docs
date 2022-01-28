@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'BATCH']
+---
 
 # SQL Batch
 

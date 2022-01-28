@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PHP', 'PhpOrient', 'transaction', 'begin']
+---
 
 # PhpOrient - `begin()`
 

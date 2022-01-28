@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['MarcoPolo', 'Marco Polo', 'Elixir', 'document']
+---
 
 # MarcoPolo - `Document`
 

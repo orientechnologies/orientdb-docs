@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['distributed', 'architecture', 'distributed architecture']
+---
 
 # Distributed Architecture
 

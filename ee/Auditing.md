@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['enterprise', 'auditing']
+---
 
 # Auditing
 Starting in OrientDB 2.1, the Auditing component is part of the [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/). This page refers to the Auditing feature and how to work with it. The Studio web tool provides a GUI for Auditing that makes configuration easier. Look at the [Auditing page in Studio](../studio/server-management/Studio-Auditing.md).

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['upgrade', 'upgrading']
+---
 
 
 # Upgrading

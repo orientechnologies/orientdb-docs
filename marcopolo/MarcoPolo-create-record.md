@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Elixir', 'MarcoPolo', 'create record', 'create_record']
+---
 
 # MarcoPolo - `create_record()`
 

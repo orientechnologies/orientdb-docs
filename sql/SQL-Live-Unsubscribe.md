@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'LIVE UNSUBSCRIBE', 'live', 'unsubscribe', 'command']
+---
 
 # SQL - `LIVE UNSUBSCRIBE`
 

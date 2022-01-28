@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'configuration', 'CONFIG GET']
+---
 
 <!-- proofread 2015-01-07 SAM -->
 

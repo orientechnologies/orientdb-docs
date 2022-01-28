@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['PyOrient', 'client', 'transaction', 'begin']
+---
 
 # PyOrient Transactions - `begin()`
 

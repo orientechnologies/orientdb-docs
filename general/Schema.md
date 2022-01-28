@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['concept', 'schema', 'class', 'property', 'relationship', 'edge', 'vertex']
+---
 
 # Schema
 

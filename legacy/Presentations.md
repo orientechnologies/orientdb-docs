@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['tutorial', 'presentation', 'video cast']
+---
 
 # Presentations
 

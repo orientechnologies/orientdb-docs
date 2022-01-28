@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Graph API', 'Lightweight Edge', 'edge']
+---
 
 # Lightweight Edges
 

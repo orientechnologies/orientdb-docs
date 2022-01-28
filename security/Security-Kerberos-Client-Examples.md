@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['security', 'Kerberos']
+---
 
 # OrientDB Kerberos Client Examples
 

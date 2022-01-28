@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['SQL', 'GRANT', 'command', 'grant']
+---
 
 # SQL - `GRANT`
 

@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'export', 'import', 'backup', 'restore']
+---
 
 # Console - `EXPORT`
 

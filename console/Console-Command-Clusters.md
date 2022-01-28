@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['console', 'command', 'list', 'cluster', 'LIST CLUSTERS', 'CLUSTERS']
+---
 
 <!-- proofread 2015-01-07 SAM -->
 

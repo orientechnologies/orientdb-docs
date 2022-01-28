@@ -1,3 +1,7 @@
+---
+search:
+   keywords: ['Object API', 'Java']
+---
 
 # Object API
 > groupId: **com.orientechnologies**  artifactId: **orientdb-object**
