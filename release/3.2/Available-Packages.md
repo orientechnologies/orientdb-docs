@@ -16,4 +16,4 @@ The following are the packages available for OrientDB Community Edition:
 ## Enterprise Edition
 
 - **Agent** ([{{book.EE_name}}-{{book.lastGA}}.tar.gz]({{ book.EE_link }}))
-    - OrientDB Community Edition without Gremlin/TinkerPop support 
+    - OrientDB Enterprise Agent 
