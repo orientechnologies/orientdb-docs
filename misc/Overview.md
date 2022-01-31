@@ -17,11 +17,10 @@ Stores up to 120,000 records per second
 ## Enterprise
 
 While most NoSQL DBMSs are used as secondary databases, OrientDB is powerful and flexible enough to be used as an operational DBMS.
-Though OrientDB Community Edition is free for commercial use, robust applications need enterprise level functionalities to guarantee data security and flawless performance. OrientDB Enterprise Edition gives you all the features of our community edition plus:
+OrientDB Enterprise Edition gives you all the features of our community edition plus:
 
 - Incremental backups
 - Unmatched security
-- 24x7 Support
 - Query Profiler
 - Distributed Clustering configuration
 - Metrics Recording
@@ -30,7 +29,7 @@ Though OrientDB Community Edition is free for commercial use, robust application
 ## Zero Configuration Multi-Master Architecture
 
 With a master-slave architecture, the master often becomes the bottleneck. With OrientDB, throughput is not limited by a single server. Global throughput is the sum of the throughput of all the servers.
-- Multi-Master + Sharded architecture
+- Multi-Master
 - Elastic Linear Scalability
 - Restore the database content using WAL
 
@@ -44,7 +43,6 @@ Replacing your DBMS, once it no longer meets requirements, can be a huge cost in
 
 OrientDB is written entirely in Java and can run on any platform without configuration and installation. It's a drop-in replacement for the most common existing graph databases in deployment today.
 
-- 2MB Full Server distribution (not including demo)
 - Multiple Programming Language Bindings
 - Extended SQL with graph functionality
 - Tinkerpop API
@@ -67,4 +65,3 @@ OrientDB Ltd, the company behind OrientDB, offers optional services such as Deve
 
 Which is more likely to have better quality? A DBMS created and tested by a handful of developers or one tested by over 100,000 developers globally? When code is public, everyone can scrutinize, test, report and resolve issues. All things Open Source move faster compared to the proprietary world. In fact, the most popular databases ranked by DB-Engines are now Open Source.
 
-OrientDB LTD leads the OrientDB Open Source project and defines the roadmap but all members of the OrientDB Development Team were original contributors to the OrientDB Open Source project, years before being brought onto the team. Their expert product knowledge coupled with the passion they bring to the table every day, ensures quality for our products, support and consultancy work.

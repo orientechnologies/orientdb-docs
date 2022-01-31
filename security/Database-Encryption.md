@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['security', 'encryption', 'database encryption']
----
 
 # Database Encryption
 

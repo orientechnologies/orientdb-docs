@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'TRUNCATE RECORD', 'truncate', 'record']
----
 
 # SQL - `TRUNCATE RECORD`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'drop', 'delete', 'database', 'DROP DATABASE']
----
 
 
 # Console - `DROP DATABASE`

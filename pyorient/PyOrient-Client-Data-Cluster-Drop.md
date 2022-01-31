@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'cluster', 'drop cluster']
----
 
 # PyOrient Client - `data_cluster_drop()`
 

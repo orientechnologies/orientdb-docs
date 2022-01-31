@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['etl', 'ETL', 'source']
----
 
 <!-- proofread 2015-12-11 SAM -->
 # ETL - Sources

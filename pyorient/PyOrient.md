@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Python', 'PyOrient', 'Python API']
----
 
 # PyOrient - Python Driver
 

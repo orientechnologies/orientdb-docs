@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['console', 'command', 'declare', 'intent', 'DECLARE INTENT']
----
 
 <!-- proofread 2015-01-07 SAM -->
 

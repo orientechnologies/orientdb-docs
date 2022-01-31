@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['NET', 'c#', 'ODatabase', 'update']
----
 
 # OrientDB-NET - `Update()`
 

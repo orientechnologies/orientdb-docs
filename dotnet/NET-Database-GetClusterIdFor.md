@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['NET', '.NET', 'C#', 'c sharp', 'OrientDB-NET', 'cluster', 'get cluster id', 'GetClusterIdFor', 'ODatabase']
----
 
 # OrientDB-NET - `GetClusterIdFor()`
 

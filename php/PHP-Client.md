@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["PHP", "PhpOrient", "client"]
----
 
 # PhpOrient - Client Connections
 

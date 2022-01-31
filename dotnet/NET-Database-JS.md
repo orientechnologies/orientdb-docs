@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['NET', "C#", 'ODatabase', 'javascript', 'js']
----
 
 # OrientDB-NET - `JavaScript()`
 

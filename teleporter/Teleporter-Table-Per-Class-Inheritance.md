@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['teleporter', 'inheritance', 'table per class', 'table-per-class']
----
 
 # Table Per Class Inheritance
 Table Per Class strategy is the most logical inheritance solution because it mirrors the object model in the data model. In this pattern a table is defined for each class in the inheritance hierarchy to store only the local attributes of that class. 

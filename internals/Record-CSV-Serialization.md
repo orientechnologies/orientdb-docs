@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['binary protocol', 'CSV serialization']
----
 
 # CSV Serialization
 

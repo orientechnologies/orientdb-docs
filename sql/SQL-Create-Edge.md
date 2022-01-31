@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'command', 'create', 'edge', 'CREATE EDGE']
----
 
 # SQL - `CREATE EDGE`
 

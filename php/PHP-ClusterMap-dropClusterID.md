@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PHP', 'PhpOrient', 'drop cluster', 'dropClusterID']
----
 
 # PhpOrient - `dropClusterID()`
 

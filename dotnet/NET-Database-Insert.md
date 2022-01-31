@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['NET', 'C#', 'ODatabase', 'insert']
----
 
 # OrientDB-NET - `Insert()`
 

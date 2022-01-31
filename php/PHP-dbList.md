@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["PHP", "PhpOrient", "list databases", "dbList"]
----
 
 # PhpOrient - `dbList()`
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['export', 'import', 'format']
----
 
 # Export Format
 

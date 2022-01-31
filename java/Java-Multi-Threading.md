@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'mutli-thread', 'multithread']
----
 
 # Multi-threading with OrientDB
 

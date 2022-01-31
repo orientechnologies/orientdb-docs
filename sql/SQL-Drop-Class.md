@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['SQL', 'DROP CLASS', 'delete', 'drop', 'class']
----
 
 # SQL - `DROP CLASS`
 

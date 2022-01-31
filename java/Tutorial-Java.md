@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "Java API"]
----
 
 # Java API Tutorial (LEGACY)
 

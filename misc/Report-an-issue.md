@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['contribute', 'contribution', 'report', 'issue', 'report an issue']
----
 
 # Report an Issue
 

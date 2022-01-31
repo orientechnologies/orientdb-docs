@@ -1,0 +1,40 @@
+[book]
+title = "OrientDB"
+author = "community"
+description = "OrientDB documentation"
+src = "./"
+
+[build]
+build-dir = "orientdb-book"
+create-missing = false
+
+[preprocessor.index]
+
+[preprocessor.links]
+
+[output.html]
+
+[output.html.fold]
+enable = true
+level = 0
+
+[output.html.search]
+limit-results = 15
+
+[preprocessor.variables.variables]
+book.CE_name= "orientdb-community"
+book.CE_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.4-beta1/orientdb-3.2.4.tar.gz"
+book.EE_name= "agent"
+book.EE_link = "https://repo1.maven.org/maven2/com/orientechnologies/agent/3.2.4/agent-3.2.4.jar"
+book.TP2_name = "orientdb-community-tp2"
+book.TP2_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.4-beta1/orientdb-3.2.4.tar.gz"
+book.TP3_name = "orientdb-community-tp3"
+book.TP3_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.4-beta1/orientdb-tp3-3.2.4.tar.gz"
+book.TP3Spatial_name = "orientdb-community-spatial"
+book.TP3Spatial_link = "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.4/orientdb-tp3-3.2.4.tar.gz"
+book.source_repository = "https://github.com/orientechnologies/orientdb/blob/develop/"
+book.lastGA = "3.2.4"
+book.currentVersion =  "3.2.4"
+book.demoDBVersion_screenshots ="0.76"
+book.javase = "https://docs.oracle.com/javase/8/docs"
+book.javadoc = "https://orientdb.com/javadoc/develop"

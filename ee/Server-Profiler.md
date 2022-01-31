@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Studio', 'Server','Profiler']
----
 
 
 # Server Profiler

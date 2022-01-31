@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Scala', 'Scala API']
----
 
 # Scala API
 

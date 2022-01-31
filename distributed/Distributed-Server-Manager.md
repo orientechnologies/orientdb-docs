@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['distributed', 'architecture', 'plugin', 'server manager']
----
 
 # Distributed Architecture Plugin
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['backup', 'restore']
----
 
 
 # Backup & Restore

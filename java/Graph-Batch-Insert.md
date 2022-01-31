@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Graph API', 'batch insert', 'bulk load', 'bulk insert', 'OGraphBatchInsertBasic', 'OGraphBatchInsert']
----
 
 # Graph Batch Insert
 

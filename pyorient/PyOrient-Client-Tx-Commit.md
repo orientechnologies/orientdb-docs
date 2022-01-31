@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['PyOrient', 'client', 'transaction']
----
 
 # PyOrient Client - `tx_commit()`
 
