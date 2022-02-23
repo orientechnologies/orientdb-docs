@@ -36,20 +36,6 @@ orientDB.create("test",ODatabaseType.PLOCAL);
 orientDB.close();
 ```
 
-When you create a db for the first time, OrientDB creates three users and three roles for you
-
-Users:
-
-- User `admin` (password "admin") with role `admin`
-- User `reader` (password "reader") with role `reader`
-- User `writer` (password "writer") with role `writer`
-
-Roles:
-
-- Role `admin` - full control on the database
-- Role `reader` - read only permissions
-- Role `writer` - read/write permissions, but no schema manipulation
-
 For more information on how to add/remove users/roles, change roles to a user, change passwords, please refer to [Database-Security](../security/Database-Security.md)
 
 For creating database instances on remote servers, You need the user and password to access the remote OrientDB Server instance.  By default, OrientDB creates the `root` user when the server asking the password at first starts.
