@@ -12,7 +12,7 @@
     "TP3Spatial_link": "https://repo1.maven.org/maven2/com/orientechnologies/orientdb-tp3/3.1.19/orientdb-tp3-3.1.19.tar.gz",
     "javadoc":"http://orientdb.com/javadoc/latest/",
     "source_repository":"https://github.com/orientechnologies/orientdb/blob/develop/",
-    "lastGA": "3.2.8",
+    "lastGA": "3.2.9",
     "currentVersion": "3.1.19",
     "demoDBVersion_screenshots": "0.76",
 	"javase": "https://docs.oracle.com/javase/8/docs",
