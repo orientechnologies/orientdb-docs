@@ -54,6 +54,7 @@ If you want learn SQL, there are many online courses such as:
 - [Beginner guide to SQL](https://blog.udemy.com/beginners-guide-to-sql/)
 - [SQLCourse.com](http://www.sqlcourse2.com/intro2.html)
 - [YouTube channel Basic SQL Training by Joey Blue](http://www.youtube.com/playlist?list=PLD20298E653A970F8)
+- [SQL Tutorial by Scaler Topics](https://www.scaler.com/topics/sql/)
 
 To know more, look to [OrientDB SQL Syntax](SQL-Syntax.md).
 
