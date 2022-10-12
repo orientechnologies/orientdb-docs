@@ -63,6 +63,6 @@ When your 32-bit application receives a Java long integer from OrientDB, values 
 During installation, PHP Composer generates an autoload file that you can use in retrieving PhpOrient classes and functions to use with your application.  To implement these features, add the following lines to any file where you would like to have these features available:
 
 ```php
-require "vendor/autoload.php;
+require "vendor/autoload.php";
 use PhpOrient\PhpOrient;
 ```
