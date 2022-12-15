@@ -79,6 +79,11 @@ set str=%~2
 rem Check OrientDB Home location parameter
 if "%str%" == "" goto missingOrientDBHome
 set ORIENTDB_HOME=%str%
+rem Remove surrounding quotes from the third parameter
+set str=%~3
+rem Check root password to stop server
+if "%str%" == "" goto missingRootPassword
+set ROOT_PASSWORD=%str%
 
 set CONFIG_FILE=%ORIENTDB_HOME%/config/orientdb-server-config.xml
 set LOG_FILE=%ORIENTDB_HOME%/config/orientdb-server-log.properties
@@ -94,7 +99,7 @@ OrientDBGraph.exe //IS --DisplayName="OrientDB GraphEd X.X.X" ^
 --Description="OrientDB Graph Edition, aka GraphEd, contains OrientDB server integrated with the latest release of the TinkerPop Open Source technology stack supporting property graph data model." ^
 --StartClass=com.orientechnologies.orient.server.OServerMain --StopClass=com.orientechnologies.orient.server.OServerShutdownMain ^
 --Classpath="%ORIENTDB_HOME%\lib\*;%ORIENTDB_HOME%\plugins\*" --JvmOptions=-Dfile.encoding=%ORIENTDB_ENCODING%;-Djava.util.logging.config.file="%LOG_FILE%";-Dorientdb.config.file="%CONFIG_FILE%";-Dorientdb.www.path="%WWW_PATH%";-Dlog.console.level=%LOG_CONSOLE_LEVEL%;-Dlog.file.level=%LOG_FILE_LEVEL%;-Dorientdb.build.number="@BUILD@";-DORIENTDB_HOME="%ORIENTDB_HOME%" ^
---StartMode=jvm --StartPath="%ORIENTDB_HOME%\bin" --StopMode=jvm --StopPath="%ORIENTDB_HOME%\bin" --Jvm="%JVM_DLL%" --LogPath="%ORIENTDB_HOME%\log" --Startup=auto
+--StartMode=jvm --StartPath="%ORIENTDB_HOME%\bin" --StopMode=jvm --StopPath="%ORIENTDB_HOME%\bin" --StopParams=-p#%ROOT_PASSWORD% --Jvm="%JVM_DLL%" --LogPath="%ORIENTDB_HOME%\log" --Startup=auto
 
 EXIT /B
 
@@ -106,16 +111,21 @@ goto printUsage
 echo Insert the OrientDB Home
 goto printUsage
 
+:missingRootPassword
+echo Insert the root password
+goto printUsage
+
 :printUsage
 echo usage:
-echo     installService JVM_DLL_location OrientDB_Home
+echo     installService JVM_DLL_location OrientDB_Home root_password
 EXIT /B
 ```
 
-The script requires two input parameters:
+The script requires three input parameters:
 
 1. The location of jvm.dll, for example _C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll_
 1. The location of the OrientDB installation folder, for example *D:\orientdb-graphed-1.0rc5*
+1. The password for root user (to stop server)
 
 The service is actually installed when executing **OrientDBGraph.exe** (originally prunsrv) with the appropriate set of command line arguments and parameters.
 The command line argument **//IS** states that the execution of that application will result in a service installation.
@@ -142,7 +152,7 @@ In order to install the service:
 
 1. Open the Windows command shell
 1. Go to _%ORIENTDB_HOME%\service_, for example typing in the shell <code>> cd D:\orientdb-graphed-1.0rc5\service</code>
-1. Execute the *installService.bat* specifying the *jvm.dll* location and the OrientDB Home as full paths, for example typing in the shell <code>> installService.bat "C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll" D:\orientdb-graphed-1.0rc5</code>
+1. Execute the *installService.bat* specifying the *jvm.dll* location and the OrientDB Home as full paths, for example typing in the shell <code>> installService.bat "C:\Program Files\Java\jdk1.6.0_26\jre\bin\server\jvm.dll" D:\orientdb-graphed-1.0rc5 ROOT_PASSWORD</code>
 1. Open the Windows Services Management Console - from the taskbar, click on *Start*, *Control Panel*, *Administrative Tools* and then *Service* - and check the existance of a service with the same name specified as value of the <code>--DisplayName</code> parameter (in this case **OrientDB GraphEd X.X.X**). You can also use _%ORIENTDB_HOME%\service\OrientDBGraphw.exe_ to manage and monitor the *OrientDBGraph* service.
 
 Example (in the `service` directroy) start and stop the service:
