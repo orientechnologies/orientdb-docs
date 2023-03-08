@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OVertex', 'get edges', 'getEdges']
----
 
 # OVertex - getEdges()
 

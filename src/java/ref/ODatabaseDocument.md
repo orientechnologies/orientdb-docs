@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ODocumentDatabase', 'document database']
----
 
 # Java API - ODatabaseDocument 
 

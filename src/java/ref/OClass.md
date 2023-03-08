@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass' ]
----
 
 # Java API - OClass
 

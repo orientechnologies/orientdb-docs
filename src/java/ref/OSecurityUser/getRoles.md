@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityuser', 'getroles']
----
 
 # OSecurityUser - getRoles()
 

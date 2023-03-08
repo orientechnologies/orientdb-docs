@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'polymorphism', 'has super classes', 'hasSuperClasses']
----
 
 # OClass - hasSuperClasses()
 

@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['java', 'oschema', 'getclassrelyoncluster']
----
-
 # OSchema - getClassesRelyOnCluster()
 
 Retrieves all the classes that rely on the given cluster. 

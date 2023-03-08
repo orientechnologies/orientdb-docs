@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'OIndex', 'index', 'get class involved indexes', 'getClassInvolvedIndexes']
----
 
 # OClass - getClassInvolvedIndexes()
 

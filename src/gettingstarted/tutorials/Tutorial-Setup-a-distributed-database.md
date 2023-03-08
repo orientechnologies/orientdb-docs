@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "distributed database"]
----
 
 # Setting up a Distributed Graph Database
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OProperty', 'property', 'read only', 'is read only', 'isReadonly']
----
 
 # OProperty - isReadonly()
 

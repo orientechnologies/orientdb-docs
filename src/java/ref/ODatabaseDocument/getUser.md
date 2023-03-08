@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'getuser']
----
 
 # ODatabaseDocument - getUser()
 

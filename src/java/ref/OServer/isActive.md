@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'method', 'isActive', 'is active']
----
 
 # OServer - isActive()
 

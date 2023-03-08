@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'getlastposition']
----
 
 # OCluster - getLastPosition()
 

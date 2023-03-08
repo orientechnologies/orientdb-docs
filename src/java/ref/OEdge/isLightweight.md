@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OEdge', 'OElement', 'lightweight edge', 'is lightweight', 'isLightweight']
----
 
 # OEdge - isLightweight()
 

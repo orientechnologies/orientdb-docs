@@ -1,8 +1,5 @@
----
-search:
-   keywords: ['java', 'ofunction', 'getcode']
----
 
+:wa
 # OFunction - getCode()
 
 Retrieves the function code. 

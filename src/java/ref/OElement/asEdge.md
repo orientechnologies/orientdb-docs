@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OElement', 'as edge', 'asEdge']
----
 
 # OElement - asEdge()
 

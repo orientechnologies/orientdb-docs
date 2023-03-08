@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'property', 'remove property', 'drop property', 'delete property', 'dropProperty']
----
 
 # OClass - dropProperty()
 

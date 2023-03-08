@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'olivequeryresultlistener', 'live query', 'onUpdate']
----
 
 # OLiveQueryResultListener - onUpdate()
 

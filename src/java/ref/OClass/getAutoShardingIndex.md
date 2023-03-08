@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'index', 'sharding', 'get auto sharding index', 'getAutoShardingIndex']
----
 
 # OClass - getAutoShardingIndex()
 

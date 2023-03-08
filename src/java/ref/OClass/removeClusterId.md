@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'cluster', 'remove cluster id', 'remove cluster', 'removeClusterId']
----
 
 # OClass - removeClusterId()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'vertex', 'is vertex type', 'isVertexType']
----
 
 # OClass - isVertexType()
 

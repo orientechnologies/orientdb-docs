@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'OProperty', 'OType', 'setLinkedType', 'set linked type']
----
 
 # OProperty - setLinkedType()
 

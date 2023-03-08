@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OVertex', 'vertex']
----
 
 # Java API - OVertex
 

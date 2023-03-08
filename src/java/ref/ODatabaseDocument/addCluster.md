@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'ODocumentDatabase', 'cluster', 'add cluster', 'addCluster']
----
 
 # ODatabaseDocument - addCluster()
 

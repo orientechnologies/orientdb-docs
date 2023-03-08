@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['tutorial', 'etl', 'ETL', 'ETL example', 'database of beers','beer', 'visualization', 'match']
----
 
 <!-- proofread 2015-12-11 SAM -->
 # Tutorial: Importing the Open Beer Database into OrientDB

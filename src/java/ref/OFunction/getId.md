@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ofunction', 'getid']
----
 
 # OFunction - getId()
 

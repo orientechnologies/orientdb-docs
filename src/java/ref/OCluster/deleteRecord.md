@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['ocluster', 'java', 'deleterecord']
----
 
 # OCluster - deleteRecord()
 

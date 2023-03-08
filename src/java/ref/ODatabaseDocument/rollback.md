@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'ODatabaseDocument', 'transaction', 'rollback']
----
 
 # ODatabaseDocument - rollback() 
 

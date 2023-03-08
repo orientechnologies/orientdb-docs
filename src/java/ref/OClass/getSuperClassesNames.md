@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'superclass', 'get superclasses names', 'getSuperClassesNames']
----
 
 # OClass - getSuperClassesNames()
 

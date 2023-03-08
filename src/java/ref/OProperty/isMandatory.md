@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OProperty', 'is mandatory', 'isMandatory']
----
 
 # OProperty - isMandatory()
 

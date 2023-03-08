@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'OProperty', 'create property', 'createProperty']
----
 
 # OClass - createProperty()
 

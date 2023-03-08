@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'OrientDB', 'list databases', 'list']
----
 
 # OrientDB - list()
 

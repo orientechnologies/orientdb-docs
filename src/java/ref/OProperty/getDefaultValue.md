@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OProperty', 'default value', 'get default value', 'getDefaultValue']
----
 
 # OProperty - getDefaultValue()
 

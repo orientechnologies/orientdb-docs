@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'get storage path', 'getStoragePath']
----
 
 # OServer - getStoragePath()
 

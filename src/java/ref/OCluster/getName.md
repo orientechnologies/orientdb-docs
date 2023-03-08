@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'getname']
----
 
 # OCluster - getName()
 

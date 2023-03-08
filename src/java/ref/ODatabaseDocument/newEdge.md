@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ODatabaseDocument', 'new edge', 'newEdge']
----
 
 # ODatabaseDocument - newEdge()
 

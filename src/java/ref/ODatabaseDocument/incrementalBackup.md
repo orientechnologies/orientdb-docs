@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'backups', 'incremental backup', 'incrementalbackup']
----
 
 # ODatabaseDocument - incrementalBackup()
 

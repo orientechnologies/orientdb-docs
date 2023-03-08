@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OElement', 'schema', 'get schema type', 'getSchemaType']
----
 
 # OElement - getSchemaType()
 

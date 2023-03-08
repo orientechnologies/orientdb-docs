@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oschema', 'getclassbyclusterid']
----
 
 # OSchema - getClassByClusterId()
 

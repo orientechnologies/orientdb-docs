@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ometadata', 'oschema', 'getschema']
----
 # OMetadata - getSchema()
 
 Retrieves the database schema from the database metadata.

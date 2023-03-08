@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ofunctionlibrary', 'getfunction', 'ofunction']
----
 
 # OFunctionLibrary - getFunction()
 

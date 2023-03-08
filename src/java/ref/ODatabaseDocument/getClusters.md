@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'clusters', 'getclusters']
----
 
 # ODatabaseDocument - getClusters()
 

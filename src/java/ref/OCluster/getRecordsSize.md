@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'getrecordssize']
----
-
 # OCluster - getRecordsSize()
 
 Retrieves the size of the records contained in the cluster. 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityrole', 'revoke']
----
 
 # OSecurityRole - revoke()
 

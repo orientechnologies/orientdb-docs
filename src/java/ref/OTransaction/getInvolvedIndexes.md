@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'otransaction', 'getinvolvedindexes']
----
 
 # OTransaction - getInvolvedIndexes()
 

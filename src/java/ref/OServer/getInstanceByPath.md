@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'get instance', 'getInstanceByPath']
----
 
 # OServer - getInstanceByPath()
 

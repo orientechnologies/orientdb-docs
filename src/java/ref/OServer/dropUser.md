@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'drop user', 'drop server user', 'dropUser']
----
 
 # OServer - dropUser()
 

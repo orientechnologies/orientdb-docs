@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OProperty', 'set name', 'property name', 'setName']
----
 
 # OProperty - setName()
 

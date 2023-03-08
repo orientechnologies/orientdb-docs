@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OElement', 'getProperty', 'get property', 'properties']
----
 
 # OElement - getProperty()
 

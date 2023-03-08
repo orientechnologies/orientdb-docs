@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'delete', 'delete record']
----
 
 # ODatabaseDocument - delete()
 

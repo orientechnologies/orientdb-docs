@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['ofunctionlibrary', 'ofunction', 'createfunction']
----
 
 # OFunctionLibrary - createFunction()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'OrientDB', 'exists']
----
 
 # OrientDB - exists()
 

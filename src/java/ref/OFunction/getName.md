@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ofunction', 'getname']
----
 
 # OFunction - getName()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OProperty', 'property', 'is not null', 'isNotNull']
----
 
 # OProperty - isNotNull()
 

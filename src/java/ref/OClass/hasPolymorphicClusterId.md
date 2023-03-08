@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'Cluster ID', 'polymorphism', 'class', 'cluster', 'has polymorphic cluster id', 'hasPolymorphicClusterId']
----
 
 # OClass - hasPolymorphicClusterId()
 

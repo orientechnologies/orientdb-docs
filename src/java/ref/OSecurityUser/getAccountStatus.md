@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityuser', 'getaccountstatus']
----
 
 # OSecurityUser - getAcccountStatus()
 

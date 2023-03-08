@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityuser', 'addrole']
----
 
 # OSecurityUser - addRole()
 

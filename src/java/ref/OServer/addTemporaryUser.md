@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'add temporary user', 'addTemporaryUser']
----
 
 # OServer - addTemporaryUser()
 

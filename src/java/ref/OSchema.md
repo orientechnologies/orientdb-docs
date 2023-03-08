@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oschema']
----
 
 # Java API - OSchema
 

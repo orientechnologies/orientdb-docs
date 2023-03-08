@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OElement', 'as vertex', 'asVertex']
----
 
 # OElement - asVertex()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'remove super class', 'removeSuperClass']
----
 
 # OClass - removeSuperClass()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OElement', 'is edge', 'isEdge']
----
 
 # OElement - isEdge()
 

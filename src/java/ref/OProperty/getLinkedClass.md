@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'API', 'OProperty', 'getLinkedClass', 'get linked class']
----
 
 # OProperty - getLinkedClass()
 

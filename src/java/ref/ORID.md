@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'orid', 'record id']
----
 
 # ORID
 

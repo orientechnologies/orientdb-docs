@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'ODatabaseDocument', 'class', 'OClass', 'create class if not exists', 'createClassIfNotExists']
----
 
 # ODatabaseDocument - createClassIfNotExists()
 

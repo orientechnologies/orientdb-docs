@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OElement', 'isVertex', 'is vertex', 'vertex']
----
 
 # OElement - isVertex()
 

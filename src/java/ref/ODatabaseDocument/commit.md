@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'ODatabaseDocument', 'transaction', 'commit']
----
 
 # ODatabaseDocument - commit() 
 

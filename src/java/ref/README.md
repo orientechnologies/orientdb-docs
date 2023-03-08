@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'Java API', 'reference']
----
 
 # Java API - Reference
 

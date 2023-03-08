@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityrole', 'getdocument']
----
-
 # OSecurityRole - getDocument()
 
 Retrieves the document of the role.

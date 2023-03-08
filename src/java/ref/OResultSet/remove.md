@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oresuletset', 'remove']
----
 
 # OResultSet - remove()
 

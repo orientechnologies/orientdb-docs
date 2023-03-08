@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'subclass', 'get subclasses', 'get all subclasses', 'getAllSubclasses' ]
----
 
 # OClass - getAllSubclasses()
 

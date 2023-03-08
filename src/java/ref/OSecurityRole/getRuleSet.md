@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityrole', 'getruleset']
----
 
 # OSecurityRole - getRuleSet()
 

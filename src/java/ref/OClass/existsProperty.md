@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'property', 'property exists', 'exists property', 'existsProperty']
----
 
 # OClass - existsProperty()
 

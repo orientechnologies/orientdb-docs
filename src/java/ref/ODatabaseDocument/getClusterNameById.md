@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'cluster name', 'getclusternamebyid']
----
 
 # ODatabaseDocument - getClusterNameById()
 

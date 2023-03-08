@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ODatabaseDocument', 'get record type', 'getRecordType']
----
 
 # ODatabaseDocument - getRecordType()
 

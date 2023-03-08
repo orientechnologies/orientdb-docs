@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'cluster', 'add cluster', 'addCluster']
----
 
 # OClass - addCluster()
 

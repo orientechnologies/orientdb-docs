@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'isclosed']
----
 
 # ODatabaseDocument - isClosed()
 

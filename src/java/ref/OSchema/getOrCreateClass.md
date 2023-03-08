@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oschema', 'getorcreateclass']
----
 
 # OSchema - getOrCreteClass()
 

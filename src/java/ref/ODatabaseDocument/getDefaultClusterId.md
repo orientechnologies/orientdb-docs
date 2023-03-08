@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'default cluster id', 'getdefaultclusterid']
----
 
 # ODatabaseDocument - getDefaultClusterId()
 

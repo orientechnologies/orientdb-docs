@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'close']
----
-
 # OCluster - close()
 
 Closes the cluster.

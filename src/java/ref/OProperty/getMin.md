@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OProperty', 'get minimum', 'getMin']
----
 
 # OProperty - getMax()
 

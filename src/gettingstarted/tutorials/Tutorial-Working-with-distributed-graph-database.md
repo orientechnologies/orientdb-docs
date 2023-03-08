@@ -1,7 +1,3 @@
----
-search:
-   keywords: ["tutorial", "distributed database", "graph"]
----
 
 # Working with Distributed Graphs
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oschema', 'existsclass']
----
 
 # OSchema - existsClass()
 

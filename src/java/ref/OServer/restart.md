@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'server', 'restart']
----
 
 # OServer - restart()
 

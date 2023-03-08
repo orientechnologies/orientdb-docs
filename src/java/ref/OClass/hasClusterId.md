@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'Cluster ID', 'has cluster id', 'hasClusterId']
----
 
 # OClass - hasClusterId()
 

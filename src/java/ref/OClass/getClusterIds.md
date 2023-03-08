@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'cluster', 'cluster id', 'get cluster ids', 'getClusterIds']
----
 
 # OClass - getClusterIds()
 

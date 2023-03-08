@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['Java API', 'ODatabaseDocument', 'create class', 'class', 'createClass']
----
-
 # ODatabaseDocument - createClass()
 
 This method creates a database class on the database.

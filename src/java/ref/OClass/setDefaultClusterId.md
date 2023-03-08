@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'cluster', 'Cluster ID', 'set default cluster id', 'setDefaultClusterId']
----
 
 # OClass - setDefaultClusterId()
 

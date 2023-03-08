@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'edge', 'is edge type', 'isEdgeType']
----
 
 # OClass - isEdgeType()
 

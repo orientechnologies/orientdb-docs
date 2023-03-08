@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'set name', 'setName']
----
 
 # OClass - setName()
 

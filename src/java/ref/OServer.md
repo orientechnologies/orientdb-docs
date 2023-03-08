@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'embed']
----
 
 # Java API - OServer
 

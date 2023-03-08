@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'live', 'live queries']
----
 
 # ODatabaseDocument - live()
 

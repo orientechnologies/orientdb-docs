@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'ODatabaseDocument', 'cluster', 'browse cluster', 'browseCluster']
----
 
 # ODatabaseDocument - browseCluster()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'otransaction', 'getnewrecordentriesbycluster']
----
 
 # OTransaction - getNewRecordEntriesByCluster()
 

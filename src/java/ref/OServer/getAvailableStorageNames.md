@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'get available storage names', 'getAvailableStorageNames']
----
 
 # OServer - getAvailableStorageNames()
 

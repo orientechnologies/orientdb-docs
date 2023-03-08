@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OVertex', 'OEdge', 'add edge', 'addEdge']
----
 
 # OVertex - addEdge()
 

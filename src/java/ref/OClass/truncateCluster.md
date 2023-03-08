@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'truncate cluster', 'remove cluster data', 'truncateCluster']
----
 
 # OClass - truncateCluster()
 

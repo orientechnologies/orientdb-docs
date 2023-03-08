@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'ODatabaseDocument', 'OClass', 'OEdge', 'edge', 'create edge', 'createEdgeClass']
----
 
 # ODatabaseDocument - createEdgeClass()
 

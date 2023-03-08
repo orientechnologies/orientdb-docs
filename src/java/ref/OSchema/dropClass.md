@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oschema', 'dropclass']
----
 
 # OSchema - dropClass()
 

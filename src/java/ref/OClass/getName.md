@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'api', 'oclass', 'class name', 'get name', 'getName']
----
 
 # OClass - getName()
 

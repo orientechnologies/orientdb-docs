@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['java', 'ofunction', 'setcode']
----
-
 # OFunction - getCode()
 
 Defines the function code. 

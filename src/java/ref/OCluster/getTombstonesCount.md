@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'tombstone', 'gettombstonescount']
----
-
 # OCluster - getTombstonesCount()
 
 Retrieves the number of hidden records in the cluster.

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityrole', 'hasrule']
----
 
 # OSecurityRole - hasRule()
 

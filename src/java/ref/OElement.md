@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'OElement', 'document', 'vertex', 'edge']
----
 
 # Java API - OElement
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityuser', 'checkifallowed']
----
 
 # OSecurityUser - checkIfAllowed()
 

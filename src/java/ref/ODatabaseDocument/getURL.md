@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'geturl']
----
 
 # ODatabaseDocument - getURL()
 

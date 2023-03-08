@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'OrientDB', 'open database', 'open']
----
 
 # OrientDB - open()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OEdge', 'OElement', 'get from vertex', 'getFrom']
----
 
 # OEdge - getFrom()
 

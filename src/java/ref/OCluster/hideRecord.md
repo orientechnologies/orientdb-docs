@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'hiderecord', 'tombstone']
----
 
 # OCluster - hideRecord()
 

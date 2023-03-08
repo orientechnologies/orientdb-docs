@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ofunction', 'isidempotent']
----
 
 # OFunction - isIdempotent()
 

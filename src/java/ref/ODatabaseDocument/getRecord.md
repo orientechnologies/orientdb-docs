@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ODatabaseDocument', 'getRecord', 'get record']
----
 
 # ODatabaseDocument - getRecord()
 

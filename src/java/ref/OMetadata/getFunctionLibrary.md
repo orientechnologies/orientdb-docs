@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ometadata', 'getfunctionlibrary', 'functionlibrary']
----
 
 # OMetadata - getFunctionLibrary()
 

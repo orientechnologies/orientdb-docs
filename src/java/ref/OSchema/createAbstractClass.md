@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oschema', 'createabstractclass']
----
 
 # OSchema - createAbstractClass()
 

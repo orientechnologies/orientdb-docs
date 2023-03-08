@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'truncate']
----
 
 # OCluster - truncate()
 

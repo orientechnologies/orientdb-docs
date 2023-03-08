@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'class', 'browse class']
----
 
 # ODatabaseDocument - browseClasss()
 

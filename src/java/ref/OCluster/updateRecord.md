@@ -1,8 +1,3 @@
----
-search:
-   keywords: ['java', 'ocluster', 'updaterecord']
----
-
 # OCluster - updateRecord()
 
 Updates the given record with new data.

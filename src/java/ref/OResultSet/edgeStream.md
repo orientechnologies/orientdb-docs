@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'oresultset', 'edgestream']
----
 
 # OResultSet - edgeStreram()
 

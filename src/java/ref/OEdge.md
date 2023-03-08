@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OEdge', 'OElement', 'edge']
----
 
 # Java API - OEdge
 

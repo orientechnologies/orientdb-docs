@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'ODatabaseDocument', 'class', 'count class', 'countClass']
----
 
 # ODatabaseDocument - countClass()
 

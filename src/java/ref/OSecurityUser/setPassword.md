@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityuser', 'setpassword']
----
 
 # OSecurityUser - setPassword()
 

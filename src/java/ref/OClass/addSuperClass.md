@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'class', 'super class', 'addSuperClass']
----
 
 # OClass - addSuperClass()
 

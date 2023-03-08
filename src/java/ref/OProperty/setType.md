@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OProperty', 'OType', 'set type', 'setType']
----
 
 # OProperty - setType()
 

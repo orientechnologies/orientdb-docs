@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'ODatabaseDocument', 'createVertexClass']
----
 
 # ODatabaseDocument - createVertexClass()
 

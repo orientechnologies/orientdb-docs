@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'otransaction', 'getisolationlevl', 'isolation levels']
----
 
 # OTransaction - getIsolationLevel()
 

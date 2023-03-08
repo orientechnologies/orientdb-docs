@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java', 'OrientDB', 'create if not exists', 'createIfNotExists']
----
 
 # OrientDB - createIfNotExists()
 

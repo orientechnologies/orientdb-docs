@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'getclass', 'get class']
----
 
 # ODatabaseDocument - getClass()
 

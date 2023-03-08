@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabase', 'odatabasedocument', 'dropcluster']
----
 
 # ODatabaseDocument - dropCluster()
 

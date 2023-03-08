@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OType']
----
 
 # Java API - OType
 

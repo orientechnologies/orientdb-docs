@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'ofunctionlibrary', 'dropfunction']
----
 
 # OFunctionLibrary - dropFunction()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'odatabasedocument', 'listeners', 'unregisterlistener']
----
 
 # ODatabaseDocument - unregisterListener()
 

@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OServer', 'authenticate server user', 'authenticate']
----
 
 # OServer - authenticate()
 

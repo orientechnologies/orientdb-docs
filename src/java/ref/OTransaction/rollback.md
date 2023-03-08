@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'otransaction', 'rollback']
----
 
 # OTransaction - rollback()
 

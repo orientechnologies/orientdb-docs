@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['neo4j to orientdb importer', 'import', 'Neo4j', 'migration', 'northwind', 'cypher', 'tutorial']
----
 
 # Tutorial: Importing the *northwind* Database from Neo4j
 

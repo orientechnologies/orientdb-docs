@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['java', 'osecurityuser', 'getname']
----
 
 # OSecurityUser - getName()
 

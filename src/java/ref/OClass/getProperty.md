@@ -1,7 +1,3 @@
----
-search:
-   keywords: ['Java API', 'OClass', 'OProperty', 'get property', 'getProperty']
----
 
 # OClass - getProperty()
 
