@@ -2,7 +2,7 @@
 title = "OrientDB"
 author = "community"
 description = "OrientDB documentation"
-src = "./"
+src = "./src"
 
 [build]
 build-dir = "orientdb-book"
