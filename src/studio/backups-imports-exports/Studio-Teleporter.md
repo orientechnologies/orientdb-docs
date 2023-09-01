@@ -60,7 +60,7 @@ At the end of the migration, statistics and warnings about the process are repor
 
 ![Teleporter Job Completed](../../images/studio-teleporter/studio-teleporter-job-completed.png)
 
-Otherwise you can go on in your migrationg customisation jumping to the next step.
+Otherwise you can go on in your migrations customisation jumping to the next step.
 
 ### Step 3
 
@@ -126,7 +126,7 @@ Everytime you select an edge in the graph, you can find out about the original r
 
   - 1-N Relationship
 
-    Edges coming from 1-N Relationships are represented through a continous arrow.
+    Edges coming from 1-N Relationships are represented through a continuous arrow.
 
 ![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-simple-edge-rendering.png)
 
@@ -241,7 +241,7 @@ Then you have to drag the edge till the target vertex and click over it.
 
 ![Teleporter Job Running](../../images/studio-teleporter/studio-teleporter-step4-add-edge-drag.png)
 
-A new window will open where you have to specifiy the name of the Edge class for the new edge instance and some mapping info:
+A new window will open where you have to specify the name of the Edge class for the new edge instance and some mapping info:
 
 - fromTable: the foreign table that imports the primary key of the parent table.
 - fromColumns: the attributes involved in the foreign key.

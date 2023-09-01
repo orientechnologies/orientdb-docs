@@ -23,8 +23,8 @@ Displays all the active connections to the server. Each connection reports the f
 - `Command Info`, as the running command
 - `Command Detail`, as the detail about the running command
 - `Last Command On`, is the last time a request has been executed
-- `Last Command Info`, is the informaton about last operation executed
-- `Last Command Detail`, is the informaton about the details of last operation executed
+- `Last Command Info`, is the information about last operation executed
+- `Last Command Detail`, is the information about the details of last operation executed
 - `Last Execution Time`, is the execution time o last request
 - `Total Working Time`, is the total execution time taken by current connection so far
 - `Connected Since`, is the date when the connection has been created
@@ -46,7 +46,7 @@ This panel shows the Server settings divided in two boxes:
 ## Storages
 This panel shows the [storages](../../datamodeling/Concepts.md) used by the server. Below the information reported per storage:
 - `Name`, is the storage name
-- `Type`, where `OLocalPaginatedStorage` (plocal) means persstent and `ODirectMemoryStorage` (memory) is in memory only
+- `Type`, where `OLocalPaginatedStorage` (plocal) means persistent and `ODirectMemoryStorage` (memory) is in memory only
 - `Path`, as the path on server's file system where the storage is located
 - `Active Users`. This information couldn't be updated with the real number of users that are using the database
 
