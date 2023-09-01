@@ -1,7 +1,7 @@
 
 # Incremental Backup and Restore
 
-(Since v2.2 - Enteprise Edition only)
+(Since v2.2 - Enterprise Edition only)
 
 An incremental backup generates smaller backup files by storing only the delta between two versions of the database. This is useful when you execute a backup on a regular basis and you want to avoid having to back up the entire database each time. The easiest way to execute a backup and a restore is using [Studio](../studio/backups-imports-exports/Studio-Backup-Management.md).
 
@@ -100,7 +100,7 @@ You can overcome this inconsistency by executing a shutdown on all the nodes of 
 
 ## Distributed Architecture
 
-The incremental backup is used in the [Distributed Architecture](../distributed/Distributed-Architecture.md) when a server node restarts. This avoids having to backup and tranfer the entire database across the network.
+The incremental backup is used in the [Distributed Architecture](../distributed/Distributed-Architecture.md) when a server node restarts. This avoids having to backup and transfer the entire database across the network.
 
 ## Internals
 

@@ -1464,7 +1464,7 @@ Set at run-time: false
 
 ##### network.token.secretKey
 
-Network token sercret key.
+Network token secret key.
 
 ```
 Setting name...: network.token.secretKey

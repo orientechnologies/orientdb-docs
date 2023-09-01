@@ -80,7 +80,7 @@ Each example returns an HTTP 202 OK with an envelope containing the result of th
 {"result":[{"@type":"d","@version":0,"value":2}]}
 ```
 
-You can only call functions with the HTTP GET method if you delcare it as `idempotent`.  You can call any functions using the HTTP POST method.
+You can only call functions with the HTTP GET method if you declare it as `idempotent`.  You can call any functions using the HTTP POST method.
 
 When executing functions with the HTTP POST method, encode the content and set the HTTP request header to: `"Content-Type: application/json"`.
 
