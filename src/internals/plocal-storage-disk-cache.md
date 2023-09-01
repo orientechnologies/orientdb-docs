@@ -106,7 +106,7 @@ begin
   free page out the tail of A1in, call it Y
   add identifier of Y to the head of A1out
  if(A1out.size > A1OutMaxSize)
-  remove page from the tail of Alout
+  remove page from the tail of A1out
  end if
  else
   remove page out the tail of Am

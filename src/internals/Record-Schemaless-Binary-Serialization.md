@@ -185,7 +185,7 @@ A `key-value` pair is serialized as:
 
 ### DECIMAL
 
-Decimals are converted to integers and stored as the scale and the value. For example, `10234.546` is storead as scale `3` and value `10234546`.
+Decimals are converted to integers and stored as the scale and the value. For example, `10234.546` is stored as scale `3` and value `10234546`.
 
     (scale:int32)(value-size:int32)(value:byte[])
 
@@ -223,9 +223,9 @@ RidBag Tree
 where:
  - **filed-id**  part of extern collection identifier 
  - **page-index** part of extern collection identifier
- - **page-offeset** part of extern collection identifier
+ - **page-offset** part of extern collection identifier
  - **n-changes** number of changes happened for the collection in update
  - **cluster-id** the cluster id of the change
  - **cluster-position** the cluster position of the change
- - **change-type** the type of the change 1 abusolute change, 0 diff change
- - **chage** an int that define the change type
+ - **change-type** the type of the change 1 absolute change, 0 diff change
+ - **change** an int that define the change type

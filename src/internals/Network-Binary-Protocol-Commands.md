@@ -26,11 +26,11 @@ the commands are divided in three main groups:
 
 ##### Serialized Parameters ODocument content
 The ODocument have to contain a field called "params" of type Map.  
-the Map should have as key, in case of positional perameters the numeric position of the parameter, in case of named parameters the name of the parameter and as value the value of the parameter.
+the Map should have as key, in case of positional parameters the numeric position of the parameter, in case of named parameters the name of the parameter and as value the value of the parameter.
 
 ### SQL Commands
 ```
-(text:string)(has-simple-parameters:boolean)(simple-paremeters:bytes[])(has-complex-parameters:boolean)(complex-parameters:bytes[])
+(text:string)(has-simple-parameters:boolean)(simple-parameters:bytes[])(has-complex-parameters:boolean)(complex-parameters:bytes[])
 ```
 **text** text of the sql command  
 **has-simple-parameters** boolean flag for determine if the **simple-parameters** byte array is present or not  
@@ -40,16 +40,16 @@ the Map should have as key, in case of positional perameters the numeric positio
 
 ##### Serialized Simple Parameters ODocument content
 The ODocument have to contain a field called "parameters" of type Map.  
-the Map should have as key, in case of positional perameters the numeric position of the parameter, in case of named parameters the name of the parameter and as value the value of the parameter.
+the Map should have as key, in case of positional parameters the numeric position of the parameter, in case of named parameters the name of the parameter and as value the value of the parameter.
 
 ##### Serialized Complex Parameters ODocument content
 The ODocument have to contain a field called "compositeKeyParams" of type Map.  
-the Map should have as key, in case of positional perameters the numeric position of the parameter, in case of named parameters the name of the parameter and as value a List that is the list of composite parameters.
+the Map should have as key, in case of positional parameters the numeric position of the parameter, in case of named parameters the name of the parameter and as value a List that is the list of composite parameters.
 
 ### Script 
 
 ```
-(language:string)(text:string)(has-simple-parameters:boolean)(simple-paremeters:bytes[])(has-complex-parameters:boolean)(complex-parameters:bytes[])
+(language:string)(text:string)(has-simple-parameters:boolean)(simple-parameters:bytes[])(has-complex-parameters:boolean)(complex-parameters:bytes[])
 ```
 **language** the language of the script present in the text field.
-All the others paramenters are serialized as the [SQL Commands](../sql/SQL-Commands.md)
+All the others parameters are serialized as the [SQL Commands](../sql/SQL-Commands.md)

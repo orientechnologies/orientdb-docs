@@ -8,7 +8,7 @@ The entry points for creating a new Index Engine are two:
 
 ## Implementing OIndexFactory
 
-Create your own facory that implements OIndexFactory.
+Create your own factory that implements OIndexFactory.
 
 In your factory you have to declare:
 

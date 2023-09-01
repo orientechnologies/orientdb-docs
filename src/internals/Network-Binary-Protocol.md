@@ -202,7 +202,7 @@ Each request has own format depending of the operation requested. The operation 
 <tr><td>REQUEST_CREATE_SBTREE_BONSAI<td>110</td><td>Creates an sb-tree bonsai on the remote server</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_SBTREE_BONSAI_GET<td>111</td><td>Get value by key from sb-tree bonsai</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_SBTREE_BONSAI_FIRST_KEY<td>112</td><td>Get first key from sb-tree bonsai</td><td>no</td><td>1.7rc1</td></tr>
-<tr><td>REQUEST_SBTREE_BONSAI_GET_ENTRIES_MAJOR<td>113</td><td>Gets the portion of entries greater than the specified one. If returns 0 entries than the specified entrie is the largest</td><td>no</td><td>1.7rc1</td></tr>
+<tr><td>REQUEST_SBTREE_BONSAI_GET_ENTRIES_MAJOR<td>113</td><td>Gets the portion of entries greater than the specified one. If returns 0 entries then the specified entry is the largest</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_RIDBAG_GET_SIZE<td>114</td><td>Rid-bag specific operation. Send but does not save changes of rid bag. Retrieves computed size of rid bag.</td><td>no</td><td>1.7rc1</td></tr>
 <tr><td>REQUEST_INDEX_GET<td>120</td><td>Lookup in an index by key</td><td>no</td><td>2.1rc4</td></tr>
 <tr><td>REQUEST_INDEX_PUT<td>121</td><td>Create or update an entry in an index</td><td>no</td><td>2.1rc4</td></tr>
@@ -220,7 +220,7 @@ Every request has a response unless the command supports the asynchronous mode (
 
 # Push Request
 
-A push request is a message sent by the server without any request from the client, it has a similar structure of a response and is distinguished using the respose status byte:
+A push request is a message sent by the server without any request from the client, it has a similar structure of a response and is distinguished using the response status byte:
 
 - **1 byte**: Success status has value 3 in case of push request
 - **4 bytes**: [Session-Id](#session-id) has everytime MIN_INTEGER value (-2^31)
@@ -260,7 +260,7 @@ stack trace of server exception on client side but this feature can be used by J
 
 # Operations
 
-This section explains the *request* and *response* messages of all suported operations.
+This section explains the *request* and *response* messages of all supported operations.
 
 ## REQUEST_SHUTDOWN
 
@@ -306,7 +306,7 @@ Typically the credentials are those of the OrientDB server administrator. This i
 
 ## REQUEST_DB_OPEN
 
-This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](../datamodeling/Concepts.md#cluster) in the opened databse.
+This is the first operation the client should call. It opens a database on the remote OrientDB Server. This operation returns the [Session-Id](#session-id) of the new client to reuse for all the next calls and the list of configured [clusters](../datamodeling/Concepts.md#cluster) in the opened database.
 
 ```
 Request: (driver-name:string)(driver-version:string)(protocol-version:short)(client-id:string)(serialization-impl:string)(token-session:boolean)(support-push:boolean)(collect-stats:boolean)(database-name:string)(user-name:string)(user-password:string)
@@ -707,7 +707,7 @@ Response is different for synchronous and asynchronous request:
    - the result records will be streamed, no size as start is given, each entry has a flag at the start(same as **asynch-result-type**)
      - 0: no record remain to be fetched
      - 1: a record in the next bytes
-     - 2: a recordin the next bytes to be loaded in client's cache only. It's not part of the result set but
+     - 2: a record in the next bytes to be loaded in client's cache only. It's not part of the result set but
 - **synch-result-content**, can only be a record
 - **pre-fetched-record-size**, as the number of pre-fetched records not directly part of the result set but joined to it by fetching
 - **pre-fetched-record** as the pre-fetched record content
@@ -1040,7 +1040,7 @@ The size of the tree-node on disk (and memory) is fixed to avoid fragmentation. 
 ```
 
 where:
-**configuration** is and oriendb document serialized with the network [Record Format](#record-format), that contain the distributed configuration.
+**configuration** is and orientdb document serialized with the network [Record Format](#record-format), that contain the distributed configuration.
 
 
 ### REQUEST_PUSH_LIVE_QUERY
@@ -1062,7 +1062,7 @@ where:
 (operation:byte)(query_token:int)(record-type:byte)(record-version:int)(cluster-id:short)(cluster-position:long)(record-content:bytes)
 ```
 where:  
-**operation** the tipe of operation happened, possible values  
+**operation** the type of operation happened, possible values  
   - *LOADED* = 0
   - *UPDATED* = 1 
   - *DELETED* = 2
@@ -1075,13 +1075,13 @@ where:
 **cluster-position** record cluster position  
 **record-content** record content  
 
-##### Usubscribe Message Body:
+##### Unsubscribe Message Body:
 
 ```
 (query_token:int)
 ```
 
-**query_token** the token for identify the query that has been usubscribed.
+**query_token** the token for identify the query that has been unsubscribed.
 
 # History
 
@@ -1106,7 +1106,7 @@ Add flags `support-push` and `collect-stats` on  REQUEST_DB_OPEN.
 
 ## version 33
 
-Removed the token data from error heandling header in case of non token session.
+Removed the token data from error handling header in case of non token session.
 Removed the db-type from REQUEST_DB_OPEN
 added REQUEST_DB_REOPEN
 
@@ -1114,7 +1114,7 @@ added REQUEST_DB_REOPEN
 Added support of streamable resultset in case of sync command, added a new result of type 'i' that stream the result in the same way of async result.
 
 ## Version 31
-Added new commands to manipulate idexes: REQUEST_INDEX_GET, REQUEST_INDEX_PUT and REQUEST_INDEX_REMOVE.
+Added new commands to manipulate indexes: REQUEST_INDEX_GET, REQUEST_INDEX_PUT and REQUEST_INDEX_REMOVE.
 
 ## Version 30
 Added new command REQUEST_RECORD_LOAD_IF_VERSION_NOT_LATEST
@@ -1153,7 +1153,7 @@ REQUEST_CONNECT
 Added cluster-id in the REQUEST_CREATE_RECORD response.
 
 ## Version 25
-Reviewd serialization of index changes in the REQUEST_TX_COMMIT for detais [#2676](https://github.com/orientechnologies/orientdb/issues/2676)
+Reviewed serialization of index changes in the REQUEST_TX_COMMIT for details [#2676](https://github.com/orientechnologies/orientdb/issues/2676)
 Removed double serialization of commands parameters, now the parameters are directly serialized in a document see [Network Binary Protocol Commands](Network-Binary-Protocol-Commands.md) and [#2301](https://github.com/orientechnologies/orientdb/issues/2301)
 
 ## Version 24

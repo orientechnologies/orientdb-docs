@@ -36,7 +36,7 @@ message ConnectResponse {
 # CLOSE
 ```
 message CloseRequest {
-   //No additional fileds, the header information are enough
+   //No additional fields, the header information are enough
 }
 ```
 
@@ -94,7 +94,7 @@ message Record {
 ```
 message Document {
     var_string class,
-    varint numberOfFileds,
+    varint numberOfFields,
     Field fields[],
 }
 ```
