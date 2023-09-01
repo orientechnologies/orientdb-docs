@@ -1,6 +1,6 @@
 
 # Distributed runtime
-_NOTE: available only in Enteprise Edition_
+_NOTE: available only in Enterprise Edition_
 
 ## Node status
 To retrieve the distributed configuration of a OrientDB server, execute a HTTP GET operation against the URL `http://<server>:<port>/distributed/node`. Example:

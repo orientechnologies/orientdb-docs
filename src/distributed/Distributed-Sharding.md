@@ -75,7 +75,7 @@ In the configuration above, if a new Client record is created on node USA, then 
 
 Updating and Deleting of single records always involves all the nodes where the record is stored. No matter the node that receives the update operation. If we update record `#13:22` that is stored on cluster `13`, namely `client_china` in the example above, then the update is sent to nodes: "china", "usa", "europe".
 
-Instead, SQL UPDATE and DELETE commands cannot run distributed in case of sharding. For example, the SQL command `delete from vertex Client` works if the `Client` class is replicated across all the sevrers, but it won't work if the class is sharded by throwing a `ODistributedOperationException` exception with the following reason: "because it is not idempotent and a map-reduce has been requested".
+Instead, SQL UPDATE and DELETE commands cannot run distributed in case of sharding. For example, the SQL command `delete from vertex Client` works if the `Client` class is replicated across all the servers, but it won't work if the class is sharded by throwing a `ODistributedOperationException` exception with the following reason: "because it is not idempotent and a map-reduce has been requested".
 
 If you want to execute a distributed update or delete, you can still execute a distributed SQL SELECT against all the shards, and then update or delete every single records in your code. Example to delete all the clients, no matter where they are located:
 

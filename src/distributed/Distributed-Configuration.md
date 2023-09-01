@@ -114,7 +114,7 @@ In the default configuration all the record clusters are replicated, but <code>i
 
 ### 100% Asynchronous Writes
 
-By default writeQuorum is "majority". This means that it waits and checks the answer from at least N/2+1 (where N is the number of available nodes) nodes before to send the ACK to the client. After the quorum is reached, the responses are managed asyncrhonously. For example, with 3 nodes and `writeQuorum: "majority"`, then after the 2nd node's answer, the collecting and check of the 3rd node answer is managed asynchronously. You could also set this to 1 to have all the writes asynchronous.
+By default writeQuorum is "majority". This means that it waits and checks the answer from at least N/2+1 (where N is the number of available nodes) nodes before to send the ACK to the client. After the quorum is reached, the responses are managed asynchronously. For example, with 3 nodes and `writeQuorum: "majority"`, then after the 2nd node's answer, the collecting and check of the 3rd node answer is managed asynchronously. You could also set this to 1 to have all the writes asynchronous.
 
 ### Full Consistency
 

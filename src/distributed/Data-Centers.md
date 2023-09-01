@@ -49,7 +49,7 @@ The most common reason why defining data centers is a good idea is the possibili
 
 For example, if a write operation is executed by a server where its data center's write quorum setting is `majority`, then the used quorum will be `majority` between only the servers located in the same data center.
 
-Example about the configuration of 2 data centers, "rome" and "austin", with rispectively 3 and 2 servers.
+Example about the configuration of 2 data centers, "rome" and "austin", with respectively 3 and 2 servers.
 
 ```json
 {
@@ -75,7 +75,7 @@ Example about the configuration of 2 data centers, "rome" and "austin", with ris
 }
 ```
 
-If a write operation is executed on the server "europe-0", the quorum used will be `majority`, but only between the servers locates in the same data center: namely "europe-0" (the coordinator), "europe-1" and "europe-2". Since the coordinator writes in the database before to distribute the operation, the write operation succeed as soon as at least one between the "europe-1" and "europe-2" servers provide the same result as with "europe-0". The rest of the replication will be executed in background in asycnhronous way.
+If a write operation is executed on the server "europe-0", the quorum used will be `majority`, but only between the servers locates in the same data center: namely "europe-0" (the coordinator), "europe-1" and "europe-2". Since the coordinator writes in the database before to distribute the operation, the write operation succeed as soon as at least one between the "europe-1" and "europe-2" servers provide the same result as with "europe-0". The rest of the replication will be executed in background in asynchronous way.
 
 ## Consistency
 
