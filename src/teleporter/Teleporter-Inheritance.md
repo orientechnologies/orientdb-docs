@@ -1,6 +1,6 @@
 
 # Inheritance
-Teleporter allows you to take advantage of OrientDB's polymorphism. Infact you can enrich the import phase via an ORM file which describes the inheritance relationships being between different tables (or Entities) of your source DB. 
+Teleporter allows you to take advantage of OrientDB's polymorphism. In fact you can enrich the import phase via an ORM file which describes the inheritance relationships being between different tables (or Entities) of your source DB. 
 
 At the moment **Hibernate's syntax** is supported, and you can exploit this feature even if you don't use the Hibernate framework, which can automatically build the requested file for you. In fact the ORM file is simply interpreted as a "mapping file" between Relational and Object-Oriented models. Thus you can also write the file by yourself and give it as input to Teleporter, this is all you need.
 

@@ -82,4 +82,4 @@ Taking advantage of this inheritance-feature on the proposed model above, you wi
 
 ![](../images/teleporter-inheritance-orientdb-schema.png)     
 
-If you deal with a multi-level inheritance relationships in the DB, you have to represent them in the ORM file by recursively nesting each definition according to the hierarchical dependences being between the Entities of the model.
+If you deal with a multi-level inheritance relationships in the DB, you have to represent them in the ORM file by recursively nesting each definition according to the hierarchical dependencies being between the Entities of the model.
