@@ -316,7 +316,7 @@ Applies to the following types:
 
 Get all the salaries with decimals:
 ```sql
-SELECT salary.asString().indexof('.') > -1
+SELECT salary.asString().indexOf('.') > -1
 ```
 
 #### History
@@ -379,7 +379,7 @@ SELECT EXPAND( @this.exclude( 'password' ) ) FROM OUser
 ```
 
 
-Starting from 2.2.19 you can specify a wildcard as ending character to exclude all the fields that start with a certain string. Example to exclude all the outgoing and incloming edges:
+Starting from 2.2.19 you can specify a wildcard as ending character to exclude all the fields that start with a certain string. Example to exclude all the outgoing and incoming edges:
 
 ```sql
 SELECT EXPAND( @this.exclude( 'out_*', 'in_*' ) ) FROM V
@@ -443,7 +443,7 @@ Applies to the following types:
 SELECT EXPAND( @this.include( 'name' ) ) FROM OUser
 ```
 
-Starting from 2.2.19 you can specify a wildcard as ending character to inclide all the fields that start with a certain string. Example to include all the fields that starts with `amonut`:
+Starting from 2.2.19 you can specify a wildcard as ending character to include all the fields that start with a certain string. Example to include all the fields that starts with `amount`:
 
 ```sql
 SELECT EXPAND( @this.exclude( 'amount*' ) ) FROM V
@@ -747,8 +747,8 @@ Where:
  - **indent** is the indent level as integer. By Default no ident is used
  - **fetchPlan** is the [FetchPlan](../java/Fetching-Strategies.md) to use while fetching linked records
  - **alwaysFetchEmbedded** to always fetch embedded records (without considering the fetch plan)
- - **dateAsLong** to return dates (Date and Datetime types) as long numers
- - **prettyPrint** indent the returning JSON in readeable (pretty) way
+ - **dateAsLong** to return dates (Date and Datetime types) as long numbers
+ - **prettyPrint** indent the returning JSON in readable (pretty) way
 
 Applies to the following types:
 - record

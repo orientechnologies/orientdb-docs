@@ -14,7 +14,7 @@ DROP CLASS <class> [ UNSAFE ]
 
 
 
->**NOTE**: Bear in mind, that the schema must remain coherent.  For instance, avoid removing calsses that are super-classes to others.  This operation won't delete the associated cluster.
+>**NOTE**: Bear in mind, that the schema must remain coherent.  For instance, avoid removing classes that are super-classes to others.  This operation won't delete the associated cluster.
 
 **Examples**
 

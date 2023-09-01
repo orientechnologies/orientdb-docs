@@ -1,7 +1,7 @@
 
 # SQL - `DROP VIEW`
 
-Removes a aview from the schema.
+Removes a view from the schema.
 
 **Syntax**
 

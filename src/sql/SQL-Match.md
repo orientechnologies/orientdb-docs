@@ -333,7 +333,7 @@ orientdb> <code class="lang-sql userinput">MATCH {class: Person, as: person,
 		  where: (name = 'John')}.both('Friend'){as: friend}
 		  RETURN 
 		  person.name as name, person.surname as surname, 
-		  friend.name as firendName, friend.surname as friendSurname</code>
+		  friend.name as friendName, friend.surname as friendSurname</code>
 
 --------+----------+------------+---------------
  name   | surname  | friendName | friendSurname
@@ -540,7 +540,7 @@ orientdb> <code class="lang-sql userinput">TRAVERSE bothE('Friend')[since > date
           FROM (SELECT FROM Person WHERE name = 'John') WHILE $depth < 3</code>
 </pre>
 
-Unforunately, this statement DOESN"T WORK in the current release.  However, you can get the results you want using a [`MATCH`](SQL-Match.md) statement:
+Unfortunately, this statement DOESN'T WORK in the current release.  However, you can get the results you want using a [`MATCH`](SQL-Match.md) statement:
 
 <pre>
 orientdb> <code class="lang-sql userinput">MATCH {class: Person, where: (name = 'John')}.(bothE("Friend")
@@ -708,7 +708,7 @@ result:
 
 ```
 
-**IMPORTANT**: When using MATCH statemet in OrientDB Studio Graph panel you have to use $elements or $pathElements as return type, to let the Graph panel render the matched patterns correctly
+**IMPORTANT**: When using MATCH statement in OrientDB Studio Graph panel you have to use $elements or $pathElements as return type, to let the Graph panel render the matched patterns correctly
 
 
 ### Arrow notation

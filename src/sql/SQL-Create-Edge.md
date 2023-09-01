@@ -96,7 +96,7 @@ OGlobalConfiguration.RID_BAG_EMBEDDED_TO_SBTREEBONSAI_THRESHOLD.setValue(-1);
 
 >For more information, see [Concurrency on Adding Edges](../general/Concurrency.md#concurrency-when-adding-edges).
 
-| ![NOTE](../images/warning.png) | When running a distributed database, edge creation can sometimes be done in two steps, (that is, create and update).  This can break some constraints defined in the Edge at the class-level.  To avoid such problems, disable the constraints in the Edge class.  Bear in mind that in distributed mode SB Tree index algorithm is not supported.  You must set `ridBag.embeddedToSbtreeBonsaiThreashold=Integer.Max\_VALUE` to avoid replication errrors|
+| ![NOTE](../images/warning.png) | When running a distributed database, edge creation can sometimes be done in two steps, (that is, create and update).  This can break some constraints defined in the Edge at the class-level.  To avoid such problems, disable the constraints in the Edge class.  Bear in mind that in distributed mode SB Tree index algorithm is not supported.  You must set `ridBag.embeddedToSbtreeBonsaiThreashold=Integer.Max\_VALUE` to avoid replication errors|
 |----|----|
 
 

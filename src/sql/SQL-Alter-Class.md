@@ -108,9 +108,9 @@ ALTER CLASS <class> <attribute-name> <attribute-value>
 | `OVERSIZE`| Decimal number | | Defines the oversize factor. |
 | `ADDCLUSTER` | Identifier or Integer | | Adds a cluster to the class.  If the cluster doesn't exist, it creates a physical cluster. Adding clusters to a class is also useful in storing records in distributed servers.  For more information, see [Distributed Sharding](../distributed/Distributed-Sharding.md). |
 | `REMOVECLUSTER` | Identifier or Integer | | Removes a cluster from a class.  It does not delete the cluster, only removes it from the class. |
-| `STRICTMODE` | Boolean | | Enalbes or disables strict mode.  When in strict mode, you work in schema-full mode and cannot add new properties to a record if they're part of the class' schema definition. |
+| `STRICTMODE` | Boolean | | Enables or disables strict mode.  When in strict mode, you work in schema-full mode and cannot add new properties to a record if they're part of the class' schema definition. |
 | `CLUSTERSELECTION` | | 1.7 | Defines the selection strategy in choosing which cluster it uses for new records.  On class creation it inherits the setting from the database.  For more information, see [Cluster Selection](../misc/Cluster-Selection.md).|
-| `CUSTOM` | | | Defines custom properties.  Property names and values must follow the syntax `<property-name>=<value>` without spaces between the name and value. The attribute name is an indentifier, so it has to be back-tick quoted if it contains special characters (eg. dots); the value is a string, so it has to be quoted with single or double quotes.|
+| `CUSTOM` | | | Defines custom properties.  Property names and values must follow the syntax `<property-name>=<value>` without spaces between the name and value. The attribute name is an identifier, so it has to be back-tick quoted if it contains special characters (eg. dots); the value is a string, so it has to be quoted with single or double quotes.|
 | `ABSTRACT` | Boolean | | Converts class to an abstract class or the opposite. |
 
 

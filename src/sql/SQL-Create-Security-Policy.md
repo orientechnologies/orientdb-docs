@@ -13,7 +13,7 @@ CREATE SECURITY POLICY <name>
   SET
   ( [CREATE | READ | BEFORE UPDATE | AFTER UPDATE | DELETE | EXECUTE] = (<sqlPredicate>) )*
 ```
-- **`<name>`** The security policy name. I is used in the GRANT statement to bind it to a role and a resoruce
+- **`<name>`** The security policy name. It is used in the GRANT statement to bind it to a role and a resource
 - **`<sqlPredicate>`** a valid SQL predicate
 
 **Examples**

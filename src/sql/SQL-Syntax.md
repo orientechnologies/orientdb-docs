@@ -238,14 +238,14 @@ OrientDB can store five different types of numbers
 - Integer: 32bit signed
 - Long: 64bit signed
 - Float: decimal 32bit signed
-- Duoble: decimal 64bit signed
+- Double: decimal 64bit signed
 - BigDecimal: absolute precision
 
 **Integers** are represented in SQL as plain numbers, eg. `123`. If the number represented exceeds the Integer maximum size (see Java java.lang.Integer `MAX_VALUE` and `MIN_VALUE`), then it's automatically converted to a Long. 
 
 When an integer is saved to a schemaful property of another numerical type, it is automatically converted. 
 
-**Longs** are represented in SQL as numbers with `L` suffix, eg. `123L` (L can be uppercase or lowercase). Plain numbers (withot L prefix) that exceed the Integer range are also automatically converted to Long. If the number represented exceeds the Long maximum size (see Java java.lang.Long `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`;
+**Longs** are represented in SQL as numbers with `L` suffix, eg. `123L` (L can be uppercase or lowercase). Plain numbers (without L prefix) that exceed the Integer range are also automatically converted to Long. If the number represented exceeds the Long maximum size (see Java java.lang.Long `MAX_VALUE` and `MIN_VALUE`), then the result is `NULL`;
 
 Integer and Long numbers can be represented in base 10 (decimal), 8 (octal) or 16 (hexadecimal):
 - decimal: `["-"] ("0" | ( ("1"-"9") ("0"-"9")* ) ["l"|"L"]`, eg. 
@@ -301,7 +301,7 @@ Eg.
   - `0x3.5p4d` equivalent to `3.5(base 16) * 2^4`
 
 **BigDecimal** in OrientDB is represented as a Java BigDecimal. 
-The instantiation of BigDecimal can be done explicitly, using the `bigDecimal(<number> | <string>)` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+The instantiation of BigDecimal can be done explicitly, using the `bigDecimal(<number> | <string>)` function, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
 
 
 #### Mathematical operations
@@ -324,7 +324,7 @@ Eg.
 
 the overflow follows Java rules.
 
-The conversion of a number to BigDecimal can be done explicitly, using the `bigDecimal()` funciton, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
+The conversion of a number to BigDecimal can be done explicitly, using the `bigDecimal()` function, eg. `bigDecimal(124.4)` or `bigDecimal("124.4")`
 
 
 
@@ -410,9 +410,9 @@ Square brackets can be used to filter collections or maps.
 Based on what is between brackets, the square bracket filtering has different effects:
 
 - `<expression>`: If the expression returns an Integer or Long value (i), the result of the square bracket filtering
-is the i-th element of the collection/map. If the result of the expresson (K) is not a number, the filtering returns the value corresponding to the key K in the map field. If the field is not a collection/map, the square bracket filtering returns `null`.
+is the i-th element of the collection/map. If the result of the expression (K) is not a number, the filtering returns the value corresponding to the key K in the map field. If the field is not a collection/map, the square bracket filtering returns `null`.
 The result of this filtering is ALWAYS a single value.
-- `<range>`: A range is something like `M..N`  or `M...N` where M and N are integer/long numbers, eg. `fieldName[2..5]`. The result of range filtering is a collection that is a subet of the original field value, containing all the items from position M (included) to position N (excluded for `..`, included for `...`). Eg. if `fieldName = ['a', 'b', 'c', 'd', 'e']`, `fieldName[1..3] = ['b', 'c']`, `fieldName[1...3] = ['b', 'c', 'd']`. Ranges start from `0`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
+- `<range>`: A range is something like `M..N`  or `M...N` where M and N are integer/long numbers, eg. `fieldName[2..5]`. The result of range filtering is a collection that is a subset of the original field value, containing all the items from position M (included) to position N (excluded for `..`, included for `...`). Eg. if `fieldName = ['a', 'b', 'c', 'd', 'e']`, `fieldName[1..3] = ['b', 'c']`, `fieldName[1...3] = ['b', 'c', 'd']`. Ranges start from `0`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
 - `<condition>`: A normal SQL condition, that is applied to each element in the `fieldName` collection. The result is a sub-collection that contains only items that match the condition. Eg. `fieldName = [{foo = 1},{foo = 2},{foo = 5},{foo = 8}]`, `fieldName[foo > 4] = [{foo = 5},{foo = 8}]`. The result of this filtering is ALWAYS a list (ordered collection, allowing duplicates). If the original collection was ordered, then the result will preserve the order.
 
 
@@ -530,7 +530,7 @@ To add null values to a collection, you have to explicitly wrap them in another 
 - **`AND`**: logical AND
 - **`OR`**: logical OR
 - **`NOT`**: logical NOT
-- **`CONTAINS`**: checks if the left collection contains the right element. The left argument has to be a colleciton, otherwise it returns FALSE. It's NOT the check of colleciton intersections, so `['a', 'b', 'c'] CONTAINS ['a', 'b']` will return FALSE, while `['a', 'b', 'c'] CONTAINS 'a'` will return TRUE. 
+- **`CONTAINS`**: checks if the left collection contains the right element. The left argument has to be a collection, otherwise it returns FALSE. It's NOT the check of collection intersections, so `['a', 'b', 'c'] CONTAINS ['a', 'b']` will return FALSE, while `['a', 'b', 'c'] CONTAINS 'a'` will return TRUE. 
 - **`IN`**: the same as CONTAINS, but with inverted operands.
 - **`CONTAINSKEY`**: for maps, the same as for CONTAINS, but checks on the map keys
 - **`CONTAINSVALUE`**: for maps, the same as for CONTAINS, but checks on the map values
