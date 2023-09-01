@@ -30,7 +30,7 @@ Consider the use case of a multithreaded application or some similar deployment 
 @doc """ Reload the database connection at set intervals"""
 def reload(conn, interval) do
 
-	# Log Operataion
+	# Log Operation
 	IO.puts("Starting Reload Function")
 
 	# Start Timer

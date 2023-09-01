@@ -5,9 +5,9 @@ This function subscribes to a [live query](../java/Live-Query.md)
 
 ## Subscribing to Live Queries
 
-When you issue queries using the stnadrd [`command()`](MarcoPolo-command.md) function, what it returns is effectively a snapshot of the records in the state they held when the query was issued.  In the event that another client modifies these records, there's no way you'll know unless you reissue the query. 
+When you issue queries using the standard [`command()`](MarcoPolo-command.md) function, what it returns is effectively a snapshot of the records in the state they held when the query was issued.  In the event that another client modifies these records, there's no way you'll know unless you reissue the query. 
 
-To get around this limitation, OrientDB provides Live Queries.  Instead of returning records, these queries return a subscription token.  When the records assigned to this token recieve an update, OrientDB pushes the changes to the given receiver function. 
+To get around this limitation, OrientDB provides Live Queries.  Instead of returning records, these queries return a subscription token.  When the records assigned to this token receive an update, OrientDB pushes the changes to the given receiver function. 
 
 This function subscribes to live queries.  When you're finished with the live query, you can call the [`live_query_unsubscribe()`](MarcoPolo-live-query-unsubscribe.md) function to deregister the token.
 

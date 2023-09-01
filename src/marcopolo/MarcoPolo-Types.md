@@ -37,7 +37,7 @@ Here, an integer in your application is sent to OrientDB as a long integer.  Whe
 - **Floats**: `{:float, 3.14}`
   - Typed in OrientDB as `java.lang.Float` or `float`
   - Returned to MarcoPolo as `3.14`
-- **Decminals**: Using [Decimal](https://github.com/ericmj/decimal), `Decimal.new(3.14)`
+- **Decimals**: Using [Decimal](https://github.com/ericmj/decimal), `Decimal.new(3.14)`
   - Typed in OrientDB as `java.math.BigDecimal`
   - Returned to MarcoPolo as `Decimal.new(3.14)`
 

@@ -20,9 +20,9 @@ delete_record(<conn>, <record-id>, <version>, <opts>)
 
 #### Options
 
-This functin provides two additional options:
+This function provides two additional options:
 
-- **`:no_response`** Defeines whether you want your application to wait for a response from OrientDB.  When set to `true`, it returns `:ok` on every operation, regardless of whether it's successful.
+- **`:no_response`** Defines whether you want your application to wait for a response from OrientDB.  When set to `true`, it returns `:ok` on every operation, regardless of whether it's successful.
 
 - **`:timeout`** Defines the timeout value in milliseconds.  In the event that the query takes longer than the alloted time, MarcoPolo sends an exit signal to the calling process.
 
@@ -33,7 +33,7 @@ When this operation is successful, the function returns the tuple `{:ok, passed}
 
 ### Example
 
-Consider the use case where you need to remove a series of records from the database.  Rather than calling `delete_record()` individually on each instance, you mght want to create a function to handle the deletions.
+Consider the use case where you need to remove a series of records from the database.  Rather than calling `delete_record()` individually on each instance, you might want to create a function to handle the deletions.
 
 ```elixir
 @doc """Function to remove records from the database. It takes as arguments
@@ -42,7 +42,7 @@ the records to remove.  Each tuple follows the pattern {cluster-id, [list of rec
 def remove_records(conn, record_list) do
 
 	# Log Operation
-	IO.puts("Remvoing Records")
+	IO.puts("Removing Records")
 
 	# Loop over Clusters
 	for cluster <- record_list do
