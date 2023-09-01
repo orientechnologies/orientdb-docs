@@ -49,7 +49,7 @@ From another console, connect to the second node and execute the following comma
 
 
 <pre>
-orinetdb> <code class="lang-sql userinput">SELECT FROM V WHERE node = 1</code>
+orientdb> <code class="lang-sql userinput">SELECT FROM V WHERE node = 1</code>
 
 ----+--------+-------+
  #  | @RID   | node  |

@@ -162,7 +162,7 @@ The thing you need to pay attention to in this file is the section called depend
 
 ### Create hook file(s)
 
-Now that Maven knows that your code will build upon the oriendb-core code libraries, you can start writing your Hook file(s). Go to folder .\hooks\src\main\java\river\hooks. This is the folder where you will put your .java hook files. Go ahead and delete the placeholder App.java file that Maven created and which you don't need.
+Now that Maven knows that your code will build upon the orientdb-core code libraries, you can start writing your Hook file(s). Go to folder .\hooks\src\main\java\river\hooks. This is the folder where you will put your .java hook files. Go ahead and delete the placeholder App.java file that Maven created and which you don't need.
 
 Let's start out by adding a `HookTest.java` file as follows:
 

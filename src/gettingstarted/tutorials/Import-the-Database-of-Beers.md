@@ -294,7 +294,7 @@ The following are some ways we can use to access the newly imported `OpenBeer` d
 - [Gremlin Console](../../gremlin/Gremlin.md)
 - [Studio](../../studio/README.md)
 - [APIs & Drivers](../../apis-and-drivers/README.md)
-- some external tools, like [Gephy](../../plugins/Gephi.md)
+- some external tools, like [Gephi](../../plugins/Gephi.md)
 - some external visualization libraries for graph rendering
 
 If we want to query all *Category* vertices we can execute the following query:
