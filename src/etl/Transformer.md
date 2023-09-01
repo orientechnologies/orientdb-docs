@@ -4,7 +4,7 @@
 
 When OrientDB runs the ETL module, transformer components execute in a pipeline to modify the data before it gets loaded into the OrientDB database.  The operate on received input and return output.
 
-Before execution, it always initalizes the `$input` variable, so that if you need to you can access it at run-time.
+Before execution, it always initializes the `$input` variable, so that if you need to you can access it at run-time.
 
 - [CSV](#csv-transformer)
 - [FIELD](#field-transformer)
@@ -107,7 +107,7 @@ Component description.
   }
   ```
 
-- Asigns the field a fixed value:
+- Assigns the field a fixed value:
 
   ```json
   { "field": 
@@ -117,7 +117,7 @@ Component description.
   }
   ```
 
-- Renames the field from `salary` to `renumeration`:
+- Renames the field from `salary` to `remuneration`:
 
 
   ```json
@@ -160,7 +160,7 @@ Component description.
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
 | `"joinFieldName"` | Defines the field containing the join value. | string | yes | |
-| `"lookup"` | Defines the index on which to execute th elookup, or a [`SELECT`](../sql/SQL-Query.md) query. | string | yes | |
+| `"lookup"` | Defines the index on which to execute the lookup, or a [`SELECT`](../sql/SQL-Query.md) query. | string | yes | |
 | `"unresolvedLinkAction"` | Defines the action to execute in the event that the join hasn't been resolved. | string | | `NOTHING` |
 
 For the `"unresolvedLinkAction"` parameter, the supported actions are:
@@ -199,7 +199,7 @@ Component description.
 | Parameter | Description | Type | Mandatory | Default value |
 |-----------|-------------|------|-----------|-----------|
 | `"joinFieldName"` | Defines the field containing the join value. | string | yes | |
-| `"lookup"` | Defines the index on which to execute th elookup, or a [`SELECT`](../sql/SQL-Query.md) query. | string | yes | |
+| `"lookup"` | Defines the index on which to execute the lookup, or a [`SELECT`](../sql/SQL-Query.md) query. | string | yes | |
 | `"unresolvedLinkAction"` | Defines the action to execute in the event that the join hasn't been resolved. | string | | `NOTHING` |
 
 For the `"unresolvedLinkAction"` parameter, the supported actions are:
@@ -272,11 +272,11 @@ Component description.
 | `"class"` | Defines the edge class. | string | | `E` |
 | `"lookup"` | Defines the index on which to execute the lookup or a [`SELECT`](../sql/SQL-Query.md). | string | yes | |
 | `"targetVertexFields"` | Defines the field on which to set the target vertex. | object | | |
-| `"edgeFields"` | Defines the fields to set in th eedge. | object | | |
+| `"edgeFields"` | Defines the fields to set in the edge. | object | | |
 | `"skipDuplicates"` | Defines whether to skip duplicate edges when the `UNIQUE` constraint is set on both the `out` and `in` properties. | boolean | | `false` |
 | `"unresolvedLinkAction"` | Defines the action to execute in the event that the join hasn't been resolved. | string | | `NOTHING`|
 
->The `"targetVertexFields"` andx `"edgeFields"` parameter were introduced in version 2.1.
+>The `"targetVertexFields"` and `"edgeFields"` parameters were introduced in version 2.1.
 
 For the `"unresolvedLinkAction"` parameter, the following actions are supported:
 
@@ -287,7 +287,7 @@ For the `"unresolvedLinkAction"` parameter, the following actions are supported:
 | `WARNING` | Tells the transformer to increment warnings. |
 | `ERROR` | Tells the transformer to increment errors. |
 | `HALT` | Tells the transformer to interrupt the process. |
-| `SKIP` | Tells the transformer to skup the current row. |
+| `SKIP` | Tells the transformer to skip the current row. |
 
 **Examples**
 
@@ -485,7 +485,7 @@ Component description.
   { "log": {} }
   ```
 
-- Logs the currnt value with `->` as the prefix:
+- Logs the current value with `->` as the prefix:
 
   ```json
   { "log": 

@@ -32,7 +32,7 @@ When the ETL module runs the OrientDB Loader, it loads the records and vertices 
 | `"serverUser"` | Defines the server administrator user name, usually `root` | string | |  |
 | `"serverPassword"` | Defines the server administrator user password that is provided at server startup | string | |  |
 | `"dbAutoCreate"` | Defines whether it automatically creates the database, in the event that it doesn't exist already. | boolean | | `true` |
-| `"dbAutoCreateProperties"` | Defnes whether it automatically creates properties in the schema. | boolean | | `false` |
+| `"dbAutoCreateProperties"` | Defines whether it automatically creates properties in the schema. | boolean | | `false` |
 | `"dbAutoDropIfExists"` | Defines whether it automatically drops the database if it exists already. | boolean | | `false` |
 | `"tx"` | Defines whether it uses [transactions](../internals/Transactions.md) | boolean | | `false` |
 | `"txUseLog"` | Defines whether it uses log in transactions. | boolean | | |
