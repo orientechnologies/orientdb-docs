@@ -21,7 +21,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 * the **m** parameter sets the type of database to be stressed.
 * the **c** parameter sets the concurrency level, as the number of threads that will be launched. Every thread will execute the complete operationSe. If not present, it defaults to 4.
 * the **tx** parameter sets the number of operations to be included in a transaction. This value must be lesser than the number of creates divided by the threads number and the iterations number. If the **tx** parameter is not present, all the operations will be executed outside transactions.
-* the **w** parameter defines the workloads. To specify multipel workloads, use the comma (`,`) to separate them, but do not use any space. Workloads are pluggable, the available ones are:
+* the **w** parameter defines the workloads. To specify multiple workloads, use the comma (`,`) to separate them, but do not use any space. Workloads are pluggable, the available ones are:
 	* **CRUD**, executes, in order, (C)reate, (R)ead, (U)pdate and (D)elete operations. The `<workload-params>` must follow the format `C#R#U#D#`, where the '#' is a number:
 		* C1000 defines 1000 Create operations
 		* R1000 defines 1000 Read operations
@@ -33,7 +33,7 @@ The OrientDB Stress Test Tool is an utility for very basic benchmarking of Orien
 		* V1000 creates 1000 vertices
 		* F10 Each vertex has 10 edges
 	* **GSP**, Executes a shortest path between all the vertices against all the other vertices. The `<workload-params>` must follow the format `L#`, where the '#' is a number::
-		* L1000 set the limit to 1000 vertiecs only. Optional.
+		* L1000 set the limit to 1000 vertices only. Optional.
 * the **o** parameter sets the filename where the results are written in JSON format.
 * the **d** parameter sets the base directory for writing the plocal database
 * the **k** keeps the database at the end of workload. By default is `false`, so the database is dropped.

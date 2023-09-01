@@ -42,7 +42,7 @@ From Maven, you can run `mvn com.coveo:fmt-maven-plugin:format` for automatic co
 
 ### v 3.0 and previous releases
 
-For previus versions (until 3.0) you can use eclipse java formatter config file, that you can find here: [_base/ide/eclipse-formatter.xml](https://github.com/orientechnologies/orientdb/blob/master/_base/ide/eclipse-formatter.xml).
+For previous versions (until 3.0) you can use eclipse java formatter config file, that you can find here: [_base/ide/eclipse-formatter.xml](https://github.com/orientechnologies/orientdb/blob/master/_base/ide/eclipse-formatter.xml).
 
 If you use IntelliJ IDEA you can install [this](http://plugins.jetbrains.com/plugin/?id=6546) plugin and use formatter profile mentioned above.
 
