@@ -17,7 +17,7 @@ Below are examples of how to properly manage version concurrency.
 
 ```
    ORID id = ...///
-   // As first parameter you set the number of wanted retry, at second paramenter a lambda with your business logic 
+   // As first parameter you set the number of wanted retry, at second parameter a lambda with your business logic 
    session.executeWithRetry(10, (currentSession) -> {
       currentSession.begin();
       OElement loaded = currentSession.load(id);
@@ -85,7 +85,7 @@ for (int retry = 0; retry < maxRetries; ++retry) {
    try {
 
       // CREATE A NEW ITEM
-      ODocument invoiceItem = new ODocument("InvoieItem");
+      ODocument invoiceItem = new ODocument("InvoiceItem");
       invoiceItem.field("price", 213231);
       database.save(invoiceItem;
 
@@ -122,7 +122,7 @@ ODocument doc1 = new ODocument("Customer");
 doc1.field("name", "Luca");
 database.save(doc1); // OPERATION BOUND TO db1 TRANSACTION
 
-ODatabaseDocumen db2 = orientDB.open("db2","admin","admin"); // SETS CURRENT DB TO db2
+ODatabaseDocument db2 = orientDB.open("db2","admin","admin"); // SETS CURRENT DB TO db2
 
 ODocument doc2 = new ODocument("Provider");
 doc2.field("name", "Chuck");

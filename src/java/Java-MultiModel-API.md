@@ -43,7 +43,7 @@ You can easily see the differences:
 - different object lifecycle: did you notice the `doc.save()`?
 
 
-In OrientDB is a MultiModel db, so in v 3.0 we decided it was time to privide a single, **unified Multi-Model API**.
+In OrientDB is a MultiModel db, so in v 3.0 we decided it was time to provide a single, **unified Multi-Model API**.
 
 This means that with [`ODatabaseDocument`](ref/ODatabaseDocument.md) instances you can query documents, but also graphs, without the need for an additional API.
 

@@ -12,7 +12,7 @@ Using this method you can remove the given role from the user account.
 ### Syntax
 
 ```
-boolaen OSecurityUser().removeRole(String role)
+boolean OSecurityUser().removeRole(String role)
 ```
 
 | Argument | Type | Description |

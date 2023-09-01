@@ -29,4 +29,4 @@ When you save records to the database, OrientDB stores them in a cluster.  The c
 
 #### Return Value
 
-This method returns an `ORecordIteratatorCluster` instance, which contains instances of the generic, which can be any class that extends the `ORecord` class.  The `ORecord` class itself extends the [`OElement`](../OElement.md) class.
+This method returns an `ORecordIteratorCluster` instance, which contains instances of the generic, which can be any class that extends the `ORecord` class.  The `ORecord` class itself extends the [`OElement`](../OElement.md) class.

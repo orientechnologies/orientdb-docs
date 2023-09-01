@@ -83,7 +83,7 @@ class DatabaseHandler {
 		try {
 			// TRY GIVEN CONFIG
 			server.startup(myConfig);
-		} catch IOEexception {
+		} catch IOException {
 			logger.warning(
 				"Unable to start with given configuration, loading default");
 

@@ -46,7 +46,7 @@ Class updated successfully
 
 ## Create Users
 
-With the database online and the vertex and edge classes altered to restricted, create two test users, (`luca` and `steve`), to use in exploring how sandboxing works on a Partioned Graph Database.
+With the database online and the vertex and edge classes altered to restricted, create two test users, (`luca` and `steve`), to use in exploring how sandboxing works on a Partitioned Graph Database.
 
 These users represent users who blog on the application you're building.  Their level of permissions and authorization relates to the `writer` role.  First, ensure that the `writer` role exists on your database:
 

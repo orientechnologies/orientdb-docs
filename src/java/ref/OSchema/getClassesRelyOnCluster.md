@@ -9,7 +9,7 @@ OrientDB has the concept of class within the database, which represents a broad 
 ### Syntax
 
 ```
-Set<OClass> OSchema().getCLassesRelyOnCluster(String cluste)
+Set<OClass> OSchema().getCLassesRelyOnCluster(String cluster)
 ```
 
 | Argument | Type | Description |

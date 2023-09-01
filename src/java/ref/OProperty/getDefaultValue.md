@@ -9,7 +9,7 @@ Normally, when you create a new record and save it to OrientDB, you define the v
 
 For instance, imagine a class that records student information for a school.  Since each year the majority of new students are added to a particular class, (that is, the current class of incoming freshmen), you might set and each year update the default class for this property, saving yourself time in the long run.
 
-Using this method, you can retrieve the currernt default value set on the property.
+Using this method, you can retrieve the current default value set on the property.
 
 ### Syntax
 

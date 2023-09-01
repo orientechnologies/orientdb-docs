@@ -82,7 +82,7 @@ public void newRecord(String name, String email){
    // Initialize Document
    OElement person = db.newElement("Person");
    person.setProperty("name", name);
-   person.setProeprty("email", email);
+   person.setProperty("email", email);
 
    // Add Person to Database
    person.save();

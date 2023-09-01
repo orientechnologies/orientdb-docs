@@ -42,7 +42,7 @@ public void addAccounts(String company, String contact, String email){
 	 System.out.println(String.format("Adding Client: %s", company));
 
 	 // Execute Query
-	 OResultSet results = db.execute("sql", addAccountsql, company, contact, email);
+	 OResultSet results = db.execute("sql", addAccountSql, company, contact, email);
 
 	 // Close Result-set
 	 results.close();
@@ -65,7 +65,7 @@ public void addAccounts(Map<String, String> params){
 	 System.out.println(String.format("Adding Client: %s", company));
 
 	 // Execute Query
-	 OResultSet results = db.execute("sql", addAccountsql, params);
+	 OResultSet results = db.execute("sql", addAccountSql, params);
 
 	 // Close Result-set
 	 results.close();

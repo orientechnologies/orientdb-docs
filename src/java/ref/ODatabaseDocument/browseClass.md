@@ -1,5 +1,5 @@
 
-# ODatabaseDocument - browseClasss()
+# ODatabaseDocument - browseClass()
 
 This method returns all records in the given database class.  It also returns subclasses, where available.
 

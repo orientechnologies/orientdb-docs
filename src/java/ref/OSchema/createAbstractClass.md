@@ -12,7 +12,7 @@ OrientDB has the concept of class within the database, which represents a broad 
 ```
 OClass OSchema().createAbstractClass(String class)
 
-OClass OSchema().createAbstractClass(String class, Oclass superClass)
+OClass OSchema().createAbstractClass(String class, OClass superClass)
 
 OClass OSchema().createAbstractClass(
    String class, OClass superClass, OClass superclass ...)

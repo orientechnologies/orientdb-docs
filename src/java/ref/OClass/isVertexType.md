@@ -18,7 +18,7 @@ boolean OClass().isVertexType()
 
 #### Return Value
 
-This method returns a [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) instance, where `true` inidcates that the class is a vertex.
+This method returns a [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) instance, where `true` indicates that the class is a vertex.
 
 
 

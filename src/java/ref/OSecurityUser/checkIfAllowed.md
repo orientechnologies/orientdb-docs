@@ -11,7 +11,7 @@ OrientDB defines the degree of access and permitted operations with a set of rul
 
 ```
 OSecurityRole OSecurityUser().checkIfAllowed(
-	ORule.ReosurceGeneric resourceGeneric,
+	ORule.ResourceGeneric resourceGeneric,
 	String resourceSpecific,
 	int operation)
 ```

@@ -24,5 +24,5 @@ Boolean OClass().areIndexed(String... strFields)
 
 #### Return Value
 
-This method returns a [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) instance.  If the return value is `true`, it inidcates that the the given fields are contained as first key fields in the database class indexes.
+This method returns a [`Boolean`]({{ book.javase }}/api/java/lang/Boolean.html) instance.  If the return value is `true`, it indicates that the the given fields are contained as first key fields in the database class indexes.
 

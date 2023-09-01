@@ -23,7 +23,7 @@ OrientDB provides four different Java API's that allow you to work with OrientDB
 
 With this Java API, you can use OrientDB as a Document-Graph Database, allowing you to work with Vertices, Edges or simple Documents.
 
-API: [Muilti-Model, Document-Graph API](Java-MultiModel-API.md)
+API: [Multi-Model, Document-Graph API](Java-MultiModel-API.md)
 
 API: [Document API](Document-Database.md)
 

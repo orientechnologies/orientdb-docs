@@ -55,7 +55,7 @@ Once you create and configure the factory, you can get the Graph Database instan
   ```java
   OrientGraphNoTx noTxGraph = factory.getNoTx();
   ```
-- Alternatively, if you plan to get several Graph Database instances of the same type, you can use the `setTransacational()` method to define the kind you want, then use the `get()` method for each instance you retrieve:
+- Alternatively, if you plan to get several Graph Database instances of the same type, you can use the `setTransactional()` method to define the kind you want, then use the `get()` method for each instance you retrieve:
 
   ```java
   factory.setTransactional(false);

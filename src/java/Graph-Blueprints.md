@@ -195,7 +195,7 @@ OIdentifiable edge = graph.command(new OCommandScript("sql", cmd)).execute();
 
 ### Database Functions
 
-To execute database functions, you must write it in JavaScript or any other supported languages.  For the examples, consider a function called `updateAllTheCustomersInCity(cityName)` that executes the same update as above.  Note the `'Rome'` attribute passed in the attribute apssed int he `execute()` method:
+To execute database functions, you must write it in JavaScript or any other supported languages.  For the examples, consider a function called `updateAllTheCustomersInCity(cityName)` that executes the same update as above.  Note the `'Rome'` attribute passed in the `execute()` method:
 
 ```java
 graph.command(new OCommandFunction(
@@ -211,7 +211,7 @@ graph.command(
           new OCommandScript("javascript", "for(var i=0;i<10;++i){ print('\nHello World!'); }")).execute());
 ```
 
-This prints the line "Hello World!" ten times in the server conssole, or in the local console, if the database has been opened in PLocal mode.
+This prints the line "Hello World!" ten times in the server console, or in the local console, if the database has been opened in PLocal mode.
 
 ## Accessing the Graph
 

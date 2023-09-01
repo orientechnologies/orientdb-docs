@@ -15,6 +15,6 @@ void OSecurityUser().setAccountStatus(OSecurityUser.STATUSES status)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`status`** | `OSecurityUser.STATUSS` | Indicates the status that you want to set, which is either `ACTIVE` or `SUSPENDED` |
+| **`status`** | `OSecurityUser.STATUSES` | Indicates the status that you want to set, which is either `ACTIVE` or `SUSPENDED` |
 
 

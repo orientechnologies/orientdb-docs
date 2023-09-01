@@ -19,7 +19,7 @@ Set<OIndex<?>> OClass().getClassInvolvedIndexes(String... strFields)
 | Argument | Type | Description |
 |---|---|---|
 | **`colFields`** | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<String>`]({{ book.javase }}/api/java/lang/String.html) | Defines the fields to check |
-| **`strFields`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the fileds to check |
+| **`strFields`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the fields to check |
 
 #### Return Value
 

@@ -95,7 +95,7 @@ account = db.save(account);
 
 ### Multi-threading
 
-When working with mutli-threaded applications, bear in mind that the `ODatabaseObject` object interface that you use initialize your database instance is not thread safe.  For this reason, when working with multiple threads always initialize a separte `ODatabaseObject` instance for each thread.
+When working with multi-threaded applications, bear in mind that the `ODatabaseObject` object interface that you use initialize your database instance is not thread safe.  For this reason, when working with multiple threads always initialize a separate `ODatabaseObject` instance for each thread.
 
 
 ### Inheritance

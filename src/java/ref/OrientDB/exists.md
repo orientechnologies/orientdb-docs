@@ -10,7 +10,7 @@ In situations where your application is one of several connecting to a given Ori
 ### Syntax
 
 ```
-pblic boolean OrientDB().exists(String name)
+public boolean OrientDB().exists(String name)
 ```
 
 | Argument | Type | Description

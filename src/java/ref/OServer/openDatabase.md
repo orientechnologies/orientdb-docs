@@ -22,7 +22,7 @@ public ODatabase<T> OServer().openDatabase(String iDbURL,
 public ODatabase<T> OServer().openDatabase(String iDbURL,
 		String user, String passwd, ONetworkProtocolData data)
 
-public ODatabaseDoucmentTx OServer().openDatabase(String iDbURL,
+public ODatabaseDocumentTx OServer().openDatabase(String iDbURL,
 		String user, String passwd, ONetworkProtocolData data,
 		Boolean iBypassAccess)
 

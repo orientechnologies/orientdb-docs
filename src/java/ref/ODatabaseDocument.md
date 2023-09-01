@@ -1,7 +1,7 @@
 
 # Java API - ODatabaseDocument 
 
-This class provides a unified Mulit-Model interface for managing and administering OrientDB Document and Graph databases.
+This class provides a unified Multi-Model interface for managing and administering OrientDB Document and Graph databases.
 
 ## Managing Databases
 
