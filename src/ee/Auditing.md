@@ -29,7 +29,7 @@ OrientDB schema is polymorphic (taken from the Object-Oriented paradigm). This m
 This makes your life easier when you want to profile only certain classes. For example, you could create an abstract class "Profiled" and let all the classes you want to profile extend it. Starting from v2.1, OrientDB supports multiple inheritance, so it's not a problem extending more classes.
 
 ## security.json Configuration
-There are two parts to enabling and configuring the auditing component.  Starting in OrientDB 2.2, there is a `security.json` configuration file that resides under the `config` folder.  See the [OrientDB Security Configuraton](../security/Security-Config.md) documentation for more details.
+There are two parts to enabling and configuring the auditing component.  Starting in OrientDB 2.2, there is a `security.json` configuration file that resides under the `config` folder.  See the [OrientDB Security Configuration](../security/Security-Config.md) documentation for more details.
 
 The "auditing" section of the `security.json` file must be enabled for auditing to work.
 
@@ -78,7 +78,7 @@ Where:
 - `onDeleteEnabled`: If `true`, enables auditing of delete record events. The default is `false`.
 - `onDeleteMessage`: A custom message stored in the `note` field of the auditing record on delete record events. It supports the dynamic binding of values, see "Customizing the Message", below.
 
-#### Customing the Message
+#### Customising the Message
 - `${field.<field-name>}`, to use the field value. Example: `${field.surname}` to get the field "surname" from the current record in case of CRUD Auditing of classes.
 
 Example to log all the delete operations (`class="*"`), and log all the CRUD operation on any vertex (`class="V" and polymorphic:true`):
@@ -136,7 +136,7 @@ Auditing Log records have the following structure:
 |`operation`|BYTE|Type of operation|0=READ, 1=UPDATE, 2=DELETE, 3=CREATE, 4=COMMAND|
 |`record`|LINK|Link to the record subject of the log|-|
 |`note`|STRING|Optional message|-|
-|`changes`|MAP|Only for UDPATE operation, contains the map of changed fields in the form `{"from":<old-value>, "to":<new-value>}`|-|
+|`changes`|MAP|Only for UPDATE operation, contains the map of changed fields in the form `{"from":<old-value>, "to":<new-value>}`|-|
 
 **OrientDB 2.2**
 Starting in 2.2, the *AuditingLog* class has changed slightly.
@@ -149,4 +149,4 @@ Starting in 2.2, the *AuditingLog* class has changed slightly.
 |`operation`|BYTE|Type of operation|0=READ, 1=UPDATE, 2=DELETE, 3=CREATE, 4=COMMAND|
 |`record`|LINK|Link to the record subject of the log.|-|
 |`note`|STRING|Optional message|-|
-|`changes`|MAP|Only for UDPATE operation, contains the map of changed fields in the form `{"from":<old-value>, "to":<new-value>}`|-|
+|`changes`|MAP|Only for UPDATE operation, contains the map of changed fields in the form `{"from":<old-value>, "to":<new-value>}`|-|

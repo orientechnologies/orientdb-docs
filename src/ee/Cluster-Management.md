@@ -22,7 +22,7 @@ It also contains stats about replication messages:
 
 - `Replication Latency Average`: average replication latency between nodes
 - `Replication Message Counters`: counters of messages exchanged between nodes;
-- `Replication Message Coordinator Stats`: detailed counters of messagges grouped by type, sent by the coordinator.
+- `Replication Message Coordinator Stats`: detailed counters of messages grouped by type, sent by the coordinator.
 
 
 ![Overview](./images/studio-cluster-management-overview.png)
