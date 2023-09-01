@@ -19,7 +19,7 @@ OrientDB supports the following Geometry objects :
 * Polygon (**OPolygon)**
 * MultiPoint (**OMultiPoint**)
 * MultiLine (**OMultiline**)
-* MultiPolygon (**OMultiPlygon**)
+* MultiPolygon (**OMultiPolygon**)
 * Geometry Collections 
 
 OrientDB stores those objects like embedded documents with special classes.

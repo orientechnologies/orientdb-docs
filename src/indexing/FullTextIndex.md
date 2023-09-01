@@ -28,7 +28,7 @@ In the event that the default FullText Index configuration is not sufficient to 
 |`ignoreChars`|`"`|Chars to skip when indexing|
 |`separatorChars`|` \r\n\t:;,.&#124;+*/\=!?[](.md)`||
 |`minWordLength`|`3`|Minimum word length to index|
-|`stopWords`|`the in a at as and or for his her him this that what which while up with be was were is`|Stop words escluded from indexing|
+|`stopWords`|`the in a at as and or for his her him this that what which while up with be was were is`|Stop words excluded from indexing|
 
 To configure a FullText Index, from version 1.7 on, you can do so through the OrientDB console or the Java API.  When configuring the index from the console, use the [`CREATE INDEX`](../sql/SQL-Create-Index.md) command with the `METADATA` operator.
 
