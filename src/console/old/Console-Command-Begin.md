@@ -28,7 +28,7 @@ BEGIN
 - Attempting to begin a transaction when one is already open:
 
   <pre>
-  orinetdb> <code class='lang-sql userinput'>BEGIN</code>
+  orientdb> <code class='lang-sql userinput'>BEGIN</code>
 
   Error: an active transaction is currently open (id=1).  Commit or rollback 
   before starting a new one.
