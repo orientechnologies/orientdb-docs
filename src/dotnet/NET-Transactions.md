@@ -3,7 +3,7 @@
 
 Transactions allow you to organize a series of commands on the database into units of work.  Once you have done the work that you want to do, you can then commit the transaction to the database to make it persistent or revert the database to an earlier state.
 
-In OrientDB-NET, tranasctions are controlled through the `OTransaction` object, which you can access through the [`ODatabase`](NET-Database.md) interface.
+In OrientDB-NET, transactions are controlled through the `OTransaction` object, which you can access through the [`ODatabase`](NET-Database.md) interface.
 
 For more information, see [Transactions](../internals/Transactions.md).
 

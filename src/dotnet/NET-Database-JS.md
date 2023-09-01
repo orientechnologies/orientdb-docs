@@ -44,7 +44,7 @@ public OCommandResult FetchAllRecords(ODatabase database,
 }
 ```
 
-In addition to building your JavaScript scripts from within your application as strings, you can also retrieve scripts from file.  You may find this particularly useful inc ases where you have a body of routine JavaScript operations already prepared for your application, or when you want to work with developers who are familiar with JavaScript, but somewhat less so with the C#/.NET framework.
+In addition to building your JavaScript scripts from within your application as strings, you can also retrieve scripts from file.  You may find this particularly useful in cases where you have a body of routine JavaScript operations already prepared for your application, or when you want to work with developers who are familiar with JavaScript, but somewhat less so with the C#/.NET framework.
 
 ```csharp
 using Orient.Client;

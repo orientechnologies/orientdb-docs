@@ -33,7 +33,7 @@ public void updateRecord(OTransaction trx, Dictionary<ODocument, Dictionary<stri
    // LOOP OVER DOCUMENTS
    foreach(KeyValuePair<ODocument, Dictionary<string, string>> record in records)
    {
-      // INITILAIZE VARIABLES
+      // INITIALIZE VARIABLES
       ODocument document = record.Key;
       Dictionary<string, string> fields = record.Value;
 
