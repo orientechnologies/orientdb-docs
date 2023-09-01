@@ -11,7 +11,7 @@ A Session instance can be used for:
 - Use query builder
 
 
-To obtain a Session instance use the [Cient APIs](Client.md#sessions).
+To obtain a Session instance use the [Client APIs](Client.md#sessions).
 
 > By convention, the variable on which you initialize the Session API is called session. This designation is arbitrary and used only for convenience.
 
@@ -64,7 +64,7 @@ try {
 }
 ```
 
-Alternatevely use `.one` API for the first entry only
+Alternatively use `.one` API for the first entry only
 
 ```js
 session.query("select from OUser where name = :name", { params : {name: "admin" }})
@@ -156,7 +156,7 @@ try {
 
 ## Query/Command/Script Options
 
-Those APIs accepts an options object as second paramenter. 
+Those APIs accepts an options object as second parameter. 
 
 The options can contains:
 
@@ -223,7 +223,7 @@ session.runInTransaction((tx)=>{
 });
 ```
 
-alternativelly using explicit API
+alternatively using explicit API
 
 ```js
 session.begin();
@@ -462,7 +462,7 @@ session.update("#12:97")
 	});
 ```
 
-If you don't know the RecordID, alternatevily and more likely you can update with a where condition, for example on the name of the player.
+If you don't know the RecordID, alternatively and more likely you can update with a where condition, for example on the name of the player.
 
 ```js
 session.update("Player")

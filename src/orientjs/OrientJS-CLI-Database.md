@@ -1,6 +1,6 @@
 # Database Interface in OrientJS CLI
 
-When working with the OrientJS command-line interface, `orinetjs`, issuing the `db` command allows you to manipulate databases on OrientDB from the terminal.
+When working with the OrientJS command-line interface, `orientjs`, issuing the `db` command allows you to manipulate databases on OrientDB from the terminal.
 
 For instance,
 
