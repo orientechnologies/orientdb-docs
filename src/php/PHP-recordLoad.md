@@ -1,5 +1,5 @@
 
-# PhpOrient - `reacordLoad()`
+# PhpOrient - `recordLoad()`
 
 This method returns a record from the database.
 
@@ -27,7 +27,7 @@ $client->recordLoad(new ID(['cluster' => <cluster-id>,
 - **`<cluster-id>`** Defines the Cluster ID to search.
 - **`<record-position>`** Defines the record's position in the cluster.
 
-When successful, this method returns an array with a single entry. In order to access the reocrd itself, you need to add a call to the 0 position at the end of the method, for instance:
+When successful, this method returns an array with a single entry. In order to access the record itself, you need to add a call to the 0 position at the end of the method, for instance:
 
 ```php
 $record = $client->recordLoad(new ID('#3:22'))[0]

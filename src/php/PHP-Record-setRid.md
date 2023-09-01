@@ -5,7 +5,7 @@ This method sets the Record ID for the [`Record()`](PHP-Record.md) object.
 
 ## Setting Record ID's
 
-When instatitating a [`Record()`](PHP-Record.md) object in your application, you may need to set the specific Record ID on the object before syncing it with OrientDB.  You can also partially define the record, by setting the Cluster ID for the cluste you want to create it in.  Once the [`ID()`](PHP-ID.md) instance is ready, you can pass it to this method to set the Record ID on the ojbect.
+When instantiating a [`Record()`](PHP-Record.md) object in your application, you may need to set the specific Record ID on the object before syncing it with OrientDB.  You can also partially define the record, by setting the Cluster ID for the cluster you want to create it in.  Once the [`ID()`](PHP-ID.md) instance is ready, you can pass it to this method to set the Record ID on the object.
 
 ### Syntax
 

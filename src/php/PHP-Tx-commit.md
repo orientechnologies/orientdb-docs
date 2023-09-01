@@ -27,7 +27,7 @@ function transactionOp($testResult){
 	if($testResult){
 
 		// Log Operation
-		echo "Commiting Transaction";
+		echo "Committing Transaction";
 
 		// Commit
 		$tx->commit();
