@@ -45,7 +45,7 @@ The password field is used to specify a JSON document that contains the properti
 
 One of the required JSON properties is 'transform', which indicates the cipher transformation.  If 'transform' is not specified as part of the JSON document, the global property, `client.ci.ciphertransform` can be set in `ORIENTDB_SETTINGS` instead.
 
-Another property that can be set is the key's algorithm type, set by specifying 'algorithm' in the JSON document.  If 'algorithm' is not specified then the algorith is determined from the cipher transformation.  The key's algorithm can also be set as part of the `ORIENTDB_SETTINGS` using the global property `client.ci.keyalgorithm`.
+Another property that can be set is the key's algorithm type, set by specifying 'algorithm' in the JSON document.  If 'algorithm' is not specified then the algorithm is determined from the cipher transformation.  The key's algorithm can also be set as part of the `ORIENTDB_SETTINGS` using the global property `client.ci.keyalgorithm`.
 
 Example:
 ```
