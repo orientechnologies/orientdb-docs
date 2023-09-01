@@ -61,7 +61,7 @@ Hazelcast was updated to latest version.
 
 ## Console enhancements
 
-In previous versions there are some slight differences in the console when using a remote server or an embedded envorinment. 
+In previous versions there are some slight differences in the console when using a remote server or an embedded environment. 
 In v 3.2 the CLI interface was refactored to unify the management of embedded and remote environments
 
 see 
