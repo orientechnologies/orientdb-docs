@@ -11,7 +11,7 @@ OrientDB defines resources and the user or role's access to the resource defined
 
 ```
 OSecurityRole OSecurityRole().addRule(
-	ORule.ResourceGeneric resourrceGeneric,
+	ORule.ResourceGeneric resourceGeneric,
 	String resourceSpecific,
 	int operation)
 ```
@@ -20,7 +20,7 @@ OSecurityRole OSecurityRole().addRule(
 |---|---|---|
 | **`resourceGeneric`** | [`ORule.ResourceGeneric`](../ORule.md) | Defines the generic resource |
 | **`resourceSpecific`** | `String` | Defines the specific resource |
-| **`opreation`** | `int` | Defines the allowed operation |
+| **`operation`** | `int` | Defines the allowed operation |
 
 #### Return Value
 

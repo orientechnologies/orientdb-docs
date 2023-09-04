@@ -6,7 +6,7 @@ In certain use cases you may find yourself in a situation where the available fu
 
 ## Creating Custom Functions
 
-The Function API is accessible through the [Datatbase API](OrientJS-Database.md).  Once you initialize a database, you can create custom functions through the `db.createFn()` method.
+The Function API is accessible through the [Database API](OrientJS-Database.md).  Once you initialize a database, you can create custom functions through the `db.createFn()` method.
 
 For instance, consider the example database of baseball statistics.  You might want a function to calculate a player's batting average from arguments providing hits and times at bat.
 

@@ -1,5 +1,5 @@
 
-# OSecurityUser - getAcccountStatus()
+# OSecurityUser - getAccountStatus()
 
 Retrieves the status of the user account.
 

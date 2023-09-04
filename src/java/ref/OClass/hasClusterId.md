@@ -5,7 +5,7 @@ This method determines whether the class uses a cluster, as defined by the Clust
 
 ## Checking for Clusters
 
-Where classes are used to organized what data you store, clusters define where and how you store data.  Using this method, you can detemrine whether the class uses the given cluster, identifying the cluster you want to check for by its Cluster ID, (the first number in a Record ID).
+Where classes are used to organized what data you store, clusters define where and how you store data.  Using this method, you can determine whether the class uses the given cluster, identifying the cluster you want to check for by its Cluster ID, (the first number in a Record ID).
 
 ### Syntax
 

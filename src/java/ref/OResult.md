@@ -8,7 +8,7 @@ Provides an interface for interacting with records in a result-set.
 Results are the records that OrientDB returns from queries.  You typically get them from the [`OResultSet`](OResultSet.md) interface.  In order to use `OResult` you need to import the class into your code.
 
 ```java
-import com.orietechnologies.orient.core.sql.executor.OResult;
+import com.orientechnologies.orient.core.sql.executor.OResult;
 ```
 
 ## Methods

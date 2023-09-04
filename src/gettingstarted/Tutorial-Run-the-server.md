@@ -87,7 +87,7 @@ List of params
 
 - -h | --host **HOSTNAME or IP ADDRESS** : the host or ip where OrientDB is running, default to **localhost**
 - -P | --ports **PORT or PORT RANGE** : single port value or range of ports; default to **2424-2430**
-- -u | --user **ROOT USERNAME** : root's username; deafult to  **root**
+- -u | --user **ROOT USERNAME** : root's username; default to  **root**
 - -p | --password **ROOT PASSWORD** : root's user password; **mandatory**
 
 >**NOTE**: On Windows systems password is always **mandatory** because the script isn't able to discover the pid of the OrientDB's process.

@@ -226,10 +226,10 @@ Every function accepts as last, optional, parameter a JSON with additional confi
 ### SEARCH_CLASS
 
 The best way to use the search capabilities of OrientDB is to define a single multi-fields index and use the *SEARCH_CLASS* function.
-In case more than one full-text index are defined over a class, an error is raised in case of *SEARCH_CLASSI* invocation.
+In case more than one full-text index are defined over a class, an error is raised in case of *SEARCH_CLASS* invocation.
 
 Suppose to have this index
-<pre><code class="lang-sql userinput">CREATE INDEX City.fulltex ON City(name, description) FULLTEXT ENGINE LUCENE </code></pre>
+<pre><code class="lang-sql userinput">CREATE INDEX City.fulltext ON City(name, description) FULLTEXT ENGINE LUCENE </code></pre>
 
 A query that retrieve cities with the name starting with cas and description containing the word beautiful:
 
@@ -313,7 +313,7 @@ The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 
 ### SEARCH_FIELDS
 
-The *SEARCH_FIELDS* function allows to execute query over the index that is defined over one ormore fields:
+The *SEARCH_FIELDS* function allows to execute query over the index that is defined over one or more fields:
 
 <pre><code class="lang-sql userinput">SELECT FROM City WHERE SEARCH_FIELDS(["name", "description"], "name:cas* description:beautiful") = true</code></pre>
 
@@ -322,7 +322,7 @@ The function accepts a JSON as third parameter, as for *SEARCH_CLASS*.
 ### Numeric and date range queries
 
 If the index is defined over a numeric field (INTEGER, LONG, DOUBLE) or a date field (DATE, DATETIME), the engine supports [range queries](http://lucene.apache.org/core/6_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Range_Searches)
-Suppose to have a `City` class witha multi-field Lucene index defined:
+Suppose to have a `City` class with a multi-field Lucene index defined:
 
 <pre><code class="lang-sql userinput">CREATE CLASS CITY EXTENDS V
 CREATE PROPERTY CITY.name STRING
@@ -421,7 +421,7 @@ WHERE SEARCH_CLASS("+name:cas*  +description:beautiful", {
 }) = true</code>
 </pre>
 
-Sort configuraton:
+Sort configuration:
 * *field*: is the field name. Could be absent only if the sort type is DOC or INDEX
 * *reverse*: if set to true, will sort for the given field in reverse order
 * *type*: look to https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/SortField.Type.html
@@ -430,7 +430,7 @@ Sort configuraton:
 
 ### Cross class search (Enterprise Edition)
 
-Bundled with the enterprise edition there's the *SEARH_CROSS* function that is able to search over all the Lucene indexes defined on a database
+Bundled with the enterprise edition there's the *SEARCH_CROSS* function that is able to search over all the Lucene indexes defined on a database
 
 Suppose to define two indexes:
 
@@ -482,7 +482,7 @@ It is possible to fine tune the behaviour of the underlying Lucene's IndexWriter
         "default": "org.apache.lucene.analysis.standard.StandardAnalyzer"
     }</code></pre>
 
-* *directory_type*: configure the acces type to the Lucene's index
+* *directory_type*: configure the access type to the Lucene's index
     * *nio* (_default)_: the index is opened with *NIOFSDirectory*
     * *mmap*:  the index is opened with *MMapDirectory*
     * *ram*: index will be created in memory with *RAMDirectory*

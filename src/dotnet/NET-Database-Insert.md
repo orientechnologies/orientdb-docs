@@ -44,8 +44,8 @@ using (TextFieldParser parser = new TexFieldParser("$HOME/2016-report.csv"))
       ODatabaseType.PLocal, "user", "passwd");
 
    // INITIALIZE PARSER
-   parser.TextFieldType = FieldType.Delmited;
-   parser.SetDelmiters(",");
+   parser.TextFieldType = FieldType.Delimited;
+   parser.SetDelimiters(",");
 
    // MIGRATE DATA
    while (!parser.EndOfData)

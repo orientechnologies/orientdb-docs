@@ -166,7 +166,7 @@ Prepared queries use two kinds of markers to substitute parameters on execution:
 - **`:<parameter>`** Syntax is used in reference to named parameters.  For instance,
 
   ```java
-  OSQLSynchQuery<ODcument> query = new OSQLSynchQuery<ODocument>(
+  OSQLSynchQuery<ODocument> query = new OSQLSynchQuery<ODocument>(
      "SELECT FROM Profile WHERE name = :name AND surname = :surname"
   );
 

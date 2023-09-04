@@ -28,7 +28,7 @@ This function supports one additional option:
 
 #### Return Values
 
-When the operatin is successful, this function returns `:ok`.  In the event that it encounters an error, instead it returns the tuple `{:error, message}`, where the variable is the exception message.
+When the operation is successful, this function returns `:ok`.  In the event that it encounters an error, instead it returns the tuple `{:error, message}`, where the variable is the exception message.
 
 ### Example
 

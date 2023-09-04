@@ -24,7 +24,7 @@ DELETE FROM <Class>|CLUSTER:<cluster>|INDEX:<index> [LOCK <default|record>] [RET
 
 **Examples:**
 
-- Delete all recods with the surname `unknown`, ignoring case:
+- Delete all records with the surname `unknown`, ignoring case:
 
   <pre>
   orientdb> <code class="lang-sql userinput">DELETE FROM Profile WHERE surname.toLowerCase() = 'unknown'</code>

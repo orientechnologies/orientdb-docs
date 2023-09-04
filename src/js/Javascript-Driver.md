@@ -13,7 +13,7 @@ This driver wraps the most common use cases in database usage. All parameters re
 
 *Note: Due to cross-domain XMLHttpRequest restriction this API works, for now, only placed in the server deployment. To use it with cross-site look at [Cross-site scripting](Javascript-Driver.md#cross-site-scripting).*
 
-The full source code is available here: **[oriendb-api.js](https://github.com/nuvolabase/orientdb/blob/master/server/src/site/js/orientdb-api.js)**.
+The full source code is available here: **[orientdb-api.js](https://github.com/nuvolabase/orientdb/blob/master/server/src/site/js/orientdb-api.js)**.
 
 ## See also
 - [Javascript-Command](Javascript-Command.md)

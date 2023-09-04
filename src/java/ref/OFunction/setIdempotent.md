@@ -15,7 +15,7 @@ OFunction OFunction().setIdempotent(boolean idempotence)
 
 | Argument | Type | Description |
 |---|---|---|
-| **`idemptence`** | `boolean` | Indicates whether the function is idempotent |
+| **`idempotence`** | `boolean` | Indicates whether the function is idempotent |
 
 #### Return Type
 

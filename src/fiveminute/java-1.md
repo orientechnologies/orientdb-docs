@@ -31,7 +31,7 @@ Now, to make sure that everything is OK, try to enter the following query
 SELECT * FROM OUser
 ```
 
-and click the green "RUN" button. You should see the three default users that OrienDB creates for you: admin, reader and writer
+and click the green "RUN" button. You should see the three default users that OrientDB creates for you: admin, reader and writer
 
 ![StudioBrowser](images/studio-browser-2.png)
 

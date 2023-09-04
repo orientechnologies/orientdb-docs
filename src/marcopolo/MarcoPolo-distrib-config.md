@@ -28,4 +28,4 @@ This function supports one additional option:
 
 #### Return Values
 
-This operatation returns a [Document](MarcoPolo-Document.md) instance containing the current state of the distributed configuration.
+This operation returns a [Document](MarcoPolo-Document.md) instance containing the current state of the distributed configuration.

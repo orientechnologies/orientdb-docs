@@ -10,7 +10,7 @@ When a database is opened, the ODatabaseDocumentTx.open() method calls `final OU
 *OSystemUserAuthenticator* implements a method, `public String authenticate(final String username, final String password)`, from the *OSecurityAuthenticator* interface.  This method queries the system database for an *OUser* record that matches the specified username and, if found, validates the provided password.  If successful, the username is returned, otherwise null.
 
 ## OSystemUser
-As mentioned previously, when `Orient.instance().getSecurity().getSystemUser()` is called, if a system user is found, an *OSystemUser* instance is returned.  *OSystemUser* extends *OUser* and implements a new constructor, `public OSystemUser(final ODocument iSource, final String dbName)`, as well as a newly overrided method, `protected ORole createRole(final ODocument roleDoc)`.
+As mentioned previously, when `Orient.instance().getSecurity().getSystemUser()` is called, if a system user is found, an *OSystemUser* instance is returned.  *OSystemUser* extends *OUser* and implements a new constructor, `public OSystemUser(final ODocument iSource, final String dbName)`, as well as a newly overridden method, `protected ORole createRole(final ODocument roleDoc)`.
 
 The "database name" (dbName) parameter in *OSystemUser*'s constructor is used to filter which roles in the system database are associated with a user.  A list property, called *dbFilter*, can be set on an ORole record to assigned the database name.  If *dbName* is null, then only roles without a *dbFilter* property are associated with the *OSystemUser*.
 

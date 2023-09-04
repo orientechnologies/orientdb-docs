@@ -31,7 +31,7 @@ You can also create classes through the Class API.  You may find this especially
 db.class.create('Player')
    .then(
       function(player){
-         console.log('Craeted class: ' + player.name);
+         console.log('Created class: ' + player.name);
       }
    );
 ```
@@ -45,7 +45,7 @@ The `db.class.create` method has the following function signature
 `db.class.create(<name>, [inherits], [defaultCluster], [abstract])`
 
 - `name (string)`: the name of the class to be created
-- `inherits (string)`: the class (or list of classes as a comman delimited string) this class will inherit from
+- `inherits (string)`: the class (or list of classes as a comma delimited string) this class will inherit from
 - `defaultCluster (integer)`: the default cluster to use for records on this class, can be left as null
 - `abstract (boolean)`: flag to indicate if this is an abstract class being created
 
@@ -59,7 +59,7 @@ For instance, in the above example you created a class for storing data on playe
 db.class.create('Player', 'V')
    .then(
       function(player){
-         console.log('Craeted Vertex Class: ' + player.name);
+         console.log('Created Vertex Class: ' + player.name);
       }
    );
 ```

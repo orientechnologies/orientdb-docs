@@ -181,7 +181,7 @@ Any string is a valid property name, except:
 - `@version` (upper or lowercase)
 - empty string
 
-A string name can also contain numbers, blank spaces, punctation and special characters.
+A string name can also contain numbers, blank spaces, punctuation and special characters.
 
 > IMPORTANT: please refer to [SQL Syntax](../sql/SQL-Syntax.md) for details on how to escape property names including special characters when
 writing SQL statements
@@ -198,9 +198,9 @@ doc.setProperty("foo", "zzz");
 System.out.println(doc.getProperty("name")); //prints "John"
 ```
 
-> IMPORTANT: **Lecagy ODocument API** and differences with current API.
+> IMPORTANT: **Legacy ODocument API** and differences with current API.
 
-> Until v 2.2 ODocument had a differt API to set and access property values:
+> Until v 2.2 ODocument had a different API to set and access property values:
    ```java
    ODocument doc = ...
    doc.field("name", "John");
@@ -256,7 +256,7 @@ When working schemaless (see [Schema](../general/Schema.md)), property values ar
 - collections and maps of documents are saved as link lists or link sets (based on the collection type)
 
 When working schemaful, OrientDB will try to do a conversion of types to fit the schema type. Eg. if you have a property defined as 
-LONG in the schema and you set an Integer value on it, the Integer will be converted to Long. If a proprety is defined as EMBEDDED,
+LONG in the schema and you set an Integer value on it, the Integer will be converted to Long. If a property is defined as EMBEDDED,
 setting a document as its value will result in saving the document as an embedded document. 
 If for some reason the conversion cannot be applied, at save time OrientDB will throw an `OValidationException`
 
@@ -265,7 +265,7 @@ If for some reason the conversion cannot be applied, at save time OrientDB will 
 [`OElement`](ref/OElement.md) also provides a method to explicitly control the type of the property value:  `setProperty(String, Object, OType)`.  This is particularly useful when you do not have a schema but you want to perform specific checks or you want to save embedded
 documents.
 
-For instance, to set a property value as an embedded document, without definint the schema, you have to do the following:
+For instance, to set a property value as an embedded document, without defining the schema, you have to do the following:
 
 ```java
 OElement doc = db.newInstance("Person");
@@ -406,7 +406,7 @@ System.out.println("the edge starts from "+from+ " and ends to "+to);
 
 ```java
 OElement elem = ...
-if(elem.isVetrtex()){
+if(elem.isVertex()){
   Optional<OVertex> v = element.asVertex();
   System.out.println("The element "+v.get()+" is a vertex!");  
 }

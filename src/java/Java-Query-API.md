@@ -8,7 +8,7 @@
 ODatabaseSession provides some methods interact with the database via SQL statements and scripts:
 
 ```java
-  OResultSet query(String query, Object... positionalParamas)
+  OResultSet query(String query, Object... positionalParams)
   OResultSet query(String query, Map namedParams);
 
   OResultSet command(String query, Object... positionalParams);
@@ -18,19 +18,19 @@ ODatabaseSession provides some methods interact with the database via SQL statem
   OResultSet execute(String language, String script, Map namedParams);
 ```
 
-`query()` methods are inteded to execute idempotent statements only (eg. SELECT, MATCH, TRAVERSE).
+`query()` methods are intended to execute idempotent statements only (eg. SELECT, MATCH, TRAVERSE).
 
 `command()` methods can execute any type of statements, idempotent (SELECT, MATCH...), non idempotent (INSERT, UPDATE, DELETE...) and
 DDL (CREATE CLASS, CREATE PROPERTY...)
 
 ### Sample usage
 
-The typical usage can be described with an exmaple
+The typical usage can be described with an example
 
 ```java
 ODatabaseSession db;
 ...
-String statement = "SELECT FROM V WHERE name = ? and surnanme = ?";
+String statement = "SELECT FROM V WHERE name = ? and surname = ?";
 OResultSet rs = db.query(statement, "John", "Smith");
 while(rs.hasNext()){
   OResult row = rs.next();
@@ -79,7 +79,7 @@ String stm = "SELECT FROM V WHERE name = :name and surname = :surname";
 OResultSet rs = db.query(stm, params);
 ```
 
-The same named parameter can be used muliple times in the same statement, eg. the following is valid:
+The same named parameter can be used multiple times in the same statement, eg. the following is valid:
 
 ```java
 Map<String, Object> params = new HashMap<>();
@@ -152,7 +152,7 @@ You can safely use [`OElement`](ref/OElement.md), [`OVertex`](ref/OVertex.md) an
 ```java
 ODatabaseSession db;
 ...
-String statement = "SELECT FROM V WHERE name = ? and surnanme = ?";
+String statement = "SELECT FROM V WHERE name = ? and surname = ?";
 OResultSet rs = db.query(statement, "John", "Smith");
 while(rs.hasNext()){
   rs.next().getVertex().ifPresent(x->{
@@ -163,7 +163,7 @@ while(rs.hasNext()){
 rs.close();
 ```
 
-### Streamin API
+### Streaming API
  
 [`OResultSet`](ref/OResultSet.md) provides an API to convert it to a Java 8 stream:
 
@@ -184,7 +184,7 @@ Sample usage:
 ```java
 ODatabaseSession db;
 ...
-String statement = "SELECT FROM V WHERE name = ? and surnanme = ?";
+String statement = "SELECT FROM V WHERE name = ? and surname = ?";
 OResultSet rs = db.query(statement, "John", "Smith");
 rs.stream().forEach(x -> System.out.println(x.getProperty("age")));
 rs.close();
@@ -214,7 +214,7 @@ try(OResultSet rs = db.query("SELECT FROM Foo");) {
 
 ### Batch Scripts
 
-The `db.execute()` API is intended to execute scripts (SQL by default, but it can be extended to other languages - like Gremiln - with external plugins).
+The `db.execute()` API is intended to execute scripts (SQL by default, but it can be extended to other languages - like Gremlin - with external plugins).
  
 Here is an example on how to run a SQL script from Java API:
 

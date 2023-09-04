@@ -104,7 +104,7 @@ Example of configuration:
          loaded-at-startup="true" />
 ```
 
-To create a new database use the [CREATE DATABASE console command](../console/Console-Command-Create-Database.md) or create it dinamically using the [Java-API](../java/Java-API.md).
+To create a new database use the [CREATE DATABASE console command](../console/Console-Command-Create-Database.md) or create it dynamically using the [Java-API](../java/Java-API.md).
 
 ### Users
 

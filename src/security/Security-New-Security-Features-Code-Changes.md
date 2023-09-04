@@ -19,7 +19,7 @@ On the *Client* side, there's a new interface, called `OCredentialInterceptor`, 
 
 The other significant change is in the *Core* and happens in `OMetadataDefault` in its `init()` method.  Previously, an instance of `OSecurityShared` was created.  Now, an `OSecurity` instance is created by calling `OSecurityManager.instance().newSecurity()`.  The reason for this is to support different OSecurity implementations depending on the authentication requirements.  As an example, for external authentication, an `OSecurityExternal` instance will be created.  `OSecurityExternal` derives from `OSecurityShared` but overrides `authenticate()`, calling the security system's `authenticate()` method instead (`Orient.instance().getSecurity().authenticate()`).
 
-Enterpise auditing has some new capabilities as well.  Tracking of creating and dropping classes has been added as well as when nodes join and leave the cluster in a distributed setup.  Writing to Syslog as part of the auditing log has been added too.
+Enterprise auditing has some new capabilities as well.  Tracking of creating and dropping classes has been added as well as when nodes join and leave the cluster in a distributed setup.  Writing to Syslog as part of the auditing log has been added too.
 
 
 ## Client ##
@@ -337,7 +337,7 @@ Requires the following methods.
 
 |Method|Description|
 |------|-----------|
-|authenticate()|Authenticates the specifed username and password.  The authenticated *principal* is returned if successful, otherwise null.|
+|authenticate()|Authenticates the specified username and password.  The authenticated *principal* is returned if successful, otherwise null.|
 |getAuthenticationHeader()|Returns the HTTP authentication header supported by this *authenticator*.|
 |getClientSubject()|If supported by this *authenticator*, returns a `Subject` object with this *authenticator's* credentials.|
 |getName()|Returns the name of this `OSecurityAuthenticator`.|

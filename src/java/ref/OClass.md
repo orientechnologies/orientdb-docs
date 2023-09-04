@@ -5,7 +5,7 @@ This class provides a standard interface for handling database classes.
 
 ## Managing Database Classes
 
-OrientDB draws from the Object Oriented programming paradigm in the concept of a [class](../../general/Schema.md#class), which for the prposes of clarity is called a *database class* in this Reference guide, to avoid confusion with classes in Java.  Database classes are loosely comparable with tables in Relational databases.  But, unlike tables, database classes are not required to follow a schema unless you want them to follow a schema.  In Java, database classes implement the `OClass` class.
+OrientDB draws from the Object Oriented programming paradigm in the concept of a [class](../../general/Schema.md#class), which for the purposes of clarity is called a *database class* in this Reference guide, to avoid confusion with classes in Java.  Database classes are loosely comparable with tables in Relational databases.  But, unlike tables, database classes are not required to follow a schema unless you want them to follow a schema.  In Java, database classes implement the `OClass` class.
 
 This class is available at `com.orientechnologies.orient.core.metadata.schema`.
 
@@ -24,8 +24,8 @@ Once you've imported the class to your application, you can use to build particu
 |---|---|---|
 | [**`addSuperClass()`**](OClass/addSuperClass.md) | `OClass` | Adds a superclass to the database class |
 | [**`count()`**](OClass/count.md) | [`Long`]({{ book.javase }}/api/java/lang/Long.html) | Counts the number of records in the class |
-| [**`getAllSubclasses()`**](OClass/getAllSubclasses.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<OClass>`](OClass.md) | Retrieves classes that use this class as thier superclass, and subclasses of these classes, (the complete hierarchy) | 
-| [**`getAllSuperClasses()`**](OClass/getAllSuperClasses.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<OClass>`](OClass.md)| Retrives all superclasses of this class |
+| [**`getAllSubclasses()`**](OClass/getAllSubclasses.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<OClass>`](OClass.md) | Retrieves classes that use this class as their superclass, and subclasses of these classes, (the complete hierarchy) | 
+| [**`getAllSuperClasses()`**](OClass/getAllSuperClasses.md) | [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<OClass>`](OClass.md)| Retrieves all superclasses of this class |
 | [**`getSubclasses()`**](OClass/getSubclasses.md) |  [`Collection`]({{ book.javase }}/api/java/util/Collection.html)[`<OClass>`](OClass.md) | Retrieves classes that use this class as their immediate superclass, (one level hierarchy) |
 | [**`getSuperClassesNames()`**](OClass/getSuperClassesNames.md) | [`List`]({{ book.javase }}/api/java/util/List.html)[`<String>`]({{ book.javase }}/api/java/lang/String.html) | Retrieves the names of all superclasses for this class |
 | [**`hasSuperClasses()`**](OClass/hasSuperClasses.md) | [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) | Determines whether the class has superclasses |

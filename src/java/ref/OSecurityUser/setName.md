@@ -5,7 +5,7 @@ Defines the logical name for the user.
 
 ## Logical User Names
 
-Where your Java application interacts with users through the [`OSecuirtyUser`](../OSecurityUser.md) interface, in OrientDB SQL the users are identified by their logical names.  Using this method, you can set the logical name for the user.
+Where your Java application interacts with users through the [`OSecurityUser`](../OSecurityUser.md) interface, in OrientDB SQL the users are identified by their logical names.  Using this method, you can set the logical name for the user.
 
 ### Syntax
 

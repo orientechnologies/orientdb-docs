@@ -54,7 +54,7 @@ from pyorient.ogm.declarative import declarative_node, declarative_relationship
 SchemaNode = declarative_node()
 SchemaRelationship = delcarative_relationship()
 
-# Retrive Schema from OrientDB
+# Retrieve Schema from OrientDB
 classes_from_schema = graph.build_mapping(
    SchemaNode,
    SchemaRelationship,

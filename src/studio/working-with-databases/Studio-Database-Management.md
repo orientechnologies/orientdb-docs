@@ -26,7 +26,7 @@ Contains the database configuration and custom properties. Here you can display 
 - `timezone`, is the timezone used. Timezone is taken on database creation
 - `definitionVersion`, is the internal version used to store the metadata	
 - `clusterSelection`, is the strategy used on selecting the cluster on creation of new record of a class
-- `minimumClusters`, minimum number of clusters to create whenat class creation
+- `minimumClusters`, minimum number of clusters to create when at class creation
 - `conflictStrategy`, is the database strategy for resolving conflicts
 
 ![Configuration](/images/configuration.png)

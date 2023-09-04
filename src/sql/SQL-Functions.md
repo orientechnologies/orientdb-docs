@@ -321,7 +321,7 @@ Since version 2.1 the preferred operator to unwind collections is [UNWIND](SQL-Q
 
 #### Example
 
-on collectinos:
+on collections:
 ```sql
 SELECT EXPAND( addresses ) FROM Account. 
 ```
@@ -540,10 +540,10 @@ SELECT decimal('99.999999999999999999') FROM Account
 
 ### astar()
 
-A*'s algorithm describes how to find the cheapest path from one node to another node in a directed weighted graph with husrestic function.
+A*'s algorithm describes how to find the cheapest path from one node to another node in a directed weighted graph with heuristic function.
 
 The first parameter is source record. The second parameter is destination record. The third parameter is a name of property that
-represents 'weight' and fourth represnts the map of options.
+represents 'weight' and fourth represents the map of options.
 
 If property is not defined in edge or is null, distance between vertexes are 0 .
 
@@ -595,7 +595,7 @@ Where:
 - `destinationVertex` is the destination vertex where the path ends
 - `direction`, optional, is the direction of traversing. By default is "BOTH" (in+out). Supported values are "BOTH" (incoming and outgoing), "OUT" (outgoing) and "IN" (incoming)
 - `edgeClassName`, optional, is the edge class to traverse. By default all edges are crossed. Since 2.0.9 and 2.1-rc2. This can also be a list of edge class names (eg. `["edgeType1", "edgeType2"]`)
-- `additionalParams` (since v 2.1.12), optional, here you can pass a map of additional parametes (Map<String, Object> in Java, JSON from SQL). Currently allowed parameters are
+- `additionalParams` (since v 2.1.12), optional, here you can pass a map of additional parameters (Map<String, Object> in Java, JSON from SQL). Currently allowed parameters are
    - 'maxDepth': integer, maximum depth for paths (ignore path longer that 'maxDepth')
 
 #### Example on finding the shortest path between vertices #8:32 and #8:10

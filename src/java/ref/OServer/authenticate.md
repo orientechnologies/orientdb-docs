@@ -39,6 +39,6 @@ public Boolean authUser(OServer oserver,
    // Log Operation
    logger.info("Authenticating User: " + user);
 
-   return oserver.authenticate(ser, passwd, resorce);
+   return oserver.authenticate(ser, passwd, resource);
 }
 ```

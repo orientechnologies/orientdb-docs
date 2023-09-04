@@ -11,7 +11,7 @@ When OrientDB executes the ETL module, source components define the source of th
 
 ## File Sources
 
-In the file source component, the variables represent a source file containing the data you want the ETL module to read.  You can use text files or files comprssed to `tar.gz`.
+In the file source component, the variables represent a source file containing the data you want the ETL module to read.  You can use text files or files compressed to `tar.gz`.
 
 - Component name: `file`
 

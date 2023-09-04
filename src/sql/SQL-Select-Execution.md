@@ -3,7 +3,7 @@
 The execution flow of a SELECT statement is made of many steps. 
 Understanding these steps will help you to write better and more optimized queries.
 
-### Overivew
+### Overview
 
 The SELECT query execution, at a very high level, is made of three steps:
 - Query optimization

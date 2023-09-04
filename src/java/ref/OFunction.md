@@ -30,5 +30,5 @@ Each function supports the following methods.
 | [**`setIdempotent()`**](OFunction/setIdempotent.md) | `OFunction` | Defines whether the function is idempotent or non-idempotent |
 | [**`setLanguage()`**](OFunction/setLanguage.md) | `OFunction` | Defines the scripting language the function uses |
 | [**`setName()`**](OFunction/setName.md) | `OFunction` | Defines the logical name of the function |
-| [**`setParameeters()`**](OFunction/setParameters.md) | `OFunction` | Defines the parameters available to the function code |
+| [**`setParameters()`**](OFunction/setParameters.md) | `OFunction` | Defines the parameters available to the function code |
 

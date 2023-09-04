@@ -1,7 +1,7 @@
 
 # Console - `INFO CLASS`
 
-Displays all information on givne class.
+Displays all information on given class.
 
 **Syntax**
 

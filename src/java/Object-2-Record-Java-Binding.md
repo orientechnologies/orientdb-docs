@@ -287,7 +287,7 @@ try{
 ```
 
 
-When the <code>db.save( c )</code> is called, the ODatabaseObjectTx instance already knows obout it because has been retrieved by using a query through the same instance.
+When the <code>db.save( c )</code> is called, the ODatabaseObjectTx instance already knows about it because has been retrieved by using a query through the same instance.
 
 ### Detached mode
 

@@ -20,7 +20,7 @@ OrientDB implements a number of SQL statements and commands that are available t
 |[`CREATE DATABASE`](Console-Command-Create-Database.md)|Creates a new database|
 |[`DECLARE INTENT`](Console-Command-Declare-Intent.md)|Declares an intent|
 |[`DICTIONARY KEYS`](Console-Command-Dictionary-Keys.md)|Displays all the keys in the database dictionary|
-|[`DICTIONARY GET`](Console-Command-Dictionary-Get.md)|Loookups for a record using the dictionary. If found set it as the current record|
+|[`DICTIONARY GET`](Console-Command-Dictionary-Get.md)|Lookups for a record using the dictionary. If found set it as the current record|
 |[`DICTIONARY PUT`](Console-Command-Dictionary-Put.md)|Inserts or modify an entry in the database dictionary. The entry is composed by key=String, value=record-id|
 |[`DICTIONARY REMOVE`](Console-Command-Dictionary-Remove.md)|Removes the association in the dictionary|
 |[`DISCONNECT`](Console-Command-Disconnect.md)|Disconnects from the current database|

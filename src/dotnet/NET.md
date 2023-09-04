@@ -38,7 +38,7 @@ When using NuGet for the first time on these operating systems, you may encounte
 <pre>
 $ <code class="lang-sh userinput">nuget install OrientDB-Net.binary.Innov8tive</code>
 WARNING: SendFailure (Error writing headers)
-WARNING: An error occured while loading packages from 
+WARNING: An error occurred while loading packages from 
 'https://www.nuget.org/api/v2': Error SendFailure
 (Error writing headers)
 Unable to find package 'OrientDB-NET.binary'

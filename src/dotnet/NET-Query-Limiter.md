@@ -11,7 +11,7 @@ There are three limiters available to you, mostly used with [`Select()`](NET-Dat
 
 - **`Skip()`** This method takes one argument, which is an integer.  It acts as offset, only returning the records that occur after this point.
 
-- **`Limit()`** This mehtod takes one argument, which is an integer.  It defines the maximum number of records to return.
+- **`Limit()`** This method takes one argument, which is an integer.  It defines the maximum number of records to return.
 
 For instance,
 

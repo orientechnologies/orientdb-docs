@@ -14,13 +14,13 @@ Using this method you can determine whether the user account has access to the g
 ```
 boolean OSecurityUser().hasRole(
 	String role,
-	boolean includeInherted)
+	boolean includeInherited)
 ```
 
 | Argument | Type | Description |
 |---|---|---|
 | **`role`** | `String` | Defines the logical name of the role |
-| **`includeInherted`** | Defines whether to include roles that inherit from the given role |
+| **`includeInherited`** | Defines whether to include roles that inherit from the given role |
 
 #### Return Value
 

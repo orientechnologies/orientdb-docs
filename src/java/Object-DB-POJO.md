@@ -26,7 +26,7 @@ public class Person {
       this.surname = surname;
    }
 
-   //getters and settss
+   //getters and setters
 }
 OrientDBObject orientDB = new OrientDBObject("remote:localhost",OrientDBConfig.defaultConfig());
 
@@ -143,7 +143,7 @@ Here, the application loops through every instance of the class `Animal` and del
 
 #### Cascade Deletions
 
-The Object API uses JPA annotations to manage cascade deletions.  It can be done explicitly, (that is, `orphanRemoval = true`), or with `CascadeType`.  The first mode works only with `@OneToOne` and `@OneToMany` annotations.  `CascadeType` works with `@ManyToManay` annotation.
+The Object API uses JPA annotations to manage cascade deletions.  It can be done explicitly, (that is, `orphanRemoval = true`), or with `CascadeType`.  The first mode works only with `@OneToOne` and `@OneToMany` annotations.  `CascadeType` works with `@ManyToMany` annotation.
 
 For instance,
 

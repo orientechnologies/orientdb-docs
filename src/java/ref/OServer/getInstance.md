@@ -5,7 +5,7 @@ This method retrieves the given instance of an OrientDB Server by its Server ID.
 
 ## Retrieving `OServer` Instances
 
-In addition to starting an embedded instance of the OrientDB Server, you can also retrieve a particular [`OServer`](../OServer.md) instance, as identified by its Server ID.  If you want to retrieve the server instance by its path, see the [`getInstaceByPath()`](getInstanceByPath.md) method.
+In addition to starting an embedded instance of the OrientDB Server, you can also retrieve a particular [`OServer`](../OServer.md) instance, as identified by its Server ID.  If you want to retrieve the server instance by its path, see the [`getInstanceByPath()`](getInstanceByPath.md) method.
 
 ### Syntax
 

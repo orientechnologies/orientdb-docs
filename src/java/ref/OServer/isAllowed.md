@@ -20,7 +20,7 @@ public boolean OServer().isAllowed(String user, String resource)
 
 #### Return Value
 
-This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) value.  If the return value is `true`, it inidcates that the user has permission to access the given resource.
+This method returns a [`boolean`]({{ book.javase }}/api/java/lang/Boolean.html) value.  If the return value is `true`, it indicates that the user has permission to access the given resource.
 
 ### Example
 

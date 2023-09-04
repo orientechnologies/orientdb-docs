@@ -36,7 +36,7 @@ Displays statistics about executed queries in OrientDB Server. Each query report
 - `Count`, how many times the query was executed
 - `Min`, the minimum execution time of the query
 - `Mean`, the mean execution time of the query
-- `Max`, the maximume execution time of the query
+- `Max`, the maximum execution time of the query
 
 ![Stats](./images/studio-query-profiler-stats.png)
 

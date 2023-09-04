@@ -18,7 +18,7 @@ $client->dbDrop(
 
 - **`<database-name>`** Defines the database name.
 - **`<storage-type>`** Defines the storage type.  This is an optional variable, defaults to PLocal.
-  - *`PhpOrinet::STORAGE_TYPE_PLOCAL`* Sets the PLocal storage type.
+  - *`PhpOrient::STORAGE_TYPE_PLOCAL`* Sets the PLocal storage type.
   - *`PhpOrient::STORAGE_TYPE_MEMORY`* Sets in-memory storage type.
 
 

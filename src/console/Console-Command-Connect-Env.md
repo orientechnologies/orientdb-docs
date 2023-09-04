@@ -23,7 +23,7 @@ CONNECT ENV <env-url> [<user> <password>]
 - **`<user>`** Defines the user you want to connect with.
 - **`<password>`** Defines the password needed to connect, with the defined user. User and password are needed to execute authenticated operations on the environment (eg. create a database on a remote server); they are not needed for operations that do not require an authentication or that require different credentials (eg. to open a database you can pass the database user and password, see [OPEN](Console-Command-Open.md))
 
-After the console is connected to an environment, it allows to execute opeartions and [Server-Level](../serverlevel/README.md) commands on it.
+After the console is connected to an environment, it allows to execute operations and [Server-Level](../serverlevel/README.md) commands on it.
 
 **Examples:**
 

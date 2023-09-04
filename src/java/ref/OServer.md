@@ -38,7 +38,7 @@ This class throws the following exceptions.
 - [`MalformedObjectNameException`]({{ book.javase }}/api/javax/management/MalformedObjectNameException.html)
 - [`NullPointerException`]({{ book.javase }}/api/java/lang/NullPointerException.html)
 - [`InstanceAlreadyExistsException`]({{ book.javase }}/api/javax/management/InstanceAlreadyExistsException.html)
-- [`MBeanRegistrationException`]({{ book.javase }}/api/javax/maangement/MBeanRegistrationException.html)
+- [`MBeanRegistrationException`]({{ book.javase }}/api/javax/management/MBeanRegistrationException.html)
 - [`NotCompliantMBeanException`]({{ book.javase }}/api/javax/management/NotCompliantMBeanException.html)
 
 ### Methods

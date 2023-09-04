@@ -21,7 +21,7 @@ import com.orientechnologies.orient.core.metadata.security.OSecurityUser;
 | [**`checkPassword()`**](OSecurityUser/checkPassword.md) | `OSecurityUser` | Authenticates user password |
 | [**`getAccountStatus()`**](OSecurityUser/getAccountStatus.md) | `OSecurityUser.STATUSES` | Retrieves the status of the user account | 
 | [**`getName()`**](OSecurityUser/getName.md) | `String` | Retrieves the logical name for the user |
-| [**`getPasword()`**](OSecurityUser/getPassword.md) | `String` | Retrieves the user password |
+| [**`getPassword()`**](OSecurityUser/getPassword.md) | `String` | Retrieves the user password |
 | [**`getRoles`**](OSecurityUser/getRoles.md) | [`Set<? extends OSecurityRole>`](OSecurityRole.md) | Retrieves the roles assigned to this user |
 | [**`hasRole()`**](OSecurityUser/hasRole.md) | `boolean` | Determines whether the user has the given role |
 | [**`removeRole()`**](OSecurityUser/removeRole.md) | `boolean` | Removes the given role from the user |

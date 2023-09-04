@@ -39,7 +39,7 @@ class DatabaseHandler {
 
 	/*
 	 * Constructor Method
-	 * @apram server: OServer instance
+	 * @param server: OServer instance
 	 */
 	public void DatabaseHandler(OServer server) {
 

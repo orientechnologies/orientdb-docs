@@ -16,7 +16,7 @@ load_record(<conn>, <record-id>, <opts>)
 
 - **`<conn>`** Defines the database connection.
 - **`<record-id>`** Defines the Record ID.
-- **`<opts>`** Defines addtional options for the function.  For more information on the available options, see the [Options](#options) section below.
+- **`<opts>`** Defines additional options for the function.  For more information on the available options, see the [Options](#options) section below.
 
 #### Options
 
@@ -27,7 +27,7 @@ This function supports a series of additional options defined through the final 
 - **`:load_tombstones`** Defines whether you want to load information on deleted records.  It defaults to `false`.
 - **`:if_version_not_latest`** Defines whether you want to load the record in cases where the provided version is not the latest.  This functionality was introduced in version 2.1 of OrientDB. 
 - **`:version`** Defines the record version that you want to load.
-- **`:timeout`** Defines the timeout value in milliseconds.  In the event that the query takes lnger than the allotted time, MarcoPolo sends an exit signal to the calling process.
+- **`:timeout`** Defines the timeout value in milliseconds.  In the event that the query takes longer than the allotted time, MarcoPolo sends an exit signal to the calling process.
 
 #### Return Values
 

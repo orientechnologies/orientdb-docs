@@ -37,7 +37,7 @@ function updateRecord($class, $data, $rid){
 	global $client;
 	global $tx;
 
-	// Begin Trasnaction
+	// Begin Transaction
 	$tx = $tx->begin();
 
 	// Build Updated Record

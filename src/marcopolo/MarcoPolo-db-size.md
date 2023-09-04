@@ -24,7 +24,7 @@ This function provides only one additional option:
 
 #### Return Value
 
-When this function is successful, it returns the tuple `{:ok, size}`, where `size` is a non-negative integer indicating the database size.  In the event that the operation fails, the function returns the tipe `{:error, reason}`, where `reason` contains the exception message.
+When this function is successful, it returns the tuple `{:ok, size}`, where `size` is a non-negative integer indicating the database size.  In the event that the operation fails, the function returns the tuple `{:error, reason}`, where `reason` contains the exception message.
 
 
 ### Example

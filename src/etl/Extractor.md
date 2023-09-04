@@ -14,7 +14,7 @@ When OrientDB executes the ETL module, extractor components handle data extracti
 
 When the ETL module runs with a Row Extractor, it extracts content row by row.  It outputs a string array class.
 
-- Compnent name: `row`
+- Component name: `row`
 - Output Class: `[ string ]`
 
 **Syntax**
@@ -39,7 +39,7 @@ When the ETL module runs with a Row Extractor, it extracts content row by row.  
 
 ## CSV Extractor
 
-When the ETL module runs the CSV Extractor, it parses a file formated to [Apache Commons CSV](https://commons.apache.org/proper/commons-csv) and extracts the data into OrientDB.  This component was introduced in version 2.1.4 and is unavailable in older releases of OrientDB.
+When the ETL module runs the CSV Extractor, it parses a file formatted to [Apache Commons CSV](https://commons.apache.org/proper/commons-csv) and extracts the data into OrientDB.  This component was introduced in version 2.1.4 and is unavailable in older releases of OrientDB.
 
 - Component name: `csv`
 - Output class: `[ ODocument ]`

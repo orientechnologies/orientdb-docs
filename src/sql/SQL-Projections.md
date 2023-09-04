@@ -38,7 +38,7 @@ By default, a query returns a different result-set based on the projections it h
 - **`*` alone**: The result set is made of records as they arrive from the target, with the original @rid and @class attributes (if any)
 - **`*` plus other projections**: records of the original target, merged with the other projection values, with @rid, @class and @version of the original record. 
 - **no projections**: same behavior as `*`
-- **`expand(<projection>)`**: The result set is made of the records returned by the projection, expanded (if the projection result is a link or a colleciton of links) and unwinded (if the projection result is a collection). Nothing in all the other cases.
+- **`expand(<projection>)`**: The result set is made of the records returned by the projection, expanded (if the projection result is a link or a collection of links) and unwinded (if the projection result is a collection). Nothing in all the other cases.
 - **one or more projections**: temporary records (with temporary @rid and no @class). Projections that represent links are returned as simple @rid values, unless differently specified in the fetchplan.
 
 *IMPORTANT - projection values can be overwritten in the final result, the overwrite happens from left to right*
@@ -111,7 +111,7 @@ result:
 [{"full_name": "John Smith"}] 
 ```
 
-The String representation of a projection is the exact representation of the projection string, without spaces before and after dots and brackets, no spaces before commans, a single space before and after operators.
+The String representation of a projection is the exact representation of the projection string, without spaces before and after dots and brackets, no spaces before commas, a single space before and after operators.
 
 eg.
 
@@ -126,7 +126,7 @@ result:
 SELECT parent.name+" "+parent.surname from Node
 
 result:
-[{"parent.name + \" \" + parent.nurname": "John Smith"}] 
+[{"parent.name + \" \" + parent.surname": "John Smith"}] 
 ```
 
 ```
@@ -147,7 +147,7 @@ result:
 
 
 A projection can refer to a link or to a collection of links, eg. a LINKLIST or a LINKSET.
-In some cases you can be interested in the expanded object intead of the RID.
+In some cases you can be interested in the expanded object instead of the RID.
 
 Let's clarify this with an example. This is our dataset:
 

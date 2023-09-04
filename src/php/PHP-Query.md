@@ -5,7 +5,7 @@ This method issues an [SQL](../sql/README.md) query to the database.
 
 ## Querying the Database
 
-In the event htat you're more comfortable working in SQL, you can build and issue queries to OrientDB directly using this method.
+In the event that you're more comfortable working in SQL, you can build and issue queries to OrientDB directly using this method.
 
 ### Syntax
 
@@ -17,13 +17,13 @@ $client->query(<sql>)
 
 ### Example
 
-In cases where you find yourself frequently issuing queries to OrientDB, you may find it convenient to construnction a function to manage the process.
+In cases where you find yourself frequently issuing queries to OrientDB, you may find it convenient to construction a function to manage the process.
 
 ```php
 // QUERY FUNCTION
 function queryDatabase($className, 
 			$properties = array('*'), 
-			$whereCondtions = array(), 
+			$whereConditions = array(), 
 			$limit = 0){
 
 	// LOG OPERATION

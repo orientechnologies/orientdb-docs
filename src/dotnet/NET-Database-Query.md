@@ -25,7 +25,7 @@ List<ODocument> ODatabase.Query(string SQL,
 
 ### Example
 
-In situations where you execute the same or very similar queries with some frequency or in cases where you need to run a query that has no comparable function available in OrientDB-NET, you can issue the SQL statement manually through this menthod.
+In situations where you execute the same or very similar queries with some frequency or in cases where you need to run a query that has no comparable function available in OrientDB-NET, you can issue the SQL statement manually through this method.
 
 ```csharp
 using Orient.Client;

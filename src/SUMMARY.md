@@ -453,7 +453,7 @@
 		* [**`setIdempotent()`**](java/ref/OFunction/setIdempotent.md)
 		* [**`setLanguage()`**](java/ref/OFunction/setLanguage.md)
 		* [**`setName()`**](java/ref/OFunction/setName.md)
-		* [**`setParameeters()`**](java/ref/OFunction/setParameters.md)
+		* [**`setParameters()`**](java/ref/OFunction/setParameters.md)
 	  * [OFunctionLibrary](java/ref/OFunctionLibrary.md)
 		* [createFunction()](java/ref/OFunctionLibrary/createFunction.md)
 		* [dropFunction()](java/ref/OFunctionLibrary/dropFunction.md)

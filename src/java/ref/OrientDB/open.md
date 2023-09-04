@@ -3,7 +3,7 @@
 
 This method opens the given database on the OrientDB Server.
 
-## Openning Databases
+## Opening Databases
 
 The [`OrientDB`](../OrientDB.md) class allows you to operate on an OrientDB Server, but eventually you're going to want to start working with an actual database.  This method allows you to open a Document database on the server.
 

@@ -5,7 +5,7 @@ Retrieves the path to the storage-type used by the OrientDB Server.
 
 ## Retrieving Storage Path
 
-In cases where you need the storage-path ussed by the OrientDB Server, such as to log it for debugging or as part of a larger operation, this method retrieves it for you.
+In cases where you need the storage-path used by the OrientDB Server, such as to log it for debugging or as part of a larger operation, this method retrieves it for you.
 
 ### Syntax
 
@@ -24,12 +24,12 @@ This method returns a [`String`]({{ book.javase }}/api/java/lang/String.html) va
 
 ### Example
 
-Consider a use case where you need to retrieve the storage path to pass it to some other method as part of a larger operation.  You might use a method like this in the class managing the OrientDB Server to retireve the storage path and log it for debugging purposes before returning the value. 
+Consider a use case where you need to retrieve the storage path to pass it to some other method as part of a larger operation.  You might use a method like this in the class managing the OrientDB Server to retrieve the storage path and log it for debugging purposes before returning the value. 
 
 
 ```java
 /**
- * Retrieve and Log the Sotrage Path 
+ * Retrieve and Log the Storage Path 
  */
 public String fetchStoragePath(OServer oserver){
 

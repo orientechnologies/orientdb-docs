@@ -17,7 +17,7 @@ from pyorient.groovy import GroovyScripts
 # Iterate through scripts/
 for path in pathlib.Path('scripts/').iterdir():
 
-   # Check if Grovvy Script
+   # Check if Groovy Script
    if path.is_file() and path.suffix == '.groovy':
 
       # Add Script

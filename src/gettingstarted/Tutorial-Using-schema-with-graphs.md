@@ -130,7 +130,7 @@ orientdb> <code class="lang-sql userinput">CREATE INDEX UniqueOwns ON Owns(out,i
 Created index successfully with 0 entries in 0,023000 sec(s).
 </pre>
 
-The index returns tells us that no entries are indexed.  You have already created the `Onws` relationship between Luca and the Ferrari Modena.  In that case, however, OrientDB had created a Lightweight Edge before you set the rule to force the creation of documents for `Owns` instances.  To fix this, you need to drop and recreate the edge.
+The index returns tells us that no entries are indexed.  You have already created the `Owns` relationship between Luca and the Ferrari Modena.  In that case, however, OrientDB had created a Lightweight Edge before you set the rule to force the creation of documents for `Owns` instances.  To fix this, you need to drop and recreate the edge.
 
 <pre>
 orientdb> <code class="lang-sql userinput">DELETE EDGE FROM #11:0 TO #12:0</code>

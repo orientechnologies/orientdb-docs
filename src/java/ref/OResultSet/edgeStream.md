@@ -1,5 +1,5 @@
 
-# OResultSet - edgeStreram()
+# OResultSet - edgeStream()
 
 Retrieves a stream of edges from the result-set.
 

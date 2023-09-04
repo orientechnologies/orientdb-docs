@@ -10,7 +10,7 @@ In deployments where there is the risk of the database changing while the transa
 ### Syntax
 
 ```
-OTranasction.AddOrUpdate<T>(T target)
+OTransaction.AddOrUpdate<T>(T target)
 ```
 
 - **`target`** Defines the object you want to add or update on the database.  It is of the type defined by the generic.
@@ -18,7 +18,7 @@ OTranasction.AddOrUpdate<T>(T target)
 
 ### Example
 
-For instance, if you find yourself often adding or updating records with complex, but routine, ifnromation, you may find it useful to implement a helper function to simplify these operations.
+For instance, if you find yourself often adding or updating records with complex, but routine, information, you may find it useful to implement a helper function to simplify these operations.
 
 ```csharp
 using Orient.Client;

@@ -130,7 +130,7 @@ Once you have instantiated the `ODatabase` class, you can begin to operate on a 
 | [**`GetClusters()`**](NET-Database-GetClusters.md) | `List<OCluster>` | Retrieves clusters from database. |
 | [**`Gremlin()`**](NET-Database-Gremlin.md) | `OCommandResult` | Executes Gremlin commands. |
 | [**`Insert()`**](NET-Database-Insert.md) | `IOInsert` | Prepares insertion operations. |
-| [**`JavaScript()`**](NET-Database-JS.md) | `OCommamndQuery` | Prepares JavaScript commands. |
+| [**`JavaScript()`**](NET-Database-JS.md) | `OCommandQuery` | Prepares JavaScript commands. |
 | [**`Query()`**](NET-Database-Query.md) | `List<ODocument>` | Queries the database using SQL. |
 | [**`Select()`**](NET-Database-Select.md) | `OSqlSelect` | Prepares queries to execute. |
 | [**`Size`**](#size-variables) | `long` | Retrieves the size of the database. |
@@ -156,10 +156,10 @@ In addition to the various methods, the `ODatabase` object also supports sizing 
 
 ### Closing Databases
 
-When you are finished using the database instance, you can close it to free up system resources.  The `ODatabase` object provides two methods for closing databases: `Close()` and `Dispose()`.  Given that one is an alias to the other, you can use whichever is more famiiliar to you.
+When you are finished using the database instance, you can close it to free up system resources.  The `ODatabase` object provides two methods for closing databases: `Close()` and `Dispose()`.  Given that one is an alias to the other, you can use whichever is more familiar to you.
 
 ```csharp
-// CLOSE DATABSE
+// CLOSE DATABASE
 database.Close()
 ```
 

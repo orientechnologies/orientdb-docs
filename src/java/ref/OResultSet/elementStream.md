@@ -1,5 +1,5 @@
 
-# OResultSet - elementStreram()
+# OResultSet - elementStream()
 
 Retrieves a stream of elements from the result-set.
 

@@ -30,5 +30,5 @@ import com.orientechnologies.orient.core.storage.OCluster;
 | [**`hideRecord()`**](OCluster/hideRecord.md) | `boolean` | Hides the given record from queries |
 | [**`open()`**](OCluster/open.md) | `void` | Opens the cluster |
 | [**`truncate()`**](OCluster/truncate.md) | `void` | Truncates the cluster |
-| [**`updateRecord()`**](OCluster/updateRecord.md) | `void` | Updates the givne record |
+| [**`updateRecord()`**](OCluster/updateRecord.md) | `void` | Updates the given record |
 

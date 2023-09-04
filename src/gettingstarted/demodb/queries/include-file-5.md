@@ -9,6 +9,6 @@ In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'R
 
 ![](../../../images/demo-dbs/social-travel-agency/query_3_graph.png)
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrederedId, country.Name as FriendIsFrom'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrderedId, country.Name as FriendIsFrom'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_3_browse.png)

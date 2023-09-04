@@ -61,4 +61,4 @@ OrientGraphNoTx g = new OrientGraphNoTx("plocal:/temp/mydb");
 g.setMaxRetries(100);
 ```
 
-This setting will be used on the active graph instance. You can have multiple threads, which work on the same graph by using multiple graph instances, one per thread. Each thread can then have different settings. It's also allowed to wirk with threads, which use transactions (`OrientGraph` class) and to work with concurrent threads, which don't use transactions.
+This setting will be used on the active graph instance. You can have multiple threads, which work on the same graph by using multiple graph instances, one per thread. Each thread can then have different settings. It's also allowed to work with threads, which use transactions (`OrientGraph` class) and to work with concurrent threads, which don't use transactions.

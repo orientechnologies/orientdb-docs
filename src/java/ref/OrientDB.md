@@ -34,7 +34,7 @@ OrientDB(String url, String serverUser,
 
 ### Example
 
-Using this class you can create a new OrientdDB instance in your application, which you can then use to operate on multiple databases on the connected server.  This class supports two types of connections: embedded and remote.  With embedded connections, you're connecting to an instance running on your current machine.  With remote connections, you're using the remote port to connect to a server either running on localhost or a remote IP address.
+Using this class you can create a new OrientDB instance in your application, which you can then use to operate on multiple databases on the connected server.  This class supports two types of connections: embedded and remote.  With embedded connections, you're connecting to an instance running on your current machine.  With remote connections, you're using the remote port to connect to a server either running on localhost or a remote IP address.
 
 For instance, creating a database on a remote host:
 

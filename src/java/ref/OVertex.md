@@ -15,7 +15,7 @@ import com.orientechnologies.orient.core.record.OVertex;
 
 Once you've imported the class to your application, you can use it to build instances in your code.
 
->For more infomration on edges, see [`OEdge`](OEdge.md)
+>For more information on edges, see [`OEdge`](OEdge.md)
 
 ### Example
 
@@ -48,7 +48,7 @@ public void newRecord(String name, String email){
    // Initialize Document
    OVertex person = db.newVertex("Person");
    person.setProperty("name", name);
-   person.setProeprty("email", email);
+   person.setProperty("email", email);
 
    // Add Person to Database
    person.save();

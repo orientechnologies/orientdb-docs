@@ -5,7 +5,7 @@ Retrieves the logical name of the user.
 
 ## Logical Names 
 
-Where your Java application interacts with users through the [`OSecuirtyUser`](../OSecurityUser.md) interface, in OrientDB SQL the users are identified by their logical names.  Using this method, you can retrieve the logical name for the user, which you may find useful for logging and authentication purposes.
+Where your Java application interacts with users through the [`OSecurityUser`](../OSecurityUser.md) interface, in OrientDB SQL the users are identified by their logical names.  Using this method, you can retrieve the logical name for the user, which you may find useful for logging and authentication purposes.
 
 ### Syntax
 

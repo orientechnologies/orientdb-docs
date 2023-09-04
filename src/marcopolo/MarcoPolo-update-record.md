@@ -3,7 +3,7 @@
 
 This function updates a record on the database.
 
-## Updatating Records
+## Updating Records
 
 When you're finished making changes to records loaded into your Elixir application, this function allows you to use the new data to update existing records on the database.
 

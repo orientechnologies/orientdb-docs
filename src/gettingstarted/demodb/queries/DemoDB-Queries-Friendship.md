@@ -51,7 +51,7 @@ In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'R
 
 ![](../../../images/demo-dbs/social-travel-agency/query_2_graph.png)
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrederedId'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrderedId'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_2_browse.png)
 
@@ -74,7 +74,7 @@ In the _Graph Editor_ included in [Studio](../../../studio/README.md), using _'R
 
 ![](../../../images/demo-dbs/social-travel-agency/query_4_graph.png)
 
-In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrederedId, order.Id as OrderId'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
+In the _Browse Tab_ of [Studio](../../../studio/README.md), using _'RETURN friend.@Rid as Friend_RID, friend.Name as Friend_Name, friend.Surname as Friend_Surname, customer.@Rid as Customer_RID, customer.OrderedId as Customer_OrderedId, order.Id as OrderId'_ as `RETURN` clause, this is the obtained list of records (only few records are shown in the image below):
 
 ![](../../../images/demo-dbs/social-travel-agency/query_4_browse.png)
 
