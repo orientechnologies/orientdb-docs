@@ -220,7 +220,7 @@ The TinkerPop Blueprints API is quite raw and doesn't provide ad hoc methods for
 - Getting incoming and outgoing vertices without browsing the edges.
 - Executing a query using an SQL-like language integrated in the engine.
 
-The [`OrientGraph`]({{ javadoc }}/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class provides the method `.getRawGraph()` to return the underlying Document database. For instance,
+The [`OrientGraph`]({{ book.javadoc }}/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class provides the method `.getRawGraph()` to return the underlying Document database. For instance,
 
 ```java
 final OrientGraph graph = new OrientGraph("plocal:C:/temp/graph/db");

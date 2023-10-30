@@ -15,5 +15,5 @@ String OClass().getName()
 
 #### Return Type
 
-This method returns a [`String`]({{ javase }}/java/lang/String.html) instance, which provides the logical name of the [`OClass`](../OClass.md).
+This method returns a [`String`]({{ book.javase }}/java/lang/String.html) instance, which provides the logical name of the [`OClass`](../OClass.md).
 

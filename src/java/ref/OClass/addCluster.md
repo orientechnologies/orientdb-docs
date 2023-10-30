@@ -50,7 +50,7 @@ public void provisionClassClusters(OClass cls, List<String> clusters){
 }
 ```
 
-This method takes an [`OClass`](../OClass.md) instance and a [`List`]({{ javase }}/java/util/List.html)[`<String>`]({{ javase }}/java/lang/String.html) instance, which contains a list of new cluster names.
+This method takes an [`OClass`](../OClass.md) instance and a [`List`]({{ book.javase }}/java/util/List.html)[`<String>`]({{ book.javase }}/java/lang/String.html) instance, which contains a list of new cluster names.
 
 
 

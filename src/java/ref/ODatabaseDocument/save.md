@@ -16,7 +16,7 @@ Using this method you can save objects in synchronous to the database.  If the g
 
 | Argument | Type | Description |
 | **`obj`**  | `T` | Defines the object you want to save |
-| **`cluster`** | [`String`]({{ javase }}/api/java/lang/String.html) | Defines the name of the cluster in which to add a record |
+| **`cluster`** | [`String`]({{ book.javase }}/api/java/lang/String.html) | Defines the name of the cluster in which to add a record |
 
 
 #### Return Value

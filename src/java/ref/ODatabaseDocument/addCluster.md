@@ -15,10 +15,10 @@ int ODatabaseDocument().addCluster(String clusterName, Object... parameters);
 
 | Argument | Type | Description |
 |--|---|
-| **`clusterName`** | [`String`]({{ javase }}/java/lang/String.html) | Defines the logical name of the cluster |
-| **`parameters`** | [`Object`]({{ javase }}/java/lang/Object.html) | Defines cluster creation options |
+| **`clusterName`** | [`String`]({{ book.javase }}/java/lang/String.html) | Defines the logical name of the cluster |
+| **`parameters`** | [`Object`]({{ book.javase }}/java/lang/Object.html) | Defines cluster creation options |
 
 #### Return Type
 
-This method returns a [`int`]({{ javase }}/java/lang/Integer.html) instance, which represents the created cluster's Cluster ID.  That is, the numeric identifier that occurs in the first value of a Record ID.
+This method returns a [`int`]({{ book.javase }}/java/lang/Integer.html) instance, which represents the created cluster's Cluster ID.  That is, the numeric identifier that occurs in the first value of a Record ID.
 
