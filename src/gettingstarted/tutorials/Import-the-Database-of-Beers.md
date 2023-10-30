@@ -24,7 +24,7 @@ The Open Beer Database can be downloaded in CSV format from [https://openbeerdb.
 
 First, please create a new folder somewhere in your hard drive, and move into it. For this test we will assume `/temp/openbeer`:
 
-```
+```sh
 $ mkdir /temp/openbeer
 $ cd /temp/openbeer
 ```
@@ -34,7 +34,7 @@ $ cd /temp/openbeer
 
 Download the Open Beer Database in CSV format and extract the archive:
 
-```
+```sh
 $ curl http://openbeerdb.com/files/openbeerdb_csv.zip > openbeerdb_csv.zip
 $ unzip openbeerdb_csv.zip
 ```
@@ -88,7 +88,7 @@ For more information on the ETL module, please refer to the [ETL](../../etl/ETL-
 
 The following are the first two lines of the `categories.csv` file:
 
-```
+```csv
 "id","cat_name","last_mod"
 "1","British Ale","2010-10-24 13:50:10"
 ```
@@ -137,7 +137,7 @@ END ETL PROCESSOR
 ### Import Beer Styles
 Now let's import the Beer Styles. These are the first two lines of the `styles.csv` file:
 
-```
+```csv
 "id","cat_id","style_name","last_mod"
 "1","1","Classic English-Style Pale Ale","2010-10-24 13:53:31"
 ```
@@ -184,7 +184,7 @@ END ETL PROCESSOR
 ### Import Breweries
 Now it's time for the Breweries. These are the first two lines of the `breweries.csv` file:
 
-```
+```csv
 "id","name","address1","address2","city","state","code","country","phone","website","filepath","descript","last_mod"
 "1","(512) Brewing Company","407 Radam, F200",,"Austin","Texas","78745","United States","512.707.2337","http://512brewing.com/",,"(512) Brewing Company is a microbrewery located in the heart of Austin that brews for the community using as many local, domestic and organic ingredients as possible.","2010-07-22 20:00:20"
 ```
@@ -228,7 +228,7 @@ END ETL PROCESSOR
 ### Import Beers
 Now it's time for the last and most important file: the Beers! These are the first two lines of the `beers.csv` file:
 
-```
+```csv
 "id","brewery_id","name","cat_id","style_id","abv","ibu","srm","upc","filepath","descript","last_mod",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "1","812","Hocus Pocus","11","116","4.5","0","0","0",,"Our take on a classic summer ale.  A toast to weeds, rays, and summer haze.  A light, crisp ale for mowing lawns, hitting lazy fly balls, and communing with nature, Hocus Pocus is offered up as a summer sacrifice to clodless days.
 ```

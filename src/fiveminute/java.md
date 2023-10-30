@@ -18,7 +18,7 @@ Unzip it on your FileSystem and open a shell in the directory.
 
 Now type 
 
-```
+```sh
 cd orientdb-3.2.0
 cd bin
 ```
@@ -27,13 +27,13 @@ cd bin
 
 and then, if you are on Linux/OSX, you can start the server with
 
-```
+```sh
 ./server.sh
 ```
 
 if you are on Windows, start the server with
 
-```
+```sh
 server.bat
 ```
 

@@ -68,7 +68,7 @@ To use OrientDB as a Key/Value store we need a brand new manual index, let's cal
 - leave it as UNIQUE but as value handle array of documents
 
 Create the new manual unique index "mainbucket":
-```
+```sh
 > curl --basic -u admin:admin localhost:2480/command/demo/sql -d "create index mainbucket UNIQUE STRING"
 ```
 Response:
@@ -81,7 +81,7 @@ Response:
 
 ## Store the first entry
 Below we're going to insert the first entry by using the HTTP PUT method passing "jay" as key in the URL and as value the entire document in form of JSON:
-```
+```sh
 > curl --basic -u admin:admin -X PUT localhost:2480/index/demo/mainbucket/jay -d "{'@class': 'V', 'name':'Jay','surname':'Miner'}"
 ```
 Response:
@@ -95,7 +95,7 @@ Below we're going to retrieve the entry we just entered by using the HTTP GET me
 > curl --basic -u admin:admin localhost:2480/index/demo/mainbucket/jay
 ```
 Response:
-```
+```json
 [{
   "@type" : "d" , "@rid" : "#3:477" , "@version" : 0,
   "name" : "Jay",
@@ -104,11 +104,11 @@ Response:
 ```
 Note that an array is always returned in case multiple records are associated to the same key (if NOTUNIQUE index is used). Look also at the document has been created with [RID](../datamodeling/Concepts.md#record-id) #3:477. You can load it directly if you know the [RID](../datamodeling/Concepts.md#record-id). Remember to remove the # character. Example:
 
-```
+```sh
 > curl --basic -u admin:admin localhost:2480/document/demo/3:477
 ```
 Response:
-```
+```json
 {
   "@type" : "d" , "@rid" : "#3:477" , "@version" : 0,
   "name" : "Jay",
@@ -118,9 +118,9 @@ Response:
 
 ## Drop an index
 Once finished drop the index "mainbucket" created for the example:
-```
+```sh
 > curl --basic -u admin:admin localhost:2480/command/demo/sql -d "drop index mainbucket"
-```
+```json
 Response:
 ```json   
 { "result" : [ 

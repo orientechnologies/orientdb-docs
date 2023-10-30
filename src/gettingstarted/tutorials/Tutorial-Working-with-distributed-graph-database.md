@@ -26,7 +26,7 @@ Current database: GratefulDeadConcerts (url=remote:localhost/GratefulDeadConcert
 
 For reference purposes, the server nodes in the example have the following configurations.  As you can see, it is a two node cluster running a single server host.  The first node listens on port `2481` while the second on port `2480`.
 
-```json
+```csv
 +---------+------+-----------------------------------------+-----+---------+--------------+--------------+-----------------------+
 |Name     |Status|Databases                                |Conns|StartedOn|Binary        |HTTP          |UsedMemory             |
 +---------+------+-----------------------------------------+-----+---------+--------------+--------------+-----------------------+

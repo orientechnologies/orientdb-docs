@@ -1,8 +1,3 @@
----
-search:
-   keywords: ["Prerequisites"]
----
-
 # Prerequisites
 
 Both [editions](../../misc/Editions.md) of OrientDB run on any operating system that implements the Java Virtual machine (JVM) from v 8 to v 11, specifically the JDK. Examples of these include:

@@ -1,10 +1,3 @@
----
-search:
-   keywords: ["tutorial", "install", "installation", "docker", "binary installation", "source installation"]
----
-
-<!-- proofread 2015-12-10 SAM -->
-
 # Installation
 
 OrientDB Community Edition is available as a binary package for [download](http://orientdb.com/download/) or as source code on GitHub. The Enterprise Edition is available as a binary package to all our Customers that purchased one of the available [Subscriptions](http://orientdb.com/support/). 

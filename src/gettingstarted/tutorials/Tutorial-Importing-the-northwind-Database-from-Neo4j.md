@@ -39,7 +39,7 @@ Assuming that:
 
 you can import the _northwind_ database with a command similar to the following:
 
-```
+```sh
 ./orientdb-neo4j-importer.sh \
   -neo4jlibdir /home/santo/neo4j/neo4j-community-3.0.7/lib \
   -neo4jdbdir /home/santo/neo4j/data/graph.db_northwind \

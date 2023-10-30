@@ -39,7 +39,7 @@ Now open **pom.xml** file and add the following dependency:
 
 and enable Java 8 as target compiler
 
-```
+```xml
     <build>
         <plugins>
             <plugin>

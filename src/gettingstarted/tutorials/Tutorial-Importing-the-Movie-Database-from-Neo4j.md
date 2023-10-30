@@ -18,7 +18,7 @@ For general information on the possible Neo4j to OrientDB migration strategies, 
 
 Assuming you have already downloaded and unpacked the [Neo4j Shell Tools](https://github.com/jexp/neo4j-shell-tools), and restarted the Neo4j Server, as described in the Section [Exporting GraphML](../../admin/Import-from-Neo4j-using-GraphML.md#exporting-graphml), you can export the *movie* database using `neo4j-shell` with a command like the following one:
 
-```
+```sh
 D:\neo4j\neo4j-community-3.0.6\bin>neo4j-shell.bat
 
 Welcome to the Neo4j Shell! Enter 'help' for a list of commands
@@ -37,7 +37,7 @@ In this tutorial we will import in OrientDB the file `movie.graphml` using the O
 
 The OrientDB's Console output generated during the import process is similar to the following (note that first we create a *movie* database using the command `CREATE DATABASE`, and then we do the actual import using the command `IMPORT DATABASE`):
 
-```
+```sh
 D:\orientdb\orientdb-enterprise-2.2.8\bin>console.bat
 
 OrientDB console v.2.2.8-SNAPSHOT (build 2.2.x@r39259e190e16045fe1425b1c0485f8562fca055b; 2016-08-23 14:38:49+0000) www.orientdb.com
