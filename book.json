@@ -69,7 +69,7 @@
       "options": [
         {
           "value": "http://orientdb.com/docs/2.2.x",
-          "text": "Version 2.2.x"
+          "text": "Version 2.2"
         },
         {
           "value": "http://orientdb.com/docs/3.0.x",
@@ -77,12 +77,12 @@
         },
         {
           "value": "http://orientdb.com/docs/3.1.x",
-          "text": "version 3.1",
+          "text": "Version 3.1",
           "selected": true		
         },
         {
           "value": "http://orientdb.com/docs/3.2.x",
-          "text": "version 3.2"
+          "text": "Version 3.2"
         }
       ]
     },
