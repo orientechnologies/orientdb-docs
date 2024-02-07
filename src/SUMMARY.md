@@ -5,7 +5,6 @@
 ## FIRST STEPS
 
 * [Introduction](introduction/README.md) 
-    * [About This Manual](misc/About-This-Manual.md)
     * [Overview of OrientDB](misc/Overview.md)
         * [Editions](misc/Editions.md)
     * [Release 3.2](release/3.2/README.md)
@@ -153,7 +152,6 @@
                 * [Restore](console/Console-Command-Restore.md) 
                 * [Set](console/Console-Command-Set.md) 
                 * [Set Server User](console/Console-Command-Set-Server-User.md) 
-            * [Custom Console Commands](console/Console-Custom-Commands.md)
     * [OrientDB Administrative and Utility Programs](programs/Administrative-Utility-Programs.md)	
         * [backup](programs/backup.md)
         * [shutdown](programs/shutdown.md) 
