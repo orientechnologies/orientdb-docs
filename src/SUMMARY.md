@@ -65,8 +65,6 @@
         * [Queue system](gettingstarted/Queue-use-case.md)
 	    * [Import Tutorials](gettingstarted/tutorials/Import-Tutorials.md)
 	        * [Importing the Open Beer Database into OrientDB](gettingstarted/tutorials/Import-the-Database-of-Beers.md) 
-	        * [Importing the *northwind* Database from Neo4j](gettingstarted/tutorials/Tutorial-Importing-the-northwind-Database-from-Neo4j.md)
-            * [Importing the *movie* Database from Neo4j](gettingstarted/tutorials/Tutorial-Importing-the-Movie-Database-from-Neo4j.md) 
 * [General Information](general/README.md)
     * [Supported Types](general/Types.md)
     * [Schema](general/Schema.md)
@@ -161,7 +159,6 @@
         * [shutdown](programs/shutdown.md) 
         * [stresstester](programs/stresstester.md)	
     * [OrientDB Data Import Programs](programs/Data-Import-Programs.md)
-        * [orientdb-neo4j-importer](programs/orientdb-neo4j-importer.md) 
         * [oetl](programs/oetl.md)
 * [OrientDB Server Administration](admin/README.md)
     * [Installation](admin/installation/README.md) 
@@ -237,7 +234,6 @@
         * [Import from RDBMS](etl/Import-from-DBMS.md) 
         * [Import from DB-Pedia](etl/Import-from-DBPedia.md) 
         * [Import from Parse (Facebook)](etl/Import-from-PARSE.md) 
-    * [Neo4j to OrientDB Importer](neo4j-to-orientdb-importer/README.md)
 	
 ## SQL, API, DRIVERS
  
