@@ -1,6 +1,6 @@
 # OrientDB Manual - version {{book.currentVersion}}
 
-![image](https://orientdb.com/wp-content/themes/orientdb/img/logo-black.png)
+![image](_cover_small.png)
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
