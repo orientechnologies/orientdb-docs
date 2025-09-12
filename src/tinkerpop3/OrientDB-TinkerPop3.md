@@ -21,7 +21,7 @@ The OrientDB TinkerPop development happens [here](https://github.com/orientechno
 
 ## Installation
 
-Since TinkerPop stack has been removed as a dependency from the OrientDB Community Edition, starting with version 3.0 it will be available for [download](http://orientdb.com/download) as an Apache TinkerPop 3 enabled edition of OrientDB based on the Community Edition.
+Since TinkerPop stack has been removed as a dependency from the OrientDB Community Edition, starting with version 3.0 it will be available for [download](http://orientdb.dev/downloads) as an Apache TinkerPop 3 enabled edition of OrientDB based on the Community Edition.
 
 It contains all the features of the OrientDB Community Edition plus the integration with the Tinkerpop stack:
 
@@ -386,7 +386,7 @@ There are two ways to use OrientDB inside the Gremlin Server
 
 ### OrientDB-TP3
 
-Download the latest version of OrientDB-TP3 [here](https://orientdb.com/download-2/).
+Download the latest version of OrientDB-TP3 [here](https://orientdb.dev/downloads/).
 and start OrientDB to automatically start the embedded Gremlin Server.
 The configuration of the Gremlin Server is in `$ORIENTDB_HOME/config`.
 

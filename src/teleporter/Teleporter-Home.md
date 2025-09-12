@@ -6,7 +6,7 @@
 
 Teleporter is fully compatible with several RDBMS that have a JDBC driver: we successfully tested Teleporter with Oracle, SQLServer, MySQL, PostgreSQL and HyperSQL. Teleporter manages all the necessary type conversions between the different DBMSs and imports all your data as Graph in OrientDB.
 
-**NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.com/download/). **But beware**: in **community edition** you can migrate your source relational database but **you cannot enjoy the synchronize feature**, only available in the enterprise edition.
+**NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.dev/downloads/). **But beware**: in **community edition** you can migrate your source relational database but **you cannot enjoy the synchronize feature**, only available in the enterprise edition.
 
 
 ## How Teleporter works

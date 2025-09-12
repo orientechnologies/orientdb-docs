@@ -64,7 +64,7 @@ The OrientDB's  package  contains a service descriptor file for systemd based di
 # <code class="lang-sh userinput">vi /etc/systemd/system/orientdb.service</code>
 
 #
-# Copyright (c) OrientDB LTD (http://http://orientdb.com/)
+# Copyright (c) OrientDB LTD (https://orientdb.dev/)
 #
 
 [Unit]
@@ -146,7 +146,7 @@ The installation process gives an output similar to the following one:
 ==> /usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/bin/shutdown.sh
 ==> OrientDB installed, server's root user password is 'changeme'
 ==> Please, follow the instruction on the link below to reset it
-==> http://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+==> http://orientdb.dev/docs/3.2.x/Server-Security.html#restoring-the-servers-user-root
 ...
 ```
 

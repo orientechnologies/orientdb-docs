@@ -20,7 +20,7 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 | | [Caching Levels](internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
 | | [Common Use Cases](legacy/Use-Cases.md) | [Other Drivers](apis-and-drivers/README.md) |
 | | | [Network Binary Protocol](internals/Network-Binary-Protocol.md) |
-| | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
+| | | [Javadocs](http://orientdb.dev/javadocs/3.2.x/) |
 
 
 ### Operations
@@ -46,18 +46,12 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 - [Network-Binary-Protocol](internals/Network-Binary-Protocol.md) 
 - [Gephi Graph Analysis Visual tool](plugins/Gephi.md)
 - [Rexster Support and configuration](plugins/Rexster.md)
-- [Continuous integration](http://helios.orientechnologies.com/)
 
  
 ### Resources
-- [User Group](https://orientdb.com/active-user-community) - Have question, troubles, problems?
-- [#orientdb IRC channel on freenode](http://webchat.freenode.net/?channels=orientdb)
-- [Professional Support](https://orientdb.com/support)
-- [Training](https://orientdb.com/training) - Training and classes.
-- [Events](https://orientdb.com/event) - Follow OrientDB at the next event!
-- [Team](https://orientdb.com/team/) - Meet the team behind OrientDB
+- [User Group](https://github.com/orientechnology/orientdb/discussion) - Have question, troubles, problems?
+- [Professional Support](https://orientdb.dev/support)
 - [Contribute](misc/Contribute-to-OrientDB.md) - Contribute to the project.
-- [Who is using OrientDB?](https://orientdb.com/customers) - Clients using OrientDB in production.
 
 
 ## Questions or Need Help?
@@ -65,7 +59,7 @@ Check out our [Get in Touch](misc/Get-in-Touch.md) page for different ways of ge
 
 
 ## Past Releases
-- [v3.1.x](/docs/3.0.x/)
+- [v3.1.x](/docs/3.1.x/)
 
 
 >Every effort has been made to ensure the accuracy of this manual. However, OrientDB, LTD. makes no warranties with respect to this documentation and disclaims any implied warranties of merchantability and fitness for a particular purpose. The information in this document is subject to change without notice.

@@ -2,7 +2,7 @@
 > Only users with grant `server.security` can see this section 
 
 
->**NOTE**: This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support).
+>**NOTE**: This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.dev/support).
 
 # Security
 

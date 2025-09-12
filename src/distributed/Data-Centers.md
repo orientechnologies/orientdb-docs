@@ -20,7 +20,7 @@ All you need is using the tag `"dataCenters"` in your [`default-distributed-conf
   },
 ```
 
-NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.dev/support)_.
 
 Example:
 
