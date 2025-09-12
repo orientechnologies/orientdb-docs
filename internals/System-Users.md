@@ -6,13 +6,13 @@ A *server user* is specified in the `<users>` section of the *orientdb-server-co
 
 A *database user* resides in each database as an *OUser* record, and its associated roles and permissions apply only to that database.
 
-A third type of user now exists, called a *system user*.  A *system user* is similar in concept to a *server user* but resides in the [system database](System-Database.md) as an *OUser* record.  Like a *database user*, a *system user* is assigned roles that are comprised of resources and permissions.  See [Database Security](http://orientdb.com/docs/last/Database-Security.html).  What's unique about a *system user* is that its roles may be specified per-database or against the server, depending on the chosen resource. 
+A third type of user now exists, called a *system user*.  A *system user* is similar in concept to a *server user* but resides in the [system database](System-Database.md) as an *OUser* record.  Like a *database user*, a *system user* is assigned roles that are comprised of resources and permissions.  See [Database Security](http://orientdb.dev/docs/last/Database-Security.html).  What's unique about a *system user* is that its roles may be specified per-database or against the server, depending on the chosen resource. 
 
 ## Authenticator
 To support the *system users* a new authenticator has been added, called *OSystemUserAuthenticator*.  It is enabled, by default, in the *security.json* configuration file, and has been added in the chain of authenticators.  See [New Security Features](../security/Security-OrientDB-New-Security-Features.md).
 
 ## Users and Roles
-To create new *System users*, they are added to the system database, and the procedure is identical to adding a user as outlined in [Database Security](http://orientdb.com/docs/last/Database-Security.html).
+To create new *System users*, they are added to the system database, and the procedure is identical to adding a user as outlined in [Database Security](http://orientdb.dev/docs/last/Database-Security.html).
 
 The main difference between a *system user* and a *database user* comes with roles.  A role can be created that allows a *system user* to have access to a specific database, multiple databases, or all databases while still supporting the standard database resources (such as *database*, *database.class*, *database.cluster*, *database.command*).
 

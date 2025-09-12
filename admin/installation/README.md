@@ -7,13 +7,13 @@ search:
 
 # Installation
 
-OrientDB Community Edition is available as a binary package for [download](http://orientdb.com/download/) or as source code on GitHub. The Enterprise Edition is available as a binary package to all our Customers that purchased one of the available [Subscriptions](http://orientdb.com/support/). A 45-days Enterprise Edition trial for development purposes is [available](http://orientdb.com/orientdb-enterprise/) as well.
+OrientDB Community Edition is available as a binary package for [download](http://orientdb.dev/download/) or as source code on GitHub. The Enterprise Edition is available as a binary package to all our Customers that purchased one of the available [Subscriptions](http://orientdb.com/support/). A 45-days Enterprise Edition trial for development purposes is [available](http://orientdb.com/orientdb-enterprise/) as well.
  
 OrientDB prerequisites can be found [here](../admin/installation/Prerequisites.md).
 
 ## Binary Installation
 
-OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.com/download/) and select the package that best suits your system.
+OrientDB provides a pre-compiled binary package to install the database on your system.  Depending on your operating system, this is a tarred or zipped package that contains all the relevant files you need to run OrientDB. For desktop installations, go to [OrientDB Downloads](http://orientdb.dev/download/) and select the package that best suits your system.
 
 On server installations, you can use the `wget` utility:
 

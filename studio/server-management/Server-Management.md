@@ -1,5 +1,5 @@
 # Server Management
-This is the section to work with OrientDB Server as DBA/DevOps. Starting from OrientDB 2.1 Studio has been enriched of features taken from the [Enterprise Edition](http://orientdb.com/enterprise/).
+This is the section to work with OrientDB Server as DBA/DevOps. Starting from OrientDB 2.1 Studio has been enriched of features taken from the [Enterprise Edition](http://orientdb.dev/enterprise/).
 
 ## Statistics
 This page summarizes all the most important information about the current server and the other servers connected in cluster if any:

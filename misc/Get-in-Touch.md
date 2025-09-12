@@ -36,6 +36,6 @@ If you spot a bug, then please raise an issue in our main GitHub project oriente
 If you want to brainstorm a potential new feature, then the OrientDB Google Group (see above) is probably a better place to start.
 
 ## Email
-[info@orientdb.com](mailto:info@orientdb.com)
+[info@orientdb.dev](mailto:info@orientdb.com)
 
 If you want more information about Commercial [Support](http://www.orientechnologies.com/support/), [Consultancy](http://www.orientechnologies.com/consulting/) or [Training](http://www.orientechnologies.com/training/), email us.

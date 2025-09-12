@@ -33,7 +33,7 @@ for( Vertex v : graph.getVertices("Account.id", "23876JS2") ) {
 }
 ```
 
-To know more about how to define indexes look at: [Using Graph Indexes](http://orientdb.com/docs/last/Performance-Tuning-Graph.html#use-indexes-to-lookup-vertices-by-an-id).
+To know more about how to define indexes look at: [Using Graph Indexes](http://orientdb.dev/docs/last/Performance-Tuning-Graph.html#use-indexes-to-lookup-vertices-by-an-id).
 
 ### Removing Vertices
 

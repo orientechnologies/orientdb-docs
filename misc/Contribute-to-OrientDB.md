@@ -27,7 +27,7 @@ If you'd like to contribute to OrientDB with a patch follow the following steps:
 
 ## Documentation
 
-If you want to contribute to the OrientDB documentation, the right repository is: https://github.com/orientechnologies/orientdb-docs. Every 24-48 hours all the contributions are reviewed and published on the public [documentation](http://orientdb.com/docs/last/).
+If you want to contribute to the OrientDB documentation, the right repository is: https://github.com/orientechnologies/orientdb-docs. Every 24-48 hours all the contributions are reviewed and published on the public [documentation](http://orientdb.dev/docs/last/).
 
 ## Code formatting
 

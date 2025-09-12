@@ -14,7 +14,7 @@ _Note_: You can access directly the converted database, result of this ETL tutor
 
 - **Studio**: in the login page press the "Cloud" button, put server's credential and press the download button from the "OpenBeer" row;
 
-- **Direct Download**: download the database from http://orientdb.com/public-databases/OpenBeer.zip and unzip it in a OpenBeer folder inside OrientDB's server "databases" directory.
+- **Direct Download**: download the database from http://orientdb.dev/public-databases/OpenBeer.zip and unzip it in a OpenBeer folder inside OrientDB's server "databases" directory.
 
 
 ## The Open Beer Database

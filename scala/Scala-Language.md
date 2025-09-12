@@ -3,7 +3,7 @@
 
 There's no specific API written in Scala for OrientDB, but since there's a Java API it's easy to use that one to access OrientDB from Scala, and if needed to write wrappers around it for making a more Scala-like API.
  
-Here we just explain how to start using Scala for doing some basic operations on OrientDB, based on this GitHub repository: [OrientDbScalaExample](https://github.com/andreaiacono/OrientDbScalaExample) that uses the [Graph API](http://orientdb.com/docs/last/Graph-Database-Tinkerpop.html). 
+Here we just explain how to start using Scala for doing some basic operations on OrientDB, based on this GitHub repository: [OrientDbScalaExample](https://github.com/andreaiacono/OrientDbScalaExample) that uses the [Graph API](http://orientdb.dev/docs/last/Graph-Database-Tinkerpop.html). 
 To fully leverage the features of the API, refer to the Java documentation.
 
 
@@ -46,7 +46,7 @@ If we need to define new classes, we can use the _createVertexType()_ method of 
     person.createProperty("firstName", OType.STRING)
     person.createProperty("lastName", OType.STRING)
 ```
-we can define as many properties we need, each one belonging to a [Type](http://orientdb.com/docs/last/Types.html) (the second parameter of the _createProperty()_ method).
+we can define as many properties we need, each one belonging to a [Type](http://orientdb.dev/docs/last/Types.html) (the second parameter of the _createProperty()_ method).
 
 In the same way, we can extend edges, like in this example:
 ```

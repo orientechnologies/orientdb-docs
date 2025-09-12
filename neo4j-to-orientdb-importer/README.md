@@ -129,7 +129,7 @@ The import consists of four phases:
 
 The following are some general migration details that is good to keep in mind:
 
-* During the import, OrientDB's [`WAL`](http://orientdb.com/docs/last/Configuration.html#storageusewal) and [`WAL_SYNC_ON_PAGE_FLUSH`](http://orientdb.com/docs/last/Configuration.html#storagewalsynconpageflush
+* During the import, OrientDB's [`WAL`](http://orientdb.dev/docs/last/Configuration.html#storageusewal) and [`WAL_SYNC_ON_PAGE_FLUSH`](http://orientdb.com/docs/last/Configuration.html#storagewalsynconpageflush
 ) are disabled, and OrientDB is prepared for massive inserts (_OIntentMassiveInsert_).
 
 * In case a node in Neo4j has no _Label_, it will be imported in OrientDB into the Class _"GenericClassNeo4jConversion"_.

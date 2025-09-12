@@ -4,7 +4,7 @@ search:
 ---
 
 # _Server Management_ Panel
-This is the section (available only for the Enterprise Edition) to work with OrientDB Server as DBA/DevOps. This control panel coming from OrientDB 2.1 Studio has been enriched with several new features for the new [Enterprise Edition](http://orientdb.com/enterprise/).
+This is the section (available only for the Enterprise Edition) to work with OrientDB Server as DBA/DevOps. This control panel coming from OrientDB 2.1 Studio has been enriched with several new features for the new [Enterprise Edition](http://orientdb.dev/enterprise/).
 
 On the top of the page you can chose your server, visualize its system information and then navigate all statistics and facts related to it through the available tabs.
 

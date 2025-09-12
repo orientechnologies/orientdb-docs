@@ -55,7 +55,7 @@ You will see OrientDB starting
           ,,,    .,`                                  
          ,,.     `,                                          GRAPH DATABASE  
        ``        `.                                                          
-                 ``                                          orientdb.com
+                 ``                                          orientdb.dev
                  `                                    
 
 2017-08-14 14:11:12:824 INFO  Loading configuration from: /Users/luigidellaquila/temp/orient/orientdb-community-3.0.0m2/config/orientdb-server-config.xml... [OServerConfigurationLoaderXml]

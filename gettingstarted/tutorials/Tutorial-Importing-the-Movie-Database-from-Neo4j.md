@@ -44,7 +44,7 @@ The OrientDB's Console output generated during the import process is similar to 
 ```
 D:\orientdb\orientdb-enterprise-2.2.8\bin>console.bat
 
-OrientDB console v.2.2.8-SNAPSHOT (build 2.2.x@r39259e190e16045fe1425b1c0485f8562fca055b; 2016-08-23 14:38:49+0000) www.orientdb.com
+OrientDB console v.2.2.8-SNAPSHOT (build 2.2.x@r39259e190e16045fe1425b1c0485f8562fca055b; 2016-08-23 14:38:49+0000) www.orientdb.dev
 Type 'help' to display all the supported commands.
 Installing extensions for GREMLIN language v.2.6.0
 
