@@ -13,10 +13,21 @@ The [Discussions Group](https://github.com/orientechnologies/orientdb/discussion
 
 Feel free to ask your questions on StackOverflow under "orientdb" and "orient-db" tags.
 
-## Twitter
-[@orientdb](https://twitter.com/orientdb)
+## Mastodon
+[@orientdb@fosstodon.org](https://fosstodon.org/@orientdb)
 
-Follow and chat to us on Twitter.
+Follow and chat to us on Mastodon.
+
+## Bluesky 
+[@orientdb.bsky.social](https://bsky.app/profile/orientdb.bsky.social)
+
+Follow and chat to us on Bluesky.
+
+## Matrix
+[#orientdb:matrix.org](https://matrix.to/#orientdb:matrix.org)
+
+Join the matrix channel and chat with us.
+
 
 ## GitHub
 [OrientDB issues](https://github.com/orientechnologies/orientdb/issues?state=open)
