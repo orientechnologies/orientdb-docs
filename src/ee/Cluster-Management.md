@@ -5,7 +5,7 @@
 # Cluster Management
 This is the section (available only for the Enterprise Edition) to work with OrientDB Cluster as DBA/DevOps.
 
->**NOTE**: This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support).
+>**NOTE**: This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.dev/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support).
 
 On the top of the page are reported the number of active nodes joining your cluster.
 

@@ -7,7 +7,7 @@ Local storage is the first version of disk-based storage engine, but has been re
 
 A **local** storage is composed of multiple [Cluster](#local-physical-cluster) and [Data Segments](#data-segment).
 
-![](http://www.orientdb.org/images/orientdb-storage.png)
+![](http://www.orientdb.dev/images/orientdb-storage.png)
 
 
 ## Local Physical Cluster
@@ -39,4 +39,4 @@ The first file is the one that contains the real data. The '0' in the name indic
 
 Interaction between components: load record use case:
 
-![](http://www.orientdb.org/images/orientdb-loadrecord.png)
+![](http://www.orientdb.dev/images/orientdb-loadrecord.png)

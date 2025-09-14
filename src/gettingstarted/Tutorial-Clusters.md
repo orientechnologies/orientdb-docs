@@ -42,23 +42,23 @@ Suppose you have a class `Customer` that relies on two clusters:
 
 - `China_customers`, which is a cluster that contains all customers in China.
 
-![Class-Custer](http://www.orientdb.org/images/class-clusters.png)
+![Class-Custer](http://www.orientdb.dev/images/class-clusters.png)
 
 In ths deployment, the default cluster is `USA_customers`. Therefore, when 'Cluster Selection' is set to 'default' records added with the [`INSERT`](../sql/SQL-Insert.md) statement belong to 'USA_customers' unless specified otherwise. If the selection strategy is 'default' then inserting data into a non-default cluster would require that you specify the cluster you want to insert the data into in your `INSERT` statement.
 
-![Class-Cluster](http://www.orientdb.org/images/class-newrecord.png)
+![Class-Cluster](http://www.orientdb.dev/images/class-newrecord.png)
 
 If we have different remote servers servicing customers in China and the USA, then it might also make sense to have 'Cluster Selection' set to 'local'. This will result in modifications of the customer class to take place on the cluster associated with the server making the modification.
 
 When you run a query on the `Customer` class, such as  [`SELECT`](../sql/SQL-Query.md), for instance:
 
-![Class-Cluster](http://www.orientdb.org/images/class-query.png)
+![Class-Cluster](http://www.orientdb.dev/images/class-query.png)
 
 OrientDB scans all clusters associated with the class looking for matches.
 
 In the event that you know the cluster in which the data you seek is stored, you can optimize the query by querying that cluster directly and thus avoid scanning all the others clusters.
 
-![Class-Cluster](http://www.orientdb.org/images/class-query-cluster.png)
+![Class-Cluster](http://www.orientdb.dev/images/class-query-cluster.png)
 
 Here, OrientDB only scans the `China_customers` cluster of the `Customer` class in looking for matches.
 

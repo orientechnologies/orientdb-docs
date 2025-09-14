@@ -1,4 +1,4 @@
-![image](http://www.orientdb.org/images/orientdb_logo_mid.png)
+![image](http://www.orientdb.dev/images/orientdb_logo_mid.png)
 
 #OrientDB Manual - version 1.7.8
 
@@ -19,7 +19,7 @@ Orient Technologies, the company behind OrientDB, offers high quality [Professio
 
 ## OrientDB Community
 
-Start learning about OrientDB with the [OrientDB Manual](http://orientechnologies.com/docs). For any questions, visit the [OrientDB Community Group](http://www.orientdb.org/community-group.htm). Need help? Go to [Online Support](https://gitter.im/orientechnologies/orientdb). Do you want to hear about OrientDB at a conference or meetup? Take a look at [Events](http://www.orientechnologies.com/events/) or invite us to present to your group!
+Start learning about OrientDB with the [OrientDB Manual](http://orientechnologies.com/docs). For any questions, visit the [OrientDB Community Group](http://www.orientdb.dev/community-group.htm). Need help? Go to [Online Support](https://gitter.im/orientechnologies/orientdb). Do you want to hear about OrientDB at a conference or meetup? Take a look at [Events](http://www.orientechnologies.com/events/) or invite us to present to your group!
 
 [![](http://mac.softpedia.com/base_img/softpedia_free_award_f.gif)](http://mac.softpedia.com/get/Developer-Tools/Orient.shtml)
 

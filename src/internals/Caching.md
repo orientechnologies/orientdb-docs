@@ -3,7 +3,7 @@
 
 OrientDB has several caching mechanisms that act at different levels. Look at this picture:
 
-![image](http://www.orientdb.org/images/caching.png)
+![image](http://www.orientdb.dev/images/caching.png)
 
 - **Local cache** is one per database instance (and per thread in multi-thread environment)
 - **[Storage](../datamodeling/Concepts.md)**, it could cache depending on the implementation. This is the case for the **Local Storage** (disk-based) that caches file reads to reduce I/O requests
@@ -14,7 +14,7 @@ OrientDB has several caching mechanisms that act at different levels. Look at th
 
 ## Local Mode (embedded database)
 
-![image](http://www.orientdb.org/images/cache-flow.png)
+![image](http://www.orientdb.dev/images/cache-flow.png)
 
 When the client application asks for a record OrientDB checks:
 - if a **transaction** has begun then it searches inside the transaction for changed records and returns it if found
@@ -23,7 +23,7 @@ When the client application asks for a record OrientDB checks:
 
 ## Client-Server Mode (remote database)
 
-![image](http://www.orientdb.org/images/cache_flow_client_server.png)
+![image](http://www.orientdb.dev/images/cache_flow_client_server.png)
 
 When the client application asks for a record OrientDB checks:
 - if a **transaction** has begun then it searches inside the transaction for changed records and returns it if found

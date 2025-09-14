@@ -1,7 +1,7 @@
 
 # Data Centers
 
-Starting from [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) v2.2.4, you can define how your servers are deployed in multiple **Data Centers**.
+Starting from [OrientDB Enterprise Edition](http://orientdb.dev/orientdb-enterprise) v2.2.4, you can define how your servers are deployed in multiple **Data Centers**.
 
 ![Studio-Data-Centers](../images/studio-data-centers.png)
 
@@ -20,7 +20,7 @@ All you need is using the tag `"dataCenters"` in your [`default-distributed-conf
   },
 ```
 
-NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
+NOTE: _This feature is available only in the [OrientDB Enterprise Edition](http://orientdb.dev/orientdb-enterprise). If you are interested in a commercial license look at [OrientDB Subscription Packages](http://orientdb.com/support)_.
 
 Example:
 
@@ -41,7 +41,7 @@ Example:
   },
 ```
 
-![DC](http://orientdb.com/wp-content/uploads/2016/07/orientdb-dc1.png)
+![DC](http://orientdb.dev/wp-content/uploads/2016/07/orientdb-dc1.png)
 
 ## Write Quorum
 
@@ -99,7 +99,7 @@ In order to automatically manage conflicts, the suggested configuration is alway
 
 ## Conflict Resolution Policy
 
-In [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) the additional `dc` [Conflict Resolution Strategy](Distributed-Architecture.md#conflict-resolution-policy) is supported to let to a configured data center to always win in case of conflict. To use this strategy in the conflict resolution chain, append `dc` at the chain by overwriting the global setting `distributed.conflictResolverRepairerChain`. Example:
+In [OrientDB Enterprise Edition](http://orientdb.dev/orientdb-enterprise) the additional `dc` [Conflict Resolution Strategy](Distributed-Architecture.md#conflict-resolution-policy) is supported to let to a configured data center to always win in case of conflict. To use this strategy in the conflict resolution chain, append `dc` at the chain by overwriting the global setting `distributed.conflictResolverRepairerChain`. Example:
 
 `-Ddistributed.conflictResolverRepairerChain=majority,content,version,dc{winner:asia}`
 

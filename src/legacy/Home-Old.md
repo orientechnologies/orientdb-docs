@@ -1,4 +1,4 @@
-![image](http://www.orientdb.org/images/orientdb_logo_mid.png)
+![image](http://www.orientdb.dev/images/orientdb_logo_mid.png)
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 

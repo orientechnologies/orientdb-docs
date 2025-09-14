@@ -92,7 +92,7 @@ In the event that something happens and you drop the class `OUser` or the user `
    <pre>
    $ <code class="lang-sh userinput"> $ORIENTDB_HOME/bin/console.sh</code>
 
-   OrientDB console v.X.X.X (build 0) www.orientdb.com
+   OrientDB console v.X.X.X (build 0) www.orientdb.dev
    Type 'HELP' to display all the commands supported.
    Installing extensions for GREMLIN language v.X.X.X
 

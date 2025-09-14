@@ -84,7 +84,7 @@ At operation 7 the client 1 reads the version of y which was written at operatio
 
 Transactions are client-side only until the commit. This means that if you're using the "remote" protocol the server can't see local changes.
 
-![Transaction in Remote context](http://www.orientdb.org/images/transaction-remote.png)
+![Transaction in Remote context](http://www.orientdb.dev/images/transaction-remote.png)
 
 In this scenario you can have different isolation levels with commands. This issue will be solved with OrientDB v3.0 where the transaction will be flushed to the server before to execute the command.
 

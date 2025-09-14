@@ -12,7 +12,7 @@ To run OrientDB you will need a Java SDK installed on your machine. OrientDB run
 
 Download OrientDB from the following URL:
 
-[https://orientdb.org/download](https://orientdb.org/download)
+[https://orientdb.dev/download](https://orientdb.org/download)
 
 Unzip it on your FileSystem and open a shell in the directory.
 
@@ -61,7 +61,7 @@ You will see OrientDB starting
           ,,,    .,`                                  
          ,,.     `,                                          GRAPH DATABASE  
        ``        `.                                                          
-                 ``                                          orientdb.com
+                 ``                                          orientdb.dev
                  `                                    
 
 2017-08-14 14:11:12:824 INFO  Loading configuration from: /Users/luigidellaquila/temp/orient/orientdb-community-3.0.0m2/config/orientdb-server-config.xml... [OServerConfigurationLoaderXml]

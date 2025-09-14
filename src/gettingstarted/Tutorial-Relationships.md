@@ -15,7 +15,7 @@ Consider, as an example, a database where you need to establish relationships be
 
 Relational databases store the value of the target record in the `address` row of the `Customer` table. This is the Foreign Key. The foreign key points to the Primary Key of the related record in the `Address` table.
 
-![RDBMS 1-to-1](http://www.orientdb.org/images/rdbms-1to1.jpg)
+![RDBMS 1-to-1](http://www.orientdb.dev/images/rdbms-1to1.jpg)
 
 Consider a case where you want to view the address of a customer named Luca.  In a Relational database, like MySQL, this is how you would query the table:
 
@@ -31,7 +31,7 @@ What happens here is a `JOIN`. That is, the contents of two tables are joined to
 
 Given that it is not possible to store multiple values in one field, a customer record cannot have multiple foreign keys which refers to different addresses. The only way to manage a 1-to-Many Relationship in databases of this kind is to move the Foreign Key to the `Address` table.
 
-![RDBMS 1-to-N](http://www.orientdb.org/images/rdbms-1toN.jpg)
+![RDBMS 1-to-N](http://www.orientdb.dev/images/rdbms-1toN.jpg)
 
 For example, consider a case where you want to return all addresses connected to the customer Luca, this is how you would query the table:
 
@@ -44,7 +44,7 @@ mysql> <code class="lang-sql userinput">SELECT B.location FROM Customer A, Addre
 
 The most complicated case is the Many-to-Many relationship.  To handle associations of this kind, Relational databases require a separate, intermediary table that matches rows from both `Customer` and `Address` tables in all required combinations.  This results in a double `JOIN` per record at runtime.
 
-![RDBMS Many-to-Many](http://www.orientdb.org/images/rdbms-NtoM.jpg)
+![RDBMS Many-to-Many](http://www.orientdb.dev/images/rdbms-NtoM.jpg)
 
 For example, consider a case where you want to return all address for the customer Luca, this is how you would query the table:
 
@@ -72,7 +72,7 @@ In the database industry, there are a number of indexing algorithms available.  
 
 Balance trees all work in a similar manner. For example, consider a case where you're looking for an entry with the name `Luca`: after only five hops, the record is found.
 
-![RDBMS Indexes](http://www.orientdb.org/images/index-lookup.jpg)
+![RDBMS Indexes](http://www.orientdb.dev/images/index-lookup.jpg)
 
 While this is fine on a small database, consider what would happen if there were millions or billions of records. The database would have to go through many, many more hops to find `Luca`. And, the database would execute this operation on every `JOIN` per record. Picture: joining four tables with thousands of records. The number of `JOIN` operations could run in the millions.
 
