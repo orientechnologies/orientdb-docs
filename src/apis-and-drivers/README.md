@@ -19,7 +19,7 @@ This is the list of the known drivers to use OrientDB through different language
 </tr>
 <tr>
     <td rowspan="3">
-      <center><a href="https://en.wikipedia.org/wiki/Java_%28programming_language%29"><img src="http://orientdb.com/wp-content/uploads/2016/09/java.jpeg" alt="JAVA" height="50px"/></a></center>
+      <center><a href="https://en.wikipedia.org/wiki/Java_%28programming_language%29"><img src="http://orientdb.dev/wp-content/uploads/2016/09/java.jpeg" alt="JAVA" height="50px"/></a></center>
     </td>
     <td><a href="../java/Java-API.html">Java&nbsp;(native)&nbsp;API</a></td>
     <td>Native</td>
@@ -103,7 +103,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td rowspan="1">
-        <center><a href="https://golang.org/"><img src="http://orientdb.com/wp-content/uploads/2016/09/golang.png" alt="Go-Lang" height="50px"/></a></center>
+        <center><a href="https://golang.org/"><img src="http://orientdb.dev/wp-content/uploads/2016/09/golang.png" alt="Go-Lang" height="50px"/></a></center>
     </td>
     <td><a href="https://github.com/istreamdata/orientgo">OrientGO</a></td>
     <td>Binary</td>
@@ -211,7 +211,7 @@ This is the list of the known drivers to use OrientDB through different language
 
 <tr>
     <td rowspan="2">
-        <center><a href="http://clojure.org"><img src="http://orientdb.com/wp-content/uploads/2016/09/clojure.png" alt="Clojure" height="50px"/></a></center>
+        <center><a href="http://clojure.org"><img src="http://orientdb.dev/wp-content/uploads/2016/09/clojure.png" alt="Clojure" height="50px"/></a></center>
     </td>
     <td><a href="https://github.com/eduardoejp/clj-orient">Clojure binding</a></td>
     <td>Native</td>

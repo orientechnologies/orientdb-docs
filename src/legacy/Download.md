@@ -167,8 +167,8 @@ Once used you can tell us your story to be published between the [Production dep
 
 <table>
   <tr><td>Description</td><td>Image normal size</td><td>Image small size</td></tr>
-  <tr><td>Classic button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_white.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_white_small.png)</td></tr>
-  <tr><td>Reflex button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_reflex.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_reflex_small.png)</td></tr>
-  <tr><td>Blue button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_blue.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_blue_small.png)</td></tr>
-  <tr><td>Green button</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_green.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_green_small.png)</td></tr>
+  <tr><td>Classic button</td><td>![image](http://www.orientdb.dev/images/powered_by_orientdb_white.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_white_small.png)</td></tr>
+  <tr><td>Reflex button</td><td>![image](http://www.orientdb.dev/images/powered_by_orientdb_reflex.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_reflex_small.png)</td></tr>
+  <tr><td>Blue button</td><td>![image](http://www.orientdb.dev/images/powered_by_orientdb_blue.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_blue_small.png)</td></tr>
+  <tr><td>Green button</td><td>![image](http://www.orientdb.dev/images/powered_by_orientdb_green.png)</td><td>![image](http://www.orientdb.com/images/powered_by_orientdb_green_small.png)</td></tr>
 </table>

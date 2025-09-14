@@ -150,4 +150,4 @@ END ETL PROCESSOR
 
 Once ready, let's open the database with Studio and this is the result:
 
-![](http://www.orientdb.com/images/etl_imported_json.png)
+![](http://www.orientdb.dev/images/etl_imported_json.png)

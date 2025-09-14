@@ -3,7 +3,7 @@
 
 Neo4j is an open-source graph database that queries and manipulates data using its own Cypher Query Language.
 
->For more information on the differences between Neo4j and OrientDB, please refer to the [OrientDB vs. Neo4j](http://orientdb.com/orientdb-vs-neo4j/) page.
+>For more information on the differences between Neo4j and OrientDB, please refer to the [OrientDB vs. Neo4j](http://orientdb.dev/orientdb-vs-neo4j/) page.
 
 >Neo4j and Cypher are registered trademark of Neo Technology, Inc. 
 

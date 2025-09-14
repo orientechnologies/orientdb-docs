@@ -18,7 +18,7 @@ To launch the OrientDB console, run the following command after you start the da
 $ <code class="lang-sh userinput">cd $ORIENTDB_HOME/bin</code>
 $ <code class="lang-sh userinput">./console.sh</code>
 
-OrientDB console v.X.X.X (build 0) www.orientdb.com
+OrientDB console v.X.X.X (build 0) www.orientdb.dev
 Type 'HELP' to display all the commands supported.
 Installing extensions for GREMLIN language v.X.X.X
 

@@ -19,7 +19,7 @@ At run-time, the Enterprise edition logs this message:
 2016-08-04 09:38:26:589 INFO  *                     ORIENTDB  -  ENTERPRISE EDITION                       * [OEnterpriseAgent]
 2016-08-04 09:38:26:589 INFO  ***************************************************************************** [OEnterpriseAgent]
 2016-08-04 09:38:26:589 INFO  * If you are in Production or Test, you must purchase a commercial license. * [OEnterpriseAgent]
-2016-08-04 09:38:26:589 INFO  * For more information look at: http://orientdb.com/orientdb-enterprise/    * [OEnterpriseAgent]
+2016-08-04 09:38:26:589 INFO  * For more information look at: http://orientdb.dev/orientdb-enterprise/    * [OEnterpriseAgent]
 2016-08-04 09:38:26:590 INFO  ***************************************************************************** [OEnterpriseAgent]
 ```
 

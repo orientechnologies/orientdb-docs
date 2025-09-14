@@ -1,6 +1,6 @@
 # OrientDB Manual - version {{book.currentVersion}}
 
-![image](https://orientdb.com/wp-content/themes/orientdb/img/logo-black.png)
+![image](https://orientdb.dev/wp-content/themes/orientdb/img/logo-black.png)
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.
 
@@ -50,14 +50,14 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 
  
 ### Resources
-- [User Group](https://orientdb.com/active-user-community) - Have question, troubles, problems?
+- [User Group](https://orientdb.dev/active-user-community) - Have question, troubles, problems?
 - [#orientdb IRC channel on freenode](http://webchat.freenode.net/?channels=orientdb)
-- [Professional Support](https://orientdb.com/support)
-- [Training](https://orientdb.com/training) - Training and classes.
-- [Events](https://orientdb.com/event) - Follow OrientDB at the next event!
-- [Team](https://orientdb.com/team/) - Meet the team behind OrientDB
+- [Professional Support](https://orientdb.dev/support)
+- [Training](https://orientdb.dev/training) - Training and classes.
+- [Events](https://orientdb.dev/event) - Follow OrientDB at the next event!
+- [Team](https://orientdb.dev/team/) - Meet the team behind OrientDB
 - [Contribute](misc/Contribute-to-OrientDB.md) - Contribute to the project.
-- [Who is using OrientDB?](https://orientdb.com/customers) - Clients using OrientDB in production.
+- [Who is using OrientDB?](https://orientdb.dev/customers) - Clients using OrientDB in production.
 
 
 ## Questions or Need Help?

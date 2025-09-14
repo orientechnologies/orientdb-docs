@@ -12,7 +12,7 @@ Imported neo4j items are:
 - unique constraints
 - indexes
 
-**NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.com/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.dev/downloads/).
+**NOTE**: This feature is available both for the [OrientDB Enterprise Edition](http://orientdb.dev/orientdb-enterprise) and the [OrientDB Community Edition](http://orientdb.dev/downloads/).
 
 This visual tool consists in a wizard composed of 2 simple steps.
 Let's have a look at each configuration step.

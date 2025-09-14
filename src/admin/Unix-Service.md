@@ -141,7 +141,7 @@ The installation process gives an output similar to the following one:
 
 ```sh
 ...
-==> Downloading https://orientdb.com/download.php?file=orientdb-community-<ORIENTDB_VERSION>.tar.gz
+==> Downloading https://orientdb.dev/download.php?file=orientdb-community-<ORIENTDB_VERSION>.tar.gz
 ==> /usr/bin/nohup  /usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/bin/server.sh &
 ==> /usr/local/Cellar/orientdb/<ORIENTDB_VERSION>/libexec/bin/shutdown.sh
 ==> OrientDB installed, server's root user password is 'changeme'
