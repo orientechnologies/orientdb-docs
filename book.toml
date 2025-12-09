@@ -1,6 +1,6 @@
 [book]
 title = "OrientDB"
-author = "community"
+authors = ["community"]
 description = "OrientDB documentation"
 src = "./"
 
