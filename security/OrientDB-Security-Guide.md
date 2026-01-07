@@ -106,9 +106,6 @@ Since OrientDB supports both static and dynamic plug-ins, which have total acces
 
 **SECURITY RECOMMENDATION**: Validate installed plug-ins.
 
-## Data Protection and Privacy ##
-See [SAP Enterprise OrientDB Data Protection and Privacy Approach for Products](SAP-Enterprise-OrientDB-DPP.md).
-
 
 ## OrientDB Security Documentation ##
 More comprehensive information about OrientDB security can be found here:
