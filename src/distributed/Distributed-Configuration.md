@@ -362,4 +362,4 @@ Introduced Load balancing at client level. For more information look at [load ba
 ### v1.7
 Simplified configuration by moving. Removed some flags (replication:boolean, now it’s deducted by the presence of “servers” field) and settings now are global (autoDeploy, hotAlignment, offlineMsgQueueSize, readQuorum, writeQuorum, failureAvailableNodesLessQuorum, readYourWrites), but you can overwrite them per-cluster.
 
-For more information look at [News in 1.7](http://www.orientechnologies.com/distributed-architecture-sharding/).
+For more information look at [News in 1.7](http://www.orientdb.dev/distributed-architecture-sharding/).

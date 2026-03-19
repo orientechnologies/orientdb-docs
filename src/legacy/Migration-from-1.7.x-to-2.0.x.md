@@ -105,7 +105,7 @@ Example of configuration with 2 nodes replicated (no sharding):
 
 If you execute this command against a node1, OrientDB will assign the cluster-id where node1 is master, i.e. #13:232. With node2 would be different: it couldn't never be #13. 
 
-For more information look at: http://www.orientechnologies.com/docs/last/orientdb.wiki/Distributed-Sharding.html.
+For more information look at: http://www.orientdb.dev/docs/last/orientdb.wiki/Distributed-Sharding.html.
 
 ### Asynchronous replication
 

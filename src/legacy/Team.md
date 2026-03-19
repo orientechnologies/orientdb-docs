@@ -4,10 +4,10 @@ If you want to contribute to the project, follow the [Contributor rules](https:/
 
 # Committers
 
-Committers have reached the <a href="http://orientechnologies.com/certification.htm"><b>Joda Level</b> OrientDB certification</a>. They coordinates updates, patches, new tasks and answer actively to the [Google Group](http://groups.google.com/group/orient-database). They talk in a private Mailing List to take decision all together. All the committers refer to the Committer's guide.
+Committers have reached the <a href="http://orientdb.dev/certification.htm"><b>Joda Level</b> OrientDB certification</a>. They coordinates updates, patches, new tasks and answer actively to the [Google Group](http://groups.google.com/group/orient-database). They talk in a private Mailing List to take decision all together. All the committers refer to the Committer's guide.
 
 ## Luca Garulli
-<img src="http://www.orientechnologies.com/wp-content/uploads/2014/06/LucaGarulli-small.jpg" width="150" align="right" style="padding: 0 0 20px 20px;" />
+<img src="http://www.orientdb.dev/wp-content/uploads/2014/06/LucaGarulli-small.jpg" width="150" align="right" style="padding: 0 0 20px 20px;" />
 **Description** Luca is the original author of OrientDB product and the main committer. In order to handle indexes in efficient way Luca has created the new MVRB-Tree algorithm (it was called RB+Tree but another different algorithm already exists with this name) as mix of Red-Black Tree and B+Tree. MVRB stands for Multi Value Red Black because stores multiple values in each tree node instead of just one as RB-Tree does. MVRB-Tree consumes less than half memory of the RB-Tree implementation mantaining the original speed while it balances the tree on insertion/update. Furthermore the MVRB-Tree allows fast retrieving and storing of nodes in persistent way. He is member of the Sun Microsystems [JDO 1.0 Expert Group (JSR#12)](http://www.jcp.org/en/jsr/detail?id=12) and JDO 2.0 Expert Group (JSR#243) for the writing of JDO standard.<br/>
 **Company** [OrientDB Ltd](http://orientdb.dev)<br/>
 **Links** [Twitter](http://twitter.com/lgarulli) - [Google+](https://plus.google.com/u/0/111607061083712272202/posts) - [VisualizeMe](http://vizualize.me/luca.garulli) - [LinkedIn](http://www.linkedin.com/in/garulli) - [Blog](http://zion-city.blogspot.it) - [Ohloh](http://www.ohloh.net/accounts/lvca)<br/>
