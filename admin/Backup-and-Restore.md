@@ -8,7 +8,7 @@ The [`BACKUP DATABASE`](../console/Console-Command-Backup.md) command executes a
 
 Backups and restores are much faster than the [`EXPORT DATABASE`](../console/Console-Command-Export.md) and [`IMPORT DATABASE`](../console/Console-Command-Import.md) commands.  You can also automate backups using the [Automatic Backup](../plugins/Automatic-Backup.md) server plugin.  Additionally, beginning with version 2.2 of [Enterprise Edition](../ee/Enterprise-Edition.md) OrientDB introduces major support for [incremental backups](Incremental-Backup-And-Restore.md).
 
->**NOTE**: OrientDB Community Edition does not support backing up remote databases.  OrientDB [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/) does support this feature.  For more information on how to implement this with Enterprise Edition, see [Remote Backups](http://www.orientechnologies.com/enterprise/last/servermanagement.html).
+>**NOTE**: OrientDB Community Edition does not support backing up remote databases.  OrientDB [Enterprise Edition](http://www.orientdb.dev/orientdb-enterprise/) does support this feature.  For more information on how to implement this with Enterprise Edition, see [Remote Backups](http://www.orientdb.dev/enterprise/last/servermanagement.html).
 
 ## Backups versus Exports
 

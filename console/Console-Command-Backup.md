@@ -7,7 +7,7 @@ Executes a complete backup on the currently opened database. It then compresses 
 
 Backups and restores are similar to the [`EXPORT DATABASE`](Console-Command-Export.md) and [`IMPORT DATABASE`](Console-Command-Import.md), but they offer better performance than these options.  
 
->**NOTE**: OrientDB Community Edition does not support backing up remote databases.  OrientDB [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/) does support this feature.  For more information on how to implement this with Enterprise Edition, see [Remote Backups](http://www.orientechnologies.com/enterprise/last/servermanagement.html).
+>**NOTE**: OrientDB Community Edition does not support backing up remote databases.  OrientDB [Enterprise Edition](http://www.orientdb.dev/orientdb-enterprise/) does support this feature.  For more information on how to implement this with Enterprise Edition, see [Remote Backups](http://www.orientdb.dev/enterprise/last/servermanagement.html).
 
 **Syntax:**
 

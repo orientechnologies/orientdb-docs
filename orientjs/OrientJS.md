@@ -1,7 +1,7 @@
 
 # OrientJS - Node.js Driver
 
-Official [orientdb](http://www.orientechnologies.com/orientdb/) driver for node.js. Fast, lightweight, uses the binary protocol.
+Official [orientdb](http://www.orientdb.dev/orientdb/) driver for node.js. Fast, lightweight, uses the binary protocol.
 
 [![Build Status](https://travis-ci.org/orientechnologies/orientjs.svg?branch=develop)](https://travis-ci.org/orientechnologies/orientjs)
 [![Coverage Status](https://coveralls.io/repos/github/orientechnologies/orientjs/badge.svg?branch=develop)](https://coveralls.io/github/orientechnologies/orientjs?branch=develop)
