@@ -7,7 +7,7 @@ The following tutorial will walk you through exactly how to accomplish this use 
 ## Assumptions
 It is assumed that you have already downloaded and installed a [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html). In my case I downloaded Java JDK version 8 for Windows 64 bit and installed it to folder C:\Program Files\Java\jdk1.8.0_40.
 
-It is also assumed that you have [downloaded](http://www.orientechnologies.com/download/), installed, and configured a working OrientDB Server. In my case I installed it to folder C:\Program Files\orientdb-community-2.0.5.
+It is also assumed that you have [downloaded](http://www.orientdb.dev/download/), installed, and configured a working OrientDB Server. In my case I installed it to folder C:\Program Files\orientdb-community-2.0.5.
 
 Exact instructions for these two steps are outside the scope of this tutorial.
 

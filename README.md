@@ -20,7 +20,7 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 | | [Caching Levels](internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
 | | [Common Use Cases](legacy/Use-Cases.md) | [Other Drivers](apis-and-drivers/README.md) |
 | | | [Network Binary Protocol](internals/Network-Binary-Protocol.md) |
-| | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
+| | | [Javadocs](http://www.orientdb.dev/javadoc/latest/) |
 
 
 ### Operations
@@ -46,7 +46,7 @@ Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brin
 - [Network-Binary-Protocol](internals/Network-Binary-Protocol.md) 
 - [Gephi Graph Analysis Visual tool](plugins/Gephi.md)
 - [Rexster Support and configuration](plugins/Rexster.md)
-- [Continuous integration](http://helios.orientechnologies.com/)
+- [Continuous integration](http://helios.orientdb.dev/)
 
  
 ### Resources
