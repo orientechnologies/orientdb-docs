@@ -6,7 +6,7 @@ Similar to the Console interface, you can also create, manage and control vertic
 
 ## Vertices
 
-To create a new vertex in the current Graph Database instance, call the [`Vertex OrientGraph.addVertex(Object id)`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#addVertex(java.lang.Object) method.  Note that this ignores the `id` parameter, given that the OrientDB implementation assigns a unique ID once it creates the vertex.  To return the unique ID, run the [`Vertex.getId()`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getId() method on the object.
+To create a new vertex in the current Graph Database instance, call the [`Vertex OrientGraph.addVertex(Object id)`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#addVertex(java.lang.Object) method.  Note that this ignores the `id` parameter, given that the OrientDB implementation assigns a unique ID once it creates the vertex.  To return the unique ID, run the [`Vertex.getId()`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getId() method on the object.
 
 For instance,
 
@@ -37,7 +37,7 @@ To know more about how to define indexes look at: [Using Graph Indexes](http://o
 
 ### Removing Vertices
 
-To remove a vertex from the current Graph Database, call the [`OrientGraph.removeVertex(Vertex vertex)`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#removeVertex(Vertex) method.  This disconnects the vertex from the graph database and then removes it.  Disconnection deletes all vertex edges as well.
+To remove a vertex from the current Graph Database, call the [`OrientGraph.removeVertex(Vertex vertex)`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#removeVertex(Vertex) method.  This disconnects the vertex from the graph database and then removes it.  Disconnection deletes all vertex edges as well.
 
 For instance,
 
@@ -50,9 +50,9 @@ Disconnects and removes the vertex `luca`.
 
 ## Edges
 
-Edges link two vertices in the database.  The vertices must exist already.  To create a new edge in the current Graph Database, call the [`Edge OrientGraph.addEdge(Object id, Vertex outVertex, Vertex inVertex, String label )`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#addEdge(java.lang.Object,-Vertex,-Vertex,-java.lang.String) method.
+Edges link two vertices in the database.  The vertices must exist already.  To create a new edge in the current Graph Database, call the [`Edge OrientGraph.addEdge(Object id, Vertex outVertex, Vertex inVertex, String label )`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#addEdge(java.lang.Object,-Vertex,-Vertex,-java.lang.String) method.
 
-Bear in mind that OrientDB ignores the `id` parameter, given that it assigns a unique ID when it creates the edge.  To access this ID, use the [`Edge.getId()`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getId() method.  `outVertex` refers to the vertex instance where the edge starts and `inVertex` refers to where the edge ends.  `label` indicates the edge label.  Specify it as `null` if you don't want to assign a label.
+Bear in mind that OrientDB ignores the `id` parameter, given that it assigns a unique ID when it creates the edge.  To access this ID, use the [`Edge.getId()`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getId() method.  `outVertex` refers to the vertex instance where the edge starts and `inVertex` refers to where the edge ends.  `label` indicates the edge label.  Specify it as `null` if you don't want to assign a label.
 
 For instance,
 
@@ -71,7 +71,7 @@ For more information on optimizing edge creation through concurrent threads and 
 
 ### Retrieving Edges
 
-To retrieve all edges use the [getEdges()](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#getEdges() method:
+To retrieve all edges use the [getEdges()](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#getEdges() method:
 
 ```java
 for (Edge e : graph.getEdges()) {
@@ -94,7 +94,7 @@ You only need to run this command once to disable Lightweight Edges.  The change
 
 ### Removing Edges
 
-To remove an edge from the current Graph Database, call the [`OrientGraph.removeEdge(Edge edge)`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#removeEdge(Edge) method.  It removes the edge connecting two vertices.
+To remove an edge from the current Graph Database, call the [`OrientGraph.removeEdge(Edge edge)`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientBaseGraph.html#removeEdge(Edge) method.  It removes the edge connecting two vertices.
 
 For instance,
 
@@ -108,9 +108,9 @@ Vertices and Edges can have multiple properties.  The key to this property is a 
 
 | Method | Description |
 |---|---|
-| [**`setProperty(String key, Object value)`**](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#setProperty(java.lang.String,-java.lang.Object) | Sets the property.|
-| [**`Object getProperty(String key)`**](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getProperty(java.lang.String) | Retrieves the property.|
-| [**`void removeProperty(String key)`**](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#removeProperty(java.lang.String) | Removes the property.|
+| [**`setProperty(String key, Object value)`**](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#setProperty(java.lang.String,-java.lang.Object) | Sets the property.|
+| [**`Object getProperty(String key)`**](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#getProperty(java.lang.String) | Retrieves the property.|
+| [**`void removeProperty(String key)`**](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#removeProperty(java.lang.String) | Removes the property.|
 
 For instance,
 
@@ -127,7 +127,7 @@ vertex1.removeProperty("y");
 
 ### Setting Multiple Properties
 
-The OrientDB implementation of the Blueprints extension supports setting multiple properties in one command against vertices and edges, using the [`setProperties(Object ...)`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#setProperties(java.lang.Object...) method.  This improves performance by allowing you to avoid saving the graph element each time you set a property.
+The OrientDB implementation of the Blueprints extension supports setting multiple properties in one command against vertices and edges, using the [`setProperties(Object ...)`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientElement.html#setProperties(java.lang.Object...) method.  This improves performance by allowing you to avoid saving the graph element each time you set a property.
 
 For instance,
 

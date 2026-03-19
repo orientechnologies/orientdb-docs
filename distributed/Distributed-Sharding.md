@@ -165,8 +165,8 @@ OrientDB guarantees strong consistency if it's configured to have a `writeQuorum
 All the indexes are managed locally by a server. This means that if a class is spanned across three clusters on three different servers, each server will have it’s own local indexes. By executing a [distributed query (Map/Reduce like)](Distributed-Sharding.md#mapreduce) each server will use own indexes.
 
 ## Hot management of distributed configuration
-With Community Edition the distributed configuration cannot be changed at run-time but you have to stop and restart all the nodes. [Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise) allows to create and drop new shards without stopping the distributed cluster.
+With Community Edition the distributed configuration cannot be changed at run-time but you have to stop and restart all the nodes. [Enterprise Edition](http://orientdb.dev/orientdb-enterprise) allows to create and drop new shards without stopping the distributed cluster.
 
-By using Enterprise Edition and the [Workbench](http://www.orientechnologies.com/enterprise/last/clustermgmt.html), you can deploy the database to the new server and define the cluster to assign to it. In this example a new server "usa2" is created where only the cluster `client_usa` will be copied. After the deployment, cluster `client_usa` will be replicated against nodes "usa" and "usa2".
+By using Enterprise Edition and the [Workbench](http://www.orientdb.dev/enterprise/last/clustermgmt.html), you can deploy the database to the new server and define the cluster to assign to it. In this example a new server "usa2" is created where only the cluster `client_usa` will be copied. After the deployment, cluster `client_usa` will be replicated against nodes "usa" and "usa2".
 
 ![image](http://www.orientdb.dev/images/distributed-sharding-addserver.png)

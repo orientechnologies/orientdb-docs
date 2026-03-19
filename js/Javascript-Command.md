@@ -64,7 +64,7 @@ Below is an example to display the results of a query on the server and on the c
 
 ```
 $ ./console.sh
-OrientDB console v.1.5 www.orientechnologies.com
+OrientDB console v.1.5 orientdb.dev
 Type 'help' to display all the commands supported.
 
 orientdb> connect remote:localhost/demo admin admin
@@ -89,7 +89,7 @@ orientdb> exit
 The same example above is executed in batch mode:
 ```java
 $ ./console.sh "connect remote:localhost/demo admin admin;jss;var r = db.query('select from ouser');print(r);r;exit"
-OrientDB console v.1.0-SNAPSHOT (build 11761) www.orientechnologies.com
+OrientDB console v.1.0-SNAPSHOT (build 11761) orientdb.dev
 Type 'help' to display all the commands supported.
 Connecting to database [remote:localhost/demo] with user 'admin'...OK
 

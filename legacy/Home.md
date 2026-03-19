@@ -16,7 +16,7 @@
 | | [Caching Levels](../internals/Caching.md) | [.NET](https://github.com/orientechnologies/OrientDB-NET.binary) | 
 | | [Common Use Cases](Use-Cases.md) | [Other Drivers](../apis-and-drivers/README.md) |
 | | | [Network Binary Protocol](../internals/Network-Binary-Protocol.md) |
-| | | [Javadocs](http://www.orientechnologies.com/javadoc/latest/) |
+| | | [Javadocs](http://orientdb.dev/javadoc/latest/) |
 
 ### Operations
 - [Installation](Tutorial-Installation.md)
@@ -33,21 +33,21 @@
 ### Quick References
 - [Console](../console/README.md)
 - [Studio](../studio/Home-page.md) web tool
-- [Workbench](http://www.orientechnologies.com/enterprise/1.7.4/userguide.html) (Enterprise Edition) 
+- [Workbench](http://orientdb.dev/enterprise/1.7.4/userguide.html) (Enterprise Edition) 
 - [OrientDB Server](../internals/DB-Server.md)
 - [Network-Binary-Protocol](../internals/Network-Binary-Protocol.md) 
 - [Gephi Graph Analysis Visual tool](../plugins/Gephi.md)
 - [Rexster Support and configuration](../plugins/Rexster.md)
-- [Continuous integration](http://helios.orientechnologies.com/)
+- [Continuous integration](http://helios.orientdb.dev/)
 
 ### Resources
-- [User Group](http://www.orientechnologies.com/active-user-community) - Have question, troubles, problems?
-- [Professional Support](http://orientechnologies.com/support)
-- [Training](http://orientechnologies.com/training) - Training and classes.
-- [Events](http://www.orientechnologies.com/event) - Follow OrientDB at the next event!
+- [User Group](http://orientdb.dev/active-user-community) - Have question, troubles, problems?
+- [Professional Support](http://orientdb.dev/support)
+- [Training](http://orientdb.dev/training) - Training and classes.
+- [Events](http://orientdb.dev/event) - Follow OrientDB at the next event!
 - [Team](Team.md) - Meet the team behind OrientDB
 - [Contribute](../misc/Contribute-to-OrientDB.md) - Contribute to the project.
-- [Who is using OrientDB?](http://www.orientechnologies.com/customers) - Clients using OrientDB in production.
+- [Who is using OrientDB?](http://orientdb.dev/customers) - Clients using OrientDB in production.
 
 ## Questions or Need Help?
 Check out our [Get in Touch](../misc/Get-in-Touch.md) page for different ways of getting in touch with us.
@@ -57,7 +57,7 @@ Check out our [Get in Touch](../misc/Get-in-Touch.md) page for different ways of
 This documentation is also available in [PDF format](OrientDB-Manual.pdf).
 
 ## Past releases
-- [v1.7.8](http://www.orientechnologies.com/docs/1.7.8/)
+- [v1.7.8](http://orientdb.dev/docs/1.7.8/)
 
 
 Welcome to **OrientDB** - the first Multi-Model Open Source NoSQL DBMS that brings together the power of graphs and the flexibility of documents into one scalable high-performance operational database.

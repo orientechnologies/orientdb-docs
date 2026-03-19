@@ -145,7 +145,7 @@ Open the database under the OrientDB console and execute the following commands 
 ```
 $ ./console.sh
 
-OrientDB console v.2.0-SNAPSHOT (build 2565) www.orientechnologies.com
+OrientDB console v.2.0-SNAPSHOT (build 2565) orientdb.dev
 Type 'help' to display all the supported commands.
 Installing extensions for GREMLIN language v.2.6.0
 

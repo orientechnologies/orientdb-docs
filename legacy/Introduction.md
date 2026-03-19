@@ -2,7 +2,7 @@
 
 #OrientDB Manual - version 1.7.8
 
-Welcome to **OrientDB** - the first Multi-Model Open Source [NoSQL](http://en.wikipedia.org/wiki/NoSQL) DBMS that brings together the power of graphs and the flexibility of documents into one scalable, high-performance operational database. OrientDB is sponsored by [Orient Technologies, LTD](http://www.orientechnologies.com).
+Welcome to **OrientDB** - the first Multi-Model Open Source [NoSQL](http://en.wikipedia.org/wiki/NoSQL) DBMS that brings together the power of graphs and the flexibility of documents into one scalable, high-performance operational database. OrientDB is sponsored by [Orient Technologies, LTD](http://orientdb.dev).
 
 **OrientDB** encompasses the best of both Graph and Document DBMS. The system is programmed in Java and designed to be exceptionally fast: it can store up to 150,000 records per second on common hardware. Not only can it embed documents like any other [Document database] (http://en.wikipedia.org/wiki/Document_database), it also manages relationships like [Graph Databases](http://en.wikipedia.org/wiki/Graph_database) with direct connections between records. You can traverse subsets or complete trees and graphs of records in a few milliseconds. 
 <br>
@@ -15,11 +15,11 @@ Take a look at a few OrientDB [Presentations] (https://github.com/orientechnolog
 
 OrientDB is free for any use without restriction. Open source, commercial, embedded. This is possible because of it's truly permissive [Apache 2 Open Source License] (http://www.apache.org/licenses/LICENSE-2.0.html).
 
-Orient Technologies, the company behind OrientDB, offers high quality [Professional Services] (http://orientechnologies.com/support.htm). If you are looking for Developer and Production Support, [Training] (http://orientechnologies.com/training.htm) or [Consultancy] (http://www.orientechnologies.com/consulting/) with transparent and competitive pricing, we have you covered. These options are available to ensure you’re maximizing OrientDB’s capabilities for your particular needs and use case.
+Orient Technologies, the company behind OrientDB, offers high quality [Professional Services] (http://orientdb.dev/support.htm). If you are looking for Developer and Production Support, [Training] (http://orientdb.dev/training.htm) or [Consultancy] (http://orientdb.dev/consulting/) with transparent and competitive pricing, we have you covered. These options are available to ensure you’re maximizing OrientDB’s capabilities for your particular needs and use case.
 
 ## OrientDB Community
 
-Start learning about OrientDB with the [OrientDB Manual](http://orientechnologies.com/docs). For any questions, visit the [OrientDB Community Group](http://www.orientdb.org/community-group.htm). Need help? Go to [Online Support](https://gitter.im/orientechnologies/orientdb). Do you want to hear about OrientDB at a conference or meetup? Take a look at [Events](http://www.orientechnologies.com/events/) or invite us to present to your group!
+Start learning about OrientDB with the [OrientDB Manual](http://orientdb.dev/docs). For any questions, visit the [OrientDB Community Group](http://www.orientdb.org/community-group.htm). Need help? Go to [Online Support](https://gitter.im/orientechnologies/orientdb). Do you want to hear about OrientDB at a conference or meetup? Take a look at [Events](http://orientdb.dev/events/) or invite us to present to your group!
 
 [![](http://mac.softpedia.com/base_img/softpedia_free_award_f.gif)](http://mac.softpedia.com/get/Developer-Tools/Orient.shtml)
 

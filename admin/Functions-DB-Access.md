@@ -5,7 +5,7 @@ When you create a function for OrientDB, it always binds the special variable `o
 
 | Function | Description |
 |---|---|
-| `orient.getDatabase()` | Returns the current [document database](http://www.orientechnologies.com/javadoc/latest/com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html) instance. |
+| `orient.getDatabase()` | Returns the current [document database](http://orientdb.dev/javadocs/latest/com/orientechnologies/orient/core/db/document/ODatabaseDocumentTx.html) instance. |
 
 
 For security reason starting from *OrientDB 3.0.29*, the usage of Java classes is forbidden by default, with a class filter implemented in the JS engine.

@@ -39,4 +39,4 @@ If you want to brainstorm a potential new feature, then the OrientDB Google Grou
 ## Email
 [info@orientdb.dev](mailto:info@orientdb.dev)
 
-If you want more information about Commercial [Support](http://www.orientechnologies.com/support/), [Consultancy](http://www.orientechnologies.com/consulting/) or [Training](http://www.orientechnologies.com/training/), email us.
+If you want more information about Commercial [Support](http://orientdb.dev/support/), [Consultancy](http://orientdb.dev/consulting/) or [Training](http://orientdb.dev/training/), email us.

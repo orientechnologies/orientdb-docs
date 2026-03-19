@@ -17,7 +17,7 @@ To create a Partitioned Graph Database, you first need to create a database in w
 <pre>
 $ <code class="lang-sh userinput">cd $ORIENTDB_HOME/bin</code>
 $ <code class="lang-sh userinput">./console.sh</code>
-OrientDB console v.1.2.0-SNAPSHOT www.orientechnologies.com
+OrientDB console v.1.2.0-SNAPSHOT orientdb.dev
 Type 'help' to display all the commands supported.
 
 Installing extensions for GREMLIN language v.2.2.0-SNAPSHOT

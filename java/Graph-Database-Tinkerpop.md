@@ -27,13 +27,13 @@ OrientDB supports three different kinds of storages, depending on the [Database 
 - **In-Memory Embedded Graph Database**: Keeps all data in memory.  Use the `memory` prefix, for instance `memory:test`.
 - **Persistent Remote Graph Database** Uses a binary protocol to send and receive data from a remote OrientDB server.  Use the `remote` prefix, for instance `remote:localhost/test` Note that this requires an OrientDB server instance up and running at the specific address, (in this case, localhost).  Remote databases can be persistent or in-memory as well.
 
-In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](../datamodeling/Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.
+In order to use the Graph API, you need to create an instance of the [`OrientGraph`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) class.  The constructor receives a [Database URL](../datamodeling/Concepts.md#database-url) that is the location of the database.  If the database already exists, the Graph API opens it.  If it doesn't exist, the Graph API creates it.
 
 >**NOTE**: When creating a database through the Graph API, you can only create PLocal and Memory databases.  Remote databases must already exist.
 
 >**NOTE**: In v. 2.2 and following releases, when using PLocal or Memory,please set MaxDirectMemorySize (JVM setting) to a high value, like 512g ``` -XX:MaxDirectMemorySize=512g ```
 
-When building multi-threaded application, use one instance of [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) per thread.  Bear in mind that all graph components, such as vertices and edges, are not thread safe.  So, sharing them between threads may result in unpredictable results.
+When building multi-threaded application, use one instance of [`OrientGraph`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) per thread.  Bear in mind that all graph components, such as vertices and edges, are not thread safe.  So, sharing them between threads may result in unpredictable results.
 
 Remember to always close the graph instance when you are done with it, using the `.shutdown()` method.  For instance:
 
@@ -48,7 +48,7 @@ try {
 
 ### Using the Factory
 
-Beginning with version 1.7, OrientDB introduces the [`OrientGraphFactory`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraphFactory.html) class as new method for creating graph database instances through the API.
+Beginning with version 1.7, OrientDB introduces the [`OrientGraphFactory`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraphFactory.html) class as new method for creating graph database instances through the API.
 
 ```java
 // AT THE BEGINNING
@@ -90,7 +90,7 @@ try{
 
 By surrounding the transaction in `try` and `catch`, you ensure that any errors that occur roll the transaction back to its previous state for all relevant elements.  For more information, see [Concurrency](../general/Concurrency.md).
 
->**NOTE**: Prior to version 2.1.7, to work with a graph always use transactional [`OrientGraph`](http://www.orientechnologies.com/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never the non-transactional instances to avoid graph corruption from multi-threaded updates.
+>**NOTE**: Prior to version 2.1.7, to work with a graph always use transactional [`OrientGraph`](http://orientdb.dev/javadoc/latest/com/tinkerpop/blueprints/impls/orient/OrientGraph.html) instances and never the non-transactional instances to avoid graph corruption from multi-threaded updates.
 >
 > Non-transactional graph instances are created with
 >

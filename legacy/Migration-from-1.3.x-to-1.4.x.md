@@ -85,7 +85,7 @@ If you want to migrate from release 1.3.x to 1.4.x you've to export the database
 ```
 $ cd $ORIENTDB_HOME/bin
 $ ./console.sh
-OrientDB console v.1.3.0 - www.orientechnologies.com
+OrientDB console v.1.3.0 - orientdb.dev
 Type 'help' to display all the commands supported.
 
 orientdb> CONNECT local:../databases/mydb admin admin
@@ -142,7 +142,7 @@ Database export completed in 1913ms
 ```
 $ cd $ORIENTDB_HOME/bin
 $ ./console.sh
-OrientDB console v.1.3.0 - www.orientechnologies.com
+OrientDB console v.1.3.0 - orientdb.dev
 Type 'help' to display all the commands supported.
 
 orientdb> CREATE DATABASE local:../databases/newmydb admin admin local

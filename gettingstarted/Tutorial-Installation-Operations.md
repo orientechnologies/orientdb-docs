@@ -2,14 +2,14 @@
 # Installation
 
 OrientDB is available in two editions:
-- **[Community Edition](http://www.orientechnologies.com/orientdb/)** This edition is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
-- **[[Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise/)](http://www.orientechnologies.com/enterprise.htm)** OrientDB Enterprise edition is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition by providing Enterprise features such as:
+- **[Community Edition](http://orientdb.dev/orientdb/)** This edition is released as an open source project under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html). This license allows unrestricted free usage for both open source and commercial projects.
+- **[[Enterprise Edition](http://orientdb.dev/orientdb-enterprise/)](http://orientdb.dev/enterprise.htm)** OrientDB Enterprise edition is commercial software built on top of the Community Edition. Enterprise is developed by the same team that developed the OrientDB engine. It serves as an extension of the Community Edition by providing Enterprise features such as:
     - Query Profiler
     - Distributed Clustering configuration
     - Metrics Recording
     - Live Monitoring with configurable Alerts
 
-An Enterprise Edition license is included without charge if you purchase [Support](http://www.orientechnologies.com/support/).
+An Enterprise Edition license is included without charge if you purchase [Support](http://orientdb.dev/support/).
 
 ### Prerequisites
 
@@ -26,7 +26,7 @@ This means the only requirement for using OrientDB is to have [Java version 1.6 
 
 ### Download Binaries
 
-The easiest and fastest way to start using OrientDB is to download binaries from the [Official OrientDB Download Page](http://www.orientechnologies.com/download/).
+The easiest and fastest way to start using OrientDB is to download binaries from the [Official OrientDB Download Page](http://orientdb.dev/download/).
 
 ### Compile Your Own Community Edition
 

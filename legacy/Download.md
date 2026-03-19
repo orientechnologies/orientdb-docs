@@ -14,7 +14,7 @@ For older release or more information go to the official [download page](http://
 
 OrientDB comes with 2 distributions:
 - OrientDB Community Edition, the default Open Source version released with Apache 2 license
-- [OrientDB Enterprise Edition](http://www.orientechnologies.com/orientdb-enterprise), based on the Community Edition, adds Enterprise Level features. It's available with [support](http://www.orientechnologies.com/support) by Orient Technologies company and has a commercial version.
+- [OrientDB Enterprise Edition](http://orientdb.dev/orientdb-enterprise), based on the Community Edition, adds Enterprise Level features. It's available with [support](http://orientdb.dev/support) by Orient Technologies company and has a commercial version.
 
 # Version numbers #
 

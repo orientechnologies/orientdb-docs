@@ -89,7 +89,7 @@ This is needed, in order to allow importing the property "id" in the OrientDB Lo
 By executing the ETL process, this is the output:
 
 ```
-OrientDB etl v.2.1-SNAPSHOT www.orientechnologies.com
+OrientDB etl v.2.1-SNAPSHOT orientdb.dev
 feb 09, 2015 2:46:42 AM com.orientechnologies.common.log.OLogManager log
 INFORMAZIONI: OrientDB auto-config DISKCACHE=10.695MB (heap=3.641MB os=16.384MB disk=42.205MB)
 [orientdb] INFO Dropping existent database 'plocal:/tmp/databases/db'...

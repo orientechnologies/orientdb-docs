@@ -20,7 +20,7 @@ $ <code class="lang-sh userinput">vi $ORIENTDB_HOME/bin/orientdb.sh</code>
 #!/bin/sh
 # OrientDB service script
 #
-# Copyright (c) Orient Technologies LTD (http://www.orientechnologies.com)
+# Copyright (c) Orient Technologies LTD (http://orientdb.com)
 
 # chkconfig: 2345 20 80
 # description: OrientDb init script
@@ -123,7 +123,7 @@ Once the database starts, it is accessible through the console script.
 <pre>
 $ <code class="lang-sh userinput">orientdb-console</code>
 
-OrientDB console v.1.6 www.orientechnologies.com
+OrientDB console v.1.6 orientdb.com 
 Type 'HELP' to display all the commands supported.
 
 orientdb>

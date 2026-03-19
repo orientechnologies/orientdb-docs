@@ -4,7 +4,7 @@
 
 Share a database with another server in the cluster. This command works only inside a cluster of servers up and running. With this operation a database will be shared in another server node.
 
-![image](http://www.orientechnologies.com/images/share-database.png)
+![image](http://orientdb.dev/images/share-database.png)
 
 To execute this command you need to be connected to the remote server instance where the database resides, in the picture the **Server #1**. The server user must to have the permission to the resource "database.share". The *root* user has this privilege.
 

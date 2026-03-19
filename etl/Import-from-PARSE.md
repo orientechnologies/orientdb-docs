@@ -60,7 +60,7 @@ Notes:
 - Links are similar to OrientDB RID (but it requires a costly JOIN to be traversed), but made as an embedded object containing:
  - `className` as target class name
  - `objectId` as target objectId
-- Parse has ACL at record level, like [OrientDB](http://www.orientechnologies.com/docs/last/orientdb.wiki/Security.html#record-level-security).
+- Parse has ACL at record level, like [OrientDB](http://orientdb.dev/docs/last/orientdb.wiki/Security.html#record-level-security).
 
 In order to import a PARSE file, you need to create the ETL configuration using JSON as Extractor.
 
