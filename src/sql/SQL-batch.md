@@ -82,9 +82,7 @@ if(<sql-predicate>){
 In current release it's mandatory to have `IF(){`, `<statement>` and `}` on separate lines, eg. the following is not a valid script
 
 ```sql
-if($a.size() > 0) {
-  ROLLBACK;
-}
+if($a.size() > 0) { ROLLBACK; }
 ```
 The right syntax is following:
 ```sql
